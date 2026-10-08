@@ -19,8 +19,10 @@ yarn-debug.log*
 pnpm-debug.log*
 
 # Data and media
-data/raw/
-data/processed/
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
 *.mp4
 *.pt
 

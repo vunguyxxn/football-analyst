@@ -1,0 +1,12 @@
+fastapi
+uvicorn[standard]
+pydantic>=2
+pandas
+numpy
+pytest
+httpx
+statsbombpy
+mplsoccer
+scikit-learn
+xgboost
+shap
