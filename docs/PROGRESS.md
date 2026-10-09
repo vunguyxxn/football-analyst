@@ -2,9 +2,10 @@
 
 ## Trạng thái hiện tại
 
-Bước 0 và Module B1 đã triển khai, kiểm thử; B1 nạp StatsBomb Open Data, chuẩn
-hóa sự kiện và cung cấp pass network qua API. Chưa triển khai logic CV, xG, sơ
-đồ đội hình hoặc advisor.
+Bước 0, Module B1 và giao diện bước 1.5 đã triển khai, kiểm thử. Backend nạp
+StatsBomb Open Data, chuẩn hóa sự kiện và cung cấp pass network; frontend có
+shell điều hướng, sân SVG và trang phân tích trận. Chưa triển khai logic CV,
+xG, sơ đồ đội hình hoặc advisor.
 
 ## Đã làm
 
@@ -25,6 +26,16 @@ hóa sự kiện và cung cấp pass network qua API. Chưa triển khai logic C
 - `pytest -v`: 20 passed, 1 network test deselected. `pytest -v -m network`:
   1 passed, 20 deselected.
 - Smoke test 3 API endpoint thành công; match ID không tồn tại trả HTTP 404.
+- Bước 1.5: thêm React Router, shell dark mode, các trang trạng thái "Sắp có",
+  component sân SVG theo hệ mét và trang Phân tích trận lấy dữ liệu thật từ API.
+- Hợp đồng dữ liệu bổ sung hướng tấn công chuẩn hóa cho StatsBomb; tracking
+  video không mặc định có hướng thống nhất.
+- Nghiệm thu frontend: `npm run build` thành công; `npm run lint` thành công
+  (còn một cảnh báo Fast Refresh có sẵn trong `components/ui/button.tsx`);
+  `pytest -v`: 20 passed, 1 network test deselected.
+- Kiểm tra giao diện trình duyệt ở 1440px và 768px, có dữ liệu thật Brazil–Bỉ;
+  chiều rộng tài liệu không vượt viewport 768px. Đã xem trạng thái trống và
+  trạng thái tải/lỗi khi backend tắt.
 
 ## Việc tiếp theo
 

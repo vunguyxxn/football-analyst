@@ -74,3 +74,9 @@ Kết quả trả về theo thứ tự `(x_m, y_m)`. Ví dụ:
 - `(0, 0)` → `(0, 68)`
 - `(120, 80)` → `(105, 0)`
 - `(60, 40)` → `(52.5, 34)`
+
+## Hướng tấn công
+
+Dữ liệu sự kiện StatsBomb đã được chuẩn hóa sao cho mọi đội tấn công về phía
+x tăng (từ trái sang phải). Dữ liệu tracking trích xuất từ video không có đặc
+tính này; cần lật trục nếu muốn so sánh hướng tấn công giữa hai nguồn.
