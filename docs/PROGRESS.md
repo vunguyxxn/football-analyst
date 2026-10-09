@@ -2,10 +2,10 @@
 
 ## Trạng thái hiện tại
 
-Bước 0, Module B1 và giao diện bước 1.5 đã triển khai, kiểm thử. Backend nạp
-StatsBomb Open Data, chuẩn hóa sự kiện và cung cấp pass network; frontend có
-shell điều hướng, sân SVG và trang phân tích trận. Chưa triển khai logic CV,
-xG, sơ đồ đội hình hoặc advisor.
+Bước 0, Module B1, giao diện bước 1.5 và bước 1.6 đã triển khai, kiểm thử.
+Backend nạp StatsBomb Open Data, chuẩn hóa sự kiện và cung cấp pass network;
+frontend có shell điều hướng, sân SVG và trang phân tích trận. Chưa triển khai
+logic CV, xG, sơ đồ đội hình hoặc advisor.
 
 ## Đã làm
 
@@ -36,6 +36,16 @@ xG, sơ đồ đội hình hoặc advisor.
 - Kiểm tra giao diện trình duyệt ở 1440px và 768px, có dữ liệu thật Brazil–Bỉ;
   chiều rộng tài liệu không vượt viewport 768px. Đã xem trạng thái trống và
   trạng thái tải/lỗi khi backend tắt.
+- Bước 1.6: loader giữ `player_nickname`; mỗi node pass network trả `short_name`
+  duy nhất trong đội, ưu tiên nickname và phân biệt họ trùng nhau. Frontend dùng
+  tên ngắn trên sân/bảng, giới hạn nhãn sân mặc định cho 6 cầu thủ chuyền nhiều
+  nhất; tooltip vẫn hiển thị tên đầy đủ, số chuyền và số chạm.
+- Kiểm thử bước 1.6: `pytest -v` — 21 passed, 1 network test deselected;
+  `npm run build` thành công; `npm run lint` thành công (còn cảnh báo Fast
+  Refresh đã có trong `components/ui/button.tsx`).
+- Đã xác nhận dữ liệu thật cho Brazil (14 nút, 57 cạnh) và Bỉ (13 nút, 46 cạnh);
+  ảnh nghiệm thu lưu tại `screenshots/pass-network-brazil.png` và
+  `screenshots/pass-network-belgium.png`.
 
 ## Việc tiếp theo
 

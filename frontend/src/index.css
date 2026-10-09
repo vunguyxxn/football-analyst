@@ -702,12 +702,19 @@ a {
 .pitch-player-label {
   fill: #f0f5f2;
   font-family: "Geist Variable", sans-serif;
-  font-size: 1.55px;
+  font-size: 1.35px;
   font-weight: 560;
+  opacity: 0;
   paint-order: stroke;
   stroke: #0c1510;
   stroke-linejoin: round;
-  stroke-width: 0.5px;
+  stroke-width: 0.62px;
+  transition: opacity 120ms ease;
+}
+
+.pitch-player-label.is-priority,
+.pitch-player-group:hover .pitch-player-label {
+  opacity: 1;
 }
 
 .pitch-direction {
@@ -1138,7 +1145,7 @@ a {
   }
 
   .pitch-player-label {
-    font-size: 1.7px;
+    font-size: 1.5px;
   }
 
   .analysis-sidebar {

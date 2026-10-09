@@ -89,9 +89,14 @@ def normalize_events(events: pd.DataFrame, match_id: int) -> pd.DataFrame:
     normalized["minute"] = pd.to_numeric(normalized["minute"], errors="coerce").fillna(0).astype(int)
     normalized["second"] = pd.to_numeric(normalized["second"], errors="coerce").fillna(0).astype(int)
 
-    for normalized_name, source_name in (("team", "team"), ("player", "player")):
+    for normalized_name, source_name in (
+        ("team", "team"),
+        ("player", "player"),
+        ("player_nickname", "player_nickname"),
+    ):
         if source_name not in normalized:
-            normalized[normalized_name] = None
+            if normalized_name != "player_nickname":
+                normalized[normalized_name] = None
         else:
             normalized[normalized_name] = normalized[source_name].map(_named_value)
 

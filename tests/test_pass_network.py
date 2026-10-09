@@ -117,3 +117,74 @@ def test_minute_range_replaces_substitution_cutoff() -> None:
     )
 
     assert [node["player"] for node in network["nodes"]] == ["A", "Late player"]
+
+
+def test_short_names_prefer_nicknames_and_disambiguate_duplicate_surnames() -> None:
+    events = pd.DataFrame(
+        [
+            {
+                "team": "Home",
+                "player": "Thiago Silva",
+                "player_nickname": None,
+                "event_type": "Pass",
+                "x_m": 10,
+                "y_m": 20,
+                "pass_outcome": None,
+                "pass_recipient": None,
+            },
+            {
+                "team": "Home",
+                "player": "Rafael Silva",
+                "player_nickname": None,
+                "event_type": "Pass",
+                "x_m": 20,
+                "y_m": 30,
+                "pass_outcome": None,
+                "pass_recipient": None,
+            },
+            {
+                "team": "Home",
+                "player": "Marcelo Júnior",
+                "player_nickname": None,
+                "event_type": "Pass",
+                "x_m": 30,
+                "y_m": 40,
+                "pass_outcome": None,
+                "pass_recipient": None,
+            },
+            {
+                "team": "Home",
+                "player": "Roberto Júnior",
+                "player_nickname": None,
+                "event_type": "Pass",
+                "x_m": 40,
+                "y_m": 50,
+                "pass_outcome": None,
+                "pass_recipient": None,
+            },
+            {
+                "team": "Home",
+                "player": "Neymar da Silva Santos Junior",
+                "player_nickname": "Neymar",
+                "event_type": "Pass",
+                "x_m": 50,
+                "y_m": 60,
+                "pass_outcome": None,
+                "pass_recipient": None,
+            },
+        ]
+    )
+
+    network = compute_pass_network(events, team="Home", min_edge_count=1)
+    short_names = {
+        node["player"]: node["short_name"] for node in network["nodes"]
+    }
+
+    assert short_names == {
+        "Thiago Silva": "T. Silva",
+        "Rafael Silva": "R. Silva",
+        "Marcelo Júnior": "M. Júnior",
+        "Roberto Júnior": "R. Júnior",
+        "Neymar da Silva Santos Junior": "Neymar",
+    }
+    assert len(set(short_names.values())) == len(short_names)

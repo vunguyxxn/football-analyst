@@ -35,6 +35,7 @@ class MatchResponse(BaseModel):
 
 class PassNetworkNodeResponse(BaseModel):
     player: str
+    short_name: str
     avg_x_m: float
     avg_y_m: float
     pass_count: int

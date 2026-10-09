@@ -58,6 +58,16 @@ function NetworkPitch({
     () => new Map(nodes.map((node) => [node.player, node])),
     [nodes],
   )
+  const labeledPlayers = useMemo(
+    () =>
+      new Set(
+        [...nodes]
+          .sort((left, right) => right.pass_count - left.pass_count)
+          .slice(0, 6)
+          .map((node) => node.player),
+      ),
+    [nodes],
+  )
 
   return (
     <div className="pitch-frame">
@@ -87,7 +97,7 @@ function NetworkPitch({
           const point = toSvg(node.avg_x_m, node.avg_y_m)
           const radius = Math.min(1.9, 0.95 + node.pass_count * 0.035)
           return (
-            <g key={node.player}>
+            <g className="pitch-player-group" key={node.player}>
               <circle
                 cx={point.x}
                 cy={point.y}
@@ -103,13 +113,13 @@ function NetworkPitch({
                 </title>
               </circle>
               <text
-                className="pitch-player-label"
+                className={`pitch-player-label${labeledPlayers.has(node.player) ? " is-priority" : ""}`}
                 dominantBaseline="middle"
                 textAnchor="middle"
                 x={point.x}
                 y={point.y + radius + 1.5}
               >
-                {getSurname(node.player)}
+                {node.short_name}
               </text>
             </g>
           )
@@ -418,7 +428,7 @@ export default function MatchAnalysis() {
                       {String(index + 1).padStart(2, "0")}
                     </span>
                     <span className="player-name" title={player.player}>
-                      {getSurname(player.player)}
+                      {player.short_name}
                     </span>
                     <span className="player-passes">{player.pass_count}</span>
                     <span className="player-bar-track">

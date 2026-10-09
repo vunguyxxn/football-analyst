@@ -15,6 +15,7 @@ def test_normalize_events_converts_start_and_end_locations() -> None:
                 "second": 2,
                 "team": "Home",
                 "player": "Player A",
+                "player_nickname": "A nickname",
                 "type": "Pass",
                 "location": [60, 40],
                 "end_location": [120, 80],
@@ -46,6 +47,7 @@ def test_normalize_events_converts_start_and_end_locations() -> None:
 
     assert events["match_id"].tolist() == [99, 99, 99]
     assert events["event_type"].tolist() == ["Pass", "Carry", "Shot"]
+    assert events.loc[0, "player_nickname"] == "A nickname"
     assert events.loc[0, ["x_m", "y_m"]].tolist() == pytest.approx([52.5, 34])
     assert events.loc[0, ["end_x_m", "end_y_m"]].tolist() == pytest.approx([105, 0])
     assert events.loc[1, ["x_m", "y_m"]].tolist() == pytest.approx([0, 68])

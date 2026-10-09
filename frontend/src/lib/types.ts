@@ -19,6 +19,7 @@ export type Match = {
 
 export type PassNetworkNode = {
   player: string
+  short_name: string
   avg_x_m: number
   avg_y_m: number
   pass_count: number
