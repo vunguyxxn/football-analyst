@@ -1,0 +1,562 @@
+{
+  "source": "vid1_11f23eea_clean.mp4",
+  "source_sha256": "86f6f04ce05ac464269dfa4d831bef0c12c3654acdd2fa3c1b6379f864597b2e",
+  "image_size": [
+    1280,
+    720
+  ],
+  "pitch_m": [
+    105,
+    68
+  ],
+  "raw_source_frame_offset": 600,
+  "annotation_provenance": "Agent visually selected manual anchors before viewing evaluation frames. Not independently reviewed. 105x68 m used by user decision.",
+  "segments": [
+    {
+      "name": "early_pan",
+      "start_frame": 0,
+      "end_frame": 303,
+      "image_points": [
+        [
+          1233,
+          214
+        ],
+        [
+          1154,
+          287
+        ],
+        [
+          416,
+          225
+        ],
+        [
+          486,
+          584
+        ]
+      ],
+      "pitch_points": [
+        [
+          105,
+          68
+        ],
+        [
+          88.5,
+          41.31248931623151
+        ],
+        [
+          52.5,
+          68
+        ],
+        [
+          52.5,
+          0
+        ]
+      ],
+      "extra_image_points": [
+        [
+          429,
+          294
+        ],
+        [
+          442,
+          374
+        ]
+      ],
+      "extra_pitch_points": [
+        [
+          52.5,
+          43.15
+        ],
+        [
+          52.5,
+          24.85
+        ]
+      ]
+    },
+    {
+      "name": "left_pan",
+      "start_frame": 450,
+      "end_frame": 751,
+      "image_points": [
+        [
+          153,
+          239
+        ],
+        [
+          61,
+          280
+        ],
+        [
+          863,
+          213
+        ],
+        [
+          927,
+          624
+        ]
+      ],
+      "pitch_points": [
+        [
+          16.5,
+          54.16
+        ],
+        [
+          16.5,
+          41.31248931623151
+        ],
+        [
+          52.5,
+          68
+        ],
+        [
+          52.5,
+          0
+        ]
+      ],
+      "extra_image_points": [
+        [
+          875,
+          290
+        ],
+        [
+          889,
+          384
+        ]
+      ],
+      "extra_pitch_points": [
+        [
+          52.5,
+          43.15
+        ],
+        [
+          52.5,
+          24.85
+        ]
+      ]
+    },
+    {
+      "name": "return_pan",
+      "start_frame": 1050,
+      "end_frame": 1351,
+      "image_points": [
+        [
+          110,
+          238
+        ],
+        [
+          20,
+          281
+        ],
+        [
+          821,
+          207
+        ],
+        [
+          885,
+          621
+        ]
+      ],
+      "pitch_points": [
+        [
+          16.5,
+          54.16
+        ],
+        [
+          16.5,
+          41.31248931623151
+        ],
+        [
+          52.5,
+          68
+        ],
+        [
+          52.5,
+          0
+        ]
+      ],
+      "extra_image_points": [
+        [
+          833,
+          288
+        ],
+        [
+          848,
+          380
+        ]
+      ],
+      "extra_pitch_points": [
+        [
+          52.5,
+          43.15
+        ],
+        [
+          52.5,
+          24.85
+        ]
+      ]
+    }
+  ],
+  "evaluation_frames": [
+    75,
+    225,
+    525,
+    710,
+    1125,
+    1275
+  ],
+  "frozen_before_evaluation_annotation": true,
+  "checks": [
+    {
+      "frame": 75,
+      "kind": "temporal_landmarks",
+      "label": "circle_far",
+      "image_point": [
+        339,
+        289
+      ],
+      "pitch_point": [
+        52.5,
+        43.15
+      ]
+    },
+    {
+      "frame": 75,
+      "kind": "temporal_landmarks",
+      "label": "circle_near",
+      "image_point": [
+        355,
+        379
+      ],
+      "pitch_point": [
+        52.5,
+        24.85
+      ]
+    },
+    {
+      "frame": 75,
+      "kind": "temporal_landmarks",
+      "label": "halfway_far",
+      "image_point": [
+        324,
+        219
+      ],
+      "pitch_point": [
+        52.5,
+        68
+      ]
+    },
+    {
+      "frame": 75,
+      "kind": "temporal_landmarks",
+      "label": "halfway_near",
+      "image_point": [
+        403,
+        616
+      ],
+      "pitch_point": [
+        52.5,
+        0
+      ]
+    },
+    {
+      "frame": 225,
+      "kind": "temporal_landmarks",
+      "label": "circle_far",
+      "image_point": [
+        523,
+        287
+      ],
+      "pitch_point": [
+        52.5,
+        43.15
+      ]
+    },
+    {
+      "frame": 225,
+      "kind": "temporal_landmarks",
+      "label": "circle_near",
+      "image_point": [
+        540,
+        378.3
+      ],
+      "pitch_point": [
+        52.5,
+        24.85
+      ]
+    },
+    {
+      "frame": 225,
+      "kind": "temporal_landmarks",
+      "label": "halfway_far",
+      "image_point": [
+        508,
+        213
+      ],
+      "pitch_point": [
+        52.5,
+        68
+      ]
+    },
+    {
+      "frame": 225,
+      "kind": "temporal_landmarks",
+      "label": "halfway_near",
+      "image_point": [
+        585,
+        615
+      ],
+      "pitch_point": [
+        52.5,
+        0
+      ]
+    },
+    {
+      "frame": 525,
+      "kind": "temporal_landmarks",
+      "label": "circle_far",
+      "image_point": [
+        995,
+        293
+      ],
+      "pitch_point": [
+        52.5,
+        43.15
+      ]
+    },
+    {
+      "frame": 525,
+      "kind": "temporal_landmarks",
+      "label": "circle_near",
+      "image_point": [
+        1009,
+        388
+      ],
+      "pitch_point": [
+        52.5,
+        24.85
+      ]
+    },
+    {
+      "frame": 525,
+      "kind": "temporal_landmarks",
+      "label": "halfway_far",
+      "image_point": [
+        984,
+        210
+      ],
+      "pitch_point": [
+        52.5,
+        68
+      ]
+    },
+    {
+      "frame": 525,
+      "kind": "temporal_landmarks",
+      "label": "halfway_near",
+      "image_point": [
+        1042,
+        632
+      ],
+      "pitch_point": [
+        52.5,
+        0
+      ]
+    },
+    {
+      "frame": 710,
+      "kind": "temporal_landmarks",
+      "label": "circle_far",
+      "image_point": [
+        1049,
+        293.5
+      ],
+      "pitch_point": [
+        52.5,
+        43.15
+      ]
+    },
+    {
+      "frame": 710,
+      "kind": "temporal_landmarks",
+      "label": "circle_near",
+      "image_point": [
+        1062,
+        388.5
+      ],
+      "pitch_point": [
+        52.5,
+        24.85
+      ]
+    },
+    {
+      "frame": 710,
+      "kind": "temporal_landmarks",
+      "label": "halfway_far",
+      "image_point": [
+        1038,
+        213
+      ],
+      "pitch_point": [
+        52.5,
+        68
+      ]
+    },
+    {
+      "frame": 710,
+      "kind": "temporal_landmarks",
+      "label": "halfway_near",
+      "image_point": [
+        1092,
+        637
+      ],
+      "pitch_point": [
+        52.5,
+        0
+      ]
+    },
+    {
+      "frame": 1125,
+      "kind": "temporal_landmarks",
+      "label": "circle_far",
+      "image_point": [
+        811,
+        287
+      ],
+      "pitch_point": [
+        52.5,
+        43.15
+      ]
+    },
+    {
+      "frame": 1125,
+      "kind": "temporal_landmarks",
+      "label": "circle_near",
+      "image_point": [
+        825,
+        379
+      ],
+      "pitch_point": [
+        52.5,
+        24.85
+      ]
+    },
+    {
+      "frame": 1125,
+      "kind": "temporal_landmarks",
+      "label": "halfway_far",
+      "image_point": [
+        799,
+        211
+      ],
+      "pitch_point": [
+        52.5,
+        68
+      ]
+    },
+    {
+      "frame": 1125,
+      "kind": "temporal_landmarks",
+      "label": "halfway_near",
+      "image_point": [
+        863,
+        619
+      ],
+      "pitch_point": [
+        52.5,
+        0
+      ]
+    },
+    {
+      "frame": 1275,
+      "kind": "temporal_landmarks",
+      "label": "circle_far",
+      "image_point": [
+        809,
+        289
+      ],
+      "pitch_point": [
+        52.5,
+        43.15
+      ]
+    },
+    {
+      "frame": 1275,
+      "kind": "temporal_landmarks",
+      "label": "circle_near",
+      "image_point": [
+        824,
+        382
+      ],
+      "pitch_point": [
+        52.5,
+        24.85
+      ]
+    },
+    {
+      "frame": 1275,
+      "kind": "temporal_landmarks",
+      "label": "halfway_far",
+      "image_point": [
+        797,
+        213
+      ],
+      "pitch_point": [
+        52.5,
+        68
+      ]
+    },
+    {
+      "frame": 1275,
+      "kind": "temporal_landmarks",
+      "label": "halfway_near",
+      "image_point": [
+        864,
+        620
+      ],
+      "pitch_point": [
+        52.5,
+        0
+      ]
+    },
+    {
+      "frame": 525,
+      "kind": "new_geometry",
+      "label": "far_left_corner",
+      "image_point": [
+        78,
+        195
+      ],
+      "pitch_point": [
+        0,
+        68
+      ]
+    },
+    {
+      "frame": 525,
+      "kind": "new_geometry",
+      "label": "penalty_arc_near",
+      "image_point": [
+        47,
+        338
+      ],
+      "pitch_point": [
+        16.5,
+        26.687510683768487
+      ]
+    },
+    {
+      "frame": 710,
+      "kind": "new_geometry",
+      "label": "far_left_corner",
+      "image_point": [
+        124,
+        192
+      ],
+      "pitch_point": [
+        0,
+        68
+      ]
+    }
+  ],
+  "check_provenance": "Agent visual annotations on new evaluation frames after calibration frozen; not independently reviewed. Most checks reuse landmark identities at different frames; new_geometry points excluded from calibration of their segment. No threshold/anchor tuning after evaluation."
+}

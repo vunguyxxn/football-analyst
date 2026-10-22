@@ -79,6 +79,11 @@ nguồn cũ `fa6ea680`, không dùng fixture cũ cho file mới cùng tên.
   3 điểm hình học mới giảm 0,69 → 0,50 m. Biên xa có mẫu xấu hơn, kích thước
   sân chưa xác minh; chưa nghiệm thu chỉ số cầu thủ. Chi tiết tại
   `CV_HOMOGRAPHY_REFINEMENT.md`. Cần kiểm tra thêm đoạn lia/zoom khác.
+- Đã kiểm tra thêm ba đoạn (905 frame): 900 bước tracked, 2 frame ngừng
+  do hết chuỗi; stress test ảnh đen khóa tọa độ đúng tới mốc tay mới.
+  Sai số mốc theo đoạn trung bình 0,64 / 1,36 / 0,50 m, max tới 3,28 m dù
+  tracked; chưa chạy toàn clip để nghiệm thu chỉ số. Chi tiết tại
+  `CV_HOMOGRAPHY_MULTI_CHECK.md`. Người dùng chốt tiếp tục dùng 105 × 68 m.
 
 ## Vấn đề tồn đọng
 
@@ -308,10 +313,34 @@ nguồn cũ `fa6ea680`, không dùng fixture cũ cho file mới cùng tên.
   Tiếp tục kiểm tra đoạn lia/zoom khác, mất dấu, mốc/định danh cầu thủ;
   chưa chuyển bước 5 và chưa nghiệm thu tốc độ/quãng đường thực địa.
 
+## Kiểm tra thêm các đoạn lia bước 4 — 22/10/2026
+
+- Người dùng chốt sân mặc định 105 × 68 m; tiếp tục phát triển theo hệ này.
+- Chọn/khóa hiệu chỉnh tại frame 0, 450, 1050, mỗi đoạn có 4 mốc chính +
+  2 mốc vòng tròn. Nhãn do agent quan sát, chưa rà soát độc lập. Giữ bộ cũ.
+  Frame đánh giá 75/225, 525/710, 1125/1275 không tham gia fit.
+- Chạy YOLO11n CUDA thật và CameraMotion không đổi, 905 frame ở ba đoạn,
+  không chạy ByteTrack/phân đội hoặc chỉ số cầu thủ. Diagnostic giải mã đủ.
+- 24 mốc theo thời gian: sai số trung bình theo đoạn 0,64 / 1,36 / 0,50 m,
+  max 2,91 / 3,28 / 1,79 m. 3 điểm hình học mới ở đoạn giữa trung bình
+  0,91 m, max 1,07 m. Không coi tracked là tọa độ đúng theo mét.
+- Hết chuỗi frame 301–302 trả lost, không xuất tọa độ dù còn detection.
+  Chèn ảnh đen trong bộ nhớ: lost, không tự phục hồi khi ảnh sân quay lại,
+  mốc tay mới phục hồi. Không tuyên bố đã đo cắt cảnh tự nhiên/zoom mạnh.
+- Fixture mới `docs/fixtures/vid1_11f23eea_homography_segments.json`, báo cáo
+  `CV_HOMOGRAPHY_MULTI_CHECK.md`, artifact tại thư mục cục bộ
+  `data/processed/clip_11f23eea/homography_multi_check/`. Không đổi mã thuật
+  toán/ngưỡng/hợp đồng. Chưa chạy toàn clip hoặc chuyển bước 5.
+- Kiểm tra fixture, stress assertions, giải mã ba video; toàn bộ 73 test
+  qua, 1 network test deselected, cảnh báo Starlette cũ. Cần xử lý sai số
+  hiệu chỉnh/trôi tuyệt đối trước nghiệm thu quãng đường/tốc độ.
+
 ## Quyết định đã chốt
 
 - Python 3.11; FastAPI; Pydantic v2.
 - Gốc tọa độ sân chuẩn ở góc trái dưới, đơn vị mét, sân 105 × 68.
+- Người dùng xác nhận tiếp tục dùng 105 × 68 m làm kích thước sân mặc định
+  cho bước 4, không chờ xác minh danh tính sân trong clip.
 - Không cài PyTorch trong requirements ở bước này; phần CV có file dependency riêng.
 - Frontend dùng dark mode mặc định, nền xám than và màu nhấn xanh lá.
 - Tailwind CSS: `4.3.3`; shadcn CLI/UI: `4.21.4` (khởi tạo thành công ngày 2026-10-08).
