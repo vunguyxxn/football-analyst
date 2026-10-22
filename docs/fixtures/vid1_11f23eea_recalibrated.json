@@ -1,0 +1,1149 @@
+{
+  "source": "vid1_11f23eea_clean.mp4",
+  "source_sha256": "86f6f04ce05ac464269dfa4d831bef0c12c3654acdd2fa3c1b6379f864597b2e",
+  "image_size": [
+    1280,
+    720
+  ],
+  "pitch_m": [
+    105,
+    68
+  ],
+  "raw_source_frame_offset": 600,
+  "annotation_provenance": "Manual recalibration at first rejected frames 75/525; far/near boundary intersections fitted from manually selected image line strips. Return segment 1050 boundary corrected. Old checks are development/runtime only. 105x68 m fixed by user decision.",
+  "segments": [
+    {
+      "name": "early_pan",
+      "start_frame": 75,
+      "end_frame": 303,
+      "image_points": [
+        [
+          1222,
+          194.5
+        ],
+        [
+          1137.3,
+          275.0
+        ],
+        [
+          323.16808082188334,
+          219.17239843201048
+        ],
+        [
+          401.4117942068036,
+          613.9847760221246
+        ]
+      ],
+      "pitch_points": [
+        [
+          105,
+          68
+        ],
+        [
+          88.5,
+          41.31248931623151
+        ],
+        [
+          52.5,
+          68
+        ],
+        [
+          52.5,
+          0
+        ]
+      ],
+      "extra_image_points": [
+        [
+          337.0064788903308,
+          289
+        ],
+        [
+          354.8426324770697,
+          379
+        ]
+      ],
+      "extra_pitch_points": [
+        [
+          52.5,
+          43.15
+        ],
+        [
+          52.5,
+          24.85
+        ]
+      ]
+    },
+    {
+      "name": "left_pan",
+      "start_frame": 525,
+      "end_frame": 751,
+      "image_points": [
+        [
+          78,
+          195
+        ],
+        [
+          270.3,
+          235.0
+        ],
+        [
+          982.7270272730693,
+          208.8485176736978
+        ],
+        [
+          1041.43150475117,
+          632.6994170284423
+        ]
+      ],
+      "pitch_points": [
+        [
+          0,
+          68
+        ],
+        [
+          16.5,
+          54.16
+        ],
+        [
+          52.5,
+          68
+        ],
+        [
+          52.5,
+          0
+        ]
+      ],
+      "extra_image_points": [
+        [
+          994.3822315123284,
+          293
+        ],
+        [
+          1007.5399843185857,
+          388
+        ]
+      ],
+      "extra_pitch_points": [
+        [
+          52.5,
+          43.15
+        ],
+        [
+          52.5,
+          24.85
+        ]
+      ]
+    },
+    {
+      "name": "return_pan",
+      "start_frame": 1050,
+      "end_frame": 1351,
+      "image_points": [
+        [
+          110,
+          238
+        ],
+        [
+          20,
+          281
+        ],
+        [
+          823.0265779585064,
+          211.35589375627558
+        ],
+        [
+          884.040252931389,
+          620.9439643299502
+        ]
+      ],
+      "pitch_points": [
+        [
+          16.5,
+          54.16
+        ],
+        [
+          16.5,
+          41.31248931623151
+        ],
+        [
+          52.5,
+          68
+        ],
+        [
+          52.5,
+          0
+        ]
+      ],
+      "extra_image_points": [
+        [
+          833,
+          288
+        ],
+        [
+          848,
+          380
+        ]
+      ],
+      "extra_pitch_points": [
+        [
+          52.5,
+          43.15
+        ],
+        [
+          52.5,
+          24.85
+        ]
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "frame": 120,
+      "label": "halfway_far",
+      "image_point": [
+        351.96138683338165,
+        212.95185153923364
+      ],
+      "pitch_point": [
+        52.5,
+        68
+      ],
+      "kind": "temporal_landmarks"
+    },
+    {
+      "frame": 120,
+      "label": "halfway_near",
+      "image_point": [
+        431.2222747098297,
+        613.7471318074054
+      ],
+      "pitch_point": [
+        52.5,
+        0
+      ],
+      "kind": "temporal_landmarks"
+    },
+    {
+      "frame": 120,
+      "label": "circle_far",
+      "image_point": [
+        367.1983543249913,
+        290.0
+      ],
+      "pitch_point": [
+        52.5,
+        43.15
+      ],
+      "kind": "temporal_landmarks"
+    },
+    {
+      "frame": 120,
+      "label": "circle_near",
+      "image_point": [
+        384.60114940895664,
+        378.0
+      ],
+      "pitch_point": [
+        52.5,
+        24.85
+      ],
+      "kind": "temporal_landmarks"
+    },
+    {
+      "frame": 255,
+      "label": "halfway_far",
+      "image_point": [
+        559.715478451788,
+        212.39132185373543
+      ],
+      "pitch_point": [
+        52.5,
+        68
+      ],
+      "kind": "temporal_landmarks"
+    },
+    {
+      "frame": 255,
+      "label": "halfway_near",
+      "image_point": [
+        632.2579284441034,
+        614.7892284818519
+      ],
+      "pitch_point": [
+        52.5,
+        0
+      ],
+      "kind": "temporal_landmarks"
+    },
+    {
+      "frame": 255,
+      "label": "circle_far",
+      "image_point": [
+        573.5261397695139,
+        289.0
+      ],
+      "pitch_point": [
+        52.5,
+        43.15
+      ],
+      "kind": "temporal_landmarks"
+    },
+    {
+      "frame": 255,
+      "label": "circle_near",
+      "image_point": [
+        589.5706517885159,
+        378.0
+      ],
+      "pitch_point": [
+        52.5,
+        24.85
+      ],
+      "kind": "temporal_landmarks"
+    },
+    {
+      "frame": 555,
+      "label": "halfway_far",
+      "image_point": [
+        995.031700858824,
+        212.74809168832567
+      ],
+      "pitch_point": [
+        52.5,
+        68
+      ],
+      "kind": "temporal_landmarks"
+    },
+    {
+      "frame": 555,
+      "label": "halfway_near",
+      "image_point": [
+        1053.2748007812695,
+        633.6621296177411
+      ],
+      "pitch_point": [
+        52.5,
+        0
+      ],
+      "kind": "temporal_landmarks"
+    },
+    {
+      "frame": 555,
+      "label": "circle_far",
+      "image_point": [
+        1006.2747637843704,
+        294.0
+      ],
+      "pitch_point": [
+        52.5,
+        43.15
+      ],
+      "kind": "temporal_landmarks"
+    },
+    {
+      "frame": 555,
+      "label": "circle_near",
+      "image_point": [
+        1019.4201901518326,
+        389.0
+      ],
+      "pitch_point": [
+        52.5,
+        24.85
+      ],
+      "kind": "temporal_landmarks"
+    },
+    {
+      "frame": 690,
+      "label": "halfway_far",
+      "image_point": [
+        1036.396839591709,
+        215.1866206672246
+      ],
+      "pitch_point": [
+        52.5,
+        68
+      ],
+      "kind": "temporal_landmarks"
+    },
+    {
+      "frame": 690,
+      "label": "halfway_near",
+      "image_point": [
+        1092.7952343981935,
+        636.2438478481953
+      ],
+      "pitch_point": [
+        52.5,
+        0
+      ],
+      "kind": "temporal_landmarks"
+    },
+    {
+      "frame": 690,
+      "label": "circle_far",
+      "image_point": [
+        1047.0874207950924,
+        295.0
+      ],
+      "pitch_point": [
+        52.5,
+        43.15
+      ],
+      "kind": "temporal_landmarks"
+    },
+    {
+      "frame": 690,
+      "label": "circle_near",
+      "image_point": [
+        1059.6782250126173,
+        389.0
+      ],
+      "pitch_point": [
+        52.5,
+        24.85
+      ],
+      "kind": "temporal_landmarks"
+    },
+    {
+      "frame": 1110,
+      "label": "halfway_far",
+      "image_point": [
+        799.7279029105069,
+        211.30991168299988
+      ],
+      "pitch_point": [
+        52.5,
+        68
+      ],
+      "kind": "temporal_landmarks"
+    },
+    {
+      "frame": 1110,
+      "label": "halfway_near",
+      "image_point": [
+        861.5865146619396,
+        619.8997810968639
+      ],
+      "pitch_point": [
+        52.5,
+        0
+      ],
+      "kind": "temporal_landmarks"
+    },
+    {
+      "frame": 1110,
+      "label": "circle_far",
+      "image_point": [
+        811.3384266985532,
+        288.0
+      ],
+      "pitch_point": [
+        52.5,
+        43.15
+      ],
+      "kind": "temporal_landmarks"
+    },
+    {
+      "frame": 1110,
+      "label": "circle_near",
+      "image_point": [
+        825.2668001290931,
+        380.0
+      ],
+      "pitch_point": [
+        52.5,
+        24.85
+      ],
+      "kind": "temporal_landmarks"
+    },
+    {
+      "frame": 1260,
+      "label": "halfway_far",
+      "image_point": [
+        798.980953805096,
+        213.05982514730977
+      ],
+      "pitch_point": [
+        52.5,
+        68
+      ],
+      "kind": "temporal_landmarks"
+    },
+    {
+      "frame": 1260,
+      "label": "halfway_near",
+      "image_point": [
+        861.712483000585,
+        621.4920849427027
+      ],
+      "pitch_point": [
+        52.5,
+        0
+      ],
+      "kind": "temporal_landmarks"
+    },
+    {
+      "frame": 1260,
+      "label": "circle_far",
+      "image_point": [
+        810.7982740811572,
+        290.0
+      ],
+      "pitch_point": [
+        52.5,
+        43.15
+      ],
+      "kind": "temporal_landmarks"
+    },
+    {
+      "frame": 1260,
+      "label": "circle_near",
+      "image_point": [
+        824.9286483294503,
+        382.0
+      ],
+      "pitch_point": [
+        52.5,
+        24.85
+      ],
+      "kind": "temporal_landmarks"
+    },
+    {
+      "frame": 555,
+      "label": "arc_far",
+      "image_point": [
+        189.0,
+        277.5
+      ],
+      "pitch_point": [
+        16.5,
+        41.31248931623151
+      ],
+      "kind": "new_geometry"
+    },
+    {
+      "frame": 555,
+      "label": "arc_near",
+      "image_point": [
+        55.0,
+        339.0
+      ],
+      "pitch_point": [
+        16.5,
+        26.687510683768487
+      ],
+      "kind": "new_geometry"
+    },
+    {
+      "frame": 690,
+      "label": "arc_far",
+      "image_point": [
+        233.5,
+        275.5
+      ],
+      "pitch_point": [
+        16.5,
+        41.31248931623151
+      ],
+      "kind": "new_geometry"
+    },
+    {
+      "frame": 690,
+      "label": "arc_near",
+      "image_point": [
+        101.0,
+        338.5
+      ],
+      "pitch_point": [
+        16.5,
+        26.687510683768487
+      ],
+      "kind": "new_geometry"
+    }
+  ],
+  "check_provenance": "New evaluation frames annotated only after calibration and runtime check config frozen. Independent from runtime checkpoints; agent visual labels + image line fits, not independently reviewed. Circle y positions visually annotated and x from observed halfway line; no coordinates synthesized from homography.",
+  "boundary_refinement_provenance": [
+    {
+      "frame": 0,
+      "old": [
+        [
+          416,
+          225
+        ],
+        [
+          486,
+          584
+        ]
+      ],
+      "new": [
+        [
+          416.75679365358076,
+          225.51045337428093
+        ],
+        [
+          484.5257173639294,
+          584.9582985638937
+        ]
+      ],
+      "lines": {
+        "far": {
+          "a": [
+            166.0,
+            228.0
+          ],
+          "b": [
+            666.0,
+            222.0
+          ],
+          "radius_px": 5,
+          "samples": 293,
+          "equation": [
+            -0.015802675858139992,
+            -0.9998751282691956,
+            232.06816601543886
+          ]
+        },
+        "near": {
+          "a": [
+            286.0,
+            590.0
+          ],
+          "b": [
+            686.0,
+            578.0
+          ],
+          "radius_px": 5,
+          "samples": 543,
+          "equation": [
+            -0.03107151947915554,
+            -0.9995171427726746,
+            599.7307974869733
+          ]
+        },
+        "halfway": {
+          "a": [
+            417.949860724234,
+            235.0
+          ],
+          "b": [
+            485.2200557103064,
+            580.0
+          ],
+          "radius_px": 5,
+          "samples": 1458,
+          "equation": [
+            0.98268723487854,
+            -0.18527209758758545,
+            -367.76078644770314
+          ]
+        }
+      }
+    },
+    {
+      "frame": 450,
+      "old": [
+        [
+          863,
+          213
+        ],
+        [
+          927,
+          624
+        ]
+      ],
+      "new": [
+        [
+          864.525323357666,
+          213.84784063648087
+        ],
+        [
+          925.8448500026591,
+          624.9879786910283
+        ]
+      ],
+      "lines": {
+        "far": {
+          "a": [
+            613.0,
+            210.0
+          ],
+          "b": [
+            1113.0,
+            216.0
+          ],
+          "radius_px": 5,
+          "samples": 317,
+          "equation": [
+            0.016427118331193924,
+            -0.9998650550842285,
+            199.61732317052815
+          ]
+        },
+        "near": {
+          "a": [
+            727.0,
+            617.0
+          ],
+          "b": [
+            1127.0,
+            631.0
+          ],
+          "radius_px": 5,
+          "samples": 691,
+          "equation": [
+            0.04248680919408798,
+            -0.9990970492362976,
+            585.0874518329724
+          ]
+        },
+        "halfway": {
+          "a": [
+            866.425790754258,
+            235.0
+          ],
+          "b": [
+            920.1484184914842,
+            580.0
+          ],
+          "radius_px": 5,
+          "samples": 1334,
+          "equation": [
+            0.9890600442886353,
+            -0.14751343429088593,
+            -823.5220252208023
+          ]
+        }
+      }
+    },
+    {
+      "frame": 1050,
+      "old": [
+        [
+          821,
+          207
+        ],
+        [
+          885,
+          621
+        ]
+      ],
+      "new": [
+        [
+          823.0265779585064,
+          211.35589375627558
+        ],
+        [
+          884.040252931389,
+          620.9439643299502
+        ]
+      ],
+      "lines": {
+        "far": {
+          "a": [
+            571.0,
+            204.0
+          ],
+          "b": [
+            1071.0,
+            210.0
+          ],
+          "radius_px": 5,
+          "samples": 195,
+          "equation": [
+            0.011991800740361214,
+            -0.9999281167984009,
+            201.47113009105578
+          ]
+        },
+        "near": {
+          "a": [
+            685.0,
+            614.0
+          ],
+          "b": [
+            1085.0,
+            628.0
+          ],
+          "radius_px": 5,
+          "samples": 710,
+          "equation": [
+            0.035812582820653915,
+            -0.9993585348129272,
+            588.8858856188124
+          ]
+        },
+        "halfway": {
+          "a": [
+            825.328502415459,
+            235.0
+          ],
+          "b": [
+            878.6618357487923,
+            580.0
+          ],
+          "radius_px": 5,
+          "samples": 1356,
+          "equation": [
+            0.9890862107276917,
+            -0.14733774960041046,
+            -782.9035375703252
+          ]
+        }
+      }
+    }
+  ],
+  "new_evaluation_frames": [
+    120,
+    255,
+    555,
+    690,
+    1110,
+    1260
+  ],
+  "frozen_before_new_frame_annotation": true,
+  "guard_checkpoints_are_separate_from_evaluation": true,
+  "evaluation_line_fits": [
+    {
+      "frame": 120,
+      "lines": {
+        "far": {
+          "a": [
+            103.0,
+            220.0
+          ],
+          "b": [
+            603.0,
+            214.0
+          ],
+          "radius_px": 5,
+          "samples": 235,
+          "equation": [
+            -0.017282571643590927,
+            -0.9998506307601929,
+            219.00284096677922
+          ]
+        },
+        "near": {
+          "a": [
+            232.0,
+            621.0
+          ],
+          "b": [
+            632.0,
+            609.0
+          ],
+          "radius_px": 5,
+          "samples": 597,
+          "equation": [
+            -0.03951578959822655,
+            -0.9992189407348633,
+            630.3078476011584
+          ]
+        },
+        "halfway": {
+          "a": [
+            356.57286432160805,
+            235.0
+          ],
+          "b": [
+            425.0527638190955,
+            580.0
+          ],
+          "radius_px": 5,
+          "samples": 1524,
+          "equation": [
+            0.9810011386871338,
+            -0.19400183856487274,
+            -303.96147053304503
+          ]
+        }
+      }
+    },
+    {
+      "frame": 255,
+      "lines": {
+        "far": {
+          "a": [
+            305.0,
+            216.0
+          ],
+          "b": [
+            805.0,
+            210.0
+          ],
+          "radius_px": 5,
+          "samples": 383,
+          "equation": [
+            -0.00621858099475503,
+            -0.9999806880950928,
+            215.8678562094952
+          ]
+        },
+        "near": {
+          "a": [
+            431.0,
+            621.0
+          ],
+          "b": [
+            831.0,
+            609.0
+          ],
+          "radius_px": 5,
+          "samples": 598,
+          "equation": [
+            -0.006451787892729044,
+            -0.9999791979789734,
+            618.8556336712116
+          ]
+        },
+        "halfway": {
+          "a": [
+            559.1592039800995,
+            235.0
+          ],
+          "b": [
+            624.3830845771145,
+            580.0
+          ],
+          "radius_px": 5,
+          "samples": 983,
+          "equation": [
+            0.9841360449790955,
+            -0.17741553485393524,
+            -513.15465731211
+          ]
+        }
+      }
+    },
+    {
+      "frame": 555,
+      "lines": {
+        "far": {
+          "a": [
+            745.0,
+            209.0
+          ],
+          "b": [
+            1245.0,
+            215.0
+          ],
+          "radius_px": 5,
+          "samples": 187,
+          "equation": [
+            -0.011444441974163055,
+            -0.9999344944953918,
+            224.12173808015677
+          ]
+        },
+        "near": {
+          "a": [
+            854.0,
+            628.0
+          ],
+          "b": [
+            1254.0,
+            642.0
+          ],
+          "radius_px": 5,
+          "samples": 542,
+          "equation": [
+            0.06098054349422455,
+            -0.998138964176178,
+            568.2535918939102
+          ]
+        },
+        "halfway": {
+          "a": [
+            998.2080378250591,
+            235.0
+          ],
+          "b": [
+            1046.3286052009457,
+            580.0
+          ],
+          "radius_px": 5,
+          "samples": 1671,
+          "equation": [
+            0.9905617833137512,
+            -0.13706691563129425,
+            -956.4796513222691
+          ]
+        }
+      }
+    },
+    {
+      "frame": 690,
+      "lines": {
+        "far": {
+          "a": [
+            789.0,
+            210.0
+          ],
+          "b": [
+            1270.0,
+            215.772
+          ],
+          "radius_px": 5,
+          "samples": 153,
+          "equation": [
+            -0.017281727865338326,
+            -0.9998506307601929,
+            233.06520654759947
+          ]
+        },
+        "near": {
+          "a": [
+            895.0,
+            630.0
+          ],
+          "b": [
+            1270.0,
+            643.125
+          ],
+          "radius_px": 5,
+          "samples": 483,
+          "equation": [
+            0.06665587425231934,
+            -0.9977760314941406,
+            561.9876398409542
+          ]
+        },
+        "halfway": {
+          "a": [
+            1041.9056603773586,
+            235.0
+          ],
+          "b": [
+            1087.4716981132076,
+            580.0
+          ],
+          "radius_px": 5,
+          "samples": 1658,
+          "equation": [
+            0.9911483526229858,
+            -0.13275909423828125,
+            -998.655039373014
+          ]
+        }
+      }
+    },
+    {
+      "frame": 1110,
+      "lines": {
+        "far": {
+          "a": [
+            549.0,
+            208.0
+          ],
+          "b": [
+            1049.0,
+            214.0
+          ],
+          "radius_px": 5,
+          "samples": 385,
+          "equation": [
+            0.011959844268858433,
+            -0.9999284744262695,
+            201.73017644406144
+          ]
+        },
+        "near": {
+          "a": [
+            662.0,
+            613.0
+          ],
+          "b": [
+            1062.0,
+            627.0
+          ],
+          "radius_px": 5,
+          "samples": 703,
+          "equation": [
+            0.03222161531448364,
+            -0.9994807243347168,
+            591.8161729900421
+          ]
+        },
+        "halfway": {
+          "a": [
+            802.6968215158925,
+            235.0
+          ],
+          "b": [
+            855.8386308068459,
+            580.0
+          ],
+          "radius_px": 5,
+          "samples": 1304,
+          "equation": [
+            0.9887330532073975,
+            -0.14968959987163544,
+            -759.0865150511158
+          ]
+        }
+      }
+    },
+    {
+      "frame": 1260,
+      "lines": {
+        "far": {
+          "a": [
+            547.0,
+            211.0
+          ],
+          "b": [
+            1047.0,
+            217.0
+          ],
+          "radius_px": 5,
+          "samples": 248,
+          "equation": [
+            0.012829605489969254,
+            -0.9999176859855652,
+            202.7916769064684
+          ]
+        },
+        "near": {
+          "a": [
+            664.0,
+            614.0
+          ],
+          "b": [
+            1064.0,
+            628.0
+          ],
+          "radius_px": 5,
+          "samples": 678,
+          "equation": [
+            0.03193500638008118,
+            -0.999489963054657,
+            593.6563073757243
+          ]
+        },
+        "halfway": {
+          "a": [
+            800.4570024570024,
+            235.0
+          ],
+          "b": [
+            857.2506142506143,
+            580.0
+          ],
+          "radius_px": 5,
+          "samples": 1593,
+          "equation": [
+            0.9884095788002014,
+            -0.15181083977222443,
+            -757.3756370425417
+          ]
+        }
+      }
+    }
+  ],
+  "candidate_status": {
+    "early_pan": "not accepted: new evaluation regressed",
+    "left_pan": "not accepted: independent geometry worsened and later guard loss",
+    "return_pan": "provisional camera-only segment; full player metrics not validated"
+  }
+}

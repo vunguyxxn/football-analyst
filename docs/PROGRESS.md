@@ -88,6 +88,11 @@ nguồn cũ `fa6ea680`, không dùng fixture cũ cho file mới cùng tên.
   chứng, khi lệch mốc hoặc hết hạn. Replay 905 frame chặn cả ba đoạn ở
   checkpoint đầu (lỗi 2,91 / 3,15 / 1,56 m); không xuất tọa độ nào. Chưa sửa
   sai số hoặc tự tìm mốc sân. Chi tiết tại `CV_LANDMARK_GUARD.md`.
+- Hiệu chỉnh lại: đoạn cuối (mốc 1050) sửa biên xa lệch khoảng 4 px, trên
+  hai frame mới lỗi trung bình 0,54 → 0,16 m, max mới 0,52 m; guard cấp phép
+  frame 1080–1350. Hai đoạn đầu vẫn chưa đạt, có hồi quy và lỗi >1 m giữa
+  checkpoint. Chỉ đề xuất thử tích hợp trên đoạn cuối, chưa nghiệm thu toàn
+  clip. Chi tiết tại `CV_RECALIBRATION.md`.
 
 ## Vấn đề tồn đọng
 
@@ -360,6 +365,30 @@ nguồn cũ `fa6ea680`, không dùng fixture cũ cho file mới cùng tên.
   định không bật guard vẫn hồi quy qua. Không đổi hợp đồng/API/dependency.
 - Tiếp tục cải thiện hiệu chỉnh các đoạn bị chặn, chọn bộ đánh giá mới;
   chưa nghiệm thu tốc độ/quãng đường và chưa chuyển bước 5.
+
+## Hiệu chỉnh lại các đoạn bị guard chặn — 22/10/2026
+
+- Giữ ngưỡng guard 1 m / 90 frame, không nới ngưỡng. Phóng lớn và fit vạch
+  từ ảnh để rà mốc biên; tại 1050 sửa y biên xa từ 207 lên khoảng 211,36 px.
+  Thử mốc tay mới tại 75/525 cho hai đoạn đầu, khóa cấu hình trước nhãn mới.
+- Thử tham chiếu trực tiếp mốc gốc bằng feature/LK/ORB trong helper nghiên
+  cứu, chưa đưa vào ứng dụng do mất điểm/coverage hoặc không cải thiện đều.
+  Không đổi CameraMotion, guard, hợp đồng, dependency hay mã ứng dụng.
+- Frame mới 120/255, 555/690, 1110/1260 tách runtime checkpoints. Cùng mốc
+  mới, lỗi trung bình cũ → mới: đầu 0,30 → 0,71 m (hồi quy), giữa 1,12 →
+  0,61 m nhưng 4 điểm cung vùng cấm 0,51 → 0,82 m (xấu hơn), cuối 0,54 →
+  0,16 m, max cuối 0,52 m. Hai ứng viên đầu không chấp nhận; cuối sơ bộ.
+- Replay 755 frame với bbox cache: 70 chờ, 406 cấp phép, 279 lost; đọc lại
+  đủ 755 frame. Cửa sổ cuối 1080–1350 có 271 frame cấp phép, không lost.
+  Trong cửa sổ đầu/giữa vẫn có mốc đánh giá >1 m giữa checkpoint; không coi
+  trạng thái cấp phép là mọi frame chính xác. Chưa chạy chỉ số cầu thủ.
+- Hai fixture mới `vid1_11f23eea_recalibrated*.json` trong `docs/fixtures/`,
+  báo cáo `CV_RECALIBRATION.md`, artifact cục bộ `recalibration_check/`.
+  Đã tạo/kiểm tra cấu hình chỉ đoạn cuối để thử tích hợp tiếp theo. Giữ các
+  bộ cũ. Toàn bộ 99 test qua, 1 network test deselected, cảnh báo Starlette cũ.
+- Việc tiếp theo: tích hợp tracking/phân đội/tọa độ/heatmap trên phạm vi
+  đoạn cuối, kiểm tra ID/điểm chân/noise; chưa nghiệm thu tốc độ/quãng đường,
+  chưa chuyển bước 5 hoặc tuyên bố toàn clip đạt.
 
 ## Quyết định đã chốt
 
