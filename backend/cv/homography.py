@@ -62,7 +62,8 @@ def refined_matrix_for(image_points, pitch_points, extra_image_points, extra_pit
 
 
 class PitchCalibration:
-    def __init__(self, source: Path, path: Path, width: int, height: int, compensate_camera=False):
+    def __init__(self, source: Path, path: Path, width: int, height: int, compensate_camera=False,
+                 landmark_checks: Path | None = None):
         payload = json.loads(path.read_text(encoding="utf-8"))
         with source.open("rb") as stream:
             digest = hashlib.file_digest(stream, "sha256").hexdigest()
@@ -93,6 +94,14 @@ class PitchCalibration:
         if compensate_camera:
             from backend.cv.camera_motion import CameraMotion
             self.motion = CameraMotion()
+        self.guard = None
+        self.projection_verified = False
+        if landmark_checks is not None:
+            if not compensate_camera:
+                raise ValueError("Landmark checks require camera compensation")
+            from backend.cv.landmark_guard import LandmarkGuard
+            self.guard = LandmarkGuard(landmark_checks, digest, width, height,
+                                       [(start, stop) for _, start, stop, _ in self.segments])
 
     def prepare(self, frame_index, image, boxes):
         if self.motion is None:
@@ -100,14 +109,28 @@ class PitchCalibration:
         self.motion_frame = frame_index
         for _, start, stop, matrix in self.segments:
             if start <= frame_index < stop:
-                return self.motion.update(image, boxes, anchor=matrix if frame_index == start else None)
+                if self.guard is not None and frame_index == start:
+                    self.guard.start_segment(start)
+                quality = self.motion.update(image, boxes, anchor=matrix if frame_index == start else None)
+                self.projection_verified = self.guard is None
+                if self.guard is not None and self.motion.matrix is not None:
+                    check = self.guard.check(frame_index, self.motion.matrix)
+                    quality["landmark_check"] = check
+                    self.projection_verified = check["status"] == "verified"
+                    if check["status"] == "pending":
+                        quality["status"] = "awaiting_landmark_check"
+                    if check["status"] == "lost":
+                        quality.update(status="lost", reason=check["reason"])
+                        self.motion.failed = True
+                        self.motion.matrix = self.motion.previous = self.motion.mask = None
+                return quality
         return {"status": "uncalibrated"}
 
     def project(self, frame, fps, track_id, team, box):
         for index, start, stop, matrix in self.segments:
             if start <= frame < stop:
                 if self.motion is not None:
-                    if self.motion_frame != frame or self.motion.matrix is None:
+                    if self.motion_frame != frame or self.motion.matrix is None or not self.projection_verified:
                         return None
                     matrix = self.motion.matrix
                 # Foot contact proxy: bottom centre, never box centre.

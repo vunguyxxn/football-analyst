@@ -23,6 +23,7 @@ def track_video(
     calibration: Path | None = None,
     pitch_output: Path | None = None,
     compensate_camera: bool = False,
+    landmark_checks: Path | None = None,
 ) -> dict[str, object]:
     """Write an annotated silent MP4, processing one frame at a time.
 
@@ -51,6 +52,8 @@ def track_video(
         raise ValueError("pitch_output must be a new directory")
     if compensate_camera and calibration is None:
         raise ValueError("Camera compensation requires manual calibration")
+    if landmark_checks is not None and not compensate_camera:
+        raise ValueError("Landmark checks require --compensate-camera")
 
     # Keep CV dependencies optional for the existing StatsBomb backend.
     import cv2
@@ -92,7 +95,7 @@ def track_video(
             from backend.cv.homography import PitchCalibration
             from backend.cv.pitch_metrics import PitchMetrics
 
-            projection = PitchCalibration(source, calibration, width, height, compensate_camera)
+            projection = PitchCalibration(source, calibration, width, height, compensate_camera, landmark_checks)
             if any(stop > int(capture.get(cv2.CAP_PROP_FRAME_COUNT)) for _, _, stop, _ in projection.segments):
                 raise ValueError("Calibration range exceeds video length")
             metrics = PitchMetrics(fps)
@@ -198,6 +201,8 @@ def track_video(
         report = metrics.report()
         report["source"] = str(source)
         report["camera_compensation"] = compensate_camera
+        if projection.guard is not None:
+            report["landmark_checks"] = projection.guard.payload
         report["calibration"] = json.loads(calibration.read_text(encoding="utf-8"))
         (pitch_output / "metrics.json").write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
         summary["pitch_output"] = str(pitch_output)
@@ -218,6 +223,7 @@ def main() -> None:
     parser.add_argument("--calibration", type=Path, help="Manual frame-scoped homography JSON")
     parser.add_argument("--pitch-output", type=Path, help="New directory for TrackingRow JSONL and metrics JSON")
     parser.add_argument("--compensate-camera", action="store_true", help="Track ground motion after each manual anchor; stop on quality loss")
+    parser.add_argument("--landmark-checks", type=Path, help="Scheduled manual reference checks; block coordinates until verified, on drift or expiry")
     args = parser.parse_args()
     try:
         result = track_video(
@@ -227,6 +233,7 @@ def main() -> None:
             team_samples=args.team_samples,
             calibration=args.calibration, pitch_output=args.pitch_output,
             compensate_camera=args.compensate_camera,
+            landmark_checks=args.landmark_checks,
         )
     except (ValueError, FileNotFoundError, RuntimeError, ImportError) as error:
         parser.exit(1, f"Tracking failed: {error}\n")

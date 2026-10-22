@@ -9,6 +9,65 @@ Không thay đổi `TrackingRow`, `MetricItem`, `AnalysisResult` hay API hiện 
 
 ## Chọn điểm
 
+### Kiểm tra độ trôi bằng mốc tay có thời hạn
+
+Thêm `--landmark-checks PATH.json` cùng `--compensate-camera` để bật chế độ
+chặn tọa độ khi chưa có kiểm chứng, sai mốc hoặc quá hạn. Không bật tùy chọn
+này thì giữ chế độ trước, chỉ có kiểm tra optical flow/RANSAC.
+
+File riêng có `source_sha256`, `image_size`, `max_error_m` (mặc định 1,0),
+`max_gap_frames` (mặc định 30) và `checkpoints`. Mỗi checkpoint có `frame`,
+`image_points`, `pitch_points` chứa ít nhất 2 cặp khác nhau. Frame phải nằm
+trong phạm vi hiệu chỉnh và sau frame mốc đầu, không trùng. Đây là nhãn tay
+trên frame hiện tại, không phải điểm do optical flow tự dự đoán.
+
+```json
+{
+  "source_sha256": "SHA256_THUC_CUA_VIDEO",
+  "image_size": [1280, 720],
+  "max_error_m": 1.0,
+  "max_gap_frames": 30,
+  "checkpoints": [
+    {"frame": 15,
+     "image_points": [[400, 290], [420, 380]],
+     "pitch_points": [[52.5, 43.15], [52.5, 24.85]]}
+  ]
+}
+```
+
+Ví dụ trên chỉ minh họa định dạng; không dùng các pixel giả định đó cho clip
+thật. Các mốc phải nhìn thấy và do người gán nhãn xác định đúng trên từng
+frame, không được điền bằng tọa độ ảnh suy ngược từ chính homography.
+
+- Từ đầu mỗi segment: `awaiting_landmark_check`, không xuất TrackingRow.
+  Camera vẫn cập nhật để có phép chiếu tại lần kiểm tra đầu.
+- Tại checkpoint: chiếu các pixel tham chiếu bằng ma trận hiện tại, lấy sai
+  số Euclid theo mét với vị trí sân đã gán nhãn. Dùng **lỗi lớn nhất**, không
+  dùng trung bình che một mốc sai. Không fit lại ma trận bằng các điểm này.
+- Đạt ngưỡng: được xuất tọa độ đến khi số frame từ lần xác minh gần nhất
+  vượt `max_gap_frames`. Phải có lần đầu trong cùng thời hạn kể từ mốc đầu.
+- Vượt sai số: `lost / landmark_drift_exceeded`; quá hạn:
+  `lost / landmark_check_expired`. Xóa phép chiếu, không tự khôi phục nhờ
+  checkpoint đến muộn. Segment với mốc tay mới mới có thể bắt đầu lại,
+  sau đó tiếp tục chờ checkpoint xác minh của segment mới.
+- Lỗi projection không hữu hạn hoặc mất optical flow cũng chặn tọa độ.
+  Video vẫn ghi đủ; log `camera_quality.jsonl` có `landmark_check` và lỗi
+  từng mốc tại lần kiểm tra. `metrics.json` lưu cấu hình mốc đã dùng.
+
+Thử với fixture nhãn cũ được chuyển thành mốc kiểm tra khi chạy:
+
+```powershell
+.\.venv\Scripts\python.exe -m backend.cv.track_video data/processed/clip_11f23eea/vid1_11f23eea_clean.mp4 data/processed/clip_11f23eea/guarded_full.mp4 --weights data/raw/yolo11n.pt --device 0 --image-size 1280 --calibration docs/fixtures/vid1_11f23eea_homography_segments.json --pitch-output data/processed/clip_11f23eea/guarded_full --compensate-camera --landmark-checks docs/fixtures/vid1_11f23eea_landmark_checks.json
+```
+
+Fixture thật dùng ngưỡng 1 m, thời hạn 90 frame (1,5 giây ở 60 FPS); cả ba
+đoạn bị từ chối ở checkpoint đầu. Không có tọa độ nào được xuất trong lượt
+replay 905 frame. Không tự nới ngưỡng để tăng coverage. Chi tiết tại
+`CV_LANDMARK_GUARD.md`. Đây là cơ chế kiểm chứng bằng **nhãn tay theo lịch**,
+chưa tự nhận diện mốc/vạch sân, chưa sửa sai số và không bảo đảm sai số giữa
+hai checkpoint. Mốc dùng để kiểm chứng khi chạy không còn là tập kiểm tra
+độc lập để công bố độ chính xác.
+
 ### Điểm ràng buộc phụ để giảm sai số hiệu chỉnh
 
 Mặc định vẫn chọn 4 điểm. Khi 4 mốc ở xa hoặc giao điểm khó chọn chính xác,

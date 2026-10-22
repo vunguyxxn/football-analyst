@@ -84,6 +84,10 @@ nguồn cũ `fa6ea680`, không dùng fixture cũ cho file mới cùng tên.
   Sai số mốc theo đoạn trung bình 0,64 / 1,36 / 0,50 m, max tới 3,28 m dù
   tracked; chưa chạy toàn clip để nghiệm thu chỉ số. Chi tiết tại
   `CV_HOMOGRAPHY_MULTI_CHECK.md`. Người dùng chốt tiếp tục dùng 105 × 68 m.
+- Đã thêm `--landmark-checks`: mốc tay có thời hạn, chặn tọa độ trước kiểm
+  chứng, khi lệch mốc hoặc hết hạn. Replay 905 frame chặn cả ba đoạn ở
+  checkpoint đầu (lỗi 2,91 / 3,15 / 1,56 m); không xuất tọa độ nào. Chưa sửa
+  sai số hoặc tự tìm mốc sân. Chi tiết tại `CV_LANDMARK_GUARD.md`.
 
 ## Vấn đề tồn đọng
 
@@ -334,6 +338,28 @@ nguồn cũ `fa6ea680`, không dùng fixture cũ cho file mới cùng tên.
 - Kiểm tra fixture, stress assertions, giải mã ba video; toàn bộ 73 test
   qua, 1 network test deselected, cảnh báo Starlette cũ. Cần xử lý sai số
   hiệu chỉnh/trôi tuyệt đối trước nghiệm thu quãng đường/tốc độ.
+
+## Kiểm tra độ trôi bằng checkpoint tay — 22/10/2026
+
+- Thêm `backend/cv/landmark_guard.py`, tích hợp tùy chọn `--landmark-checks`
+  vào PitchCalibration/CLI. File kiểm chứng tách khỏi hiệu chỉnh; kiểm tra
+  nguồn, kích thước, phạm vi, cặp mốc; không fit lại từ nhãn kiểm chứng.
+- Trước lần xác minh đầu không xuất tọa độ. Vượt ngưỡng sai số lớn nhất,
+  projection không hữu hạn hoặc quá hạn thì lost, xóa ma trận và khóa tới
+  mốc tay mới; mốc mới tiếp tục chờ xác minh. Mặc định 1 m / 30 frame.
+- Replay ba đoạn 905 frame, dùng ngưỡng 1 m / 90 frame, optical flow tính
+  lại bằng bbox YOLO cache cũ. Các nhãn khảo sát cũ đã chuyển thành runtime
+  checkpoints, không còn là tập kiểm tra độc lập. Lỗi đầu 2,91 / 3,15 /
+  1,56 m đều bị chặn; 225 frame chờ, 680 lost, 0 tọa độ được xuất. Đủ 905
+  frame video diagnostic. Chưa sửa sai số hoặc tự nhận diện mốc/vạch sân.
+- Fixture `docs/fixtures/vid1_11f23eea_landmark_checks.json`, hướng dẫn và
+  giới hạn tại `CV_LANDMARK_GUARD.md`. Artifact tại thư mục cục bộ
+  `data/processed/clip_11f23eea/landmark_guard_check/`, không commit media.
+- Toàn bộ 99 test qua, 1 network test deselected; cảnh báo Starlette cũ.
+  Test tích hợp chỉ cho phép output trong cửa sổ kiểm chứng hợp lệ; mặc
+  định không bật guard vẫn hồi quy qua. Không đổi hợp đồng/API/dependency.
+- Tiếp tục cải thiện hiệu chỉnh các đoạn bị chặn, chọn bộ đánh giá mới;
+  chưa nghiệm thu tốc độ/quãng đường và chưa chuyển bước 5.
 
 ## Quyết định đã chốt
 
