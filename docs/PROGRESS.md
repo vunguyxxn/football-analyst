@@ -67,10 +67,10 @@ nguồn cũ `fa6ea680`, không dùng fixture cũ cho file mới cùng tên.
 
 - Nhóm rà soát nhãn/box mẫu bước 3, nhất là áo thủ môn và người ngoài sân;
   mở rộng đánh giá sang clip khác trước khi dùng số liệu trong báo cáo.
-- Bước 4 đã triển khai chức năng và kiểm thử bằng dữ liệu kiểm soát (chi tiết
-  bên dưới). Cần clip camera cố định, chọn 4 điểm và kiểm tra mốc độc lập để
-  nghiệm thu sai số thực tế; clip hiện tại vẫn lia máy, không dùng một
-  homography cố định xuyên suốt 30 giây. Chưa chuyển sang bước 5.
+- Bước 4 đã triển khai chức năng và kiểm thử bằng dữ liệu kiểm soát. Người
+  dùng đã cho phép mở rộng bù chuyển động camera sau hiệu chỉnh tay, không
+  yêu cầu video camera cố định. Cần chọn mốc và đối chiếu sai số độc lập
+  trên clip lia máy thực tế. Chưa chuyển sang bước 5.
 
 ## Vấn đề tồn đọng
 
@@ -231,6 +231,31 @@ nguồn cũ `fa6ea680`, không dùng fixture cũ cho file mới cùng tên.
   chưa nghiệm thu độ chính xác thực địa.
 - Toàn bộ kiểm thử: 54 passed, 1 network test deselected; còn cảnh báo
   Starlette TestClient đã có. Không thay đổi mã frontend.
+
+## Bổ sung bù chuyển động camera bước 4 — 22/10/2026
+
+- Người dùng xác nhận thay đổi phạm vi: hỗ trợ camera lia sau hiệu chỉnh tay.
+  Cập nhật ROADMAP: vẫn không tự tìm mốc/khởi tạo homography hoàn toàn tự động.
+- Thêm `backend/cv/camera_motion.py`, tùy chọn CLI `--compensate-camera`.
+  Theo dõi đặc trưng mặt sân bằng optical flow hai chiều, loại bbox person
+  trước ByteTrack, fit homography RANSAC và cập nhật phép chiếu từng frame.
+- Kiểm tra số/tỷ lệ inlier, phân bố không gian, sai số, mức thay đổi hình học;
+  chuỗi tối đa 300 bước frame giữa hai mốc tay. Đây là ngưỡng heuristic,
+  không đảm bảo phát hiện mọi chuyển cảnh hoặc sai lệch tích lũy.
+- Khi mất chất lượng, dừng xuất tọa độ tới segment hiệu chỉnh tay tiếp theo;
+  không tự nối bằng ma trận cũ. Video vẫn ghi đủ, hiển thị trạng thái; thêm
+  `camera_quality.jsonl` để tìm frame cần hiệu chỉnh lại. Giữ TrackingRow/API,
+  không thêm dependency; vẫn xử lý từng frame, giữ hai ảnh xám thay vì cả clip.
+- Test pan/zoom tổng hợp đối chiếu điểm mặt sân đứng yên; mặt nạ người/sân,
+  mất đặc trưng/chuyển sang ảnh đen, khóa trạng thái mất dấu, mốc mới phục hồi,
+  hết chuỗi 300 bước. Test tích hợp kiểm tra video ghi đủ và tọa độ ngừng khi
+  mất hiệu chỉnh. Toàn bộ: 64 passed, 1 network test deselected; còn cảnh báo
+  Starlette TestClient đã có.
+- Chưa có hiệu chỉnh tay/mốc kiểm tra độc lập cho clip thật: chưa công bố
+  sai số mét, tốc độ hoặc quãng đường cho clip đang lia. Bước tiếp theo là
+  chọn các mốc tay cho bản cắt hiện tại, chạy chế độ mới, xem quality và
+  kiểm tra vị trí mốc sân ở nhiều frame để đánh giá trôi. Không yêu cầu đổi
+  sang camera cố định. Hướng dẫn cập nhật tại `docs/CV_HOMOGRAPHY.md`.
 
 ## Quyết định đã chốt
 

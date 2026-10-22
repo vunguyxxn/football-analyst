@@ -2,10 +2,59 @@
 
 Đã có công cụ chọn tay 4 điểm và pipeline xuất tọa độ, quãng đường quan sát,
 tốc độ, heatmap dạng JSON. Chưa nghiệm thu độ chính xác trên video thật:
-`vid1.mp4` hiện tại có lia máy. Không dùng một ma trận cố định cho toàn clip đó.
+`vid1.mp4` hiện tại có lia máy. Đã bổ sung tùy chọn bù chuyển động camera sau
+hiệu chỉnh tay theo phạm vi được người dùng xác nhận ngày 22/10/2026.
+Không dùng một ma trận cố định cho toàn clip đó.
 Không thay đổi `TrackingRow`, `MetricItem`, `AnalysisResult` hay API hiện có.
 
 ## Chọn điểm
+
+### Camera lia: chế độ mới
+
+Dùng cùng công cụ chọn điểm trên **frame đầu mỗi đoạn hiệu chỉnh tay** rồi
+thêm `--compensate-camera` khi chạy `backend.cv.track_video`. Không cần camera
+cố định trong đoạn này. Bốn mốc phải nhìn thấy tại frame đầu, có tọa độ biết
+trước, không nhất thiết nhìn thấy liên tục. Các lệnh `fixed.mp4` phía dưới
+chỉ minh họa chế độ cũ; chế độ mới dùng video lia thực tế của nhóm.
+
+Sau mỗi mốc tay, dùng đặc trưng Shi–Tomasi trên vùng cỏ thuộc sân đã hiệu
+chỉnh, loại bbox person YOLO (gồm cả detection chưa có track ID, nới 12 px).
+Optical flow Lucas–Kanade hai chiều loại cặp lệch > 1 px. Homography RANSAC
+ước lượng phép biến đổi ảnh trước → ảnh sau; phép chiếu mới bằng phép chiếu
+cũ nhân nghịch đảo biến đổi này. Không dùng chuyển động cầu thủ để suy ra
+chuyển động camera. Mặt nạ màu cỏ là heuristic, vẫn có thể lọt người hoặc
+overlay, và bỏ mất đặc trưng hữu ích trên vạch trắng.
+
+Ngưỡng hiện tại: ít nhất 20 inlier, tỷ lệ >= 70%, diện tích bao điểm >= 3%
+ảnh, sai số median <= 1,5 px; tỷ lệ diện tích ảnh sau biến đổi trong khoảng
+0,8–1,25, góc ảnh dịch < 15% cạnh lớn nhất mỗi frame. Mỗi chuỗi tự động tối
+đa 300 bước frame, sau đó yêu cầu mốc tay mới để hạn chế tích lũy trôi.
+Đây là ngưỡng kỹ thuật baseline, chưa được hiệu chỉnh/đánh giá độc lập trên
+nhiều trận, không phải độ tin cậy xác suất hay chứng nhận sai số theo mét.
+
+Khi thiếu đặc trưng, cảnh cắt hoặc biến đổi không qua ngưỡng: trạng thái
+`lost`, ngừng xuất tọa độ/chỉ số và **không tự khôi phục bằng ma trận cũ**.
+Đến `start_frame` của segment tiếp theo mới dùng bộ 4 điểm tay mới. Không
+nối quãng đường giữa hai segment. Trạng thái được vẽ trên video và ghi từng
+frame ở `camera_quality.jsonl`: `manual_anchor`, `tracked`, `lost`, hoặc
+`uncalibrated`. Kiểm tra frame đầu có trạng thái lost để chọn lại mốc từ
+frame đó hoặc trước đó; kết hợp các đoạn đã chọn trong file calibration,
+rồi chạy lại với đầu ra mới. Không cần sửa video gốc.
+
+Mẫu lệnh sau khi đã tạo calibration đúng nguồn bản cắt hiện tại:
+
+```powershell
+.\.venv\Scripts\python.exe -m backend.cv.track_video data/processed/clip_11f23eea/vid1_11f23eea_clean.mp4 data/processed/clip_11f23eea/moving_pitch.mp4 --weights data/raw/yolo11n.pt --device 0 --image-size 1280 --team-samples docs/fixtures/vid1_11f23eea_team_samples.json --calibration data/processed/clip_11f23eea/calibration.json --pitch-output data/processed/clip_11f23eea/moving_pitch --compensate-camera
+```
+
+`calibration.json` chưa có mốc thực địa đã xác minh; cần chọn tay, không tự
+đoán tọa độ sân từ 4 điểm ảnh tùy ý. Test pan/zoom nhân tạo kiểm tra tính đúng
+phép ghép và cơ chế mất dấu; chưa thay thế nghiệm thu sai số trên video thật.
+Chuyển cảnh có thể qua lọt ngưỡng, tích lũy trôi và parallax vẫn có thể xảy
+ra dù báo `tracked`. Cần đối chiếu mốc sân độc lập trong từng đoạn trước khi
+dùng tốc độ/quãng đường cho báo cáo. Không tuyên bố hỗ trợ mọi góc quay/zoom.
+
+### Camera cố định: chế độ cũ
 
 Chọn 4 giao điểm vạch sân biết tọa độ mét, phân bố rộng, không có ba điểm
 thẳng hàng. Không cần là bốn góc toàn sân, nhưng phải biết chính xác vị trí
@@ -32,7 +81,8 @@ thứ tự và không chồng lấn. Mỗi đoạn phải giữ camera cố đ�
 xử lý 10 giây không tự động là ranh giới hiệu chỉnh hợp lệ. Khi camera đang
 lia/zoom liên tục, chia mỗi 10 giây vẫn không giải quyết sai số; cần video
 cố định hoặc hiệu chỉnh dày hơn đã kiểm chứng. Chưa có nội suy/ước lượng
-chuyển động camera tự động.
+chuyển động camera tự động trong chế độ cũ; bật `--compensate-camera` để dùng
+baseline bù camera mô tả ở trên.
 
 ## Chạy pipeline
 

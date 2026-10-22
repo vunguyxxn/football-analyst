@@ -35,7 +35,7 @@ def test_existing_output_is_not_overwritten(tmp_path):
 
 @pytest.mark.parametrize("has_detection", [True, False])
 @pytest.mark.parametrize("team_mode", [True, False])
-@pytest.mark.parametrize("pitch_mode", [True, False])
+@pytest.mark.parametrize("pitch_mode", [True, False, "moving"])
 def test_video_round_trip_preserves_ids_across_chunks(tmp_path, monkeypatch, has_detection, team_mode, pitch_mode):
     """Use real codec and ByteTrack with deterministic detector boxes."""
     cv2 = pytest.importorskip("cv2")
@@ -76,7 +76,9 @@ def test_video_round_trip_preserves_ids_across_chunks(tmp_path, monkeypatch, has
 
         def predict(self, frame, **kwargs):
             assert kwargs["classes"] == [0]
-            return [object()]
+            pixels = np.array([[20, 10, 40, 50], [55, 10, 75, 50]], dtype=np.float32)
+            return [SimpleNamespace(boxes=SimpleNamespace(xyxy=SimpleNamespace(
+                cpu=lambda: SimpleNamespace(numpy=lambda: pixels)) ))]
 
     monkeypatch.setitem(sys.modules, "ultralytics", SimpleNamespace(YOLO=Detector))
     monkeypatch.setattr(sv.ByteTrack, "update_with_detections", update)
@@ -95,17 +97,23 @@ def test_video_round_trip_preserves_ids_across_chunks(tmp_path, monkeypatch, has
     summary = track_video(source, output, weights, device="cpu", chunk_seconds=0.5,
                           team_samples=tmp_path / "samples.json" if team_mode else None,
                           calibration=calibration if pitch_mode else None,
-                          pitch_output=tmp_path / "pitch" if pitch_mode else None)
+                          pitch_output=tmp_path / "pitch" if pitch_mode else None,
+                          compensate_camera=pitch_mode == "moving")
     from backend.common.schemas import TrackingRow
     if pitch_mode:
         rows = [TrackingRow.model_validate_json(line) for line in
                 (tmp_path / "pitch/tracking.jsonl").read_text().splitlines()]
-        assert len(rows) == 46*int(has_detection)
+        assert len(rows) == (2 if pitch_mode == "moving" else 46)*int(has_detection)
         assert summary["projected_rows"] == len(rows)
         assert all(0 <= row.x_m <= 105 and 0 <= row.y_m <= 68 for row in rows)
         report = json.loads((tmp_path / "pitch/metrics.json").read_text())
         assert len(report["tracks"]) == 2*int(has_detection)
         assert all(track["distance_m"] == 0 for track in report["tracks"])
+        if pitch_mode == "moving":
+            quality = [json.loads(line) for line in (tmp_path / "pitch/camera_quality.jsonl").read_text().splitlines()]
+            assert len(quality) == 23
+            assert quality[0]["status"] == "manual_anchor"
+            assert all(item["status"] == "lost" for item in quality[1:])
     else:
         assert "pitch_output" not in summary
         assert not (tmp_path / "pitch").exists()

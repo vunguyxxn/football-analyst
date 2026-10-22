@@ -31,7 +31,7 @@ def matrix_for(image_points, pitch_points):
 
 
 class PitchCalibration:
-    def __init__(self, source: Path, path: Path, width: int, height: int):
+    def __init__(self, source: Path, path: Path, width: int, height: int, compensate_camera=False):
         payload = json.loads(path.read_text(encoding="utf-8"))
         with source.open("rb") as stream:
             digest = hashlib.file_digest(stream, "sha256").hexdigest()
@@ -51,10 +51,28 @@ class PitchCalibration:
             end = stop
         if not self.segments:
             raise ValueError("At least one calibrated range required")
+        self.motion = None
+        self.motion_frame = None
+        if compensate_camera:
+            from backend.cv.camera_motion import CameraMotion
+            self.motion = CameraMotion()
+
+    def prepare(self, frame_index, image, boxes):
+        if self.motion is None:
+            return {"status": "static"}
+        self.motion_frame = frame_index
+        for _, start, stop, matrix in self.segments:
+            if start <= frame_index < stop:
+                return self.motion.update(image, boxes, anchor=matrix if frame_index == start else None)
+        return {"status": "uncalibrated"}
 
     def project(self, frame, fps, track_id, team, box):
         for index, start, stop, matrix in self.segments:
             if start <= frame < stop:
+                if self.motion is not None:
+                    if self.motion_frame != frame or self.motion.matrix is None:
+                        return None
+                    matrix = self.motion.matrix
                 # Foot contact proxy: bottom centre, never box centre.
                 point = matrix @ np.array([(box[0]+box[2])/2, box[3], 1.0])
                 if abs(point[2]) < 1e-9:
@@ -72,7 +90,7 @@ def main():
     parser.add_argument("source", type=Path)
     parser.add_argument("output", type=Path)
     parser.add_argument("--frame", type=int, required=True)
-    parser.add_argument("--end-frame", type=int, required=True, help="Exclusive; camera must stay fixed throughout range")
+    parser.add_argument("--end-frame", type=int, required=True, help="Exclusive; use --compensate-camera in tracking for moving camera")
     parser.add_argument("--pitch-points", required=True, help='JSON e.g. [[0,0],[105,0],[105,68],[0,68]]')
     args = parser.parse_args()
     if args.output.exists() or args.output.resolve() == args.source.resolve():

@@ -22,6 +22,7 @@ def track_video(
     team_samples: Path | None = None,
     calibration: Path | None = None,
     pitch_output: Path | None = None,
+    compensate_camera: bool = False,
 ) -> dict[str, object]:
     """Write an annotated silent MP4, processing one frame at a time.
 
@@ -48,6 +49,8 @@ def track_video(
         raise ValueError("calibration and pitch_output must be supplied together")
     if pitch_output is not None and pitch_output.exists():
         raise ValueError("pitch_output must be a new directory")
+    if compensate_camera and calibration is None:
+        raise ValueError("Camera compensation requires manual calibration")
 
     # Keep CV dependencies optional for the existing StatsBomb backend.
     import cv2
@@ -71,6 +74,7 @@ def track_video(
     capture = cv2.VideoCapture(str(source))
     writer = None
     pitch_stream = None
+    camera_stream = None
     projection = metrics = None
     projected_rows = 0
     frames = chunks = 0
@@ -88,12 +92,14 @@ def track_video(
             from backend.cv.homography import PitchCalibration
             from backend.cv.pitch_metrics import PitchMetrics
 
-            projection = PitchCalibration(source, calibration, width, height)
+            projection = PitchCalibration(source, calibration, width, height, compensate_camera)
             if any(stop > int(capture.get(cv2.CAP_PROP_FRAME_COUNT)) for _, _, stop, _ in projection.segments):
                 raise ValueError("Calibration range exceeds video length")
             metrics = PitchMetrics(fps)
             pitch_output.mkdir(parents=True, exist_ok=False)
             pitch_stream = (pitch_output / "tracking.jsonl").open("x", encoding="utf-8")
+            if compensate_camera:
+                camera_stream = (pitch_output / "camera_quality.jsonl").open("x", encoding="utf-8")
         chunk_frames = max(1, round(chunk_seconds * fps))
         tracker = sv.ByteTrack(frame_rate=max(1, round(fps)))
         boxes = sv.BoxAnnotator()
@@ -126,6 +132,9 @@ def track_video(
                 roles = ([classifier.predict(frame, box.tolist()) for box in detections.xyxy]
                          if classifier is not None else ["unknown"] * len(detections))
                 if projection is not None:
+                    quality = projection.prepare(frames, frame, result.boxes.xyxy.cpu().numpy() if compensate_camera else detections.xyxy)
+                    if camera_stream is not None:
+                        camera_stream.write(json.dumps({"frame": frames, **quality}) + "\n")
                     for box, track_id, role in zip(detections.xyxy, detections.tracker_id, roles):
                         projected = projection.project(frames, fps, track_id, role, box)
                         if projected is not None:
@@ -133,6 +142,10 @@ def track_video(
                             pitch_stream.write(row.model_dump_json() + "\n")
                             metrics.observe(segment, row)
                             projected_rows += 1
+                    if compensate_camera:
+                        cv2.putText(frame, f"Pitch: {quality['status']}", (20, 35),
+                                    cv2.FONT_HERSHEY_SIMPLEX, .8,
+                                    (0, 200, 0) if quality["status"] in ("tracked", "manual_anchor") else (0, 0, 255), 2)
                 if classifier is None:
                     annotated = boxes.annotate(scene=frame, detections=detections)
                     annotated = labels.annotate(
@@ -167,6 +180,8 @@ def track_video(
             writer.release()
         if pitch_stream is not None:
             pitch_stream.close()
+        if camera_stream is not None:
+            camera_stream.close()
         if not frames and output.is_file():
             output.unlink()
 
@@ -182,6 +197,7 @@ def track_video(
     if metrics is not None:
         report = metrics.report()
         report["source"] = str(source)
+        report["camera_compensation"] = compensate_camera
         report["calibration"] = json.loads(calibration.read_text(encoding="utf-8"))
         (pitch_output / "metrics.json").write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
         summary["pitch_output"] = str(pitch_output)
@@ -201,6 +217,7 @@ def main() -> None:
     parser.add_argument("--team-samples", type=Path, help="Clip-specific calibration/evaluation annotations")
     parser.add_argument("--calibration", type=Path, help="Manual frame-scoped homography JSON")
     parser.add_argument("--pitch-output", type=Path, help="New directory for TrackingRow JSONL and metrics JSON")
+    parser.add_argument("--compensate-camera", action="store_true", help="Track ground motion after each manual anchor; stop on quality loss")
     args = parser.parse_args()
     try:
         result = track_video(
@@ -209,6 +226,7 @@ def main() -> None:
             image_size=args.image_size,
             team_samples=args.team_samples,
             calibration=args.calibration, pitch_output=args.pitch_output,
+            compensate_camera=args.compensate_camera,
         )
     except (ValueError, FileNotFoundError, RuntimeError, ImportError) as error:
         parser.exit(1, f"Tracking failed: {error}\n")
