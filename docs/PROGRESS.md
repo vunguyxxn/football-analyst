@@ -7,8 +7,9 @@ Backend nạp StatsBomb Open Data, chuẩn hóa sự kiện và cung cấp pass 
 frontend có shell điều hướng, sân SVG và trang phân tích trận. Chưa triển khai
 xG, sơ đồ đội hình hoặc advisor.
 
-Bước 2 đã có CLI YOLO + ByteTrack xử lý video từng đoạn, chạy được trên clip
-thật `data/raw/vid1.mp4` bằng CPU. Chưa hoàn tất nghiệm thu bước 2 trên CUDA.
+Bước 2 đã triển khai và nghiệm thu chức năng CLI YOLO + ByteTrack xử lý video
+từng đoạn trên clip thật `data/raw/vid1.mp4`, chạy được cả CPU và CUDA 12.8 trên
+RTX 3050 6GB. Chưa đo độ chính xác tracking bằng dữ liệu gán nhãn.
 
 ## Đã làm
 
@@ -52,14 +53,15 @@ thật `data/raw/vid1.mp4` bằng CPU. Chưa hoàn tất nghiệm thu bước 2 
 
 ## Việc tiếp theo
 
-- Hoàn tất cài PyTorch CUDA 12.8 và chạy lại bước 2 trên RTX 3050.
-- Sau nghiệm thu bước 2, tiếp tục phân loại đội theo màu áo ở bước 3.
+- Bước 3: phân loại đội theo màu áo (K-means), loại trọng tài và đo độ chính
+  xác trên mẫu gán nhãn tay.
 
 ## Vấn đề tồn đọng
 
 - Chưa có xG, sơ đồ đội hình hoặc advisor; tracking CV mới ở baseline bước 2.
-- Không có lỗi tồn đọng trong phạm vi bước 0. Môi trường CV đang được cài ở
-  bước 2; PyTorch CPU hoạt động, chưa xác nhận PyTorch/CUDA.
+- Môi trường PyTorch/CUDA đã hoạt động. Tracking có thể mất/đổi ID khi che
+  khuất, zoom hoặc chuyển cảnh; chưa đo IDF1 hay xác nhận định danh cầu thủ
+  xuyên suốt clip.
 
 ## Phiên triển khai bước 2 — 22/10/2026
 
@@ -87,12 +89,32 @@ thật `data/raw/vid1.mp4` bằng CPU. Chưa hoàn tất nghiệm thu bước 2 
   cũng có thể phát hiện trọng tài/người ngoài sân.
 - Kết quả đối chiếu nằm ở `data/processed/vid1_tracking_validation.json` và
   ảnh `vid1_tracked_frame_{0,499,500,866}.jpg` (dữ liệu cục bộ, không commit).
-- Tải wheel CUDA 12.8 từ nguồn chính thức quá chậm; đã tạm dừng và lưu tiến độ
-  cục bộ tại `.tmp/torch-download.json`. Có thể tiếp tục bằng
-  `.\.venv\Scripts\python.exe -B .tmp/download_torch.py` trong workspace này;
-  script kiểm tra SHA256 chính thức khi tải xong. `.tmp` không được commit;
-  checkout khác dùng hướng dẫn cài đặt trong `docs/CV_TRACKING.md`.
-- Chưa xác nhận inference GPU, chưa đánh dấu hoàn tất bước 2.
+- Ban đầu tải wheel CUDA 12.8 chậm nên tạm dùng CPU; sau đó người dùng đã tải
+  xong, script xác minh SHA256 thành công. Kết quả GPU được ghi bên dưới.
+
+## Nghiệm thu CUDA bước 2 — 22/10/2026
+
+- Người dùng đã xem video CPU và xác nhận khung bám người.
+- Kiểm tra lại SHA256 wheel PyTorch từ nguồn chính thức trước khi cài; cài
+  `torch 2.8.0+cu128`, `torchvision 0.23.0+cu128` từ wheel cục bộ.
+- `pip check`: không có dependency lỗi. `torch.cuda.is_available()` trả True,
+  CUDA runtime 12.8, GPU NVIDIA GeForce RTX 3050 6GB Laptop GPU. Phép nhân ma
+  trận CUDA chạy thành công.
+- Chạy cùng YOLO11 nano, clip `vid1.mp4`, kích thước inference 640 và đoạn
+  10 giây trên device 0: 867 frame, 2 đoạn, tốc độ xử lý toàn pipeline khoảng
+  20,84 FPS. Lần chạy CPU trước khoảng 9 FPS; đây là số đo tham khảo một lượt
+  cho mỗi thiết bị, gồm đọc, inference, tracking, vẽ và ghi video.
+- Đầu ra `data/processed/vid1_tracked_gpu.mp4` đọc lại đủ 867 frame, đúng
+  1920 × 1080 và 50 FPS; video không âm thanh. Đã xem ảnh mẫu frame 499–500:
+  ID 90 và 230 giữ nguyên qua ranh giới đoạn.
+- Thông số chạy tại `data/processed/vid1_tracking_gpu_run.json`, đối chiếu
+  video tại `data/processed/vid1_tracking_gpu_validation.json`, ảnh mẫu tại
+  `data/processed/vid1_gpu_frame_{0,499,500,866}.jpg`; không commit dữ liệu.
+- Test toàn bộ sau khi cài CUDA: 30 passed, 1 network test deselected; còn
+  cảnh báo deprecation Starlette TestClient đã có. Không thay đổi mã nguồn
+  ứng dụng hay hợp đồng dữ liệu trong phiên nghiệm thu này.
+- Hoàn tất nghiệm thu chức năng bước 2; bước tiếp theo là bước 3. Chưa tuyên
+  bố độ chính xác detection/tracking hay định danh cầu thủ xuyên suốt clip.
 
 ## Quyết định đã chốt
 
