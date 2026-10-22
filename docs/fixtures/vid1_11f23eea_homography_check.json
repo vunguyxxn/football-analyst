@@ -1,0 +1,192 @@
+{
+  "source_sha256": "86f6f04ce05ac464269dfa4d831bef0c12c3654acdd2fa3c1b6379f864597b2e",
+  "image_size": [
+    1280,
+    720
+  ],
+  "segments": [
+    {
+      "start_frame": 600,
+      "end_frame": 901,
+      "image_points": [
+        [
+          111,
+          191
+        ],
+        [
+          300,
+          234
+        ],
+        [
+          1016,
+          213
+        ],
+        [
+          1076,
+          636
+        ]
+      ],
+      "pitch_points": [
+        [
+          0,
+          68
+        ],
+        [
+          16.5,
+          54.16
+        ],
+        [
+          52.5,
+          68
+        ],
+        [
+          52.5,
+          0
+        ]
+      ]
+    }
+  ],
+  "annotation_provenance": "Agent visual selection; provisional, not independently reviewed; assumes physical pitch 105x68m.",
+  "geometry_reference": "https://theifab.com/laws/latest/the-field-of-play/",
+  "source": "vid1_11f23eea_clean.mp4",
+  "raw_source_frame_offset": 600,
+  "anchor_point_labels": [
+    "far_left_pitch_corner",
+    "left_penalty_area_front_far_corner",
+    "halfway_far_touchline",
+    "halfway_near_touchline"
+  ],
+  "checks": [
+    {
+      "frame": 600,
+      "label": "circle_far",
+      "image_point": [
+        1027,
+        295
+      ],
+      "pitch_point": [
+        52.5,
+        43.15
+      ],
+      "kind": "held_out_geometry"
+    },
+    {
+      "frame": 600,
+      "label": "circle_near",
+      "image_point": [
+        1040,
+        389
+      ],
+      "pitch_point": [
+        52.5,
+        24.85
+      ],
+      "kind": "held_out_geometry"
+    },
+    {
+      "frame": 750,
+      "label": "circle_far",
+      "image_point": [
+        1041,
+        295
+      ],
+      "pitch_point": [
+        52.5,
+        43.15
+      ],
+      "kind": "held_out_geometry"
+    },
+    {
+      "frame": 750,
+      "label": "circle_near",
+      "image_point": [
+        1054,
+        388
+      ],
+      "pitch_point": [
+        52.5,
+        24.85
+      ],
+      "kind": "held_out_geometry"
+    },
+    {
+      "frame": 900,
+      "label": "circle_far",
+      "image_point": [
+        898,
+        289
+      ],
+      "pitch_point": [
+        52.5,
+        43.15
+      ],
+      "kind": "held_out_geometry"
+    },
+    {
+      "frame": 900,
+      "label": "circle_near",
+      "image_point": [
+        913,
+        382
+      ],
+      "pitch_point": [
+        52.5,
+        24.85
+      ],
+      "kind": "held_out_geometry"
+    },
+    {
+      "frame": 750,
+      "label": "halfway_far",
+      "image_point": [
+        1030,
+        214
+      ],
+      "pitch_point": [
+        52.5,
+        68
+      ],
+      "kind": "temporal_anchor_check"
+    },
+    {
+      "frame": 750,
+      "label": "halfway_near",
+      "image_point": [
+        1085,
+        635
+      ],
+      "pitch_point": [
+        52.5,
+        0
+      ],
+      "kind": "temporal_anchor_check"
+    },
+    {
+      "frame": 900,
+      "label": "halfway_far",
+      "image_point": [
+        886,
+        211
+      ],
+      "pitch_point": [
+        52.5,
+        68
+      ],
+      "kind": "temporal_anchor_check"
+    },
+    {
+      "frame": 900,
+      "label": "halfway_near",
+      "image_point": [
+        948,
+        625
+      ],
+      "pitch_point": [
+        52.5,
+        0
+      ],
+      "kind": "temporal_anchor_check"
+    }
+  ],
+  "check_provenance": "Visual pixel annotations by agent, not independently reviewed. Circle checks excluded from fitting; no algorithm/threshold/calibration tuning after checking."
+}

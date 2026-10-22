@@ -70,7 +70,10 @@ nguồn cũ `fa6ea680`, không dùng fixture cũ cho file mới cùng tên.
 - Bước 4 đã triển khai chức năng và kiểm thử bằng dữ liệu kiểm soát. Người
   dùng đã cho phép mở rộng bù chuyển động camera sau hiệu chỉnh tay, không
   yêu cầu video camera cố định. Cần chọn mốc và đối chiếu sai số độc lập
-  trên clip lia máy thực tế. Chưa chuyển sang bước 5.
+  trên clip lia máy thực tế. Đã thử frame 600–900 bản cắt: bù lia chạy qua
+  300 bước nhưng sai số 6 mốc hình học trung bình 1,20 m, lớn nhất 1,62 m
+  trên nhãn bằng mắt/sân giả định; chưa đạt nghiệm thu chỉ số cầu thủ.
+  Chi tiết tại `CV_HOMOGRAPHY_CHECK.md`. Chưa chuyển sang bước 5.
 
 ## Vấn đề tồn đọng
 
@@ -256,6 +259,25 @@ nguồn cũ `fa6ea680`, không dùng fixture cũ cho file mới cùng tên.
   chọn các mốc tay cho bản cắt hiện tại, chạy chế độ mới, xem quality và
   kiểm tra vị trí mốc sân ở nhiều frame để đánh giá trôi. Không yêu cầu đổi
   sang camera cố định. Hướng dẫn cập nhật tại `docs/CV_HOMOGRAPHY.md`.
+
+## Kiểm tra thực tế bù camera — 22/10/2026
+
+- Kiểm tra bản cắt nguồn hash `86f6f04c`, frame 600–900 (giây 20–25 của
+  video gốc). Chọn 4 mốc tại frame 600 bằng quan sát ảnh; fixture tại
+  `docs/fixtures/vid1_11f23eea_homography_check.json`. Nhãn sơ bộ do agent,
+  chưa có rà soát độc lập; giả định sân 105 × 68 m chưa được xác minh.
+- Chạy YOLO thật CUDA và CameraMotion nguyên trạng: 1 mốc tay + 300 bước
+  tracked, không lost trong đoạn thử. Diagnostic đọc lại đủ 301 frame.
+  Chỉ khảo sát camera/mốc sân, không tính chỉ số chuyển động cầu thủ.
+- 6 điểm vòng tròn không dùng fit: sai số trung bình 1,20 m, max 1,62 m.
+  4 điểm duy trì giao đường biên: trung bình 0,54 m, max 1,02 m. Ngay frame
+  đầu đã có lỗi khoảng 1 m, nên chưa thể quy toàn bộ sai số cho bù camera.
+- Không thay đổi mã thuật toán hay nới ngưỡng. Giữ kết luận chưa nghiệm thu
+  tốc độ/quãng đường; cần rà soát hiệu chỉnh và kiểm tra mới trước toàn clip.
+  Báo cáo/phương pháp/lệnh tại `docs/CV_HOMOGRAPHY_CHECK.md`; media và JSON
+  kết quả ở `data/processed/clip_11f23eea/homography_check_600/`, không commit.
+- Kiểm tra fixture khớp hash/kích thước/range bằng loader hiện có. Test hồi
+  quy toàn bộ 64 passed, 1 network test deselected; cảnh báo Starlette cũ.
 
 ## Quyết định đã chốt
 
