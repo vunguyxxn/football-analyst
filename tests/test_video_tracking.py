@@ -14,7 +14,7 @@ def test_missing_video_is_rejected_before_loading_cv(tmp_path):
 @pytest.mark.parametrize("option", [
     {"chunk_seconds": 0}, {"chunk_seconds": float("nan")},
     {"confidence": 0}, {"confidence": float("nan")}, {"image_size": 31},
-    {"landmark_checks": "checks.json"}, {"on_pitch_only": True},
+    {"landmark_checks": "checks.json"}, {"on_pitch_only": True}, {"smooth_pitch": True},
 ])
 def test_invalid_options_are_rejected(tmp_path, option):
     source, weights = tmp_path / "in.mp4", tmp_path / "m.pt"
@@ -36,7 +36,7 @@ def test_existing_output_is_not_overwritten(tmp_path):
 
 @pytest.mark.parametrize("has_detection", [True, False])
 @pytest.mark.parametrize("team_mode", [True, False])
-@pytest.mark.parametrize("pitch_mode", [True, False, "moving", "guarded"])
+@pytest.mark.parametrize("pitch_mode", [True, False, "moving", "guarded", "smoothed"])
 def test_video_round_trip_preserves_ids_across_chunks(tmp_path, monkeypatch, has_detection, team_mode, pitch_mode):
     """Use real codec and ByteTrack with deterministic detector boxes."""
     cv2 = pytest.importorskip("cv2")
@@ -116,18 +116,24 @@ def test_video_round_trip_preserves_ids_across_chunks(tmp_path, monkeypatch, has
                           calibration=calibration if pitch_mode else None,
                           pitch_output=tmp_path / "pitch" if pitch_mode else None,
                           compensate_camera=pitch_mode in ("moving", "guarded"),
-                          landmark_checks=check_path)
+                          landmark_checks=check_path, smooth_pitch=pitch_mode == "smoothed")
     from backend.common.schemas import TrackingRow
     if pitch_mode:
         rows = [TrackingRow.model_validate_json(line) for line in
                 (tmp_path / "pitch/tracking.jsonl").read_text().splitlines()]
-        expected = {"moving": 2, "guarded": 8}.get(pitch_mode, 46)
+        expected = {"moving": 2, "guarded": 8, "smoothed": 42}.get(pitch_mode, 46)
         assert len(rows) == expected*int(has_detection)
         assert summary["projected_rows"] == len(rows)
         assert all(0 <= row.x_m <= 105 and 0 <= row.y_m <= 68 for row in rows)
         report = json.loads((tmp_path / "pitch/metrics.json").read_text())
         assert len(report["tracks"]) == 2*int(has_detection)
         assert all(track["distance_m"] == 0 for track in report["tracks"])
+        if pitch_mode == "smoothed":
+            raw = (tmp_path / "pitch/tracking_raw.jsonl").read_text().splitlines()
+            quality = [json.loads(line) for line in (tmp_path / "pitch/smoothing_quality.jsonl").read_text().splitlines()]
+            assert len(raw) == len(quality) == 46*int(has_detection)
+            assert sum(q['status']=='warming_up' for q in quality) == 4*int(has_detection)
+            assert report['pitch_smoothing'] is True
         if pitch_mode == "moving":
             quality = [json.loads(line) for line in (tmp_path / "pitch/camera_quality.jsonl").read_text().splitlines()]
             assert len(quality) == 23

@@ -229,3 +229,14 @@ qua đoạn/ID, bước nhảy > 40 km/h, heatmap và đường đi biết trư�
 Test tích hợp dùng codec + ByteTrack thật, detector giả lập, xuất JSONL qua
 ranh giới đoạn xử lý, cả trường hợp có/không có người và phân đội.
 Đây là nghiệm thu chức năng bằng dữ liệu kiểm soát, chưa đo sai số video thật.
+
+## Giảm nhiễu tọa độ tùy chọn
+
+Tracking CLI có thêm `--smooth-pitch` khi đã truyền hiệu chỉnh và thư mục
+pitch-output. Cờ này lưu `tracking_raw.jsonl` để đối chiếu, xuất tọa độ lọc
+vào `tracking.jsonl` và chỉ tính metrics từ phần đã lọc. Bước nhảy/mất dấu
+được ngắt mốc tính quãng đường; không nối qua chuỗi mới hoặc ép tốc độ về
+40. Video vẫn vẽ bbox người, không vẽ lại theo tọa độ đã làm mượt.
+
+Độ trễ, mức bỏ điểm, diagnostic và giới hạn tại `CV_PITCH_SMOOTHING.md`.
+Không coi tốc độ dưới ngưỡng sau lọc là bằng chứng chỉ số thực địa chính xác.

@@ -505,6 +505,40 @@ nguồn cũ `fa6ea680`, không dùng fixture cũ cho file mới cùng tên.
   team_stabilized dừng giữa chừng không dùng nghiệm thu. Chưa qua bước 5;
   còn cải thiện trọng tài/độ phủ nhãn và nhiễu điểm chân trước đo chuyển động.
 
+## Giảm nhiễu tọa độ và ngắt chuỗi chuyển động — 22/10/2026
+
+- Thêm PitchSmoother và cờ tùy chọn --smooth-pitch (cần calibration +
+  pitch-output). Lưu tracking_raw.jsonl, xuất tọa độ lọc vào tracking.jsonl,
+  smoothing_quality.jsonl ghi trạng thái/ngắt mốc. Không đổi bbox/ID/nhãn,
+  camera, guard, schema/API/dependency; cờ mặc định tắt để giữ phép so sánh.
+- Lọc nhân quả từng segment/ID: trung vị 3 điểm + EMA tau 0,08 giây; chờ
+  >=3 điểm và span >=0,08 giây, lịch sử <=0,2 giây. Gap >0,25 giây mở chuỗi
+  mới, state vắng >1 giây xóa. Gate thô vmax 40 km/h + dung sai 0,5 m; điểm nhảy bị
+  bỏ/ngắt mốc ngay, 3 điểm nhất quán mở chuỗi mới. Không ép tốc độ về 40.
+- Thêm PitchMetrics.break_chain để không cộng quãng đường qua điểm lỗi.
+  Replay 5215 điểm / 30 ID: 4935 điểm / 27 ID xuất, 177 chờ, 90 jump_rejected,
+  13 reacquiring; 135 yêu cầu ngắt gồm khởi tạo/gap, không 135 biến cố thật.
+  Cặp từng frame >40: 761 -> 16; đúng cùng 4847 cặp còn lại: 648 -> 16,
+  p95 71,11 -> 23,47 km/h. Đây là diagnostic, chưa tốc độ thực.
+- Mô phỏng điểm đứng yên có nhiễu: RMSE 0,0806 -> 0,0320 m. Đi 2 m/s rồi
+  dừng: max lệch 0,1773 m, sau 250 ms còn 0,0078 m. Chưa có ground truth người
+  đứng yên/vị trí thực trong clip; có trễ/cắt góc/thiếu đường khi ngắt chuỗi.
+- Chạy lại CUDA đủ 1.800 frame / 3 chunk, 6,92 FPS; guard 1.499 ngoài / 30 chờ / 271 cấp
+  phép không đổi. Toàn bộ 5.215 điểm thô khớp bản trước; 4.935 điểm lọc và state
+  metrics khớp replay. Dữ liệu lọc 1086–1350, A/B/ref/unknown = 2176/2187/139/433;
+  nhãn CLI vẫn 2220/2232/139/624 theo bbox, không đồng nhất hai coverage.
+- Đọc lại đủ nguồn/video 1.800 frame và cửa sổ 271 frame; schema/phạm vi/thời
+  gian/khóa/heatmap và đối chiếu nhãn thô qua. ID 1: 7,251 m / 4 s ->
+  5,685 m / 3,5 s có cặp đo: số thấp hơn không tự chứng minh chính xác hơn.
+- Toàn bộ 128 test qua, 1 network deselected, cảnh báo Starlette cũ. Test gồm
+  nhiễu, trễ/dừng, chuyển động biết trước, teleport đơn/kéo dài, gap/segment,
+  không ép tốc độ, pipeline codec/ByteTrack có và không smoothing.
+- Báo cáo CV_PITCH_SMOOTHING.md, cập nhật CV_HOMOGRAPHY.md. Artifact cuối
+  pitch_smoothed/ và video cùng tên dưới data/processed/clip_11f23eea/;
+  biểu đồ coordinate_comparison.png ở pitch_smoothing_check/. Giữ bộ cũ.
+  Nghiệm thu giảm nhiễu/ngắt mốc; chưa nghiệm thu chỉ số thực địa/chưa bước 5.
+  Tiếp theo cần đối chiếu tọa độ tracking chuẩn độc lập và thêm tình huống khó.
+
 ## Quyết định đã chốt
 
 - Python 3.11; FastAPI; Pydantic v2.

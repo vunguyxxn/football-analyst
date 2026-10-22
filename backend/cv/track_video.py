@@ -30,6 +30,7 @@ def track_video(
     compensate_camera: bool = False,
     landmark_checks: Path | None = None,
     on_pitch_only: bool = False,
+    smooth_pitch: bool = False,
 ) -> dict[str, object]:
     """Write an annotated silent MP4, processing one frame at a time.
 
@@ -62,6 +63,8 @@ def track_video(
         raise ValueError("Landmark checks require --compensate-camera")
     if on_pitch_only and calibration is None:
         raise ValueError("On-pitch filtering requires manual calibration")
+    if smooth_pitch and calibration is None:
+        raise ValueError("Pitch smoothing requires manual calibration")
 
     # Keep CV dependencies optional for the existing StatsBomb backend.
     import cv2
@@ -86,6 +89,7 @@ def track_video(
     writer = None
     pitch_stream = None
     camera_stream = None
+    raw_stream = smoothing_stream = smoother = None
     projection = metrics = None
     projected_rows = 0
     frames = chunks = 0
@@ -109,6 +113,12 @@ def track_video(
             metrics = PitchMetrics(fps)
             pitch_output.mkdir(parents=True, exist_ok=False)
             pitch_stream = (pitch_output / "tracking.jsonl").open("x", encoding="utf-8")
+            if smooth_pitch:
+                from backend.cv.pitch_smoother import PitchSmoother
+
+                smoother = PitchSmoother()
+                raw_stream = (pitch_output / "tracking_raw.jsonl").open("x", encoding="utf-8")
+                smoothing_stream = (pitch_output / "smoothing_quality.jsonl").open("x", encoding="utf-8")
             if compensate_camera:
                 camera_stream = (pitch_output / "camera_quality.jsonl").open("x", encoding="utf-8")
         chunk_frames = max(1, round(chunk_seconds * fps))
@@ -163,10 +173,22 @@ def track_video(
                 else:
                     roles = ["unknown"] * len(detections)
                 if projection is not None:
+                    if smoother is not None:
+                        smoother.advance(frames / fps)
                     for box, track_id, role in zip(detections.xyxy, detections.tracker_id, roles):
                         projected = projection.project(frames, fps, track_id, role, box)
                         if projected is not None:
                             segment, row = projected
+                            if smoother is not None:
+                                raw_stream.write(row.model_dump_json() + "\n")
+                                row, broken, status = smoother.observe(segment, row)
+                                smoothing_stream.write(json.dumps({"frame": frames, "track_id": int(track_id),
+                                                                   "segment": segment, "status": status,
+                                                                   "break_chain": broken}) + "\n")
+                                if broken:
+                                    metrics.break_chain(segment, int(track_id))
+                                if row is None:
+                                    continue
                             pitch_stream.write(row.model_dump_json() + "\n")
                             metrics.observe(segment, row)
                             projected_rows += 1
@@ -210,6 +232,10 @@ def track_video(
             pitch_stream.close()
         if camera_stream is not None:
             camera_stream.close()
+        if raw_stream is not None:
+            raw_stream.close()
+        if smoothing_stream is not None:
+            smoothing_stream.close()
         if not frames and output.is_file():
             output.unlink()
 
@@ -224,6 +250,7 @@ def track_video(
         summary["team_samples"] = str(team_samples)
     if metrics is not None:
         report = metrics.report()
+        report["pitch_smoothing"] = smooth_pitch
         report["on_pitch_only"] = on_pitch_only
         report["source"] = str(source)
         report["camera_compensation"] = compensate_camera
@@ -251,6 +278,7 @@ def main() -> None:
     parser.add_argument("--compensate-camera", action="store_true", help="Track ground motion after each manual anchor; stop on quality loss")
     parser.add_argument("--landmark-checks", type=Path, help="Scheduled manual reference checks; block coordinates until verified, on drift or expiry")
     parser.add_argument("--on-pitch-only", action="store_true", help="Track, classify and draw only verified in-pitch footpoints; hide people when calibration is unavailable")
+    parser.add_argument("--smooth-pitch", action="store_true", help="Robust causal pitch coordinates with raw diagnostics and movement continuity breaks")
     args = parser.parse_args()
     try:
         result = track_video(
@@ -262,6 +290,7 @@ def main() -> None:
             compensate_camera=args.compensate_camera,
             landmark_checks=args.landmark_checks,
             on_pitch_only=args.on_pitch_only,
+            smooth_pitch=args.smooth_pitch,
         )
     except (ValueError, FileNotFoundError, RuntimeError, ImportError) as error:
         parser.exit(1, f"Tracking failed: {error}\n")

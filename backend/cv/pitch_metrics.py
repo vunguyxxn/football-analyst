@@ -12,6 +12,11 @@ class PitchMetrics:
         self.max_gap = max_gap_s
         self.tracks = {}
 
+    def break_chain(self, segment, track_id):
+        state = self.tracks.get((segment, track_id))
+        if state is not None:
+            state["anchor"] = None
+
     def observe(self, segment, row):
         key = (segment, row.track_id)
         state = self.tracks.setdefault(key, {"anchor": None, "distance_m": 0., "duration_s": 0.,
