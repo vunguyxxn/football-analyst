@@ -1,0 +1,344 @@
+{
+  "source_sha256": "86f6f04ce05ac464269dfa4d831bef0c12c3654acdd2fa3c1b6379f864597b2e",
+  "image_size": [
+    1280,
+    720
+  ],
+  "segments": [
+    {
+      "start_frame": 600,
+      "end_frame": 901,
+      "image_points": [
+        [
+          110.16150299554447,
+          193.09903836445932
+        ],
+        [
+          300.73851872631514,
+          232.8466123805267
+        ],
+        [
+          1017.0132308430263,
+          216.47422171531628
+        ],
+        [
+          1073.8551822651225,
+          634.7032008179045
+        ]
+      ],
+      "pitch_points": [
+        [
+          0,
+          68
+        ],
+        [
+          16.5,
+          54.16
+        ],
+        [
+          52.5,
+          68
+        ],
+        [
+          52.5,
+          0
+        ]
+      ],
+      "extra_image_points": [
+        [
+          1027,
+          295
+        ],
+        [
+          1040,
+          389
+        ]
+      ],
+      "extra_pitch_points": [
+        [
+          52.5,
+          43.15
+        ],
+        [
+          52.5,
+          24.85
+        ]
+      ]
+    }
+  ],
+  "annotation_provenance": "Agent selected local line strips on zoomed frame 600; HSV white pixels and OpenCV Welsch line fit determine intersections. Physical pitch dimensions unverified; assumes 105x68 m. Two circle checks from previous experiment are now calibration controls, not held-out evaluation.",
+  "geometry_reference": "https://theifab.com/laws/latest/the-field-of-play/",
+  "source": "vid1_11f23eea_clean.mp4",
+  "raw_source_frame_offset": 600,
+  "anchor_point_labels": [
+    "far_left_pitch_corner",
+    "left_penalty_area_front_far_corner",
+    "halfway_far_touchline",
+    "halfway_near_touchline"
+  ],
+  "line_refinement": [
+    {
+      "name": "far_touchline",
+      "a": [
+        180.0,
+        195.0
+      ],
+      "b": [
+        900.0,
+        211.0
+      ],
+      "radius_px": 5,
+      "samples": 358,
+      "equation": [
+        0.025767631828784943,
+        -0.9996679425239563,
+        190.19631733425877
+      ]
+    },
+    {
+      "name": "left_goalline",
+      "a": [
+        20.0,
+        226.0
+      ],
+      "b": [
+        90.0,
+        200.0
+      ],
+      "radius_px": 4,
+      "samples": 135,
+      "equation": [
+        -0.31165066361427307,
+        -0.9501967430114746,
+        217.8139828458642
+      ]
+    },
+    {
+      "name": "penalty_far_side",
+      "a": [
+        35.0,
+        226.0
+      ],
+      "b": [
+        280.0,
+        234.0
+      ],
+      "radius_px": 4,
+      "samples": 306,
+      "equation": [
+        0.021760378032922745,
+        -0.9997631907463074,
+        226.24728829147818
+      ]
+    },
+    {
+      "name": "penalty_front",
+      "a": [
+        40.0,
+        354.0
+      ],
+      "b": [
+        280.0,
+        244.0
+      ],
+      "radius_px": 4,
+      "samples": 612,
+      "equation": [
+        -0.4317623972892761,
+        -0.9019873738288879,
+        339.872288208564
+      ]
+    },
+    {
+      "name": "halfway",
+      "a": [
+        1023.0,
+        250.0
+      ],
+      "b": [
+        1067.0,
+        580.0
+      ],
+      "radius_px": 4,
+      "samples": 1593,
+      "equation": [
+        0.9908900856971741,
+        -0.13467293977737427,
+        -978.5951076407855
+      ]
+    },
+    {
+      "name": "near_touchline",
+      "a": [
+        800.0,
+        621.0
+      ],
+      "b": [
+        1160.0,
+        640.0
+      ],
+      "radius_px": 5,
+      "samples": 772,
+      "equation": [
+        0.06522786617279053,
+        -0.9978703856468201,
+        563.3062456536863
+      ]
+    }
+  ],
+  "extra_anchor_labels": [
+    "circle_far",
+    "circle_near"
+  ],
+  "new_evaluation_frames": [
+    675,
+    825
+  ],
+  "calibration_frozen_before_new_frame_annotation": true,
+  "checks": [
+    {
+      "frame": 675,
+      "label": "circle_far",
+      "image_point": [
+        1048.3,
+        295.0
+      ],
+      "pitch_point": [
+        52.5,
+        43.15
+      ],
+      "kind": "temporal_controls_new_frames"
+    },
+    {
+      "frame": 675,
+      "label": "circle_near",
+      "image_point": [
+        1060.5,
+        389.8
+      ],
+      "pitch_point": [
+        52.5,
+        24.85
+      ],
+      "kind": "temporal_controls_new_frames"
+    },
+    {
+      "frame": 675,
+      "label": "halfway_far",
+      "image_point": [
+        1037.5,
+        214.7
+      ],
+      "pitch_point": [
+        52.5,
+        68
+      ],
+      "kind": "temporal_controls_new_frames"
+    },
+    {
+      "frame": 675,
+      "label": "halfway_near",
+      "image_point": [
+        1095,
+        638.5
+      ],
+      "pitch_point": [
+        52.5,
+        0
+      ],
+      "kind": "temporal_controls_new_frames"
+    },
+    {
+      "frame": 825,
+      "label": "circle_far",
+      "image_point": [
+        955.5,
+        290.6
+      ],
+      "pitch_point": [
+        52.5,
+        43.15
+      ],
+      "kind": "temporal_controls_new_frames"
+    },
+    {
+      "frame": 825,
+      "label": "circle_near",
+      "image_point": [
+        970.5,
+        385.3
+      ],
+      "pitch_point": [
+        52.5,
+        24.85
+      ],
+      "kind": "temporal_controls_new_frames"
+    },
+    {
+      "frame": 825,
+      "label": "halfway_far",
+      "image_point": [
+        943.5,
+        211.3
+      ],
+      "pitch_point": [
+        52.5,
+        68
+      ],
+      "kind": "temporal_controls_new_frames"
+    },
+    {
+      "frame": 825,
+      "label": "halfway_near",
+      "image_point": [
+        1004,
+        630.0
+      ],
+      "pitch_point": [
+        52.5,
+        0
+      ],
+      "kind": "temporal_controls_new_frames"
+    },
+    {
+      "frame": 675,
+      "label": "arc_far",
+      "image_point": [
+        231.3,
+        275.0
+      ],
+      "pitch_point": [
+        16.5,
+        41.31248931623151
+      ],
+      "kind": "new_geometry"
+    },
+    {
+      "frame": 825,
+      "label": "arc_far",
+      "image_point": [
+        144,
+        276
+      ],
+      "pitch_point": [
+        16.5,
+        41.31248931623151
+      ],
+      "kind": "new_geometry"
+    },
+    {
+      "frame": 825,
+      "label": "arc_near",
+      "image_point": [
+        17.3,
+        341
+      ],
+      "pitch_point": [
+        16.5,
+        26.687510683768487
+      ],
+      "kind": "new_geometry"
+    }
+  ],
+  "check_provenance": "New frames 675/825 annotated after calibration frozen; agent visual labels not independently reviewed. Penalty arc checks are new geometry, other checks reuse landmark identities at unseen frames. Near arc 675 excluded due player occlusion."
+}

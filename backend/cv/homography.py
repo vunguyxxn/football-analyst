@@ -30,6 +30,37 @@ def matrix_for(image_points, pitch_points):
     return matrix
 
 
+def refined_matrix_for(image_points, pitch_points, extra_image_points, extra_pitch_points):
+    """Refine four manual anchors with >=2 extra controls, minimizing pixel error.
+
+    Four-point mode is unchanged. Extra controls are calibration data, never
+    held-out checks. Fit world -> image to avoid weighting distant pixels as
+    if their metre-per-pixel scale were the same as nearby pixels.
+    """
+    matrix_for(image_points, pitch_points)
+    image, pitch = [np.asarray(points, dtype=np.float64)
+                    for points in (extra_image_points, extra_pitch_points)]
+    if (image.ndim != 2 or image.shape[1:] != (2,) or image.shape[0] < 2
+            or pitch.shape != image.shape or not np.isfinite(image).all()
+            or not np.isfinite(pitch).all() or not (pitch >= 0).all()
+            or not (pitch <= [105, 68]).all()):
+        raise ValueError("Refinement requires >=2 finite image/pitch pairs inside the pitch")
+    image = np.concatenate([image_points, image])
+    pitch = np.concatenate([pitch_points, pitch])
+    if len(np.unique(image, axis=0)) != len(image) or len(np.unique(pitch, axis=0)) != len(pitch):
+        raise ValueError("Duplicate calibration controls")
+    forward, _ = cv2.findHomography(pitch, image, method=0)
+    if forward is None or not np.isfinite(forward).all() or np.linalg.matrix_rank(forward) != 3:
+        raise ValueError("Singular refined homography")
+    # Reject a projective horizon crossing the pitch, even if all controls fit.
+    corners = np.array([[0, 0, 1], [105, 0, 1], [105, 68, 1], [0, 68, 1]])
+    denominators = corners @ forward[2]
+    if not (np.all(denominators > 1e-9) or np.all(denominators < -1e-9)):
+        raise ValueError("Refined homography has a horizon inside the pitch")
+    matrix = np.linalg.inv(forward)
+    return matrix / np.linalg.norm(matrix)
+
+
 class PitchCalibration:
     def __init__(self, source: Path, path: Path, width: int, height: int, compensate_camera=False):
         payload = json.loads(path.read_text(encoding="utf-8"))
@@ -45,6 +76,12 @@ class PitchCalibration:
                 raise ValueError("Calibration ranges must be ordered, disjoint, nonnegative [start, end)")
             points = np.asarray(segment["image_points"], dtype=float)
             matrix = matrix_for(points, segment["pitch_points"])
+            if "extra_image_points" in segment or "extra_pitch_points" in segment:
+                matrix = refined_matrix_for(points, segment["pitch_points"],
+                                            segment.get("extra_image_points"), segment.get("extra_pitch_points"))
+                extra = np.asarray(segment["extra_image_points"])
+                if not ((extra >= 0).all() and (extra < [width, height]).all()):
+                    raise ValueError("Refinement pixel points outside image")
             if not ((points >= 0).all() and (points < [width, height]).all()):
                 raise ValueError("Calibration pixel points outside image")
             self.segments.append((index, start, stop, matrix))
@@ -92,11 +129,18 @@ def main():
     parser.add_argument("--frame", type=int, required=True)
     parser.add_argument("--end-frame", type=int, required=True, help="Exclusive; use --compensate-camera in tracking for moving camera")
     parser.add_argument("--pitch-points", required=True, help='JSON e.g. [[0,0],[105,0],[105,68],[0,68]]')
+    parser.add_argument("--extra-pitch-points", help="Optional JSON >=2 extra manual controls for refinement, clicked after the first four")
     args = parser.parse_args()
     if args.output.exists() or args.output.resolve() == args.source.resolve():
         parser.error("Output must be a new file")
     pitch = json.loads(args.pitch_points)
     matrix_for([[0, 0], [1, 0], [1, 1], [0, 1]], pitch)
+    extra_pitch = json.loads(args.extra_pitch_points) if args.extra_pitch_points else []
+    if args.extra_pitch_points:
+        extra_array = np.asarray(extra_pitch, dtype=float)
+        if extra_array.ndim != 2 or extra_array.shape[1:] != (2,) or len(extra_array) < 2 or not np.isfinite(extra_array).all() or not ((extra_array >= 0).all() and (extra_array <= [105, 68]).all()):
+            parser.error("Extra pitch controls must be >=2 finite pairs inside 105 x 68")
+    required = 4 + len(extra_pitch)
     capture = cv2.VideoCapture(str(args.source))
     try:
         count = int(capture.get(cv2.CAP_PROP_FRAME_COUNT))
@@ -109,9 +153,9 @@ def main():
     finally:
         capture.release()
     points = []
-    title = "Pitch calibration: click 4 points; R reset; Enter save; Esc cancel"
+    title = f"Pitch calibration: click {required} points; R reset; Enter save; Esc cancel"
     def click(event, x, y, flags, param):
-        if event == cv2.EVENT_LBUTTONDOWN and len(points) < 4:
+        if event == cv2.EVENT_LBUTTONDOWN and len(points) < required:
             points.append([x, y])
     cv2.namedWindow(title, cv2.WINDOW_AUTOSIZE)
     cv2.setMouseCallback(title, click)
@@ -127,16 +171,20 @@ def main():
                 return
             if key in (ord('r'), ord('R')):
                 points.clear()
-            if key == 13 and len(points) == 4:
+            if key == 13 and len(points) == required:
                 break
     finally:
         cv2.destroyAllWindows()
-    matrix_for(points, pitch)
+    matrix_for(points[:4], pitch)
+    if extra_pitch:
+        refined_matrix_for(points[:4], pitch, points[4:], extra_pitch)
     with args.source.open("rb") as stream:
         digest = hashlib.file_digest(stream, "sha256").hexdigest()
     payload = {"source_sha256": digest, "image_size": [frame.shape[1], frame.shape[0]],
                "segments": [{"start_frame": args.frame, "end_frame": args.end_frame,
-                             "image_points": points, "pitch_points": pitch}]}
+                             "image_points": points[:4], "pitch_points": pitch}]}
+    if extra_pitch:
+        payload["segments"][0].update(extra_image_points=points[4:], extra_pitch_points=extra_pitch)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     with args.output.open("x", encoding="utf-8") as stream:
         json.dump(payload, stream, indent=2)

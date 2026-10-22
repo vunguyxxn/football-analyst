@@ -9,6 +9,30 @@ Không thay đổi `TrackingRow`, `MetricItem`, `AnalysisResult` hay API hiện 
 
 ## Chọn điểm
 
+### Điểm ràng buộc phụ để giảm sai số hiệu chỉnh
+
+Mặc định vẫn chọn 4 điểm. Khi 4 mốc ở xa hoặc giao điểm khó chọn chính xác,
+có thể thêm `--extra-pitch-points` (JSON có ít nhất 2 tọa độ sân), rồi click
+các điểm phụ **sau** 4 điểm đầu. Ví dụ hai giao điểm vòng tròn giữa sân với
+đường giữa sân: `--extra-pitch-points '[[52.5,43.15],[52.5,24.85]]'`.
+Đây là điểm hiệu chỉnh, không còn là điểm kiểm tra độc lập.
+
+File segment có thêm `extra_image_points` và `extra_pitch_points`; đây là
+định dạng cấu hình CLI nội bộ, không đổi hợp đồng TrackingRow/API. Bốn mốc
+đầu vẫn phải hợp lệ và không có ba điểm thẳng hàng. Các mốc phụ không trùng,
+nằm trong ảnh/sân, cùng nguồn. Fit tất cả các mốc theo sai số chiếu sân →
+ảnh rồi lấy nghịch đảo, thay vì buộc ma trận đi đúng qua từng click nhiễu.
+Không dùng RANSAC để tự bỏ nhãn tay; chọn sai mốc vẫn có thể gây sai số.
+Từ chối ma trận suy biến hoặc có đường chân trời cắt qua mặt sân.
+
+Đã thử trên clip hiện tại với 4 điểm giao vạch được rà lại và 2 điểm phụ,
+giữ kết quả trước đó tại `CV_HOMOGRAPHY_CHECK.md`. So sánh trên **cùng** hai
+frame mới 675/825: 8 kiểm tra mốc theo thời gian có sai số trung bình giảm
+0,81 → 0,38 m; 3 điểm hình học mới ở cung vùng cấm giảm 0,69 → 0,50 m.
+Biên phía xa có mẫu xấu hơn trước; không suy rộng thành mọi vùng đều tốt.
+Nhãn bằng mắt, kích thước sân chưa xác minh; chưa nghiệm thu tốc độ/quãng
+đường. Chi tiết tại `CV_HOMOGRAPHY_REFINEMENT.md`.
+
 ### Camera lia: chế độ mới
 
 Dùng cùng công cụ chọn điểm trên **frame đầu mỗi đoạn hiệu chỉnh tay** rồi

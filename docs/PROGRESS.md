@@ -74,6 +74,11 @@ nguồn cũ `fa6ea680`, không dùng fixture cũ cho file mới cùng tên.
   300 bước nhưng sai số 6 mốc hình học trung bình 1,20 m, lớn nhất 1,62 m
   trên nhãn bằng mắt/sân giả định; chưa đạt nghiệm thu chỉ số cầu thủ.
   Chi tiết tại `CV_HOMOGRAPHY_CHECK.md`. Chưa chuyển sang bước 5.
+- Đã rà lại giao vạch và thêm lựa chọn mốc tay phụ cho hiệu chỉnh. Trên
+  cùng frame mới 675/825, 8 mốc theo thời gian giảm trung bình 0,81 → 0,38 m;
+  3 điểm hình học mới giảm 0,69 → 0,50 m. Biên xa có mẫu xấu hơn, kích thước
+  sân chưa xác minh; chưa nghiệm thu chỉ số cầu thủ. Chi tiết tại
+  `CV_HOMOGRAPHY_REFINEMENT.md`. Cần kiểm tra thêm đoạn lia/zoom khác.
 
 ## Vấn đề tồn đọng
 
@@ -278,6 +283,30 @@ nguồn cũ `fa6ea680`, không dùng fixture cũ cho file mới cùng tên.
   kết quả ở `data/processed/clip_11f23eea/homography_check_600/`, không commit.
 - Kiểm tra fixture khớp hash/kích thước/range bằng loader hiện có. Test hồi
   quy toàn bộ 64 passed, 1 network test deselected; cảnh báo Starlette cũ.
+
+## Rà soát hiệu chỉnh đầu bước 4 — 22/10/2026
+
+- Người dùng không biết link/tên trận/sân. Giữ 105 × 68 m là giả định,
+  không xác nhận kích thước thực hoặc tự đoán danh tính sân.
+- Phóng lớn frame 600, fit các đoạn vạch được chọn tay để rà bốn giao điểm.
+  Chỉ sửa bốn điểm chưa giảm rõ lỗi phát triển. Thêm hai mốc vòng tròn từ
+  nhãn cũ làm dữ liệu hiệu chỉnh; nhãn cũ không còn là kiểm tra độc lập.
+- `homography.py` giữ chế độ 4 điểm, bổ sung `--extra-pitch-points` cho ít
+  nhất 2 mốc tay phụ. Fit sân → ảnh theo sai số pixel rồi nghịch đảo; kiểm
+  tra trùng, phạm vi, suy biến, đường chân trời. Không đổi schema/API,
+  dependency hoặc thuật toán/ngưỡng CameraMotion.
+- Khóa hiệu chỉnh trước khi gán nhãn hai frame mới 675/825. Tính lại camera
+  trên 301 frame nguồn với bbox YOLO cache cũ. 300 bước tracked, diagnostic
+  đọc lại đủ 301 frame. Không đo throughput YOLO/GPU mới hoặc chỉ số cầu thủ.
+- So sánh trên cùng điểm mới: 8 mốc theo thời gian 0,81 → 0,38 m trung bình,
+  max mới 0,96 m; 3 mốc hình học mới 0,69 → 0,50 m, max mới 0,87 m. Hai mốc
+  biên xa có sai số tăng; không công bố mọi vùng đã đạt độ chính xác cao.
+- Fixture mới `docs/fixtures/vid1_11f23eea_homography_refined.json`, giữ bộ
+  cũ; báo cáo `CV_HOMOGRAPHY_REFINEMENT.md`. Artifact cục bộ ở thư mục
+  `data/processed/clip_11f23eea/homography_refined_600/`, không commit media.
+- Toàn bộ 73 test qua, 1 network test deselected, cảnh báo Starlette cũ.
+  Tiếp tục kiểm tra đoạn lia/zoom khác, mất dấu, mốc/định danh cầu thủ;
+  chưa chuyển bước 5 và chưa nghiệm thu tốc độ/quãng đường thực địa.
 
 ## Quyết định đã chốt
 
