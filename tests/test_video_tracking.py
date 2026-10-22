@@ -35,7 +35,8 @@ def test_existing_output_is_not_overwritten(tmp_path):
 
 @pytest.mark.parametrize("has_detection", [True, False])
 @pytest.mark.parametrize("team_mode", [True, False])
-def test_video_round_trip_preserves_ids_across_chunks(tmp_path, monkeypatch, has_detection, team_mode):
+@pytest.mark.parametrize("pitch_mode", [True, False])
+def test_video_round_trip_preserves_ids_across_chunks(tmp_path, monkeypatch, has_detection, team_mode, pitch_mode):
     """Use real codec and ByteTrack with deterministic detector boxes."""
     cv2 = pytest.importorskip("cv2")
     sv = pytest.importorskip("supervision")
@@ -48,6 +49,15 @@ def test_video_round_trip_preserves_ids_across_chunks(tmp_path, monkeypatch, has
     for _ in range(23):
         writer.write(np.zeros((64, 96, 3), dtype=np.uint8))
     writer.release()
+    import hashlib
+    import json
+    calibration = tmp_path / "calibration.json"
+    calibration.write_text(json.dumps({
+        "source_sha256": hashlib.sha256(source.read_bytes()).hexdigest(),
+        "image_size": [96, 64], "segments": [
+            {"start_frame": 0, "end_frame": 23,
+             "image_points": [[0, 63], [95, 63], [95, 0], [0, 0]],
+             "pitch_points": [[0, 0], [105, 0], [105, 68], [0, 68]]}]}))
     observed_ids = []
     observed_detections = []
     real_update = sv.ByteTrack.update_with_detections
@@ -83,7 +93,22 @@ def test_video_round_trip_preserves_ids_across_chunks(tmp_path, monkeypatch, has
         roles = itertools.cycle(["A", "B", "referee", "unknown"])
         monkeypatch.setattr(team_classifier, "fit_from_samples", lambda *_: SimpleNamespace(predict=lambda *_: next(roles)))
     summary = track_video(source, output, weights, device="cpu", chunk_seconds=0.5,
-                          team_samples=tmp_path / "samples.json" if team_mode else None)
+                          team_samples=tmp_path / "samples.json" if team_mode else None,
+                          calibration=calibration if pitch_mode else None,
+                          pitch_output=tmp_path / "pitch" if pitch_mode else None)
+    from backend.common.schemas import TrackingRow
+    if pitch_mode:
+        rows = [TrackingRow.model_validate_json(line) for line in
+                (tmp_path / "pitch/tracking.jsonl").read_text().splitlines()]
+        assert len(rows) == 46*int(has_detection)
+        assert summary["projected_rows"] == len(rows)
+        assert all(0 <= row.x_m <= 105 and 0 <= row.y_m <= 68 for row in rows)
+        report = json.loads((tmp_path / "pitch/metrics.json").read_text())
+        assert len(report["tracks"]) == 2*int(has_detection)
+        assert all(track["distance_m"] == 0 for track in report["tracks"])
+    else:
+        assert "pitch_output" not in summary
+        assert not (tmp_path / "pitch").exists()
     if team_mode:
         assert summary["team_observations"] == (
             {"A": 12, "B": 12, "referee": 11, "unknown": 11} if has_detection

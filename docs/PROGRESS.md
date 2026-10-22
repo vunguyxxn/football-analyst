@@ -67,9 +67,10 @@ nguồn cũ `fa6ea680`, không dùng fixture cũ cho file mới cùng tên.
 
 - Nhóm rà soát nhãn/box mẫu bước 3, nhất là áo thủ môn và người ngoài sân;
   mở rộng đánh giá sang clip khác trước khi dùng số liệu trong báo cáo.
-- Tiếp theo roadmap là bước 4: homography 4 điểm chọn tay và chỉ số tọa độ sân;
-  chưa triển khai. Clip mới vẫn lia camera, cần hiệu chuẩn phù hợp từng đoạn;
-  không dùng một homography cố định xuyên suốt 30 giây.
+- Bước 4 đã triển khai chức năng và kiểm thử bằng dữ liệu kiểm soát (chi tiết
+  bên dưới). Cần clip camera cố định, chọn 4 điểm và kiểm tra mốc độc lập để
+  nghiệm thu sai số thực tế; clip hiện tại vẫn lia máy, không dùng một
+  homography cố định xuyên suốt 30 giây. Chưa chuyển sang bước 5.
 
 ## Vấn đề tồn đọng
 
@@ -204,6 +205,32 @@ nguồn cũ `fa6ea680`, không dùng fixture cũ cho file mới cùng tên.
   nhất quán qua hiệu chỉnh/đánh giá; chế độ chromatic vẫn được kiểm tra.
 - Clip mới vẫn có người ngoài sân mặc áo gần màu đội; chưa bổ sung lọc sân
   hay homography trong phiên này. Hướng dẫn/ma trận nhầm lẫn ở `CV_TEAMS.md`.
+
+## Triển khai chức năng bước 4 — 22/10/2026
+
+- Thêm `backend/cv/homography.py`: công cụ OpenCV chọn tay 4 điểm gắn tọa
+  độ mét đã biết, kiểm tra suy biến và ràng buộc sân 105 × 68; lưu SHA256,
+  kích thước video, phạm vi frame. Đọc các đoạn hiệu chỉnh không chồng lấn.
+- Thêm `--calibration` và `--pitch-output` vào CLI tracking. Chiếu giữa đáy
+  bbox lên sân, ghi từng `TrackingRow` vào JSONL, bỏ ngoài sân/ngoài phạm vi
+  hiệu chỉnh. Giữ schema và API hiện tại, không thêm dependency.
+- Thêm `backend/cv/pitch_metrics.py`: thống kê theo từng ID/đoạn, lấy mẫu
+  khoảng 0,5 giây, ngắt khi khoảng cách thời gian > 1 giây hoặc đổi đoạn.
+  Bước nhảy > 40 km/h bị đếm lỗi và loại, không clamp tốc độ. Không nối
+  thành danh tính cầu thủ hoặc tổng quãng đường cả trận.
+- Xuất `metrics.json` chứa AnalysisResult, thống kê chất lượng và heatmap
+  21 × 14 ô đếm frame quan sát; chưa triển khai giao diện bước 8. Heatmap
+  là quan sát gốc, có thể chứa vị trí của bước chuyển động bị loại.
+- Kiểm thử phối cảnh với điểm nội suy độc lập, đơn vị/trục sân, hash/range,
+  suy biến, quãng đường biết trước, tốc độ, teleport, khoảng mất dấu, tách
+  ID/đoạn và heatmap. Tích hợp codec + ByteTrack thật với detector giả lập.
+- Hướng dẫn chọn điểm/lệnh chạy và giới hạn tại `docs/CV_HOMOGRAPHY.md`.
+  Đã kiểm tra CLI `--help`. Chưa chạy giao diện click để hiệu chỉnh clip thật;
+  cần người chọn mốc sân và kiểm tra sai số độc lập. Không bịa bộ 4 điểm
+  hay số liệu tốc độ cho clip đang lia máy. Bước 4 mới nghiệm thu chức năng,
+  chưa nghiệm thu độ chính xác thực địa.
+- Toàn bộ kiểm thử: 54 passed, 1 network test deselected; còn cảnh báo
+  Starlette TestClient đã có. Không thay đổi mã frontend.
 
 ## Quyết định đã chốt
 
