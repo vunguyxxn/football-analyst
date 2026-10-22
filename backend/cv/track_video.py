@@ -24,6 +24,7 @@ def track_video(
     pitch_output: Path | None = None,
     compensate_camera: bool = False,
     landmark_checks: Path | None = None,
+    on_pitch_only: bool = False,
 ) -> dict[str, object]:
     """Write an annotated silent MP4, processing one frame at a time.
 
@@ -54,6 +55,8 @@ def track_video(
         raise ValueError("Camera compensation requires manual calibration")
     if landmark_checks is not None and not compensate_camera:
         raise ValueError("Landmark checks require --compensate-camera")
+    if on_pitch_only and calibration is None:
+        raise ValueError("On-pitch filtering requires manual calibration")
 
     # Keep CV dependencies optional for the existing StatsBomb backend.
     import cv2
@@ -129,15 +132,23 @@ def track_video(
                     frame, classes=person_classes, conf=confidence,
                     imgsz=image_size, device=device, verbose=False,
                 )[0]
-                detections = tracker.update_with_detections(
-                    sv.Detections.from_ultralytics(result)
-                )
+                candidates = sv.Detections.from_ultralytics(result)
+                if projection is not None:
+                    # Camera estimation must exclude ALL people, including those
+                    # outside the touchlines, before filtering tracker inputs.
+                    quality = projection.prepare(frames, frame, result.boxes.xyxy.cpu().numpy() if compensate_camera else candidates.xyxy)
+                    if camera_stream is not None:
+                        camera_stream.write(json.dumps({"frame": frames, **quality}) + "\n")
+                    if on_pitch_only:
+                        import numpy as np
+
+                        keep = np.array([projection.locate(frames, box) is not None
+                                         for box in candidates.xyxy], dtype=bool)
+                        candidates = candidates[keep]
+                detections = tracker.update_with_detections(candidates)
                 roles = ([classifier.predict(frame, box.tolist()) for box in detections.xyxy]
                          if classifier is not None else ["unknown"] * len(detections))
                 if projection is not None:
-                    quality = projection.prepare(frames, frame, result.boxes.xyxy.cpu().numpy() if compensate_camera else detections.xyxy)
-                    if camera_stream is not None:
-                        camera_stream.write(json.dumps({"frame": frames, **quality}) + "\n")
                     for box, track_id, role in zip(detections.xyxy, detections.tracker_id, roles):
                         projected = projection.project(frames, fps, track_id, role, box)
                         if projected is not None:
@@ -199,6 +210,7 @@ def track_video(
         summary["team_samples"] = str(team_samples)
     if metrics is not None:
         report = metrics.report()
+        report["on_pitch_only"] = on_pitch_only
         report["source"] = str(source)
         report["camera_compensation"] = compensate_camera
         if projection.guard is not None:
@@ -224,6 +236,7 @@ def main() -> None:
     parser.add_argument("--pitch-output", type=Path, help="New directory for TrackingRow JSONL and metrics JSON")
     parser.add_argument("--compensate-camera", action="store_true", help="Track ground motion after each manual anchor; stop on quality loss")
     parser.add_argument("--landmark-checks", type=Path, help="Scheduled manual reference checks; block coordinates until verified, on drift or expiry")
+    parser.add_argument("--on-pitch-only", action="store_true", help="Track, classify and draw only verified in-pitch footpoints; hide people when calibration is unavailable")
     args = parser.parse_args()
     try:
         result = track_video(
@@ -234,6 +247,7 @@ def main() -> None:
             calibration=args.calibration, pitch_output=args.pitch_output,
             compensate_camera=args.compensate_camera,
             landmark_checks=args.landmark_checks,
+            on_pitch_only=args.on_pitch_only,
         )
     except (ValueError, FileNotFoundError, RuntimeError, ImportError) as error:
         parser.exit(1, f"Tracking failed: {error}\n")

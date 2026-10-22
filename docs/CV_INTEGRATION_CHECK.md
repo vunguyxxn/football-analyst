@@ -129,3 +129,43 @@ schema, phạm vi, thời gian, trùng khóa, tổng heatmap/samples, giới h�
 Hồi quy: `.\.venv\Scripts\python.exe -m pytest -q` — **99 passed, 1 network
 test deselected**, một cảnh báo Starlette có từ trước. Không thêm thư viện
 để xử lý cảnh báo này. Không thay đổi mã ứng dụng hoặc hợp đồng dữ liệu.
+
+## Bổ sung bộ lọc người trong sân — 22/10/2026
+
+Theo yêu cầu chỉ đóng khung/theo dõi/phân tích người trong đường biên trắng,
+CLI bổ sung `--on-pitch-only`. `PitchCalibration.locate` dùng chung phép
+chiếu điểm giữa cạnh dưới bbox với `project`; lọc detection trước ByteTrack
+và phân đội. Không có ma trận hợp lệ thì đầu vào tracker rỗng, không vẽ khung
+người. CameraMotion vẫn loại toàn bộ người khỏi vùng ước lượng chuyển động.
+Chi tiết giới hạn sát biên và cách bật cờ tại `CV_TRACKING.md`.
+
+Chạy lại đúng lệnh ở trên với tên video `on_pitch_only.mp4`, thư mục đầu ra
+`on_pitch_only` và thêm `--on-pitch-only`. Hoàn thành 1.800 frame / 3 chunk,
+7,01 FPS. Guard giữ 1.499 uncalibrated / 30 chờ / 271 tracked, không nới ngưỡng.
+Xuất 5.365 dòng, A/B/referee/unknown = 2480/2443/333/109. Tổng nhãn CLI bằng
+tổng tọa độ trong sân, không còn cộng người ngoài sân vào `team_observations`.
+Tọa độ từ frame 1081–1350: frame 1080 đang xác nhận track mới của ByteTrack.
+Không coi thay đổi ID/số mẫu so với lượt cũ là tăng độ chính xác tracking.
+
+Đã xem frame 1200/1350: người đứng ngoài đường biên gần camera/khu kỹ thuật
+không còn có khung; frame 1351 hết phạm vi hiệu chỉnh không có khung người.
+Giải mã nguồn và video đầy đủ đều đủ 1.800 frame, video cửa sổ đủ 271 frame,
+cùng 1280 × 720 / 60 FPS. Assertions schema, tọa độ, thời gian, khóa, tổng
+heatmap/samples và đối chiếu nhãn CLI đều qua. Helper khảo sát cục bộ là
+`.tmp/validate_on_pitch.py`, không được đóng gói cho fresh clone.
+
+Artifacts mới trong `data/processed/clip_11f23eea/on_pitch_only/`: JSONL,
+metrics, validation, ảnh `check_*.jpg`, bản đồ QA và `accepted_window.mp4`.
+Video đầy đủ `on_pitch_only.mp4`, stdout `on_pitch_only_run.json` nằm cạnh
+thư mục này. Giữ nguyên bộ kết quả cũ, không commit media/cache.
+
+Test tích hợp mới dùng codec và ByteTrack thật, detector giả lập có người
+trong sân, ngoài biên phải và thân chồng vùng sân nhưng chân ngoài biên gần.
+Kiểm tra đầu vào tracker, bbox vẽ, classifier, JSON và samples; kiểm tra cả
+chờ checkpoint, hết hạn và hết đoạn hiệu chỉnh. Camera vẫn nhận đủ bbox gốc.
+Hồi quy toàn bộ: `python -m pytest -q --basetemp .tmp/pytest_on_pitch` bằng
+Python trong `.venv`: **102 passed, 1 network test deselected**, cảnh báo
+Starlette cũ. Không đổi schema/API/dependency.
+
+Bộ lọc này giải quyết phạm vi theo dõi, chưa sửa bbox/ID trùng hay nhãn rung.
+Vẫn có 50 ID trong cửa sổ; chưa nghiệm thu tốc độ/quãng đường hay bước 5.

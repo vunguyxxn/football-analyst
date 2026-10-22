@@ -415,6 +415,33 @@ nguồn cũ `fa6ea680`, không dùng fixture cũ cho file mới cùng tên.
 - Việc tiếp theo: xử lý detection/track trùng và gãy ID trên đoạn gán nhãn,
   rồi ổn định vai trò/điểm chiếu, đánh giá lại chỉ số trước khi mở rộng.
 
+## Chỉ theo dõi người trong đường biên — 22/10/2026
+
+- Theo yêu cầu người dùng, thêm CLI `--on-pitch-only`, bắt buộc hiệu chỉnh
+  sân. Dùng điểm giữa cạnh dưới bbox chiếu vào sân 105 × 68 m, lọc trước
+  ByteTrack, phân đội và vẽ khung. Người ngoài sân không có quan sát/nhãn/
+  heatmap; không có hiệu chỉnh hợp lệ thì không vẽ khung người. Lệnh cũ
+  không bật cờ vẫn tương thích. Không đổi schema/API/dependency.
+- Tách `PitchCalibration.locate` để lọc và xuất tọa độ dùng chung phép chiếu.
+  CameraMotion vẫn nhận đủ bbox gốc để loại người khỏi phép đo camera.
+  Biên theo homography đang kiểm chứng, không phải phân đoạn vạch trắng tự
+  động; sát biên còn phụ thuộc sai số bbox/hiệu chỉnh, chưa nhận diện bàn chân.
+- Chạy lại CUDA đủ 1.800 frame / 3 chunk, 7,01 FPS, giữ guard 1 m / 90 frame.
+  1.499 ngoài hiệu chỉnh, 30 chờ, 271 cấp phép; 5.365 tọa độ ở 1081–1350,
+  frame 1080 chờ xác nhận track. Nhãn A/B/ref/unknown = 2480/2443/333/109;
+  tổng nhãn CLI bằng tổng tọa độ, không còn cộng người ngoài sân.
+- Đã xem frame 1200/1350: người khu kỹ thuật ngoài biên gần không còn khung;
+  frame 1351 ngoài phạm vi không có khung người. Đọc lại đủ nguồn/video
+  đầu ra 1.800 frame và video cửa sổ 271 frame; kiểm tra schema, phạm vi,
+  thời gian, khóa, heatmap/samples và tổng nhãn qua.
+- Artifacts cục bộ `data/processed/clip_11f23eea/on_pitch_only/`, video đầy
+  đủ `on_pitch_only.mp4` cạnh thư mục; giữ kết quả cũ. Hướng dẫn cập nhật
+  `CV_TRACKING.md`, nghiệm thu bổ sung trong `CV_INTEGRATION_CHECK.md`.
+- Test mới kiểm tra lọc trước tracking/phân đội/vẽ, thân chồng sân nhưng
+  chân ngoài, chờ/hết hạn checkpoint và hết hiệu chỉnh; toàn bộ 102 test
+  qua, 1 network deselected, cảnh báo Starlette cũ. Vẫn có 50 ID; chưa sửa
+  ID trùng/nhãn rung, chưa nghiệm thu chỉ số cầu thủ hoặc chuyển bước 5.
+
 ## Quyết định đã chốt
 
 - Python 3.11; FastAPI; Pydantic v2.

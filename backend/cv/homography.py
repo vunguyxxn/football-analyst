@@ -126,7 +126,8 @@ class PitchCalibration:
                 return quality
         return {"status": "uncalibrated"}
 
-    def project(self, frame, fps, track_id, team, box):
+    def locate(self, frame, box):
+        """Return a verified in-pitch footpoint, or None when unavailable/outside."""
         for index, start, stop, matrix in self.segments:
             if start <= frame < stop:
                 if self.motion is not None:
@@ -140,9 +141,16 @@ class PitchCalibration:
                 x, y = point[:2] / point[2]
                 if not np.isfinite([x, y]).all() or not (0 <= x <= 105 and 0 <= y <= 68):
                     return None  # do not clamp off-field people onto touchlines
-                return index, TrackingRow(frame=frame, time_s=frame/fps, track_id=int(track_id),
-                                          team=team, x_m=float(x), y_m=float(y))
+                return index, float(x), float(y)
         return None
+
+    def project(self, frame, fps, track_id, team, box):
+        position = self.locate(frame, box)
+        if position is None:
+            return None
+        index, x, y = position
+        return index, TrackingRow(frame=frame, time_s=frame/fps, track_id=int(track_id),
+                                  team=team, x_m=x, y_m=y)
 
 
 def main():

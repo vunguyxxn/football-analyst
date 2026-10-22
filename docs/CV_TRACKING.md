@@ -40,6 +40,32 @@ Khi chạy trong môi trường giới hạn thư mục ghi, đặt `YOLO_CONFIG
 `MPLCONFIGDIR` vào thư mục bên trong repository trước khi chạy để các thư viện
 lưu cấu hình/cache tại đó.
 
+## Chỉ theo dõi người trong đường biên sân
+
+Khi có hiệu chỉnh sân, thêm `--on-pitch-only` vào lệnh cùng `--calibration`
+và `--pitch-output`. Với camera lia, dùng thêm `--compensate-camera` và bộ
+`--landmark-checks` như hướng dẫn bước 4. Cờ này không dùng được khi thiếu
+hiệu chỉnh. Lệnh cũ không có cờ vẫn giữ chế độ phát hiện người ban đầu.
+
+Bộ lọc lấy giữa cạnh dưới bbox làm điểm chân, chiếu bằng homography hiện
+tại và chỉ giữ điểm trong sân 105 × 68 m (gồm đường biên). Lọc **trước
+ByteTrack**, phân đội và vẽ khung; người ngoài sân không được cấp quan sát
+tracking, phân đội, đóng khung hoặc đưa vào thống kê/heatmap. Không dùng tâm
+bbox vì người ngoài sân có thể có thân người chồng lên vùng cỏ.
+
+Frame ngoài đoạn hiệu chỉnh, chờ checkpoint, camera mất dấu hoặc checkpoint
+hết hạn sẽ không có khung người trong chế độ này. Vẫn ghi đủ video nguồn;
+cần thêm hiệu chỉnh hợp lệ nếu muốn theo dõi trên các đoạn khác. Không dùng
+một polygon ảnh cố định khi camera lia. CameraMotion vẫn nhận toàn bộ bbox
+người để loại vùng chuyển động khỏi phép ước lượng camera; đó không phải
+tracking/phân tích người ngoài sân.
+
+Biên sân được suy từ hiệu chỉnh tay và chuyển động camera, chưa phải nhận
+diện tự động từng pixel vạch trắng. Sai số bbox/hiệu chỉnh sát biên có thể
+làm quyết định trong/ngoài sai; đây chưa phải mô hình nhận diện bàn chân.
+Staff bước vào sân vẫn có thể được theo dõi: bộ lọc này xét vị trí, không
+xác định danh tính/vai trò. Không thay đổi schema/API hoặc dependency.
+
 ## Nghiệm thu
 
 - Chạy test từ gốc repo: `pytest -v`.

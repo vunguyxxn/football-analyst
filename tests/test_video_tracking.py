@@ -14,7 +14,7 @@ def test_missing_video_is_rejected_before_loading_cv(tmp_path):
 @pytest.mark.parametrize("option", [
     {"chunk_seconds": 0}, {"chunk_seconds": float("nan")},
     {"confidence": 0}, {"confidence": float("nan")}, {"image_size": 31},
-    {"landmark_checks": "checks.json"},
+    {"landmark_checks": "checks.json"}, {"on_pitch_only": True},
 ])
 def test_invalid_options_are_rejected(tmp_path, option):
     source, weights = tmp_path / "in.mp4", tmp_path / "m.pt"
@@ -170,3 +170,88 @@ def test_video_round_trip_preserves_ids_across_chunks(tmp_path, monkeypatch, has
         assert decoded == 23
     finally:
         capture.release()
+
+@pytest.mark.parametrize("guarded", [False, True])
+def test_on_pitch_filter_precedes_tracking_classification_and_drawing(tmp_path, monkeypatch, guarded):
+    import hashlib
+    import json
+    import numpy as np
+    import cv2
+    import supervision as sv
+    from backend.cv import team_classifier
+    from backend.cv.camera_motion import CameraMotion
+
+    source, output, weights = [tmp_path / n for n in ("in.mp4", "out.mp4", "m.pt")]
+    weights.touch()
+    writer = cv2.VideoWriter(str(source), cv2.VideoWriter_fourcc(*"mp4v"), 10, (96, 64))
+    assert writer.isOpened()
+    for _ in range(8):
+        writer.write(np.zeros((64, 96, 3), np.uint8))
+    writer.release()
+    digest = hashlib.sha256(source.read_bytes()).hexdigest()
+    calibration = tmp_path / "calibration.json"
+    calibration.write_text(json.dumps({"source_sha256": digest, "image_size": [96, 64],
+        "segments": [{"start_frame": 0, "end_frame": 7,
+        "image_points": [[20, 50], [75, 50], [75, 10], [20, 10]],
+        "pitch_points": [[0, 0], [105, 0], [105, 68], [0, 68]]}]}))
+    # Inside; outside right; torso overlaps pitch but feet below touchline.
+    pixels = np.array([[30, 12, 40, 45], [78, 20, 90, 45], [30, 30, 40, 60]], np.float32)
+    class Detector:
+        names = {0: "person"}
+        def __init__(self, *_):
+            pass
+        def predict(self, *_args, **_kwargs):
+            return [SimpleNamespace(boxes=SimpleNamespace(xyxy=SimpleNamespace(
+                cpu=lambda: SimpleNamespace(numpy=lambda: pixels))))]
+    monkeypatch.setitem(sys.modules, "ultralytics", SimpleNamespace(YOLO=Detector))
+    monkeypatch.setattr(sv.Detections, "from_ultralytics", staticmethod(lambda _: sv.Detections(
+        xyxy=pixels.copy(), confidence=np.full(3, .95), class_id=np.zeros(3, dtype=int))))
+    tracker_inputs, drawn, classified = [], [], []
+    real_update = sv.ByteTrack.update_with_detections
+    def update(self, detections):
+        tracker_inputs.append(detections.xyxy.copy())
+        return real_update(self, detections)
+    monkeypatch.setattr(sv.ByteTrack, "update_with_detections", update)
+    real_draw = sv.BoxAnnotator.annotate
+    def draw(self, scene, detections, **kwargs):
+        drawn.append(detections.xyxy.copy())
+        return real_draw(self, scene, detections, **kwargs)
+    monkeypatch.setattr(sv.BoxAnnotator, "annotate", draw)
+    def classify(frame, box):
+        classified.append(box)
+        return "A"
+    monkeypatch.setattr(team_classifier, "fit_from_samples", lambda *_: SimpleNamespace(predict=classify))
+    checks = None
+    if guarded:
+        def camera(self, image, boxes, anchor=None):
+            np.testing.assert_array_equal(boxes, pixels)  # outside people still masked
+            if anchor is not None:
+                self.matrix = anchor.copy()
+            return {"status": "tracked" if self.matrix is not None else "lost"}
+        monkeypatch.setattr(CameraMotion, "update", camera)
+        checks = tmp_path / "checks.json"
+        checks.write_text(json.dumps({"source_sha256": digest, "image_size": [96, 64],
+            "max_error_m": .1, "max_gap_frames": 2, "checkpoints": [{"frame": 1,
+            "image_points": [[30, 40], [60, 20]],
+            "pitch_points": [[10*105/55, 17], [40*105/55, 51]]}]}))
+    summary = track_video(source, output, weights, device="cpu", chunk_seconds=.2,
+        calibration=calibration, pitch_output=tmp_path / "pitch", team_samples=tmp_path / "samples.json",
+        compensate_camera=guarded, landmark_checks=checks, on_pitch_only=True)
+    allowed = {1, 2, 3} if guarded else set(range(7))
+    # ByteTrack needs confirmation for a new track born after its first frame.
+    visible = allowed - {1} if guarded else allowed
+    for i, (inputs, boxes) in enumerate(zip(tracker_inputs, drawn)):
+        expected = pixels[:1] if i in allowed else np.empty((0, 4), np.float32)
+        np.testing.assert_array_equal(inputs, expected)
+        expected_drawn = pixels[:1] if i in visible else np.empty((0, 4), np.float32)
+        np.testing.assert_array_equal(boxes, expected_drawn)
+    assert len(tracker_inputs) == len(drawn) == 8
+    assert len(classified) == len(visible)
+    assert all(box == pixels[0].tolist() for box in classified)
+    assert summary['team_observations'] == {'A': len(visible), 'B': 0, 'referee': 0, 'unknown': 0}
+    rows = [json.loads(line) for line in (tmp_path / 'pitch/tracking.jsonl').read_text().splitlines()]
+    assert {r['frame'] for r in rows} == visible
+    assert len(rows) == len(visible)
+    report = json.loads((tmp_path / 'pitch/metrics.json').read_text())
+    assert sum(t['samples'] for t in report['tracks']) == len(visible)
+    assert report['on_pitch_only'] is True
