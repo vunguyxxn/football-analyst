@@ -34,11 +34,13 @@ def test_existing_output_is_not_overwritten(tmp_path):
 
 
 @pytest.mark.parametrize("has_detection", [True, False])
-def test_video_round_trip_preserves_ids_across_chunks(tmp_path, monkeypatch, has_detection):
+@pytest.mark.parametrize("team_mode", [True, False])
+def test_video_round_trip_preserves_ids_across_chunks(tmp_path, monkeypatch, has_detection, team_mode):
     """Use real codec and ByteTrack with deterministic detector boxes."""
     cv2 = pytest.importorskip("cv2")
     sv = pytest.importorskip("supervision")
     np = pytest.importorskip("numpy")
+    pytest.importorskip("torch")
     source, output, weights = [tmp_path / name for name in ("in.mp4", "out.mp4", "m.pt")]
     weights.touch()
     writer = cv2.VideoWriter(str(source), cv2.VideoWriter_fourcc(*"mp4v"), 10, (96, 64))
@@ -47,11 +49,13 @@ def test_video_round_trip_preserves_ids_across_chunks(tmp_path, monkeypatch, has
         writer.write(np.zeros((64, 96, 3), dtype=np.uint8))
     writer.release()
     observed_ids = []
+    observed_detections = []
     real_update = sv.ByteTrack.update_with_detections
 
     def update(tracker, detections):
         result = real_update(tracker, detections)
         observed_ids.append(result.tracker_id.tolist())
+        observed_detections.append(result)
         return result
 
     class Detector:
@@ -65,19 +69,31 @@ def test_video_round_trip_preserves_ids_across_chunks(tmp_path, monkeypatch, has
             return [object()]
 
     monkeypatch.setitem(sys.modules, "ultralytics", SimpleNamespace(YOLO=Detector))
-    monkeypatch.setitem(sys.modules, "torch", SimpleNamespace())
     monkeypatch.setattr(sv.ByteTrack, "update_with_detections", update)
     monkeypatch.setattr(sv.Detections, "from_ultralytics", staticmethod(lambda _: (
         sv.Detections(
-            xyxy=np.array([[20, 10, 40, 50]], dtype=np.float32),
-            confidence=np.array([0.95], dtype=np.float32), class_id=np.array([0]),
+            xyxy=np.array([[20, 10, 40, 50], [55, 10, 75, 50]], dtype=np.float32),
+            confidence=np.array([0.95, 0.95], dtype=np.float32), class_id=np.array([0, 0]),
         ) if has_detection else sv.Detections.empty()
     )))
-    summary = track_video(source, output, weights, device="cpu", chunk_seconds=0.5)
+    if team_mode:
+        import itertools
+        from backend.cv import team_classifier
+
+        roles = itertools.cycle(["A", "B", "referee", "unknown"])
+        monkeypatch.setattr(team_classifier, "fit_from_samples", lambda *_: SimpleNamespace(predict=lambda *_: next(roles)))
+    summary = track_video(source, output, weights, device="cpu", chunk_seconds=0.5,
+                          team_samples=tmp_path / "samples.json" if team_mode else None)
+    if team_mode:
+        assert summary["team_observations"] == (
+            {"A": 12, "B": 12, "referee": 11, "unknown": 11} if has_detection
+            else {"A": 0, "B": 0, "referee": 0, "unknown": 0}
+        )
     assert summary["frames"] == 23
     assert summary["chunks"] == 5
     assert len(observed_ids) == 23
-    assert all(ids == observed_ids[0] and len(ids) == int(has_detection) for ids in observed_ids)
+    assert all(np.all(detections.class_id == 0) for detections in observed_detections)
+    assert all(ids == observed_ids[0] and len(ids) == 2*int(has_detection) for ids in observed_ids)
     capture = cv2.VideoCapture(str(output))
     try:
         assert capture.get(cv2.CAP_PROP_FPS) == pytest.approx(10)

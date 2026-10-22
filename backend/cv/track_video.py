@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+from copy import copy
 import json
 import math
 from pathlib import Path
@@ -18,6 +19,7 @@ def track_video(
     chunk_seconds: float = 10,
     confidence: float = 0.1,
     image_size: int = 640,
+    team_samples: Path | None = None,
 ) -> dict[str, object]:
     """Write an annotated silent MP4, processing one frame at a time.
 
@@ -54,9 +56,16 @@ def track_video(
     if not person_classes:
         raise ValueError("This step requires YOLO weights containing the 'person' class")
 
+    classifier = None
+    if team_samples is not None:
+        from backend.cv.team_classifier import fit_from_samples
+
+        classifier = fit_from_samples(source, team_samples)
+
     capture = cv2.VideoCapture(str(source))
     writer = None
     frames = chunks = 0
+    team_observations = {"A": 0, "B": 0, "referee": 0, "unknown": 0}
     started = perf_counter()
     try:
         if not capture.isOpened():
@@ -70,6 +79,10 @@ def track_video(
         tracker = sv.ByteTrack(frame_rate=max(1, round(fps)))
         boxes = sv.BoxAnnotator()
         labels = sv.LabelAnnotator()
+        if classifier is not None:
+            palette = sv.ColorPalette.from_hex(["#a855f7", "#22d3ee", "#facc15", "#94a3b8"])
+            boxes = sv.BoxAnnotator(color=palette)
+            labels = sv.LabelAnnotator(color=palette)
         output.parent.mkdir(parents=True, exist_ok=True)
         writer = cv2.VideoWriter(
             str(output), cv2.VideoWriter_fourcc(*"mp4v"), fps, (width, height)
@@ -91,11 +104,28 @@ def track_video(
                 detections = tracker.update_with_detections(
                     sv.Detections.from_ultralytics(result)
                 )
-                annotated = boxes.annotate(scene=frame, detections=detections)
-                annotated = labels.annotate(
-                    scene=annotated, detections=detections,
-                    labels=[f"ID {int(track_id)}" for track_id in detections.tracker_id],
-                )
+                if classifier is None:
+                    annotated = boxes.annotate(scene=frame, detections=detections)
+                    annotated = labels.annotate(
+                        scene=annotated, detections=detections,
+                        labels=[f"ID {int(track_id)}" for track_id in detections.tracker_id],
+                    )
+                else:
+                    import numpy as np
+
+                    roles = [classifier.predict(frame, box.tolist()) for box in detections.xyxy]
+                    for role in roles:
+                        team_observations[role] += 1
+                    # supervision 0.26.1 compares custom_color_lookup arrays to
+                    # an Enum with scalar truth testing. Use a drawing-only
+                    # copy with role color indices; keep detector classes intact.
+                    drawing_detections = copy(detections)
+                    drawing_detections.class_id = np.array([list(team_observations).index(role) for role in roles], dtype=int)
+                    annotated = boxes.annotate(scene=frame, detections=drawing_detections)
+                    annotated = labels.annotate(
+                        scene=annotated, detections=drawing_detections,
+                        labels=[f"{role} ID {int(track_id)}" for role, track_id in zip(roles, detections.tracker_id)],
+                    )
                 writer.write(annotated)
                 frames += 1
                 chunk_count += 1
@@ -111,11 +141,15 @@ def track_video(
             output.unlink()
 
     elapsed = perf_counter() - started
-    return {
+    summary = {
         "output": str(output), "frames": frames, "chunks": chunks,
         "video_fps": fps, "processing_fps": round(frames / elapsed, 2),
         "device": device, "weights": str(weights),
     }
+    if classifier is not None:
+        summary["team_observations"] = team_observations
+        summary["team_samples"] = str(team_samples)
+    return summary
 
 
 def main() -> None:
@@ -127,12 +161,14 @@ def main() -> None:
     parser.add_argument("--chunk-seconds", type=float, default=10)
     parser.add_argument("--confidence", type=float, default=0.1)
     parser.add_argument("--image-size", type=int, default=640)
+    parser.add_argument("--team-samples", type=Path, help="Clip-specific calibration/evaluation annotations")
     args = parser.parse_args()
     try:
         result = track_video(
             args.source, args.output, args.weights, device=args.device,
             chunk_seconds=args.chunk_seconds, confidence=args.confidence,
             image_size=args.image_size,
+            team_samples=args.team_samples,
         )
     except (ValueError, FileNotFoundError, RuntimeError, ImportError) as error:
         parser.exit(1, f"Tracking failed: {error}\n")

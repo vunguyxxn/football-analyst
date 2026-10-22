@@ -11,6 +11,11 @@ Bước 2 đã triển khai và nghiệm thu chức năng CLI YOLO + ByteTrack x
 từng đoạn trên clip thật `data/raw/vid1.mp4`, chạy được cả CPU và CUDA 12.8 trên
 RTX 3050 6GB. Chưa đo độ chính xác tracking bằng dữ liệu gán nhãn.
 
+Bước 3 đã có baseline K-means phân đội theo màu áo, nhãn trọng tài riêng và
+`unknown`, tích hợp tùy chọn vào CLI. Đã chạy clip thật, 39 test qua. Kết quả
+tham chiếu 24/28 mẫu đúng; nhãn do agent quan sát ảnh, chưa được người gán nhãn
+độc lập rà soát. Còn nhầm thủ môn áo yếm vàng với trọng tài.
+
 ## Đã làm
 
 - Chốt cấu trúc backend FastAPI và frontend Vite + React + TypeScript.
@@ -53,8 +58,10 @@ RTX 3050 6GB. Chưa đo độ chính xác tracking bằng dữ liệu gán nhãn
 
 ## Việc tiếp theo
 
-- Bước 3: phân loại đội theo màu áo (K-means), loại trọng tài và đo độ chính
-  xác trên mẫu gán nhãn tay.
+- Nhóm rà soát nhãn/box mẫu bước 3, nhất là áo thủ môn và người ngoài sân;
+  mở rộng đánh giá sang clip khác trước khi dùng số liệu trong báo cáo.
+- Tiếp theo roadmap là bước 4: homography 4 điểm chọn tay và chỉ số tọa độ sân;
+  chưa triển khai trong phiên này.
 
 ## Vấn đề tồn đọng
 
@@ -62,6 +69,8 @@ RTX 3050 6GB. Chưa đo độ chính xác tracking bằng dữ liệu gán nhãn
 - Môi trường PyTorch/CUDA đã hoạt động. Tracking có thể mất/đổi ID khi che
   khuất, zoom hoặc chuyển cảnh; chưa đo IDF1 hay xác nhận định danh cầu thủ
   xuyên suốt clip.
+- Bước 3 là baseline riêng theo clip; có nhầm áo yếm vàng thành trọng tài,
+  nhãn màu có thể dao động, chưa phân đội thủ môn khác màu bằng ngữ cảnh.
 
 ## Phiên triển khai bước 2 — 22/10/2026
 
@@ -115,6 +124,42 @@ RTX 3050 6GB. Chưa đo độ chính xác tracking bằng dữ liệu gán nhãn
   ứng dụng hay hợp đồng dữ liệu trong phiên nghiệm thu này.
 - Hoàn tất nghiệm thu chức năng bước 2; bước tiếp theo là bước 3. Chưa tuyên
   bố độ chính xác detection/tracking hay định danh cầu thủ xuyên suốt clip.
+
+## Triển khai baseline bước 3 — 22/10/2026
+
+- Người dùng xác nhận: A áo tím/trắng, B áo xanh ngọc, trọng tài vàng chanh.
+- Thêm `backend/cv/team_classifier.py`: trích màu Lab vùng thân áo, K-means
+  hai cụm trên mẫu cầu thủ hiệu chỉnh, ánh xạ cụm sang A/B bằng nhãn hiệu chỉnh;
+  mẫu màu trọng tài được xử lý riêng. Có ngưỡng trả `unknown`.
+- Thêm `--team-samples` vào CLI bước 2; A/B/referee/unknown có màu và nhãn
+  riêng. Trọng tài không gán A/B; `team_observations` là lượt quan sát qua
+  frame, không phải số cầu thủ duy nhất. Mặc định không bật tùy chọn vẫn là
+  pipeline bước 2. Không thêm dependency, không đổi API/hợp đồng dữ liệu.
+- Khắc phục lỗi supervision 0.26.1 khi dùng custom color lookup với nhiều
+  detection: dùng bản sao chỉ phục vụ vẽ với mã màu theo role; giữ nguyên
+  class detection gốc. Test tích hợp kiểm tra nhiều người và dữ liệu gốc.
+- Fixture `docs/fixtures/vid1_team_samples.json` có 101 box tham chiếu:
+  15 hiệu chỉnh (frame 0, 50), 58 phát triển, 28 kiểm tra cuối ở các frame khác.
+  Tên/SHA256 nguồn và frame split được kiểm tra, không fit bằng nhãn kiểm tra.
+- Nhãn do Codex gán qua quan sát ảnh; người dùng xác nhận quy ước màu, chưa
+  rà soát độc lập từng box. Hai proposal gần trùng đã loại trước đánh giá.
+  Bộ phát triển dùng phát hiện/sửa lỗi bộ lọc cỏ loại nhầm áo huỳnh quang;
+  kết quả kiểm tra cuối được đo trên frame khác sau sửa lỗi này.
+- Kiểm tra cuối: đúng 24/28 (85,71%); phân đội 17/20 (85%, tính unknown là sai);
+  trọng tài precision/recall 3/3, unknown đúng 4/5. Chỉ là phân loại màu trên
+  box tham chiếu cùng một clip, không phải mAP/IDF1 hay độ chính xác nhiều trận.
+- Tập phát triển còn 4/13 mẫu unknown bị nhầm trọng tài; ảnh mẫu frame 350
+  cũng cho thấy thủ môn áo yếm vàng bị nhầm. Không tuyên bố đã giải quyết
+  phân biệt thủ môn/trọng tài hoặc lọc mọi người ngoài sân.
+- GPU chạy `vid1_teams.mp4`: đủ 867 frame qua 2 đoạn, giữ 1920 × 1080/50 FPS,
+  tốc độ toàn pipeline khoảng 11,62 FPS trong lượt đo này. Đã xem frame 0,
+  350, 500 và đọc lại toàn bộ video để đối chiếu metadata/số frame.
+- Kết quả cục bộ: `data/processed/vid1_teams.mp4`, `vid1_team_run.json`,
+  `vid1_teams_validation.json`, `vid1_team_final_evaluation.json` và ảnh mẫu
+  `vid1_team_frame_*.jpg`; không commit media/dữ liệu sinh ra.
+- Toàn bộ test cuối: 39 passed, 1 network test deselected; còn cảnh báo
+  Starlette TestClient đã có. Hướng dẫn, confusion matrix và giới hạn tại
+  `docs/CV_TEAMS.md`. Cần nhóm rà soát nhãn trước khi công bố số liệu.
 
 ## Quyết định đã chốt
 
