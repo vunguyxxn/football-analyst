@@ -390,6 +390,31 @@ nguồn cũ `fa6ea680`, không dùng fixture cũ cho file mới cùng tên.
   đoạn cuối, kiểm tra ID/điểm chân/noise; chưa nghiệm thu tốc độ/quãng đường,
   chưa chuyển bước 5 hoặc tuyên bố toàn clip đạt.
 
+## Tích hợp tracking/phân đội/tọa độ đoạn cuối — 22/10/2026
+
+- Chạy CLI YOLO11n CUDA + ByteTrack + phân đội + CameraMotion/guard trên
+  bản cắt 1.800 frame, image size 1280, chunk 10 giây. Hoàn thành 3 chunk,
+  trung bình 6,08 FPS. Không đổi mã ứng dụng, dependency hoặc hợp đồng.
+- Giữ guard 1 m / 90 frame và cấu hình chỉ đoạn cuối. 1.499 frame ngoài
+  hiệu chỉnh, 30 chờ, 271 cấp phép (1080–1350). Xuất 5.384 TrackingRow,
+  không có tọa độ ngoài cửa sổ; A/B/referee/unknown = 2489/2452/334/109.
+- Kiểm tra schema, hữu hạn/phạm vi/thời gian, không trùng frame+ID, tổng
+  samples/heatmap; giải mã nguồn/đầu ra đủ 1.800 frame và video cửa sổ đủ
+  271 frame. Tạo bản đồ vị trí/heatmap QA cục bộ, backend vẫn JSON.
+- Chưa đạt chất lượng thống kê cầu thủ: 50 ID trong cửa sổ, 17 track có
+  ít nhất 120 mẫu; 19 track đổi vai trò (104 lần). Thấy bbox/ID gần trùng
+  cho cùng vùng người (134/306 ở 1200, 134/330 ở 1310), dễ đếm thừa.
+- 793/5310 cặp frame liên tiếp suy ra >40 km/h, là diagnostic rung/gán
+  điểm, không phải tốc độ thực. Metrics lấy mẫu 0,5 giây chỉ loại 1 bước;
+  tốc độ lưu <=40 không chứng minh độ chính xác quãng đường/tốc độ.
+- Báo cáo `CV_INTEGRATION_CHECK.md`, artifact cục bộ `return_integrated/`
+  cùng video `return_integrated.mp4` dưới `data/processed/clip_11f23eea/`.
+  Đã rà mẫu hình ảnh đầu/giữa/cuối và bước nhảy lớn. Không có nhãn IDF1
+  hoặc ground truth bàn chân. Toàn bộ 99 test qua, 1 network deselected,
+  cảnh báo Starlette cũ. Chưa nghiệm thu toàn clip, chưa chuyển bước 5.
+- Việc tiếp theo: xử lý detection/track trùng và gãy ID trên đoạn gán nhãn,
+  rồi ổn định vai trò/điểm chiếu, đánh giá lại chỉ số trước khi mở rộng.
+
 ## Quyết định đã chốt
 
 - Python 3.11; FastAPI; Pydantic v2.
