@@ -539,6 +539,42 @@ nguồn cũ `fa6ea680`, không dùng fixture cũ cho file mới cùng tên.
   Nghiệm thu giảm nhiễu/ngắt mốc; chưa nghiệm thu chỉ số thực địa/chưa bước 5.
   Tiếp theo cần đối chiếu tọa độ tracking chuẩn độc lập và thêm tình huống khó.
 
+## Benchmark tham chiếu Metrica — 22/10/2026
+
+- Theo yêu cầu, thêm CLI backend.cv.metrica_benchmark, dùng CSV chuẩn từ
+  Metrica Sports Sample Data, commit e706dd506b360d69d9d123d5b8026e7294b13996.
+  Bốn file Home/Away Game 1/2 (~127 MB) lưu data/raw/metrica, khóa SHA256
+  và protocol trong docs/fixtures/metrica_benchmark.json; không commit CSV.
+- Metrica mô tả sân 105 × 68 m, gốc trái trên/tọa độ 0–1; đổi x*105,
+  (1-y)*68 sang hệ dự án, không tự lật hướng tấn công. Bỏ bóng/NaN/ngoài sân,
+  tách gap tự nhiên; ID Home/Away cục bộ ẩn danh, không liên kết StatsBomb.
+- Khóa bộ lọc hiện tại, lấy hiệp 1, giây [60,120) ở cả hai trận, 25 FPS gốc,
+  22 quỹ đạo mỗi trận, 65.051 điểm tham chiếu phân biệt. Chạy 26 lượt: clean
+  một lượt/trận, noise sigma 0,15 m, spikes 1%, ba gap 0,6 s và relocation 0,6 s;
+  các trường hợp lỗi dùng 3 seed 1729/2718/3141. Không nội suy dữ liệu lên 60 FPS.
+- Đo RMSE cả raw-all và raw-common, coverage điểm, sai lệch quãng đường
+  toàn cửa sổ/đúng phần metrics cộng, MAE tốc độ trọng số thời gian và lag
+  lưới. Audit gọi PitchSmoother/PitchMetrics thật; không đổi thuật toán,
+  pipeline, dependency hoặc schema/API. Đây không phải đo CV/homography.
+- Kết quả không đồng đều: spikes RMSE median Game 1 1,289 -> 0,203 m;
+  Game 2 1,239 -> 0,268 m. Nhưng noise nhẹ Game 2 0,212 -> 0,267 m (xấu hơn),
+  clean tạo lệch 0,183/0,249 m; lag lưới thường 120 ms tại 25 FPS, không áp thẳng
+  cho video 60 FPS. Không diễn giải giảm tốc độ nhiễu là vị trí chính xác hơn.
+- Spikes giữ 98–99% điểm nhưng metrics đại diện 91–92% thời gian, thiếu khoảng
+  8–11% distance so tham chiếu toàn cửa sổ. Relocation giữ 264/330 điểm lỗi
+  mỗi lượt (80%), RMSE còn ~1,18 m dù covered-distance bias gần 0. Không coi
+  bộ lọc là kiểm chứng vị trí hay dùng chỉ số coverage một mình để nghiệm thu.
+- Toàn bộ 135 test qua, 1 network deselected, cảnh báo Starlette cũ. Test loader,
+  hệ trục/gap, seed/không sửa reference, lỗi kéo dài, đường cong chuẩn,
+  lag/coverage, hash và không ghi đè. Audit 26 lượt / 22 trajectory mỗi lượt,
+  tổng/RMSE/coverage khớp; JSON finite. CLI tái tạo được từ manifest.
+- Báo cáo METRICA_BENCHMARK.md, cập nhật CV_PITCH_SMOOTHING.md. Artifacts
+  data/processed/metrica_benchmark/{results.json,summary.json,benchmark_comparison.png}.
+  Giữ --smooth-pitch tùy chọn; chưa nghiệm thu bước 4 / chưa bước 5. Tiếp theo
+  xử lý đánh đổi trễ và xác nhận lại vị trí sai kéo dài, đánh giá trên cửa
+  sổ/trận mới nếu dùng bộ hiện tại để chỉnh phương pháp. Không gọi Metrica
+  là ground truth tuyệt đối; nguồn chỉ là tọa độ tham chiếu do hãng công bố.
+
 ## Quyết định đã chốt
 
 - Python 3.11; FastAPI; Pydantic v2.

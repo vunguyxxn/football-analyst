@@ -156,3 +156,12 @@ Nghiệm thu chức năng giảm nhiễu, giữ dữ liệu thô và ngắt mố
 Chưa nghiệm thu vị trí/tốc độ/quãng đường thực địa và chưa chuyển bước 5.
 Cần đối chiếu tracking có tọa độ chuẩn độc lập, kiểm tra thêm chuyển hướng,
 tăng tốc, đứng yên thật và camera/ID sai trước khi dùng làm số liệu báo cáo.
+
+## Đánh giá tiếp bằng Metrica
+
+Đã bổ sung CLI và benchmark 26 lượt trên tọa độ tham chiếu Metrica Game 1/2;
+xem `METRICA_BENCHMARK.md`. Không chỉnh bộ lọc trong lượt đánh giá đó.
+Kết quả cho thấy cải thiện với spikes đơn, nhưng vị trí ở trường hợp noise
+nhẹ Game 2 xấu hơn do đánh đổi trễ; lỗi dịch vị trí kéo dài vẫn được giữ
+nhiều sau xác nhận lại. Coverage điểm cao cũng không bảo đảm đủ quãng đường.
+Giữ cờ smoothing tùy chọn, chưa nghiệm thu chỉ số thực địa hoặc chốt bước 4.
