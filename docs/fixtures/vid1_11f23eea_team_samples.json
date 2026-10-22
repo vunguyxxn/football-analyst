@@ -1,0 +1,1632 @@
+{
+  "video": "vid1_11f23eea_clean.mp4",
+  "video_sha256": "86f6f04ce05ac464269dfa4d831bef0c12c3654acdd2fa3c1b6379f864597b2e",
+  "feature_mode": "foreground",
+  "source_video": "data/raw/vid1.mp4",
+  "source_sha256": "11f23eead918e838cb39fdb1ef98179dc93f86574fdb6d38bb6cd8ced3e01ed1",
+  "source_interval_s": [
+    10,
+    40
+  ],
+  "role_definition": {
+    "A": "white kit",
+    "B": "dark/black kit",
+    "referee": "light blue officials including assistant",
+    "unknown": "non-playing staff/camera operators or ambiguous overlapping box"
+  },
+  "annotation_provenance": "YOLO person proposals at image size 1280; Codex visually assigned roles from full frames and crops. User confirmed kit mapping, not individual boxes. Needs independent human review.",
+  "split_note": "Calibration: 22 visually selected clear player/official examples at frames 0 and 60; no staff included. Development: frames 300 and 900. Evaluation: frames 600, 1200, 1500, not used to tune features/thresholds. All from same short clip and recurring people.",
+  "excluded_proposals": {
+    "90": "near-duplicate of 89"
+  },
+  "samples": [
+    {
+      "id": 1,
+      "frame": 0,
+      "bbox": [
+        275,
+        236,
+        292,
+        271
+      ],
+      "split": "calibration",
+      "role": "A"
+    },
+    {
+      "id": 2,
+      "frame": 0,
+      "bbox": [
+        284,
+        261,
+        313,
+        295
+      ],
+      "split": "calibration",
+      "role": "A"
+    },
+    {
+      "id": 6,
+      "frame": 0,
+      "bbox": [
+        549,
+        241,
+        563,
+        275
+      ],
+      "split": "calibration",
+      "role": "A"
+    },
+    {
+      "id": 7,
+      "frame": 0,
+      "bbox": [
+        584,
+        244,
+        598,
+        277
+      ],
+      "split": "calibration",
+      "role": "B"
+    },
+    {
+      "id": 10,
+      "frame": 0,
+      "bbox": [
+        673,
+        298,
+        687,
+        339
+      ],
+      "split": "calibration",
+      "role": "B"
+    },
+    {
+      "id": 11,
+      "frame": 0,
+      "bbox": [
+        693,
+        281,
+        709,
+        321
+      ],
+      "split": "calibration",
+      "role": "A"
+    },
+    {
+      "id": 12,
+      "frame": 0,
+      "bbox": [
+        705,
+        242,
+        719,
+        278
+      ],
+      "split": "calibration",
+      "role": "referee"
+    },
+    {
+      "id": 13,
+      "frame": 0,
+      "bbox": [
+        768,
+        224,
+        783,
+        253
+      ],
+      "split": "calibration",
+      "role": "B"
+    },
+    {
+      "id": 14,
+      "frame": 0,
+      "bbox": [
+        783,
+        253,
+        794,
+        285
+      ],
+      "split": "calibration",
+      "role": "B"
+    },
+    {
+      "id": 17,
+      "frame": 0,
+      "bbox": [
+        836,
+        240,
+        852,
+        277
+      ],
+      "split": "calibration",
+      "role": "A"
+    },
+    {
+      "id": 18,
+      "frame": 0,
+      "bbox": [
+        897,
+        212,
+        911,
+        243
+      ],
+      "split": "calibration",
+      "role": "B"
+    },
+    {
+      "id": 21,
+      "frame": 60,
+      "bbox": [
+        46,
+        260,
+        70,
+        301
+      ],
+      "split": "calibration",
+      "role": "B"
+    },
+    {
+      "id": 22,
+      "frame": 60,
+      "bbox": [
+        93,
+        267,
+        118,
+        310
+      ],
+      "split": "calibration",
+      "role": "A"
+    },
+    {
+      "id": 24,
+      "frame": 60,
+      "bbox": [
+        289,
+        323,
+        316,
+        369
+      ],
+      "split": "calibration",
+      "role": "A"
+    },
+    {
+      "id": 29,
+      "frame": 60,
+      "bbox": [
+        510,
+        211,
+        527,
+        247
+      ],
+      "split": "calibration",
+      "role": "A"
+    },
+    {
+      "id": 30,
+      "frame": 60,
+      "bbox": [
+        545,
+        229,
+        563,
+        261
+      ],
+      "split": "calibration",
+      "role": "B"
+    },
+    {
+      "id": 32,
+      "frame": 60,
+      "bbox": [
+        590,
+        266,
+        610,
+        305
+      ],
+      "split": "calibration",
+      "role": "A"
+    },
+    {
+      "id": 34,
+      "frame": 60,
+      "bbox": [
+        632,
+        285,
+        657,
+        322
+      ],
+      "split": "calibration",
+      "role": "B"
+    },
+    {
+      "id": 35,
+      "frame": 60,
+      "bbox": [
+        650,
+        233,
+        665,
+        271
+      ],
+      "split": "calibration",
+      "role": "referee"
+    },
+    {
+      "id": 37,
+      "frame": 60,
+      "bbox": [
+        717,
+        241,
+        732,
+        269
+      ],
+      "split": "calibration",
+      "role": "B"
+    },
+    {
+      "id": 38,
+      "frame": 60,
+      "bbox": [
+        737,
+        195,
+        756,
+        231
+      ],
+      "split": "calibration",
+      "role": "A"
+    },
+    {
+      "id": 41,
+      "frame": 60,
+      "bbox": [
+        915,
+        264,
+        936,
+        302
+      ],
+      "split": "calibration",
+      "role": "B"
+    },
+    {
+      "id": 43,
+      "frame": 300,
+      "bbox": [
+        177,
+        328,
+        208,
+        376
+      ],
+      "split": "development",
+      "role": "A"
+    },
+    {
+      "id": 44,
+      "frame": 300,
+      "bbox": [
+        177,
+        327,
+        196,
+        376
+      ],
+      "split": "development",
+      "role": "A"
+    },
+    {
+      "id": 45,
+      "frame": 300,
+      "bbox": [
+        305,
+        292,
+        328,
+        337
+      ],
+      "split": "development",
+      "role": "A"
+    },
+    {
+      "id": 46,
+      "frame": 300,
+      "bbox": [
+        309,
+        227,
+        332,
+        262
+      ],
+      "split": "development",
+      "role": "A"
+    },
+    {
+      "id": 47,
+      "frame": 300,
+      "bbox": [
+        379,
+        295,
+        397,
+        342
+      ],
+      "split": "development",
+      "role": "B"
+    },
+    {
+      "id": 48,
+      "frame": 300,
+      "bbox": [
+        462,
+        288,
+        479,
+        328
+      ],
+      "split": "development",
+      "role": "A"
+    },
+    {
+      "id": 49,
+      "frame": 300,
+      "bbox": [
+        504,
+        237,
+        531,
+        276
+      ],
+      "split": "development",
+      "role": "B"
+    },
+    {
+      "id": 50,
+      "frame": 300,
+      "bbox": [
+        552,
+        253,
+        569,
+        288
+      ],
+      "split": "development",
+      "role": "B"
+    },
+    {
+      "id": 51,
+      "frame": 300,
+      "bbox": [
+        561,
+        323,
+        578,
+        372
+      ],
+      "split": "development",
+      "role": "B"
+    },
+    {
+      "id": 52,
+      "frame": 300,
+      "bbox": [
+        565,
+        234,
+        584,
+        273
+      ],
+      "split": "development",
+      "role": "A"
+    },
+    {
+      "id": 53,
+      "frame": 300,
+      "bbox": [
+        619,
+        273,
+        634,
+        326
+      ],
+      "split": "development",
+      "role": "A"
+    },
+    {
+      "id": 54,
+      "frame": 300,
+      "bbox": [
+        636,
+        303,
+        651,
+        348
+      ],
+      "split": "development",
+      "role": "A"
+    },
+    {
+      "id": 55,
+      "frame": 300,
+      "bbox": [
+        652,
+        261,
+        669,
+        302
+      ],
+      "split": "development",
+      "role": "referee"
+    },
+    {
+      "id": 56,
+      "frame": 300,
+      "bbox": [
+        700,
+        661,
+        738,
+        717
+      ],
+      "split": "development",
+      "role": "unknown"
+    },
+    {
+      "id": 57,
+      "frame": 300,
+      "bbox": [
+        742,
+        249,
+        755,
+        279
+      ],
+      "split": "development",
+      "role": "B"
+    },
+    {
+      "id": 58,
+      "frame": 300,
+      "bbox": [
+        753,
+        215,
+        770,
+        253
+      ],
+      "split": "development",
+      "role": "A"
+    },
+    {
+      "id": 59,
+      "frame": 300,
+      "bbox": [
+        762,
+        277,
+        782,
+        315
+      ],
+      "split": "development",
+      "role": "B"
+    },
+    {
+      "id": 60,
+      "frame": 300,
+      "bbox": [
+        767,
+        231,
+        791,
+        267
+      ],
+      "split": "development",
+      "role": "A"
+    },
+    {
+      "id": 61,
+      "frame": 300,
+      "bbox": [
+        767,
+        605,
+        793,
+        691
+      ],
+      "split": "development",
+      "role": "unknown"
+    },
+    {
+      "id": 62,
+      "frame": 300,
+      "bbox": [
+        834,
+        573,
+        859,
+        656
+      ],
+      "split": "development",
+      "role": "unknown"
+    },
+    {
+      "id": 63,
+      "frame": 300,
+      "bbox": [
+        872,
+        219,
+        892,
+        258
+      ],
+      "split": "development",
+      "role": "B"
+    },
+    {
+      "id": 64,
+      "frame": 300,
+      "bbox": [
+        944,
+        260,
+        965,
+        308
+      ],
+      "split": "development",
+      "role": "A"
+    },
+    {
+      "id": 65,
+      "frame": 300,
+      "bbox": [
+        956,
+        311,
+        975,
+        362
+      ],
+      "split": "development",
+      "role": "B"
+    },
+    {
+      "id": 66,
+      "frame": 300,
+      "bbox": [
+        991,
+        273,
+        1010,
+        318
+      ],
+      "split": "development",
+      "role": "B"
+    },
+    {
+      "id": 67,
+      "frame": 900,
+      "bbox": [
+        29,
+        289,
+        47,
+        331
+      ],
+      "split": "development",
+      "role": "B"
+    },
+    {
+      "id": 68,
+      "frame": 900,
+      "bbox": [
+        190,
+        198,
+        204,
+        236
+      ],
+      "split": "development",
+      "role": "A"
+    },
+    {
+      "id": 69,
+      "frame": 900,
+      "bbox": [
+        251,
+        260,
+        270,
+        301
+      ],
+      "split": "development",
+      "role": "A"
+    },
+    {
+      "id": 70,
+      "frame": 900,
+      "bbox": [
+        365,
+        242,
+        379,
+        283
+      ],
+      "split": "development",
+      "role": "B"
+    },
+    {
+      "id": 71,
+      "frame": 900,
+      "bbox": [
+        534,
+        241,
+        550,
+        283
+      ],
+      "split": "development",
+      "role": "A"
+    },
+    {
+      "id": 72,
+      "frame": 900,
+      "bbox": [
+        537,
+        394,
+        555,
+        452
+      ],
+      "split": "development",
+      "role": "B"
+    },
+    {
+      "id": 73,
+      "frame": 900,
+      "bbox": [
+        591,
+        499,
+        616,
+        567
+      ],
+      "split": "development",
+      "role": "A"
+    },
+    {
+      "id": 74,
+      "frame": 900,
+      "bbox": [
+        683,
+        376,
+        706,
+        437
+      ],
+      "split": "development",
+      "role": "A"
+    },
+    {
+      "id": 75,
+      "frame": 900,
+      "bbox": [
+        695,
+        261,
+        715,
+        302
+      ],
+      "split": "development",
+      "role": "referee"
+    },
+    {
+      "id": 76,
+      "frame": 900,
+      "bbox": [
+        706,
+        209,
+        730,
+        242
+      ],
+      "split": "development",
+      "role": "B"
+    },
+    {
+      "id": 77,
+      "frame": 900,
+      "bbox": [
+        745,
+        243,
+        758,
+        283
+      ],
+      "split": "development",
+      "role": "B"
+    },
+    {
+      "id": 78,
+      "frame": 900,
+      "bbox": [
+        762,
+        296,
+        781,
+        343
+      ],
+      "split": "development",
+      "role": "A"
+    },
+    {
+      "id": 79,
+      "frame": 900,
+      "bbox": [
+        774,
+        185,
+        795,
+        216
+      ],
+      "split": "development",
+      "role": "A"
+    },
+    {
+      "id": 80,
+      "frame": 900,
+      "bbox": [
+        793,
+        302,
+        811,
+        348
+      ],
+      "split": "development",
+      "role": "B"
+    },
+    {
+      "id": 81,
+      "frame": 900,
+      "bbox": [
+        883,
+        669,
+        916,
+        719
+      ],
+      "split": "development",
+      "role": "unknown"
+    },
+    {
+      "id": 82,
+      "frame": 900,
+      "bbox": [
+        987,
+        232,
+        1003,
+        275
+      ],
+      "split": "development",
+      "role": "A"
+    },
+    {
+      "id": 83,
+      "frame": 900,
+      "bbox": [
+        1029,
+        232,
+        1043,
+        272
+      ],
+      "split": "development",
+      "role": "B"
+    },
+    {
+      "id": 84,
+      "frame": 900,
+      "bbox": [
+        1063,
+        380,
+        1084,
+        442
+      ],
+      "split": "development",
+      "role": "B"
+    },
+    {
+      "id": 85,
+      "frame": 900,
+      "bbox": [
+        1070,
+        585,
+        1097,
+        669
+      ],
+      "split": "development",
+      "role": "unknown"
+    },
+    {
+      "id": 86,
+      "frame": 900,
+      "bbox": [
+        1074,
+        260,
+        1090,
+        307
+      ],
+      "split": "development",
+      "role": "B"
+    },
+    {
+      "id": 87,
+      "frame": 900,
+      "bbox": [
+        1138,
+        362,
+        1161,
+        422
+      ],
+      "split": "development",
+      "role": "A"
+    },
+    {
+      "id": 88,
+      "frame": 600,
+      "bbox": [
+        123,
+        348,
+        143,
+        400
+      ],
+      "split": "evaluation",
+      "role": "A"
+    },
+    {
+      "id": 89,
+      "frame": 600,
+      "bbox": [
+        214,
+        322,
+        240,
+        364
+      ],
+      "split": "evaluation",
+      "role": "B"
+    },
+    {
+      "id": 91,
+      "frame": 600,
+      "bbox": [
+        265,
+        435,
+        287,
+        496
+      ],
+      "split": "evaluation",
+      "role": "A"
+    },
+    {
+      "id": 92,
+      "frame": 600,
+      "bbox": [
+        384,
+        210,
+        405,
+        247
+      ],
+      "split": "evaluation",
+      "role": "A"
+    },
+    {
+      "id": 93,
+      "frame": 600,
+      "bbox": [
+        453,
+        315,
+        471,
+        366
+      ],
+      "split": "evaluation",
+      "role": "A"
+    },
+    {
+      "id": 94,
+      "frame": 600,
+      "bbox": [
+        479,
+        377,
+        504,
+        431
+      ],
+      "split": "evaluation",
+      "role": "B"
+    },
+    {
+      "id": 95,
+      "frame": 600,
+      "bbox": [
+        558,
+        276,
+        578,
+        322
+      ],
+      "split": "evaluation",
+      "role": "B"
+    },
+    {
+      "id": 96,
+      "frame": 600,
+      "bbox": [
+        713,
+        279,
+        730,
+        327
+      ],
+      "split": "evaluation",
+      "role": "referee"
+    },
+    {
+      "id": 97,
+      "frame": 600,
+      "bbox": [
+        730,
+        216,
+        744,
+        257
+      ],
+      "split": "evaluation",
+      "role": "B"
+    },
+    {
+      "id": 98,
+      "frame": 600,
+      "bbox": [
+        746,
+        257,
+        762,
+        302
+      ],
+      "split": "evaluation",
+      "role": "A"
+    },
+    {
+      "id": 99,
+      "frame": 600,
+      "bbox": [
+        912,
+        323,
+        931,
+        368
+      ],
+      "split": "evaluation",
+      "role": "B"
+    },
+    {
+      "id": 100,
+      "frame": 600,
+      "bbox": [
+        913,
+        419,
+        934,
+        483
+      ],
+      "split": "evaluation",
+      "role": "A"
+    },
+    {
+      "id": 101,
+      "frame": 600,
+      "bbox": [
+        922,
+        342,
+        946,
+        392
+      ],
+      "split": "evaluation",
+      "role": "A"
+    },
+    {
+      "id": 102,
+      "frame": 600,
+      "bbox": [
+        948,
+        261,
+        963,
+        301
+      ],
+      "split": "evaluation",
+      "role": "B"
+    },
+    {
+      "id": 103,
+      "frame": 600,
+      "bbox": [
+        954,
+        196,
+        967,
+        227
+      ],
+      "split": "evaluation",
+      "role": "A"
+    },
+    {
+      "id": 104,
+      "frame": 600,
+      "bbox": [
+        1043,
+        239,
+        1060,
+        283
+      ],
+      "split": "evaluation",
+      "role": "A"
+    },
+    {
+      "id": 105,
+      "frame": 600,
+      "bbox": [
+        1117,
+        398,
+        1145,
+        460
+      ],
+      "split": "evaluation",
+      "role": "B"
+    },
+    {
+      "id": 106,
+      "frame": 600,
+      "bbox": [
+        1119,
+        240,
+        1136,
+        279
+      ],
+      "split": "evaluation",
+      "role": "B"
+    },
+    {
+      "id": 107,
+      "frame": 600,
+      "bbox": [
+        1163,
+        276,
+        1181,
+        325
+      ],
+      "split": "evaluation",
+      "role": "B"
+    },
+    {
+      "id": 108,
+      "frame": 600,
+      "bbox": [
+        1187,
+        351,
+        1211,
+        412
+      ],
+      "split": "evaluation",
+      "role": "A"
+    },
+    {
+      "id": 109,
+      "frame": 600,
+      "bbox": [
+        1198,
+        596,
+        1227,
+        682
+      ],
+      "split": "evaluation",
+      "role": "unknown"
+    },
+    {
+      "id": 110,
+      "frame": 600,
+      "bbox": [
+        1240,
+        348,
+        1263,
+        402
+      ],
+      "split": "evaluation",
+      "role": "B"
+    },
+    {
+      "id": 111,
+      "frame": 1200,
+      "bbox": [
+        15,
+        312,
+        32,
+        364
+      ],
+      "split": "evaluation",
+      "role": "A"
+    },
+    {
+      "id": 112,
+      "frame": 1200,
+      "bbox": [
+        146,
+        236,
+        163,
+        269
+      ],
+      "split": "evaluation",
+      "role": "B"
+    },
+    {
+      "id": 113,
+      "frame": 1200,
+      "bbox": [
+        220,
+        189,
+        233,
+        221
+      ],
+      "split": "evaluation",
+      "role": "A"
+    },
+    {
+      "id": 114,
+      "frame": 1200,
+      "bbox": [
+        233,
+        223,
+        247,
+        259
+      ],
+      "split": "evaluation",
+      "role": "A"
+    },
+    {
+      "id": 115,
+      "frame": 1200,
+      "bbox": [
+        294,
+        202,
+        311,
+        229
+      ],
+      "split": "evaluation",
+      "role": "B"
+    },
+    {
+      "id": 116,
+      "frame": 1200,
+      "bbox": [
+        375,
+        190,
+        387,
+        230
+      ],
+      "split": "evaluation",
+      "role": "A"
+    },
+    {
+      "id": 117,
+      "frame": 1200,
+      "bbox": [
+        575,
+        208,
+        592,
+        237
+      ],
+      "split": "evaluation",
+      "role": "B"
+    },
+    {
+      "id": 118,
+      "frame": 1200,
+      "bbox": [
+        576,
+        343,
+        605,
+        384
+      ],
+      "split": "evaluation",
+      "role": "B"
+    },
+    {
+      "id": 119,
+      "frame": 1200,
+      "bbox": [
+        618,
+        450,
+        645,
+        515
+      ],
+      "split": "evaluation",
+      "role": "A"
+    },
+    {
+      "id": 120,
+      "frame": 1200,
+      "bbox": [
+        649,
+        228,
+        662,
+        267
+      ],
+      "split": "evaluation",
+      "role": "referee"
+    },
+    {
+      "id": 121,
+      "frame": 1200,
+      "bbox": [
+        691,
+        227,
+        705,
+        262
+      ],
+      "split": "evaluation",
+      "role": "B"
+    },
+    {
+      "id": 122,
+      "frame": 1200,
+      "bbox": [
+        699,
+        662,
+        740,
+        720
+      ],
+      "split": "evaluation",
+      "role": "unknown"
+    },
+    {
+      "id": 123,
+      "frame": 1200,
+      "bbox": [
+        730,
+        241,
+        747,
+        279
+      ],
+      "split": "evaluation",
+      "role": "A"
+    },
+    {
+      "id": 124,
+      "frame": 1200,
+      "bbox": [
+        770,
+        254,
+        783,
+        292
+      ],
+      "split": "evaluation",
+      "role": "unknown"
+    },
+    {
+      "id": 125,
+      "frame": 1200,
+      "bbox": [
+        798,
+        666,
+        828,
+        719
+      ],
+      "split": "evaluation",
+      "role": "unknown"
+    },
+    {
+      "id": 126,
+      "frame": 1200,
+      "bbox": [
+        840,
+        319,
+        858,
+        371
+      ],
+      "split": "evaluation",
+      "role": "A"
+    },
+    {
+      "id": 127,
+      "frame": 1200,
+      "bbox": [
+        887,
+        670,
+        918,
+        717
+      ],
+      "split": "evaluation",
+      "role": "unknown"
+    },
+    {
+      "id": 128,
+      "frame": 1200,
+      "bbox": [
+        1010,
+        223,
+        1023,
+        265
+      ],
+      "split": "evaluation",
+      "role": "A"
+    },
+    {
+      "id": 129,
+      "frame": 1200,
+      "bbox": [
+        1021,
+        576,
+        1046,
+        656
+      ],
+      "split": "evaluation",
+      "role": "unknown"
+    },
+    {
+      "id": 130,
+      "frame": 1200,
+      "bbox": [
+        1026,
+        247,
+        1045,
+        288
+      ],
+      "split": "evaluation",
+      "role": "B"
+    },
+    {
+      "id": 131,
+      "frame": 1200,
+      "bbox": [
+        1029,
+        329,
+        1045,
+        384
+      ],
+      "split": "evaluation",
+      "role": "B"
+    },
+    {
+      "id": 132,
+      "frame": 1200,
+      "bbox": [
+        1069,
+        293,
+        1099,
+        343
+      ],
+      "split": "evaluation",
+      "role": "A"
+    },
+    {
+      "id": 133,
+      "frame": 1200,
+      "bbox": [
+        1097,
+        288,
+        1111,
+        334
+      ],
+      "split": "evaluation",
+      "role": "B"
+    },
+    {
+      "id": 134,
+      "frame": 1500,
+      "bbox": [
+        163,
+        295,
+        189,
+        346
+      ],
+      "split": "evaluation",
+      "role": "A"
+    },
+    {
+      "id": 135,
+      "frame": 1500,
+      "bbox": [
+        263,
+        186,
+        278,
+        217
+      ],
+      "split": "evaluation",
+      "role": "A"
+    },
+    {
+      "id": 136,
+      "frame": 1500,
+      "bbox": [
+        346,
+        259,
+        364,
+        301
+      ],
+      "split": "evaluation",
+      "role": "A"
+    },
+    {
+      "id": 137,
+      "frame": 1500,
+      "bbox": [
+        393,
+        224,
+        406,
+        261
+      ],
+      "split": "evaluation",
+      "role": "B"
+    },
+    {
+      "id": 138,
+      "frame": 1500,
+      "bbox": [
+        472,
+        395,
+        501,
+        449
+      ],
+      "split": "evaluation",
+      "role": "A"
+    },
+    {
+      "id": 139,
+      "frame": 1500,
+      "bbox": [
+        560,
+        310,
+        575,
+        350
+      ],
+      "split": "evaluation",
+      "role": "B"
+    },
+    {
+      "id": 140,
+      "frame": 1500,
+      "bbox": [
+        584,
+        209,
+        602,
+        239
+      ],
+      "split": "evaluation",
+      "role": "B"
+    },
+    {
+      "id": 141,
+      "frame": 1500,
+      "bbox": [
+        590,
+        245,
+        611,
+        279
+      ],
+      "split": "evaluation",
+      "role": "B"
+    },
+    {
+      "id": 142,
+      "frame": 1500,
+      "bbox": [
+        619,
+        237,
+        632,
+        278
+      ],
+      "split": "evaluation",
+      "role": "referee"
+    },
+    {
+      "id": 143,
+      "frame": 1500,
+      "bbox": [
+        632,
+        224,
+        647,
+        259
+      ],
+      "split": "evaluation",
+      "role": "B"
+    },
+    {
+      "id": 144,
+      "frame": 1500,
+      "bbox": [
+        647,
+        569,
+        675,
+        650
+      ],
+      "split": "evaluation",
+      "role": "unknown"
+    },
+    {
+      "id": 145,
+      "frame": 1500,
+      "bbox": [
+        664,
+        213,
+        679,
+        250
+      ],
+      "split": "evaluation",
+      "role": "A"
+    },
+    {
+      "id": 146,
+      "frame": 1500,
+      "bbox": [
+        693,
+        196,
+        707,
+        231
+      ],
+      "split": "evaluation",
+      "role": "A"
+    },
+    {
+      "id": 147,
+      "frame": 1500,
+      "bbox": [
+        742,
+        663,
+        774,
+        719
+      ],
+      "split": "evaluation",
+      "role": "unknown"
+    },
+    {
+      "id": 148,
+      "frame": 1500,
+      "bbox": [
+        753,
+        206,
+        767,
+        242
+      ],
+      "split": "evaluation",
+      "role": "B"
+    },
+    {
+      "id": 149,
+      "frame": 1500,
+      "bbox": [
+        851,
+        272,
+        868,
+        314
+      ],
+      "split": "evaluation",
+      "role": "A"
+    },
+    {
+      "id": 150,
+      "frame": 1500,
+      "bbox": [
+        885,
+        256,
+        906,
+        303
+      ],
+      "split": "evaluation",
+      "role": "A"
+    },
+    {
+      "id": 151,
+      "frame": 1500,
+      "bbox": [
+        946,
+        268,
+        964,
+        306
+      ],
+      "split": "evaluation",
+      "role": "B"
+    },
+    {
+      "id": 152,
+      "frame": 1500,
+      "bbox": [
+        957,
+        306,
+        976,
+        354
+      ],
+      "split": "evaluation",
+      "role": "B"
+    },
+    {
+      "id": 153,
+      "frame": 1500,
+      "bbox": [
+        959,
+        570,
+        986,
+        652
+      ],
+      "split": "evaluation",
+      "role": "unknown"
+    },
+    {
+      "id": 154,
+      "frame": 1500,
+      "bbox": [
+        1012,
+        239,
+        1029,
+        282
+      ],
+      "split": "evaluation",
+      "role": "B"
+    },
+    {
+      "id": 155,
+      "frame": 1500,
+      "bbox": [
+        1244,
+        572,
+        1279,
+        637
+      ],
+      "split": "evaluation",
+      "role": "referee"
+    }
+  ]
+}

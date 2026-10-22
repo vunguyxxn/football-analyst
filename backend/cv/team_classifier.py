@@ -17,17 +17,22 @@ from sklearn.cluster import KMeans
 ROLES = ("A", "B", "referee", "unknown")
 
 
-def jersey_feature(frame: np.ndarray, bbox: list[float]) -> np.ndarray | None:
-    """Median Lab of chromatic torso pixels, excluding likely green grass.
+def jersey_feature(frame: np.ndarray, bbox: list[float], feature_mode: str = "chromatic") -> np.ndarray | None:
+    """Median Lab of torso pixels, excluding likely green grass.
 
-    Fixed torso fractions avoid heads/shorts. Small, occluded or mostly neutral
-    crops are rejected. This baseline cannot distinguish green jerseys from
+    Fixed torso fractions avoid heads/shorts. Small crops or crops with too few
+    retained pixels are rejected. ``foreground`` retains white/black pixels while the
+    default ``chromatic`` preserves the original colored-kit behavior.
+    This baseline cannot distinguish green jerseys from
     grass, or a spectator wearing the same jersey as a player.
     """
+    if feature_mode not in ("chromatic", "foreground"):
+        raise ValueError("Unsupported jersey feature mode")
     if len(bbox) != 4 or not np.isfinite(bbox).all():
         return None
     x1, y1, x2, y2 = map(float, bbox)
-    if x2 - x1 < 12 or y2 - y1 < 24:
+    minimum_width, minimum_height = (12, 24) if feature_mode == "chromatic" else (8, 16)
+    if x2 - x1 < minimum_width or y2 - y1 < minimum_height:
         return None
     height, width = frame.shape[:2]
     left = max(0, min(width, int(x1 + (x2 - x1) * 0.2)))
@@ -38,18 +43,28 @@ def jersey_feature(frame: np.ndarray, bbox: list[float]) -> np.ndarray | None:
         return None
     crop = frame[top:bottom, left:right]
     hsv = cv2.cvtColor(crop, cv2.COLOR_BGR2HSV)
-    mask = (hsv[:, :, 1] >= 40) & (hsv[:, :, 2] >= 40)
+    mask = np.ones(hsv.shape[:2], dtype=bool)
+    if feature_mode == "chromatic":
+        mask &= (hsv[:, :, 1] >= 40) & (hsv[:, :, 2] >= 40)
     # Bright fluorescent jerseys can overlap grass hue. Keep near-clipped
     # highlights rather than removing every green/yellow-green pixel.
-    mask &= ~((hsv[:, :, 0] >= 35) & (hsv[:, :, 0] <= 85) & (hsv[:, :, 2] < 240))
-    if np.count_nonzero(mask) < 16:
+    grass = (hsv[:, :, 0] >= 35) & (hsv[:, :, 0] <= 85) & (hsv[:, :, 1] >= 40) & (hsv[:, :, 2] < 240)
+    if feature_mode == "foreground":
+        # Compression/green spill can tint a black shirt green. Do not erase
+        # dark pixels just because their unreliable hue resembles the pitch.
+        grass &= hsv[:, :, 2] >= 100
+    mask &= ~grass
+    if np.count_nonzero(mask) < (16 if feature_mode == "chromatic" else 8):
         return None
     lab = cv2.cvtColor(crop, cv2.COLOR_BGR2LAB)
     return np.median(lab[mask], axis=0).astype(np.float64)
 
 
 class JerseyClassifier:
-    def __init__(self, max_distance: float = 45, min_margin: float = 5):
+    def __init__(self, max_distance: float = 45, min_margin: float = 5, feature_mode: str = "chromatic"):
+        if feature_mode not in ("chromatic", "foreground"):
+            raise ValueError("Unsupported jersey feature mode")
+        self.feature_mode = feature_mode
         if not np.isfinite([max_distance, min_margin]).all() or max_distance <= 0 or min_margin < 0:
             raise ValueError("Invalid color rejection thresholds")
         self.max_distance = max_distance
@@ -101,7 +116,7 @@ class JerseyClassifier:
         return ROLES[int(ordered[0])]
 
     def predict(self, frame: np.ndarray, bbox: list[float]) -> str:
-        return self.predict_feature(jersey_feature(frame, bbox))
+        return self.predict_feature(jersey_feature(frame, bbox, self.feature_mode))
 
 
 def load_samples(source: Path, samples_path: Path) -> list[dict]:
@@ -137,7 +152,7 @@ def load_samples(source: Path, samples_path: Path) -> list[dict]:
     return samples
 
 
-def _sample_features(source: Path, samples: list[dict]):
+def _sample_features(source: Path, samples: list[dict], feature_mode: str = "chromatic"):
     capture = cv2.VideoCapture(str(source))
     try:
         if not capture.isOpened():
@@ -152,21 +167,23 @@ def _sample_features(source: Path, samples: list[dict]):
                 if sample["frame"] == frame_id:
                     if sample["bbox"][2] > width or sample["bbox"][3] > height:
                         raise ValueError("Annotated box extends beyond frame")
-                    yield sample, jersey_feature(frame, sample["bbox"])
+                    yield sample, jersey_feature(frame, sample["bbox"], feature_mode)
     finally:
         capture.release()
 
 
 def fit_from_samples(source: Path, samples_path: Path) -> JerseyClassifier:
     samples = load_samples(source, samples_path)
+    feature_mode = json.loads(samples_path.read_text(encoding="utf-8")).get("feature_mode", "chromatic")
+    classifier = JerseyClassifier(feature_mode=feature_mode)
     calibration = [sample for sample in samples if sample["split"] == "calibration"]
     features, roles = [], []
-    for sample, feature in _sample_features(source, calibration):
+    for sample, feature in _sample_features(source, calibration, feature_mode):
         if feature is None:
             raise ValueError(f"No usable jersey color in calibration frame {sample['frame']}")
         features.append(feature)
         roles.append(sample["role"])
-    return JerseyClassifier().fit(np.array(features), roles)
+    return classifier.fit(np.array(features), roles)
 
 
 def evaluate(source: Path, samples_path: Path, split: str = "evaluation") -> dict:
@@ -178,7 +195,7 @@ def evaluate(source: Path, samples_path: Path, split: str = "evaluation") -> dic
         raise ValueError("No evaluation samples")
     confusion = {role: {predicted: 0 for predicted in ROLES} for role in ROLES}
     predictions = []
-    for sample, feature in _sample_features(source, samples):
+    for sample, feature in _sample_features(source, samples, classifier.feature_mode):
         predicted = classifier.predict_feature(feature)
         confusion[sample["role"]][predicted] += 1
         predictions.append({**sample, "predicted": predicted})
@@ -187,7 +204,7 @@ def evaluate(source: Path, samples_path: Path, split: str = "evaluation") -> dic
     correct = sum(confusion[role][role] for role in ROLES)
     team_support = support["A"] + support["B"]
     return {
-        "video": source.name, "split": split, "evaluation_samples": len(samples),
+        "video": source.name, "feature_mode": classifier.feature_mode, "split": split, "evaluation_samples": len(samples),
         "scope": "Jersey classification on annotated boxes; not detection/tracking accuracy",
         "support": support, "confusion_matrix": confusion,
         "precision": {role: confusion[role][role] / predicted_support[role] if predicted_support[role] else None for role in ROLES},

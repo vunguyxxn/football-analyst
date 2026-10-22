@@ -70,7 +70,26 @@ def test_same_filename_with_different_video_content_is_rejected(tmp_path):
         load_samples(source, annotations)
 
 
-def test_video_evaluation_uses_only_calibration_for_mapping(tmp_path):
+def test_foreground_mode_supports_white_black_and_keeps_default_mode():
+    white = np.full((60, 30, 3), (230, 230, 230), dtype=np.uint8)
+    black = np.full((60, 30, 3), (25, 25, 25), dtype=np.uint8)
+    cyan = np.full((60, 30, 3), (210, 180, 80), dtype=np.uint8)
+    box = [0, 0, 30, 60]
+    assert jersey_feature(white, box) is None
+    assert jersey_feature(black, box) is None
+    features = [jersey_feature(frame, box, "foreground") for frame in [white, white, black, black, cyan, cyan]]
+    roles = ["A", "A", "B", "B", "referee", "referee"]
+    classifier = JerseyClassifier(feature_mode="foreground").fit(np.array(features), roles)
+    assert [classifier.predict(frame, box) for frame in [white, black, cyan]] == ["A", "B", "referee"]
+    green_tinted_black = np.full_like(black, (20, 55, 20))
+    assert jersey_feature(green_tinted_black, box, "foreground") is not None
+    assert classifier.predict(green_tinted_black, box) == "B"
+    with pytest.raises(ValueError, match="feature mode"):
+        JerseyClassifier(feature_mode="other")
+
+
+@pytest.mark.parametrize("feature_mode", ["chromatic", "foreground"])
+def test_video_evaluation_uses_only_calibration_for_mapping(tmp_path, feature_mode):
     source, annotations = tmp_path / "in.mp4", tmp_path / "samples.json"
     colors = {"A": (190, 80, 180), "B": (200, 190, 30), "referee": (10, 240, 220)}
     writer = cv2.VideoWriter(str(source), cv2.VideoWriter_fourcc(*"mp4v"), 10, (180, 100))
@@ -84,14 +103,14 @@ def test_video_evaluation_uses_only_calibration_for_mapping(tmp_path):
                             "role": role, "split": "calibration" if frame_id < 2 else "evaluation"})
         writer.write(frame)
     writer.release()
-    annotations.write_text(json.dumps({"video": source.name, "samples": samples}))
+    annotations.write_text(json.dumps({"video": source.name, "feature_mode": feature_mode, "samples": samples}))
     report = evaluate(source, annotations)
     assert report["accuracy"] == 1
     assert report["evaluation_samples"] == 3
     assert report["referee_recall"] == 1
     # Wrong evaluation labels lower the score, rather than changing the fit.
     samples[-3]["role"] = "B"
-    annotations.write_text(json.dumps({"video": source.name, "samples": samples}))
+    annotations.write_text(json.dumps({"video": source.name, "feature_mode": feature_mode, "samples": samples}))
     wrong_report = evaluate(source, annotations)
     assert wrong_report["accuracy"] == pytest.approx(2/3)
     assert wrong_report["predictions"][0]["predicted"] == "A"

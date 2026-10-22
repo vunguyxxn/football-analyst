@@ -12,9 +12,16 @@ từng đoạn trên clip thật `data/raw/vid1.mp4`, chạy được cả CPU v
 RTX 3050 6GB. Chưa đo độ chính xác tracking bằng dữ liệu gán nhãn.
 
 Bước 3 đã có baseline K-means phân đội theo màu áo, nhãn trọng tài riêng và
-`unknown`, tích hợp tùy chọn vào CLI. Đã chạy clip thật, 39 test qua. Kết quả
-tham chiếu 24/28 mẫu đúng; nhãn do agent quan sát ảnh, chưa được người gán nhãn
-độc lập rà soát. Còn nhầm thủ môn áo yếm vàng với trọng tài.
+`unknown`, tích hợp tùy chọn vào CLI. Đã chạy clip thật; kết quả trên clip cũ
+là 24/28 mẫu đúng, 39 test qua ở phiên triển khai đầu. Nhãn do agent quan sát
+ảnh, chưa được người gán nhãn độc lập rà soát. Trên clip cũ còn nhầm thủ môn
+áo yếm vàng với trọng tài.
+
+Nguồn `data/raw/vid1.mp4` hiện đã đổi sang clip mới SHA256 bắt đầu `11f23eea`,
+51,28 giây, 720p/60 FPS. Đã hiệu chỉnh và chạy lại bước 2–3 trên bản cắt giây
+10–40, thêm chế độ áo trắng/đen riêng theo fixture. Kiểm tra sơ bộ đúng 63/67
+box, A/B 54/54; vẫn có staff bị gán nhầm. Các số liệu clip sân nhỏ ở trên thuộc
+nguồn cũ `fa6ea680`, không dùng fixture cũ cho file mới cùng tên.
 
 ## Đã làm
 
@@ -61,7 +68,8 @@ tham chiếu 24/28 mẫu đúng; nhãn do agent quan sát ảnh, chưa được 
 - Nhóm rà soát nhãn/box mẫu bước 3, nhất là áo thủ môn và người ngoài sân;
   mở rộng đánh giá sang clip khác trước khi dùng số liệu trong báo cáo.
 - Tiếp theo roadmap là bước 4: homography 4 điểm chọn tay và chỉ số tọa độ sân;
-  chưa triển khai trong phiên này.
+  chưa triển khai. Clip mới vẫn lia camera, cần hiệu chuẩn phù hợp từng đoạn;
+  không dùng một homography cố định xuyên suốt 30 giây.
 
 ## Vấn đề tồn đọng
 
@@ -160,6 +168,42 @@ tham chiếu 24/28 mẫu đúng; nhãn do agent quan sát ảnh, chưa được 
 - Toàn bộ test cuối: 39 passed, 1 network test deselected; còn cảnh báo
   Starlette TestClient đã có. Hướng dẫn, confusion matrix và giới hạn tại
   `docs/CV_TEAMS.md`. Cần nhóm rà soát nhãn trước khi công bố số liệu.
+
+## Kiểm tra clip mới cùng tên vid1.mp4 — 22/10/2026
+
+- SHA256 nguồn mới: `11f23eead918e838cb39fdb1ef98179dc93f86574fdb6d38bb6cd8ced3e01ed1`.
+  3077 frame, 1280 × 720, 60 FPS, 51,28 giây. Đã xem ảnh mẫu đầu/giữa/cuối:
+  OBS che hình đầu/cuối, có lia camera. Góc rộng phù hợp thử tracking/phân đội;
+  chưa đủ điều kiện coi camera cố định cho homography toàn clip.
+- Tạo bản cắt từ frame nguồn 600 đến trước 2400 (giây 10–40), 1800 frame,
+  giữ 720p/60 FPS, MP4V không âm thanh, tại
+  `data/processed/clip_11f23eea/vid1_11f23eea_clean.mp4`.
+  SHA256 bản cắt: `86f6f04ce05ac464269dfa4d831bef0c12c3654acdd2fa3c1b6379f864597b2e`.
+  Không ghi đè nguồn hay kết quả cũ; metadata lineage tại `preparation.json`.
+- Người dùng xác nhận A áo trắng, B áo sẫm/đen, trọng tài xanh nhạt. Tạo
+  fixture mới `docs/fixtures/vid1_11f23eea_team_samples.json`, giữ fixture cũ
+  và cơ chế kiểm tra hash để tránh dùng nhãn sai nguồn.
+- Thêm feature_mode foreground cho áo trắng/đen, giữ pixel ít bão hòa và tối;
+  tránh loại áo đen ám xanh cùng cỏ. Mặc định chromatic giữ hành vi clip cũ.
+  Không thêm thư viện, không đổi API hoặc hợp đồng tọa độ.
+- Bộ mẫu tham chiếu mới: 22 hiệu chỉnh (10 A, 10 B, 2 referee), 45 phát triển,
+  67 kiểm tra ở frame khác. Nhãn do agent quan sát ảnh, quy ước màu đã được
+  người dùng xác nhận, từng box chưa được rà soát độc lập. Không dùng nhãn
+  kiểm tra để chỉnh mô hình/ngưỡng. Đây vẫn là đánh giá cùng clip có người lặp.
+- Kiểm tra cuối: đúng chung 63/67 (94,03%), A/B 54/54, referee recall 4/4,
+  precision 4/5. Unknown: đúng 5/9; ba mẫu bị gán B, một mẫu gán referee.
+  Không suy ra độ chính xác toàn bộ detection/tracking hay nhiều trận.
+- Chạy GPU image_size 1280, đoạn 10 giây: 1800 frame qua 3 đoạn, khoảng
+  8,54 FPS toàn pipeline trong lượt đo này. Đầu ra
+  `data/processed/clip_11f23eea/teams.mp4`; JSON chạy và đánh giá ở cùng thư mục.
+- Đã đọc lại đủ 1800 frame của bản cắt và kết quả, đúng 1280 × 720/60 FPS;
+  xem ảnh mẫu frame 0 và 1200. Đối chiếu tại `validation.json`, ảnh mẫu
+  `teams_frame_*.jpg` trong cùng thư mục cục bộ.
+- Test sau cập nhật: 41 passed, 1 network test deselected; cảnh báo Starlette
+  TestClient đã có. Bổ sung test áo trắng/đen, áo đen ám xanh và truyền chế độ
+  nhất quán qua hiệu chỉnh/đánh giá; chế độ chromatic vẫn được kiểm tra.
+- Clip mới vẫn có người ngoài sân mặc áo gần màu đội; chưa bổ sung lọc sân
+  hay homography trong phiên này. Hướng dẫn/ma trận nhầm lẫn ở `CV_TEAMS.md`.
 
 ## Quyết định đã chốt
 
