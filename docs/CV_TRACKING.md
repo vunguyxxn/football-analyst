@@ -34,6 +34,10 @@ Trước ByteTrack, lọc bbox người trùng bằng NMS IoU 0,5 (giữ confide
 hơn), để tránh một người tạo nhiều ID/quan sát. Cầu thủ che khuất thật với
 IoU cao vẫn có thể bị mất box; đây không phải bảo đảm định danh xuyên suốt.
 Kiểm tra trước/sau và giới hạn tại `CV_TRACKING_ID_CHECK.md`.
+Khi có `--team-samples`, nhãn màu áo được tổng hợp theo từng ID trong cửa
+sổ 0,5 giây; chưa đủ phiếu hoặc đang mâu thuẫn thì hiển thị `unknown`.
+Đây là nhãn dùng cả khi vẽ và xuất JSON, không khóa cứng đội theo ID.
+Quy tắc, mức từ chối và đánh giá tại `CV_TEAM_STABILITY.md`.
 Kết quả tóm tắt JSON in ra terminal; API FastAPI không thay đổi.
 Không ghi đè file đã tồn tại. Nếu xử lý lỗi giữa chừng, video đã ghi có thể chỉ
 chứa một phần clip; lệnh trả mã lỗi và không in kết quả thành công.

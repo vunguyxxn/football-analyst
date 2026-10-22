@@ -473,6 +473,38 @@ nguồn cũ `fa6ea680`, không dùng fixture cũ cho file mới cùng tên.
   Giữ bộ cũ. Chưa bảo đảm mọi che khuất/cắt cảnh, chưa chuyển bước 5; tiếp
   theo ổn định vai trò/điểm chiếu và mở rộng bộ nhãn trước đánh giá chỉ số.
 
+## Ổn định nhãn đội/trọng tài theo ID — 22/10/2026
+
+- Thêm TrackRoleSmoother sau classifier từng box: cửa sổ quá khứ 0,5 giây,
+  tối thiểu 3 frame, ít nhất max(3, ceil(FPS*0,1)) phiếu và >=70%. Nhãn
+  hiện tại phải đồng thuận, mâu thuẫn/thiếu bằng chứng trả unknown. Unknown
+  làm giảm tỷ lệ, không bỏ phiếu đội. Không khóa nhãn ban đầu; xóa track
+  vắng hết cửa sổ, kể cả frame trống; giữ lịch sử qua chunk, bộ nhớ giới hạn.
+- Bật tự động khi track_video có team-samples; nhãn dùng chung cho vẽ,
+  TrackingRow và tổng nhãn CLI/heatmap. Classifier thô và CLI đánh giá từng
+  box giữ nguyên. Không đổi ID, NMS, bộ lọc sân, guard, schema/API/dependency.
+- Replay 5.215 quan sát: chuyển trực tiếp nhãn biết khác nhau 43 -> 0,
+  mọi đổi nhãn (gồm unknown) 103 -> 92. Unknown 99 -> 624 (1,90 -> 11,97%).
+  Đây là từ chối khi chưa chắc, không chứng minh mọi nhãn đúng/hết nhấp nháy.
+- Fixture track_roles mới: tham chiếu 49 mẫu cũ để phát triển/hồi quy, thêm
+  21 bbox trên 3 frame mới sau khóa quy tắc; nhãn agent chưa rà độc lập.
+  Bộ cũ 48 ghép: đúng 46 -> 45, nhãn biết sai 2 -> 0, unknown 0 -> 3.
+  Bộ mới 21 ghép: đúng 19 -> 18, sai 2 -> 0, unknown 0 -> 3. Cả 3 mẫu
+  trọng tài mới đều unknown; không tuyên bố tăng accuracy/recall tổng thể.
+- Chạy lại pipeline CUDA đủ 1.800 frame / 3 chunk, 6,78 FPS; guard giữ
+  1499 ngoài hiệu chỉnh/30 chờ/271 cấp phép. Vẫn 5.215 dòng/30 ID tại
+  1081–1350, khóa/tọa độ không đổi, nhãn khớp replay. Tổng A/B/ref/unknown
+  2220/2232/139/624. Đọc lại đủ nguồn/đầu ra 1800 và cửa sổ 271 frame;
+  schema, phạm vi, thời gian, heatmap và tổng nhãn đều qua.
+- Xem 1140/1230/1290: mâu thuẫn được trả unknown, người ngoài sân vẫn lọc.
+  Toàn bộ 115 test qua, 1 network deselected, cảnh báo Starlette cũ. Test
+  gồm khởi tạo, nhiễu, sửa nhãn đầu sai, tách ID, hết hạn, bộ nhớ và pipeline.
+- Báo cáo CV_TEAM_STABILITY.md, cập nhật CV_TRACKING/CV_TEAMS; fixture
+  vid1_11f23eea_track_roles.json. Artifact cuối team_roles_final/ và video
+  cùng tên dưới data/processed/clip_11f23eea/. Giữ kết quả cũ; lượt thử
+  team_stabilized dừng giữa chừng không dùng nghiệm thu. Chưa qua bước 5;
+  còn cải thiện trọng tài/độ phủ nhãn và nhiễu điểm chân trước đo chuyển động.
+
 ## Quyết định đã chốt
 
 - Python 3.11; FastAPI; Pydantic v2.

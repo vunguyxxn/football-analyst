@@ -113,6 +113,10 @@ def track_video(
                 camera_stream = (pitch_output / "camera_quality.jsonl").open("x", encoding="utf-8")
         chunk_frames = max(1, round(chunk_seconds * fps))
         tracker = sv.ByteTrack(frame_rate=max(1, round(fps)))
+        if classifier is not None:
+            from backend.cv.team_smoother import TrackRoleSmoother
+
+            role_smoother = TrackRoleSmoother(fps)
         boxes = sv.BoxAnnotator()
         labels = sv.LabelAnnotator()
         if classifier is not None:
@@ -152,8 +156,12 @@ def track_video(
                         candidates = candidates[keep]
                 candidates = suppress_duplicate_people(candidates)
                 detections = tracker.update_with_detections(candidates)
-                roles = ([classifier.predict(frame, box.tolist()) for box in detections.xyxy]
-                         if classifier is not None else ["unknown"] * len(detections))
+                if classifier is not None:
+                    role_smoother.advance(frames)
+                    roles = [role_smoother.update(frames, int(track_id), classifier.predict(frame, box.tolist()))
+                             for box, track_id in zip(detections.xyxy, detections.tracker_id)]
+                else:
+                    roles = ["unknown"] * len(detections)
                 if projection is not None:
                     for box, track_id, role in zip(detections.xyxy, detections.tracker_id, roles):
                         projected = projection.project(frames, fps, track_id, role, box)

@@ -151,3 +151,10 @@ Chạy lại trên bản cắt cục bộ, dùng tên đầu ra mới:
 Kích thước inference 1280 nhằm giữ người ở xa trong clip góc rộng. Camera
 lia rõ nên không sử dụng một homography bốn điểm cố định cho toàn bộ đoạn;
 bước 4 cần hiệu chuẩn phù hợp từng đoạn/góc máy trước khi tính tốc độ mét/giây.
+
+Từ lượt ổn định nhãn 22/10/2026, `track_video --team-samples ...` tổng hợp
+phiếu màu áo theo từng ID trước khi hiển thị/xuất kết quả; xem
+`CV_TEAM_STABILITY.md`. Lệnh `team_classifier` vẫn đánh giá classifier thô
+trên từng box, không có ngữ cảnh track. Kết quả 63/67 ở trên thuộc phép đo
+classifier thô, không dùng thay đánh giá chuỗi nhãn mới. Bộ lọc ngoài sân
+vẫn cần `--on-pitch-only` và hiệu chỉnh hợp lệ như hướng dẫn tracking.

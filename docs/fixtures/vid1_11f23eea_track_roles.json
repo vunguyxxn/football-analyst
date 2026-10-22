@@ -1,0 +1,252 @@
+{
+  "source_sha256": "86f6f04ce05ac464269dfa4d831bef0c12c3654acdd2fa3c1b6379f864597b2e",
+  "image_size": [
+    1280,
+    720
+  ],
+  "development_fixture": "vid1_11f23eea_id_samples.json",
+  "identity_roles": {
+    "white_near": "A",
+    "black_center": "B",
+    "white_center": "A",
+    "black_near_right": "B",
+    "white_right": "A",
+    "referee": "referee",
+    "white_runner": "A"
+  },
+  "annotation_status": "Agent-drawn raw-image boxes and roles, not independently reviewed; sparse within-clip evaluation, not full-frame ground truth.",
+  "evaluation_note": "These frames were labelled after the final rule was fixed; the reused 49 observations are development/regression only.",
+  "observations": [
+    {
+      "frame": 1170,
+      "identity": "white_near",
+      "role": "A",
+      "box": [
+        622,
+        445,
+        650,
+        513
+      ]
+    },
+    {
+      "frame": 1170,
+      "identity": "black_center",
+      "role": "B",
+      "box": [
+        600,
+        330,
+        627,
+        389
+      ]
+    },
+    {
+      "frame": 1170,
+      "identity": "white_center",
+      "role": "A",
+      "box": [
+        820,
+        320,
+        848,
+        376
+      ]
+    },
+    {
+      "frame": 1170,
+      "identity": "black_near_right",
+      "role": "B",
+      "box": [
+        1030,
+        326,
+        1057,
+        385
+      ]
+    },
+    {
+      "frame": 1170,
+      "identity": "white_right",
+      "role": "A",
+      "box": [
+        1083,
+        288,
+        1110,
+        349
+      ]
+    },
+    {
+      "frame": 1170,
+      "identity": "referee",
+      "role": "referee",
+      "box": [
+        657,
+        225,
+        678,
+        271
+      ]
+    },
+    {
+      "frame": 1170,
+      "identity": "white_runner",
+      "role": "A",
+      "box": [
+        754,
+        235,
+        780,
+        282
+      ]
+    },
+    {
+      "frame": 1230,
+      "identity": "white_near",
+      "role": "A",
+      "box": [
+        607,
+        448,
+        637,
+        515
+      ]
+    },
+    {
+      "frame": 1230,
+      "identity": "black_center",
+      "role": "B",
+      "box": [
+        550,
+        333,
+        578,
+        389
+      ]
+    },
+    {
+      "frame": 1230,
+      "identity": "white_center",
+      "role": "A",
+      "box": [
+        846,
+        312,
+        875,
+        374
+      ]
+    },
+    {
+      "frame": 1230,
+      "identity": "black_near_right",
+      "role": "B",
+      "box": [
+        1006,
+        329,
+        1035,
+        386
+      ]
+    },
+    {
+      "frame": 1230,
+      "identity": "white_right",
+      "role": "A",
+      "box": [
+        1061,
+        289,
+        1086,
+        344
+      ]
+    },
+    {
+      "frame": 1230,
+      "identity": "referee",
+      "role": "referee",
+      "box": [
+        631,
+        225,
+        653,
+        271
+      ]
+    },
+    {
+      "frame": 1230,
+      "identity": "white_runner",
+      "role": "A",
+      "box": [
+        690,
+        237,
+        719,
+        285
+      ]
+    },
+    {
+      "frame": 1290,
+      "identity": "white_near",
+      "role": "A",
+      "box": [
+        561,
+        437,
+        591,
+        510
+      ]
+    },
+    {
+      "frame": 1290,
+      "identity": "black_center",
+      "role": "B",
+      "box": [
+        516,
+        330,
+        541,
+        389
+      ]
+    },
+    {
+      "frame": 1290,
+      "identity": "white_center",
+      "role": "A",
+      "box": [
+        849,
+        306,
+        877,
+        369
+      ]
+    },
+    {
+      "frame": 1290,
+      "identity": "black_near_right",
+      "role": "B",
+      "box": [
+        968,
+        326,
+        995,
+        387
+      ]
+    },
+    {
+      "frame": 1290,
+      "identity": "white_right",
+      "role": "A",
+      "box": [
+        1029,
+        287,
+        1056,
+        344
+      ]
+    },
+    {
+      "frame": 1290,
+      "identity": "referee",
+      "role": "referee",
+      "box": [
+        601,
+        225,
+        623,
+        272
+      ]
+    },
+    {
+      "frame": 1290,
+      "identity": "white_runner",
+      "role": "A",
+      "box": [
+        607,
+        238,
+        636,
+        287
+      ]
+    }
+  ]
+}
