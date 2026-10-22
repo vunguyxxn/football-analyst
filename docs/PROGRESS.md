@@ -442,6 +442,37 @@ nguồn cũ `fa6ea680`, không dùng fixture cũ cho file mới cùng tên.
   qua, 1 network deselected, cảnh báo Starlette cũ. Vẫn có 50 ID; chưa sửa
   ID trùng/nhãn rung, chưa nghiệm thu chỉ số cầu thủ hoặc chuyển bước 5.
 
+## Lọc khung trùng và kiểm tra ID — 22/10/2026
+
+- Người dùng yêu cầu xử lý khung/ID trùng. Xác định YOLO trả cặp bbox cùng
+  cầu thủ tại frame 1200, IoU ~0,602, confidence 0,5545/0,2622. Thêm NMS
+  IoU 0,5 bằng supervision trước ByteTrack, phân đội, JSON và vẽ. Không
+  gộp ID hậu kỳ hoặc theo khoảng cách; giữ bộ lọc trong sân và bbox thô
+  cho camera. Không đổi ByteTrack/guard/schema/API/dependency.
+- Cache YOLO thật 271 frame, replay cùng detection trước/sau: 5365 -> 5215
+  quan sát, 50 -> 30 ID, 17 -> 5 track dưới 30 mẫu, 134 -> 0 cặp IoU >0,5.
+  Số cặp bằng 0 là thuộc tính NMS, chưa chứng minh mọi người được giữ đúng.
+- Fixture `vid1_11f23eea_id_samples.json`: 49 quan sát thưa của 7 người do
+  agent vẽ từ ảnh nguồn, chưa rà soát độc lập. Ngưỡng khóa trước nhãn;
+  48/49 ghép được cả trước/sau, mẫu ghép nhiều ID 2 -> 0, đổi ID giữa ảnh
+  mẫu 10 -> 2. Sáu người ổn định, white_runner còn đổi 2 lần; không IDF1.
+- Chạy pipeline CUDA đầy đủ 1.800 frame/3 chunk, 7,66 FPS. Guard không đổi:
+  1499 ngoài hiệu chỉnh/30 chờ/271 cấp phép. Xuất 5215 dòng ở 1081–1350,
+  A/B/ref/unknown 2450/2354/312/99, 30 ID, 19 track ít nhất 120 mẫu.
+  Từng khóa/tọa độ baseline và sau sửa khớp replay (sai khác số học ~3e-14 m).
+- Giải mã đủ nguồn/đầu ra 1800 và cửa sổ 271 frame; kiểm tra schema, khóa,
+  phạm vi, thời gian, heatmap và tổng nhãn đều qua. Xem 1200/1300/1310:
+  cầu thủ áo đen giữa sân giữ ID 13, không còn khung đôi từng thấy; người
+  ngoài sân vẫn được lọc. Vẫn rung vai trò/tọa độ, chưa nghiệm thu chỉ số.
+- Test mới có cặp bbox thật, ByteTrack thật, mất detection 5 frame, người
+  gần nhau/che một phần và đầu vào rỗng. Toàn bộ 105 test qua, 1 network
+  deselected, cảnh báo Starlette cũ. Không tăng minimum_consecutive_frames
+  vì thử nghiệm không cải thiện đổi ID mẫu, tránh mất thêm quan sát.
+- Báo cáo `CV_TRACKING_ID_CHECK.md`; cache ở `id_check/`, kết quả mới tại
+  `id_deduplicated/` và video cùng tên dưới `data/processed/clip_11f23eea/`.
+  Giữ bộ cũ. Chưa bảo đảm mọi che khuất/cắt cảnh, chưa chuyển bước 5; tiếp
+  theo ổn định vai trò/điểm chiếu và mở rộng bộ nhãn trước đánh giá chỉ số.
+
 ## Quyết định đã chốt
 
 - Python 3.11; FastAPI; Pydantic v2.

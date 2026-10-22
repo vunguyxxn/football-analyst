@@ -30,6 +30,10 @@ $env:MPLCONFIGDIR = Join-Path $env:YOLO_CONFIG_DIR '.matplotlib'
 Chương trình đọc và ghi từng frame trong từng đoạn, không giữ danh sách frame
 trong RAM. Tracker giữ nguyên trạng thái khi sang đoạn tiếp theo. Video đầu ra
 là MP4 không âm thanh, cùng kích thước và FPS nguồn, có khung và ID.
+Trước ByteTrack, lọc bbox người trùng bằng NMS IoU 0,5 (giữ confidence cao
+hơn), để tránh một người tạo nhiều ID/quan sát. Cầu thủ che khuất thật với
+IoU cao vẫn có thể bị mất box; đây không phải bảo đảm định danh xuyên suốt.
+Kiểm tra trước/sau và giới hạn tại `CV_TRACKING_ID_CHECK.md`.
 Kết quả tóm tắt JSON in ra terminal; API FastAPI không thay đổi.
 Không ghi đè file đã tồn tại. Nếu xử lý lỗi giữa chừng, video đã ghi có thể chỉ
 chứa một phần clip; lệnh trả mã lỗi và không in kết quả thành công.

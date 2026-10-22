@@ -1,0 +1,507 @@
+{
+  "source_sha256": "86f6f04ce05ac464269dfa4d831bef0c12c3654acdd2fa3c1b6379f864597b2e",
+  "image_size": [
+    1280,
+    720
+  ],
+  "annotation_status": "Sparse rectangles and local identities drawn by agent from raw frames; not independently reviewed. Not full-frame MOT ground truth.",
+  "development_frames": [
+    1200,
+    1310
+  ],
+  "nms_iou": 0.5,
+  "matching_iou": 0.3,
+  "notes": "NMS 0.5 fixed before these annotations; local identities only across this short visible sequence. Other people are deliberately unlabelled, so unmatched predictions are not global false positives.",
+  "observations": [
+    {
+      "frame": 1100,
+      "identity": "white_near",
+      "box": [
+        615,
+        455,
+        645,
+        520
+      ]
+    },
+    {
+      "frame": 1100,
+      "identity": "black_center",
+      "box": [
+        615,
+        340,
+        640,
+        400
+      ]
+    },
+    {
+      "frame": 1100,
+      "identity": "white_center",
+      "box": [
+        758,
+        327,
+        787,
+        385
+      ]
+    },
+    {
+      "frame": 1100,
+      "identity": "black_near_right",
+      "box": [
+        1028,
+        329,
+        1055,
+        390
+      ]
+    },
+    {
+      "frame": 1100,
+      "identity": "white_right",
+      "box": [
+        1085,
+        299,
+        1116,
+        357
+      ]
+    },
+    {
+      "frame": 1100,
+      "identity": "referee",
+      "box": [
+        672,
+        231,
+        693,
+        275
+      ]
+    },
+    {
+      "frame": 1100,
+      "identity": "white_runner",
+      "box": [
+        798,
+        242,
+        823,
+        287
+      ]
+    },
+    {
+      "frame": 1140,
+      "identity": "white_near",
+      "box": [
+        623,
+        449,
+        651,
+        515
+      ]
+    },
+    {
+      "frame": 1140,
+      "identity": "black_center",
+      "box": [
+        620,
+        333,
+        645,
+        391
+      ]
+    },
+    {
+      "frame": 1140,
+      "identity": "white_center",
+      "box": [
+        801,
+        322,
+        826,
+        376
+      ]
+    },
+    {
+      "frame": 1140,
+      "identity": "black_near_right",
+      "box": [
+        1031,
+        326,
+        1057,
+        386
+      ]
+    },
+    {
+      "frame": 1140,
+      "identity": "white_right",
+      "box": [
+        1089,
+        294,
+        1114,
+        349
+      ]
+    },
+    {
+      "frame": 1140,
+      "identity": "referee",
+      "box": [
+        665,
+        225,
+        685,
+        270
+      ]
+    },
+    {
+      "frame": 1140,
+      "identity": "white_runner",
+      "box": [
+        783,
+        235,
+        808,
+        279
+      ]
+    },
+    {
+      "frame": 1180,
+      "identity": "white_near",
+      "box": [
+        623,
+        448,
+        649,
+        513
+      ]
+    },
+    {
+      "frame": 1180,
+      "identity": "black_center",
+      "box": [
+        595,
+        330,
+        621,
+        389
+      ]
+    },
+    {
+      "frame": 1180,
+      "identity": "white_center",
+      "box": [
+        829,
+        319,
+        852,
+        375
+      ]
+    },
+    {
+      "frame": 1180,
+      "identity": "black_near_right",
+      "box": [
+        1029,
+        324,
+        1055,
+        385
+      ]
+    },
+    {
+      "frame": 1180,
+      "identity": "white_right",
+      "box": [
+        1080,
+        293,
+        1106,
+        347
+      ]
+    },
+    {
+      "frame": 1180,
+      "identity": "referee",
+      "box": [
+        653,
+        225,
+        674,
+        270
+      ]
+    },
+    {
+      "frame": 1180,
+      "identity": "white_runner",
+      "box": [
+        748,
+        237,
+        773,
+        282
+      ]
+    },
+    {
+      "frame": 1220,
+      "identity": "white_near",
+      "box": [
+        610,
+        449,
+        637,
+        516
+      ]
+    },
+    {
+      "frame": 1220,
+      "identity": "black_center",
+      "box": [
+        559,
+        334,
+        586,
+        387
+      ]
+    },
+    {
+      "frame": 1220,
+      "identity": "white_center",
+      "box": [
+        844,
+        312,
+        869,
+        372
+      ]
+    },
+    {
+      "frame": 1220,
+      "identity": "black_near_right",
+      "box": [
+        1013,
+        328,
+        1043,
+        386
+      ]
+    },
+    {
+      "frame": 1220,
+      "identity": "white_right",
+      "box": [
+        1063,
+        289,
+        1091,
+        347
+      ]
+    },
+    {
+      "frame": 1220,
+      "identity": "referee",
+      "box": [
+        636,
+        225,
+        657,
+        270
+      ]
+    },
+    {
+      "frame": 1220,
+      "identity": "white_runner",
+      "box": [
+        703,
+        238,
+        731,
+        285
+      ]
+    },
+    {
+      "frame": 1260,
+      "identity": "white_near",
+      "box": [
+        584,
+        441,
+        617,
+        512
+      ]
+    },
+    {
+      "frame": 1260,
+      "identity": "black_center",
+      "box": [
+        523,
+        331,
+        550,
+        387
+      ]
+    },
+    {
+      "frame": 1260,
+      "identity": "white_center",
+      "box": [
+        852,
+        304,
+        878,
+        365
+      ]
+    },
+    {
+      "frame": 1260,
+      "identity": "black_near_right",
+      "box": [
+        991,
+        324,
+        1015,
+        385
+      ]
+    },
+    {
+      "frame": 1260,
+      "identity": "white_right",
+      "box": [
+        1046,
+        285,
+        1072,
+        343
+      ]
+    },
+    {
+      "frame": 1260,
+      "identity": "referee",
+      "box": [
+        616,
+        225,
+        638,
+        270
+      ]
+    },
+    {
+      "frame": 1260,
+      "identity": "white_runner",
+      "box": [
+        650,
+        238,
+        680,
+        285
+      ]
+    },
+    {
+      "frame": 1300,
+      "identity": "white_near",
+      "box": [
+        558,
+        437,
+        587,
+        508
+      ]
+    },
+    {
+      "frame": 1300,
+      "identity": "black_center",
+      "box": [
+        515,
+        329,
+        539,
+        387
+      ]
+    },
+    {
+      "frame": 1300,
+      "identity": "white_center",
+      "box": [
+        848,
+        302,
+        873,
+        365
+      ]
+    },
+    {
+      "frame": 1300,
+      "identity": "black_near_right",
+      "box": [
+        963,
+        324,
+        988,
+        384
+      ]
+    },
+    {
+      "frame": 1300,
+      "identity": "white_right",
+      "box": [
+        1023,
+        283,
+        1051,
+        342
+      ]
+    },
+    {
+      "frame": 1300,
+      "identity": "referee",
+      "box": [
+        596,
+        224,
+        618,
+        270
+      ]
+    },
+    {
+      "frame": 1300,
+      "identity": "white_runner",
+      "box": [
+        590,
+        238,
+        623,
+        286
+      ]
+    },
+    {
+      "frame": 1340,
+      "identity": "white_near",
+      "box": [
+        536,
+        428,
+        561,
+        499
+      ]
+    },
+    {
+      "frame": 1340,
+      "identity": "black_center",
+      "box": [
+        516,
+        328,
+        542,
+        384
+      ]
+    },
+    {
+      "frame": 1340,
+      "identity": "white_center",
+      "box": [
+        844,
+        302,
+        870,
+        360
+      ]
+    },
+    {
+      "frame": 1340,
+      "identity": "black_near_right",
+      "box": [
+        950,
+        324,
+        976,
+        382
+      ]
+    },
+    {
+      "frame": 1340,
+      "identity": "white_right",
+      "box": [
+        1005,
+        282,
+        1031,
+        335
+      ]
+    },
+    {
+      "frame": 1340,
+      "identity": "referee",
+      "box": [
+        589,
+        225,
+        612,
+        269
+      ]
+    },
+    {
+      "frame": 1340,
+      "identity": "white_runner",
+      "box": [
+        537,
+        242,
+        569,
+        289
+      ]
+    }
+  ]
+}

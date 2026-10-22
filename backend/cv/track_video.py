@@ -10,6 +10,11 @@ from pathlib import Path
 from time import perf_counter
 
 
+def suppress_duplicate_people(detections):
+    """Keep the strongest person box when IoU exceeds 0.5, before ID creation."""
+    return detections.with_nms(threshold=0.5)
+
+
 def track_video(
     source: Path,
     output: Path,
@@ -145,6 +150,7 @@ def track_video(
                         keep = np.array([projection.locate(frames, box) is not None
                                          for box in candidates.xyxy], dtype=bool)
                         candidates = candidates[keep]
+                candidates = suppress_duplicate_people(candidates)
                 detections = tracker.update_with_detections(candidates)
                 roles = ([classifier.predict(frame, box.tolist()) for box in detections.xyxy]
                          if classifier is not None else ["unknown"] * len(detections))
