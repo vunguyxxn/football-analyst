@@ -127,7 +127,8 @@ def test_video_round_trip_preserves_ids_across_chunks(tmp_path, monkeypatch, has
         assert all(0 <= row.x_m <= 105 and 0 <= row.y_m <= 68 for row in rows)
         report = json.loads((tmp_path / "pitch/metrics.json").read_text())
         assert len(report["tracks"]) == 2*int(has_detection)
-        assert all(track["distance_m"] == 0 for track in report["tracks"])
+        assert all(track["distance_m"] == pytest.approx(0, abs=1e-10)
+                   for track in report["tracks"])
         if pitch_mode == "smoothed":
             raw = (tmp_path / "pitch/tracking_raw.jsonl").read_text().splitlines()
             quality = [json.loads(line) for line in (tmp_path / "pitch/smoothing_quality.jsonl").read_text().splitlines()]

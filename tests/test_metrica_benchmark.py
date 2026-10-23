@@ -90,9 +90,9 @@ def test_clean_constant_velocity_reference_has_no_injected_position_error():
     result = evaluate_trajectory(t,'clean',1729,config())
     s = summarize([result],25,config()['lag_grid_frames'])
     assert s['raw_position_rmse_m']==0
-    assert 0 < s['filtered_position_rmse_m'] < .3
+    assert s['filtered_position_rmse_m'] < 1e-10
     assert s['filtered_coverage'] < 1
-    assert 40 <= s['apparent_lag_ms'] <= 160
+    assert s['apparent_lag_ms'] == 0
     assert abs(s['filtered_motion']['covered_distance_relative_error']) < .1
     assert s['filtered_motion']['represented_time_fraction'] < 1
 

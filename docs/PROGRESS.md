@@ -2,6 +2,11 @@
 
 ## Trạng thái hiện tại
 
+Cập nhật 23/10/2026: đang kiểm chứng bước 4. Bộ lọc tọa độ v2.1 giảm trễ
+vị trí và bỏ relocation lớn trên holdout Metrica mới, nhưng MAE tốc độ tăng
+và coverage có thể giảm đáng kể theo ID. Chưa nghiệm thu số liệu thực địa;
+chưa bắt đầu bước 5. Chi tiết `METRICA_FILTER_V2.md` và mục cuối trang.
+
 Bước 0, Module B1, giao diện bước 1.5 và bước 1.6 đã triển khai, kiểm thử.
 Backend nạp StatsBomb Open Data, chuẩn hóa sự kiện và cung cấp pass network;
 frontend có shell điều hướng, sân SVG và trang phân tích trận. Chưa triển khai
@@ -574,6 +579,53 @@ nguồn cũ `fa6ea680`, không dùng fixture cũ cho file mới cùng tên.
   xử lý đánh đổi trễ và xác nhận lại vị trí sai kéo dài, đánh giá trên cửa
   sổ/trận mới nếu dùng bộ hiện tại để chỉnh phương pháp. Không gọi Metrica
   là ground truth tuyệt đối; nguồn chỉ là tọa độ tham chiếu do hãng công bố.
+
+## Bộ lọc tọa độ v2.1 và holdout mới — 23/10/2026
+
+- Theo yêu cầu tiếp tục, sửa PitchSmoother: thay median3 + EMA bằng fit
+  tuyến tính nhân quả x/y trên 0,2 s, lấy vị trí tại timestamp hiện tại.
+  Giữ warm-up 3 điểm/span 0,08 s; không ép vận tốc hoặc tọa độ vào sân.
+- Với chuỗi đã xuất tọa độ, điểm vượt gate bị loại/ngắt metrics/xóa lịch sử;
+  bỏ cơ chế tự nhận vị trí xa sau 3 điểm lặp lại. Gate giới hạn dt tối đa
+  0,25 s, không mở bán kính vô hạn khi liên tục nhận điểm sai. Gap quan sát
+  thật/ID/segment mới vẫn cho khởi tạo lại, không nối distance qua gap.
+- V2 thử [180,240), seed 1618/5772/8119 phát hiện lỗi khóa ID vào nhiễu lúc
+  khởi tạo: có trajectory không xuất điểm nào. Sửa v2.1: trước điểm xuất đầu
+  tiên, gate thất bại thì hủy ứng viên và warm-up lại. Cửa sổ đó trở thành
+  dữ liệu phát triển, không gọi holdout độc lập nữa; giữ manifest/artifact.
+- Khóa v2.1 rồi đánh giá hiệp 1 [300,360), seed 1414/1732/2236 ở Game 1/2,
+  65.443 điểm tham chiếu phân biệt. Manifest metrica_holdout_v2_1.json tạo
+  trước chạy; không chỉnh phương pháp sau kết quả cuối. 26 lượt v2.1 và
+  26 lượt baseline v1 db575e4 trên cùng raw/RNG, audit đầu vào khớp. Chạy
+  thêm 26 lượt v2.1 trên bộ phát triển [60,120) để so với báo cáo cũ.
+- Noise holdout: RMSE raw-common ~0,212 m -> 0,154/0,153 m (v1
+  0,217/0,238 m). Clean lệch ~0,0034/0,0051 m. Lag lưới v2.1 0 ms,
+  v1 thường 120 ms; lưới 40 ms, không khẳng định mọi chuyển động hết trễ.
+  Cả 6 lượt relocation loại 330/330 điểm lỗi, v1 giữ 264/330 (80%).
+- Đánh đổi: MAE tốc độ noise ~0,57–0,58 -> 0,84–0,85 km/h; covered-distance
+  bias dương lớn hơn. Spikes giữ ~96,8–96,9% điểm nhưng metrics chỉ đại diện
+  ~89–90% thời gian, thiếu ~8–9% đường toàn cửa sổ. Relocation Game 2 ID 4
+  chỉ giữ ~71% điểm; chưa có chính sách xác minh lại danh tính độc lập.
+- Replay clip cũ 5.215 dòng, không chạy lại detector/CUDA: 4.730 điểm/27 ID,
+  363 warming_up, 122 jump_rejected, 206 yêu cầu ngắt mốc. Frame 1086–1350;
+  A/B/ref/unknown = 2109/2097/139/385. Schema/khóa/nhãn/diagnostic/samples/
+  heatmap khớp. Cặp suy tốc độ >40 tăng 16 -> 98, p95 23,47 -> 31,17 km/h
+  so v1: vị trí ít trễ nhưng không có nghĩa tốc độ mượt/chính xác hơn.
+- Toàn bộ 143 test qua, 1 network deselected, cảnh báo Starlette có sẵn.
+  Có kiểm tra warm-up lỗi ở cả 25/60 FPS, timestamp không đều hai trục,
+  trở về sau relocation, không tự mở lại nhờ thời gian, pipeline codec/
+  ByteTrack. Test clip tĩnh dùng dung sai số thực 1e-10 m sau hồi quy.
+- Không thêm thư viện hoặc đổi schema/API/guard/role/bbox, cờ --smooth-pitch
+  vẫn tùy chọn tắt mặc định. Cập nhật CV_PITCH_SMOOTHING.md, đánh dấu báo cáo
+  METRICA_BENCHMARK.md là baseline cũ; báo cáo mới METRICA_FILTER_V2.md.
+  Artifacts data/processed/metrica_benchmark_v2/ (development_final,
+  holdout_final, holdout_final_baseline, comparison_final_summary JSON) và
+  clip_11f23eea/pitch_smoothing_v2_1_check/. Giữ bản cũ, không commit media.
+- Chưa nghiệm thu bước 4 thực địa/chưa bước 5. Tiếp theo kiểm tra nhiễu
+  tương quan camera/bbox, rẽ/dừng/ID đổi gần nhau và đánh đổi coverage/tốc độ;
+  cần mốc video gán nhãn độc lập. Holdout cuối chỉ tách thời gian cùng hai
+  trận, không tuyên bố tổng quát sang trận/camera khác; nếu chỉnh tiếp thì
+  phải có cửa sổ đánh giá mới.
 
 ## Quyết định đã chốt
 

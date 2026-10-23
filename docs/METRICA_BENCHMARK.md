@@ -1,5 +1,10 @@
 # Đánh giá bộ lọc và chỉ số bằng tọa độ tham chiếu Metrica
 
+Đây là báo cáo baseline v1 tại commit `db575e4`. Bộ lọc hiện tại đã thay đổi;
+kết quả và protocol phát triển/holdout v2 nằm trong `METRICA_FILTER_V2.md`.
+Chạy lệnh bên dưới trên mã hiện tại sẽ đánh giá bộ lọc hiện tại, không tái
+tạo số baseline v1 trừ khi dùng đúng phiên bản Git.
+
 Ngày: 22/10/2026. Đây là phép đánh giá bộ lọc tọa độ và PitchMetrics trên
 quỹ đạo tham chiếu có chuyển động bóng đá, không phải phép đo YOLO,
 ByteTrack, phân đội hoặc homography của video `vid1.mp4`. Không chỉnh bộ

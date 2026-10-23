@@ -11,9 +11,8 @@ class _Track:
     last: object
     seen: float
     history: deque = field(default_factory=deque)
-    pending: deque = field(default_factory=lambda: deque(maxlen=3))
-    estimate: object = None
-    estimate_time: float = 0
+    interrupted: bool = False
+    confirmed: bool = False
 
 
 class PitchSmoother:
@@ -22,7 +21,7 @@ class PitchSmoother:
     min_span_s = 0.08
     noise_margin_m = 0.5
     max_speed_kmh = 40
-    time_constant_s = 0.08
+    method = "causal_linear_endpoint_v2_1"
 
     def __init__(self):
         self.tracks = {}
@@ -33,7 +32,10 @@ class PitchSmoother:
                 del self.tracks[key]
 
     def _reachable(self, previous, row):
-        dt = row.time_s - previous.time_s
+        # Rejected observations cannot make the acceptance radius grow forever.
+        # A new location needs an actual observation gap, new ID or calibration
+        # segment; repetition at a distant location is not evidence of identity.
+        dt = min(row.time_s - previous.time_s, self.max_gap_s)
         distance = math.hypot(row.x_m - previous.x_m, row.y_m - previous.y_m)
         return distance <= self.max_speed_kmh / 3.6 * dt + self.noise_margin_m
 
@@ -49,37 +51,36 @@ class PitchSmoother:
             reset = True
         state.seen = row.time_s
         if not self._reachable(state.last, row):
-            if state.pending and not self._reachable(state.pending[-1], row):
-                state.pending.clear()
-            state.pending.append(row)
-            if len(state.pending) < 3:
+            if not state.confirmed:
+                # No published coordinate anchors this tentative chain yet.
+                # Restart warm-up rather than locking onto its first outlier.
+                state = self.tracks[key] = _Track(row, row.time_s)
+                reset = True
+            else:
+                state.interrupted = True
+                state.history.clear()
                 return None, True, "jump_rejected"
-            # Confirm a new local chain without bridging to the old location.
-            state.history = deque(state.pending)
-            state.estimate = np.median([[r.x_m, r.y_m] for r in state.pending], axis=0)
-            state.estimate_time = row.time_s
-            state.pending.clear()
-            state.last = row
-            return None, True, "reacquiring"
-        state.pending.clear()
+        if state.interrupted:
+            reset = True
+            state.interrupted = False
         state.last = row
         state.history.append(row)
         while state.history and row.time_s - state.history[0].time_s > self.window_s + 1e-9:
             state.history.popleft()
         history = list(state.history)
-        # Median of three observed footpoints rejects small isolated spikes.
-        # A time-based EMA reduces jitter with an explicit, measurable lag.
-        point = np.median([[r.x_m, r.y_m] for r in history[-3:]], axis=0)
-        if state.estimate is None:
-            state.estimate = point
-        else:
-            alpha = 1 - math.exp(-(row.time_s - state.estimate_time) / self.time_constant_s)
-            state.estimate = state.estimate + alpha * (point - state.estimate)
-        state.estimate_time = row.time_s
         if len(history) < 3 or row.time_s - history[0].time_s < self.min_span_s - 1e-9:
             return None, reset, "warming_up"
-        x, y = state.estimate
+        # Fit only past/current samples and evaluate at the current timestamp.
+        # Unlike a moving average this exactly reproduces constant velocity.
+        # Endpoint regression can overshoot turns/stops; never clamp that into
+        # an apparently valid pitch position or a capped speed.
+        times = np.array([r.time_s - row.time_s for r in history])
+        points = np.array([[r.x_m, r.y_m] for r in history])
+        centered = times - times.mean()
+        slope = centered @ points / (centered @ centered)
+        x, y = points.mean(axis=0) - slope * times.mean()
         if not np.isfinite([x, y]).all() or not (0 <= x <= 105 and 0 <= y <= 68):
             state.history = deque([row])
             return None, True, "filtered_outside"
+        state.confirmed = True
         return row.model_copy(update={"x_m": float(x), "y_m": float(y)}), reset, "accepted"

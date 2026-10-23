@@ -268,7 +268,7 @@ def run(data_dir, manifest_path, output):
               "scope": "Reference-coordinate fault-injection benchmark only; not video tracking accuracy or absolute ground truth",
               "configuration": config, "fps": fps, "sources": sources,
               "filter": {key: getattr(PitchSmoother, key) for key in ("window_s", "max_gap_s", "min_span_s",
-                         "noise_margin_m", "max_speed_kmh", "time_constant_s")}, "trials": trials}
+                         "noise_margin_m", "max_speed_kmh", "method")}, "trials": trials}
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(report, indent=2, allow_nan=False), encoding="utf-8")
     return report

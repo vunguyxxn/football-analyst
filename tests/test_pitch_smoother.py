@@ -16,7 +16,7 @@ def test_known_velocity_has_bounded_position_lag_and_correct_speed():
         r,broken,_=smoother.observe(0,row(i,10+2*i/60))
         if broken:metrics.break_chain(0,1)
         if r:
-            assert 0 <= 10+2*i/60-r.x_m < .3
+            assert abs(10+2*i/60-r.x_m) < 1e-10
             accepted.append(r);metrics.observe(0,r)
     state=metrics.report()['tracks'][0]
     assert state['max_speed_kmh']==pytest.approx(7.2,abs=.001)
@@ -47,15 +47,28 @@ def test_isolated_teleport_is_not_smoothed_into_a_plausible_run():
     assert metrics.report()['tracks'][0]['distance_m']<2
 
 
-def test_persistent_relocation_starts_new_chain_not_a_teleport_distance():
+def test_persistent_relocation_is_not_confirmed_by_repetition_or_elapsed_time():
     smoother=PitchSmoother();metrics=PitchMetrics(60);new=[]
-    for i in range(120):
+    for i in range(600):
         r,broken,status=smoother.observe(0,row(i,10 if i<40 else 80))
         if broken:metrics.break_chain(0,1)
         if r:
             metrics.observe(0,r)
             if i>=40:new.append(r)
-    assert new and new[0].x_m==pytest.approx(80)
+    assert not new
+    assert metrics.report()['tracks'][0]['distance_m']==pytest.approx(0)
+
+
+def test_return_from_relocation_warms_up_without_bridging_rejected_samples():
+    smoother=PitchSmoother();metrics=PitchMetrics(60);statuses=[]
+    for i in range(180):
+        r,broken,status=smoother.observe(0,row(i,25 if 40<=i<100 else 10))
+        if broken:metrics.break_chain(0,1)
+        if r:metrics.observe(0,r)
+        statuses.append(status)
+    assert set(statuses[40:100])=={'jump_rejected'}
+    assert statuses[100:105]==['warming_up']*5
+    assert statuses[105]=='accepted'
     assert metrics.report()['tracks'][0]['distance_m']==pytest.approx(0)
 
 
@@ -100,3 +113,27 @@ def test_filter_does_not_artificially_cap_velocity_at_40():
         if r:observed.append(r)
     a,b=observed[-2:]
     assert (b.x_m-a.x_m)/(b.time_s-a.time_s)*3.6>40
+
+
+def test_endpoint_fit_uses_elapsed_time_and_both_axes():
+    smoother=PitchSmoother()
+    for i,t in enumerate([0.,.015,.041,.09,.115,.171,.21,.263]):
+        sample=TrackingRow(frame=i,time_s=t,track_id=1,team='A',
+                           x_m=30+3*t,y_m=40-2*t)
+        r,_,_=smoother.observe(0,sample)
+        if t>=.09:
+            assert r is not None
+            assert r.x_m==pytest.approx(sample.x_m,abs=1e-10)
+            assert r.y_m==pytest.approx(sample.y_m,abs=1e-10)
+
+
+@pytest.mark.parametrize('fault_frame',[0,1,2])
+@pytest.mark.parametrize('fps',[25,60])
+def test_outlier_during_initial_warmup_does_not_lock_the_track(fault_frame,fps):
+    smoother=PitchSmoother();accepted=[]
+    for i in range(120):
+        sample=row(i,25 if i==fault_frame else 10).model_copy(update={'time_s':i/fps})
+        r,_,_=smoother.observe(0,sample)
+        if r:accepted.append(r)
+    assert len(accepted)>=110
+    assert all(r.x_m==pytest.approx(10) for r in accepted)

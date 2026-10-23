@@ -1,6 +1,6 @@
 # Làm mượt tọa độ và ngắt chuỗi chuyển động
 
-Ngày: 22/10/2026. Phạm vi bước 4: giảm nhiễu điểm giữa cạnh dưới bbox và
+Ngày: 22/10/2026; cập nhật bộ lọc v2 ngày 23/10/2026. Phạm vi bước 4: giảm nhiễu điểm giữa cạnh dưới bbox và
 không cộng quãng đường qua điểm lỗi. Không đổi tracker, nhãn đội, ma trận
 camera, guard 1 m / 90 frame, dependency hoặc schema/API. Chưa có mô hình
 phát hiện bàn chân và chưa đo được quãng đường/tốc độ thực địa.
@@ -14,7 +14,7 @@ so sánh, các lệnh cũ tiếp tục tương thích. Trong lần chạy có c�
 - `tracking_raw.jsonl`: TrackingRow trước bộ lọc, chỉ điểm chiếu hợp lệ
   trong sân và được guard cấp phép. Giữ nguyên dữ liệu này để đối chiếu.
 - `tracking.jsonl`: TrackingRow sau lọc; giữ ID/frame/thời gian/nhãn, thay
-  tọa độ bằng ước lượng có độ trễ, không nội suy thêm dòng.
+  tọa độ bằng ước lượng nhân quả tại thời điểm hiện tại, không nội suy thêm dòng.
 - `smoothing_quality.jsonl`: một dòng cho mỗi điểm thô, gồm trạng thái và
   yêu cầu ngắt mốc tính chỉ số. Đây là diagnostic nội bộ, không schema mới.
 - `metrics.json`: chỉ cộng điểm đã lọc, có `pitch_smoothing: true`.
@@ -28,19 +28,32 @@ lọc đếm các tọa độ được xuất, không tính điểm bị bỏ ha
 
 `PitchSmoother` tách trạng thái theo `(segment, track_id)`, không dùng frame
 tương lai. Trước khi lọc, khoảng cách thô so với điểm thô được chấp nhận gần
-nhất phải <= `40/3,6 × dt + 0,5 m`. Phần 0,5 m là dung sai nhiễu heuristic,
+nhất phải <= `40/3,6 × min(dt, 0,25) + 0,5 m`. Phần 0,5 m là dung sai nhiễu heuristic,
 không phải chứng nhận sai số hoặc giới hạn tốc độ từng frame.
 
-Điểm vượt điều kiện bị bỏ và ngắt mốc tính quãng đường ngay. Ba điểm mới liên
-tiếp nhất quán có thể mở chuỗi cục bộ mới, không nối tới vị trí cũ. Khoảng
-vắng >0,25 giây khởi tạo lại; segment/ID mới cũng không nối lịch sử. Trạng
+Điểm vượt điều kiện bị bỏ, xóa lịch sử fit và ngắt mốc tính quãng đường ngay.
+Lặp lại vị trí xa không tự xác nhận lại; thời gian từ điểm tin cậy không làm
+bán kính gate tăng vô hạn. Khi trở về gần điểm được chấp nhận cuối, chờ đủ
+khởi tạo trước khi xuất lại. Khoảng vắng quan sát thật >0,25 giây khởi tạo
+lại; segment/ID mới cũng không nối lịch sử. Trạng
 thái vắng >1 giây bị xóa, kiểm tra cả frame không có điểm chiếu hợp lệ.
 
-Lấy trung vị ba điểm thô gần nhất, sau đó EMA theo thời gian với hằng số
-0,08 giây (`alpha = 1 - exp(-dt/0,08)`). Đây là trung vị + làm mượt tọa độ,
-không cắt tốc độ về 40. Chờ ít nhất 3 điểm và khoảng thời gian >=0,08 giây;
-giữ lịch sử tối đa 0,2 giây. Với 60 FPS, đầu chuỗi bỏ 5 frame khởi tạo.
-Không chiếu/ép điểm vượt biên trở lại vạch sân.
+V2 fit đường thẳng x/y theo timestamp trong cửa sổ quá khứ 0,2 giây rồi lấy
+giá trị tại timestamp hiện tại. Không dùng frame tương lai, không EMA hoặc
+trung vị ba điểm. Chuyển động thẳng đều được tái tạo trong sai số số thực;
+chuyển hướng/dừng vẫn có thể overshoot, nhiễu tương quan vẫn có thể lọt.
+Chờ ít nhất 3 điểm và span >=0,08 giây; với 60 FPS bỏ 5 frame khởi tạo.
+Không ép tốc độ về 40 hoặc ép điểm vượt biên trở lại vạch sân.
+
+Gate bảo thủ có thể bỏ cả đường chạy thật sau một đoạn lỗi dài. ID đổi người
+ở gần nhau, lỗi vị trí nhỏ hoặc dịch chậm vẫn có thể qua. Không xem gate là
+xác minh danh tính. Xem đánh giá v2 và đánh đổi coverage trong
+`METRICA_FILTER_V2.md`.
+
+Trong v2.1, trước khi xuất tọa độ đầu tiên, chuỗi khởi tạo chưa được xác
+nhận: nếu gate thất bại thì bỏ ứng viên và bắt đầu lại từ điểm hiện tại.
+Sau khi đã xuất tọa độ, vị trí xa tiếp tục bị loại theo gate bảo thủ ở trên.
+Không dùng ba điểm lặp lại để tự xác nhận vị trí xa của một chuỗi đã xác nhận.
 
 `PitchMetrics.break_chain` xóa anchor ngay khi bộ lọc yêu cầu, giữ tổng của
 các phần quan sát hợp lệ. Ngưỡng >40 km/h trên cặp lấy mẫu 0,5 giây cũ vẫn
@@ -48,6 +61,10 @@ các phần quan sát hợp lệ. Ngưỡng >40 km/h trên cặp lấy mẫu 0,5
 tọa độ bỏ điểm; xem diagnostic để tránh nhầm hai bộ đếm.
 
 ## Kết quả replay cùng clip
+
+Các bảng, mô phỏng và lần chạy CUDA bên dưới là **bộ lọc v1 tại commit
+d221430**, được giữ làm mốc lịch sử; không phải kết quả của mã v2 hiện tại.
+Kết quả v2 có replay riêng, không ghi đè artifact v1; xem `METRICA_FILTER_V2.md`.
 
 Nguồn là 5.215 dòng / 30 ID của `team_roles_final`, SHA256 bản cắt
 `86f6f04ce05ac464269dfa4d831bef0c12c3654acdd2fa3c1b6379f864597b2e`.
