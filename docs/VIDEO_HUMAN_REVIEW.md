@@ -3,6 +3,11 @@
 Ngày: 23/10/2026. Đã chuẩn bị dữ liệu, **chưa có nhãn người kiểm tra và
 chưa có kết quả nghiệm thu độ chính xác video**. Bước 4 vẫn đang kiểm chứng.
 
+Cập nhật: người dùng đã yêu cầu agent tự làm phần đánh dấu. Bản điền sẵn
+ở `human_review_v1/agent_review_v1/review.html`; xem `VIDEO_AGENT_REVIEW.md`.
+Đó là nhãn nháp do agent tạo, không phải nhãn độc lập của người kiểm tra.
+Hướng dẫn nhập tay bên dưới giữ cho trường hợp cần rà soát sau này.
+
 ## Mở và làm ngay
 
 Mở file sau bằng Chrome hoặc Edge (có thể mở thư mục bằng File Explorer,

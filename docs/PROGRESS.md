@@ -8,10 +8,11 @@ tương quan thời gian, sai số vẫn chưa cải thiện; cửa sổ dài h�
 dừng/rẽ kém hơn. Chưa nghiệm thu số liệu thực địa; chưa bắt đầu bước 5.
 Chi tiết `METRICA_FILTER_V3.md` và mục cuối trang.
 
-Đã chuẩn bị bộ gán nhãn video thật `human_review_v1` gồm 20 ảnh, ba clip
-ngữ cảnh và trang bấm điểm cục bộ; ưu tiên 8 ảnh đoạn return. Đang chờ
-người kiểm tra tạo annotations_review.json; chưa có kết quả sai số video.
-Hướng dẫn `VIDEO_HUMAN_REVIEW.md`.
+Người dùng đã giao agent tự đánh dấu. Đã hoàn tất bản nhãn nháp 20 ảnh,
+411 điểm người và 46 mốc sân trong `human_review_v1/agent_review_v1`;
+trang xem đã điền sẵn, người dùng không phải nhập lại. Đây là nhãn agent,
+chưa có kết quả sai số video theo dữ liệu chuẩn độc lập. Chi tiết
+`VIDEO_AGENT_REVIEW.md`; hướng dẫn nhập tay cũ ở `VIDEO_HUMAN_REVIEW.md`.
 
 Bước 0, Module B1, giao diện bước 1.5 và bước 1.6 đã triển khai, kiểm thử.
 Backend nạp StatsBomb Open Data, chuẩn hóa sự kiện và cung cấp pass network;
@@ -727,6 +728,39 @@ nguồn cũ `fa6ea680`, không dùng fixture cũ cho file mới cùng tên.
   Chưa có bộ bbox/MOT mọi frame, không tính MOTA/IDF1 hoặc tốc độ thực từ
   nhãn thưa. Bước tiếp theo phụ thuộc JSON của người kiểm tra, sau đó mới
   đối chiếu dự đoán khóa. Chưa nghiệm thu bước 4 thực địa/chưa bước 5.
+
+## Agent tự đánh dấu bộ ảnh theo yêu cầu — 23/10/2026
+
+- Người dùng không thao tác được và yêu cầu agent tự làm toàn bộ. Đã xem
+  cả 20 PNG gốc, đánh dấu chân, đội, mã người cục bộ trong mỗi đoạn và mốc
+  nhìn thấy. Không chép dự đoán của pipeline làm nhãn chuẩn. Nhãn ước lượng
+  bằng mắt, qua che khuất có thể nhầm; ghi rõ không phải human ground truth.
+- Fixture vid1_11f23eea_agent_review.json khóa source SHA86f6f04c, gồm
+  411 quan sát người (A195/B196/ref20), 46 mốc sân; 375 điểm người visible,
+  19 occluded, 17 uncertain. Người ngoài vạch sân/staff không đánh dấu;
+  người ngoài ảnh/chân không thể xác định được bỏ và ghi chú.
+- Exporter backend.cv.export_agent_review tạo JSON/CSV, 20 preview đã
+  đánh dấu, summary và HTML đã điền tại human_review_v1/agent_review_v1.
+  Từ chối output cũ, kiểm tra hash ảnh/nguồn/frame/bounds/ID trùng. Packet
+  ban đầu và nhãn nháp cục bộ của người dùng giữ riêng; trang agent dùng
+  namespace lưu nháp khác. Không tạo annotations_review.json mạo danh người.
+- reviewed=true nghĩa agent đã xem; human_reviewed=false,
+  annotation_provenance.author_type=agent, independent_ground_truth=false.
+  Banner HTML/ảnh nêu nhãn agent. Sửa importer để không mất cờ agent khi
+  nạp/xuất lại hoặc nhận cờ independent=true không hợp lệ cho nhãn agent.
+- Tám ảnh return: 166 quan sát người theo agent, 153 tọa độ raw qua
+  chiếu/guard, 140 tọa độ v3. Chưa ghép object, không gọi chênh lệch count
+  là recall/FP/FN/ID switches. Không có RMSE mét, tốc độ thực hoặc MOTA/IDF1
+  từ bộ nháp thưa. Hai đoạn còn lại chưa được coi là có chỉ số mét hợp lệ.
+- 158 test qua, 1 network deselected, cảnh báo Starlette có sẵn. Kiểm tra
+  exporter/provenance/import-export, đủ 457 điểm/20 frame và các path;
+  xem preview đại diện ba đoạn. Trình duyệt công cụ vẫn chặn file://,
+  không đi vòng; UI được test logic cục bộ, chưa test browser trực tiếp.
+- Báo cáo VIDEO_AGENT_REVIEW.md, cập nhật hướng dẫn trước. Media/JSON xuất
+  cục bộ không commit; fixture nhãn, exporter và test được commit để tái tạo.
+  Không đổi tracking/guard/bộ lọc/dependency/schema/API. Đã làm xong phần
+  agent được giao; chưa nghiệm thu bước 4 thực địa/chưa bước 5, không chờ
+  người dùng nhập lại bộ ảnh để coi công việc này hoàn tất.
 
 ## Quyết định đã chốt
 

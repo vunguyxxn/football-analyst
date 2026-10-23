@@ -9,6 +9,7 @@ import numpy as np
 import pytest
 
 from backend.cv import prepare_video_review as review
+from backend.cv.export_agent_review import export as export_agent
 
 
 def setup_packet(tmp_path, monkeypatch):
@@ -88,3 +89,42 @@ def test_offline_annotation_handlers_without_a_browser():
                            str(Path(review.__file__).with_name('video_review.html'))],
                           capture_output=True,text=True,encoding='utf-8',timeout=30)
     assert result.returncode==0,result.stdout+result.stderr
+
+
+def agent_fixture(tmp_path,monkeypatch):
+    _,path,plan=setup_packet(tmp_path,monkeypatch)
+    packet_dir=tmp_path/'packet'
+    review.prepare(path,packet_dir)
+    labels={'source_sha256':plan['video_sha256'],'provenance':'Agent visual estimate, not human truth',
+            'frames':{'3':{'A':[[1,20,30]]},'6':{'A':[[1,25,35,'uncertain']]}}}
+    file=tmp_path/'labels.json';file.write_text(json.dumps(labels))
+    return packet_dir,file,labels
+
+
+def test_agent_packet_is_explicitly_non_independent_and_keeps_original_review(tmp_path,monkeypatch):
+    packet,file,_=agent_fixture(tmp_path,monkeypatch)
+    original=(packet/'manifest.json').read_bytes()
+    output=packet/'agent'
+    summary=export_agent(packet,file,output)
+    assert summary['frames_reviewed_by_agent']==2 and summary['frames_reviewed_by_human']==0
+    assert summary['independent_ground_truth'] is False
+    assert (packet/'manifest.json').read_bytes()==original
+    data=json.loads((output/'annotations_agent_review.json').read_text(encoding='utf-8'))
+    assert data['annotation_provenance']['author_type']=='agent'
+    assert data['annotation_provenance']['independent_ground_truth'] is False
+    assert all(f['reviewed'] and not f['human_reviewed'] for f in data['frames'])
+    assert all((output/f['image']).is_file() for f in data['frames'])
+    assert len(list((output/'annotated_frames').glob('*.jpg')))==2
+    assert data['frames'][0]['annotations'][0]['pitch_x_m'] is None
+    with pytest.raises(ValueError,match='new output'):export_agent(packet,file,output)
+
+
+@pytest.mark.parametrize('invalid',['source','pixel','frames'])
+def test_invalid_agent_labels_do_not_create_export(tmp_path,monkeypatch,invalid):
+    packet,file,labels=agent_fixture(tmp_path,monkeypatch)
+    if invalid=='source':labels['source_sha256']='wrong'
+    elif invalid=='pixel':labels['frames']['3']['A'][0][1]=1000
+    else:del labels['frames']['3']
+    file.write_text(json.dumps(labels))
+    with pytest.raises(ValueError):export_agent(packet,file,packet/'invalid')
+    assert not (packet/'invalid').exists()

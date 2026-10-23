@@ -6,8 +6,9 @@
 [hidden]{display:none!important}
 </style>
 <main>
-<h1>Gán nhãn kiểm tra video</h1>
-<p class="muted">Làm 8 ảnh đoạn cuối trước. Chỉ đánh dấu người ở trong vạch sân; giữ cùng mã cho cùng người trong mỗi đoạn. Ảnh không có dự đoán của mô hình.</p>
+<h1 id="heading">Gán nhãn kiểm tra video</h1>
+<p id="reviewIntro" class="muted">Làm 8 ảnh đoạn cuối trước. Chỉ đánh dấu người ở trong vạch sân; giữ cùng mã cho cùng người trong mỗi đoạn. Ảnh không có dự đoán của mô hình.</p>
+<p id="provenance" class="muted"></p>
 <div class="bar"><label>Người gán nhãn <input id="reviewer" placeholder="Tên hoặc mã người đánh dấu"></label><button id="exportJson" class="primary">Xuất JSON để bàn giao</button><button id="exportCsv">Xuất bảng CSV</button><label>Nạp bản đã lưu <input id="importFile" type="file" accept=".json" style="max-width:220px"></label></div>
 <div class="bar"><button id="prev">← Ảnh trước</button><select id="frameSelect" aria-label="Chọn ảnh"></select><button id="next">Ảnh sau →</button><span id="progress"></span></div>
 <p id="frameInfo" class="muted"></p>
@@ -30,11 +31,16 @@
 const original=JSON.parse(document.getElementById('packet').textContent);
 let packet=structuredClone(original), index=0, image=null, loadedFrame=-1, pending=null;
 const $=id=>document.getElementById(id), canvas=$('canvas'), ctx=canvas.getContext('2d');
-const storageKey='football-review-v1-'+original.packet_id;
+const storageKey='football-review-v1-'+original.packet_id+(original.review_session_id?'-'+original.review_session_id:'');
 const tell=text=>$('status').textContent=text;
 function validate(data){
   if(data.packet_id!==original.packet_id || !Array.isArray(data.frames) || data.frames.length!==original.frames.length)throw Error('Bản gán nhãn thuộc bộ ảnh khác.');
   const result=structuredClone(original);result.reviewer=String(data.reviewer||'').slice(0,80);
+  if(data.annotation_provenance?.author_type==='agent'){
+    result.annotation_provenance={author_type:'agent',independent_ground_truth:false,
+      method:'visual_estimate_from_raw_images',note:'Agent labels; not independent human ground truth.'};
+    result.status='agent_review_not_independent_ground_truth';
+  }
   data.frames.forEach((f,i)=>{
     const expected=original.frames[i];
     if(f.clean_frame!==expected.clean_frame || f.clip!==expected.clip || !Array.isArray(f.annotations))throw Error('Frame không khớp.');
@@ -68,12 +74,22 @@ function renderTable(){
   });
 }
 function refreshProgress(){$('reviewed').checked=packet.frames[index].reviewed;$('progress').textContent=packet.frames.filter(f=>f.reviewed).length+'/'+packet.frames.length+' ảnh đã kiểm tra';}
+function provenance(){
+  const agent=packet.annotation_provenance?.author_type==='agent';
+  $('heading').textContent=agent?'Bộ ảnh đã được agent đánh dấu':'Gán nhãn kiểm tra video';
+  $('reviewIntro').textContent=agent
+    ? 'Đã điền điểm cho toàn bộ ảnh. Bạn có thể xem bằng nút Ảnh sau, không cần đánh dấu lại. Điểm đỏ là trường hợp bị che hoặc không chắc chắn.'
+    : 'Làm 8 ảnh đoạn cuối trước. Chỉ đánh dấu người ở trong vạch sân; giữ cùng mã cho cùng người trong mỗi đoạn. Ảnh không có dự đoán của mô hình.';
+  $('provenance').textContent=packet.annotation_provenance?.author_type==='agent'
+    ? 'Bản đã đánh dấu bởi agent. Điểm pixel ước lượng bằng mắt, danh tính qua che khuất có thể sai; chưa phải nhãn chuẩn độc lập do người kiểm tra.'
+    : 'Bộ ảnh chờ người kiểm tra; chưa có kết quả nghiệm thu độ chính xác.';
+}
 function show(){
   pending=null;image=null;loadedFrame=-1;ctx.clearRect(0,0,canvas.width,canvas.height);$('px').value='';$('py').value='';
   $('frameSelect').value=String(index);const f=packet.frames[index];
   $('frameInfo').textContent=f.label+' · frame bản cắt '+f.clean_frame+' ('+f.time_s.toFixed(3)+' s) · frame gốc '+f.raw_frame+' ('+f.raw_time_s.toFixed(3)+' s)';
   $('prev').disabled=index===0;$('next').disabled=index===packet.frames.length-1;
-  renderTable();refreshProgress();const token=index, nextImage=new Image();
+  renderTable();refreshProgress();provenance();const token=index, nextImage=new Image();
   nextImage.onload=()=>{if(token!==index)return;image=nextImage;loadedFrame=index;canvas.width=image.naturalWidth;canvas.height=image.naturalHeight;draw();};
   nextImage.onerror=()=>tell('Không đọc được ảnh. Giữ review.html cùng thư mục frames.');nextImage.src=f.image;
 }
