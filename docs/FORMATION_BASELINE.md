@@ -84,5 +84,5 @@ và tỷ lệ từ chối. Đã bổ sung tham chiếu sơ đồ/lineup StatsBom
 và bộ đối chiếu nhãn cùng trận trong `STATSBOMB_FORMATION_REFERENCE.md`;
 chưa có quan sát tracking cùng trận để đánh giá bộ nhận diện thực tế.
 Không dùng trận khác làm nhãn Metrica.
-Chỉ số cầu thủ hiện mới là vị trí đại diện; hồ sơ thống kê và tích hợp giao
-diện vẫn chưa làm. Bước 5b, xG và advisor chưa bắt đầu.
+Đã thêm hồ sơ thống kê và báo cáo hai đội ngoại tuyến ở `STEP5_PLAYER_PROFILES.md`;
+tích hợp giao diện vẫn chưa làm. Bước 5b, xG và advisor chưa bắt đầu.

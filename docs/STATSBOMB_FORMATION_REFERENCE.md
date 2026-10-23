@@ -78,5 +78,6 @@ không phải bằng chứng mô hình nhận diện đạt độ chính xác ch
 
 Đã có phần tham chiếu theo thời điểm cho bước 5. Còn bộ nhận diện tốt hơn
 và tập quan sát gán nhãn độc lập để đánh giá; baseline Metrica vẫn giữ
-nguyên 3/24 cửa sổ có kết quả. Chỉ số cầu thủ và giao diện chưa hoàn tất.
+nguyên 3/24 cửa sổ có kết quả. Hồ sơ cầu thủ ngoại tuyến đã bổ sung trong
+`STEP5_PLAYER_PROFILES.md`; giao diện chưa làm.
 Không lấy nhãn 4-3-3 hoặc 5-3-2 của trận này làm nhãn cho Metrica khác trận.

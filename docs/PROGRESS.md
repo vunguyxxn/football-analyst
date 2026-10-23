@@ -3,8 +3,9 @@
 ## Trạng thái hiện tại
 
 Cập nhật 23/10/2026: đã bắt đầu bước 5 với baseline hình dạng đội hình
-ngoại tuyến trên Metrica và tham chiếu sơ đồ/lineup StatsBomb theo thời điểm;
-chưa nghiệm thu toàn bộ bước 5. Xem `FORMATION_BASELINE.md`,
+ngoại tuyến trên Metrica, hồ sơ cầu thủ/báo cáo hai đội và tham chiếu
+sơ đồ/lineup StatsBomb theo thời điểm; chức năng ngoại tuyến đã có,
+chưa nghiệm thu chất lượng nhận diện chiến thuật. Xem `STEP5_PLAYER_PROFILES.md`, `FORMATION_BASELINE.md`,
 `STATSBOMB_FORMATION_REFERENCE.md` và mục cuối trang. Bộ lọc tọa độ v3 giảm MAE tốc
 độ với nhiễu độc lập và cải thiện hồi phục sau lỗi ngắn so v2.1. Với nhiễu
 tương quan thời gian, sai số vẫn chưa cải thiện; cửa sổ dài hơn phản ứng
@@ -854,6 +855,27 @@ nguồn cũ `fa6ea680`, không dùng fixture cũ cho file mới cùng tên.
 - Phần tham chiếu/đối chiếu nhãn đã làm, chưa có tracking cùng trận để
   báo accuracy; baseline Metrica vẫn 3/24 cửa sổ có kết quả. Chưa nghiệm
   thu bước 5. Còn nhận diện có đánh giá độc lập, chỉ số cầu thủ và giao diện.
+
+## Bước 5 — hồ sơ cầu thủ và báo cáo hai đội (23/10/2026)
+
+- Thêm `backend/tactics/metrica_report.py`: CLI JSON hai đội kết hợp các
+  cửa sổ hình dạng và hồ sơ từng ID, khóa hash hai nguồn theo manifest.
+  Xuất vị trí trung vị, heatmap, tỷ lệ khung/thời gian, quãng đường quan sát,
+  tốc độ trên khoảng hợp lệ, số khoảng bị loại và số lần ngắt liên tục.
+- Tái sử dụng PitchMetrics; thiếu một khung cũng ngắt, không nối khoảng
+  trống, không ngoại suy, không ép vận tốc về 40. Tốc độ null nếu chưa đủ
+  khoảng tính. Không gắn nguồn Metrica thành video, không đổi schema/API.
+- Chạy Game 1 và 2 giây 60–120: 44 hồ sơ; Game 1 A có 2 khoảng vượt
+  ngưỡng bị loại, các đội còn lại không có. Báo cáo cục bộ
+  `data/processed/formation_v1/game{1,2}_tactics_profiles.json`.
+  Có tỷ lệ dữ liệu/thời gian để tránh hiểu số từng phần là tổng cả trận.
+- 7 test mới; toàn bộ `pytest -q --basetemp .tmp/pytest_step5_profiles_full_v1`:
+  **195 passed, 1 network deselected**; cảnh báo Starlette cũ. Chi tiết
+  phương pháp, lệnh chạy và số liệu ở `STEP5_PLAYER_PROFILES.md`.
+- Chức năng bước 5 hiện có baseline hình dạng, tham chiếu StatsBomb và hồ
+  sơ cầu thủ ngoại tuyến. Chưa nghiệm thu chất lượng nhận diện chiến thuật:
+  vẫn 3/24 cửa sổ có hình dạng, thiếu nhãn độc lập cùng tracking. Giao diện
+  ở bước 8; không báo hoàn thành phần đánh giá khi chưa có dữ liệu.
 
 ## Quyết định đã chốt
 
