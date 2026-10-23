@@ -17,6 +17,9 @@ Chi tiết `FORMATION_ALIGNED.md`; chất lượng chiến thuật chưa nghiệ
 Đã bổ sung bộ đọc Metrica Game 3 và đối chiếu bố trí vai trò từ metadata
 chính nguồn: aligned khớp 2, khác 1, từ chối 21 trên 24 cửa sổ. Metadata
 vai trò không phải nhãn chiến thuật từng frame; xem `METRICA_GAME3_REFERENCE.md`.
+Đã có thêm 27 hồ sơ sự kiện StatsBomb cùng lineup trận 8650, truy theo ID
+và index sự kiện; xem `STATSBOMB_PLAYER_PROFILES.md`. Không ghép người khác
+nguồn, không dùng thống kê sự kiện để nâng đánh giá chất lượng nhận diện.
 Xem thêm `FORMATION_TEMPLATE_EVALUATION.md`,
 `STEP5_PLAYER_PROFILES.md`, `FORMATION_BASELINE.md`,
 `STATSBOMB_FORMATION_REFERENCE.md` và mục cuối trang. Bộ lọc tọa độ v3 giảm MAE tốc
@@ -1001,6 +1004,28 @@ nguồn cũ `fa6ea680`, không dùng fixture cũ cho file mới cùng tên.
   bằng .gitattributes. Chi tiết nguồn/lệnh/giới hạn `METRICA_GAME3_REFERENCE.md`.
 - 9 test mới; toàn bộ `pytest -q --basetemp .tmp/pytest_game3_full_v1`:
   **246 passed, 1 network deselected**, cảnh báo Starlette cũ.
+
+## Bước 5 — hồ sơ sự kiện StatsBomb cùng lineup (23/10/2026)
+
+- Thêm `backend/tactics/statsbomb_profiles.py`: hồ sơ sự kiện theo ID,
+  số áo/xuất phát, short_name theo helper cũ, Pass/hoàn thành/tỷ lệ,
+  Carry/Shot/Shot Goal và index nguồn. Giữ cả cầu thủ lineup zero-event.
+- Nối ngữ cảnh vai trò bằng cùng match/team/player ID và thứ tự index;
+  không nhìn trước Tactical Shift có cùng timestamp. Nhân sự thay đổi
+  làm vai trò unknown, không tự gán vai trò cũ cho cầu thủ thay vào.
+- Thiếu cột outcome thì thống kê phụ thuộc outcome là null; không đồng
+  nhất sự kiện với chạm bóng/phút thi đấu. Loại hiệp ngoài 1–4, Shot Goal
+  không gồm own goal. Hai ID trùng tên không bị nhập chung; không ghép
+  StatsBomb với Metrica hoặc đổi schema/API/thư viện.
+- Cache thật 8650: 27 hồ sơ, 3.527 sự kiện quy ID. Brazil 532 Pass/459
+  hoàn thành/25 Shot/1 Shot Goal; Belgium 385/310/8/1. Các tổng khớp
+  đối chiếu trực tiếp cache, không đọc Shot Goal thành tỷ số trận.
+- Artifact `data/processed/formation_v1/statsbomb_8650_player_profiles_v1.json`.
+  Phương pháp/lệnh/giới hạn ở `STATSBOMB_PLAYER_PROFILES.md`.
+- 6 test mới; toàn bộ `pytest -q --basetemp .tmp/pytest_event_profiles_full_v1`:
+  **252 passed, 1 network deselected**, cảnh báo Starlette cũ.
+  Nhận diện chiến thuật vẫn thử nghiệm; hồ sơ sự kiện không thay nhãn
+  độc lập để nghiệm thu chất lượng phần đó.
 
 ## Quyết định đã chốt
 
