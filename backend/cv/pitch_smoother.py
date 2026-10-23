@@ -13,15 +13,18 @@ class _Track:
     history: deque = field(default_factory=deque)
     interrupted: bool = False
     confirmed: bool = False
+    velocity: object = None
 
 
 class PitchSmoother:
-    window_s = 0.2
+    window_s = 0.4
     max_gap_s = 0.25
     min_span_s = 0.08
     noise_margin_m = 0.5
     max_speed_kmh = 40
-    method = "causal_linear_endpoint_v2_1"
+    recovery_horizon_s = 0.8
+    acceleration_margin_m_s2 = 6
+    method = "causal_linear_endpoint_v3"
 
     def __init__(self):
         self.tracks = {}
@@ -31,11 +34,20 @@ class PitchSmoother:
             if time_s - self.tracks[key].seen > 1:
                 del self.tracks[key]
 
-    def _reachable(self, previous, row):
+    def _reachable(self, state, row):
         # Rejected observations cannot make the acceptance radius grow forever.
-        # A new location needs an actual observation gap, new ID or calibration
-        # segment; repetition at a distant location is not evidence of identity.
-        dt = min(row.time_s - previous.time_s, self.max_gap_s)
+        # Distant repetition alone is not evidence of identity. Recovery from
+        # prior motion is bounded in time and never learns from rejected rows.
+        previous = state.last
+        elapsed = row.time_s - previous.time_s
+        if (self.max_gap_s < elapsed <= self.recovery_horizon_s
+                and state.velocity is not None):
+            # A short rejected burst need not freeze a runner at the old point.
+            # Predict only from the last accepted chain, never from rejects.
+            prediction = np.array([previous.x_m, previous.y_m]) + state.velocity * elapsed
+            residual = math.hypot(row.x_m - prediction[0], row.y_m - prediction[1])
+            return residual <= self.noise_margin_m + self.acceleration_margin_m_s2 * elapsed**2 / 2
+        dt = min(elapsed, self.max_gap_s)
         distance = math.hypot(row.x_m - previous.x_m, row.y_m - previous.y_m)
         return distance <= self.max_speed_kmh / 3.6 * dt + self.noise_margin_m
 
@@ -50,7 +62,7 @@ class PitchSmoother:
             state = self.tracks[key] = _Track(row, row.time_s)
             reset = True
         state.seen = row.time_s
-        if not self._reachable(state.last, row):
+        if not self._reachable(state, row):
             if not state.confirmed:
                 # No published coordinate anchors this tentative chain yet.
                 # Restart warm-up rather than locking onto its first outlier.
@@ -63,6 +75,7 @@ class PitchSmoother:
         if state.interrupted:
             reset = True
             state.interrupted = False
+            state.velocity = None
         state.last = row
         state.history.append(row)
         while state.history and row.time_s - state.history[0].time_s > self.window_s + 1e-9:
@@ -77,10 +90,11 @@ class PitchSmoother:
         times = np.array([r.time_s - row.time_s for r in history])
         points = np.array([[r.x_m, r.y_m] for r in history])
         centered = times - times.mean()
-        slope = centered @ points / (centered @ centered)
+        slope = centered @ (points - points.mean(axis=0)) / (centered @ centered)
         x, y = points.mean(axis=0) - slope * times.mean()
         if not np.isfinite([x, y]).all() or not (0 <= x <= 105 and 0 <= y <= 68):
             state.history = deque([row])
             return None, True, "filtered_outside"
         state.confirmed = True
+        state.velocity = slope
         return row.model_copy(update={"x_m": float(x), "y_m": float(y)}), reset, "accepted"

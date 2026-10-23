@@ -1,5 +1,8 @@
 # Bộ lọc tọa độ v2.1: giảm trễ và xử lý nhảy vị trí kéo dài
 
+Đây là báo cáo v2.1 tại commit `ca85b08`. Mã hiện tại đã dùng v3;
+xem `METRICA_FILTER_V3.md`. Các số và kết luận dưới đây giữ nguyên cho v2.1.
+
 Ngày: 23/10/2026. Phạm vi: PitchSmoother và kiểm chứng cùng PitchMetrics;
 không đổi YOLO/ByteTrack, phân đội, camera guard, dependency, schema/API.
 `--smooth-pitch` vẫn tùy chọn, tắt mặc định. Chưa nghiệm thu bước 4 thực địa.

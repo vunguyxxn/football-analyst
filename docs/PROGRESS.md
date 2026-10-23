@@ -2,10 +2,11 @@
 
 ## Trạng thái hiện tại
 
-Cập nhật 23/10/2026: đang kiểm chứng bước 4. Bộ lọc tọa độ v2.1 giảm trễ
-vị trí và bỏ relocation lớn trên holdout Metrica mới, nhưng MAE tốc độ tăng
-và coverage có thể giảm đáng kể theo ID. Chưa nghiệm thu số liệu thực địa;
-chưa bắt đầu bước 5. Chi tiết `METRICA_FILTER_V2.md` và mục cuối trang.
+Cập nhật 23/10/2026: đang kiểm chứng bước 4. Bộ lọc tọa độ v3 giảm MAE tốc
+độ với nhiễu độc lập và cải thiện hồi phục sau lỗi ngắn so v2.1. Với nhiễu
+tương quan thời gian, sai số vẫn chưa cải thiện; cửa sổ dài hơn phản ứng
+dừng/rẽ kém hơn. Chưa nghiệm thu số liệu thực địa; chưa bắt đầu bước 5.
+Chi tiết `METRICA_FILTER_V3.md` và mục cuối trang.
 
 Bước 0, Module B1, giao diện bước 1.5 và bước 1.6 đã triển khai, kiểm thử.
 Backend nạp StatsBomb Open Data, chuẩn hóa sự kiện và cung cấp pass network;
@@ -626,6 +627,59 @@ nguồn cũ `fa6ea680`, không dùng fixture cũ cho file mới cùng tên.
   cần mốc video gán nhãn độc lập. Holdout cuối chỉ tách thời gian cùng hai
   trận, không tuyên bố tổng quát sang trận/camera khác; nếu chỉnh tiếp thì
   phải có cửa sổ đánh giá mới.
+
+## Bộ lọc tọa độ v3: nhiễu tốc độ và hồi phục — 23/10/2026
+
+- Theo yêu cầu tiếp tục công việc bước 4, tăng cửa sổ fit từ 0,2 lên 0,4 s;
+  vẫn nhân quả tại timestamp hiện tại, warm-up 3 điểm/span 0,08 s. Fit điểm
+  trừ trung bình để giảm triệt tiêu số thực; test tọa độ hằng tại biên sân.
+- Sau lỗi liên tiếp, nếu thời gian từ raw point chấp nhận cuối trong
+  (0,25;0,8] s, dùng vận tốc fit trước lỗi để kiểm tra điểm quan sát với
+  residual <=0,5+6*dt²/2 m. Không học từ điểm loại, không xuất điểm dự báo,
+  không cộng đường thiếu. Hết horizon dùng gate cũ; gap quan sát thật,
+  ID/segment mới vẫn khởi tạo lại. Dung sai là heuristic, không chứng nhận
+  gia tốc/vị trí hay danh tính. Giữ warm-up ứng viên của v2.1.
+- Thêm scenario correlated_noise trong benchmark: AR(1) rho=exp(-dt/0,2),
+  innovation sqrt(1-rho²), sigma biên 0,15 m/trục, reset ở gap tự nhiên.
+  Không sửa reference, không mô phỏng đầy đủ camera chung/ID swap.
+- Phát triển trên cửa sổ cũ [60,120); kiểm tra hồi quy ID 4 Game 2 ở
+  [300,360) (không gọi holdout): coverage ~70,84–70,98 -> 98,24–98,52%,
+  không giữ điểm relocation lỗi. Khóa phương pháp trước holdout mới.
+- Holdout [420,480), hiệp 1 Game 1/2, seed 2449/3162/3873, manifest
+  metrica_holdout_v3.json tạo trước chạy. 65.944 điểm tham chiếu, 22 quỹ
+  đạo/trận, 32 lượt/bộ v3 và baseline ca85b08 (64 tổng); thêm correlated
+  development riêng. Audit raw/RNG/count/RMSE/tổng trajectory khớp.
+- Noise độc lập holdout: MAE tốc độ 0,83/0,86 -> 0,66/0,66 km/h; RMSE
+  vị trí ~0,154 -> 0,121/0,122 m. Lag lưới chọn 0 ms (độ phân giải 40 ms,
+  không áp thẳng sang video 60 FPS). Cả sáu lượt relocation loại toàn bộ
+  330/330 điểm lỗi; ID 1024 Game 2/seed3873 coverage 49,87 -> 98,53%.
+  Minimum coverage qua các lượt relocation Game 2: 49,87 -> 95,53%.
+- Kết quả âm giữ rõ: clean RMSE ~0,005/0,009 -> 0,018/0,026 m. Nhiễu
+  tương quan v3 RMSE ~0,216–0,217 m, hơi xấu hơn v2.1 và raw ~0,211–0,212 m;
+  MAE tốc độ 1,13/1,17 -> 1,17/1,19 km/h, distance bias tăng. Minimum
+  coverage vẫn có ID 84,33%; spikes thiếu ~9–10% distance toàn cửa sổ.
+- Replay clip trên cùng 5.215 raw row: v3 giữ 4.735 điểm/27 ID, frame
+  1086–1350; A/B/ref/unknown 2109/2097/139/390, 358 warming_up,
+  122 jump_rejected, 206 yêu cầu ngắt mốc. Schema/khóa/nhãn/timestamp/
+  diagnostic/samples/heatmap khớp. Trên cùng 4.658 cặp, >40 km/h 98 -> 30,
+  p95 31,17 -> 24,20 km/h; vẫn chỉ diagnostic, chưa tốc độ thực địa.
+- Test đi 2 m/s rồi dừng: max lệch 0,1116 m, sau 250 ms còn 0,0692 m,
+  sau 400 ms bằng 0 trong sai số số thực. Đổi test bound sau 250 ms từ
+  0,02 lên 0,08 m, thêm hội tụ sau 400 ms: ghi nhận đánh đổi phản ứng dừng.
+- Toàn bộ 148 test qua, 1 network deselected, cảnh báo Starlette có sẵn.
+  Thêm runner 8 m/s hồi phục sau burst 0,6 s ở 25/60 FPS, hết hạn dự báo,
+  biên sân và AR tương quan/variance/gap; pipeline codec/ByteTrack qua.
+- Cập nhật CV_PITCH_SMOOTHING.md và liên kết các báo cáo lịch sử; báo cáo
+  mới METRICA_FILTER_V3.md có protocol, đầy đủ kết quả âm và lệnh tái tạo
+  baseline từ Git trong tiến trình riêng. Không đổi dependency/schema/API/
+  detector/role/guard, smoothing vẫn tùy chọn tắt mặc định. Không chạy lại
+  CUDA hay ghi đè media; giữ artifacts cũ.
+- Artifact cục bộ metrica_benchmark_v3/{development,development_correlated,
+  development_correlated_baseline,holdout,holdout_baseline,summary,
+  known_id4_development}.json; replay clip_11f23eea/pitch_smoothing_v3_check/.
+  Tiếp theo cần mốc video gán nhãn độc lập và chốt chỉ số đủ tin cậy; phương
+  án Metrica cho chiến thuật vẫn có trong ROADMAP. Chưa nghiệm thu bước 4
+  thực địa/chưa bước 5; không chỉnh tiếp trên holdout mới rồi gọi độc lập.
 
 ## Quyết định đã chốt
 

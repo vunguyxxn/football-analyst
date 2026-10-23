@@ -92,7 +92,16 @@ def corrupt(trajectory, scenario, seed, config):
     fault = np.zeros(len(t.frames), dtype=bool)
     if scenario != "clean":
         rng = np.random.default_rng(np.random.SeedSequence([seed, t.game, t.track_id, 0]))
-        observed += rng.normal(0, config["noise_sigma_m"], observed.shape)
+        noise = rng.normal(0, config["noise_sigma_m"], observed.shape)
+        if scenario == "correlated_noise":
+            correlation_s = config["noise_correlation_s"]
+            if correlation_s <= 0:
+                raise ValueError("Noise correlation time must be positive")
+            for i in range(1, len(noise)):
+                if t.segments[i] == t.segments[i - 1]:
+                    rho = math.exp(-(t.times[i] - t.times[i - 1]) / correlation_s)
+                    noise[i] = rho * noise[i - 1] + math.sqrt(1 - rho**2) * noise[i]
+        observed += noise
     if scenario == "spikes":
         rng = np.random.default_rng(np.random.SeedSequence([seed, t.game, t.track_id, 1]))
         fault = rng.random(len(t.frames)) < config["spike_probability"]
@@ -108,7 +117,7 @@ def corrupt(trajectory, scenario, seed, config):
         if fault.any():
             shift = np.where(t.xy[np.flatnonzero(fault)[0]] < [52.5, 34], [10., 8.], [-10., -8.])
             observed[fault] += shift
-    elif scenario not in ("clean", "noise"):
+    elif scenario not in ("clean", "noise", "correlated_noise"):
         raise ValueError("Unknown benchmark scenario")
     on_pitch = np.isfinite(observed).all(axis=1) & (observed >= 0).all(axis=1) & (observed <= [105, 68]).all(axis=1)
     return observed, keep & on_pitch, fault, {"injected_missing": int((~keep).sum()),
@@ -268,7 +277,9 @@ def run(data_dir, manifest_path, output):
               "scope": "Reference-coordinate fault-injection benchmark only; not video tracking accuracy or absolute ground truth",
               "configuration": config, "fps": fps, "sources": sources,
               "filter": {key: getattr(PitchSmoother, key) for key in ("window_s", "max_gap_s", "min_span_s",
-                         "noise_margin_m", "max_speed_kmh", "method")}, "trials": trials}
+                         "noise_margin_m", "max_speed_kmh", "method",
+                         "recovery_horizon_s", "acceleration_margin_m_s2")
+                         if hasattr(PitchSmoother, key)}, "trials": trials}
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(report, indent=2, allow_nan=False), encoding="utf-8")
     return report

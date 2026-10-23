@@ -85,15 +85,17 @@ def test_gap_and_calibration_boundary_reset_history_and_metrics():
 
 
 def test_stop_response_has_bounded_overshoot_and_settles():
-    smoother=PitchSmoother();errors=[];end=[]
+    smoother=PitchSmoother();errors=[];end=[];settled=[]
     for i in range(121):
         truth=10+2*min(i/60,1)
         r,_,_=smoother.observe(0,row(i,truth))
         if r:
             errors.append(abs(r.x_m-truth))
             if i>=75:end.append(abs(r.x_m-truth))
+            if i>=84:settled.append(abs(r.x_m-truth))
     assert max(errors)<.3
-    assert max(end)<.02
+    assert max(end)<.08  # longer fit window trades stop response for less noise
+    assert max(settled)<1e-10
 
 
 def test_timestamp_order_and_independent_tracks():
@@ -137,3 +139,42 @@ def test_outlier_during_initial_warmup_does_not_lock_the_track(fault_frame,fps):
         if r:accepted.append(r)
     assert len(accepted)>=110
     assert all(r.x_m==pytest.approx(10) for r in accepted)
+
+
+@pytest.mark.parametrize('fps',[25,60])
+def test_moving_track_recovers_after_short_fault_without_counting_missing_path(fps):
+    smoother=PitchSmoother();metrics=PitchMetrics(fps);recovered=[]
+    for i in range(4*fps):
+        t=i/fps;truth=20+8*t
+        fault=1<=t<1.6
+        sample=TrackingRow(frame=i,time_s=t,track_id=1,team='A',
+                           x_m=truth+(10 if fault else 0),y_m=34+(8 if fault else 0))
+        r,broken,status=smoother.observe(0,sample)
+        if fault:assert r is None and status=='jump_rejected' and broken
+        if broken:metrics.break_chain(0,1)
+        if r:
+            metrics.observe(0,r)
+            assert r.x_m==pytest.approx(truth)
+            if t>=1.6:recovered.append(t)
+    assert recovered and recovered[0]<1.75
+    state=metrics.report()['tracks'][0]
+    assert state['distance_m']==pytest.approx(8*state['duration_s'])
+    assert state['duration_s']<3.4  # never count the fault burst as observed motion
+
+
+def test_recovery_prediction_expires_instead_of_extrapolating_forever():
+    smoother=PitchSmoother()
+    for i in range(180):
+        truth=20+8*i/60
+        r,broken,status=smoother.observe(0,row(i,truth if i<60 or i>=150 else truth+20))
+        if i>=150:
+            assert r is None and broken and status=='jump_rejected'
+
+
+def test_constant_pitch_boundary_is_not_rejected_by_regression_roundoff():
+    smoother=PitchSmoother()
+    for i in range(120):
+        r,_,_=smoother.observe(0,row(i,105,68))
+        if i>=5:
+            assert r is not None
+            assert (r.x_m,r.y_m)==(105,68)

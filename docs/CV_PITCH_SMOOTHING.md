@@ -1,6 +1,6 @@
 # Làm mượt tọa độ và ngắt chuỗi chuyển động
 
-Ngày: 22/10/2026; cập nhật bộ lọc v2 ngày 23/10/2026. Phạm vi bước 4: giảm nhiễu điểm giữa cạnh dưới bbox và
+Ngày: 22/10/2026; cập nhật bộ lọc v3 ngày 23/10/2026. Phạm vi bước 4: giảm nhiễu điểm giữa cạnh dưới bbox và
 không cộng quãng đường qua điểm lỗi. Không đổi tracker, nhãn đội, ma trận
 camera, guard 1 m / 90 frame, dependency hoặc schema/API. Chưa có mô hình
 phát hiện bàn chân và chưa đo được quãng đường/tốc độ thực địa.
@@ -34,11 +34,18 @@ không phải chứng nhận sai số hoặc giới hạn tốc độ từng fra
 Điểm vượt điều kiện bị bỏ, xóa lịch sử fit và ngắt mốc tính quãng đường ngay.
 Lặp lại vị trí xa không tự xác nhận lại; thời gian từ điểm tin cậy không làm
 bán kính gate tăng vô hạn. Khi trở về gần điểm được chấp nhận cuối, chờ đủ
-khởi tạo trước khi xuất lại. Khoảng vắng quan sát thật >0,25 giây khởi tạo
+khởi tạo trước khi xuất lại. Từ v3, khi thời gian từ điểm thô được chấp nhận
+cuối nằm trong (0,25; 0,8] s, nếu có vận tốc fit cũ thì dùng điểm dự báo
+`last_xy + velocity * dt`, gate residual `0,5 + 6*dt²/2` mét. Các giá trị này
+là dung sai heuristic, không phải giới hạn gia tốc đã đo. Không cập nhật
+vận tốc từ điểm bị loại, không xuất điểm dự báo thay cho quan sát. Ngoài
+khoảng này dùng gate khoảng cách cũ; không ngoại suy mãi theo thời gian.
+Khôi phục vẫn warm-up lại và không cộng phần đường bị thiếu.
+Khoảng vắng quan sát thật >0,25 giây khởi tạo
 lại; segment/ID mới cũng không nối lịch sử. Trạng
 thái vắng >1 giây bị xóa, kiểm tra cả frame không có điểm chiếu hợp lệ.
 
-V2 fit đường thẳng x/y theo timestamp trong cửa sổ quá khứ 0,2 giây rồi lấy
+V3 fit đường thẳng x/y theo timestamp trong cửa sổ quá khứ 0,4 giây rồi lấy
 giá trị tại timestamp hiện tại. Không dùng frame tương lai, không EMA hoặc
 trung vị ba điểm. Chuyển động thẳng đều được tái tạo trong sai số số thực;
 chuyển hướng/dừng vẫn có thể overshoot, nhiễu tương quan vẫn có thể lọt.
@@ -47,12 +54,13 @@ Không ép tốc độ về 40 hoặc ép điểm vượt biên trở lại vạ
 
 Gate bảo thủ có thể bỏ cả đường chạy thật sau một đoạn lỗi dài. ID đổi người
 ở gần nhau, lỗi vị trí nhỏ hoặc dịch chậm vẫn có thể qua. Không xem gate là
-xác minh danh tính. Xem đánh giá v2 và đánh đổi coverage trong
-`METRICA_FILTER_V2.md`.
+xác minh danh tính. Xem đánh giá hiện tại và đánh đổi coverage trong
+`METRICA_FILTER_V3.md`; baseline v2.1 trong `METRICA_FILTER_V2.md`.
 
 Trong v2.1, trước khi xuất tọa độ đầu tiên, chuỗi khởi tạo chưa được xác
 nhận: nếu gate thất bại thì bỏ ứng viên và bắt đầu lại từ điểm hiện tại.
-Sau khi đã xuất tọa độ, vị trí xa tiếp tục bị loại theo gate bảo thủ ở trên.
+V3 giữ cơ chế khởi tạo này. Sau khi đã xuất tọa độ, vị trí xa tiếp tục bị
+kiểm tra theo gate khoảng cách/dự báo ngắn ở trên.
 Không dùng ba điểm lặp lại để tự xác nhận vị trí xa của một chuỗi đã xác nhận.
 
 `PitchMetrics.break_chain` xóa anchor ngay khi bộ lọc yêu cầu, giữ tổng của
@@ -63,8 +71,9 @@ tọa độ bỏ điểm; xem diagnostic để tránh nhầm hai bộ đếm.
 ## Kết quả replay cùng clip
 
 Các bảng, mô phỏng và lần chạy CUDA bên dưới là **bộ lọc v1 tại commit
-d221430**, được giữ làm mốc lịch sử; không phải kết quả của mã v2 hiện tại.
-Kết quả v2 có replay riêng, không ghi đè artifact v1; xem `METRICA_FILTER_V2.md`.
+d221430**, được giữ làm mốc lịch sử; không phải kết quả của mã v3 hiện tại.
+V2.1 và v3 có replay riêng, không ghi đè artifact v1;
+xem `METRICA_FILTER_V2.md` và `METRICA_FILTER_V3.md`.
 
 Nguồn là 5.215 dòng / 30 ID của `team_roles_final`, SHA256 bản cắt
 `86f6f04ce05ac464269dfa4d831bef0c12c3654acdd2fa3c1b6379f864597b2e`.

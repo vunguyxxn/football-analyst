@@ -14,6 +14,7 @@ from backend.cv.metrica_benchmark import (
 
 def config():
     return {"start_s": 0, "stop_s": 60, "period": 1, "noise_sigma_m": .15,
+            "noise_correlation_s": .2,
             "spike_probability": .1, "gap_duration_s": .6, "relocation_duration_s": .6,
             "lag_grid_frames": list(range(7)), "seeds": [1729], "scenarios": ["clean", "noise"]}
 
@@ -52,7 +53,7 @@ def test_loader_converts_axes_omits_ball_and_splits_native_missing(tmp_path):
 def test_faults_are_reproducible_and_do_not_mutate_reference():
     t = trajectory()
     original = t.xy.copy()
-    for scenario in ('clean','noise','spikes','gaps','relocation'):
+    for scenario in ('clean','noise','correlated_noise','spikes','gaps','relocation'):
         a = corrupt(t, scenario, 42, config())
         b = corrupt(t, scenario, 42, config())
         for x,y in zip(a[:3],b[:3]):
@@ -71,6 +72,20 @@ def test_long_fault_and_missing_bursts_are_not_just_single_spikes():
     observed, _, fault, _ = corrupt(t,'relocation',42,config())
     assert fault.sum() == 15
     assert np.linalg.norm((observed-t.xy)[fault],axis=1).min() > 12
+
+
+def test_correlated_noise_has_stationary_scale_and_resets_at_native_gap():
+    t=trajectory(seconds=200)
+    t.segments[2500:]=1
+    correlated=corrupt(t,'correlated_noise',42,config())[0]-t.xy
+    independent=corrupt(t,'noise',42,config())[0]-t.xy
+    assert np.corrcoef(correlated[:-1,0],correlated[1:,0])[0,1]>.7
+    assert abs(np.corrcoef(independent[:-1,0],independent[1:,0])[0,1])<.1
+    assert np.std(correlated)==pytest.approx(.15,rel=.15)
+    np.testing.assert_allclose(correlated[2500],independent[2500])
+    bad=config();bad['noise_correlation_s']=0
+    with pytest.raises(ValueError,match='positive'):
+        corrupt(t,'correlated_noise',42,bad)
 
 
 def test_metric_audit_uses_reference_curve_not_only_endpoint_chord():

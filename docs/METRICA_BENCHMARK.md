@@ -2,6 +2,8 @@
 
 Đây là báo cáo baseline v1 tại commit `db575e4`. Bộ lọc hiện tại đã thay đổi;
 kết quả và protocol phát triển/holdout v2 nằm trong `METRICA_FILTER_V2.md`.
+Đánh giá mới nhất (v3, có nhiễu tương quan theo thời gian) nằm trong
+`METRICA_FILTER_V3.md`.
 Chạy lệnh bên dưới trên mã hiện tại sẽ đánh giá bộ lọc hiện tại, không tái
 tạo số baseline v1 trừ khi dùng đúng phiên bản Git.
 
