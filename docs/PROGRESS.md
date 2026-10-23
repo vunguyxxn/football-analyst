@@ -2,6 +2,14 @@
 
 ## Trạng thái hiện tại
 
+Ngày 23/10/2026, bước 5b đã hoàn tất một lượt fine-tune YOLO11n trên
+372 ảnh bóng đá chia theo nhóm tên file/ảnh gần trùng. Trên 73 ảnh test
+giữ riêng: mAP50 71,04% → 91,67%; mAP50–95 39,62% → 56,40%.
+Đã lưu protocol, nguồn/hash, trọng số và kết quả trước/sau; 261 test qua.
+Đây là đánh giá detection trên bộ ảnh công khai, chưa xác minh độc lập
+theo trận hoặc chất lượng tracking video. Trọng số mới chưa thay mặc định.
+Chi tiết `CV_FINETUNE_YOLO.md`; giới hạn bước 4–5 bên dưới vẫn áp dụng.
+
 Cập nhật 23/10/2026: đã bắt đầu bước 5 với baseline hình dạng đội hình
 ngoại tuyến trên Metrica, hồ sơ cầu thủ/báo cáo hai đội và tham chiếu
 sơ đồ/lineup StatsBomb theo thời điểm; chức năng ngoại tuyến đã có,
@@ -1026,6 +1034,35 @@ nguồn cũ `fa6ea680`, không dùng fixture cũ cho file mới cùng tên.
   **252 passed, 1 network deselected**, cảnh báo Starlette cũ.
   Nhận diện chiến thuật vẫn thử nghiệm; hồ sơ sự kiện không thay nhãn
   độc lập để nghiệm thu chất lượng phần đó.
+
+## Bước 5b — fine-tune YOLO11 nano và so sánh mAP (23/10/2026)
+
+- Thêm CLI chuẩn bị dataset và huấn luyện/đánh giá:
+  `backend/cv/prepare_person_dataset.py`, `backend/cv/finetune_person.py`.
+  Không thêm thư viện, API hoặc đổi hợp đồng dữ liệu.
+- Dùng nguồn martinjolif/football-player-detection, revision
+  `e8b8cea002692efd74c945fcdad63e729adc5671`, khai báo CC BY 4.0.
+  Ghi công nguồn, bản sao, nhãn chuyển đổi và liên kết ở `CV_FINETUNE_YOLO.md`.
+  Kiểm file theo inventory Git/LFS; gộp GK/player/referee thành person,
+  bỏ ball, cắt hai box vượt biên.
+- 15 nhóm tiền tố/ảnh trùng hoặc gần trùng; seed 20261023, train 199 ảnh
+  (4.568 box), val 100 (2.358), test 73 (1.653). Không giao component/hash
+  pixel giữa các tập; nhóm chỉ là heuristic, chưa xác minh trận độc lập.
+- Huấn luyện CUDA trên RTX 3050 6 GB: 15 epoch, ảnh 640, batch 4, AdamW,
+  lr0 0,001, AMP tắt. Chọn best theo validation; test chỉ dùng sau train.
+  Validator riêng lọc person trước NMS cho cả baseline 80 class và mô hình
+  một class, khắc phục validator bản 8.3.221 bỏ qua args.classes.
+- Test: mAP50 0,710436 → 0,916667; mAP50–95 0,396201 → 0,563989;
+  precision 0,742526 → 0,924402; recall 0,742287 → 0,857834.
+  Precision/recall ở điểm F1 của từng mô hình; chỉ có một lượt một seed.
+- Artifact: `data/processed/yolo_person_finetune_v1/comparison.json`,
+  `training/weights/best.pt`; snapshot Git ở
+  `docs/fixtures/yolo_person_finetune_result_v1.json`. Giữ trọng số gốc,
+  chưa tự áp dụng best.pt vào pipeline tracking. Không suy mAP thành
+  accuracy giữ ID/phân đội/sơ đồ hoặc độ chính xác trên vid1.mp4.
+- Chín test mới; toàn bộ
+  `pytest -q --basetemp .tmp/pytest_finetune_full_v1`:
+  **261 passed, 1 network deselected**, cảnh báo Starlette cũ.
 
 ## Quyết định đã chốt
 

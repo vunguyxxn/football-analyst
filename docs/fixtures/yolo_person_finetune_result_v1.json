@@ -1,0 +1,135 @@
+{
+  "kind": "yolo_person_finetune_comparison_v1",
+  "configuration": {
+    "protocol": {
+      "version": "yolo_person_finetune_v1",
+      "source_repo": "martinjolif/football-player-detection",
+      "source_revision": "e8b8cea002692efd74c945fcdad63e729adc5671",
+      "license_declared": "CC BY 4.0",
+      "attribution": "Football project / Roboflow football-players-detection-3zvbc-yyhdl v1; Hugging Face mirror by martinjolif",
+      "source_url": "https://huggingface.co/datasets/martinjolif/football-player-detection",
+      "original_url": "https://universe.roboflow.com/football-project-pifbc/football-players-detection-3zvbc-yyhdl/dataset/1",
+      "mapping": {
+        "0": null,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "target_names": [
+        "person"
+      ],
+      "split_seed": 20261023,
+      "split_groups": "filename prefix before first underscore; union exact pixels and near-identical thumbnails before partition",
+      "near_duplicate_dhash_max": 4,
+      "near_duplicate_thumbnail_mae_max": 3.0,
+      "group_ratios": [
+        0.6,
+        0.2,
+        0.2
+      ],
+      "epochs": 15,
+      "batch": 4,
+      "image_size": 640,
+      "optimizer": "AdamW",
+      "lr0": 0.001,
+      "seed": 20261023,
+      "amp": false,
+      "workers": 0,
+      "test_confidence": 0.001,
+      "test_nms_iou": 0.7,
+      "test_max_detections": 300,
+      "evaluation": "Filter person class 0 before NMS for both COCO baseline and one-class fine-tuned weights; held-out test only after training",
+      "checkpoint_selection": "best validation fitness, never test",
+      "pipeline_promotion": "manual follow-up after evaluation; do not replace baseline automatically"
+    },
+    "dataset_manifest_sha256": "7f1ccbbcc23a017621ee3d18d6744b184d766974f96e6edf327e2868b3f8607e",
+    "dataset_yaml_sha256": "42a185aa429c2fd95d29e73fdc9c57574357831793e14a17bffcfd9e1ab62852",
+    "initial_weights_sha256": "0ebbc80d4a7680d14987a577cd21342b65ecfd94632bd9a8da63ae6417644ee1",
+    "initial_weights": "data/raw/yolo11n.pt",
+    "python": "3.11.3",
+    "torch": "2.8.0+cu128",
+    "ultralytics": "8.3.221",
+    "cuda": "12.8",
+    "gpu": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+    "status": "complete"
+  },
+  "dataset_images": {
+    "train": 199,
+    "val": 100,
+    "test": 73
+  },
+  "group_audit": {
+    "components": 15,
+    "near_duplicate_pairs": 2,
+    "split_components": {
+      "test": 3,
+      "val": 3,
+      "train": 9
+    }
+  },
+  "baseline_validation": {
+    "map50": 0.658982158291102,
+    "map50_95": 0.3480763967148203,
+    "precision": 0.705218561779514,
+    "recall": 0.7264631043256997
+  },
+  "baseline_test": {
+    "map50": 0.7104356911421439,
+    "map50_95": 0.3962005454745923,
+    "precision": 0.7425259349610732,
+    "recall": 0.7422867513611615
+  },
+  "finetuned_test": {
+    "map50": 0.9166673730217216,
+    "map50_95": 0.5639894523681475,
+    "precision": 0.9244024241989197,
+    "recall": 0.8578342407743497
+  },
+  "test_delta": {
+    "map50": 0.20623168187957774,
+    "map50_95": 0.16778890689355513,
+    "precision": 0.1818764892378465,
+    "recall": 0.11554748941318815
+  },
+  "best_weights": "data/processed/yolo_person_finetune_v1/training/weights/best.pt",
+  "best_weights_sha256": "025dc92ed4f7bdde70e2f2442a1ee16fd3aa4ed4a4e32d8f7278f138747e747a",
+  "elapsed_s": 333.32839330000024,
+  "pipeline_promoted": false,
+  "limitations": [
+    "Filename/duplicate groups are heuristics, not verified disjoint matches; provided labels not independently re-annotated",
+    "Person detection only; no ball, role classification or tracking accuracy claim",
+    "Same held-out images and person-only filtering before NMS for both models",
+    "One seeded run; no independent match identity or confidence interval"
+  ],
+  "dataset_person_boxes": {
+    "train": 4568,
+    "val": 2358,
+    "test": 1653
+  },
+  "dataset_groups": {
+    "train": [
+      "08fd33",
+      "121364",
+      "40cd38",
+      "42ba34",
+      "538438",
+      "55c9d1",
+      "744b27",
+      "c01561",
+      "cd987c"
+    ],
+    "val": [
+      "2e57b9",
+      "4b770a",
+      "a9f16c"
+    ],
+    "test": [
+      "54745b",
+      "573e61",
+      "798b45"
+    ]
+  },
+  "comparison_sha256": "3337e6fe5631a02f13fbc525713da9d02966298ec8064a9901cd70fca64b6f9d",
+  "protocol_sha256": "c54a8b97c7a967b6f2b2e33a4e90205188eac3e16ac106005cb7c518a9329313",
+  "source_inventory_sha256": "71b4dec3d6989212ab35d938c17c6a2ba968e22b07961a1b55d5d8e0ff10c1ac"
+}
