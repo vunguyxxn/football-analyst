@@ -87,3 +87,7 @@ bộ lọc mặc định sản phẩm. Hiện nhận diện sơ đồ chỉ phù
 minh họa có gắn nhãn thử nghiệm. Chức năng hồ sơ cầu thủ và tham chiếu
 StatsBomb không bị thay đổi. Chất lượng chiến thuật bước 5 chưa nghiệm thu;
 cần nhãn độc lập cùng tracking để đánh giá trước khi thay phương pháp.
+
+Sau đợt chẩn đoán này đã thêm tùy chọn `aligned`; kết quả so lại với hai
+cách cũ và giới hạn sử dụng ở `FORMATION_ALIGNED.md`. Bảng trên giữ nguyên
+kết quả của hai phương pháp ban đầu.

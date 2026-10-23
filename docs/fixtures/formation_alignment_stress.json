@@ -1,0 +1,7 @@
+{
+  "purpose": "Constructed functional cases for tilted lines and lateral shifts; not real tactical ground truth",
+  "physical_x_shear_per_y": 0.35,
+  "lateral_line_shift_start_m": -5.0,
+  "lateral_line_shift_stop_m": 5.0,
+  "apply_to": "known-shape outfield points only; goalkeeper and unknown cases unchanged"
+}

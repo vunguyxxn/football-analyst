@@ -10,6 +10,7 @@ import os
 from pathlib import Path
 
 from backend.tactics.evaluate_formation import compare_metrica_reports
+from backend.tactics.formation_aligned import POLICY as ALIGNED_POLICY
 
 
 def canonical_hash(value):
@@ -80,28 +81,32 @@ def validate_review(packet, review):
         raise ValueError("Review must account for every source window")
 
 
-def evaluate_review(packet, review):
+def evaluate_review(packet, review, *, include_aligned=False):
     validate_review(packet, review)
-    predictions = {window_key(row): row for row in compare_metrica_reports(packet["reports"])["windows"]}
+    predictions = {window_key(row): row for row in compare_metrica_reports(packet["reports"], include_aligned=include_aligned)["windows"]}
+    methods = ("gap", "template", "aligned") if include_aligned else ("gap", "template")
     rows = []
     for annotation in review["rows"]:
         key = window_key(annotation)
         row = {k: annotation[k] for k in ("game", "period", "team", "start_s", "stop_s", "status", "shape", "reason")}
-        for method in ("gap", "template"):
+        for method in methods:
             predicted = predictions[key][method].get("shape")
             outcome = "unassessed"
             if annotation["status"] == "draft_shape":
                 outcome = "abstained" if predicted is None else "agrees_with_draft" if predicted == annotation["shape"] else "disagrees_with_draft"
             row[method] = {"shape": predicted, "outcome": outcome}
         rows.append(row)
-    summary = {method: dict(Counter(r[method]["outcome"] for r in rows)) for method in ("gap", "template")}
-    return {"kind": "agent_formation_agreement_v1", "reviewer": review["reviewer"],
+    summary = {method: dict(Counter(r[method]["outcome"] for r in rows)) for method in methods}
+    result = {"kind": "agent_formation_agreement_v1", "reviewer": review["reviewer"],
             "human_reviewed": False, "independent_ground_truth": False,
             "target": review["target"], "source_packet_canonical_sha256": canonical_hash(packet),
             "review_canonical_sha256": canonical_hash(review),
             "review_status_counts": dict(Counter(r["status"] for r in rows)),
             "agreement_counts": summary, "windows": rows,
             "warning": "Agent draft agreement only. Unscorable is not a true unknown class. No tactical accuracy claim."}
+    if include_aligned:
+        result["aligned_policy"] = ALIGNED_POLICY
+    return result
 
 
 def render_sheets(packet, review, output):
@@ -151,6 +156,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output-dir", type=Path, required=True)
     parser.add_argument("--render", action="store_true")
+    parser.add_argument("--include-aligned", action="store_true")
     args = parser.parse_args()
     root = Path(__file__).resolve().parents[2]
     output = args.output_dir.resolve()
@@ -158,15 +164,18 @@ def main():
         parser.error("Output must be a new directory inside project")
     packet = json.loads((root / "docs/fixtures/metrica_formation_windows.json").read_text(encoding="utf-8"))
     review = json.loads((root / "docs/fixtures/metrica_formation_agent_review.json").read_text(encoding="utf-8"))
-    result = evaluate_review(packet, review)
+    result = evaluate_review(packet, review, include_aligned=args.include_aligned)
     output.mkdir(parents=True)
     (output / "evaluation.json").write_text(json.dumps(result, ensure_ascii=False, indent=2, allow_nan=False), encoding="utf-8")
+    methods = ("gap", "template", "aligned") if args.include_aligned else ("gap", "template")
     text = ["# Rà soát hình dạng đội hình — nhãn nháp của agent", "",
             "Chưa được người đánh giá độc lập xác nhận. Không phải độ chính xác chiến thuật.", "",
-            "| Trận/đội/thời gian | Trạng thái tham chiếu nháp | Gap | Template |", "|---|---|---|---|"]
+            "| Trận/đội/thời gian | Trạng thái tham chiếu nháp | " + " | ".join(methods) + " |",
+            "|---|---|" + "---|" * len(methods)]
     for row in result["windows"]:
         reference = row["shape"] or row["status"]
-        text.append(f"| G{row['game']} {row['team']} {row['start_s']}-{row['stop_s']}s | {reference} | {row['gap']['shape'] or 'chưa xác định'} | {row['template']['shape'] or 'chưa xác định'} |")
+        labels = " | ".join(row[m]["shape"] or "chưa xác định" for m in methods)
+        text.append(f"| G{row['game']} {row['team']} {row['start_s']}-{row['stop_s']}s | {reference} | {labels} |")
     (output / "review.md").write_text("\n".join(text) + "\n", encoding="utf-8")
     if args.render:
         render_sheets(packet, review, output)

@@ -11,6 +11,9 @@ Metrica; chưa có nhãn độc lập để nghiệm thu, xem `FORMATION_AGENT_R
 Kiểm tra thêm 24 cửa sổ mới giây 120–180: không nhãn nào đủ đồng thuận
 4/5 ảnh thời điểm; xem `FORMATION_TEMPORAL_CHECK.md`. Đây là chẩn đoán,
 không phải bằng chứng accuracy hay thay đổi mặc định sản phẩm.
+Đã thêm thử nghiệm `aligned` cho tuyến nghiêng/lệch cánh: 54/54 ca stress
+giả lập và 1/24 cửa sổ có hỗ trợ thời gian, chưa đủ căn cứ đổi mặc định.
+Chi tiết `FORMATION_ALIGNED.md`; chất lượng chiến thuật chưa nghiệm thu.
 Xem thêm `FORMATION_TEMPLATE_EVALUATION.md`,
 `STEP5_PLAYER_PROFILES.md`, `FORMATION_BASELINE.md`,
 `STATSBOMB_FORMATION_REFERENCE.md` và mục cuối trang. Bộ lọc tọa độ v3 giảm MAE tốc
@@ -950,6 +953,29 @@ nguồn cũ `fa6ea680`, không dùng fixture cũ cho file mới cùng tên.
 - 6 test mới; toàn bộ `pytest -q --basetemp .tmp/pytest_formation_stability_full_v1`:
   **224 passed, 1 network deselected**, cảnh báo Starlette cũ.
   Không tác động hồ sơ chuyển động hoặc tham chiếu StatsBomb.
+
+## Bước 5 — cải tiến tuyến nghiêng/lệch cánh (23/10/2026)
+
+- Thêm `formation_aligned.py`: tìm kiếm độ nghiêng chung, phân tuyến theo
+  thứ tự dọc, cho dịch tâm ngang mỗi tuyến, phạt độ linh hoạt, vẫn trả
+  unknown khi khớp kém/mơ hồ. Giữ guard 11 người và >=80% bao phủ.
+- Có `--formation-method aligned` trong báo cáo; `--include-aligned`
+  trong đánh giá giả lập, đối chiếu nháp và chẩn đoán thời gian. Giữ gap
+  mặc định, không đổi API/schema hoặc thêm dependency. Lưu policy trong JSON.
+- Stress 72 ca tự dựng (54 có sơ đồ): gap đúng 0, template 28, aligned 54;
+  cả ba từ chối 18 ca kỳ vọng chưa xác định. Bộ ca thiết kế theo giả thiết
+  mô hình, không phải accuracy trận thật hoặc kiểm định độc lập.
+- Trên 5 nhãn nháp phát triển: aligned đồng ý 1, không đồng ý 2, từ chối 2.
+  Trên 24 cửa sổ 120–180 đã xem: aligned có 3 nhãn trung vị, 1 đạt 4/5
+  ảnh thời điểm (Game 2 B 140–150s, 4-3-3); hai cách cũ vẫn 0 đạt. Không
+  coi đồng thuận thời gian là xác nhận chiến thuật; chưa đổi mặc định.
+- Đã xuất `game{1,2}_tactics_aligned_v1.json`, `aligned_comparison_with_stress_v1.json`,
+  `aligned_draft_review_v1/`, `aligned_stability_120_180_v1.json` trong
+  `data/processed/formation_v1/`. Cả 44 hồ sơ chuyển động giữ nguyên so báo
+  cáo cũ. Chi tiết phương pháp/giới hạn/lệnh ở `FORMATION_ALIGNED.md`.
+- 13 test mới; toàn bộ `pytest -q --basetemp .tmp/pytest_aligned_full_v1`:
+  **237 passed, 1 network deselected**, cảnh báo Starlette cũ.
+  Tiến bộ chức năng chưa thay thế yêu cầu đánh giá chiến thuật độc lập.
 
 ## Quyết định đã chốt
 

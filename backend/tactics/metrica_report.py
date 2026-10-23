@@ -14,6 +14,7 @@ from backend.cv.metrica_benchmark import load_tracking
 from backend.cv.pitch_metrics import PitchMetrics
 from backend.tactics.formation import analyze_window
 from backend.tactics.formation_templates import POLICY as TEMPLATE_POLICY
+from backend.tactics.formation_aligned import POLICY as ALIGNED_POLICY
 
 
 def player_profile(trajectory, start_s, stop_s, goalkeeper_id):
@@ -87,7 +88,7 @@ def main():
     parser.add_argument("--start", type=float, default=60)
     parser.add_argument("--stop", type=float, default=120)
     parser.add_argument("--window", type=float, default=10)
-    parser.add_argument("--formation-method", choices=("gap", "template"), default="gap")
+    parser.add_argument("--formation-method", choices=("gap", "template", "aligned"), default="gap")
     parser.add_argument("--home-goalkeeper", type=int, required=True)
     parser.add_argument("--away-goalkeeper", type=int, required=True)
     parser.add_argument("--home-direction", type=int, choices=(-1, 1), required=True)
@@ -125,6 +126,7 @@ def main():
               "coordinate_system": "105x68_bottom_left", "sources": sources, "teams": teams,
               "formation_method": args.formation_method,
               "template_policy": TEMPLATE_POLICY if args.formation_method == "template" else None,
+              "aligned_policy": ALIGNED_POLICY if args.formation_method == "aligned" else None,
               "motion_policy": {"interval_s": .5, "max_gap_s": 1., "max_speed_kmh": 40,
                                 "break_on_every_missing_frame": True},
               "heatmap": {"columns": 21, "rows": 14, "origin": "bottom_left", "unit": "observed_frames"},
