@@ -1,0 +1,764 @@
+{
+  "attribution": "StatsBomb Open Data",
+  "source_url": "https://github.com/statsbomb/open-data",
+  "source_cache_sha256": "3242a723defb57cdfc46121ded0a43c7e55ffd8e75ad90c321bbee4308a9e495",
+  "match_id": 8650,
+  "events": [
+    {
+      "id": "bf86711b-77f5-4a77-a475-4a8d04d92c95",
+      "match_id": 8650,
+      "index": 1,
+      "period": 1,
+      "timestamp": "00:00:00.000",
+      "team": "Brazil",
+      "event_type": "Starting XI",
+      "tactics": {
+        "formation": 433,
+        "lineup": [
+          {
+            "player": {
+              "id": 5547,
+              "name": "Alisson Ramsés Becker"
+            },
+            "position": {
+              "id": 1,
+              "name": "Goalkeeper"
+            },
+            "jersey_number": 1
+          },
+          {
+            "player": {
+              "id": 5838,
+              "name": "Fágner Conserva Lemos"
+            },
+            "position": {
+              "id": 2,
+              "name": "Right Back"
+            },
+            "jersey_number": 22
+          },
+          {
+            "player": {
+              "id": 3295,
+              "name": "Thiago Emiliano da Silva"
+            },
+            "position": {
+              "id": 3,
+              "name": "Right Center Back"
+            },
+            "jersey_number": 2
+          },
+          {
+            "player": {
+              "id": 5551,
+              "name": "João Miranda de Souza Filho"
+            },
+            "position": {
+              "id": 5,
+              "name": "Left Center Back"
+            },
+            "jersey_number": 3
+          },
+          {
+            "player": {
+              "id": 5552,
+              "name": "Marcelo Vieira da Silva Júnior"
+            },
+            "position": {
+              "id": 6,
+              "name": "Left Back"
+            },
+            "jersey_number": 12
+          },
+          {
+            "player": {
+              "id": 5542,
+              "name": "José Paulo Bezzera Maciel Júnior"
+            },
+            "position": {
+              "id": 12,
+              "name": "Right Midfield"
+            },
+            "jersey_number": 15
+          },
+          {
+            "player": {
+              "id": 3054,
+              "name": "Fernando Luiz Roza"
+            },
+            "position": {
+              "id": 14,
+              "name": "Center Midfield"
+            },
+            "jersey_number": 17
+          },
+          {
+            "player": {
+              "id": 3501,
+              "name": "Philippe Coutinho Correia"
+            },
+            "position": {
+              "id": 16,
+              "name": "Left Midfield"
+            },
+            "jersey_number": 11
+          },
+          {
+            "player": {
+              "id": 3472,
+              "name": "Willian Borges da Silva"
+            },
+            "position": {
+              "id": 17,
+              "name": "Right Wing"
+            },
+            "jersey_number": 19
+          },
+          {
+            "player": {
+              "id": 4320,
+              "name": "Neymar da Silva Santos Junior"
+            },
+            "position": {
+              "id": 21,
+              "name": "Left Wing"
+            },
+            "jersey_number": 10
+          },
+          {
+            "player": {
+              "id": 3202,
+              "name": "Gabriel Fernando de Jesus"
+            },
+            "position": {
+              "id": 23,
+              "name": "Center Forward"
+            },
+            "jersey_number": 9
+          }
+        ]
+      }
+    },
+    {
+      "id": "9dee71fc-d07a-42ff-b449-ad1b50dcb78a",
+      "match_id": 8650,
+      "index": 2,
+      "period": 1,
+      "timestamp": "00:00:00.000",
+      "team": "Belgium",
+      "event_type": "Starting XI",
+      "tactics": {
+        "formation": 433,
+        "lineup": [
+          {
+            "player": {
+              "id": 3509,
+              "name": "Thibaut Courtois"
+            },
+            "position": {
+              "id": 1,
+              "name": "Goalkeeper"
+            },
+            "jersey_number": 1
+          },
+          {
+            "player": {
+              "id": 3176,
+              "name": "Thomas Meunier"
+            },
+            "position": {
+              "id": 2,
+              "name": "Right Back"
+            },
+            "jersey_number": 15
+          },
+          {
+            "player": {
+              "id": 20005,
+              "name": "Toby Alderweireld"
+            },
+            "position": {
+              "id": 3,
+              "name": "Right Center Back"
+            },
+            "jersey_number": 2
+          },
+          {
+            "player": {
+              "id": 3101,
+              "name": "Vincent Kompany"
+            },
+            "position": {
+              "id": 5,
+              "name": "Left Center Back"
+            },
+            "jersey_number": 4
+          },
+          {
+            "player": {
+              "id": 3077,
+              "name": "Jan Vertonghen"
+            },
+            "position": {
+              "id": 6,
+              "name": "Left Back"
+            },
+            "jersey_number": 5
+          },
+          {
+            "player": {
+              "id": 3296,
+              "name": "Marouane Fellaini-Bakkioui"
+            },
+            "position": {
+              "id": 13,
+              "name": "Right Center Midfield"
+            },
+            "jersey_number": 8
+          },
+          {
+            "player": {
+              "id": 5642,
+              "name": "Axel Witsel"
+            },
+            "position": {
+              "id": 14,
+              "name": "Center Midfield"
+            },
+            "jersey_number": 6
+          },
+          {
+            "player": {
+              "id": 4831,
+              "name": "Nacer Chadli"
+            },
+            "position": {
+              "id": 15,
+              "name": "Left Center Midfield"
+            },
+            "jersey_number": 22
+          },
+          {
+            "player": {
+              "id": 3289,
+              "name": "Romelu Lukaku Menama"
+            },
+            "position": {
+              "id": 17,
+              "name": "Right Wing"
+            },
+            "jersey_number": 9
+          },
+          {
+            "player": {
+              "id": 3621,
+              "name": "Eden Hazard"
+            },
+            "position": {
+              "id": 21,
+              "name": "Left Wing"
+            },
+            "jersey_number": 10
+          },
+          {
+            "player": {
+              "id": 3089,
+              "name": "Kevin De Bruyne"
+            },
+            "position": {
+              "id": 25,
+              "name": "Secondary Striker"
+            },
+            "jersey_number": 7
+          }
+        ]
+      }
+    },
+    {
+      "id": "2f9b4727-f859-42d6-b3a9-41cf5284b827",
+      "match_id": 8650,
+      "index": 1140,
+      "period": 1,
+      "timestamp": "00:26:52.513",
+      "team": "Brazil",
+      "event_type": "Player Off"
+    },
+    {
+      "id": "f2ef840f-e13d-4efa-8feb-34dde81b62bf",
+      "match_id": 8650,
+      "index": 1173,
+      "period": 1,
+      "timestamp": "00:27:58.220",
+      "team": "Brazil",
+      "event_type": "Player On"
+    },
+    {
+      "id": "2ff461df-eaab-49d1-985d-4352331f076b",
+      "match_id": 8650,
+      "index": 1823,
+      "period": 2,
+      "timestamp": "00:00:00.000",
+      "team": "Brazil",
+      "event_type": "Substitution"
+    },
+    {
+      "id": "f3f1cd5d-07aa-444d-88e8-fdf8e37c7979",
+      "match_id": 8650,
+      "index": 1827,
+      "period": 2,
+      "timestamp": "00:00:01.880",
+      "team": "Brazil",
+      "event_type": "Tactical Shift",
+      "tactics": {
+        "formation": 433,
+        "lineup": [
+          {
+            "player": {
+              "id": 5547,
+              "name": "Alisson Ramsés Becker"
+            },
+            "position": {
+              "id": 1,
+              "name": "Goalkeeper"
+            },
+            "jersey_number": 1
+          },
+          {
+            "player": {
+              "id": 5838,
+              "name": "Fágner Conserva Lemos"
+            },
+            "position": {
+              "id": 2,
+              "name": "Right Back"
+            },
+            "jersey_number": 22
+          },
+          {
+            "player": {
+              "id": 3295,
+              "name": "Thiago Emiliano da Silva"
+            },
+            "position": {
+              "id": 3,
+              "name": "Right Center Back"
+            },
+            "jersey_number": 2
+          },
+          {
+            "player": {
+              "id": 5551,
+              "name": "João Miranda de Souza Filho"
+            },
+            "position": {
+              "id": 5,
+              "name": "Left Center Back"
+            },
+            "jersey_number": 3
+          },
+          {
+            "player": {
+              "id": 5552,
+              "name": "Marcelo Vieira da Silva Júnior"
+            },
+            "position": {
+              "id": 6,
+              "name": "Left Back"
+            },
+            "jersey_number": 12
+          },
+          {
+            "player": {
+              "id": 5542,
+              "name": "José Paulo Bezzera Maciel Júnior"
+            },
+            "position": {
+              "id": 12,
+              "name": "Right Midfield"
+            },
+            "jersey_number": 15
+          },
+          {
+            "player": {
+              "id": 3054,
+              "name": "Fernando Luiz Roza"
+            },
+            "position": {
+              "id": 14,
+              "name": "Center Midfield"
+            },
+            "jersey_number": 17
+          },
+          {
+            "player": {
+              "id": 3501,
+              "name": "Philippe Coutinho Correia"
+            },
+            "position": {
+              "id": 16,
+              "name": "Left Midfield"
+            },
+            "jersey_number": 11
+          },
+          {
+            "player": {
+              "id": 3202,
+              "name": "Gabriel Fernando de Jesus"
+            },
+            "position": {
+              "id": 17,
+              "name": "Right Wing"
+            },
+            "jersey_number": 9
+          },
+          {
+            "player": {
+              "id": 4320,
+              "name": "Neymar da Silva Santos Junior"
+            },
+            "position": {
+              "id": 21,
+              "name": "Left Wing"
+            },
+            "jersey_number": 10
+          },
+          {
+            "player": {
+              "id": 3535,
+              "name": "Roberto Firmino Barbosa de Oliveira"
+            },
+            "position": {
+              "id": 23,
+              "name": "Center Forward"
+            },
+            "jersey_number": 20
+          }
+        ]
+      }
+    },
+    {
+      "id": "aa620360-2da5-4977-a5c2-e121ae3a6c54",
+      "match_id": 8650,
+      "index": 2310,
+      "period": 2,
+      "timestamp": "00:12:12.960",
+      "team": "Brazil",
+      "event_type": "Substitution"
+    },
+    {
+      "id": "e8044f13-c360-40d9-8107-60df9f801e58",
+      "match_id": 8650,
+      "index": 2721,
+      "period": 2,
+      "timestamp": "00:23:05.920",
+      "team": "Brazil",
+      "event_type": "Player Off"
+    },
+    {
+      "id": "9717302e-ad78-4f17-abce-fcbfe97a517d",
+      "match_id": 8650,
+      "index": 2754,
+      "period": 2,
+      "timestamp": "00:23:50.480",
+      "team": "Brazil",
+      "event_type": "Player On"
+    },
+    {
+      "id": "185bb0be-ea4c-4a63-8a9f-faa2b15e79aa",
+      "match_id": 8650,
+      "index": 2859,
+      "period": 2,
+      "timestamp": "00:27:04.800",
+      "team": "Brazil",
+      "event_type": "Substitution"
+    },
+    {
+      "id": "7c75e328-544e-424c-82f2-5fbc0b9cf008",
+      "match_id": 8650,
+      "index": 3153,
+      "period": 2,
+      "timestamp": "00:37:07.360",
+      "team": "Belgium",
+      "event_type": "Substitution"
+    },
+    {
+      "id": "e870952b-190a-4a68-8d41-ce99dcf402b0",
+      "match_id": 8650,
+      "index": 3154,
+      "period": 2,
+      "timestamp": "00:37:14.280",
+      "team": "Belgium",
+      "event_type": "Tactical Shift",
+      "tactics": {
+        "formation": 532,
+        "lineup": [
+          {
+            "player": {
+              "id": 3509,
+              "name": "Thibaut Courtois"
+            },
+            "position": {
+              "id": 1,
+              "name": "Goalkeeper"
+            },
+            "jersey_number": 1
+          },
+          {
+            "player": {
+              "id": 3176,
+              "name": "Thomas Meunier"
+            },
+            "position": {
+              "id": 2,
+              "name": "Right Back"
+            },
+            "jersey_number": 15
+          },
+          {
+            "player": {
+              "id": 20005,
+              "name": "Toby Alderweireld"
+            },
+            "position": {
+              "id": 3,
+              "name": "Right Center Back"
+            },
+            "jersey_number": 2
+          },
+          {
+            "player": {
+              "id": 3101,
+              "name": "Vincent Kompany"
+            },
+            "position": {
+              "id": 4,
+              "name": "Center Back"
+            },
+            "jersey_number": 4
+          },
+          {
+            "player": {
+              "id": 6332,
+              "name": "Thomas Vermaelen"
+            },
+            "position": {
+              "id": 5,
+              "name": "Left Center Back"
+            },
+            "jersey_number": 3
+          },
+          {
+            "player": {
+              "id": 3077,
+              "name": "Jan Vertonghen"
+            },
+            "position": {
+              "id": 6,
+              "name": "Left Back"
+            },
+            "jersey_number": 5
+          },
+          {
+            "player": {
+              "id": 5642,
+              "name": "Axel Witsel"
+            },
+            "position": {
+              "id": 10,
+              "name": "Center Defensive Midfield"
+            },
+            "jersey_number": 6
+          },
+          {
+            "player": {
+              "id": 3296,
+              "name": "Marouane Fellaini-Bakkioui"
+            },
+            "position": {
+              "id": 13,
+              "name": "Right Center Midfield"
+            },
+            "jersey_number": 8
+          },
+          {
+            "player": {
+              "id": 3089,
+              "name": "Kevin De Bruyne"
+            },
+            "position": {
+              "id": 15,
+              "name": "Left Center Midfield"
+            },
+            "jersey_number": 7
+          },
+          {
+            "player": {
+              "id": 3289,
+              "name": "Romelu Lukaku Menama"
+            },
+            "position": {
+              "id": 22,
+              "name": "Right Center Forward"
+            },
+            "jersey_number": 9
+          },
+          {
+            "player": {
+              "id": 3621,
+              "name": "Eden Hazard"
+            },
+            "position": {
+              "id": 24,
+              "name": "Left Center Forward"
+            },
+            "jersey_number": 10
+          }
+        ]
+      }
+    },
+    {
+      "id": "9ee3883c-9013-402c-a02f-d290d0e7c9a9",
+      "match_id": 8650,
+      "index": 3285,
+      "period": 2,
+      "timestamp": "00:41:31.080",
+      "team": "Belgium",
+      "event_type": "Substitution"
+    },
+    {
+      "id": "31e686a2-1023-460b-92fc-c743e8192833",
+      "match_id": 8650,
+      "index": 3286,
+      "period": 2,
+      "timestamp": "00:41:33.067",
+      "team": "Belgium",
+      "event_type": "Tactical Shift",
+      "tactics": {
+        "formation": 532,
+        "lineup": [
+          {
+            "player": {
+              "id": 3509,
+              "name": "Thibaut Courtois"
+            },
+            "position": {
+              "id": 1,
+              "name": "Goalkeeper"
+            },
+            "jersey_number": 1
+          },
+          {
+            "player": {
+              "id": 3176,
+              "name": "Thomas Meunier"
+            },
+            "position": {
+              "id": 2,
+              "name": "Right Back"
+            },
+            "jersey_number": 15
+          },
+          {
+            "player": {
+              "id": 20005,
+              "name": "Toby Alderweireld"
+            },
+            "position": {
+              "id": 3,
+              "name": "Right Center Back"
+            },
+            "jersey_number": 2
+          },
+          {
+            "player": {
+              "id": 3101,
+              "name": "Vincent Kompany"
+            },
+            "position": {
+              "id": 4,
+              "name": "Center Back"
+            },
+            "jersey_number": 4
+          },
+          {
+            "player": {
+              "id": 6332,
+              "name": "Thomas Vermaelen"
+            },
+            "position": {
+              "id": 5,
+              "name": "Left Center Back"
+            },
+            "jersey_number": 3
+          },
+          {
+            "player": {
+              "id": 3077,
+              "name": "Jan Vertonghen"
+            },
+            "position": {
+              "id": 6,
+              "name": "Left Back"
+            },
+            "jersey_number": 5
+          },
+          {
+            "player": {
+              "id": 5642,
+              "name": "Axel Witsel"
+            },
+            "position": {
+              "id": 10,
+              "name": "Center Defensive Midfield"
+            },
+            "jersey_number": 6
+          },
+          {
+            "player": {
+              "id": 3296,
+              "name": "Marouane Fellaini-Bakkioui"
+            },
+            "position": {
+              "id": 13,
+              "name": "Right Center Midfield"
+            },
+            "jersey_number": 8
+          },
+          {
+            "player": {
+              "id": 2954,
+              "name": "Youri Tielemans"
+            },
+            "position": {
+              "id": 15,
+              "name": "Left Center Midfield"
+            },
+            "jersey_number": 17
+          },
+          {
+            "player": {
+              "id": 3089,
+              "name": "Kevin De Bruyne"
+            },
+            "position": {
+              "id": 22,
+              "name": "Right Center Forward"
+            },
+            "jersey_number": 7
+          },
+          {
+            "player": {
+              "id": 3621,
+              "name": "Eden Hazard"
+            },
+            "position": {
+              "id": 24,
+              "name": "Left Center Forward"
+            },
+            "jersey_number": 10
+          }
+        ]
+      }
+    }
+  ]
+}

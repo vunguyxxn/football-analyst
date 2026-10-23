@@ -3,8 +3,9 @@
 ## Trạng thái hiện tại
 
 Cập nhật 23/10/2026: đã bắt đầu bước 5 với baseline hình dạng đội hình
-ngoại tuyến trên Metrica; chưa nghiệm thu toàn bộ bước 5. Xem
-`FORMATION_BASELINE.md` và mục cuối trang. Bộ lọc tọa độ v3 giảm MAE tốc
+ngoại tuyến trên Metrica và tham chiếu sơ đồ/lineup StatsBomb theo thời điểm;
+chưa nghiệm thu toàn bộ bước 5. Xem `FORMATION_BASELINE.md`,
+`STATSBOMB_FORMATION_REFERENCE.md` và mục cuối trang. Bộ lọc tọa độ v3 giảm MAE tốc
 độ với nhiễu độc lập và cải thiện hồi phục sau lỗi ngắn so v2.1. Với nhiễu
 tương quan thời gian, sai số vẫn chưa cải thiện; cửa sổ dài hơn phản ứng
 dừng/rẽ kém hơn. Chưa nghiệm thu số liệu thực địa từ video.
@@ -834,6 +835,25 @@ nguồn cũ `fa6ea680`, không dùng fixture cũ cho file mới cùng tên.
 - Còn lại: bộ so khớp sơ đồ có đánh giá bằng nhãn độc lập, đọc/đối chiếu
   lineup StatsBomb theo thời điểm trên cùng trận StatsBomb, chỉ số cầu thủ
   và tích hợp giao diện. Không ghép danh tính hai nguồn khác trận.
+
+## Bước 5 — tham chiếu sơ đồ/lineup StatsBomb (23/10/2026)
+
+- Thêm `backend/tactics/statsbomb_formation.py`: đọc CSV đã có, sắp sự
+  kiện theo index, tra tactics theo hiệp/timestamp, giữ ID/vai trò cầu thủ.
+  Không dùng lineup đầu trận cho mọi thời điểm. Thay người, Player Off/On,
+  thẻ đỏ làm tham chiếu chưa xác định tới mốc tactics hợp lệ tiếp theo.
+- Có hàm đối chiếu nhãn cùng trận; từ chối cửa sổ đi qua mốc thay đổi,
+  thiếu tham chiếu hoặc quan sát chưa xác định. Không ghép ID hai nguồn.
+- Chạy trên cache thật trận 8650: 14 mốc, Bỉ từ 4-3-3 sang 5-3-2 ở
+  hiệp 2 giây 2234,280. JSON cục bộ
+  `data/processed/formation_v1/statsbomb_8650_reference.json` giữ hash nguồn.
+  Fixture trích 14 mốc được commit để kiểm thử ngoại tuyến. Chi tiết
+  `STATSBOMB_FORMATION_REFERENCE.md`; không thêm thư viện/API/schema.
+- 12 test mới; toàn bộ `pytest -q --basetemp .tmp/pytest_sb_formation_full_v1`:
+  **188 passed, 1 network deselected**; cảnh báo Starlette đã có.
+- Phần tham chiếu/đối chiếu nhãn đã làm, chưa có tracking cùng trận để
+  báo accuracy; baseline Metrica vẫn 3/24 cửa sổ có kết quả. Chưa nghiệm
+  thu bước 5. Còn nhận diện có đánh giá độc lập, chỉ số cầu thủ và giao diện.
 
 ## Quyết định đã chốt
 
