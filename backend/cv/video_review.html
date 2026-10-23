@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="vi"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gán nhãn kiểm tra video bóng đá</title>
+<style>
+*{box-sizing:border-box}body{font:15px system-ui;margin:0;background:#111820;color:#e8edf2}main{max-width:1400px;margin:auto;padding:20px}h1{font-size:24px;margin:0 0 8px}p{line-height:1.5}.muted{color:#b4c1ce}button,input,select{font:inherit;padding:9px;border:1px solid #526273;border-radius:5px;background:#1b2835;color:inherit}button{cursor:pointer}button:hover{background:#304557}button:disabled{opacity:.4;cursor:wait}label{display:inline-flex;gap:8px;align-items:center;margin:5px 12px 5px 0}.bar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:12px 0}.panel{background:#1b2632;padding:14px;border-radius:8px;margin:12px 0}.primary{background:#176448}canvas{display:block;width:100%;height:auto;background:#000;cursor:crosshair;border:1px solid #526273}table{border-collapse:collapse;width:100%}th,td{text-align:left;padding:8px;border-bottom:1px solid #405064}input[type=number]{width:100px}input[type=text]{max-width:100%}#status{min-height:24px;color:#a8e4bd}a{color:#a5d5ff}#frameSelect{max-width:100%}.scroll{overflow:auto}
+[hidden]{display:none!important}
+</style>
+<main>
+<h1>Gán nhãn kiểm tra video</h1>
+<p class="muted">Làm 8 ảnh đoạn cuối trước. Chỉ đánh dấu người ở trong vạch sân; giữ cùng mã cho cùng người trong mỗi đoạn. Ảnh không có dự đoán của mô hình.</p>
+<div class="bar"><label>Người gán nhãn <input id="reviewer" placeholder="Tên hoặc mã người đánh dấu"></label><button id="exportJson" class="primary">Xuất JSON để bàn giao</button><button id="exportCsv">Xuất bảng CSV</button><label>Nạp bản đã lưu <input id="importFile" type="file" accept=".json" style="max-width:220px"></label></div>
+<div class="bar"><button id="prev">← Ảnh trước</button><select id="frameSelect" aria-label="Chọn ảnh"></select><button id="next">Ảnh sau →</button><span id="progress"></span></div>
+<p id="frameInfo" class="muted"></p>
+<canvas id="canvas" aria-label="Ảnh gốc; bấm để chọn tọa độ"></canvas>
+<div class="panel">
+<p>1. Chọn loại điểm và nhập mã. 2. Bấm vào ảnh đúng vị trí. 3. Bấm <b>Thêm điểm</b>. Mã cầu thủ do bạn tự đặt, ví dụ A01/B01/R01; không phải ID của mô hình.</p>
+<div class="bar"><label>Loại <select id="kind"><option value="player">Chân cầu thủ / trọng tài</option><option value="landmark">Mốc sân</option></select></label><label id="personLabel">Mã người <input id="entity" placeholder="A01" size="12" maxlength="80"></label><label id="markLabel" hidden>Mốc <select id="landmark"></select></label><label>Đội <select id="team"><option value="unknown">Chưa rõ</option><option value="A">A · áo trắng</option><option value="B">B · áo sẫm/đen</option><option value="referee">Trọng tài · xanh nhạt</option></select></label><label>Khả năng quan sát <select id="visibility"><option value="visible">Thấy rõ</option><option value="occluded">Bị che / chỉ ước lượng</option><option value="uncertain">Không chắc</option></select></label></div>
+<div class="bar"><label>x ảnh <input id="px" type="number" step="0.1" readonly></label><label>y ảnh <input id="py" type="number" step="0.1" readonly></label><span id="pitchInfo" class="muted"></span><label>Ghi chú <input id="note" placeholder="Ví dụ: chân bị che" size="28"></label><button id="add" class="primary">Thêm điểm</button></div>
+<p class="muted">Chân: chọn điểm tiếp xúc mặt sân, không chọn giữa bbox. Không nhìn rõ thì đánh dấu “Bị che” hoặc “Không chắc”. Mốc sân: chỉ chọn giao điểm/tâm thực sự nhìn thấy; bỏ qua mốc ngoài ảnh. Tọa độ mét của mốc dựa trên giả định sân 105 × 68 m.</p>
+</div>
+<label><input id="reviewed" type="checkbox"> Đã kiểm tra hết người trong sân và mốc nhìn thấy ở ảnh này</label>
+<div class="scroll"><table><thead><tr><th>Loại / mã</th><th>Đội</th><th>Pixel (x,y)</th><th>Quan sát</th><th>Ghi chú</th><th></th></tr></thead><tbody id="points"></tbody></table></div>
+<p id="status" role="status"></p>
+<p class="muted">Tự lưu nháp trong trình duyệt khi có thể. Luôn xuất JSON để giữ bản bàn giao; CSV không lưu trạng thái của ảnh không có điểm. Muốn đổi một điểm, xóa dòng rồi chọn lại.</p>
+<p id="clipLinks"></p>
+</main>
+<script id="packet" type="application/json">__PACKET_JSON__</script>
+<script>
+'use strict';
+const original=JSON.parse(document.getElementById('packet').textContent);
+let packet=structuredClone(original), index=0, image=null, loadedFrame=-1, pending=null;
+const $=id=>document.getElementById(id), canvas=$('canvas'), ctx=canvas.getContext('2d');
+const storageKey='football-review-v1-'+original.packet_id;
+const tell=text=>$('status').textContent=text;
+function validate(data){
+  if(data.packet_id!==original.packet_id || !Array.isArray(data.frames) || data.frames.length!==original.frames.length)throw Error('Bản gán nhãn thuộc bộ ảnh khác.');
+  const result=structuredClone(original);result.reviewer=String(data.reviewer||'').slice(0,80);
+  data.frames.forEach((f,i)=>{
+    const expected=original.frames[i];
+    if(f.clean_frame!==expected.clean_frame || f.clip!==expected.clip || !Array.isArray(f.annotations))throw Error('Frame không khớp.');
+    result.frames[i].reviewed=f.reviewed===true;
+    result.frames[i].annotations=f.annotations.map(a=>{
+      if(!['player','landmark'].includes(a.kind)||typeof a.entity_id!=='string'||!a.entity_id.trim()||a.entity_id.length>80)throw Error('Mã điểm không hợp lệ.');
+      if(!Number.isFinite(a.image_x_px)||!Number.isFinite(a.image_y_px)||a.image_x_px<0||a.image_y_px<0||a.image_x_px>original.plan.image_size[0]-1||a.image_y_px>original.plan.image_size[1]-1)throw Error('Pixel ngoài ảnh.');
+      if(!['visible','occluded','uncertain'].includes(a.visibility))throw Error('Trạng thái quan sát không hợp lệ.');
+      if(a.kind==='player'&&!['A','B','referee','unknown'].includes(a.team))throw Error('Nhãn đội không hợp lệ.');
+      const landmark=original.plan.landmarks.find(l=>l.id===a.entity_id);
+      if(a.kind==='landmark'&&!landmark)throw Error('Mốc sân không thuộc danh sách.');
+      return {kind:a.kind,entity_id:a.entity_id,team:a.kind==='player'?a.team:null,visibility:a.visibility,
+        image_x_px:a.image_x_px,image_y_px:a.image_y_px,pitch_x_m:landmark&&a.kind==='landmark'?landmark.pitch_xy[0]:null,
+        pitch_y_m:landmark&&a.kind==='landmark'?landmark.pitch_xy[1]:null,note:String(a.note||'').slice(0,500)};
+    });
+    const ids=result.frames[i].annotations.map(a=>a.kind+':'+a.entity_id);
+    if(new Set(ids).size!==ids.length)throw Error('Trùng mã trong cùng ảnh.');
+  });return result;
+}
+try{const saved=localStorage.getItem(storageKey);if(saved)packet=validate(JSON.parse(saved));}catch(e){tell('Không nạp được bản nháp; có thể nạp JSON đã xuất.');}
+function save(){packet.reviewer=$('reviewer').value.trim();try{localStorage.setItem(storageKey,JSON.stringify(packet));}catch(e){tell('Trình duyệt không tự lưu được. Hãy xuất JSON sau khi đánh dấu.');}}
+function draw(){
+  if(!image)return;ctx.clearRect(0,0,canvas.width,canvas.height);ctx.drawImage(image,0,0);
+  for(const a of packet.frames[index].annotations){ctx.fillStyle=a.kind==='landmark'?'#ffbc47':'#72ffb0';ctx.strokeStyle=ctx.fillStyle;ctx.lineWidth=2;ctx.beginPath();ctx.arc(a.image_x_px,a.image_y_px,5,0,Math.PI*2);ctx.stroke();ctx.font='16px sans-serif';ctx.fillText(a.entity_id,a.image_x_px+8,a.image_y_px-8);}
+  if(pending){ctx.fillStyle='#ff6584';ctx.beginPath();ctx.arc(pending[0],pending[1],6,0,Math.PI*2);ctx.fill();}
+}
+function renderTable(){
+  $('points').replaceChildren();packet.frames[index].annotations.forEach((a,n)=>{
+    const tr=document.createElement('tr');for(const value of [a.kind+' / '+a.entity_id,a.team||'—',a.image_x_px.toFixed(1)+', '+a.image_y_px.toFixed(1),a.visibility,a.note]){const td=document.createElement('td');td.textContent=value;tr.append(td);}
+    const td=document.createElement('td'),button=document.createElement('button');button.textContent='Xóa';button.onclick=()=>{packet.frames[index].annotations.splice(n,1);packet.frames[index].reviewed=false;save();renderTable();draw();refreshProgress();};td.append(button);tr.append(td);$('points').append(tr);
+  });
+}
+function refreshProgress(){$('reviewed').checked=packet.frames[index].reviewed;$('progress').textContent=packet.frames.filter(f=>f.reviewed).length+'/'+packet.frames.length+' ảnh đã kiểm tra';}
+function show(){
+  pending=null;image=null;loadedFrame=-1;ctx.clearRect(0,0,canvas.width,canvas.height);$('px').value='';$('py').value='';
+  $('frameSelect').value=String(index);const f=packet.frames[index];
+  $('frameInfo').textContent=f.label+' · frame bản cắt '+f.clean_frame+' ('+f.time_s.toFixed(3)+' s) · frame gốc '+f.raw_frame+' ('+f.raw_time_s.toFixed(3)+' s)';
+  $('prev').disabled=index===0;$('next').disabled=index===packet.frames.length-1;
+  renderTable();refreshProgress();const token=index, nextImage=new Image();
+  nextImage.onload=()=>{if(token!==index)return;image=nextImage;loadedFrame=index;canvas.width=image.naturalWidth;canvas.height=image.naturalHeight;draw();};
+  nextImage.onerror=()=>tell('Không đọc được ảnh. Giữ review.html cùng thư mục frames.');nextImage.src=f.image;
+}
+packet.frames.forEach((f,i)=>{const option=document.createElement('option');option.value=String(i);option.textContent=(i+1)+'. '+f.clip+' · frame '+f.clean_frame;$('frameSelect').append(option);});
+original.plan.landmarks.forEach(l=>{const option=document.createElement('option');option.value=l.id;option.textContent=l.label;$('landmark').append(option);});
+original.clips.forEach(c=>{const link=document.createElement('a');link.href=c.file;link.textContent='Đoạn ngữ cảnh '+c.id+' ('+(c.frame_count/original.plan.fps).toFixed(1)+' s)';link.style.marginRight='20px';$('clipLinks').append(link);});
+$('reviewer').value=packet.reviewer;$('reviewer').oninput=save;
+$('frameSelect').onchange=()=>{index=Number($('frameSelect').value);show();};
+$('prev').onclick=()=>{if(index>0){index--;show();}};$('next').onclick=()=>{if(index<packet.frames.length-1){index++;show();}};
+function kindChanged(){const mark=$('kind').value==='landmark';$('markLabel').hidden=!mark;$('personLabel').hidden=mark;$('team').disabled=mark;const l=original.plan.landmarks.find(l=>l.id===$('landmark').value);$('pitchInfo').textContent=mark?'Mốc: ('+l.pitch_xy.join(', ')+') m, sân giả định 105 × 68':'';}
+$('kind').onchange=kindChanged;$('landmark').onchange=kindChanged;
+canvas.onclick=e=>{if(loadedFrame!==index)return tell('Chờ ảnh tải xong.');const r=canvas.getBoundingClientRect();pending=[Math.min(canvas.width-1,Math.max(0,(e.clientX-r.left)*canvas.width/r.width)),Math.min(canvas.height-1,Math.max(0,(e.clientY-r.top)*canvas.height/r.height))];$('px').value=pending[0].toFixed(1);$('py').value=pending[1].toFixed(1);draw();};
+$('add').onclick=()=>{
+  if(!pending)return tell('Bấm lên ảnh để chọn vị trí trước.');const kind=$('kind').value,entity=kind==='player'?$('entity').value.trim():$('landmark').value;
+  if(!entity)return tell('Nhập mã người, ví dụ A01.');const f=packet.frames[index];if(f.annotations.some(a=>a.kind===kind&&a.entity_id===entity))return tell('Mã này đã có trong ảnh; xóa dòng cũ để đổi điểm.');
+  const l=original.plan.landmarks.find(l=>l.id===entity);f.annotations.push({kind,entity_id:entity,team:kind==='player'?$('team').value:null,visibility:$('visibility').value,image_x_px:pending[0],image_y_px:pending[1],pitch_x_m:kind==='landmark'?l.pitch_xy[0]:null,pitch_y_m:kind==='landmark'?l.pitch_xy[1]:null,note:$('note').value.trim()});
+  f.reviewed=false;pending=null;save();renderTable();draw();refreshProgress();tell('Đã thêm điểm.');
+};
+$('reviewed').onchange=()=>{packet.frames[index].reviewed=$('reviewed').checked;save();refreshProgress();};
+function download(name,content,type){const url=URL.createObjectURL(new Blob([content],{type}));const link=document.createElement('a');link.href=url;link.download=name;link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
+function ready(){save();if(!packet.reviewer){tell('Nhập tên hoặc mã người gán nhãn trước khi xuất.');return false;}return true;}
+$('exportJson').onclick=()=>{if(ready())download('annotations_review.json',JSON.stringify(packet,null,2),'application/json');};
+function cell(value){let s=value==null?'':String(value);if(/^[=+\-@\t\r\n]/.test(s))s="'"+s;return '"'+s.replaceAll('"','""')+'"';}
+$('exportCsv').onclick=()=>{
+  if(!ready())return;const columns=['clip','clean_frame','raw_frame','time_s','raw_time_s','kind','entity_id','team','visibility','image_x_px','image_y_px','pitch_x_m','pitch_y_m','reviewer','frame_reviewed','note'];
+  const rows=[columns.map(cell).join(',')];for(const f of packet.frames)for(const a of f.annotations)rows.push(columns.map(k=>cell(k==='reviewer'?packet.reviewer:k==='frame_reviewed'?f.reviewed:(k in a?a[k]:f[k]))).join(','));download('annotations_review.csv','\ufeff'+rows.join('\r\n'),'text/csv;charset=utf-8');
+};
+$('importFile').onchange=async e=>{try{const file=e.target.files[0];if(!file)return;packet=validate(JSON.parse(await file.text()));$('reviewer').value=packet.reviewer;save();show();tell('Đã nạp bản gán nhãn.');}catch(error){tell('Không nạp được: '+error.message);}e.target.value='';};
+canvas.width=original.plan.image_size[0];canvas.height=original.plan.image_size[1];kindChanged();show();
+</script>
+</html>

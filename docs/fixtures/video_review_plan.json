@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "raw_video": "data/raw/vid1.mp4",
+  "raw_sha256": "11f23eead918e838cb39fdb1ef98179dc93f86574fdb6d38bb6cd8ced3e01ed1",
+  "video": "data/processed/clip_11f23eea/vid1_11f23eea_clean.mp4",
+  "video_sha256": "86f6f04ce05ac464269dfa4d831bef0c12c3654acdd2fa3c1b6379f864597b2e",
+  "raw_frame_offset": 600,
+  "fps": 60,
+  "image_size": [1280, 720],
+  "pitch_m": [105, 68],
+  "annotation_status": "pending independent human review; no ground truth labels",
+  "clips": [
+    {"id": "early", "label": "Lia máy đầu đoạn — kiểm tra bổ sung", "start_frame": 110, "end_frame_exclusive": 321, "frames": [140, 170, 200, 230, 260, 290], "priority": 2, "metric_scope": "not_accepted"},
+    {"id": "middle", "label": "Lia máy giữa đoạn — kiểm tra bổ sung", "start_frame": 555, "end_frame_exclusive": 796, "frames": [585, 615, 645, 705, 735, 765], "priority": 2, "metric_scope": "not_accepted"},
+    {"id": "return", "label": "Đoạn cuối — làm trước", "start_frame": 1075, "end_frame_exclusive": 1376, "frames": [1105, 1145, 1185, 1225, 1255, 1295, 1325, 1345], "priority": 1, "metric_scope": "provisional_only"}
+  ],
+  "landmarks": [
+    {"id": "mid_far", "label": "Đường giữa sân × biên xa", "pitch_xy": [52.5, 68]},
+    {"id": "mid_near", "label": "Đường giữa sân × biên gần", "pitch_xy": [52.5, 0]},
+    {"id": "center", "label": "Tâm sân", "pitch_xy": [52.5, 34]},
+    {"id": "corner_0_0", "label": "Góc sân (0,0), chỉ chọn khi biết đúng hướng", "pitch_xy": [0, 0]},
+    {"id": "corner_0_68", "label": "Góc sân (0,68), chỉ chọn khi biết đúng hướng", "pitch_xy": [0, 68]},
+    {"id": "corner_105_0", "label": "Góc sân (105,0), chỉ chọn khi biết đúng hướng", "pitch_xy": [105, 0]},
+    {"id": "corner_105_68", "label": "Góc sân (105,68), chỉ chọn khi biết đúng hướng", "pitch_xy": [105, 68]}
+  ]
+}

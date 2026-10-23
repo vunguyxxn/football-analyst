@@ -8,6 +8,11 @@ tương quan thời gian, sai số vẫn chưa cải thiện; cửa sổ dài h�
 dừng/rẽ kém hơn. Chưa nghiệm thu số liệu thực địa; chưa bắt đầu bước 5.
 Chi tiết `METRICA_FILTER_V3.md` và mục cuối trang.
 
+Đã chuẩn bị bộ gán nhãn video thật `human_review_v1` gồm 20 ảnh, ba clip
+ngữ cảnh và trang bấm điểm cục bộ; ưu tiên 8 ảnh đoạn return. Đang chờ
+người kiểm tra tạo annotations_review.json; chưa có kết quả sai số video.
+Hướng dẫn `VIDEO_HUMAN_REVIEW.md`.
+
 Bước 0, Module B1, giao diện bước 1.5 và bước 1.6 đã triển khai, kiểm thử.
 Backend nạp StatsBomb Open Data, chuẩn hóa sự kiện và cung cấp pass network;
 frontend có shell điều hướng, sân SVG và trang phân tích trận. Chưa triển khai
@@ -680,6 +685,48 @@ nguồn cũ `fa6ea680`, không dùng fixture cũ cho file mới cùng tên.
   Tiếp theo cần mốc video gán nhãn độc lập và chốt chỉ số đủ tin cậy; phương
   án Metrica cho chiến thuật vẫn có trong ROADMAP. Chưa nghiệm thu bước 4
   thực địa/chưa bước 5; không chỉnh tiếp trên holdout mới rồi gọi độc lập.
+
+## Bộ gán nhãn video thật — 23/10/2026
+
+- Theo yêu cầu làm ngay bước đối chiếu độc lập, tạo CLI
+  backend.cv.prepare_video_review và template HTML cục bộ. Không đổi mã
+  tracking/guard/role/bộ lọc, schema/API hoặc dependency. Đây là công cụ QA,
+  không tích hợp thêm tính năng vào frontend sản phẩm.
+- Khóa raw video SHA11f23eea và clean SHA86f6f04c bằng hash đầy đủ trong
+  docs/fixtures/video_review_plan.json; xác minh source chưa đổi. Mapping
+  clean frame +600 = raw frame, raw time=10+clean_frame/60. Ảnh 1280×720,
+  60 FPS nguồn; xử lý một lượt giải mã tuần tự, không giữ cả video trong RAM.
+- Packet cục bộ data/processed/clip_11f23eea/human_review_v1/: 20 PNG gốc,
+  ba clip early/middle/return 211/241/301 frame; ưu tiên tám ảnh return
+  1105/1145/1185/1225/1255/1295/1325/1345 trong cửa sổ tạm hợp lệ. Hai đoạn
+  còn lại không được coi là có chỉ số mét hợp lệ, chỉ QA tracking/hình học.
+  Ảnh mẫu không trùng frame trong fixtures recalibration/checkpoint/ID cũ;
+  vẫn cùng video, không tuyên bố tổng quát sang trận khác.
+- Trang review.html không vẽ bbox/ID dự đoán, không tự điền nhãn chuẩn;
+  người tự đặt mã cục bộ theo clip, chọn đội/độ chắc chắn, bấm chân hoặc
+  mốc sân, đánh dấu từng ảnh đã kiểm tra rồi xuất JSON/CSV. Có tự lưu nháp
+  và nạp JSON đúng packet; từ chối frame/pixel sai hoặc mã điểm trùng.
+  Chỉ đánh dấu người trong vạch thi đấu, không staff/khán giả ngoài sân.
+- review_frames.csv có 20 dòng ảnh, annotations_template.csv chỉ có header.
+  Manifest chứa hash nguồn/ảnh/clip, timestamp/offset và 20 annotations rỗng,
+  reviewed=false. Không tạo nhãn giả do agent rồi gọi độc lập. Chưa có sai
+  số vị trí, ID switches hoặc độ đầy đủ dữ liệu từ nhãn người.
+- Đã kiểm tra ảnh đại diện ba đoạn, hash/size cả 20 ảnh, giải mã đủ ba clip,
+  metadata/offset và trạng thái nhãn trống. validation.json ghi kết quả QA
+  file, không kết quả độ chính xác. Trình duyệt công cụ chặn protocol file://;
+  không đi vòng, chưa kiểm tra trực tiếp bố cục/thao tác trong trình duyệt.
+  Test Node cục bộ với DOM mô phỏng kiểm tra handler/đổi scale/lưu/nạp/xuất,
+  không có tải file ra ngoài workspace hoặc nhãn thật trong kiểm thử.
+- Toàn bộ 154 test qua, 1 network deselected, cảnh báo Starlette có sẵn.
+  Test mới gồm PNG khớp pixel source, số frame clip, hash/offset/path/range,
+  không ghi đè nhãn cũ và logic gán nhãn. CLI từ chối thư mục output đã có.
+- Tài liệu VIDEO_HUMAN_REVIEW.md và README.md trong packet hướng dẫn làm
+  tám ảnh return trước, xuất annotations_review.json về packet. Tọa độ
+  nhãn người là pixel ảnh; tọa độ mét cầu thủ chưa có nên null. Mốc dùng
+  sân 105×68 giả định, có thể ít/thẳng hàng, không mặc định đủ homography.
+  Chưa có bộ bbox/MOT mọi frame, không tính MOTA/IDF1 hoặc tốc độ thực từ
+  nhãn thưa. Bước tiếp theo phụ thuộc JSON của người kiểm tra, sau đó mới
+  đối chiếu dự đoán khóa. Chưa nghiệm thu bước 4 thực địa/chưa bước 5.
 
 ## Quyết định đã chốt
 
