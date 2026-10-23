@@ -1,0 +1,61 @@
+{
+  "version": "xg_v1",
+  "repo": "hudl/open-data",
+  "revision": "4b73468fc5b0f1950f9f66fada70ad3a4f9327cb",
+  "attribution": "StatsBomb Open Data (Hudl); research baseline, see source README and LICENSE.pdf",
+  "development_competitions": [
+    [
+      43,
+      3
+    ],
+    [
+      55,
+      43
+    ]
+  ],
+  "test_competitions": [
+    [
+      43,
+      106
+    ]
+  ],
+  "seed": 20261023,
+  "validation_match_fraction": 0.2,
+  "exclude_shot_types": [
+    "Penalty"
+  ],
+  "periods": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "features": [
+    "distance_m",
+    "angle_rad",
+    "lateral_m",
+    "is_header",
+    "is_other_body",
+    "is_free_kick",
+    "first_time",
+    "under_pressure"
+  ],
+  "goal_width_m": 7.32,
+  "model": {
+    "n_estimators": 600,
+    "max_depth": 3,
+    "learning_rate": 0.03,
+    "min_child_weight": 10,
+    "subsample": 1.0,
+    "colsample_bytree": 1.0,
+    "reg_lambda": 10.0,
+    "tree_method": "hist",
+    "objective": "binary:logistic",
+    "eval_metric": "logloss",
+    "early_stopping_rounds": 40,
+    "n_jobs": 4,
+    "random_state": 20261023
+  },
+  "bootstrap_match_replicates": 500,
+  "note": "Fixed baseline without hyperparameter search. Early stopping on validation only. Non-penalty shots in periods 1-4; no shootout, outcome/end location/freeze-frame/player/team or provider xG as inputs."
+}

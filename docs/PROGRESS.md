@@ -2,6 +2,14 @@
 
 ## Trạng thái hiện tại
 
+Ngày 23/10/2026: bước 6 đã có baseline xG ngoại tuyến bằng XGBoost,
+huấn luyện trên World Cup 2018 + Euro 2020, giữ World Cup 2022 để test.
+Test 64 trận/1.430 cú sút không penalty: AUC 0,7665, Brier 0,08467;
+StatsBomb tham chiếu 0,8148 / 0,07619. Tốt hơn xác suất cố định nhưng
+chưa bằng StatsBomb. Có model JSON, inference, calibration bins và
+bootstrap theo trận; 273 test qua. Xem `XG_BASELINE.md`. Chưa thêm API/
+giao diện hoặc advisor; phần tiếp theo theo ROADMAP là bước 7.
+
 Đã đối chiếu video sau bước 5b: cùng clip/cấu hình 1280/conf 0,1 và bộ
 lọc trong sân. Fine-tuned ghép 150/154 thay 146/154, nhưng nhiều khung
 chồng, 55 thay 2 dự đoán chưa ghép cần rà; đổi ID biểu kiến 6 thay 1 trên
@@ -58,8 +66,9 @@ Xem VIDEO_REVIEW_EVALUATION.md.
 
 Bước 0, Module B1, giao diện bước 1.5 và bước 1.6 đã triển khai, kiểm thử.
 Backend nạp StatsBomb Open Data, chuẩn hóa sự kiện và cung cấp pass network;
-frontend có shell điều hướng, sân SVG và trang phân tích trận. Chưa triển khai
-xG hoặc advisor; sơ đồ đội hình mới có baseline ngoại tuyến, chưa lên giao diện.
+frontend có shell điều hướng, sân SVG và trang phân tích trận. xG đã có
+baseline ngoại tuyến, chưa triển khai advisor; sơ đồ đội hình mới có
+baseline ngoại tuyến, chưa lên giao diện.
 
 Bước 2 đã triển khai và nghiệm thu chức năng CLI YOLO + ByteTrack xử lý video
 từng đoạn trên clip thật `data/raw/vid1.mp4`, chạy được cả CPU và CUDA 12.8 trên
@@ -1092,6 +1101,42 @@ nguồn cũ `fa6ea680`, không dùng fixture cũ cho file mới cùng tên.
   `CV_FINETUNE_VIDEO.md`. Chốt so sánh 5b, chưa triển khai bước 6.
 - Ba test mới; toàn bộ `pytest -q --basetemp .tmp/pytest_person_video_full_v1`:
   **264 passed, 1 network deselected**, cảnh báo Starlette cũ.
+
+## Bước 6 — baseline xG XGBoost, AUC/Brier và tham chiếu StatsBomb (23/10/2026)
+
+- Thêm `backend/tactics/xg.py`, `prepare_xg.py`, `train_xg.py`: chuẩn bị
+  CSV cú sút, feature trước sút, train/validation/test, native model JSON,
+  inference nội bộ và báo cáo JSON/CSV. Không đổi API/schema/cache cũ,
+  không thêm thư viện hoặc giao diện.
+- Nguồn StatsBomb Open Data (Hudl), revision
+  `4b73468fc5b0f1950f9f66fada70ad3a4f9327cb`; inventory 185 file khóa
+  kích thước/Git blob SHA1. Ghi công và điều kiện nguồn ở `XG_BASELINE.md`.
+  Dữ liệu/trọng số giữ cục bộ, không commit bản ghi cú sút.
+- Development World Cup 2018 + Euro 2020: 92 trận train (2.251 cú sút,
+  214 Goal), 23 val (621/43), chia theo hash match ID seed 20261023.
+  World Cup 2022 test riêng 64 trận (1.430/152), muộn hơn development.
+  Không giao match/event ID. Loại 69 penalty trong trận và 118 period
+  ngoài 1–4; không mô hình penalty hoặc luân lưu.
+- Tám feature: khoảng cách/góc mở/lệch ngang, đánh đầu/bộ phận khác,
+  sút phạt trực tiếp/first time/under pressure. Dùng tọa độ chung 105×68,
+  cầu môn rộng 7,32 m. Không outcome/end location/xG nguồn/ID làm input;
+  Goal là nhãn thật. Chưa dùng ngữ cảnh freeze frame thủ môn/hậu vệ.
+- Một cấu hình depth 3/lr 0,03/min_child_weight 10/lambda 10, tối đa 600
+  cây, early stopping 40 theo log loss val; best_iteration 65. Test không
+  dùng chọn cấu hình hoặc calibration. Lưu/nạp dự đoán khớp <=1e-7;
+  smoke inference năm cú sút thật đã bỏ outcome/xG nguồn khỏi input.
+- Test AUC/Brier/log loss: XGBoost 0,766545/0,084666/0,293669;
+  StatsBomb 0,814775/0,076192/0,266505; xác suất cố định train
+  0,5/0,095121/0,339404. Baseline tốt hơn constant, kém StatsBomb.
+- Bootstrap ghép cặp theo trận 500 lượt: chênh AUC dự án trừ StatsBomb
+  khoảng 95% [-0,07735; -0,01658], Brier [+0,00501; +0,01215]. Không
+  gồm bất định huấn luyện lại; không biết dữ liệu huấn luyện của provider.
+  Mẫu giải quốc tế nam nhỏ, chưa chứng minh tổng quát hóa sang video.
+- Artifact `data/processed/xg_dataset_v1/`, `data/processed/xg_model_v1/`;
+  protocol/inventory/snapshot tổng hợp ở `docs/fixtures/xg_*_v1.json`.
+  Phương pháp, số liệu, calibration và lệnh ở `XG_BASELINE.md`.
+- Chín test mới; toàn bộ `pytest -q --basetemp .tmp/pytest_xg_full_v1`:
+  **273 passed, 1 network deselected**, cảnh báo Starlette cũ.
 
 ## Quyết định đã chốt
 
