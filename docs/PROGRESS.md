@@ -2,10 +2,12 @@
 
 ## Trạng thái hiện tại
 
-Cập nhật 23/10/2026: đang kiểm chứng bước 4. Bộ lọc tọa độ v3 giảm MAE tốc
+Cập nhật 23/10/2026: đã bắt đầu bước 5 với baseline hình dạng đội hình
+ngoại tuyến trên Metrica; chưa nghiệm thu toàn bộ bước 5. Xem
+`FORMATION_BASELINE.md` và mục cuối trang. Bộ lọc tọa độ v3 giảm MAE tốc
 độ với nhiễu độc lập và cải thiện hồi phục sau lỗi ngắn so v2.1. Với nhiễu
 tương quan thời gian, sai số vẫn chưa cải thiện; cửa sổ dài hơn phản ứng
-dừng/rẽ kém hơn. Chưa nghiệm thu số liệu thực địa; chưa bắt đầu bước 5.
+dừng/rẽ kém hơn. Chưa nghiệm thu số liệu thực địa từ video.
 Chi tiết `METRICA_FILTER_V3.md` và mục cuối trang.
 
 Người dùng đã giao agent tự đánh dấu. Đã hoàn tất bản nhãn nháp 20 ảnh,
@@ -18,13 +20,13 @@ chưa có kết quả sai số video theo dữ liệu chuẩn độc lập. Chi 
 trường hợp nghi đổi ID; độ lệch pixel trên cùng tập cặp trước/sau lọc gần
 như bằng nhau. Chốt dùng video cho minh họa chức năng và cửa sổ tọa độ có
 guard, chưa dùng số mét/km/h như phép đo thực địa. Đợt rà soát bước 4 này
-đã kết thúc; công việc tiếp theo là bước 5 với Metrica theo phương án dự
-phòng đã có, chưa triển khai bước 5 trong phiên này. Xem VIDEO_REVIEW_EVALUATION.md.
+đã kết thúc; đang dùng Metrica cho bước 5 theo phương án dự phòng.
+Xem VIDEO_REVIEW_EVALUATION.md.
 
 Bước 0, Module B1, giao diện bước 1.5 và bước 1.6 đã triển khai, kiểm thử.
 Backend nạp StatsBomb Open Data, chuẩn hóa sự kiện và cung cấp pass network;
 frontend có shell điều hướng, sân SVG và trang phân tích trận. Chưa triển khai
-xG, sơ đồ đội hình hoặc advisor.
+xG hoặc advisor; sơ đồ đội hình mới có baseline ngoại tuyến, chưa lên giao diện.
 
 Bước 2 đã triển khai và nghiệm thu chức năng CLI YOLO + ByteTrack xử lý video
 từng đoạn trên clip thật `data/raw/vid1.mp4`, chạy được cả CPU và CUDA 12.8 trên
@@ -813,6 +815,25 @@ nguồn cũ `fa6ea680`, không dùng fixture cũ cho file mới cùng tên.
   chưa nghiệm thu vị trí/tốc độ/quãng đường thực địa hay định danh cầu thủ.
   Kết thúc đợt rà soát này, chuyển công việc kế tiếp sang bước 5 dùng Metrica
   theo ROADMAP dự phòng; không tự ghép danh tính Metrica ẩn danh/StatsBomb.
+
+## Bước 5 — baseline hình dạng đội hình (23/10/2026)
+
+- Thêm `backend/tactics/formation.py`: CLI JSON nội bộ, tái sử dụng loader
+  Metrica, cửa sổ 10 giây, yêu cầu đúng 11 ID và >=80% khung đủ người đồng
+  thời; chỉ định thủ môn/hướng tấn công, tách tuyến của 10 cầu thủ ngoài sân.
+  Không ép kết luận khi thiếu người, đổi đội hình nhân sự hoặc tuyến mơ hồ.
+- Xuất vị trí trung vị cầu thủ, tâm/chiều rộng/chiều sâu đội, thành viên
+  từng tuyến, chất lượng cửa sổ và SHA256 nguồn. Chỉ là hình dạng quan sát,
+  không phải sơ đồ chiến thuật có nhãn chuẩn. Không đổi schema/API/thư viện.
+- Chạy Game 1/2 A/B hiệp 1 giây 60–120: 24 cửa sổ, 3 có hình dạng,
+  21 chưa xác định. Artifacts `data/processed/formation_v1/game{1,2}_{A,B}.json`.
+  Tỷ lệ từ chối cao; chưa chứng minh độ chính xác, không nghiệm thu toàn bộ
+  bước 5. Chi tiết/giả định thủ môn và hướng ở `FORMATION_BASELINE.md`.
+- Kiểm tra: 9 test mới; toàn bộ `pytest -q --basetemp .tmp/pytest_formation_full_v1`:
+  **176 passed, 1 network deselected**; cảnh báo Starlette đã có từ trước.
+- Còn lại: bộ so khớp sơ đồ có đánh giá bằng nhãn độc lập, đọc/đối chiếu
+  lineup StatsBomb theo thời điểm trên cùng trận StatsBomb, chỉ số cầu thủ
+  và tích hợp giao diện. Không ghép danh tính hai nguồn khác trận.
 
 ## Quyết định đã chốt
 
