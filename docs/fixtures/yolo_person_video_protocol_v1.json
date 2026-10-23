@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "source": "data/processed/clip_11f23eea/vid1_11f23eea_clean.mp4",
+  "video_frames": 1800,
+  "models": {
+    "baseline": "data/raw/yolo11n.pt",
+    "finetuned": "data/processed/yolo_person_finetune_v1/training/weights/best.pt"
+  },
+  "calibration": "docs/fixtures/yolo_person_video_calibration_v1.json",
+  "landmark_checks": "docs/fixtures/yolo_person_video_checks_v1.json",
+  "team_samples": "docs/fixtures/vid1_11f23eea_team_samples.json",
+  "labels": "docs/fixtures/vid1_11f23eea_agent_review.json",
+  "frames": [
+    1105,
+    1145,
+    1185,
+    1225,
+    1255,
+    1295,
+    1325,
+    1345
+  ],
+  "primary_gate_px": 12,
+  "sensitivity_gates_px": [
+    8,
+    12,
+    20
+  ],
+  "max_sample_gap_frames": 90,
+  "image_size": 1280,
+  "confidence": 0.1,
+  "chunk_seconds": 10,
+  "device": "0",
+  "on_pitch_only": true,
+  "compensate_camera": true,
+  "smooth_pitch": false,
+  "note": "One full sequential run per model; same pipeline settings. Motion masks depend on detector boxes, so camera estimates may differ. Draft agent labels already used in development; not an independent video test. No tuning or automatic promotion.",
+  "input_sha256": {
+    "data/processed/clip_11f23eea/vid1_11f23eea_clean.mp4": "86f6f04ce05ac464269dfa4d831bef0c12c3654acdd2fa3c1b6379f864597b2e",
+    "docs/fixtures/yolo_person_video_calibration_v1.json": "58b1e20b3ddefddda704312bbbe852cf53d0aff86d098493013c054f32eea143",
+    "docs/fixtures/yolo_person_video_checks_v1.json": "af981aa74a6c5a02984c4d88c695a6c1bc7c8132cb24577ef6f93a8fba53d09f",
+    "docs/fixtures/vid1_11f23eea_team_samples.json": "dcac583a6f52482106afc74032b0c37c247b9c749691d991025ee1483d04bab5",
+    "docs/fixtures/vid1_11f23eea_agent_review.json": "aaa35474558601a2f56e58aa4ab2fa3e8410bf763d680737fd5a87a7c5573007",
+    "data/raw/yolo11n.pt": "0ebbc80d4a7680d14987a577cd21342b65ecfd94632bd9a8da63ae6417644ee1",
+    "data/processed/yolo_person_finetune_v1/training/weights/best.pt": "025dc92ed4f7bdde70e2f2442a1ee16fd3aa4ed4a4e32d8f7278f138747e747a",
+    "backend/cv/track_video.py": "ebbb7359da6d1f50ba06cbddc9f517e9b18715dcf8c55e4897e4143bb393c608",
+    "backend/cv/homography.py": "e9e833249f7c6f0b7ac950ab8c56a33842d14762f69dc07011a1432c687c08dd",
+    "backend/cv/team_classifier.py": "16504b698cc889b6647e2df849fed7ad437f989681413d406184de5f2578df23",
+    "backend/cv/team_smoother.py": "80cad2885583a447dc56f4560a731427affbe02b08791327efec0701dc951594"
+  }
+}

@@ -1,0 +1,785 @@
+{
+  "kind": "yolo_person_video_comparison_v1",
+  "protocol_canonical_sha256": "c79b5ec246d5f31b66ca53504ed95f778516ca9148d00e3f360f82407214680b",
+  "comparison_sha256": "a740d9498788991b0d7eb0d6a2fff4274ce08b3da67d7031b95020d82337bd68",
+  "independent_ground_truth": false,
+  "pipeline_promoted": false,
+  "runs": {
+    "baseline": {
+      "run": {
+        "output": "D:\\projects\\football-analyst\\data\\processed\\yolo_person_video_comparison_v1\\baseline\\tracked.mp4",
+        "frames": 1800,
+        "chunks": 3,
+        "video_fps": 60.0,
+        "processing_fps": 12.02,
+        "device": "0",
+        "weights": "D:\\projects\\football-analyst\\data\\raw\\yolo11n.pt",
+        "team_observations": {
+          "A": 2220,
+          "B": 2232,
+          "referee": 139,
+          "unknown": 624
+        },
+        "team_samples": "D:\\projects\\football-analyst\\docs\\fixtures\\vid1_11f23eea_team_samples.json",
+        "pitch_output": "D:\\projects\\football-analyst\\data\\processed\\yolo_person_video_comparison_v1\\baseline\\pitch",
+        "projected_rows": 5215
+      },
+      "tracker_counts": {
+        "frames": 1800,
+        "observations": 5215,
+        "nonempty_frames": 270
+      },
+      "camera_status_counts": {
+        "uncalibrated": 1499,
+        "awaiting_landmark_check": 30,
+        "tracked": 271
+      },
+      "sample_camera_status": {
+        "1105": "tracked",
+        "1145": "tracked",
+        "1185": "tracked",
+        "1225": "tracked",
+        "1255": "tracked",
+        "1295": "tracked",
+        "1325": "tracked",
+        "1345": "tracked"
+      },
+      "evaluation": [
+        {
+          "gate_px": 8,
+          "summary": {
+            "visible_label_observations": 154,
+            "excluded_label_observations": 12,
+            "prediction_observations": 153,
+            "matched_observations": 145,
+            "unambiguous_matched_observations": 145,
+            "gated_association_fraction": 0.9415584415584416,
+            "pixel_discrepancy_matched_only": {
+              "count": 145,
+              "mean_px": 2.512712102134393,
+              "median_px": 2.3787869468927743,
+              "p95_px": 5.215660344538024,
+              "rmse_px": 2.893456618654703
+            },
+            "pixel_discrepancy_unambiguous_only": {
+              "count": 145,
+              "mean_px": 2.512712102134393,
+              "median_px": 2.3787869468927743,
+              "p95_px": 5.215660344538024,
+              "rmse_px": 2.893456618654703
+            },
+            "unmatched_predictions_near_excluded_labels": 5,
+            "other_unmatched_prediction_observations": 3,
+            "unambiguous_role_pairs": {
+              "A->A": 64,
+              "A->unknown": 5,
+              "B->B": 66,
+              "B->unknown": 3,
+              "referee->referee": 3,
+              "referee->unknown": 4
+            },
+            "sampled_identity_intervals": 117,
+            "apparent_sampled_identity_changes": [
+              {
+                "identity": "B05",
+                "previous_frame": 1145,
+                "frame": 1185,
+                "from_track": 9,
+                "to_track": 15
+              },
+              {
+                "identity": "A02",
+                "previous_frame": 1295,
+                "frame": 1325,
+                "from_track": 11,
+                "to_track": 29
+              }
+            ],
+            "sample_match_disappearances": [
+              {
+                "identity": "A06",
+                "previous_frame": 1105,
+                "frame": 1145
+              },
+              {
+                "identity": "A05",
+                "previous_frame": 1185,
+                "frame": 1225
+              },
+              {
+                "identity": "B04",
+                "previous_frame": 1225,
+                "frame": 1255
+              },
+              {
+                "identity": "A05",
+                "previous_frame": 1255,
+                "frame": 1295
+              },
+              {
+                "identity": "R01",
+                "previous_frame": 1255,
+                "frame": 1295
+              },
+              {
+                "identity": "A04",
+                "previous_frame": 1325,
+                "frame": 1345
+              }
+            ]
+          }
+        },
+        {
+          "gate_px": 12,
+          "summary": {
+            "visible_label_observations": 154,
+            "excluded_label_observations": 12,
+            "prediction_observations": 153,
+            "matched_observations": 146,
+            "unambiguous_matched_observations": 143,
+            "gated_association_fraction": 0.948051948051948,
+            "pixel_discrepancy_matched_only": {
+              "count": 146,
+              "mean_px": 2.563142608943665,
+              "median_px": 2.4173765416414943,
+              "p95_px": 5.242949323748137,
+              "rmse_px": 2.997121941732244
+            },
+            "pixel_discrepancy_unambiguous_only": {
+              "count": 143,
+              "mean_px": 2.549271362082507,
+              "median_px": 2.3507987046156327,
+              "p95_px": 5.248345154476543,
+              "rmse_px": 2.9893013478839725
+            },
+            "unmatched_predictions_near_excluded_labels": 5,
+            "other_unmatched_prediction_observations": 2,
+            "unambiguous_role_pairs": {
+              "A->A": 63,
+              "A->unknown": 5,
+              "B->B": 64,
+              "B->unknown": 3,
+              "referee->referee": 3,
+              "referee->unknown": 5
+            },
+            "sampled_identity_intervals": 116,
+            "apparent_sampled_identity_changes": [
+              {
+                "identity": "B05",
+                "previous_frame": 1145,
+                "frame": 1185,
+                "from_track": 9,
+                "to_track": 15
+              },
+              {
+                "identity": "A02",
+                "previous_frame": 1295,
+                "frame": 1325,
+                "from_track": 11,
+                "to_track": 29
+              }
+            ],
+            "sample_match_disappearances": [
+              {
+                "identity": "A06",
+                "previous_frame": 1105,
+                "frame": 1145
+              },
+              {
+                "identity": "A05",
+                "previous_frame": 1185,
+                "frame": 1225
+              },
+              {
+                "identity": "B04",
+                "previous_frame": 1225,
+                "frame": 1255
+              },
+              {
+                "identity": "A05",
+                "previous_frame": 1255,
+                "frame": 1295
+              },
+              {
+                "identity": "A04",
+                "previous_frame": 1325,
+                "frame": 1345
+              }
+            ]
+          }
+        },
+        {
+          "gate_px": 20,
+          "summary": {
+            "visible_label_observations": 154,
+            "excluded_label_observations": 12,
+            "prediction_observations": 153,
+            "matched_observations": 146,
+            "unambiguous_matched_observations": 131,
+            "gated_association_fraction": 0.948051948051948,
+            "pixel_discrepancy_matched_only": {
+              "count": 146,
+              "mean_px": 2.563142608943665,
+              "median_px": 2.4173765416414943,
+              "p95_px": 5.242949323748137,
+              "rmse_px": 2.997121941732244
+            },
+            "pixel_discrepancy_unambiguous_only": {
+              "count": 131,
+              "mean_px": 2.4512034226032116,
+              "median_px": 2.2770578687933583,
+              "p95_px": 4.82061918284294,
+              "rmse_px": 2.7931667774779876
+            },
+            "unmatched_predictions_near_excluded_labels": 5,
+            "other_unmatched_prediction_observations": 2,
+            "unambiguous_role_pairs": {
+              "A->A": 57,
+              "A->unknown": 4,
+              "B->B": 63,
+              "B->unknown": 1,
+              "referee->referee": 2,
+              "referee->unknown": 4
+            },
+            "sampled_identity_intervals": 101,
+            "apparent_sampled_identity_changes": [],
+            "sample_match_disappearances": [
+              {
+                "identity": "A05",
+                "previous_frame": 1185,
+                "frame": 1225
+              },
+              {
+                "identity": "B04",
+                "previous_frame": 1225,
+                "frame": 1255
+              },
+              {
+                "identity": "A05",
+                "previous_frame": 1255,
+                "frame": 1295
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "finetuned": {
+      "run": {
+        "output": "D:\\projects\\football-analyst\\data\\processed\\yolo_person_video_comparison_v1\\finetuned\\tracked.mp4",
+        "frames": 1800,
+        "chunks": 3,
+        "video_fps": 60.0,
+        "processing_fps": 8.14,
+        "device": "0",
+        "weights": "D:\\projects\\football-analyst\\data\\processed\\yolo_person_finetune_v1\\training\\weights\\best.pt",
+        "team_observations": {
+          "A": 2559,
+          "B": 2675,
+          "referee": 160,
+          "unknown": 1712
+        },
+        "team_samples": "D:\\projects\\football-analyst\\docs\\fixtures\\vid1_11f23eea_team_samples.json",
+        "pitch_output": "D:\\projects\\football-analyst\\data\\processed\\yolo_person_video_comparison_v1\\finetuned\\pitch",
+        "projected_rows": 7106
+      },
+      "tracker_counts": {
+        "frames": 1800,
+        "observations": 7106,
+        "nonempty_frames": 270
+      },
+      "camera_status_counts": {
+        "uncalibrated": 1499,
+        "awaiting_landmark_check": 30,
+        "tracked": 271
+      },
+      "sample_camera_status": {
+        "1105": "tracked",
+        "1145": "tracked",
+        "1185": "tracked",
+        "1225": "tracked",
+        "1255": "tracked",
+        "1295": "tracked",
+        "1325": "tracked",
+        "1345": "tracked"
+      },
+      "evaluation": [
+        {
+          "gate_px": 8,
+          "summary": {
+            "visible_label_observations": 154,
+            "excluded_label_observations": 12,
+            "prediction_observations": 217,
+            "matched_observations": 149,
+            "unambiguous_matched_observations": 135,
+            "gated_association_fraction": 0.9675324675324676,
+            "pixel_discrepancy_matched_only": {
+              "count": 149,
+              "mean_px": 2.4355405266283405,
+              "median_px": 2.276147941494951,
+              "p95_px": 4.697073614400093,
+              "rmse_px": 2.7944277798419526
+            },
+            "pixel_discrepancy_unambiguous_only": {
+              "count": 135,
+              "mean_px": 2.4445294530360266,
+              "median_px": 2.3010341526744984,
+              "p95_px": 4.772877436328011,
+              "rmse_px": 2.8069405538655774
+            },
+            "unmatched_predictions_near_excluded_labels": 11,
+            "other_unmatched_prediction_observations": 57,
+            "unambiguous_role_pairs": {
+              "A->A": 55,
+              "A->unknown": 7,
+              "B->B": 63,
+              "B->unknown": 3,
+              "referee->referee": 4,
+              "referee->unknown": 3
+            },
+            "sampled_identity_intervals": 103,
+            "apparent_sampled_identity_changes": [
+              {
+                "identity": "B05",
+                "previous_frame": 1105,
+                "frame": 1145,
+                "from_track": 4,
+                "to_track": 16
+              },
+              {
+                "identity": "B05",
+                "previous_frame": 1145,
+                "frame": 1185,
+                "from_track": 16,
+                "to_track": 4
+              },
+              {
+                "identity": "B06",
+                "previous_frame": 1145,
+                "frame": 1185,
+                "from_track": 47,
+                "to_track": 62
+              },
+              {
+                "identity": "B09",
+                "previous_frame": 1145,
+                "frame": 1185,
+                "from_track": 17,
+                "to_track": 48
+              },
+              {
+                "identity": "B01",
+                "previous_frame": 1255,
+                "frame": 1295,
+                "from_track": 5,
+                "to_track": 119
+              },
+              {
+                "identity": "B04",
+                "previous_frame": 1255,
+                "frame": 1295,
+                "from_track": 43,
+                "to_track": 96
+              },
+              {
+                "identity": "A02",
+                "previous_frame": 1295,
+                "frame": 1325,
+                "from_track": 6,
+                "to_track": 130
+              },
+              {
+                "identity": "A04",
+                "previous_frame": 1295,
+                "frame": 1325,
+                "from_track": 2,
+                "to_track": 176
+              }
+            ],
+            "sample_match_disappearances": [
+              {
+                "identity": "A06",
+                "previous_frame": 1105,
+                "frame": 1145
+              },
+              {
+                "identity": "R01",
+                "previous_frame": 1255,
+                "frame": 1295
+              },
+              {
+                "identity": "A04",
+                "previous_frame": 1325,
+                "frame": 1345
+              }
+            ]
+          }
+        },
+        {
+          "gate_px": 12,
+          "summary": {
+            "visible_label_observations": 154,
+            "excluded_label_observations": 12,
+            "prediction_observations": 217,
+            "matched_observations": 150,
+            "unambiguous_matched_observations": 130,
+            "gated_association_fraction": 0.974025974025974,
+            "pixel_discrepancy_matched_only": {
+              "count": 150,
+              "mean_px": 2.475537321824564,
+              "median_px": 2.288591047084725,
+              "p95_px": 4.81562456373458,
+              "rmse_px": 2.8689898336382567
+            },
+            "pixel_discrepancy_unambiguous_only": {
+              "count": 130,
+              "mean_px": 2.4194190083164493,
+              "median_px": 2.2539449502813174,
+              "p95_px": 4.815624563734582,
+              "rmse_px": 2.7924904255078347
+            },
+            "unmatched_predictions_near_excluded_labels": 12,
+            "other_unmatched_prediction_observations": 55,
+            "unambiguous_role_pairs": {
+              "A->A": 52,
+              "A->unknown": 7,
+              "B->B": 61,
+              "B->unknown": 3,
+              "referee->referee": 4,
+              "referee->unknown": 3
+            },
+            "sampled_identity_intervals": 95,
+            "apparent_sampled_identity_changes": [
+              {
+                "identity": "B05",
+                "previous_frame": 1105,
+                "frame": 1145,
+                "from_track": 4,
+                "to_track": 16
+              },
+              {
+                "identity": "B05",
+                "previous_frame": 1145,
+                "frame": 1185,
+                "from_track": 16,
+                "to_track": 4
+              },
+              {
+                "identity": "B06",
+                "previous_frame": 1145,
+                "frame": 1185,
+                "from_track": 47,
+                "to_track": 62
+              },
+              {
+                "identity": "B09",
+                "previous_frame": 1145,
+                "frame": 1185,
+                "from_track": 17,
+                "to_track": 48
+              },
+              {
+                "identity": "B01",
+                "previous_frame": 1255,
+                "frame": 1295,
+                "from_track": 5,
+                "to_track": 119
+              },
+              {
+                "identity": "A04",
+                "previous_frame": 1295,
+                "frame": 1325,
+                "from_track": 2,
+                "to_track": 176
+              }
+            ],
+            "sample_match_disappearances": [
+              {
+                "identity": "A06",
+                "previous_frame": 1105,
+                "frame": 1145
+              },
+              {
+                "identity": "A04",
+                "previous_frame": 1325,
+                "frame": 1345
+              }
+            ]
+          }
+        },
+        {
+          "gate_px": 20,
+          "summary": {
+            "visible_label_observations": 154,
+            "excluded_label_observations": 12,
+            "prediction_observations": 217,
+            "matched_observations": 151,
+            "unambiguous_matched_observations": 108,
+            "gated_association_fraction": 0.9805194805194806,
+            "pixel_discrepancy_matched_only": {
+              "count": 151,
+              "mean_px": 2.5565320515729675,
+              "median_px": 2.3010341526744984,
+              "p95_px": 4.907970397160722,
+              "rmse_px": 3.0998015673509225
+            },
+            "pixel_discrepancy_unambiguous_only": {
+              "count": 108,
+              "mean_px": 2.4156042099298825,
+              "median_px": 2.1296247604296585,
+              "p95_px": 4.546020055845357,
+              "rmse_px": 2.9757976608864127
+            },
+            "unmatched_predictions_near_excluded_labels": 13,
+            "other_unmatched_prediction_observations": 53,
+            "unambiguous_role_pairs": {
+              "A->A": 42,
+              "A->unknown": 4,
+              "B->B": 55,
+              "B->unknown": 1,
+              "referee->referee": 3,
+              "referee->unknown": 3
+            },
+            "sampled_identity_intervals": 77,
+            "apparent_sampled_identity_changes": [
+              {
+                "identity": "B06",
+                "previous_frame": 1145,
+                "frame": 1185,
+                "from_track": 47,
+                "to_track": 62
+              },
+              {
+                "identity": "A10",
+                "previous_frame": 1225,
+                "frame": 1255,
+                "from_track": 20,
+                "to_track": 114
+              },
+              {
+                "identity": "B01",
+                "previous_frame": 1255,
+                "frame": 1295,
+                "from_track": 5,
+                "to_track": 119
+              }
+            ],
+            "sample_match_disappearances": []
+          }
+        }
+      ]
+    }
+  },
+  "paired_diagnostics": [
+    {
+      "gate_px": 8,
+      "common_unambiguous_pixel_errors": {
+        "baseline": {
+          "count": 130,
+          "mean_px": 2.458183085963857,
+          "median_px": 2.269824613585056,
+          "p95_px": 5.215273062577917,
+          "rmse_px": 2.856729847732965
+        },
+        "finetuned": {
+          "count": 130,
+          "mean_px": 2.409398129026052,
+          "median_px": 2.2539449502813174,
+          "p95_px": 4.788053886064546,
+          "rmse_px": 2.7786666656791428
+        }
+      },
+      "common_sampled_identity_intervals": 95,
+      "apparent_identity_changes": {
+        "baseline": [
+          {
+            "identity": "B05",
+            "previous_frame": 1145,
+            "frame": 1185,
+            "from_track": 9,
+            "to_track": 15
+          },
+          {
+            "identity": "A02",
+            "previous_frame": 1295,
+            "frame": 1325,
+            "from_track": 11,
+            "to_track": 29
+          }
+        ],
+        "finetuned": [
+          {
+            "identity": "B05",
+            "previous_frame": 1105,
+            "frame": 1145,
+            "from_track": 4,
+            "to_track": 16
+          },
+          {
+            "identity": "B05",
+            "previous_frame": 1145,
+            "frame": 1185,
+            "from_track": 16,
+            "to_track": 4
+          },
+          {
+            "identity": "B06",
+            "previous_frame": 1145,
+            "frame": 1185,
+            "from_track": 47,
+            "to_track": 62
+          },
+          {
+            "identity": "B09",
+            "previous_frame": 1145,
+            "frame": 1185,
+            "from_track": 17,
+            "to_track": 48
+          },
+          {
+            "identity": "B01",
+            "previous_frame": 1255,
+            "frame": 1295,
+            "from_track": 5,
+            "to_track": 119
+          },
+          {
+            "identity": "A02",
+            "previous_frame": 1295,
+            "frame": 1325,
+            "from_track": 6,
+            "to_track": 130
+          },
+          {
+            "identity": "A04",
+            "previous_frame": 1295,
+            "frame": 1325,
+            "from_track": 2,
+            "to_track": 176
+          }
+        ]
+      }
+    },
+    {
+      "gate_px": 12,
+      "common_unambiguous_pixel_errors": {
+        "baseline": {
+          "count": 124,
+          "mean_px": 2.418108288404693,
+          "median_px": 2.209571017587176,
+          "p95_px": 5.168349031207163,
+          "rmse_px": 2.819998495771472
+        },
+        "finetuned": {
+          "count": 124,
+          "mean_px": 2.3616305024322193,
+          "median_px": 2.1296247604296585,
+          "p95_px": 4.649348584479384,
+          "rmse_px": 2.7384332418727175
+        }
+      },
+      "common_sampled_identity_intervals": 87,
+      "apparent_identity_changes": {
+        "baseline": [
+          {
+            "identity": "B05",
+            "previous_frame": 1145,
+            "frame": 1185,
+            "from_track": 9,
+            "to_track": 15
+          }
+        ],
+        "finetuned": [
+          {
+            "identity": "B05",
+            "previous_frame": 1105,
+            "frame": 1145,
+            "from_track": 4,
+            "to_track": 16
+          },
+          {
+            "identity": "B05",
+            "previous_frame": 1145,
+            "frame": 1185,
+            "from_track": 16,
+            "to_track": 4
+          },
+          {
+            "identity": "B06",
+            "previous_frame": 1145,
+            "frame": 1185,
+            "from_track": 47,
+            "to_track": 62
+          },
+          {
+            "identity": "B09",
+            "previous_frame": 1145,
+            "frame": 1185,
+            "from_track": 17,
+            "to_track": 48
+          },
+          {
+            "identity": "B01",
+            "previous_frame": 1255,
+            "frame": 1295,
+            "from_track": 5,
+            "to_track": 119
+          },
+          {
+            "identity": "A04",
+            "previous_frame": 1295,
+            "frame": 1325,
+            "from_track": 2,
+            "to_track": 176
+          }
+        ]
+      }
+    },
+    {
+      "gate_px": 20,
+      "common_unambiguous_pixel_errors": {
+        "baseline": {
+          "count": 104,
+          "mean_px": 2.3204352798771772,
+          "median_px": 2.0659169481773967,
+          "p95_px": 4.881277766165776,
+          "rmse_px": 2.693306494870714
+        },
+        "finetuned": {
+          "count": 104,
+          "mean_px": 2.3774301245153566,
+          "median_px": 2.117713697807157,
+          "p95_px": 4.461387360525442,
+          "rmse_px": 2.952220445156856
+        }
+      },
+      "common_sampled_identity_intervals": 71,
+      "apparent_identity_changes": {
+        "baseline": [],
+        "finetuned": [
+          {
+            "identity": "B06",
+            "previous_frame": 1145,
+            "frame": 1185,
+            "from_track": 47,
+            "to_track": 62
+          },
+          {
+            "identity": "A10",
+            "previous_frame": 1225,
+            "frame": 1255,
+            "from_track": 20,
+            "to_track": 114
+          },
+          {
+            "identity": "B01",
+            "previous_frame": 1255,
+            "frame": 1295,
+            "from_track": 5,
+            "to_track": 119
+          }
+        ]
+      }
+    }
+  ]
+}

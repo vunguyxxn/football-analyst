@@ -2,6 +2,13 @@
 
 ## Trạng thái hiện tại
 
+Đã đối chiếu video sau bước 5b: cùng clip/cấu hình 1280/conf 0,1 và bộ
+lọc trong sân. Fine-tuned ghép 150/154 thay 146/154, nhưng nhiều khung
+chồng, 55 thay 2 dự đoán chưa ghép cần rà; đổi ID biểu kiến 6 thay 1 trên
+87 khoảng chung. Giữ trọng số gốc làm mặc định. Nhãn agent/thưa, không
+phải accuracy tracking độc lập; chi tiết `CV_FINETUNE_VIDEO.md`.
+264 test qua; đã chốt so sánh 5b, bước tiếp theo theo ROADMAP là xG.
+
 Ngày 23/10/2026, bước 5b đã hoàn tất một lượt fine-tune YOLO11n trên
 372 ảnh bóng đá chia theo nhóm tên file/ảnh gần trùng. Trên 73 ảnh test
 giữ riêng: mAP50 71,04% → 91,67%; mAP50–95 39,62% → 56,40%.
@@ -1063,6 +1070,28 @@ nguồn cũ `fa6ea680`, không dùng fixture cũ cho file mới cùng tên.
 - Chín test mới; toàn bộ
   `pytest -q --basetemp .tmp/pytest_finetune_full_v1`:
   **261 passed, 1 network deselected**, cảnh báo Starlette cũ.
+
+## Bước 5b — đối chiếu tracking video với trọng số mới (23/10/2026)
+
+- Thêm runner `backend/cv/compare_person_video.py`, gọi nguyên track_video
+  và chỉ bọc ByteTrack để ghi lại đầu ra. Khóa input/hash/cấu hình ở
+  `yolo_person_video_protocol_v1.json`, giữ hai bản hiệu chỉnh/checkpoint
+  return nguyên byte trong fixtures. Không sửa pipeline/API/schema.
+- Chạy mới cả hai mô hình đủ 1.800 frame, ảnh suy luận 1280, conf 0,1,
+  cùng mẫu áo/ByteTrack/NMS/camera guard/on-pitch-only. Hai lượt cùng
+  270 frame có box, tám ảnh mẫu cùng guard tracked. Camera matrix có thể
+  khác do loại vùng người theo bbox của từng mô hình.
+- Tám ảnh return, 154 nhãn visible: ghép 146 → 150, quan sát dự đoán
+  153 → 217; dự đoán chưa ghép khác 2 → 55. Montage cho thấy nhiều khung
+  chồng/bộ phận cùng người ở bản fine-tuned; chưa gọi mọi unmatched là FP.
+- Trên 87 khoảng ID chung: đổi ID biểu kiến 1 → 6. Gate 8/20 px cũng có
+  nhiều đổi ID hơn ở ứng viên. Đây là chẩn đoán nhãn agent thưa, không phải
+  IDF1/MOTA. Không thay mặc định; không chỉnh threshold theo tám ảnh này.
+- Kết quả/video/montage: `data/processed/yolo_person_video_comparison_v1/`;
+  snapshot Git `docs/fixtures/yolo_person_video_result_v1.json` và tài liệu
+  `CV_FINETUNE_VIDEO.md`. Chốt so sánh 5b, chưa triển khai bước 6.
+- Ba test mới; toàn bộ `pytest -q --basetemp .tmp/pytest_person_video_full_v1`:
+  **264 passed, 1 network deselected**, cảnh báo Starlette cũ.
 
 ## Quyết định đã chốt
 
