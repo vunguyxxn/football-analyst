@@ -2,13 +2,21 @@
 
 ## Trạng thái hiện tại
 
+Ngày 23/10/2026: bước 7 đã có advisor ngoại tuyến cho rà soát cú sút:
+xG + Tree SHAP và ba luật cố định, báo cáo JSON/Markdown tiếng Việt,
+mỗi gợi ý truy tới event ID, chỉ số và đóng góp feature. Trận 8650 sinh
+hai gợi ý, đã kiểm tra truy vết và SHAP khôi phục đúng dự đoán với 66 cây
+tốt nhất. Chưa có HLV nghiệm thu hiệu quả khuyến nghị; không gọi luật
+heuristic là mô hình học chiến thuật. 280 test qua. Xem
+`ADVISOR_BASELINE.md`; chưa thêm API/giao diện hoặc đổi hợp đồng dữ liệu.
+
 Ngày 23/10/2026: bước 6 đã có baseline xG ngoại tuyến bằng XGBoost,
 huấn luyện trên World Cup 2018 + Euro 2020, giữ World Cup 2022 để test.
 Test 64 trận/1.430 cú sút không penalty: AUC 0,7665, Brier 0,08467;
 StatsBomb tham chiếu 0,8148 / 0,07619. Tốt hơn xác suất cố định nhưng
 chưa bằng StatsBomb. Có model JSON, inference, calibration bins và
-bootstrap theo trận; 273 test qua. Xem `XG_BASELINE.md`. Chưa thêm API/
-giao diện hoặc advisor; phần tiếp theo theo ROADMAP là bước 7.
+bootstrap theo trận; 273 test qua tại phiên bước 6. Xem `XG_BASELINE.md`.
+Advisor đã có baseline ngoại tuyến; phần tiếp theo theo ROADMAP là bước 8.
 
 Đã đối chiếu video sau bước 5b: cùng clip/cấu hình 1280/conf 0,1 và bộ
 lọc trong sân. Fine-tuned ghép 150/154 thay 146/154, nhưng nhiều khung
@@ -67,7 +75,7 @@ Xem VIDEO_REVIEW_EVALUATION.md.
 Bước 0, Module B1, giao diện bước 1.5 và bước 1.6 đã triển khai, kiểm thử.
 Backend nạp StatsBomb Open Data, chuẩn hóa sự kiện và cung cấp pass network;
 frontend có shell điều hướng, sân SVG và trang phân tích trận. xG đã có
-baseline ngoại tuyến, chưa triển khai advisor; sơ đồ đội hình mới có
+baseline ngoại tuyến, advisor đã có bản rà soát cú sút; sơ đồ đội hình mới có
 baseline ngoại tuyến, chưa lên giao diện.
 
 Bước 2 đã triển khai và nghiệm thu chức năng CLI YOLO + ByteTrack xử lý video
@@ -1137,6 +1145,33 @@ nguồn cũ `fa6ea680`, không dùng fixture cũ cho file mới cùng tên.
   Phương pháp, số liệu, calibration và lệnh ở `XG_BASELINE.md`.
 - Chín test mới; toàn bộ `pytest -q --basetemp .tmp/pytest_xg_full_v1`:
   **273 passed, 1 network deselected**, cảnh báo Starlette cũ.
+
+## Bước 7 — advisor xG + SHAP, gợi ý có căn cứ (23/10/2026)
+
+- Thêm `backend/advisor/shot_advisor.py`: CLI ngoại tuyến, model xG cũ,
+  TreeExplainer raw/tree_path_dependent, ba luật rà soát lựa chọn vị trí,
+  dứt điểm dưới áp lực và cách tạo cơ hội xG cao. Ngưỡng heuristic cố định
+  trong `advisor_protocol_v1.json`, chưa HLV đánh giá. Không LLM hoặc
+  policy chiến thuật được học, không thêm thư viện/API/schema dùng chung.
+- Lọc penalty và period ngoài 1–4; không cần outcome/xG StatsBomb làm
+  input. Theo team ID, giữ đội không có cú sút và trạng thái thiếu mẫu/
+  không đủ luật. Mỗi gợi ý có event ID, tử số/mẫu số, xG/feature/SHAP trung
+  bình; từng cú sút có player ID/tên ngắn, thời điểm/index để tra nguồn.
+- Cắt Booster trong RAM tới best_iteration+1 (66 cây), không giải thích
+  cả 106 cây đã lưu. Kiểm hash/feature/best iteration, cộng SHAP log-odds
+  và sigmoid khôi phục margin/xG; từ chối xuất gợi ý nếu vượt ngưỡng.
+- Trận 8650 có 33 cú sút: Brazil 25, xG tổng 2,990, nhóm thấp 13/25;
+  Belgium 8, tổng 0,558, nhóm thấp 6/8. Mỗi đội một gợi ý rà vị trí;
+  hai luật khác không tự sinh. Đây là trận val của bước 6, không đánh giá
+  advisor độc lập hoặc suy luận tỷ số/khả năng dứt điểm.
+- Tính lại 2/2 căn cứ khớp các event và trung bình. Max error SHAP
+  9,54e-7 log-odds/1,79e-7 xác suất. Chỉ xác nhận số học, không hiệu quả
+  chiến thuật. Không kết luận nhân quả hoặc gợi ý thay người/đổi sơ đồ.
+- Artifact chốt `data/processed/advisor_8650_v1_final/`, snapshot/hash
+  `docs/fixtures/advisor_result_v1.json`, tài liệu `ADVISOR_BASELINE.md`.
+- Bảy test mới; toàn bộ `pytest -q --basetemp .tmp/pytest_advisor_full_v1`:
+  **280 passed, 1 network deselected**, cảnh báo Starlette cũ và ba
+  deprecation của bảng màu SHAP. Tiếp theo bước 8 frontend theo ROADMAP.
 
 ## Quyết định đã chốt
 

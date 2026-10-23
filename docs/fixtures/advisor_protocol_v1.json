@@ -1,0 +1,18 @@
+{
+  "version": "advisor_v1",
+  "minimum_team_shots": 5,
+  "minimum_subset_shots": 3,
+  "low_xg_threshold": 0.08,
+  "low_xg_fraction": 0.5,
+  "pressure_fraction": 0.4,
+  "high_xg_threshold": 0.2,
+  "high_xg_fraction": 0.25,
+  "shap_method": "tree_path_dependent",
+  "shap_output": "raw_log_odds",
+  "geometry_support": "sum of distance/angle/lateral mean SHAP must be negative for low-xG review and positive for high-xG review",
+  "margin_tolerance": 0.00001,
+  "probability_tolerance": 0.000001,
+  "rule_order": ["review_low_quality_shots", "review_pressure_support", "review_good_entries"],
+  "demo_match_id": 8650,
+  "scope": "Offline post-match non-penalty shot review. Rules are fixed heuristics, not a learned coaching policy. No causal or tactical-effectiveness claim, no LLM."
+}

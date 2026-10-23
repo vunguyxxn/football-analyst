@@ -1,0 +1,157 @@
+{
+  "kind": "shot_advisor_v1",
+  "match_id": 8650,
+  "protocol": {
+    "version": "advisor_v1",
+    "minimum_team_shots": 5,
+    "minimum_subset_shots": 3,
+    "low_xg_threshold": 0.08,
+    "low_xg_fraction": 0.5,
+    "pressure_fraction": 0.4,
+    "high_xg_threshold": 0.2,
+    "high_xg_fraction": 0.25,
+    "shap_method": "tree_path_dependent",
+    "shap_output": "raw_log_odds",
+    "geometry_support": "sum of distance/angle/lateral mean SHAP must be negative for low-xG review and positive for high-xG review",
+    "margin_tolerance": 1e-05,
+    "probability_tolerance": 1e-06,
+    "rule_order": [
+      "review_low_quality_shots",
+      "review_pressure_support",
+      "review_good_entries"
+    ],
+    "demo_match_id": 8650,
+    "scope": "Offline post-match non-penalty shot review. Rules are fixed heuristics, not a learned coaching policy. No causal or tactical-effectiveness claim, no LLM."
+  },
+  "model_audit": {
+    "method": "TreeExplainer/tree_path_dependent",
+    "units": "log_odds",
+    "shap_version": "0.51.0",
+    "trees_explained": 66,
+    "model_sha256": "7f46f5bc2ea89e3d73fa432b44725407574d8ed3b8446d7fc5e3d7cb83989c2d",
+    "model_metadata_sha256": "dad5616b5b1e641f9c49311198955ffaf8dece04a56048591d80c3f394d82cd6",
+    "best_iteration": 65,
+    "max_margin_error": 9.5367431640625e-07,
+    "max_probability_error": 1.7881393432617188e-07
+  },
+  "provenance": {
+    "source_revision": "4b73468fc5b0f1950f9f66fada70ad3a4f9327cb",
+    "events_sha256": "1e45557a50b3f7333e0d962cc4d4678c9b3edf2f52ee06b77f29fc3837020af3",
+    "model_dataset_split": "val",
+    "protocol_sha256": "9a546dddfedf9d00c38bd25769c4c2ec8f279f9f896f49922fb52fe6f030ee4d",
+    "source_inventory_sha256": "94f370649da9966a17f54737ae7ca07c8d76f2c8d31996d5aafdd684cf908d64"
+  },
+  "excluded": {},
+  "limitations": [
+    "Chỉ rà soát cú sút không penalty hiệp 1–4; không đánh giá chiến thuật toàn trận.",
+    "Ngưỡng luật là heuristic, chưa được HLV nghiệm thu; không phải mô hình học chính sách huấn luyện.",
+    "xG baseline kém StatsBomb trên test bước 6; SHAP không nâng độ chính xác của mô hình.",
+    "Các feature hình học tương quan; SHAP không phải tác động nhân quả hay chênh lệch điểm phần trăm.",
+    "Không đủ thông tin để kết luận chuyền tốt hơn sút, thay người, sơ đồ hoặc chất lượng dứt điểm."
+  ],
+  "report_sha256": "49698a9fd6a19dd20f55acbab525335cfd1007ecdfef22779fde5ddd40f4b20b",
+  "markdown_sha256": "d172480334f9cfd37ab0da9064f00f1fa2950d23b7788006b4479512037d4247",
+  "traceability_check": {
+    "cards_checked": 2,
+    "all_event_refs_exist_and_belong_to_team": true,
+    "all_means_recomputed": true
+  },
+  "teams": [
+    {
+      "team_id": 781,
+      "team": "Brazil",
+      "status": "review_suggestions",
+      "eligible_shots": 25,
+      "xg_total": 2.9901328198611736,
+      "mean_xg": 0.11960531279444694,
+      "recommendations": [
+        {
+          "id": "781:review_low_quality_shots",
+          "rule": "review_low_quality_shots",
+          "title": "Rà soát lựa chọn vị trí dứt điểm",
+          "action": "Xem lại các pha có xG thấp để HLV đánh giá cách tiếp cận vị trí sút và phương án phối hợp trước đó.",
+          "supporting_features": [
+            "distance_m",
+            "angle_rad",
+            "lateral_m"
+          ],
+          "interpretation": "SHAP giải thích dự đoán so với giá trị nền của mô hình, không chứng minh nguyên nhân hay hiệu quả can thiệp.",
+          "evidence_summary": {
+            "subset_shots": 13,
+            "team_shots": 25,
+            "fraction": 0.52,
+            "mean_xg": 0.0485849566757679,
+            "mean_features": {
+              "distance_m": 21.68704499149212,
+              "angle_rad": 0.26179676960005066,
+              "lateral_m": 11.115384615384617,
+              "is_header": 0.0,
+              "is_other_body": 0.0,
+              "is_free_kick": 0.0,
+              "first_time": 0.07692307692307693,
+              "under_pressure": 0.07692307692307693
+            },
+            "mean_shap_log_odds": {
+              "distance_m": -0.10902996280660424,
+              "angle_rad": -0.6812086128271543,
+              "lateral_m": -0.024121192785409782,
+              "is_header": 0.0566269695185698,
+              "is_other_body": 0.0,
+              "is_free_kick": 0.0,
+              "first_time": -0.0001780663308006926,
+              "under_pressure": 0.02440478939276475
+            }
+          }
+        }
+      ]
+    },
+    {
+      "team_id": 782,
+      "team": "Belgium",
+      "status": "review_suggestions",
+      "eligible_shots": 8,
+      "xg_total": 0.5583734139800072,
+      "mean_xg": 0.0697966767475009,
+      "recommendations": [
+        {
+          "id": "782:review_low_quality_shots",
+          "rule": "review_low_quality_shots",
+          "title": "Rà soát lựa chọn vị trí dứt điểm",
+          "action": "Xem lại các pha có xG thấp để HLV đánh giá cách tiếp cận vị trí sút và phương án phối hợp trước đó.",
+          "supporting_features": [
+            "distance_m",
+            "angle_rad",
+            "lateral_m"
+          ],
+          "interpretation": "SHAP giải thích dự đoán so với giá trị nền của mô hình, không chứng minh nguyên nhân hay hiệu quả can thiệp.",
+          "evidence_summary": {
+            "subset_shots": 6,
+            "team_shots": 8,
+            "fraction": 0.75,
+            "mean_xg": 0.045402047534783684,
+            "mean_features": {
+              "distance_m": 22.101209936587143,
+              "angle_rad": 0.2894970246424386,
+              "lateral_m": 10.058333333333334,
+              "is_header": 0.0,
+              "is_other_body": 0.0,
+              "is_free_kick": 0.16666666666666666,
+              "first_time": 0.0,
+              "under_pressure": 0.0
+            },
+            "mean_shap_log_odds": {
+              "distance_m": -0.15983507813264927,
+              "angle_rad": -0.6943961928288142,
+              "lateral_m": -0.02922285596529643,
+              "is_header": 0.054515824342767395,
+              "is_other_body": 0.0,
+              "is_free_kick": 0.0,
+              "first_time": -0.0002865567075787112,
+              "under_pressure": 0.03418155387043953
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
