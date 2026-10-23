@@ -14,6 +14,13 @@ trang xem đã điền sẵn, người dùng không phải nhập lại. Đây l
 chưa có kết quả sai số video theo dữ liệu chuẩn độc lập. Chi tiết
 `VIDEO_AGENT_REVIEW.md`; hướng dẫn nhập tay cũ ở `VIDEO_HUMAN_REVIEW.md`.
 
+Đã đối chiếu tám ảnh return với dự đoán đã khóa: còn thiếu điểm và hai
+trường hợp nghi đổi ID; độ lệch pixel trên cùng tập cặp trước/sau lọc gần
+như bằng nhau. Chốt dùng video cho minh họa chức năng và cửa sổ tọa độ có
+guard, chưa dùng số mét/km/h như phép đo thực địa. Đợt rà soát bước 4 này
+đã kết thúc; công việc tiếp theo là bước 5 với Metrica theo phương án dự
+phòng đã có, chưa triển khai bước 5 trong phiên này. Xem VIDEO_REVIEW_EVALUATION.md.
+
 Bước 0, Module B1, giao diện bước 1.5 và bước 1.6 đã triển khai, kiểm thử.
 Backend nạp StatsBomb Open Data, chuẩn hóa sự kiện và cung cấp pass network;
 frontend có shell điều hướng, sân SVG và trang phân tích trận. Chưa triển khai
@@ -761,6 +768,51 @@ nguồn cũ `fa6ea680`, không dùng fixture cũ cho file mới cùng tên.
   Không đổi tracking/guard/bộ lọc/dependency/schema/API. Đã làm xong phần
   agent được giao; chưa nghiệm thu bước 4 thực địa/chưa bước 5, không chờ
   người dùng nhập lại bộ ảnh để coi công việc này hoàn tất.
+
+## Đối chiếu nhãn agent với đầu ra tracking — 23/10/2026
+
+- Người dùng xác nhận đã ổn và yêu cầu tiếp tục. Giữ nguồn nhãn agent,
+  không chuyển thành human/independent truth. Đánh giá tám ảnh return đã
+  chọn; 166 nhãn người, gồm 154 visible và 12 occluded/uncertain bị loại
+  khỏi ghép chính. Không chỉnh nhãn/gate theo kết quả.
+- Kiểm tra cache bbox NMS 0,5 + ByteTrack có đủ 5.215 khóa frame/ID khớp
+  production team_roles_final; lọc v3 có 4.735 khóa nằm trong raw. Bottom
+  center bbox chiếu bằng ma trận frame khớp raw trong 1,37e-6 m, chỉ là
+  kiểm tra tính nhất quán artifact, không sai số thực địa. Không chạy YOLO.
+- Đóng băng 153 raw + 140 filtered observation ở tám ảnh trong fixture
+  vid1_11f23eea_prediction_samples.json, kèm ma trận/hash input/filter commit.
+  Protocol video_review_evaluation.json khóa canonical JSON SHA để không
+  phụ thuộc newline Windows; ngưỡng chính 12 px, sensitivity 8/12/20 px.
+- CLI backend.cv.evaluate_video_review ghép một-một tối đa số cặp rồi tối
+  thiểu tổng khoảng cách Euclid, không dùng class/ID để chọn cặp. Loại
+  trường hợp nhiều đối tác hoặc gần nhãn bị che khỏi đối chiếu ID/vai trò.
+  Không nối chuỗi qua mẫu thiếu/mơ hồ hoặc gap >90 frame; chỉ là chỉ báo
+  mẫu thưa, không MOT ID switches, MOTA/IDF1 hoặc detector recall.
+- Gate 12 px: raw ghép 146/154 visible (143 không mơ hồ), v3 ghép 135
+  (134 không mơ hồ). RMSE matched-only 2,997 -> 2,808 px nhưng tập điểm khác.
+  Cùng 132 cặp cùng frame/nhãn/track ID không mơ hồ: 2,781 -> 2,786 px,
+  không có bằng chứng cải thiện rõ vị trí. Không lấy việc bỏ điểm làm
+  chứng minh lọc chính xác hơn.
+- Hai trường hợp nghi đổi ID: B05 frame 1145->1185 ID 9->15, A02
+  frame 1295->1325 ID 11->29. V3 chỉ đếm 1 ở gate 12 vì A02/1325 mơ hồ,
+  vẫn có ID 29 nên không coi là sửa ID. Đã xem crop so sánh, thấy chen sát/
+  che khuất phù hợp giả thuyết fragmentation; danh tính agent vẫn tentative.
+- Gate 8/12/20: số ghép raw 145/146/146, v3 135/135/136; ID biểu kiến
+  raw 2/2/0 và v3 2/1/0. Gate lớn loại nhiều khoảng mơ hồ, không chọn 20 px
+  để tuyên bố không lỗi ID. Vai trò known trong tập chọn không bất đồng;
+  raw còn 13 unknown trên 143 cặp, v3 11 unknown trên 134; không tuyên bố 100%.
+- 167 test qua, 1 network deselected, cảnh báo Starlette có sẵn. Test tối ưu
+  so vét cạn, phản ví dụ greedy, loại nhãn mơ hồ, không dùng class để ghép,
+  không nối qua mẫu thiếu/gap, hash/nguồn/pixel/ID trùng và không ghi đè.
+  Snapshot đã commit nên replay báo cáo không cần GPU/video; không tự đại
+  diện cho pipeline mới nếu sau này sửa code. Không đổi dependency/schema/
+  API/detector/tracker/role/homography/guard/bộ lọc hay media gốc.
+- Báo cáo VIDEO_REVIEW_EVALUATION.md; artifacts cục bộ
+  clip_11f23eea/agent_review_evaluation/{results.json,identity_candidates.jpg}.
+  Chốt video cho demo tracking/phân đội/on-pitch/guard trong đoạn ngắn;
+  chưa nghiệm thu vị trí/tốc độ/quãng đường thực địa hay định danh cầu thủ.
+  Kết thúc đợt rà soát này, chuyển công việc kế tiếp sang bước 5 dùng Metrica
+  theo ROADMAP dự phòng; không tự ghép danh tính Metrica ẩn danh/StatsBomb.
 
 ## Quyết định đã chốt
 

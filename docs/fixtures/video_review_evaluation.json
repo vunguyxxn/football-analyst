@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "source_sha256": "86f6f04ce05ac464269dfa4d831bef0c12c3654acdd2fa3c1b6379f864597b2e",
+  "labels": "docs/fixtures/vid1_11f23eea_agent_review.json",
+  "labels_canonical_sha256": "8f01220f054c82e27999be66f27c2d146023e7432310082da345cf09e64a376c",
+  "predictions": "docs/fixtures/vid1_11f23eea_prediction_samples.json",
+  "predictions_canonical_sha256": "026412e3a786caada929650dd99b94954551d8893f14606d59898eef16006d26",
+  "frames": [
+    1105,
+    1145,
+    1185,
+    1225,
+    1255,
+    1295,
+    1325,
+    1345
+  ],
+  "primary_gate_px": 12,
+  "sensitivity_gates_px": [
+    8,
+    12,
+    20
+  ],
+  "max_sample_gap_frames": 90,
+  "matching": "maximum cardinality then minimum total Euclidean image distance; class-agnostic",
+  "scope": "Agent-label diagnostic only, not independent video accuracy, MOTA, IDF1 or physical speed validation"
+}

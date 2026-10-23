@@ -4,6 +4,10 @@ Ngày: 23/10/2026. Người dùng giao agent tự làm toàn bộ phần đánh 
 không thao tác được. Đã xem 20 ảnh gốc và đánh dấu từng ảnh; **đây là nhãn
 nháp bằng quan sát của agent, không phải nhãn chuẩn độc lập do người kiểm tra**.
 
+Đã có lượt đối chiếu điểm chân/ID với dự đoán đã khóa; kết quả và quyết
+định sử dụng video nằm trong `VIDEO_REVIEW_EVALUATION.md`. Bảng count dưới
+đây là bước sơ bộ trước khi ghép, được giữ để đối chiếu lịch sử.
+
 ## Mở kết quả đã điền
 
 `D:\projects\football-analyst\data\processed\clip_11f23eea\human_review_v1\agent_review_v1\review.html`
