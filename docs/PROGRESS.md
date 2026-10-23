@@ -6,7 +6,9 @@ Cập nhật 23/10/2026: đã bắt đầu bước 5 với baseline hình dạng
 ngoại tuyến trên Metrica, hồ sơ cầu thủ/báo cáo hai đội và tham chiếu
 sơ đồ/lineup StatsBomb theo thời điểm; chức năng ngoại tuyến đã có,
 chưa nghiệm thu chất lượng nhận diện chiến thuật. Đã có tùy chọn so khớp
-mẫu và bộ đánh giá tái lập, vẫn giữ gap mặc định. Xem `FORMATION_TEMPLATE_EVALUATION.md`,
+mẫu và bộ đánh giá tái lập, vẫn giữ gap mặc định. Đã rà nháp 24 cửa sổ
+Metrica; chưa có nhãn độc lập để nghiệm thu, xem `FORMATION_AGENT_REVIEW.md`.
+Xem thêm `FORMATION_TEMPLATE_EVALUATION.md`,
 `STEP5_PLAYER_PROFILES.md`, `FORMATION_BASELINE.md`,
 `STATSBOMB_FORMATION_REFERENCE.md` và mục cuối trang. Bộ lọc tọa độ v3 giảm MAE tốc
 độ với nhiễu độc lập và cải thiện hồi phục sau lỗi ngắn so v2.1. Với nhiễu
@@ -902,6 +904,29 @@ nguồn cũ `fa6ea680`, không dùng fixture cũ cho file mới cùng tên.
   **207 passed, 1 network deselected**, cảnh báo Starlette cũ.
   Còn đánh giá chiến thuật bằng nhãn cùng tracking có tiêu chí thống nhất;
   chưa nghiệm thu chất lượng nhận diện bước 5, chưa chuyển sang bước 5b.
+
+## Bước 5 — rà soát nháp 24 cửa sổ thật (23/10/2026)
+
+- Đã xem bốn bảng vị trí trung vị và 15 ảnh thời điểm đủ người trên năm
+  cửa sổ Game 2. Ghi fixture agent review với 5 nhãn nháp mức tin cậy vừa phải,
+  14 cửa sổ không thể chấm rõ ràng và 5 thiếu dữ liệu. Không ép nhãn các
+  cửa sổ còn lại hoặc coi không chấm là nhãn thật unknown.
+- Nhãn do Codex rà, đã biết tổng hợp dự đoán từ trước; không phải đánh
+  giá mù/độc lập/con người. Fixture giữ cờ nguồn nhãn, lý do và nhóm ID
+  từng tuyến. 165 điểm ảnh thời điểm trùng frame/time/xy với CSV đã khóa.
+- Thêm CLI `backend/tactics/review_formation.py`: kiểm tra nguồn/cấu trúc,
+  đối chiếu và xuất JSON/bảng Markdown, tùy chọn tạo hình QA từ fixture.
+  Không cần CSV lớn để chạy lại; không sửa API/schema/thuật toán/ngưỡng.
+- Trên 5 nhãn nháp: gap từ chối 4, không đồng ý 1; template từ chối 3,
+  không đồng ý 2. Mỗi phương pháp có 19 cửa sổ không chấm. Không tính
+  đây là accuracy, không có căn cứ đổi phương pháp mặc định.
+- Artifacts `data/processed/formation_v1/agent_review_replay_v1/` gồm
+  evaluation.json, review.md, bốn bảng trung vị và năm bảng snapshot.
+  Chi tiết `FORMATION_AGENT_REVIEW.md`; người dùng không cần nhập lại.
+- 11 test mới; toàn bộ `pytest -q --basetemp .tmp/pytest_formation_review_full_v1`:
+  **218 passed, 1 network deselected**, cảnh báo Starlette cũ.
+  Chốt đợt rà nháp, giữ bước 5 ở mức thử nghiệm; đánh giá chiến thuật độc
+  lập vẫn chưa đạt, không chỉnh cùng tập này rồi tuyên bố đã kiểm định.
 
 ## Quyết định đã chốt
 

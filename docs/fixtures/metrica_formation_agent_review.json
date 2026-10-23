@@ -1,0 +1,1661 @@
+{
+  "kind": "agent_formation_review_v1",
+  "review_date": "2026-10-23",
+  "reviewer": "Codex",
+  "human_reviewed": false,
+  "independent_ground_truth": false,
+  "blinded": false,
+  "prior_model_summary_exposure": true,
+  "target": "observed_spatial_lines_not_coach_tactical_intent",
+  "source_packet_canonical_sha256": "efb91bc812c534a275d547e56c80c459c73f79a3374b62a27894508329f2ce6f",
+  "scope": "Draft agent assessment after viewing position-only sheets and 15 native snapshots; not independent tactical truth",
+  "rows": [
+    {
+      "game": 1,
+      "period": 1,
+      "team": "A",
+      "start_s": 60,
+      "stop_s": 70,
+      "status": "insufficient_data",
+      "shape": null,
+      "lines": [],
+      "confidence": null,
+      "reason": "Không có tập vị trí trung vị đạt guard đủ người/bao phủ; không gán nhãn sơ đồ.",
+      "snapshots": []
+    },
+    {
+      "game": 1,
+      "period": 1,
+      "team": "A",
+      "start_s": 70,
+      "stop_s": 80,
+      "status": "insufficient_data",
+      "shape": null,
+      "lines": [],
+      "confidence": null,
+      "reason": "Không có tập vị trí trung vị đạt guard đủ người/bao phủ; không gán nhãn sơ đồ.",
+      "snapshots": []
+    },
+    {
+      "game": 1,
+      "period": 1,
+      "team": "A",
+      "start_s": 80,
+      "stop_s": 90,
+      "status": "insufficient_data",
+      "shape": null,
+      "lines": [],
+      "confidence": null,
+      "reason": "Không có tập vị trí trung vị đạt guard đủ người/bao phủ; không gán nhãn sơ đồ.",
+      "snapshots": []
+    },
+    {
+      "game": 1,
+      "period": 1,
+      "team": "A",
+      "start_s": 90,
+      "stop_s": 100,
+      "status": "unscorable",
+      "shape": null,
+      "lines": [],
+      "confidence": null,
+      "reason": "Đội co cụm/lệch mạnh sát biên hoặc khu vực cuối sân; không đủ căn cứ chia thành các tuyến ổn định từ trung vị.",
+      "snapshots": []
+    },
+    {
+      "game": 1,
+      "period": 1,
+      "team": "A",
+      "start_s": 100,
+      "stop_s": 110,
+      "status": "insufficient_data",
+      "shape": null,
+      "lines": [],
+      "confidence": null,
+      "reason": "Không có tập vị trí trung vị đạt guard đủ người/bao phủ; không gán nhãn sơ đồ.",
+      "snapshots": []
+    },
+    {
+      "game": 1,
+      "period": 1,
+      "team": "A",
+      "start_s": 110,
+      "stop_s": 120,
+      "status": "unscorable",
+      "shape": null,
+      "lines": [],
+      "confidence": null,
+      "reason": "Đội co cụm/lệch mạnh sát biên hoặc khu vực cuối sân; không đủ căn cứ chia thành các tuyến ổn định từ trung vị.",
+      "snapshots": []
+    },
+    {
+      "game": 1,
+      "period": 1,
+      "team": "B",
+      "start_s": 60,
+      "stop_s": 70,
+      "status": "unscorable",
+      "shape": null,
+      "lines": [],
+      "confidence": null,
+      "reason": "Đội co cụm/lệch mạnh sát biên hoặc khu vực cuối sân; không đủ căn cứ chia thành các tuyến ổn định từ trung vị.",
+      "snapshots": []
+    },
+    {
+      "game": 1,
+      "period": 1,
+      "team": "B",
+      "start_s": 70,
+      "stop_s": 80,
+      "status": "unscorable",
+      "shape": null,
+      "lines": [],
+      "confidence": null,
+      "reason": "Đội co cụm/lệch mạnh sát biên hoặc khu vực cuối sân; không đủ căn cứ chia thành các tuyến ổn định từ trung vị.",
+      "snapshots": []
+    },
+    {
+      "game": 1,
+      "period": 1,
+      "team": "B",
+      "start_s": 80,
+      "stop_s": 90,
+      "status": "unscorable",
+      "shape": null,
+      "lines": [],
+      "confidence": null,
+      "reason": "Đội co cụm/lệch mạnh sát biên hoặc khu vực cuối sân; không đủ căn cứ chia thành các tuyến ổn định từ trung vị.",
+      "snapshots": []
+    },
+    {
+      "game": 1,
+      "period": 1,
+      "team": "B",
+      "start_s": 90,
+      "stop_s": 100,
+      "status": "unscorable",
+      "shape": null,
+      "lines": [],
+      "confidence": null,
+      "reason": "Đội co cụm/lệch mạnh sát biên hoặc khu vực cuối sân; không đủ căn cứ chia thành các tuyến ổn định từ trung vị.",
+      "snapshots": []
+    },
+    {
+      "game": 1,
+      "period": 1,
+      "team": "B",
+      "start_s": 100,
+      "stop_s": 110,
+      "status": "unscorable",
+      "shape": null,
+      "lines": [],
+      "confidence": null,
+      "reason": "Đội co cụm/lệch mạnh sát biên hoặc khu vực cuối sân; không đủ căn cứ chia thành các tuyến ổn định từ trung vị.",
+      "snapshots": []
+    },
+    {
+      "game": 1,
+      "period": 1,
+      "team": "B",
+      "start_s": 110,
+      "stop_s": 120,
+      "status": "insufficient_data",
+      "shape": null,
+      "lines": [],
+      "confidence": null,
+      "reason": "Không có tập vị trí trung vị đạt guard đủ người/bao phủ; không gán nhãn sơ đồ.",
+      "snapshots": []
+    },
+    {
+      "game": 2,
+      "period": 1,
+      "team": "A",
+      "start_s": 60,
+      "stop_s": 70,
+      "status": "draft_shape",
+      "shape": "4-4-2",
+      "lines": [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        [
+          5,
+          6,
+          7,
+          8
+        ],
+        [
+          9,
+          10
+        ]
+      ],
+      "confidence": "moderate",
+      "reason": "Bốn vị trí gần thủ môn, bốn vị trí giữa lệch tuyến và hai vị trí cao hơn; ID 7 đôi lúc lùi sát hàng sau, nên chỉ gán nhãn nháp.",
+      "snapshots": [
+        {
+          "frame": 1550,
+          "time_s": 62.0,
+          "players": [
+            {
+              "track_id": 1,
+              "xy_m": [
+                97.46835,
+                56.158480000000004
+              ]
+            },
+            {
+              "track_id": 2,
+              "xy_m": [
+                90.5331,
+                46.979839999999996
+              ]
+            },
+            {
+              "track_id": 3,
+              "xy_m": [
+                88.06455,
+                37.50064
+              ]
+            },
+            {
+              "track_id": 4,
+              "xy_m": [
+                88.6704,
+                29.486839999999997
+              ]
+            },
+            {
+              "track_id": 5,
+              "xy_m": [
+                76.62165,
+                61.80112
+              ]
+            },
+            {
+              "track_id": 6,
+              "xy_m": [
+                78.3657,
+                51.121719999999996
+              ]
+            },
+            {
+              "track_id": 7,
+              "xy_m": [
+                87.54270000000001,
+                43.95792
+              ]
+            },
+            {
+              "track_id": 8,
+              "xy_m": [
+                80.00160000000001,
+                28.02756
+              ]
+            },
+            {
+              "track_id": 9,
+              "xy_m": [
+                61.3704,
+                58.59492
+              ]
+            },
+            {
+              "track_id": 10,
+              "xy_m": [
+                54.65355,
+                42.26948
+              ]
+            },
+            {
+              "track_id": 11,
+              "xy_m": [
+                103.6854,
+                39.76912
+              ]
+            }
+          ]
+        },
+        {
+          "frame": 1625,
+          "time_s": 65.0,
+          "players": [
+            {
+              "track_id": 1,
+              "xy_m": [
+                86.01285,
+                56.332559999999994
+              ]
+            },
+            {
+              "track_id": 2,
+              "xy_m": [
+                81.039,
+                45.71096
+              ]
+            },
+            {
+              "track_id": 3,
+              "xy_m": [
+                80.18745,
+                36.25624
+              ]
+            },
+            {
+              "track_id": 4,
+              "xy_m": [
+                80.2767,
+                28.77828
+              ]
+            },
+            {
+              "track_id": 5,
+              "xy_m": [
+                68.817,
+                61.33396
+              ]
+            },
+            {
+              "track_id": 6,
+              "xy_m": [
+                68.712,
+                50.40296
+              ]
+            },
+            {
+              "track_id": 7,
+              "xy_m": [
+                76.37384999999999,
+                44.064679999999996
+              ]
+            },
+            {
+              "track_id": 8,
+              "xy_m": [
+                71.09235,
+                26.82532
+              ]
+            },
+            {
+              "track_id": 9,
+              "xy_m": [
+                60.51465,
+                54.0056
+              ]
+            },
+            {
+              "track_id": 10,
+              "xy_m": [
+                52.9494,
+                47.6374
+              ]
+            },
+            {
+              "track_id": 11,
+              "xy_m": [
+                99.75735,
+                37.25992
+              ]
+            }
+          ]
+        },
+        {
+          "frame": 1700,
+          "time_s": 68.0,
+          "players": [
+            {
+              "track_id": 1,
+              "xy_m": [
+                79.52595,
+                53.502399999999994
+              ]
+            },
+            {
+              "track_id": 2,
+              "xy_m": [
+                80.18745,
+                45.2744
+              ]
+            },
+            {
+              "track_id": 3,
+              "xy_m": [
+                80.07405,
+                34.38896
+              ]
+            },
+            {
+              "track_id": 4,
+              "xy_m": [
+                78.88335,
+                26.864079999999998
+              ]
+            },
+            {
+              "track_id": 5,
+              "xy_m": [
+                68.1072,
+                58.72752
+              ]
+            },
+            {
+              "track_id": 6,
+              "xy_m": [
+                73.5336,
+                47.55648
+              ]
+            },
+            {
+              "track_id": 7,
+              "xy_m": [
+                71.3223,
+                42.43268
+              ]
+            },
+            {
+              "track_id": 8,
+              "xy_m": [
+                63.60269999999999,
+                26.86204
+              ]
+            },
+            {
+              "track_id": 9,
+              "xy_m": [
+                65.40135000000001,
+                50.2792
+              ]
+            },
+            {
+              "track_id": 10,
+              "xy_m": [
+                52.6596,
+                42.06139999999999
+              ]
+            },
+            {
+              "track_id": 11,
+              "xy_m": [
+                97.49249999999999,
+                36.03864
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "game": 2,
+      "period": 1,
+      "team": "A",
+      "start_s": 70,
+      "stop_s": 80,
+      "status": "draft_shape",
+      "shape": "4-4-2",
+      "lines": [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        [
+          5,
+          6,
+          7,
+          8
+        ],
+        [
+          9,
+          10
+        ]
+      ],
+      "confidence": "moderate",
+      "reason": "Bốn vị trí sau và bốn vị trí giữa giữ thứ tự tương đối qua ba ảnh; 9 và 10 cùng ở phía tấn công, không xem 9 là một tiền vệ trung tâm đã xác nhận.",
+      "snapshots": [
+        {
+          "frame": 1800,
+          "time_s": 72.0,
+          "players": [
+            {
+              "track_id": 1,
+              "xy_m": [
+                80.6988,
+                50.728
+              ]
+            },
+            {
+              "track_id": 2,
+              "xy_m": [
+                80.0289,
+                38.33568
+              ]
+            },
+            {
+              "track_id": 3,
+              "xy_m": [
+                78.52005,
+                31.28476
+              ]
+            },
+            {
+              "track_id": 4,
+              "xy_m": [
+                74.92065,
+                19.035919999999997
+              ]
+            },
+            {
+              "track_id": 5,
+              "xy_m": [
+                70.70805,
+                51.29988
+              ]
+            },
+            {
+              "track_id": 6,
+              "xy_m": [
+                70.95270000000001,
+                36.65744
+              ]
+            },
+            {
+              "track_id": 7,
+              "xy_m": [
+                65.1042,
+                31.947760000000002
+              ]
+            },
+            {
+              "track_id": 8,
+              "xy_m": [
+                66.72225,
+                21.7804
+              ]
+            },
+            {
+              "track_id": 9,
+              "xy_m": [
+                62.404650000000004,
+                38.84092
+              ]
+            },
+            {
+              "track_id": 10,
+              "xy_m": [
+                54.552749999999996,
+                34.39644
+              ]
+            },
+            {
+              "track_id": 11,
+              "xy_m": [
+                99.87495,
+                34.19176
+              ]
+            }
+          ]
+        },
+        {
+          "frame": 1875,
+          "time_s": 75.0,
+          "players": [
+            {
+              "track_id": 1,
+              "xy_m": [
+                83.2461,
+                45.69464
+              ]
+            },
+            {
+              "track_id": 2,
+              "xy_m": [
+                83.70179999999999,
+                33.23432
+              ]
+            },
+            {
+              "track_id": 3,
+              "xy_m": [
+                76.38645,
+                21.392120000000002
+              ]
+            },
+            {
+              "track_id": 4,
+              "xy_m": [
+                72.11505,
+                8.2178
+              ]
+            },
+            {
+              "track_id": 5,
+              "xy_m": [
+                74.0292,
+                43.29696
+              ]
+            },
+            {
+              "track_id": 6,
+              "xy_m": [
+                73.05375,
+                26.71108
+              ]
+            },
+            {
+              "track_id": 7,
+              "xy_m": [
+                71.3769,
+                19.65268
+              ]
+            },
+            {
+              "track_id": 8,
+              "xy_m": [
+                63.269850000000005,
+                8.270840000000002
+              ]
+            },
+            {
+              "track_id": 9,
+              "xy_m": [
+                61.63185,
+                33.7926
+              ]
+            },
+            {
+              "track_id": 10,
+              "xy_m": [
+                57.34575,
+                24.77784
+              ]
+            },
+            {
+              "track_id": 11,
+              "xy_m": [
+                98.8974,
+                32.29796
+              ]
+            }
+          ]
+        },
+        {
+          "frame": 1950,
+          "time_s": 78.0,
+          "players": [
+            {
+              "track_id": 1,
+              "xy_m": [
+                80.1507,
+                44.96228000000001
+              ]
+            },
+            {
+              "track_id": 2,
+              "xy_m": [
+                78.0402,
+                30.81692
+              ]
+            },
+            {
+              "track_id": 3,
+              "xy_m": [
+                75.62415,
+                15.542079999999999
+              ]
+            },
+            {
+              "track_id": 4,
+              "xy_m": [
+                69.762,
+                6.84624
+              ]
+            },
+            {
+              "track_id": 5,
+              "xy_m": [
+                67.98645,
+                39.226479999999995
+              ]
+            },
+            {
+              "track_id": 6,
+              "xy_m": [
+                67.44045,
+                24.628239999999998
+              ]
+            },
+            {
+              "track_id": 7,
+              "xy_m": [
+                66.05655,
+                16.711679999999998
+              ]
+            },
+            {
+              "track_id": 8,
+              "xy_m": [
+                55.626900000000006,
+                9.18
+              ]
+            },
+            {
+              "track_id": 9,
+              "xy_m": [
+                59.05935,
+                30.918920000000004
+              ]
+            },
+            {
+              "track_id": 10,
+              "xy_m": [
+                52.54935,
+                19.27256
+              ]
+            },
+            {
+              "track_id": 11,
+              "xy_m": [
+                96.54645000000001,
+                32.786880000000004
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "game": 2,
+      "period": 1,
+      "team": "A",
+      "start_s": 80,
+      "stop_s": 90,
+      "status": "draft_shape",
+      "shape": "4-4-2",
+      "lines": [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        [
+          5,
+          6,
+          7,
+          8
+        ],
+        [
+          9,
+          10
+        ]
+      ],
+      "confidence": "moderate",
+      "reason": "Bốn vị trí sau gần cùng x; bốn vị trí giữa nghiêng theo y, với hai điểm phía trước. Đường tuyến không nhất thiết vuông góc trục x.",
+      "snapshots": [
+        {
+          "frame": 2050,
+          "time_s": 82.0,
+          "players": [
+            {
+              "track_id": 1,
+              "xy_m": [
+                70.13159999999999,
+                51.15232
+              ]
+            },
+            {
+              "track_id": 2,
+              "xy_m": [
+                68.85900000000001,
+                36.62276
+              ]
+            },
+            {
+              "track_id": 3,
+              "xy_m": [
+                67.64625,
+                20.8998
+              ]
+            },
+            {
+              "track_id": 4,
+              "xy_m": [
+                67.11495000000001,
+                11.111880000000003
+              ]
+            },
+            {
+              "track_id": 5,
+              "xy_m": [
+                59.2599,
+                48.28748
+              ]
+            },
+            {
+              "track_id": 6,
+              "xy_m": [
+                59.07825,
+                35.051280000000006
+              ]
+            },
+            {
+              "track_id": 7,
+              "xy_m": [
+                53.96265,
+                24.94376
+              ]
+            },
+            {
+              "track_id": 8,
+              "xy_m": [
+                50.294999999999995,
+                14.333039999999997
+              ]
+            },
+            {
+              "track_id": 9,
+              "xy_m": [
+                50.7549,
+                42.560520000000004
+              ]
+            },
+            {
+              "track_id": 10,
+              "xy_m": [
+                38.00685,
+                24.945120000000003
+              ]
+            },
+            {
+              "track_id": 11,
+              "xy_m": [
+                91.3311,
+                34.40596
+              ]
+            }
+          ]
+        },
+        {
+          "frame": 2125,
+          "time_s": 85.0,
+          "players": [
+            {
+              "track_id": 1,
+              "xy_m": [
+                67.6326,
+                53.05768
+              ]
+            },
+            {
+              "track_id": 2,
+              "xy_m": [
+                68.1135,
+                42.65844
+              ]
+            },
+            {
+              "track_id": 3,
+              "xy_m": [
+                67.75545,
+                27.731759999999998
+              ]
+            },
+            {
+              "track_id": 4,
+              "xy_m": [
+                68.12505,
+                14.937560000000001
+              ]
+            },
+            {
+              "track_id": 5,
+              "xy_m": [
+                58.68345,
+                53.537079999999996
+              ]
+            },
+            {
+              "track_id": 6,
+              "xy_m": [
+                57.1788,
+                43.71448
+              ]
+            },
+            {
+              "track_id": 7,
+              "xy_m": [
+                52.730999999999995,
+                32.48428
+              ]
+            },
+            {
+              "track_id": 8,
+              "xy_m": [
+                52.77615,
+                18.26072
+              ]
+            },
+            {
+              "track_id": 9,
+              "xy_m": [
+                48.0291,
+                50.58724
+              ]
+            },
+            {
+              "track_id": 10,
+              "xy_m": [
+                42.28455,
+                32.103480000000005
+              ]
+            },
+            {
+              "track_id": 11,
+              "xy_m": [
+                88.74495,
+                36.129760000000005
+              ]
+            }
+          ]
+        },
+        {
+          "frame": 2200,
+          "time_s": 88.0,
+          "players": [
+            {
+              "track_id": 1,
+              "xy_m": [
+                70.94535,
+                54.26196
+              ]
+            },
+            {
+              "track_id": 2,
+              "xy_m": [
+                70.7427,
+                42.36672
+              ]
+            },
+            {
+              "track_id": 3,
+              "xy_m": [
+                68.58915,
+                30.55988
+              ]
+            },
+            {
+              "track_id": 4,
+              "xy_m": [
+                68.87894999999999,
+                14.816520000000002
+              ]
+            },
+            {
+              "track_id": 5,
+              "xy_m": [
+                61.533150000000006,
+                52.37088
+              ]
+            },
+            {
+              "track_id": 6,
+              "xy_m": [
+                59.1213,
+                43.90964
+              ]
+            },
+            {
+              "track_id": 7,
+              "xy_m": [
+                53.4219,
+                35.007760000000005
+              ]
+            },
+            {
+              "track_id": 8,
+              "xy_m": [
+                56.83754999999999,
+                20.858999999999998
+              ]
+            },
+            {
+              "track_id": 9,
+              "xy_m": [
+                50.1102,
+                51.750719999999994
+              ]
+            },
+            {
+              "track_id": 10,
+              "xy_m": [
+                46.3743,
+                32.247640000000004
+              ]
+            },
+            {
+              "track_id": 11,
+              "xy_m": [
+                89.4117,
+                35.84484
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "game": 2,
+      "period": 1,
+      "team": "A",
+      "start_s": 90,
+      "stop_s": 100,
+      "status": "unscorable",
+      "shape": null,
+      "lines": [],
+      "confidence": null,
+      "reason": "Các tuyến chồng lấn hoặc hai biên dâng lệch nhau; có nhiều cách nhóm hợp lý, không ép thành một sơ đồ.",
+      "snapshots": []
+    },
+    {
+      "game": 2,
+      "period": 1,
+      "team": "A",
+      "start_s": 100,
+      "stop_s": 110,
+      "status": "unscorable",
+      "shape": null,
+      "lines": [],
+      "confidence": null,
+      "reason": "Các tuyến chồng lấn hoặc hai biên dâng lệch nhau; có nhiều cách nhóm hợp lý, không ép thành một sơ đồ.",
+      "snapshots": []
+    },
+    {
+      "game": 2,
+      "period": 1,
+      "team": "A",
+      "start_s": 110,
+      "stop_s": 120,
+      "status": "unscorable",
+      "shape": null,
+      "lines": [],
+      "confidence": null,
+      "reason": "Các tuyến chồng lấn hoặc hai biên dâng lệch nhau; có nhiều cách nhóm hợp lý, không ép thành một sơ đồ.",
+      "snapshots": []
+    },
+    {
+      "game": 2,
+      "period": 1,
+      "team": "B",
+      "start_s": 60,
+      "stop_s": 70,
+      "status": "unscorable",
+      "shape": null,
+      "lines": [],
+      "confidence": null,
+      "reason": "Các tuyến chồng lấn hoặc hai biên dâng lệch nhau; có nhiều cách nhóm hợp lý, không ép thành một sơ đồ.",
+      "snapshots": []
+    },
+    {
+      "game": 2,
+      "period": 1,
+      "team": "B",
+      "start_s": 70,
+      "stop_s": 80,
+      "status": "unscorable",
+      "shape": null,
+      "lines": [],
+      "confidence": null,
+      "reason": "Các tuyến chồng lấn hoặc hai biên dâng lệch nhau; có nhiều cách nhóm hợp lý, không ép thành một sơ đồ.",
+      "snapshots": []
+    },
+    {
+      "game": 2,
+      "period": 1,
+      "team": "B",
+      "start_s": 80,
+      "stop_s": 90,
+      "status": "unscorable",
+      "shape": null,
+      "lines": [],
+      "confidence": null,
+      "reason": "Các tuyến chồng lấn hoặc hai biên dâng lệch nhau; có nhiều cách nhóm hợp lý, không ép thành một sơ đồ.",
+      "snapshots": []
+    },
+    {
+      "game": 2,
+      "period": 1,
+      "team": "B",
+      "start_s": 90,
+      "stop_s": 100,
+      "status": "unscorable",
+      "shape": null,
+      "lines": [],
+      "confidence": null,
+      "reason": "Các tuyến chồng lấn hoặc hai biên dâng lệch nhau; có nhiều cách nhóm hợp lý, không ép thành một sơ đồ.",
+      "snapshots": []
+    },
+    {
+      "game": 2,
+      "period": 1,
+      "team": "B",
+      "start_s": 100,
+      "stop_s": 110,
+      "status": "draft_shape",
+      "shape": "4-3-3",
+      "lines": [
+        [
+          1015,
+          1016,
+          1017,
+          1018
+        ],
+        [
+          1019,
+          1020,
+          1021
+        ],
+        [
+          1022,
+          1023,
+          1024
+        ]
+      ],
+      "confidence": "moderate",
+      "reason": "Bốn vị trí sau, ba vị trí giữa và ba điểm phía trước; 1019 dâng cao ở một bên nhưng vẫn có thể nhóm với 1020/1021. Giả thuyết không phải đội hình do HLV xác nhận.",
+      "snapshots": [
+        {
+          "frame": 2550,
+          "time_s": 102.0,
+          "players": [
+            {
+              "track_id": 1015,
+              "xy_m": [
+                52.7583,
+                3.969839999999999
+              ]
+            },
+            {
+              "track_id": 1016,
+              "xy_m": [
+                46.68825,
+                12.894160000000001
+              ]
+            },
+            {
+              "track_id": 1017,
+              "xy_m": [
+                46.94025,
+                26.15212
+              ]
+            },
+            {
+              "track_id": 1018,
+              "xy_m": [
+                45.533249999999995,
+                40.85032
+              ]
+            },
+            {
+              "track_id": 1019,
+              "xy_m": [
+                66.26655,
+                4.738239999999998
+              ]
+            },
+            {
+              "track_id": 1020,
+              "xy_m": [
+                55.06935,
+                29.4134
+              ]
+            },
+            {
+              "track_id": 1021,
+              "xy_m": [
+                59.66415,
+                12.259719999999996
+              ]
+            },
+            {
+              "track_id": 1022,
+              "xy_m": [
+                69.5436,
+                29.37192
+              ]
+            },
+            {
+              "track_id": 1023,
+              "xy_m": [
+                72.88050000000001,
+                28.672880000000003
+              ]
+            },
+            {
+              "track_id": 1024,
+              "xy_m": [
+                69.06375,
+                13.261359999999998
+              ]
+            },
+            {
+              "track_id": 1025,
+              "xy_m": [
+                15.76785,
+                32.15176
+              ]
+            }
+          ]
+        },
+        {
+          "frame": 2625,
+          "time_s": 105.0,
+          "players": [
+            {
+              "track_id": 1015,
+              "xy_m": [
+                48.64755,
+                8.991639999999997
+              ]
+            },
+            {
+              "track_id": 1016,
+              "xy_m": [
+                46.2357,
+                19.4616
+              ]
+            },
+            {
+              "track_id": 1017,
+              "xy_m": [
+                48.7368,
+                30.90328
+              ]
+            },
+            {
+              "track_id": 1018,
+              "xy_m": [
+                47.88525,
+                43.385360000000006
+              ]
+            },
+            {
+              "track_id": 1019,
+              "xy_m": [
+                65.70585,
+                9.494840000000002
+              ]
+            },
+            {
+              "track_id": 1020,
+              "xy_m": [
+                58.39995,
+                34.27472
+              ]
+            },
+            {
+              "track_id": 1021,
+              "xy_m": [
+                57.9348,
+                20.4782
+              ]
+            },
+            {
+              "track_id": 1022,
+              "xy_m": [
+                69.60135,
+                40.030919999999995
+              ]
+            },
+            {
+              "track_id": 1023,
+              "xy_m": [
+                74.80619999999999,
+                30.867239999999995
+              ]
+            },
+            {
+              "track_id": 1024,
+              "xy_m": [
+                71.9082,
+                19.331039999999998
+              ]
+            },
+            {
+              "track_id": 1025,
+              "xy_m": [
+                17.14125,
+                33.03508
+              ]
+            }
+          ]
+        },
+        {
+          "frame": 2700,
+          "time_s": 108.0,
+          "players": [
+            {
+              "track_id": 1015,
+              "xy_m": [
+                42.14595,
+                17.728279999999998
+              ]
+            },
+            {
+              "track_id": 1016,
+              "xy_m": [
+                42.02205,
+                29.006080000000004
+              ]
+            },
+            {
+              "track_id": 1017,
+              "xy_m": [
+                43.6548,
+                41.471160000000005
+              ]
+            },
+            {
+              "track_id": 1018,
+              "xy_m": [
+                44.1546,
+                52.54564
+              ]
+            },
+            {
+              "track_id": 1019,
+              "xy_m": [
+                57.36465,
+                16.28532
+              ]
+            },
+            {
+              "track_id": 1020,
+              "xy_m": [
+                52.606049999999996,
+                45.32948
+              ]
+            },
+            {
+              "track_id": 1021,
+              "xy_m": [
+                50.33175,
+                30.72036
+              ]
+            },
+            {
+              "track_id": 1022,
+              "xy_m": [
+                58.990050000000004,
+                57.11932
+              ]
+            },
+            {
+              "track_id": 1023,
+              "xy_m": [
+                67.9203,
+                40.80067999999999
+              ]
+            },
+            {
+              "track_id": 1024,
+              "xy_m": [
+                66.89654999999999,
+                24.705080000000002
+              ]
+            },
+            {
+              "track_id": 1025,
+              "xy_m": [
+                15.918000000000001,
+                34.66368
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "game": 2,
+      "period": 1,
+      "team": "B",
+      "start_s": 110,
+      "stop_s": 120,
+      "status": "draft_shape",
+      "shape": "4-3-3",
+      "lines": [
+        [
+          1015,
+          1016,
+          1017,
+          1018
+        ],
+        [
+          1019,
+          1020,
+          1021
+        ],
+        [
+          1022,
+          1023,
+          1024
+        ]
+      ],
+      "confidence": "moderate",
+      "reason": "Quan sát ba nhóm dọc sân 4/3/3 qua ba ảnh; tuyến giữa và tuyến trước có lệch cánh. Khoảng cách tuyến ngắn nên mức tin cậy chỉ vừa phải.",
+      "snapshots": [
+        {
+          "frame": 2800,
+          "time_s": 112.0,
+          "players": [
+            {
+              "track_id": 1015,
+              "xy_m": [
+                36.1641,
+                23.868
+              ]
+            },
+            {
+              "track_id": 1016,
+              "xy_m": [
+                35.81655,
+                39.39172000000001
+              ]
+            },
+            {
+              "track_id": 1017,
+              "xy_m": [
+                38.666250000000005,
+                50.74908
+              ]
+            },
+            {
+              "track_id": 1018,
+              "xy_m": [
+                40.023900000000005,
+                60.754599999999996
+              ]
+            },
+            {
+              "track_id": 1019,
+              "xy_m": [
+                46.86465,
+                23.07172
+              ]
+            },
+            {
+              "track_id": 1020,
+              "xy_m": [
+                49.19985,
+                53.17192
+              ]
+            },
+            {
+              "track_id": 1021,
+              "xy_m": [
+                45.718050000000005,
+                40.09008
+              ]
+            },
+            {
+              "track_id": 1022,
+              "xy_m": [
+                51.79335,
+                63.38688
+              ]
+            },
+            {
+              "track_id": 1023,
+              "xy_m": [
+                58.877700000000004,
+                60.37584
+              ]
+            },
+            {
+              "track_id": 1024,
+              "xy_m": [
+                59.8521,
+                32.680800000000005
+              ]
+            },
+            {
+              "track_id": 1025,
+              "xy_m": [
+                13.36545,
+                35.08732
+              ]
+            }
+          ]
+        },
+        {
+          "frame": 2875,
+          "time_s": 115.0,
+          "players": [
+            {
+              "track_id": 1015,
+              "xy_m": [
+                31.80975,
+                19.280039999999996
+              ]
+            },
+            {
+              "track_id": 1016,
+              "xy_m": [
+                32.99205,
+                35.8768
+              ]
+            },
+            {
+              "track_id": 1017,
+              "xy_m": [
+                35.629650000000005,
+                47.44087999999999
+              ]
+            },
+            {
+              "track_id": 1018,
+              "xy_m": [
+                34.3644,
+                57.545680000000004
+              ]
+            },
+            {
+              "track_id": 1019,
+              "xy_m": [
+                42.6993,
+                24.066560000000003
+              ]
+            },
+            {
+              "track_id": 1020,
+              "xy_m": [
+                44.19555,
+                47.84344
+              ]
+            },
+            {
+              "track_id": 1021,
+              "xy_m": [
+                42.927150000000005,
+                36.3052
+              ]
+            },
+            {
+              "track_id": 1022,
+              "xy_m": [
+                48.47745,
+                61.09868
+              ]
+            },
+            {
+              "track_id": 1023,
+              "xy_m": [
+                52.90005,
+                54.191919999999996
+              ]
+            },
+            {
+              "track_id": 1024,
+              "xy_m": [
+                52.66275,
+                36.67444
+              ]
+            },
+            {
+              "track_id": 1025,
+              "xy_m": [
+                11.7894,
+                35.03564000000001
+              ]
+            }
+          ]
+        },
+        {
+          "frame": 2950,
+          "time_s": 118.0,
+          "players": [
+            {
+              "track_id": 1015,
+              "xy_m": [
+                28.20195,
+                21.34112
+              ]
+            },
+            {
+              "track_id": 1016,
+              "xy_m": [
+                28.7721,
+                35.60412
+              ]
+            },
+            {
+              "track_id": 1017,
+              "xy_m": [
+                32.63295,
+                42.03216
+              ]
+            },
+            {
+              "track_id": 1018,
+              "xy_m": [
+                30.18855,
+                55.864039999999996
+              ]
+            },
+            {
+              "track_id": 1019,
+              "xy_m": [
+                38.111850000000004,
+                24.3916
+              ]
+            },
+            {
+              "track_id": 1020,
+              "xy_m": [
+                38.691449999999996,
+                46.25224
+              ]
+            },
+            {
+              "track_id": 1021,
+              "xy_m": [
+                34.5093,
+                39.47196
+              ]
+            },
+            {
+              "track_id": 1022,
+              "xy_m": [
+                41.090700000000005,
+                57.08464
+              ]
+            },
+            {
+              "track_id": 1023,
+              "xy_m": [
+                48.64755,
+                49.644079999999995
+              ]
+            },
+            {
+              "track_id": 1024,
+              "xy_m": [
+                46.6452,
+                40.87276
+              ]
+            },
+            {
+              "track_id": 1025,
+              "xy_m": [
+                7.835100000000001,
+                34.86768
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -107,3 +107,7 @@ Bước cần thiết tiếp theo là gán nhãn cùng tập tracking theo một
 thống nhất, tách phần dùng phát triển và phần đánh giá trước khi chỉnh
 tham số. Nên có người đánh giá độc lập; nhãn tự dựng hoặc agent tự nhận
 xét cần giữ rõ nguồn, không thay thế đánh giá độc lập.
+
+Đã rà nháp 24 cửa sổ và kiểm tra thêm 15 ảnh thời điểm; kết quả đối chiếu
+với nhãn agent ở `FORMATION_AGENT_REVIEW.md`. Không dùng các nhãn nháp đó
+để đổi ngưỡng trong đợt này hoặc thay cho đánh giá độc lập.
