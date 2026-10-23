@@ -14,6 +14,9 @@ không phải bằng chứng accuracy hay thay đổi mặc định sản phẩm
 Đã thêm thử nghiệm `aligned` cho tuyến nghiêng/lệch cánh: 54/54 ca stress
 giả lập và 1/24 cửa sổ có hỗ trợ thời gian, chưa đủ căn cứ đổi mặc định.
 Chi tiết `FORMATION_ALIGNED.md`; chất lượng chiến thuật chưa nghiệm thu.
+Đã bổ sung bộ đọc Metrica Game 3 và đối chiếu bố trí vai trò từ metadata
+chính nguồn: aligned khớp 2, khác 1, từ chối 21 trên 24 cửa sổ. Metadata
+vai trò không phải nhãn chiến thuật từng frame; xem `METRICA_GAME3_REFERENCE.md`.
 Xem thêm `FORMATION_TEMPLATE_EVALUATION.md`,
 `STEP5_PLAYER_PROFILES.md`, `FORMATION_BASELINE.md`,
 `STATSBOMB_FORMATION_REFERENCE.md` và mục cuối trang. Bộ lọc tọa độ v3 giảm MAE tốc
@@ -976,6 +979,28 @@ nguồn cũ `fa6ea680`, không dùng fixture cũ cho file mới cùng tên.
 - 13 test mới; toàn bộ `pytest -q --basetemp .tmp/pytest_aligned_full_v1`:
   **237 passed, 1 network deselected**, cảnh báo Starlette cũ.
   Tiến bộ chức năng chưa thay thế yêu cầu đánh giá chiến thuật độc lập.
+
+## Bước 5 — nguồn vai trò chính thức cùng Game 3 (23/10/2026)
+
+- Kiểm tra nguồn Metrica tại commit khóa: Game 3 có EPTS XML chứa vai trò,
+  hướng, ánh xạ cột và khoảng định dạng. Tải metadata/tracking, xác minh
+  byte và Git blob SHA1 tại commit, khóa SHA256 trong manifest riêng.
+  Không suy vai trò Game 3 cho Game 1/2 hoặc ghép người với StatsBomb.
+- Thêm `backend/tactics/metrica_game3.py`: parser biến thể EPTS đã khóa,
+  ánh xạ PlayerChannelRef tới ID/số áo, xử lý đổi roster, clock từng hiệp,
+  tọa độ 105×68 và đoạn thiếu. Đọc tuần tự, giữ riêng khoảng yêu cầu.
+  Không thêm thư viện/API/schema hoặc chỉnh thuật toán/threshold mặc định.
+- Tham chiếu khai báo: A có cấp thô 4-5-1, độ sâu vai trò 4-2-3-1;
+  B 4-4-2 cả hai cấp. Đây là cách nhóm vai trò từ XML, không phải nhãn
+  chiến thuật từng thời điểm. Thủ môn Game 3 là A11/B1028.
+- Chạy 24 cửa sổ hiệp 1 giây 60–180: gap khớp 0/khác 2/từ chối 22;
+  template 0/0/24; aligned 2/1/21 so bố trí độ sâu vai trò đã chọn trước.
+  Không báo accuracy chiến thuật hoặc gán mọi pha bóng theo metadata tĩnh.
+- Artifact `data/processed/formation_v1/game3_role_comparison_60_180_v1.json`.
+  Commit fixture XML gốc và 9 dòng tracking để test ngoại tuyến; giữ byte
+  bằng .gitattributes. Chi tiết nguồn/lệnh/giới hạn `METRICA_GAME3_REFERENCE.md`.
+- 9 test mới; toàn bộ `pytest -q --basetemp .tmp/pytest_game3_full_v1`:
+  **246 passed, 1 network deselected**, cảnh báo Starlette cũ.
 
 ## Quyết định đã chốt
 

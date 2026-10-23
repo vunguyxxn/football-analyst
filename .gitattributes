@@ -1,0 +1,3 @@
+# Preserve pinned source bytes and fixture checksums across Windows/Linux.
+docs/fixtures/metrica_game3_metadata.xml -text
+docs/fixtures/metrica_game3_tracking_excerpt.txt -text

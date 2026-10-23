@@ -1,0 +1,36 @@
+{
+  "source": "Metrica Sports Sample Data",
+  "commit": "e706dd506b360d69d9d123d5b8026e7294b13996",
+  "files": [
+    {
+      "filename": "Sample_Game_3_metadata.xml",
+      "url": "https://raw.githubusercontent.com/metrica-sports/sample-data/e706dd506b360d69d9d123d5b8026e7294b13996/data/Sample_Game_3/Sample_Game_3_metadata.xml",
+      "bytes": 81806,
+      "git_blob_sha1": "74b55a80f6aeeb8f8df7fd26e4b3a94e2cc1738d",
+      "sha256": "009c7dcfcb66192014917ca1559c158f612353e390eafb85f8214b06a1c7dec1"
+    },
+    {
+      "filename": "Sample_Game_3_tracking.txt",
+      "url": "https://raw.githubusercontent.com/metrica-sports/sample-data/e706dd506b360d69d9d123d5b8026e7294b13996/data/Sample_Game_3/Sample_Game_3_tracking.txt",
+      "bytes": 53443115,
+      "git_blob_sha1": "7062b7ceaa44d53345a4625b8f447efc74895b1d",
+      "sha256": "570e6ce82c2d93bc92723af331d93c31110bec1d6dc0be07c6d44ca3f981d658"
+    }
+  ],
+  "test_excerpt": {
+    "path": "docs/fixtures/metrica_game3_tracking_excerpt.txt",
+    "frames": [
+      1,
+      2,
+      3,
+      69661,
+      69662,
+      69663,
+      89697,
+      89698,
+      89699
+    ],
+    "sha256": "dc9e3e2fcc7b0d40f448f78ced45494a96e7f3de2241c78248cec8e8625de8af",
+    "source_filename": "Sample_Game_3_tracking.txt"
+  }
+}
