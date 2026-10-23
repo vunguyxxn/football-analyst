@@ -1,0 +1,20 @@
+{
+  "version": "formation_stability_v1",
+  "purpose": "New-time-window temporal diagnostic; not independent tactical accuracy",
+  "period": 1,
+  "start_s": 120,
+  "stop_s": 180,
+  "window_s": 10,
+  "sample_offsets_s": [1, 3, 5, 7, 9],
+  "maximum_sample_offset_error_s": 0.08,
+  "minimum_agreeing_samples": 4,
+  "require_all_five_observed_slots": true,
+  "minimum_joint_coverage": 0.8,
+  "source_manifest": "docs/fixtures/metrica_benchmark.json",
+  "teams": [
+    {"game": 1, "team": "A", "side": "Home", "goalkeeper_id": 11, "attack_direction": 1},
+    {"game": 1, "team": "B", "side": "Away", "goalkeeper_id": 1025, "attack_direction": -1},
+    {"game": 2, "team": "A", "side": "Home", "goalkeeper_id": 11, "attack_direction": -1},
+    {"game": 2, "team": "B", "side": "Away", "goalkeeper_id": 1025, "attack_direction": 1}
+  ]
+}

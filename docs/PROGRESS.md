@@ -8,6 +8,9 @@ sơ đồ/lineup StatsBomb theo thời điểm; chức năng ngoại tuyến đ�
 chưa nghiệm thu chất lượng nhận diện chiến thuật. Đã có tùy chọn so khớp
 mẫu và bộ đánh giá tái lập, vẫn giữ gap mặc định. Đã rà nháp 24 cửa sổ
 Metrica; chưa có nhãn độc lập để nghiệm thu, xem `FORMATION_AGENT_REVIEW.md`.
+Kiểm tra thêm 24 cửa sổ mới giây 120–180: không nhãn nào đủ đồng thuận
+4/5 ảnh thời điểm; xem `FORMATION_TEMPORAL_CHECK.md`. Đây là chẩn đoán,
+không phải bằng chứng accuracy hay thay đổi mặc định sản phẩm.
 Xem thêm `FORMATION_TEMPLATE_EVALUATION.md`,
 `STEP5_PLAYER_PROFILES.md`, `FORMATION_BASELINE.md`,
 `STATSBOMB_FORMATION_REFERENCE.md` và mục cuối trang. Bộ lọc tọa độ v3 giảm MAE tốc
@@ -927,6 +930,26 @@ nguồn cũ `fa6ea680`, không dùng fixture cũ cho file mới cùng tên.
   **218 passed, 1 network deselected**, cảnh báo Starlette cũ.
   Chốt đợt rà nháp, giữ bước 5 ở mức thử nghiệm; đánh giá chiến thuật độc
   lập vẫn chưa đạt, không chỉnh cùng tập này rồi tuyên bố đã kiểm định.
+
+## Bước 5 — kiểm tra thời gian trên 24 cửa sổ mới (23/10/2026)
+
+- Khóa protocol giây 120–180 hiệp 1 cả hai đội Game 1/2 trước lần chạy,
+  không trùng 24 cửa sổ giây 60–120 đã phát triển/rà nháp. Không có nhãn
+  tham chiếu thực ở tập mới, không báo accuracy hoặc nhãn kiểm định độc lập.
+- Thêm CLI chẩn đoán `backend/tactics/formation_stability.py`: giữ guard
+  cũ, so nhãn trung vị với 5 ảnh thực ở offset 1/3/5/7/9 giây, dung sai
+  0,08s, đủ 5 ảnh và >=4 ảnh cùng nhãn. Không bỏ unknown khỏi mẫu số,
+  không dùng các ảnh để ép nhãn trung vị chưa xác định.
+- Kết quả: gap có 2/24 nhãn trung vị, template 3/24; cả hai 0/24 đạt
+  quy tắc thời gian. Ba cửa sổ bị guard loại; 104/105 thời điểm còn lại
+  có khung trong dung sai. Không thay ngưỡng/mặc định/API/schema/thư viện.
+- Artifact `data/processed/formation_v1/stability_120_180_v1.json` giữ
+  nguồn/hash, protocol, tọa độ ảnh và các kết quả trung gian. Chi tiết
+  `FORMATION_TEMPORAL_CHECK.md`. Chốt nhận diện sơ đồ còn thử nghiệm;
+  sự không đồng thuận không tự chứng minh nhãn sai hoặc HLV không có sơ đồ.
+- 6 test mới; toàn bộ `pytest -q --basetemp .tmp/pytest_formation_stability_full_v1`:
+  **224 passed, 1 network deselected**, cảnh báo Starlette cũ.
+  Không tác động hồ sơ chuyển động hoặc tham chiếu StatsBomb.
 
 ## Quyết định đã chốt
 
