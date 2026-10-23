@@ -42,8 +42,10 @@ def spatial_shape(positions, goalkeeper_id, attack_direction):
                        "centroid_m": xy[g].mean(axis=0).tolist()} for g in groups]}
 
 
-def analyze_window(trajectories, start_s, stop_s, goalkeeper_id, attack_direction):
+def analyze_window(trajectories, start_s, stop_s, goalkeeper_id, attack_direction, *, method="gap"):
     """Use only simultaneous full-roster frames; reject gaps/substitutions."""
+    if method not in ("gap", "template"):
+        raise ValueError("Unknown formation method")
     if not math.isfinite(start_s) or not math.isfinite(stop_s) or stop_s - start_s < 5:
         raise ValueError("Window must be finite and at least five seconds")
     if attack_direction not in (-1, 1):
@@ -70,9 +72,12 @@ def analyze_window(trajectories, start_s, stop_s, goalkeeper_id, attack_directio
         return {**base, "status": "unknown", "reason": "insufficient_joint_coverage"}
     positions = {t.track_id: np.median([v[f] for f in common], axis=0).tolist()
                  for (t, _), v in zip(active, maps)}
+    from backend.tactics.formation_templates import template_shape
+
+    recognizer = template_shape if method == "template" else spatial_shape
     return {**base, "players": [{"track_id": p, "median_position_m": xy,
                                   "is_goalkeeper": p == goalkeeper_id} for p, xy in positions.items()],
-            **spatial_shape(positions, goalkeeper_id, attack_direction)}
+            **recognizer(positions, goalkeeper_id, attack_direction)}
 
 
 def main():

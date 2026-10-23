@@ -5,7 +5,9 @@
 Cập nhật 23/10/2026: đã bắt đầu bước 5 với baseline hình dạng đội hình
 ngoại tuyến trên Metrica, hồ sơ cầu thủ/báo cáo hai đội và tham chiếu
 sơ đồ/lineup StatsBomb theo thời điểm; chức năng ngoại tuyến đã có,
-chưa nghiệm thu chất lượng nhận diện chiến thuật. Xem `STEP5_PLAYER_PROFILES.md`, `FORMATION_BASELINE.md`,
+chưa nghiệm thu chất lượng nhận diện chiến thuật. Đã có tùy chọn so khớp
+mẫu và bộ đánh giá tái lập, vẫn giữ gap mặc định. Xem `FORMATION_TEMPLATE_EVALUATION.md`,
+`STEP5_PLAYER_PROFILES.md`, `FORMATION_BASELINE.md`,
 `STATSBOMB_FORMATION_REFERENCE.md` và mục cuối trang. Bộ lọc tọa độ v3 giảm MAE tốc
 độ với nhiễu độc lập và cải thiện hồi phục sau lỗi ngắn so v2.1. Với nhiễu
 tương quan thời gian, sai số vẫn chưa cải thiện; cửa sổ dài hơn phản ứng
@@ -876,6 +878,30 @@ nguồn cũ `fa6ea680`, không dùng fixture cũ cho file mới cùng tên.
   sơ cầu thủ ngoại tuyến. Chưa nghiệm thu chất lượng nhận diện chiến thuật:
   vẫn 3/24 cửa sổ có hình dạng, thiếu nhãn độc lập cùng tracking. Giao diện
   ở bước 8; không báo hoàn thành phần đánh giá khi chưa có dữ liệu.
+
+## Bước 5 — so khớp mẫu và đánh giá tái lập (23/10/2026)
+
+- Thêm `formation_templates.py`: sáu mẫu hình học, chuẩn hóa vị trí tương
+  đối và phép ghép một-một tối ưu bằng DP tập con, không thêm dependency.
+  Từ chối co cụm, khớp kém hoặc hai mẫu quá gần; điểm không phải xác suất.
+  `metrica_report` có `--formation-method template`, giữ `gap` mặc định.
+- Giữ guard cửa sổ đúng 11 người, >=80% đồng thời và không trộn ID.
+  Không thay metric chuyển động/API/schema. Đã chạy CSV thật hai trận,
+  xuất 44 hồ sơ ở `formation_v1/game{1,2}_tactics_templates_v1.json`.
+- Thêm evaluator và hai fixture: 72 ca hình học tự dựng có nguồn nhãn
+  rõ ràng; 24 cửa sổ Metrica khóa vị trí/hash nguồn, tham chiếu thực đều
+  `unreviewed`, không lấy dự đoán gap làm nhãn hoặc tự nhận nhãn độc lập.
+- Giả lập: gap đúng 52/54 ca có sơ đồ, template 54/54; cả hai từ chối
+  18 ca kỳ vọng chưa xác định. Chỉ kiểm tra giả thiết hình học, không phải
+  accuracy thực tế. Metrica: gap xuất 3/24, template 2/24 ở hai cửa sổ
+  khác; chưa có nhãn thật để kết luận cách nào đúng hơn. Ngưỡng margin
+  0,04/0,08/0,12 cho 2/2/0 kết quả, chưa đủ căn cứ thay phương pháp mặc định.
+- Artifacts: `formation_v1/template_comparison{,_frozen}_v1.json`.
+  Phương pháp, nguồn nhãn, kết quả và lệnh ở `FORMATION_TEMPLATE_EVALUATION.md`.
+- 12 test mới; toàn bộ `pytest -q --basetemp .tmp/pytest_templates_full_v1`:
+  **207 passed, 1 network deselected**, cảnh báo Starlette cũ.
+  Còn đánh giá chiến thuật bằng nhãn cùng tracking có tiêu chí thống nhất;
+  chưa nghiệm thu chất lượng nhận diện bước 5, chưa chuyển sang bước 5b.
 
 ## Quyết định đã chốt
 

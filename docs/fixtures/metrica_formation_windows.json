@@ -1,0 +1,2428 @@
+{
+  "kind": "metrica_formation_review_packet_v1",
+  "label_source": "none",
+  "independent_ground_truth": false,
+  "description": "Frozen median positions from existing reports. Unreviewed references are not unknown tactical truth.",
+  "report_hashes": [
+    "3cce6969c7e48d2c771f4d7522599604f8d0f2b5a2cfc00aa97050d128763f38",
+    "dd16e04a28401c5e575a05640d49a958699806ec7c45e6bc70c178231b1232a5"
+  ],
+  "reports": [
+    {
+      "kind": "offline_metrica_tactics_v1",
+      "game": 1,
+      "period": 1,
+      "start_s": 60,
+      "stop_s": 120,
+      "sources": [
+        {
+          "path": "data/raw/metrica/Sample_Game_1_RawTrackingData_Home_Team.csv",
+          "sha256": "0a3d0eff7785950379c587d3597b86a2d91c2492281b4652e1abb97c99b6b364",
+          "team": "A",
+          "loader_audit": {
+            "missing": 4500,
+            "outside": 667,
+            "native_frames": 1500,
+            "fps": 25.0
+          }
+        },
+        {
+          "path": "data/raw/metrica/Sample_Game_1_RawTrackingData_Away_Team.csv",
+          "sha256": "0a3df68a92af0290ede472e62de3b6489ddee29223da09bdf0cf76c8e0ab0618",
+          "team": "B",
+          "loader_audit": {
+            "missing": 4500,
+            "outside": 259,
+            "native_frames": 1500,
+            "fps": 25.0
+          }
+        }
+      ],
+      "teams": [
+        {
+          "team": "A",
+          "goalkeeper_id": 11,
+          "attack_direction": 1,
+          "formation_windows": [
+            {
+              "start_s": 60,
+              "stop_s": 70,
+              "goalkeeper_id": 11,
+              "attack_direction": 1,
+              "joint_frames": 116,
+              "joint_coverage": 0.464,
+              "status": "unknown",
+              "reason": "insufficient_joint_coverage",
+              "reference": {
+                "label_status": "unreviewed",
+                "shape": null,
+                "reviewer": null
+              }
+            },
+            {
+              "start_s": 70,
+              "stop_s": 80,
+              "goalkeeper_id": 11,
+              "attack_direction": 1,
+              "joint_frames": 192,
+              "joint_coverage": 0.768,
+              "status": "unknown",
+              "reason": "insufficient_joint_coverage",
+              "reference": {
+                "label_status": "unreviewed",
+                "shape": null,
+                "reviewer": null
+              }
+            },
+            {
+              "start_s": 80,
+              "stop_s": 90,
+              "goalkeeper_id": 11,
+              "attack_direction": 1,
+              "joint_frames": 103,
+              "joint_coverage": 0.412,
+              "status": "unknown",
+              "reason": "insufficient_joint_coverage",
+              "reference": {
+                "label_status": "unreviewed",
+                "shape": null,
+                "reviewer": null
+              }
+            },
+            {
+              "start_s": 90,
+              "stop_s": 100,
+              "goalkeeper_id": 11,
+              "attack_direction": 1,
+              "joint_frames": 250,
+              "joint_coverage": 1.0,
+              "players": [
+                {
+                  "track_id": 11,
+                  "median_position_m": [
+                    26.424825,
+                    34.92514
+                  ],
+                  "is_goalkeeper": true
+                },
+                {
+                  "track_id": 1,
+                  "median_position_m": [
+                    101.89462499999999,
+                    39.24552
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 2,
+                  "median_position_m": [
+                    97.87049999999999,
+                    39.71268
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 3,
+                  "median_position_m": [
+                    96.4635,
+                    35.46064
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 4,
+                  "median_position_m": [
+                    66.7926,
+                    39.23906
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 5,
+                  "median_position_m": [
+                    84.62895,
+                    34.96934
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 6,
+                  "median_position_m": [
+                    85.25475,
+                    58.04514
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 7,
+                  "median_position_m": [
+                    88.1496,
+                    50.69536
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 8,
+                  "median_position_m": [
+                    94.853325,
+                    39.68854
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 9,
+                  "median_position_m": [
+                    103.69485,
+                    45.54164
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 10,
+                  "median_position_m": [
+                    102.03059999999999,
+                    56.85174
+                  ],
+                  "is_goalkeeper": false
+                }
+              ],
+              "centroid_m": [
+                92.16333,
+                43.94496600000001
+              ],
+              "width_m": 23.0758,
+              "depth_m": 36.90225000000001,
+              "status": "unknown",
+              "reason": "borderline_line_separation",
+              "reference": {
+                "label_status": "unreviewed",
+                "shape": null,
+                "reviewer": null
+              }
+            },
+            {
+              "start_s": 100,
+              "stop_s": 110,
+              "goalkeeper_id": 11,
+              "attack_direction": 1,
+              "joint_frames": 96,
+              "joint_coverage": 0.384,
+              "status": "unknown",
+              "reason": "insufficient_joint_coverage",
+              "reference": {
+                "label_status": "unreviewed",
+                "shape": null,
+                "reviewer": null
+              }
+            },
+            {
+              "start_s": 110,
+              "stop_s": 120,
+              "goalkeeper_id": 11,
+              "attack_direction": 1,
+              "joint_frames": 239,
+              "joint_coverage": 0.956,
+              "players": [
+                {
+                  "track_id": 11,
+                  "median_position_m": [
+                    0.7245,
+                    34.55216
+                  ],
+                  "is_goalkeeper": true
+                },
+                {
+                  "track_id": 1,
+                  "median_position_m": [
+                    87.46815000000001,
+                    43.71584
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 2,
+                  "median_position_m": [
+                    73.5105,
+                    36.57652
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 3,
+                  "median_position_m": [
+                    92.37375,
+                    46.617399999999996
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 4,
+                  "median_position_m": [
+                    90.28320000000001,
+                    49.708679999999994
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 5,
+                  "median_position_m": [
+                    91.84035,
+                    43.76412
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 6,
+                  "median_position_m": [
+                    67.79115,
+                    44.68008
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 7,
+                  "median_position_m": [
+                    88.21365,
+                    46.73436
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 8,
+                  "median_position_m": [
+                    79.9029,
+                    46.509280000000004
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 9,
+                  "median_position_m": [
+                    98.31569999999999,
+                    45.7606
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 10,
+                  "median_position_m": [
+                    93.702,
+                    47.53336
+                  ],
+                  "is_goalkeeper": false
+                }
+              ],
+              "centroid_m": [
+                86.340135,
+                45.160024
+              ],
+              "width_m": 13.132159999999992,
+              "depth_m": 30.52454999999999,
+              "status": "unknown",
+              "reason": "borderline_line_separation",
+              "reference": {
+                "label_status": "unreviewed",
+                "shape": null,
+                "reviewer": null
+              }
+            }
+          ],
+          "formation_summary": {
+            "total_windows": 6,
+            "observed_shape_windows": 0,
+            "unknown_windows": 6
+          },
+          "unprocessed_formation_tail_s": 0.0
+        },
+        {
+          "team": "B",
+          "goalkeeper_id": 1025,
+          "attack_direction": -1,
+          "formation_windows": [
+            {
+              "start_s": 60,
+              "stop_s": 70,
+              "goalkeeper_id": 1025,
+              "attack_direction": -1,
+              "joint_frames": 250,
+              "joint_coverage": 1.0,
+              "players": [
+                {
+                  "track_id": 1025,
+                  "median_position_m": [
+                    103.35465,
+                    36.6894
+                  ],
+                  "is_goalkeeper": true
+                },
+                {
+                  "track_id": 1015,
+                  "median_position_m": [
+                    99.82140000000001,
+                    41.08424
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1016,
+                  "median_position_m": [
+                    97.3434,
+                    36.31948
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1017,
+                  "median_position_m": [
+                    95.93745,
+                    33.96566
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1018,
+                  "median_position_m": [
+                    92.21205,
+                    40.985640000000004
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1019,
+                  "median_position_m": [
+                    93.056775,
+                    39.36282
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1020,
+                  "median_position_m": [
+                    97.644225,
+                    34.17102
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1021,
+                  "median_position_m": [
+                    88.235175,
+                    33.477759999999996
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1022,
+                  "median_position_m": [
+                    92.859375,
+                    31.239880000000003
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1023,
+                  "median_position_m": [
+                    73.79294999999999,
+                    28.05272
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1024,
+                  "median_position_m": [
+                    84.702975,
+                    37.98718
+                  ],
+                  "is_goalkeeper": false
+                }
+              ],
+              "centroid_m": [
+                91.56057750000001,
+                35.664640000000006
+              ],
+              "width_m": 13.03152,
+              "depth_m": 26.02845000000002,
+              "status": "unknown",
+              "reason": "unsupported_or_compact_shape",
+              "reference": {
+                "label_status": "unreviewed",
+                "shape": null,
+                "reviewer": null
+              }
+            },
+            {
+              "start_s": 70,
+              "stop_s": 80,
+              "goalkeeper_id": 1025,
+              "attack_direction": -1,
+              "joint_frames": 250,
+              "joint_coverage": 1.0,
+              "players": [
+                {
+                  "track_id": 1025,
+                  "median_position_m": [
+                    103.722675,
+                    35.45894
+                  ],
+                  "is_goalkeeper": true
+                },
+                {
+                  "track_id": 1015,
+                  "median_position_m": [
+                    99.2418,
+                    37.92836
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1016,
+                  "median_position_m": [
+                    92.92342500000001,
+                    29.90368
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1017,
+                  "median_position_m": [
+                    93.46837500000001,
+                    31.10796
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1018,
+                  "median_position_m": [
+                    82.198725,
+                    41.68536
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1019,
+                  "median_position_m": [
+                    91.224525,
+                    36.8254
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1020,
+                  "median_position_m": [
+                    99.874425,
+                    30.748239999999996
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1021,
+                  "median_position_m": [
+                    92.815275,
+                    37.067139999999995
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1022,
+                  "median_position_m": [
+                    92.6373,
+                    31.258919999999996
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1023,
+                  "median_position_m": [
+                    71.64359999999999,
+                    24.90364
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1024,
+                  "median_position_m": [
+                    102.37552500000001,
+                    38.450599999999994
+                  ],
+                  "is_goalkeeper": false
+                }
+              ],
+              "centroid_m": [
+                91.84029749999999,
+                33.98793
+              ],
+              "width_m": 16.781720000000004,
+              "depth_m": 30.731925000000018,
+              "status": "unknown",
+              "reason": "borderline_line_separation",
+              "reference": {
+                "label_status": "unreviewed",
+                "shape": null,
+                "reviewer": null
+              }
+            },
+            {
+              "start_s": 80,
+              "stop_s": 90,
+              "goalkeeper_id": 1025,
+              "attack_direction": -1,
+              "joint_frames": 250,
+              "joint_coverage": 1.0,
+              "players": [
+                {
+                  "track_id": 1025,
+                  "median_position_m": [
+                    104.246625,
+                    35.15226
+                  ],
+                  "is_goalkeeper": true
+                },
+                {
+                  "track_id": 1015,
+                  "median_position_m": [
+                    99.124725,
+                    35.62724
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1016,
+                  "median_position_m": [
+                    91.915425,
+                    30.74688
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1017,
+                  "median_position_m": [
+                    96.11175,
+                    30.6
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1018,
+                  "median_position_m": [
+                    82.1268,
+                    47.769999999999996
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1019,
+                  "median_position_m": [
+                    91.593075,
+                    29.59564
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1020,
+                  "median_position_m": [
+                    100.1826,
+                    30.76524
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1021,
+                  "median_position_m": [
+                    99.7542,
+                    37.27692
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1022,
+                  "median_position_m": [
+                    94.15822499999999,
+                    31.93654
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1023,
+                  "median_position_m": [
+                    71.94915,
+                    24.50618
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1024,
+                  "median_position_m": [
+                    102.353475,
+                    38.68554
+                  ],
+                  "is_goalkeeper": false
+                }
+              ],
+              "centroid_m": [
+                92.9269425,
+                33.751018
+              ],
+              "width_m": 23.263819999999996,
+              "depth_m": 30.404325,
+              "status": "unknown",
+              "reason": "unsupported_or_compact_shape",
+              "reference": {
+                "label_status": "unreviewed",
+                "shape": null,
+                "reviewer": null
+              }
+            },
+            {
+              "start_s": 90,
+              "stop_s": 100,
+              "goalkeeper_id": 1025,
+              "attack_direction": -1,
+              "joint_frames": 250,
+              "joint_coverage": 1.0,
+              "players": [
+                {
+                  "track_id": 1025,
+                  "median_position_m": [
+                    104.140575,
+                    29.112160000000003
+                  ],
+                  "is_goalkeeper": true
+                },
+                {
+                  "track_id": 1015,
+                  "median_position_m": [
+                    96.617325,
+                    39.04934
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1016,
+                  "median_position_m": [
+                    100.9281,
+                    34.16354
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1017,
+                  "median_position_m": [
+                    99.03285,
+                    27.14152
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1018,
+                  "median_position_m": [
+                    91.01295,
+                    51.25772
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1019,
+                  "median_position_m": [
+                    95.46074999999999,
+                    29.711240000000004
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1020,
+                  "median_position_m": [
+                    97.87049999999999,
+                    30.96108
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1021,
+                  "median_position_m": [
+                    96.72652500000001,
+                    32.926959999999994
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1022,
+                  "median_position_m": [
+                    95.67127500000001,
+                    34.13226
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1023,
+                  "median_position_m": [
+                    81.866925,
+                    29.7755
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1024,
+                  "median_position_m": [
+                    81.46950000000001,
+                    51.163880000000006
+                  ],
+                  "is_goalkeeper": false
+                }
+              ],
+              "centroid_m": [
+                93.66567,
+                36.028304000000006
+              ],
+              "width_m": 24.1162,
+              "depth_m": 19.45859999999999,
+              "status": "unknown",
+              "reason": "borderline_line_separation",
+              "reference": {
+                "label_status": "unreviewed",
+                "shape": null,
+                "reviewer": null
+              }
+            },
+            {
+              "start_s": 100,
+              "stop_s": 110,
+              "goalkeeper_id": 1025,
+              "attack_direction": -1,
+              "joint_frames": 241,
+              "joint_coverage": 0.964,
+              "players": [
+                {
+                  "track_id": 1025,
+                  "median_position_m": [
+                    102.92625,
+                    22.91056
+                  ],
+                  "is_goalkeeper": true
+                },
+                {
+                  "track_id": 1015,
+                  "median_position_m": [
+                    82.48485,
+                    42.71284000000001
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1016,
+                  "median_position_m": [
+                    86.58825,
+                    35.9414
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1017,
+                  "median_position_m": [
+                    88.45725,
+                    26.286080000000002
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1018,
+                  "median_position_m": [
+                    79.55745,
+                    50.1194
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1019,
+                  "median_position_m": [
+                    67.81845,
+                    36.089639999999996
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1020,
+                  "median_position_m": [
+                    86.15355,
+                    32.703920000000004
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1021,
+                  "median_position_m": [
+                    84.66045,
+                    31.758039999999998
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1022,
+                  "median_position_m": [
+                    82.30109999999999,
+                    27.984720000000003
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1023,
+                  "median_position_m": [
+                    74.70960000000001,
+                    32.25852
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1024,
+                  "median_position_m": [
+                    70.52640000000001,
+                    46.438559999999995
+                  ],
+                  "is_goalkeeper": false
+                }
+              ],
+              "centroid_m": [
+                80.325735,
+                36.229312
+              ],
+              "width_m": 23.833319999999997,
+              "depth_m": 20.638800000000003,
+              "status": "unknown",
+              "reason": "borderline_line_separation",
+              "reference": {
+                "label_status": "unreviewed",
+                "shape": null,
+                "reviewer": null
+              }
+            },
+            {
+              "start_s": 110,
+              "stop_s": 120,
+              "goalkeeper_id": 1025,
+              "attack_direction": -1,
+              "status": "unknown",
+              "reason": "incomplete_or_changed_roster",
+              "reference": {
+                "label_status": "unreviewed",
+                "shape": null,
+                "reviewer": null
+              }
+            }
+          ],
+          "formation_summary": {
+            "total_windows": 6,
+            "observed_shape_windows": 0,
+            "unknown_windows": 6
+          },
+          "unprocessed_formation_tail_s": 0.0
+        }
+      ]
+    },
+    {
+      "kind": "offline_metrica_tactics_v1",
+      "game": 2,
+      "period": 1,
+      "start_s": 60,
+      "stop_s": 120,
+      "sources": [
+        {
+          "path": "data/raw/metrica/Sample_Game_2_RawTrackingData_Home_Team.csv",
+          "sha256": "3f9990ac204b07133e4202441d6fcbb386897c7c7f81e1bc3ce4d35bc8644694",
+          "team": "A",
+          "loader_audit": {
+            "missing": 4500,
+            "outside": 23,
+            "native_frames": 1500,
+            "fps": 25.0
+          }
+        },
+        {
+          "path": "data/raw/metrica/Sample_Game_2_RawTrackingData_Away_Team.csv",
+          "sha256": "aa639f40762eade46c389020fe4458266b5ba14027b1e96e22e75db62803718b",
+          "team": "B",
+          "loader_audit": {
+            "missing": 1500,
+            "outside": 0,
+            "native_frames": 1500,
+            "fps": 25.0
+          }
+        }
+      ],
+      "teams": [
+        {
+          "team": "A",
+          "goalkeeper_id": 11,
+          "attack_direction": -1,
+          "formation_windows": [
+            {
+              "start_s": 60,
+              "stop_s": 70,
+              "goalkeeper_id": 11,
+              "attack_direction": -1,
+              "joint_frames": 227,
+              "joint_coverage": 0.908,
+              "players": [
+                {
+                  "track_id": 11,
+                  "median_position_m": [
+                    99.2019,
+                    37.00764
+                  ],
+                  "is_goalkeeper": true
+                },
+                {
+                  "track_id": 1,
+                  "median_position_m": [
+                    84.56385,
+                    55.552600000000005
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 2,
+                  "median_position_m": [
+                    80.5686,
+                    45.827239999999996
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 3,
+                  "median_position_m": [
+                    80.38799999999999,
+                    36.104600000000005
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 4,
+                  "median_position_m": [
+                    79.37055,
+                    28.60896
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 5,
+                  "median_position_m": [
+                    68.17755000000001,
+                    60.60567999999999
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 6,
+                  "median_position_m": [
+                    72.5172,
+                    49.929
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 7,
+                  "median_position_m": [
+                    74.9427,
+                    43.99464
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 8,
+                  "median_position_m": [
+                    69.83235,
+                    26.81852
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 9,
+                  "median_position_m": [
+                    61.760999999999996,
+                    53.120239999999995
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 10,
+                  "median_position_m": [
+                    52.9494,
+                    43.26636
+                  ],
+                  "is_goalkeeper": false
+                }
+              ],
+              "centroid_m": [
+                72.50712,
+                44.382784
+              ],
+              "width_m": 33.78715999999999,
+              "depth_m": 31.614450000000005,
+              "status": "unknown",
+              "reason": "borderline_line_separation",
+              "reference": {
+                "label_status": "unreviewed",
+                "shape": null,
+                "reviewer": null
+              }
+            },
+            {
+              "start_s": 70,
+              "stop_s": 80,
+              "goalkeeper_id": 11,
+              "attack_direction": -1,
+              "joint_frames": 250,
+              "joint_coverage": 1.0,
+              "players": [
+                {
+                  "track_id": 11,
+                  "median_position_m": [
+                    98.87010000000001,
+                    32.92696000000001
+                  ],
+                  "is_goalkeeper": true
+                },
+                {
+                  "track_id": 1,
+                  "median_position_m": [
+                    81.31725,
+                    46.57898
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 2,
+                  "median_position_m": [
+                    80.3964,
+                    33.27477999999999
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 3,
+                  "median_position_m": [
+                    76.42634999999999,
+                    21.484260000000003
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 4,
+                  "median_position_m": [
+                    72.508275,
+                    8.23616
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 5,
+                  "median_position_m": [
+                    70.5432,
+                    43.36597999999999
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 6,
+                  "median_position_m": [
+                    70.82985,
+                    28.09692
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 7,
+                  "median_position_m": [
+                    66.80834999999999,
+                    19.71218
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 8,
+                  "median_position_m": [
+                    63.289275,
+                    10.456359999999997
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 9,
+                  "median_position_m": [
+                    61.63395,
+                    34.224399999999996
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 10,
+                  "median_position_m": [
+                    54.8793,
+                    24.83836
+                  ],
+                  "is_goalkeeper": false
+                }
+              ],
+              "centroid_m": [
+                69.86322,
+                27.026837999999998
+              ],
+              "width_m": 38.34282,
+              "depth_m": 26.43795,
+              "status": "unknown",
+              "reason": "unsupported_or_compact_shape",
+              "reference": {
+                "label_status": "unreviewed",
+                "shape": null,
+                "reviewer": null
+              }
+            },
+            {
+              "start_s": 80,
+              "stop_s": 90,
+              "goalkeeper_id": 11,
+              "attack_direction": -1,
+              "joint_frames": 250,
+              "joint_coverage": 1.0,
+              "players": [
+                {
+                  "track_id": 11,
+                  "median_position_m": [
+                    89.76240000000001,
+                    35.364419999999996
+                  ],
+                  "is_goalkeeper": true
+                },
+                {
+                  "track_id": 1,
+                  "median_position_m": [
+                    69.9762,
+                    52.68572
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 2,
+                  "median_position_m": [
+                    69.277425,
+                    41.25084
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 3,
+                  "median_position_m": [
+                    68.15655,
+                    27.68586
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 4,
+                  "median_position_m": [
+                    67.97437500000001,
+                    13.32086
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 5,
+                  "median_position_m": [
+                    59.8437,
+                    51.3655
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 6,
+                  "median_position_m": [
+                    58.616775000000004,
+                    41.64456
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 7,
+                  "median_position_m": [
+                    53.279624999999996,
+                    31.600279999999998
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 8,
+                  "median_position_m": [
+                    52.7562,
+                    17.456619999999997
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 9,
+                  "median_position_m": [
+                    49.845075,
+                    50.56344
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 10,
+                  "median_position_m": [
+                    42.578025,
+                    30.228379999999998
+                  ],
+                  "is_goalkeeper": false
+                }
+              ],
+              "centroid_m": [
+                59.230395,
+                35.78020600000001
+              ],
+              "width_m": 39.36486000000001,
+              "depth_m": 27.39817500000001,
+              "status": "unknown",
+              "reason": "borderline_line_separation",
+              "reference": {
+                "label_status": "unreviewed",
+                "shape": null,
+                "reviewer": null
+              }
+            },
+            {
+              "start_s": 90,
+              "stop_s": 100,
+              "goalkeeper_id": 11,
+              "attack_direction": -1,
+              "joint_frames": 250,
+              "joint_coverage": 1.0,
+              "players": [
+                {
+                  "track_id": 11,
+                  "median_position_m": [
+                    90.413925,
+                    31.53738
+                  ],
+                  "is_goalkeeper": true
+                },
+                {
+                  "track_id": 1,
+                  "median_position_m": [
+                    72.03315,
+                    44.959559999999996
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 2,
+                  "median_position_m": [
+                    73.49475000000001,
+                    30.414360000000002
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 3,
+                  "median_position_m": [
+                    69.871725,
+                    15.562479999999997
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 4,
+                  "median_position_m": [
+                    62.7459,
+                    2.5642800000000014
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 5,
+                  "median_position_m": [
+                    60.701025,
+                    41.963139999999996
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 6,
+                  "median_position_m": [
+                    60.950925,
+                    27.46452
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 7,
+                  "median_position_m": [
+                    53.13997499999999,
+                    13.712880000000002
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 8,
+                  "median_position_m": [
+                    53.610375000000005,
+                    3.9052399999999987
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 9,
+                  "median_position_m": [
+                    51.215325,
+                    46.88022
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 10,
+                  "median_position_m": [
+                    43.58865,
+                    16.09696
+                  ],
+                  "is_goalkeeper": false
+                }
+              ],
+              "centroid_m": [
+                60.135180000000005,
+                24.352364
+              ],
+              "width_m": 44.31594,
+              "depth_m": 29.90610000000001,
+              "status": "observed_shape",
+              "shape": "3-3-3-1",
+              "lines": [
+                {
+                  "track_ids": [
+                    2,
+                    1,
+                    3
+                  ],
+                  "centroid_m": [
+                    71.799875,
+                    30.312133333333332
+                  ]
+                },
+                {
+                  "track_ids": [
+                    4,
+                    6,
+                    5
+                  ],
+                  "centroid_m": [
+                    61.46595,
+                    23.997313333333334
+                  ]
+                },
+                {
+                  "track_ids": [
+                    8,
+                    7,
+                    9
+                  ],
+                  "centroid_m": [
+                    52.655225,
+                    21.499446666666667
+                  ]
+                },
+                {
+                  "track_ids": [
+                    10
+                  ],
+                  "centroid_m": [
+                    43.58865,
+                    16.09696
+                  ]
+                }
+              ],
+              "reference": {
+                "label_status": "unreviewed",
+                "shape": null,
+                "reviewer": null
+              }
+            },
+            {
+              "start_s": 100,
+              "stop_s": 110,
+              "goalkeeper_id": 11,
+              "attack_direction": -1,
+              "joint_frames": 250,
+              "joint_coverage": 1.0,
+              "players": [
+                {
+                  "track_id": 11,
+                  "median_position_m": [
+                    97.83847499999999,
+                    31.12462
+                  ],
+                  "is_goalkeeper": true
+                },
+                {
+                  "track_id": 1,
+                  "median_position_m": [
+                    66.60412500000001,
+                    54.2946
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 2,
+                  "median_position_m": [
+                    81.265275,
+                    31.338139999999996
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 3,
+                  "median_position_m": [
+                    78.51899999999999,
+                    15.03004
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 4,
+                  "median_position_m": [
+                    71.60055,
+                    4.934760000000002
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 5,
+                  "median_position_m": [
+                    60.1482,
+                    42.20726
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 6,
+                  "median_position_m": [
+                    66.81255,
+                    27.95072
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 7,
+                  "median_position_m": [
+                    57.713249999999995,
+                    14.6302
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 8,
+                  "median_position_m": [
+                    50.815799999999996,
+                    1.5119800000000003
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 9,
+                  "median_position_m": [
+                    49.2912,
+                    40.146519999999995
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 10,
+                  "median_position_m": [
+                    47.811225,
+                    21.341120000000004
+                  ],
+                  "is_goalkeeper": false
+                }
+              ],
+              "centroid_m": [
+                63.0581175,
+                25.338534
+              ],
+              "width_m": 52.78262,
+              "depth_m": 33.45405,
+              "status": "unknown",
+              "reason": "borderline_line_separation",
+              "reference": {
+                "label_status": "unreviewed",
+                "shape": null,
+                "reviewer": null
+              }
+            },
+            {
+              "start_s": 110,
+              "stop_s": 120,
+              "goalkeeper_id": 11,
+              "attack_direction": -1,
+              "joint_frames": 250,
+              "joint_coverage": 1.0,
+              "players": [
+                {
+                  "track_id": 11,
+                  "median_position_m": [
+                    90.790875,
+                    36.164100000000005
+                  ],
+                  "is_goalkeeper": true
+                },
+                {
+                  "track_id": 1,
+                  "median_position_m": [
+                    43.1256,
+                    65.19704
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 2,
+                  "median_position_m": [
+                    65.001825,
+                    48.69276
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 3,
+                  "median_position_m": [
+                    67.0005,
+                    28.573259999999998
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 4,
+                  "median_position_m": [
+                    61.851299999999995,
+                    20.40714
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 5,
+                  "median_position_m": [
+                    52.137225,
+                    58.1927
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 6,
+                  "median_position_m": [
+                    52.63335,
+                    44.07182
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 7,
+                  "median_position_m": [
+                    40.852875,
+                    26.25004
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 8,
+                  "median_position_m": [
+                    38.445750000000004,
+                    5.151340000000001
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 9,
+                  "median_position_m": [
+                    44.480625,
+                    53.50750000000001
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 10,
+                  "median_position_m": [
+                    35.705775,
+                    38.21906
+                  ],
+                  "is_goalkeeper": false
+                }
+              ],
+              "centroid_m": [
+                50.1234825,
+                38.826266000000004
+              ],
+              "width_m": 60.0457,
+              "depth_m": 31.294725,
+              "status": "observed_shape",
+              "shape": "3-2-5",
+              "lines": [
+                {
+                  "track_ids": [
+                    3,
+                    2,
+                    4
+                  ],
+                  "centroid_m": [
+                    64.61787499999998,
+                    32.557719999999996
+                  ]
+                },
+                {
+                  "track_ids": [
+                    6,
+                    5
+                  ],
+                  "centroid_m": [
+                    52.385287500000004,
+                    51.13226
+                  ]
+                },
+                {
+                  "track_ids": [
+                    9,
+                    1,
+                    7,
+                    8,
+                    10
+                  ],
+                  "centroid_m": [
+                    40.522124999999996,
+                    37.66499600000001
+                  ]
+                }
+              ],
+              "reference": {
+                "label_status": "unreviewed",
+                "shape": null,
+                "reviewer": null
+              }
+            }
+          ],
+          "formation_summary": {
+            "total_windows": 6,
+            "observed_shape_windows": 2,
+            "unknown_windows": 4
+          },
+          "unprocessed_formation_tail_s": 0.0
+        },
+        {
+          "team": "B",
+          "goalkeeper_id": 1025,
+          "attack_direction": 1,
+          "formation_windows": [
+            {
+              "start_s": 60,
+              "stop_s": 70,
+              "goalkeeper_id": 1025,
+              "attack_direction": 1,
+              "joint_frames": 250,
+              "joint_coverage": 1.0,
+              "players": [
+                {
+                  "track_id": 1025,
+                  "median_position_m": [
+                    20.256600000000002,
+                    36.86416
+                  ],
+                  "is_goalkeeper": true
+                },
+                {
+                  "track_id": 1015,
+                  "median_position_m": [
+                    51.873149999999995,
+                    31.42756
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1016,
+                  "median_position_m": [
+                    52.000725,
+                    45.145880000000005
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1017,
+                  "median_position_m": [
+                    53.383575,
+                    55.7855
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1018,
+                  "median_position_m": [
+                    58.387874999999994,
+                    58.47218
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1019,
+                  "median_position_m": [
+                    70.77157500000001,
+                    25.999119999999998
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1020,
+                  "median_position_m": [
+                    63.8421,
+                    48.34562
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1021,
+                  "median_position_m": [
+                    61.784625,
+                    40.3036
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1022,
+                  "median_position_m": [
+                    87.8577,
+                    55.09122000000001
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1023,
+                  "median_position_m": [
+                    77.203875,
+                    36.59658
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1024,
+                  "median_position_m": [
+                    73.82339999999999,
+                    55.891580000000005
+                  ],
+                  "is_goalkeeper": false
+                }
+              ],
+              "centroid_m": [
+                65.09286,
+                45.30588400000001
+              ],
+              "width_m": 32.473060000000004,
+              "depth_m": 35.98455,
+              "status": "unknown",
+              "reason": "borderline_line_separation",
+              "reference": {
+                "label_status": "unreviewed",
+                "shape": null,
+                "reviewer": null
+              }
+            },
+            {
+              "start_s": 70,
+              "stop_s": 80,
+              "goalkeeper_id": 1025,
+              "attack_direction": 1,
+              "joint_frames": 250,
+              "joint_coverage": 1.0,
+              "players": [
+                {
+                  "track_id": 1025,
+                  "median_position_m": [
+                    20.1768,
+                    35.33484
+                  ],
+                  "is_goalkeeper": true
+                },
+                {
+                  "track_id": 1015,
+                  "median_position_m": [
+                    56.830200000000005,
+                    8.387800000000002
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1016,
+                  "median_position_m": [
+                    45.53115,
+                    23.4396
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1017,
+                  "median_position_m": [
+                    50.7234,
+                    42.13586
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1018,
+                  "median_position_m": [
+                    56.314125000000004,
+                    51.52665999999999
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1019,
+                  "median_position_m": [
+                    66.246075,
+                    4.588980000000001
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1020,
+                  "median_position_m": [
+                    66.1395,
+                    40.03636
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1021,
+                  "median_position_m": [
+                    62.58735,
+                    21.335
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1022,
+                  "median_position_m": [
+                    76.82797500000001,
+                    54.275220000000004
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1023,
+                  "median_position_m": [
+                    77.52674999999999,
+                    37.953860000000006
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1024,
+                  "median_position_m": [
+                    73.44225,
+                    21.11094
+                  ],
+                  "is_goalkeeper": false
+                }
+              ],
+              "centroid_m": [
+                63.21687750000001,
+                30.479028000000007
+              ],
+              "width_m": 49.686240000000005,
+              "depth_m": 31.995599999999996,
+              "status": "unknown",
+              "reason": "borderline_line_separation",
+              "reference": {
+                "label_status": "unreviewed",
+                "shape": null,
+                "reviewer": null
+              }
+            },
+            {
+              "start_s": 80,
+              "stop_s": 90,
+              "goalkeeper_id": 1025,
+              "attack_direction": 1,
+              "joint_frames": 250,
+              "joint_coverage": 1.0,
+              "players": [
+                {
+                  "track_id": 1025,
+                  "median_position_m": [
+                    16.44825,
+                    35.717679999999994
+                  ],
+                  "is_goalkeeper": true
+                },
+                {
+                  "track_id": 1015,
+                  "median_position_m": [
+                    46.7397,
+                    6.036360000000001
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1016,
+                  "median_position_m": [
+                    33.95332499999999,
+                    24.28892
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1017,
+                  "median_position_m": [
+                    36.74265,
+                    41.98354
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1018,
+                  "median_position_m": [
+                    54.9822,
+                    64.99372
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1019,
+                  "median_position_m": [
+                    60.9126,
+                    4.6702400000000015
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1020,
+                  "median_position_m": [
+                    49.833525,
+                    55.625699999999995
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1021,
+                  "median_position_m": [
+                    48.301050000000004,
+                    30.009080000000004
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1022,
+                  "median_position_m": [
+                    63.294,
+                    47.322559999999996
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1023,
+                  "median_position_m": [
+                    67.906125,
+                    46.47052
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1024,
+                  "median_position_m": [
+                    62.671875,
+                    23.32434
+                  ],
+                  "is_goalkeeper": false
+                }
+              ],
+              "centroid_m": [
+                52.533705,
+                34.472498
+              ],
+              "width_m": 60.323479999999996,
+              "depth_m": 33.95280000000001,
+              "status": "unknown",
+              "reason": "borderline_line_separation",
+              "reference": {
+                "label_status": "unreviewed",
+                "shape": null,
+                "reviewer": null
+              }
+            },
+            {
+              "start_s": 90,
+              "stop_s": 100,
+              "goalkeeper_id": 1025,
+              "attack_direction": 1,
+              "joint_frames": 250,
+              "joint_coverage": 1.0,
+              "players": [
+                {
+                  "track_id": 1025,
+                  "median_position_m": [
+                    16.310175,
+                    34.691559999999996
+                  ],
+                  "is_goalkeeper": true
+                },
+                {
+                  "track_id": 1015,
+                  "median_position_m": [
+                    47.14185,
+                    3.7036200000000026
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1016,
+                  "median_position_m": [
+                    35.87115,
+                    16.42574
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1017,
+                  "median_position_m": [
+                    37.89135,
+                    36.412639999999996
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1018,
+                  "median_position_m": [
+                    52.0905,
+                    57.58682
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1019,
+                  "median_position_m": [
+                    57.794624999999996,
+                    1.8356599999999994
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1020,
+                  "median_position_m": [
+                    52.582425,
+                    44.83648
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1021,
+                  "median_position_m": [
+                    49.310100000000006,
+                    12.470859999999998
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1022,
+                  "median_position_m": [
+                    64.833825,
+                    33.5359
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1023,
+                  "median_position_m": [
+                    69.21074999999999,
+                    40.637820000000005
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1024,
+                  "median_position_m": [
+                    65.78460000000001,
+                    14.2086
+                  ],
+                  "is_goalkeeper": false
+                }
+              ],
+              "centroid_m": [
+                53.25111750000001,
+                26.165414
+              ],
+              "width_m": 55.751160000000006,
+              "depth_m": 33.33959999999999,
+              "status": "unknown",
+              "reason": "borderline_line_separation",
+              "reference": {
+                "label_status": "unreviewed",
+                "shape": null,
+                "reviewer": null
+              }
+            },
+            {
+              "start_s": 100,
+              "stop_s": 110,
+              "goalkeeper_id": 1025,
+              "attack_direction": 1,
+              "joint_frames": 250,
+              "joint_coverage": 1.0,
+              "players": [
+                {
+                  "track_id": 1025,
+                  "median_position_m": [
+                    16.167375,
+                    33.0259
+                  ],
+                  "is_goalkeeper": true
+                },
+                {
+                  "track_id": 1015,
+                  "median_position_m": [
+                    48.679575,
+                    8.942339999999998
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1016,
+                  "median_position_m": [
+                    45.595725,
+                    19.40142
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1017,
+                  "median_position_m": [
+                    46.7187,
+                    30.847859999999997
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1018,
+                  "median_position_m": [
+                    45.81885,
+                    43.46968
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1019,
+                  "median_position_m": [
+                    63.864675,
+                    9.464920000000003
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1020,
+                  "median_position_m": [
+                    55.056749999999994,
+                    34.2074
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1021,
+                  "median_position_m": [
+                    57.62242499999999,
+                    20.41836
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1022,
+                  "median_position_m": [
+                    67.60425000000001,
+                    39.94694
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1023,
+                  "median_position_m": [
+                    71.9082,
+                    30.97536
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1024,
+                  "median_position_m": [
+                    69.12885,
+                    19.28752
+                  ],
+                  "is_goalkeeper": false
+                }
+              ],
+              "centroid_m": [
+                57.1998,
+                25.69618
+              ],
+              "width_m": 34.527339999999995,
+              "depth_m": 26.312474999999992,
+              "status": "observed_shape",
+              "shape": "4-2-4",
+              "lines": [
+                {
+                  "track_ids": [
+                    1016,
+                    1018,
+                    1017,
+                    1015
+                  ],
+                  "centroid_m": [
+                    46.7032125,
+                    25.665325
+                  ]
+                },
+                {
+                  "track_ids": [
+                    1020,
+                    1021
+                  ],
+                  "centroid_m": [
+                    56.33958749999999,
+                    27.31288
+                  ]
+                },
+                {
+                  "track_ids": [
+                    1019,
+                    1022,
+                    1024,
+                    1023
+                  ],
+                  "centroid_m": [
+                    68.12649375000001,
+                    24.918685
+                  ]
+                }
+              ],
+              "reference": {
+                "label_status": "unreviewed",
+                "shape": null,
+                "reviewer": null
+              }
+            },
+            {
+              "start_s": 110,
+              "stop_s": 120,
+              "goalkeeper_id": 1025,
+              "attack_direction": 1,
+              "joint_frames": 250,
+              "joint_coverage": 1.0,
+              "players": [
+                {
+                  "track_id": 1025,
+                  "median_position_m": [
+                    11.80305,
+                    35.063860000000005
+                  ],
+                  "is_goalkeeper": true
+                },
+                {
+                  "track_id": 1015,
+                  "median_position_m": [
+                    31.83495,
+                    22.585859999999997
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1016,
+                  "median_position_m": [
+                    33.024074999999996,
+                    35.957040000000006
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1017,
+                  "median_position_m": [
+                    35.663775,
+                    47.02744
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1018,
+                  "median_position_m": [
+                    34.406400000000005,
+                    58.160399999999996
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1019,
+                  "median_position_m": [
+                    42.7287,
+                    24.014200000000002
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1020,
+                  "median_position_m": [
+                    44.23965,
+                    48.427899999999994
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1021,
+                  "median_position_m": [
+                    42.958650000000006,
+                    38.93408
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1022,
+                  "median_position_m": [
+                    48.52155,
+                    61.14695999999999
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1023,
+                  "median_position_m": [
+                    52.931025,
+                    53.4701
+                  ],
+                  "is_goalkeeper": false
+                },
+                {
+                  "track_id": 1024,
+                  "median_position_m": [
+                    52.725750000000005,
+                    36.639759999999995
+                  ],
+                  "is_goalkeeper": false
+                }
+              ],
+              "centroid_m": [
+                41.9034525,
+                42.636374
+              ],
+              "width_m": 38.561099999999996,
+              "depth_m": 21.096075,
+              "status": "unknown",
+              "reason": "borderline_line_separation",
+              "reference": {
+                "label_status": "unreviewed",
+                "shape": null,
+                "reviewer": null
+              }
+            }
+          ],
+          "formation_summary": {
+            "total_windows": 6,
+            "observed_shape_windows": 1,
+            "unknown_windows": 5
+          },
+          "unprocessed_formation_tail_s": 0.0
+        }
+      ]
+    }
+  ]
+}

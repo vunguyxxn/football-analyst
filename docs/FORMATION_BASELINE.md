@@ -78,9 +78,10 @@ chạy CLI qua CSV kiểm tra đổi tọa độ, truy nguồn và chống ghi �
 
 ## Còn lại của bước 5
 
-Cần tập cửa sổ được gán nhãn sơ đồ độc lập và tiêu chí đánh giá trước khi
-cải tiến bộ nhận diện (chẳng hạn so khớp mẫu với vai trò), báo cáo cả độ đúng
-và tỷ lệ từ chối. Đã bổ sung tham chiếu sơ đồ/lineup StatsBomb theo thời điểm
+Cần tập cửa sổ được gán nhãn sơ đồ độc lập và tiêu chí đánh giá thực tế.
+Đã thêm tùy chọn so khớp mẫu và đánh giá giả lập có nhãn, nhưng chưa thay
+baseline mặc định; xem `FORMATION_TEMPLATE_EVALUATION.md`.
+Đã bổ sung tham chiếu sơ đồ/lineup StatsBomb theo thời điểm
 và bộ đối chiếu nhãn cùng trận trong `STATSBOMB_FORMATION_REFERENCE.md`;
 chưa có quan sát tracking cùng trận để đánh giá bộ nhận diện thực tế.
 Không dùng trận khác làm nhãn Metrica.

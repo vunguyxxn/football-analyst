@@ -13,6 +13,7 @@ from backend.common.schemas import TrackingRow
 from backend.cv.metrica_benchmark import load_tracking
 from backend.cv.pitch_metrics import PitchMetrics
 from backend.tactics.formation import analyze_window
+from backend.tactics.formation_templates import POLICY as TEMPLATE_POLICY
 
 
 def player_profile(trajectory, start_s, stop_s, goalkeeper_id):
@@ -54,7 +55,7 @@ def player_profile(trajectory, start_s, stop_s, goalkeeper_id):
             "heatmap_observed_frames": state["heatmap"]}
 
 
-def team_report(trajectories, start_s, stop_s, window_s, goalkeeper_id, direction):
+def team_report(trajectories, start_s, stop_s, window_s, goalkeeper_id, direction, *, formation_method="gap"):
     if not math.isfinite(window_s) or window_s < 5 or stop_s - start_s < window_s:
         raise ValueError("Need at least one window of five seconds or more")
     if not trajectories or len({(t.game, t.team, t.fps) for t in trajectories}) != 1:
@@ -67,7 +68,8 @@ def team_report(trajectories, start_s, stop_s, window_s, goalkeeper_id, directio
                 for t in sorted(trajectories, key=lambda t: t.track_id)]
     windows, start = [], start_s
     while start + window_s <= stop_s + 1e-9:
-        windows.append(analyze_window(trajectories, start, start + window_s, goalkeeper_id, direction))
+        windows.append(analyze_window(trajectories, start, start + window_s, goalkeeper_id, direction,
+                                      method=formation_method))
         start += window_s
     return {"team": trajectories[0].team, "goalkeeper_id": goalkeeper_id,
             "attack_direction": direction, "players": profiles, "formation_windows": windows,
@@ -85,6 +87,7 @@ def main():
     parser.add_argument("--start", type=float, default=60)
     parser.add_argument("--stop", type=float, default=120)
     parser.add_argument("--window", type=float, default=10)
+    parser.add_argument("--formation-method", choices=("gap", "template"), default="gap")
     parser.add_argument("--home-goalkeeper", type=int, required=True)
     parser.add_argument("--away-goalkeeper", type=int, required=True)
     parser.add_argument("--home-direction", type=int, choices=(-1, 1), required=True)
@@ -113,12 +116,15 @@ def main():
         if digest != expected:
             parser.error(f"Source hash mismatch: {source.name}")
         trajectories, audit = load_tracking(source, args.game, team, args.start, args.stop, args.period)
-        teams.append(team_report(trajectories, args.start, args.stop, args.window, goalkeeper, direction))
+        teams.append(team_report(trajectories, args.start, args.stop, args.window, goalkeeper, direction,
+                                 formation_method=args.formation_method))
         sources.append({"path": source.relative_to(root).as_posix(), "sha256": digest,
                         "team": team, "loader_audit": audit})
     result = {"kind": "offline_metrica_tactics_v1", "game": args.game, "period": args.period,
               "start_s": args.start, "stop_s": args.stop, "window_s": args.window,
               "coordinate_system": "105x68_bottom_left", "sources": sources, "teams": teams,
+              "formation_method": args.formation_method,
+              "template_policy": TEMPLATE_POLICY if args.formation_method == "template" else None,
               "motion_policy": {"interval_s": .5, "max_gap_s": 1., "max_speed_kmh": 40,
                                 "break_on_every_missing_frame": True},
               "heatmap": {"columns": 21, "rows": 14, "origin": "bottom_left", "unit": "observed_frames"},
