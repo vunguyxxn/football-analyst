@@ -2,6 +2,13 @@
 
 ## Trạng thái hiện tại
 
+Ngày 26/10/2026: bước 8a đã có trang `/video`, video cục bộ và sân 2D
+mini đồng bộ theo frame. Có clip mẫu một nút, đọc TrackingRow JSONL/JSON,
+tua về đoạn có dữ liệu, ID/màu đội và căn chỉnh offset; không giữ tọa độ
+qua khoảng thiếu hoặc seek. Không thêm API/schema/thư viện. Đã nghiệm
+thu trình duyệt desktop/mobile; 4 test frontend qua, build/lint exit 0,
+280 test Python qua. Chi tiết `FRONTEND_VIDEO.md`. Tiếp theo 8b/8c.
+
 Ngày 23/10/2026: bước 7 đã có advisor ngoại tuyến cho rà soát cú sút:
 xG + Tree SHAP và ba luật cố định, báo cáo JSON/Markdown tiếng Việt,
 mỗi gợi ý truy tới event ID, chỉ số và đóng góp feature. Trận 8650 sinh
@@ -1172,6 +1179,35 @@ nguồn cũ `fa6ea680`, không dùng fixture cũ cho file mới cùng tên.
 - Bảy test mới; toàn bộ `pytest -q --basetemp .tmp/pytest_advisor_full_v1`:
   **280 passed, 1 network deselected**, cảnh báo Starlette cũ và ba
   deprecation của bảng màu SHAP. Tiếp theo bước 8 frontend theo ROADMAP.
+
+## Bước 8a — video và sân mini trên frontend (26/10/2026)
+
+- Thay trang chờ `/video` bằng `VideoAnalysis.tsx`, dùng Pitch/toSvg hiện
+  có; thêm type TrackingRow đúng contract và bộ đọc/tra frame
+  `frontend/src/lib/videoTracking.ts`. Không sửa DATA_CONTRACT/backend API,
+  thuật toán CV, dependency hoặc các trang hồ sơ/báo cáo chờ.
+- Video dùng object URL, tracking đọc cục bộ, tối đa 20 MB/200.000 dòng.
+  Kiểm schema/toạ độ trong sân, trùng ID, timestamp; đổi video bỏ tracking
+  cũ. Có loading/lỗi codec hoặc dữ liệu, checkbox ID, marker khoảng có
+  tọa độ, offset và kiểm sai thời lượng. Không upload lên dịch vụ ngoài.
+- requestVideoFrameCallback/mediaTime và fallback; binary search tìm
+  frame, giữ điểm tối đa một chu kỳ, không nội suy qua khoảng trống.
+  Seek xóa điểm cho tới khi xong; video giữ hướng sân gốc. Không xuất thêm
+  quãng đường/tốc độ thực địa chưa được nghiệm thu.
+- Helper `backend/cv/prepare_video_demo.py` kiểm raw/frozen tracking hash,
+  chuẩn bị static demo cục bộ, ignore khỏi Git. Dùng H.264 gốc vì clean
+  FMP4 OpenCV không phù hợp trình duyệt, offset +10 giây; không cài codec.
+  4.735 dòng/265 frame v3, frame 1086 tại video 28,1 giây có 17 đối tượng.
+- Browser: clip phát được, tua đầu/cuối xóa điểm, quay lại tracking hiện
+  đúng điểm; offset 999 báo lỗi/xóa điểm, trả 10 khôi phục; checkbox ID.
+  Desktop 1280 hai cột, 375 một cột không tràn ngang, console không lỗi.
+  Ảnh `data/processed/frontend_video_review_v1/desktop.jpg`.
+- Bốn Node test mới, `npm run test` qua; `npm run build`/`npm run lint`
+  exit 0, còn cảnh báo bundle/Fast Refresh. Toàn bộ Python:
+  `pytest -q --basetemp .tmp/pytest_frontend_video_full_v1`: **280 passed,
+  1 network deselected**, cảnh báo Starlette/SHAP cũ.
+- Chi tiết cách chạy/giới hạn `FRONTEND_VIDEO.md`. Chưa triển khai 8b/8c;
+  chất lượng tọa độ/sơ đồ/gợi ý trước đây không được nâng đánh giá nhờ UI.
 
 ## Quyết định đã chốt
 

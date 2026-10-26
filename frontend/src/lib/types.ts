@@ -40,3 +40,12 @@ export type PassNetwork = {
 export type HealthResponse = {
   status: string
 }
+
+export type TrackingRow = {
+  frame: number
+  time_s: number
+  track_id: number
+  team: "A" | "B" | "referee" | "unknown"
+  x_m: number
+  y_m: number
+}

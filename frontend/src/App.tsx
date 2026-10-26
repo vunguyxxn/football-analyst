@@ -11,6 +11,7 @@ import {
 import { NavLink, Navigate, Route, Routes, useLocation } from "react-router-dom"
 import { ComingSoon } from "@/components/ComingSoon"
 import MatchAnalysis from "@/pages/MatchAnalysis"
+import VideoAnalysis from "@/pages/VideoAnalysis"
 import { fetchHealth } from "@/lib/api"
 
 const navigation = [
@@ -114,7 +115,7 @@ function AppShell() {
               />
               <Route element={<MatchAnalysis />} path="/match" />
               <Route
-                element={<ComingSoon icon={Clapperboard} title="Phân tích video" />}
+                element={<VideoAnalysis />}
                 path="/video"
               />
               <Route
