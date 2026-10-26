@@ -1,0 +1,95 @@
+.coach-page { display: grid; gap: 19px; }
+.coach-intro { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 8px 0 4px; }
+.coach-intro h2 { font-size: 30px; font-weight: 600; letter-spacing: -.04em; margin: 9px 0 8px; }
+.coach-intro p { margin: 0; font-size: 12px; color: #91a0b1; }
+.coach-actions { display: flex; align-items: center; gap: 9px; }
+.coach-actions > button { min-height: 36px; font-size: 10px; }
+.coach-file { position: relative; display: flex; align-items: center; gap: 7px; padding: 10px 12px; border: 1px solid #304337; border-radius: 8px; font-size: 10px; color: #a2dab1; cursor: pointer; white-space: nowrap; }
+.coach-file input { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; }
+.coach-file:focus-within { outline: 2px solid #67d88a; }
+.coach-match { padding: 20px 23px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+.coach-draft { font-size: 8px; color: #c4b681; border: 1px solid #675f3a; border-radius: 5px; padding: 6px 8px; letter-spacing: .06em; }
+.coach-match h3 { font-size: 22px; font-weight: 500; margin: 0 0 7px; letter-spacing: -.025em; }
+.coach-match p { color: #8197a8; font-size: 10px; margin: 0; line-height: 1.8; }
+.coach-match-source { margin-left: auto; display: grid; gap: 8px; font-size: 9px; color: #869dab; text-align: right; overflow-wrap: anywhere; }
+.coach-match-source button { border: 0; background: none; color: #9dceab; padding: 0; font-size: 10px; cursor: pointer; }
+.coach-scope-note { display: flex; align-items: center; gap: 11px; padding: 0 5px; color: #9aafa2; }
+.coach-scope-note > svg { flex-shrink: 0; color: #85c79b; }
+.coach-scope-note p { font-size: 10px; line-height: 1.9; margin: 0; }
+.coach-team-tabs { display: flex; gap: 9px; flex-wrap: wrap; }
+.coach-team-tabs button { background: #141e28; border: 1px solid #2d3b46; border-radius: 9px; padding: 12px 17px; text-align: left; cursor: pointer; min-width: 170px; }
+.coach-team-tabs button[aria-pressed=true] { background: #1e3526; border-color: #42694d; }
+.coach-team-tabs strong { display: block; color: #d1ded7; font-size: 12px; font-weight: 500; }
+.coach-team-tabs span { display: block; color: #8aab97; font-size: 10px; margin-top: 7px; }
+.coach-summary { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); padding: 22px 8px; }
+.coach-summary > div { display: grid; gap: 12px; padding: 0 19px; }
+.coach-summary > div + div { border-left: 1px solid #283844; }
+.coach-summary span { font-size: 10px; color: #90a5b7; }
+.coach-summary strong { font-size: 28px; font-weight: 500; color: #e2eae5; }
+.coach-section-heading { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 15px; }
+.coach-section-heading h3,.coach-section-heading h4 { display: flex; gap: 8px; align-items: center; font-size: 12px; font-weight: 500; margin: 0; }
+.coach-section-heading > span { color: #849aab; font-size: 9px; text-align: right; }
+.coach-recommendations { margin-top: 2px; }
+.coach-recommendation { display: flex; gap: 17px; align-items: center; padding: 20px; margin-top: 10px; }
+.coach-recommendation.selected { border-color: #365740; }
+.coach-card-number { display: grid; place-items: center; flex-shrink: 0; width: 39px; height: 43px; border: 1px solid #35553f; border-radius: 9px; color: #93cba2; background: #203327; }
+.coach-card-copy { flex: 1; min-width: 0; }
+.coach-card-copy h4 { font-size: 13px; font-weight: 550; margin: 0 0 8px; }
+.coach-card-copy p { font-size: 11px; color: #99acbd; line-height: 1.8; margin: 0; }
+.coach-card-facts { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 12px; font-size: 10px; color: #8fa4b4; }
+.coach-card-facts strong { color: #c0d8c8; font-weight: 500; }
+.coach-card-copy > small { font-size: 9px; color: #8393a1; display: block; line-height: 1.7; margin-top: 8px; }
+.coach-group-evidence { margin-top: 12px; color: #a4c6af; font-size: 10px; }
+.coach-group-evidence summary { cursor: pointer; }
+.coach-group-row { display: grid; grid-template-columns: minmax(0,1fr) 55px 65px; gap: 8px; padding: 9px 0; border-bottom: 1px solid #2a3c31; font-size: 9px; color: #92a99b; }
+.coach-group-row > :not(:first-child) { text-align: right; }
+.coach-group-row strong { color: #bdcfc3; font-weight: 400; }
+.coach-group-evidence p { font-size: 9px; margin-top: 8px; }
+.coach-recommendation > button { flex-shrink: 0; font-size: 10px; min-height: 34px; }
+.coach-evidence-grid { display: grid; grid-template-columns: minmax(220px,.8fr) minmax(0,1.5fr); align-items: start; gap: 18px; }
+.coach-shot-list,.coach-explanation-card { min-width: 0; overflow: hidden; }
+.coach-shot-list { padding: 19px 13px 10px; }
+.coach-shot-list > .coach-section-heading { padding: 0 6px; }
+.coach-all-shots { font-size: 10px; color: #9db0c0; display: flex; gap: 6px; align-items: center; padding: 0 5px 14px; cursor: pointer; }
+.coach-all-shots input { accent-color: #83d69a; }
+.coach-shot-buttons { max-height: 570px; overflow-y: auto; }
+.coach-shot-buttons button { width: 100%; display: flex; align-items: center; gap: 11px; padding: 11px 8px; border: 1px solid transparent; border-radius: 7px; background: none; text-align: left; cursor: pointer; }
+.coach-shot-buttons button[aria-pressed=true] { border-color: #3d5c46; background: #203527; }
+.coach-shot-buttons button > span:nth-child(2) { min-width: 0; flex: 1; }
+.coach-shot-time { color: #8fa5b6; font-size: 10px; min-width: 32px; }
+.coach-shot-buttons strong { display: block; color: #d0ded7; font-weight: 500; font-size: 11px; overflow-wrap: anywhere; }
+.coach-shot-buttons small { display: block; color: #8098a9; font-size: 9px; margin-top: 5px; }
+.coach-shot-xg { color: #bfd5c7; text-align: right; font-size: 12px; }
+.coach-explanation { padding: 20px; }
+.coach-shot-identity { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 7px 0 12px; }
+.coach-shot-identity > div > strong { display: block; font-size: 20px; font-weight: 500; letter-spacing: -.02em; }
+.coach-shot-identity > div > span { display: block; font-size: 10px; color: #8da6b8; margin-top: 7px; }
+.shot-probability { color: #b3dfc1; font-weight: 500; font-size: 27px; }
+.shot-probability small { font-size: 11px; color: #89aa95; margin-left: 4px; }
+.coach-explanation-caption,.coach-caption { color: #8fa4b5; font-size: 10px; line-height: 1.8; margin: 0 0 15px; }
+.coach-shap-heading { display: flex; justify-content: space-between; gap: 12px; border-bottom: 1px solid #2a3b47; padding-bottom: 10px; font-size: 9px; color: #8aa1b4; }
+.coach-shap-row { display: grid; grid-template-columns: minmax(110px,.9fr) minmax(35px,1fr) 57px; gap: 12px; align-items: center; padding: 10px 0; border-bottom: 1px solid #202e39; }
+.coach-shap-row > div:first-child span { display: block; color: #afc0cf; font-size: 10px; line-height: 1.5; }
+.coach-shap-row small { display: block; color: #7b97aa; font-size: 9px; margin-top: 4px; }
+.coach-shap-row > strong { font-weight: 400; font-size: 10px; color: #c1d1dc; text-align: right; }
+.coach-shap-bar { position: relative; height: 16px; background: #17252e; border-radius: 3px; }
+.coach-shap-bar i { position: absolute; left: 50%; top: -2px; bottom: -2px; width: 1px; background: #526671; }
+.coach-shap-bar b { position: absolute; top: 4px; bottom: 4px; border-radius: 2px; }
+.coach-shap-bar .positive { background: #76c994; }
+.coach-shap-bar .negative { background: #d9819a; }
+.coach-reconstruction { display: grid; gap: 8px; font-size: 9px; color: #8fa6b6; background: #0f1c17; border: 1px solid #304c3a; padding: 13px; margin-top: 15px; border-radius: 7px; line-height: 1.8; }
+.coach-reconstruction strong { font-weight: 500; color: #b3d4bd; }
+.coach-event-id { margin-top: 16px; color: #839eb0; font-size: 9px; }
+.coach-event-id summary { cursor: pointer; }
+.coach-event-id code { display: block; margin-top: 9px; overflow-wrap: anywhere; font-size: 9px; }
+.coach-method { padding: 17px 21px; }
+.coach-method summary { color: #b9cbbf; font-size: 11px; font-weight: 500; cursor: pointer; }
+.coach-method p,.coach-method li { font-size: 10px; color: #91a9b6; line-height: 1.9; }
+.coach-method code { overflow-wrap: anywhere; }
+.coach-method ul { padding-left: 16px; }
+.coach-empty { padding: 25px; font-size: 11px; color: #9fb2c1; line-height: 1.8; }
+.coach-loading { min-height: 280px; display: flex; justify-content: center; align-items: center; gap: 12px; font-size: 12px; color: #9fb2c1; }
+@media (max-width:1100px) { .coach-recommendation { flex-wrap: wrap; align-items: start; } .coach-recommendation > button { margin-left: 56px; } .coach-evidence-grid { grid-template-columns: minmax(200px,.75fr) minmax(0,1.5fr); } .coach-shap-row { grid-template-columns:minmax(95px,1fr) minmax(30px,1fr) 50px; gap:8px; } }
+@media (max-width:800px) { .coach-intro { flex-direction: column; align-items: start; } .coach-match { gap: 14px; } .coach-match-source { margin-left: 0; text-align:left; } .coach-summary { grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px 0; } .coach-summary > div:nth-child(3) { border-left:0; } .coach-evidence-grid { grid-template-columns:minmax(0,1fr); } .coach-shot-buttons { max-height:270px; } }
+@media (max-width:500px) { .coach-recommendation { flex-direction:column; align-items:stretch; } .coach-card-copy { width:100%; } .coach-recommendation > button { align-self:flex-start; max-width:100%; } }
+@media (max-width:500px) { .coach-intro h2 { font-size:26px; } .coach-actions { flex-wrap:wrap; } .coach-file { padding:9px 10px; } .coach-team-tabs { display:grid; grid-template-columns:1fr 1fr; gap:8px; } .coach-team-tabs button { min-width:0; padding:11px 10px; } .coach-team-tabs strong { font-size:11px; } .coach-team-tabs span { font-size:9px; } .coach-match { padding:17px 15px; } .coach-match h3 { font-size:21px; } .coach-summary strong { font-size:24px; } .coach-summary > div { padding:0 13px; } .coach-recommendation { padding:16px 14px; gap:12px; } .coach-card-number { display:none; } .coach-recommendation > button { margin-left:0; } .coach-section-heading { align-items:start; } .coach-section-heading h3,.coach-section-heading h4 { font-size:11px; } .coach-section-heading > span { font-size:8px; } .coach-explanation { padding:17px 13px; } .coach-shap-row { grid-template-columns:minmax(85px,1fr) minmax(25px,1fr) 48px; gap:7px; } .coach-shap-row > div:first-child span { font-size:9px; } .coach-shot-identity > div > strong { font-size:18px; } }

@@ -17,6 +17,7 @@ node_modules/
 frontend/dist/
 frontend/public/video-demo/
 frontend/public/player-demo/
+frontend/public/coach-demo/
 npm-debug.log*
 yarn-debug.log*
 pnpm-debug.log*

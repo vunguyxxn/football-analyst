@@ -2,6 +2,13 @@
 
 ## Trạng thái hiện tại
 
+Ngày 26/10/2026: bước 8c đã có trang `/reports`, tổng hợp xG, chọn đội/
+gợi ý/cú sút căn cứ, SHAP nhóm và từng cú sút, event ID và tải JSON.
+Đọc báo cáo bước 7, kiểm lại số liệu/truy vết/SHAP, không thêm luật,
+mô hình, API hoặc schema dùng chung. Mẫu 33 cú sút/hai gợi ý; nhãn bản
+nháp và tập validation được giữ rõ. 12 test frontend qua, build/lint
+exit 0, 280 test Python qua. Xem `FRONTEND_COACH.md`. Tiếp theo bước 9.
+
 Ngày 26/10/2026: bước 8b đã có trang `/players`, hai nguồn StatsBomb
 (27 hồ sơ trận 8650) và Metrica (22 hồ sơ Game 1, giây 60–120). Có tìm
 kiếm/lọc đội, vai trò và truy vết sự kiện, chỉ số chuyển động/bao phủ và
@@ -1241,6 +1248,35 @@ nguồn cũ `fa6ea680`, không dùng fixture cũ cho file mới cùng tên.
   .tmp/pytest_frontend_players_full_v1`: **280 passed, 1 network deselected**,
   cảnh báo Starlette/SHAP cũ. Tài liệu `FRONTEND_PLAYERS.md`, ảnh cục bộ
   trong `data/processed/frontend_player_review_v1/`. Tiếp theo 8c.
+
+## Bước 8c — báo cáo HLV trên frontend (26/10/2026)
+
+- Thay trang chờ `/reports` bằng `CoachReport.tsx`, bộ đọc nội bộ
+  `coachReport.ts`; chỉ trình bày advisor cũ. Không thêm API/schema,
+  thư viện, mô hình hoặc sửa ngưỡng luật. Có mở file JSON cục bộ/tải
+  báo cáo gốc, loading/lỗi/thử lại/rỗng và bố cục desktop/mobile.
+- Chọn đội, xem tổng xG/nhóm căn cứ, bật tất cả cú sút, chọn từng pha,
+  SHAP nhóm và tám feature từng cú sút, base/margin/sigmoid, event ID.
+  Không vẽ vị trí suy đoán từ feature không đủ tọa độ; không gọi tỷ lệ
+  nhóm căn cứ là confidence. Nhãn sau trận/validation/bản nháp rõ trên UI.
+- Kiểm khôi phục SHAP, tổng/trung bình đội, toàn bộ event ID đúng nhóm/
+  đội, tử số/mẫu số/tỷ lệ và feature/SHAP trung bình; từ chối dữ liệu sai.
+  Payload tải JSON giữ báo cáo gốc đầy đủ, không chỉ phần đang lọc.
+- Helper `prepare_coach_demo.py` khóa báo cáo với snapshot bước 7, hash
+  model/metadata và sự kiện nguồn; sao chép public asset cục bộ ignore Git,
+  không ghi đè. Mẫu 33 cú sút, hai đội/hai gợi ý: Brazil 13/25, Belgium 6/8.
+- Browser: đổi đội và chọn pha đúng, tám/sáu cú sút Belgium khi bật/tắt
+  toàn bộ; Fellaini #508 đúng ID nguồn, De Bruyne #85 có margin −3,2424,
+  xG 0,038. SHAP nhóm khác SHAP từng pha, đơn vị log-odds. 1280 hai cột,
+  375 một cột không tràn; đã sửa thẻ mobile xếp dọc, console không lỗi.
+- Bốn Node test mới (tổng 12 qua), build/lint exit 0 với cảnh báo bundle/
+  Fast Refresh còn; Python `pytest -q --basetemp
+  .tmp/pytest_frontend_coach_full_v1`: **280 passed, 1 network deselected**,
+  cảnh báo Starlette/SHAP cũ. Tài liệu `FRONTEND_COACH.md`, ảnh ở
+  `data/processed/frontend_coach_review_v1/desktop.jpg`.
+- Các trang chức năng bước 8 cơ bản đã có; Tổng quan vẫn chờ, chưa có
+  job xử lý video qua API và chưa nghiệm thu độc lập chất lượng chuyên
+  môn của CV/đội hình/advisor. Tiếp theo bước 9 đánh giá/báo cáo/slide.
 
 ## Quyết định đã chốt
 

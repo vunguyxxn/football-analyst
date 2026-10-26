@@ -13,6 +13,7 @@ import { ComingSoon } from "@/components/ComingSoon"
 import MatchAnalysis from "@/pages/MatchAnalysis"
 import VideoAnalysis from "@/pages/VideoAnalysis"
 import PlayerProfiles from "@/pages/PlayerProfiles"
+import CoachReport from "@/pages/CoachReport"
 import { fetchHealth } from "@/lib/api"
 
 const navigation = [
@@ -124,7 +125,7 @@ function AppShell() {
                 path="/players"
               />
               <Route
-                element={<ComingSoon icon={ClipboardList} title="Báo cáo HLV" />}
+                element={<CoachReport />}
                 path="/reports"
               />
               <Route
