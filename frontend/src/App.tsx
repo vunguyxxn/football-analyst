@@ -12,6 +12,7 @@ import { NavLink, Navigate, Route, Routes, useLocation } from "react-router-dom"
 import { ComingSoon } from "@/components/ComingSoon"
 import MatchAnalysis from "@/pages/MatchAnalysis"
 import VideoAnalysis from "@/pages/VideoAnalysis"
+import PlayerProfiles from "@/pages/PlayerProfiles"
 import { fetchHealth } from "@/lib/api"
 
 const navigation = [
@@ -119,7 +120,7 @@ function AppShell() {
                 path="/video"
               />
               <Route
-                element={<ComingSoon icon={UserRound} title="Hồ sơ cầu thủ" />}
+                element={<PlayerProfiles />}
                 path="/players"
               />
               <Route

@@ -2,6 +2,13 @@
 
 ## Trạng thái hiện tại
 
+Ngày 26/10/2026: bước 8b đã có trang `/players`, hai nguồn StatsBomb
+(27 hồ sơ trận 8650) và Metrica (22 hồ sơ Game 1, giây 60–120). Có tìm
+kiếm/lọc đội, vai trò và truy vết sự kiện, chỉ số chuyển động/bao phủ và
+heatmap; không ghép danh tính giữa nguồn hoặc gọi dữ liệu một cửa sổ là
+toàn trận. 8 test frontend qua, build/lint exit 0, 280 test Python qua.
+Xem `FRONTEND_PLAYERS.md`. Tiếp theo bước 8c báo cáo HLV.
+
 Ngày 26/10/2026: bước 8a đã có trang `/video`, video cục bộ và sân 2D
 mini đồng bộ theo frame. Có clip mẫu một nút, đọc TrackingRow JSONL/JSON,
 tua về đoạn có dữ liệu, ID/màu đội và căn chỉnh offset; không giữ tọa độ
@@ -1208,6 +1215,32 @@ nguồn cũ `fa6ea680`, không dùng fixture cũ cho file mới cùng tên.
   1 network deselected**, cảnh báo Starlette/SHAP cũ.
 - Chi tiết cách chạy/giới hạn `FRONTEND_VIDEO.md`. Chưa triển khai 8b/8c;
   chất lượng tọa độ/sơ đồ/gợi ý trước đây không được nâng đánh giá nhờ UI.
+
+## Bước 8b — hồ sơ cầu thủ trên frontend (26/10/2026)
+
+- Thay trang chờ `/players` bằng `PlayerProfiles.tsx`; bộ đọc JSON hai
+  kind nội bộ ở `playerProfiles.ts`. Không thêm API/schema dùng chung,
+  thư viện, mô hình hoặc chỉ số chưa có. Trang báo cáo HLV vẫn chờ 8c.
+- StatsBomb: player ID/short_name/đội/số áo/xuất phát, chuyền/tỷ lệ, Carry,
+  cú sút thành bàn, ngữ cảnh vai trò và index sự kiện. Null hiện —, không
+  giả 0/100%, không tính phút/tốc độ từ sự kiện. Metrica: ID theo dõi,
+  chỉ số chuyển động trong cửa sổ, hai mức bao phủ, heatmap 21×14 và
+  trung vị; không gán tên thật hoặc ghép với StatsBomb/video.
+- Tìm tên/ID, lọc đội, nguồn mới reset bộ lọc, rỗng bỏ hồ sơ cũ; đọc file
+  JSON cục bộ giới hạn 5 MB/1.000 hồ sơ, loading/error/retry. Kiểm ID,
+  tỷ lệ/tổng/index, hệ sân và tổng heatmap/thời gian đại diện.
+- Helper `prepare_player_demo.py` kiểm hash và tính lại toàn bộ 27 hồ sơ
+  StatsBomb từ CSV, 22 hồ sơ Metrica từ tracking, các bản tính khớp báo cáo
+  cũ. Sao chép public asset cục bộ, ignore Git, không ghi đè nguồn.
+- Browser đối chiếu De Bruyne 42/33 chuyền, 3 Shot/1 Goal, index Shot
+  85/1214/1567, mở đủ 42 index Pass. Metrica A4 117,8 m/7,6 km/h/55,6 s;
+  heatmap gốc trái dưới đúng. Lọc không khớp và đổi nguồn không giữ người
+  cũ; 1280 px hai cột/375 px một cột không tràn, console không lỗi.
+- Bốn test Node mới (tổng 8 qua), build/lint exit 0, cảnh báo bundle/
+  Fast Refresh còn. Python `pytest -q --basetemp
+  .tmp/pytest_frontend_players_full_v1`: **280 passed, 1 network deselected**,
+  cảnh báo Starlette/SHAP cũ. Tài liệu `FRONTEND_PLAYERS.md`, ảnh cục bộ
+  trong `data/processed/frontend_player_review_v1/`. Tiếp theo 8c.
 
 ## Quyết định đã chốt
 
