@@ -120,9 +120,11 @@ export default function VideoAnalysis() {
 
   return <div className="video-page">
     <section className="video-intro">
-      <div><span className="eyebrow">VIDEO & CHUYỂN ĐỘNG</span><h2>Theo sát từng chuyển động.</h2><p>Xem video và vị trí trên sân trong cùng một nhịp.</p></div>
+      <div><span className="eyebrow">VIDEO & CHUYỂN ĐỘNG</span><h2>Xem kết quả tracking video.</h2><p>Mở video cùng dữ liệu vị trí đã xử lý để xem sân mini đồng bộ.</p></div>
       <Button className="demo-button" disabled={loading} onClick={openDemo} size="lg">{loading ? <LoaderCircle className="animate-spin" /> : <Play />}Mở clip mẫu</Button>
     </section>
+
+    <div className="error-notice" role="status"><AlertCircle size={18} /><span><strong>{source && !timeline ? "Video chưa được phân tích trên trang này. " : "Trang xem kết quả đã xử lý. "}</strong>Chọn MP4 chỉ mở trình phát; giao diện hiện chưa chạy YOLO/ByteTrack hoặc tự tạo tọa độ. {source && !timeline ? "Hãy mở tracking tương ứng nếu đã có, hoặc bấm Mở clip mẫu để xem kết quả mẫu. " : "Bấm Mở clip mẫu để xem video kèm tracking có sẵn. "}Backend: OK chỉ báo kết nối máy chủ.</span></div>
 
     <section aria-label="Mở dữ liệu video" className="video-files card-surface">
       <label className="video-file-input"><span className="file-icon"><Clapperboard size={19} /></span><span><strong>Video trận đấu</strong><small>{source?.name || "Chọn MP4, WebM hoặc video tương thích"}</small></span><Upload aria-hidden="true" size={17} /><input accept="video/*" aria-label="Chọn video" onChange={event => { openVideo(event.target.files?.[0]); event.target.value = "" }} type="file" /></label>
@@ -149,7 +151,7 @@ export default function VideoAnalysis() {
             <div aria-hidden="true" className="tracking-coverage">{duration > 0 && !mismatch && ranges.map(range => <i key={range.start} style={{ left: `${Math.max(0, (range.start + offset) / duration * 100)}%`, width: `${Math.max(0, Math.min(duration, range.end + offset) - Math.max(0, range.start + offset)) / duration * 100}%` }} />)}</div>
             <input aria-label="Tua video" disabled={!duration} max={duration || 1} min="0" onChange={event => seekTo(Number(event.target.value))} step="any" type="range" value={Math.min(clock, duration || 0)} />
           </div>
-          <div className="video-time-row video-coverage-caption"><span><i /> Đoạn có tọa độ</span><button disabled={!timeline || !duration || !!mismatch} onClick={() => timeline && seekTo(timeline.frames[0].time_s + offset)}><LocateFixed size={13} />Tới đoạn có tọa độ</button></div>
+          <div className="video-time-row video-coverage-caption"><span><i /> {timeline ? "Đoạn có tọa độ" : "Chưa có dữ liệu vị trí"}</span><button disabled={!timeline || !duration || !!mismatch} onClick={() => timeline && seekTo(timeline.frames[0].time_s + offset)}><LocateFixed size={13} />Tới đoạn có tọa độ</button></div>
         </div>
       </section>
 

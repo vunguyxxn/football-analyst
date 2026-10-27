@@ -2,6 +2,17 @@
 
 ## Trạng thái hiện tại
 
+Ngày 27/10/2026: người dùng mở MP4 mới và gặp sân mini trống. Xác nhận
+trang `/video` chưa tích hợp chạy YOLO/ByteTrack; chọn video chỉ phát
+video, cần tracking đã xử lý riêng. Đã sửa tiêu đề/thông báo ngay đầu
+trang và nhãn khi thiếu tracking để làm rõ giới hạn này, bao gồm ý nghĩa
+badge Backend: OK. Không thêm pipeline, API hoặc thay schema. Kiểm tra
+UI giữ video người dùng khi HMR, báo thiếu tracking; mở clip mẫu khôi
+phục frame 1086/17 đối tượng tại giây 28,1. Build/lint exit 0 (cảnh báo
+bundle/Fast Refresh cũ). Việc chọn video rồi tự phân tích trong giao
+diện vẫn chưa triển khai; cần ưu tiên tích hợp trước khi gọi là demo
+phân tích video đầu cuối. Không coi việc sửa thông báo là hoàn tất nó.
+
 Ngày 27/10/2026: đã demo trực tiếp trên trình duyệt bốn trang phân tích
 trận, video đồng bộ sân mini, hồ sơ cầu thủ và báo cáo HLV. Backend/Vite
 đã khởi động; kiểm tra mạng chuyền Brazil, phát clip mẫu với tọa độ,
