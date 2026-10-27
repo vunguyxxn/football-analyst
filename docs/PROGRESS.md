@@ -2,6 +2,35 @@
 
 ## Trạng thái hiện tại
 
+Ngày 27/10/2026: đã nối luồng chọn video → bấm Phân tích video → upload
+FastAPI cục bộ → YOLO/ByteTrack + ước lượng hai nhóm màu áo → xem khung/ID
+đồng bộ trên video gốc. Có tiến độ, hủy, báo lỗi, giới hạn 500 MB/10 phút,
+một tác vụ đồng thời và phục hồi theo dõi tác vụ còn chạy khi quay lại.
+API chỉ trả JSON, khung pixel tách riêng khỏi TrackingRow; không đổi
+schema sân/thư viện. Worker đọc từng frame và ghi đoạn 10 giây; frontend
+chỉ giữ một đoạn. Trọng số YOLO gốc, CUDA imgsz1280/conf0,1; CPU640 dự phòng.
+
+Nghiệm thu bằng nút trên trình duyệt với `Video Project 12.mp4` thực:
+46,933 giây, 1920×1080/30 FPS, 1.408 frame/5 đoạn, GPU, 31.581 quan sát,
+268 ID tracking (không phải 268 người). Job `374bfd8c19094505a176c66b961a7dce`.
+Đã phát, tua sang đoạn thứ hai tại ~11,26 giây (20 khung), tua ngược đầu
+clip (23 khung), đọc lại kết quả sau khởi động lại backend. Ảnh cục bộ:
+`data/processed/live_demo_v1/06-upload-analysis.jpg`. Lượt đầu 640/conf0,25
+bỏ sót nhiều ở góc rộng, đã chuyển cấu hình cuối sang cấu hình đối chiếu
+video trước đó. Đây là kiểm tra tích hợp, chưa nghiệm thu accuracy.
+
+Giới hạn: nhóm A/B là ước lượng màu, chưa xác nhận đội/trọng tài/thủ môn;
+chưa lọc chắc người ngoài biên, chưa tự hiệu chỉnh sân/tính mét/tốc độ;
+chưa suy ra sự kiện/xG/báo cáo HLV từ clip tải lên. Sân mini chỉ có tọa
+độ khi mở TrackingRow được hiệu chỉnh riêng. Phiên xem file không giữ
+qua reload/đổi trang; tác vụ và dữ liệu còn lưu trên máy, chưa có UI mở
+lại kết quả cũ. Xem `VIDEO_UPLOAD.md` cho API/cách dùng và giới hạn.
+
+Kiểm tra: full suite 286 Python passed/1 network deselected; 12 test
+frontend passed. Sau chỉnh cuối chạy lại 6 test API đều qua; build/lint
+exit 0 (chỉ cảnh báo bundle/Fast Refresh cũ), git diff --check sạch.
+Không coi luồng upload này là tự động hóa toàn bộ phân tích bóng đá.
+
 Ngày 27/10/2026: người dùng mở MP4 mới và gặp sân mini trống. Xác nhận
 trang `/video` chưa tích hợp chạy YOLO/ByteTrack; chọn video chỉ phát
 video, cần tracking đã xử lý riêng. Đã sửa tiêu đề/thông báo ngay đầu

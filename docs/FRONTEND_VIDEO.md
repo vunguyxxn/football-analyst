@@ -1,5 +1,10 @@
 # Bước 8a — trang video và sân 2D mini đồng bộ
 
+**Cập nhật 27/10/2026:** đã bổ sung luồng tải video và chạy AI từ giao
+diện. Xem `VIDEO_UPLOAD.md`. Mô tả bên dưới ghi lại bước 8a ban đầu;
+nhận định "không upload" chỉ còn áp dụng cho việc mở tệp để xem trước,
+trước khi người dùng bấm **Phân tích video**.
+
 Ngày 26/10/2026. Đã thay trang chờ `/video` bằng trình phát video cục bộ
 và sân mini. Dùng đúng các trường `TrackingRow` hiện có; không thêm API,
 đổi DATA_CONTRACT, thư viện hoặc thuật toán CV. Hồ sơ cầu thủ/báo cáo HLV

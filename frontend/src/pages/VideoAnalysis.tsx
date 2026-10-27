@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button"
 import { toSvg } from "@/lib/pitchCoordinates"
 import { compatibilityError, formatVideoTime, frameAt, MAX_TRACKING_BYTES, parseTracking, trackingRanges } from "@/lib/videoTracking"
 import type { TrackingTimeline } from "@/lib/videoTracking"
+import { useVideoJob } from "@/lib/useVideoJob"
 
 type VideoSource = { url: string; name: string; initialTime: number; id: number }
 const TEAMS = { A: { label: "Đội A", color: "#a855f7" }, B: { label: "Đội B", color: "#22d3ee" }, referee: { label: "Trọng tài", color: "#facc15" }, unknown: { label: "Chưa rõ", color: "#94a3b8" } }
@@ -24,6 +25,8 @@ export default function VideoAnalysis() {
   const [error, setError] = useState<string | null>(null)
   const [mediaError, setMediaError] = useState<string | null>(null)
   const [showIds, setShowIds] = useState(true)
+  const [sourceFile, setSourceFile] = useState<File | null>(null)
+  const ai = useVideoJob(sourceFile, clock)
   const offset = offsetInput.trim() ? Number(offsetInput) : NaN
   const mismatch = compatibilityError(timeline, duration, offset)
   const sample = !source || !duration || seeking || mismatch || mediaError ? null : frameAt(timeline, clock, offset)
@@ -71,6 +74,9 @@ export default function VideoAnalysis() {
   }
 
   async function openDemo() {
+    if (ai.busy) return
+    ai.reset()
+    setSourceFile(null)
     const id = cancelPending()
     const controller = new AbortController()
     pending.current = controller
@@ -95,11 +101,13 @@ export default function VideoAnalysis() {
   }
 
   function openVideo(file?: File) {
-    if (!file) return
+    if (!file || ai.busy) return
+    ai.reset()
     const id = cancelPending()
     video.current?.pause()
     setTimeline(null); setTrackingName(""); setDuration(0); setClock(0); setOffsetInput("0"); setSeeking(false); setError(null); setMediaError(null)
     setSource({ url: URL.createObjectURL(file), name: file.name, initialTime: 0, id })
+    setSourceFile(file)
   }
 
   async function openTracking(file?: File) {
@@ -120,14 +128,21 @@ export default function VideoAnalysis() {
 
   return <div className="video-page">
     <section className="video-intro">
-      <div><span className="eyebrow">VIDEO & CHUYỂN ĐỘNG</span><h2>Xem kết quả tracking video.</h2><p>Mở video cùng dữ liệu vị trí đã xử lý để xem sân mini đồng bộ.</p></div>
-      <Button className="demo-button" disabled={loading} onClick={openDemo} size="lg">{loading ? <LoaderCircle className="animate-spin" /> : <Play />}Mở clip mẫu</Button>
+      <div><span className="eyebrow">VIDEO & CHUYỂN ĐỘNG</span><h2>Phân tích video của bạn.</h2><p>Chọn video, bấm Phân tích video và chờ AI xử lý trên máy chủ cục bộ.</p></div>
+      <Button className="demo-button" disabled={loading || ai.busy} onClick={openDemo} size="lg">{loading ? <LoaderCircle className="animate-spin" /> : <Play />}Mở clip mẫu</Button>
     </section>
 
-    <div className="error-notice" role="status"><AlertCircle size={18} /><span><strong>{source && !timeline ? "Video chưa được phân tích trên trang này. " : "Trang xem kết quả đã xử lý. "}</strong>Chọn MP4 chỉ mở trình phát; giao diện hiện chưa chạy YOLO/ByteTrack hoặc tự tạo tọa độ. {source && !timeline ? "Hãy mở tracking tương ứng nếu đã có, hoặc bấm Mở clip mẫu để xem kết quả mẫu. " : "Bấm Mở clip mẫu để xem video kèm tracking có sẵn. "}Backend: OK chỉ báo kết nối máy chủ.</span></div>
+    <section className="video-job card-surface" aria-label="Phân tích AI">
+      <div><strong>Theo dõi người và ước lượng nhóm màu áo</strong><p>Clip tối đa 10 phút / 500 MB. Video được gửi tới máy chủ đang chạy trên máy này. Sân mini, lọc đường biên và chỉ số mét cần hiệu chỉnh sân riêng.</p></div>
+      <Button disabled={!sourceFile || !duration || !!mediaError || ai.busy || loading} onClick={() => { video.current?.pause(); void ai.start() }}>{ai.busy ? <LoaderCircle className="animate-spin" /> : <Play />}Phân tích video</Button>
+      {ai.busy && <Button variant="outline" onClick={() => { void ai.cancel() }}>Hủy xử lý</Button>}
+      {(ai.uploading || ai.job) && <div className="video-job-status" role="status"><span>{ai.uploading ? `Đang gửi video: ${ai.uploadPercent}%` : ai.job?.stage}</span><progress aria-label="Tiến độ phân tích" max="100" value={ai.uploading ? ai.uploadPercent : ai.job?.progress || 0} /><span>{!ai.uploading && ai.job ? `${Math.round(ai.job.progress)}%${ai.result ? ` · ${ai.result.track_ids} ID theo dõi · ${ai.result.device === "cpu" ? "CPU" : "GPU"}` : ""}` : ""}</span></div>}
+      {ai.error && <p role="alert">{ai.error}</p>}
+      {ai.result && <div><strong>Kết quả đã sẵn sàng — phát hoặc tua video để xem khung và ID.</strong>{ai.result.limitations.map(note => <p key={note}>{note}</p>)}</div>}
+    </section>
 
     <section aria-label="Mở dữ liệu video" className="video-files card-surface">
-      <label className="video-file-input"><span className="file-icon"><Clapperboard size={19} /></span><span><strong>Video trận đấu</strong><small>{source?.name || "Chọn MP4, WebM hoặc video tương thích"}</small></span><Upload aria-hidden="true" size={17} /><input accept="video/*" aria-label="Chọn video" onChange={event => { openVideo(event.target.files?.[0]); event.target.value = "" }} type="file" /></label>
+      <label className="video-file-input"><span className="file-icon"><Clapperboard size={19} /></span><span><strong>Video trận đấu</strong><small>{source?.name || "Chọn MP4, WebM hoặc video tương thích"}</small></span><Upload aria-hidden="true" size={17} /><input disabled={ai.busy} accept="video/*" aria-label="Chọn video" onChange={event => { openVideo(event.target.files?.[0]); event.target.value = "" }} type="file" /></label>
       <label className="video-file-input"><span className="file-icon"><FileJson size={19} /></span><span><strong>Dữ liệu vị trí</strong><small>{loading ? "Đang đọc dữ liệu…" : trackingName || "Chọn file tracking JSONL hoặc JSON"}</small></span><Upload aria-hidden="true" size={17} /><input accept=".jsonl,.json,application/json" aria-label="Chọn tracking" onChange={event => { void openTracking(event.target.files?.[0]); event.target.value = "" }} type="file" /></label>
     </section>
     {(error || mediaError || mismatch) && <div className="error-notice" role="alert"><AlertCircle size={18} /><span>{error || mediaError || mismatch}</span></div>}
@@ -135,7 +150,7 @@ export default function VideoAnalysis() {
     <div className="video-analysis-grid">
       <section aria-label="Trình phát video" className="video-player-card card-surface">
         <div className="video-panel-heading"><h3><Clapperboard size={17} /> Video trận đấu</h3><span className="video-local-tag">CỤC BỘ</span></div>
-        <div className="video-screen">
+        <div className="video-screen" style={ai.result ? { aspectRatio: `${ai.result.width} / ${ai.result.height}` } : undefined}>
           {source ? <video controls key={source.id} onError={() => { setMediaError("Không phát được video. Hãy chọn video MP4 mã hóa H.264 hoặc WebM."); setDuration(0) }} onLoadedMetadata={event => {
             const element = event.currentTarget
             if (!Number.isFinite(element.duration) || element.duration <= 0) { setMediaError("Không đọc được thời lượng video."); return }
@@ -143,7 +158,10 @@ export default function VideoAnalysis() {
             if (source.initialTime > 0 && source.initialTime < element.duration) { setSeeking(true); element.currentTime = source.initialTime }
           }} onSeeked={event => { setClock(event.currentTarget.currentTime); setSeeking(false) }} onSeeking={() => setSeeking(true)} onTimeUpdate={event => {
             if (typeof event.currentTarget.requestVideoFrameCallback !== "function" || event.currentTarget.paused) setClock(event.currentTarget.currentTime)
-          }} playsInline preload="metadata" ref={video} src={source.url} /> : <div className="video-empty"><span className="video-empty-icon"><Clapperboard size={36} strokeWidth={1.3} /></span><h3>Đưa trận đấu vào góc nhìn mới</h3><p>Mở clip mẫu để xem ngay, hoặc chọn video<br />và dữ liệu vị trí đã xử lý của bạn.</p><span><FolderOpen size={14} /> Tệp được mở trên máy của bạn</span></div>}
+          }} playsInline preload="metadata" ref={video} src={source.url} /> : <div className="video-empty"><span className="video-empty-icon"><Clapperboard size={36} strokeWidth={1.3} /></span><h3>Đưa trận đấu vào góc nhìn mới</h3><p>Chọn video rồi bấm Phân tích video,<br />hoặc mở clip mẫu để xem ngay.</p><span><FolderOpen size={14} /> Xử lý trên máy chủ cục bộ</span></div>}
+          {ai.result && !seeking && !mediaError && <svg className="video-box-overlay" viewBox={`0 0 ${ai.result.width} ${ai.result.height}`} aria-label={`Khung theo dõi: ${ai.frame?.boxes.length || 0} người`}>
+            {ai.frame?.boxes.map(box => { const [x1, y1, x2, y2] = box.xyxy; const color = TEAMS[box.group].color; return <g key={box.id}><rect x={x1} y={y1} width={Math.max(0, x2 - x1)} height={Math.max(0, y2 - y1)} fill="none" stroke={color} strokeWidth="3" />{showIds && <text x={x1} y={Math.max(16, y1 - 5)} fill={color} stroke="#000" strokeWidth=".7" paintOrder="stroke" fontSize="18">{box.group} · ID {box.id}</text>}</g> })}
+          </svg>}
         </div>
         <div className="video-timeline">
           <div className="video-time-row"><span>{formatVideoTime(clock)} <span>/ {formatVideoTime(duration)}</span></span><span>{sample ? `Frame ${sample.frame}` : "—"}</span></div>
@@ -163,7 +181,7 @@ export default function VideoAnalysis() {
         })}</Pitch></div>
         <div className="mini-pitch-summary"><strong>{sample?.rows.length ?? 0}<small>đối tượng tại thời điểm này</small></strong><label><input checked={showIds} onChange={event => setShowIds(event.target.checked)} type="checkbox" />Hiện ID</label></div>
         <div className="video-team-legend">{Object.entries(TEAMS).map(([key, team]) => <span key={key}><i style={{ background: team.color }} />{team.label}</span>)}</div>
-        <div aria-live="polite" className="mini-pitch-message">{!source ? "Mở video và dữ liệu vị trí để bắt đầu." : !timeline ? "Chọn file tracking tương ứng với video." : mismatch ? "Kiểm tra căn chỉnh thời gian trước khi xem vị trí." : seeking ? "Đang chuyển tới thời điểm mới…" : !sample ? "Thời điểm này chưa có tọa độ hợp lệ. Sân mini được để trống." : "ID là mã theo dõi, không phải số áo. Tọa độ giữ nguyên hướng sân của video."}</div>
+        <div aria-live="polite" className="mini-pitch-message">{!source ? "Chọn video để bắt đầu." : !timeline ? ai.result ? "Đã có khung theo dõi trên video. Sân mini cần hiệu chỉnh sân cho clip này; chưa có tọa độ mét." : ai.busy ? "AI đang xử lý khung theo dõi trên video; chưa có hiệu chỉnh sân để vẽ vị trí tại đây." : "Bấm Phân tích video để chạy AI. Nếu đã có tọa độ sân được hiệu chỉnh, bạn có thể mở file tracking tương ứng." : mismatch ? "Kiểm tra căn chỉnh thời gian trước khi xem vị trí." : seeking ? "Đang chuyển tới thời điểm mới…" : !sample ? "Thời điểm này chưa có tọa độ hợp lệ. Sân mini được để trống." : "ID là mã theo dõi, không phải số áo. Tọa độ giữ nguyên hướng sân của video."}</div>
       </section>
     </div>
 

@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from backend.app.matches import router as matches_router
+from backend.app.video_jobs import router as video_jobs_router
 
 app = FastAPI()
 
@@ -14,6 +15,7 @@ app.add_middleware(
 )
 
 app.include_router(matches_router)
+app.include_router(video_jobs_router)
 
 
 @app.get("/api/health")
