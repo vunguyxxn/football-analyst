@@ -96,6 +96,23 @@ thư viện quản lý kết quả cũ trên giao diện.
 
 ## Kiểm chứng
 
+### Kết quả nghiên cứu tùy chọn theo clip (27/10/2026)
+
+Ba endpoint bổ sung, chỉ đọc artifact của job hoàn tất:
+
+- `GET /api/video-jobs/{id}/ball-events`: ứng viên chưa xác nhận, tổng
+  chuyền và sút luôn null; kiểm tra job/hash/frame/thời gian/loại ứng viên.
+- `GET /api/video-jobs/{id}/pitch-estimate`: heatmap và vận động ước lượng,
+  kiểm tra job/hash/sân 105×68/gốc trái dưới; luôn ghi chưa kiểm định độc lập.
+- `GET /api/video-jobs/{id}/pitch-tracking`: TrackingRow trong vùng sân,
+  chỉ sau kiểm tra định danh báo cáo; giới hạn dung lượng/số hàng đọc.
+
+Khi không có artifact trả trạng thái không có kết quả; không thay bằng
+StatsBomb/Metrica hoặc coi thiếu là 0. Hiện chỉ demo Video Project 15
+có hai ứng viên chuyền và ước lượng sân 30–40s; upload mới vẫn tự động
+tracking người/nhóm áo, chưa tự hiệu chỉnh sân hay nhận diện sự kiện.
+Chi tiết kiểm tra mới nhất nằm ở PROGRESS.md.
+
 - Test API: upload, giới hạn dung lượng/định dạng, video hỏng, busy,
   cancel, failure, restart, danh sách active và biên chỉ số đoạn.
 - Test màu: không gán khi đặc trưng thiếu/mơ hồ hoặc xa cụm.

@@ -148,3 +148,16 @@ Backend từ gốc repo:
 **280 passed, 1 network deselected**, các cảnh báo Starlette/SHAP đã biết.
 Phần tiếp theo là bước 8b hồ sơ cầu thủ và 8c báo cáo HLV, chưa triển khai
 trong phiên này.
+# Bổ sung demo nghiên cứu ngày 27/10/2026
+
+Clip mẫu hiện là đúng Video Project 15.mp4 (52,3667 giây), manifest v2
+khớp SHA256 của job hoàn tất. Mở mẫu nạp thêm vị trí sân nếu artifact
+khớp nguồn, bắt đầu tại 30,1s. Chỉ đoạn 30–40s có hiệu chỉnh tay tạm;
+không giữ vị trí khi tua ra ngoài. Đây chưa phải hiệu chỉnh đã nghiệm thu.
+
+Bên dưới có heatmap theo nhóm áo/ID, quãng đường, tốc độ và thời gian
+quan sát hợp lệ, luôn ghi rõ ước lượng và phạm vi. Hai thẻ ứng viên
+chuyền tua về 7,5s/45,1s để xem tình huống; không đưa vào tổng chuyền
+chính thức. Chưa có kết quả cú sút/gợi ý chiến thuật từ video đã kiểm chứng.
+Thông tin frame và ID kỹ thuật được thu gọn. Không gắn dữ liệu mẫu này
+vào clip tải mới. Xem VIDEO_FOOTBALL_RESEARCH.md để tái tạo nghiên cứu.

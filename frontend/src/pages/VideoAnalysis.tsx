@@ -7,6 +7,8 @@ import { compatibilityError, formatVideoTime, frameAt, MAX_TRACKING_BYTES, parse
 import type { TrackingTimeline } from "@/lib/videoTracking"
 import { fetchCompletedDemo, useVideoJob } from "@/lib/useVideoJob"
 import VideoTrackingReport from "@/components/VideoTrackingReport"
+import VideoPassReview from "@/components/VideoPassReview"
+import VideoPitchEstimate from "@/components/VideoPitchEstimate"
 
 type VideoSource = { url: string; name: string; initialTime: number; id: number }
 const TEAMS = { A: { label: "Đội A", color: "#a855f7" }, B: { label: "Đội B", color: "#22d3ee" }, referee: { label: "Trọng tài", color: "#facc15" }, unknown: { label: "Chưa rõ", color: "#94a3b8" } }
@@ -90,10 +92,18 @@ export default function VideoAnalysis() {
       if (manifest.version === 2 && manifest.kind === "processed_video_job") {
         if (typeof manifest.job_id !== "string" || !/^[a-f0-9]{32}$/.test(manifest.job_id) || typeof manifest.video_sha256 !== "string" || !/^[a-f0-9]{64}$/.test(manifest.video_sha256) || typeof manifest.name !== "string") throw new Error("Thông tin clip mẫu không hợp lệ.")
         const job = await fetchCompletedDemo(manifest.job_id, manifest.video_sha256, controller.signal)
+        let pitch: TrackingTimeline | null = null
+        if (job.result?.pitch_estimate_available) {
+          try {
+            const response = await fetch(`/api/video-jobs/${manifest.job_id}/pitch-tracking`, { signal: controller.signal })
+            if (!response.ok) throw new Error("Tọa độ sân mẫu chưa đọc được.")
+            pitch = parseTracking(await response.text())
+          } catch (failure) { if (!controller.signal.aborted) setError(failure instanceof Error ? failure.message : "Chưa đọc được tọa độ.") }
+        }
         if (id !== requestId.current) return
-        setTimeline(null); setTrackingName(""); setOffsetInput("0"); setClock(0); setDuration(0); setSeeking(false); setMediaError(null)
+        setTimeline(pitch); setTrackingName(pitch ? "Ước lượng sân clip mẫu" : ""); setOffsetInput("0"); setClock(0); setDuration(0); setSeeking(false); setMediaError(null)
         ai.bindDemo(job)
-        setSource({ url: `/video-demo/${manifest.job_id}.mp4`, name: manifest.name, initialTime: 0, id })
+        setSource({ url: `/video-demo/${manifest.job_id}.mp4`, name: manifest.name, initialTime: pitch?.frames[0].time_s || 0, id })
         return
       }
       if (manifest.version !== 1 || typeof manifest.offset_seconds !== "number" || !Number.isFinite(manifest.offset_seconds)) throw new Error("Thông tin clip mẫu không hợp lệ.")
@@ -145,9 +155,9 @@ export default function VideoAnalysis() {
       <div><strong>Theo dõi người và ước lượng nhóm màu áo</strong><p>Clip tối đa 10 phút / 500 MB. Video được gửi tới máy chủ đang chạy trên máy này. Sân mini, lọc đường biên và chỉ số mét cần hiệu chỉnh sân riêng.</p></div>
       <Button disabled={!sourceFile || !duration || !!mediaError || ai.busy || loading} onClick={() => { video.current?.pause(); void ai.start() }}>{ai.busy ? <LoaderCircle className="animate-spin" /> : <Play />}Phân tích video</Button>
       {ai.busy && <Button variant="outline" onClick={() => { void ai.cancel() }}>Hủy xử lý</Button>}
-      {(ai.uploading || ai.job) && <div className="video-job-status" role="status"><span>{ai.uploading ? `Đang gửi video: ${ai.uploadPercent}%` : ai.job?.stage}</span><progress aria-label="Tiến độ phân tích" max="100" value={ai.uploading ? ai.uploadPercent : ai.job?.progress || 0} /><span>{!ai.uploading && ai.job ? `${Math.round(ai.job.progress)}%${ai.result ? ` · ${ai.result.track_ids} ID theo dõi · ${ai.result.device === "cpu" ? "CPU" : "GPU"}` : ""}` : ""}</span></div>}
+      {(ai.uploading || ai.job) && <div className="video-job-status" role="status"><span>{ai.uploading ? `Đang gửi video: ${ai.uploadPercent}%` : ai.job?.status === "completed" ? "Đã xử lý video" : ai.job?.stage}</span><progress aria-label="Tiến độ phân tích" max="100" value={ai.uploading ? ai.uploadPercent : ai.job?.progress || 0} /><span>{!ai.uploading && ai.job ? `${Math.round(ai.job.progress)}%${ai.result ? ` · ${ai.result.device === "cpu" ? "CPU" : "GPU"}` : ""}` : ""}</span></div>}
       {ai.error && <p role="alert">{ai.error}</p>}
-      {ai.result && <div><strong>Kết quả đã sẵn sàng — phát hoặc tua video để xem khung và ID.</strong>{ai.result.limitations.map(note => <p key={note}>{note}</p>)}</div>}
+      {ai.result && <div><strong>Kết quả đã sẵn sàng — phát hoặc tua video để xem khung và ID.</strong>{ai.result.limitations.filter(note => !ai.result?.pitch_estimate_available || !note.startsWith("Chưa hiệu chỉnh")).map(note => <p key={note}>{note}</p>)}{ai.result.pitch_estimate_available && <p>Vị trí, heatmap và vận động chỉ là ước lượng cho đoạn đã hiệu chỉnh; chưa kiểm chứng sai số thực địa. Xem phạm vi bên dưới.</p>}</div>}
     </section>
 
     <section aria-label="Mở dữ liệu video" className="video-files card-surface">
@@ -195,7 +205,11 @@ export default function VideoAnalysis() {
       </section>}
     </div>
 
-    {ai.result && ai.job && <VideoTrackingReport key={ai.job.id} jobId={ai.job.id} onSeek={seconds => { video.current?.pause(); seekTo(seconds); video.current?.scrollIntoView({ behavior: "smooth", block: "center" }) }} />}
+    {ai.result && ai.job && <>
+      {ai.result.pitch_estimate_available && <VideoPitchEstimate key={`pitch-${ai.job.id}`} jobId={ai.job.id} onSeek={seconds => { video.current?.pause(); seekTo(seconds); video.current?.scrollIntoView({ behavior: "smooth", block: "center" }) }} />}
+      {ai.result.ball_events_available && <VideoPassReview key={`events-${ai.job.id}`} hasPitchEstimate={ai.result.pitch_estimate_available} jobId={ai.job.id} onSeek={seconds => { video.current?.pause(); seekTo(seconds); video.current?.scrollIntoView({ behavior: "smooth", block: "center" }) }} />}
+      <details className="tracking-diagnostics" open={!ai.result.ball_events_available && !ai.result.pitch_estimate_available}><summary>Thông tin xử lý và chẩn đoán tracking</summary><VideoTrackingReport key={ai.job.id} hasPitchEstimate={ai.result.pitch_estimate_available} jobId={ai.job.id} onSeek={seconds => { video.current?.pause(); seekTo(seconds); video.current?.scrollIntoView({ behavior: "smooth", block: "center" }) }} /></details>
+    </>}
 
     <section className="video-notes card-surface">
       <div><strong>Chỉ hiển thị dữ liệu có sẵn</strong><p>Đoạn mất hiệu chỉnh hoặc thiếu tracking sẽ để trống. Tọa độ hiện dùng để minh họa, chưa dùng đo quãng đường hay tốc độ thực địa.</p></div>

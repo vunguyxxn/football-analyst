@@ -116,7 +116,59 @@ Lệnh tái lập (đầu ra phải mới):
 Đây là công việc nghiên cứu đang tiếp diễn, chưa phải mô hình nhận diện
 chuyền/sút đã nghiệm thu hoặc chức năng heatmap tự động của video mới.
 
-## Nguồn kỹ thuật tham khảo
+## Nghiên cứu tiếp trên Video Project 15 (27/10/2026)
+
+Nguồn SHA256 `f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0`,
+job `e0eb4128f58d45ea85c4ef0000ca92df`. Không dùng tọa độ clip12 cho clip15.
+
+`ball_sequence` chạy detector bóng riêng, giữ chuỗi có hỗ trợ liên tục,
+lọc vùng sân thô và đường biên gần, bỏ vị trí bóng khi không quan sát
+được. Khoảng mất ngắn chỉ dùng nối trạng thái có giới hạn; không tạo
+vị trí nội suy. Tiếp xúc gần chân còn có trạng thái mơ hồ; chỉ tạo ứng
+viên khi người nhận đã tồn tại, cùng nhóm màu, có bóng tự do giữa hai
+người và tỷ lệ thiếu quan sát thấp. Đổi ID không đủ để kết luận chuyền.
+
+Artifact `data/processed/ball_sequence_video15_v3/`: 999 frame có bóng
+được chuỗi chấp nhận, 432 frame có ứng viên gần chân trên 1.571 frame.
+Đây là số hỗ trợ thuật toán, không phải recall/accuracy. Hai ứng viên:
+8–9,533333s ID93→51 nhóm A; 45,6–46,4s ID308→268 nhóm A. Agent đã
+rà contact sheet review/pass-1.jpg và pass-2.jpg; đây là rà theo ứng
+viên, không phải kiểm định độc lập. Chưa có mô hình cú sút đã kiểm chứng.
+
+`circle_calibration` kiểm tra hình học conic/đường giữa sân bằng dữ liệu
+tổng hợp. Thử vòng tròn clip15 bị loại do sai lệch điều khiển 9,2 px;
+không nới ngưỡng để nhận. Bản công bố tạm dùng mốc sân chọn tay trong
+`docs/fixtures/clip_f51735_manual_pitch_v1.json`, frame900–1199. Kiểm
+tra pixel giữ lại do cùng agent ước lượng đạt 5,52 và 2,56 px; không
+quy đổi thành độ chính xác mét hay xem là ground truth độc lập.
+
+`project_uploaded_job` kiểm tra hash/kích thước nguồn, theo chuyển động
+camera trong cửa sổ giới hạn, dừng khi chất lượng không đạt; tái sử dụng
+PitchSmoother/PitchMetrics. Tọa độ theo DATA_CONTRACT, sân giả định 105×68,
+gốc trái dưới. 5.956 vị trí hợp lệ trên 297 frame, 1.183 vị trí ngoài sân
+bị loại; chỉ công bố đoạn 30–40s. Không cộng qua khoảng mất dấu, không
+ép tốc độ quá cao về ngưỡng. Heatmap cộng thời gian người được quan sát,
+không đo kiểm soát bóng. ID/nhóm áo chưa xác nhận danh tính/đội thực.
+
+Lệnh từ gốc repo (output nghiên cứu tách khỏi production):
+
+```powershell
+$jobFolder = 'data/processed/video_jobs/e0eb4128f58d45ea85c4ef0000ca92df'
+.\.venv\Scripts\python.exe -m backend.cv.ball_sequence $jobFolder data/processed/ball_sequence_video15_new
+.\.venv\Scripts\python.exe -m backend.cv.project_uploaded_job $jobFolder docs/fixtures/clip_f51735_manual_pitch_v1.json data/processed/pitch_video15_new
+```
+
+Artifact đã rà được đặt riêng dưới job/ball_research và job/pitch_estimate
+để API đọc. Không tự chạy các nghiên cứu này khi upload video mới; phải
+hiệu chỉnh/kiểm tra nguồn trước khi công bố. Web ghi rõ ước lượng và
+ứng viên, thu gọn báo cáo frame/ID vào phần chẩn đoán. Còn thiếu đánh
+giá độc lập và nhận diện sút/gợi ý chiến thuật có căn cứ.
+
+Kích thước vạch sân tham chiếu [IFAB Law 1](https://www.theifab.com/laws/latest/the-field-of-play/):
+khung thành rộng 7,32 m, vùng cầu môn mở 5,5 m mỗi bên nên rộng 18,32 m;
+đã sửa hình sân frontend tương ứng. Kích thước sân nguồn vẫn là giả định.
+
+## Nguồn nền detector và tác vụ
 
 - [Ultralytics predict](https://docs.ultralytics.com/modes/predict/):
   lọc class, confidence và kích thước inference; triển khai dùng bản

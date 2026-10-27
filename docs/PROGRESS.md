@@ -2,6 +2,32 @@
 
 ## Trạng thái hiện tại
 
+Ngày 27/10/2026: tiếp tục nghiên cứu trên đúng clip mẫu Video Project 15.
+Đã có giao diện heatmap nhóm áo/theo ID, quãng đường và tốc độ **ước
+lượng**, chỉ cho đoạn 30–40 giây hiệu chỉnh tay; không phải toàn clip
+hay tọa độ đã nghiệm thu. Có 5.956 vị trí trên 297 frame, loại vị trí
+ngoài sân; không nối quãng đường qua mất dấu/đổi mốc, loại bước vượt
+40 km/h. ID41: 10,85 m trong 9,5 giây hợp lệ, trung bình 4,11 km/h,
+cao nhất 9,41 km/h. Các số này chưa có kiểm chứng sai số thực địa độc lập.
+
+Chuỗi bám bóng riêng tạo hai ứng viên chuyền 8–9,53s và 45,6–46,4s,
+đã rà ảnh tình huống bởi agent, chưa có nhãn độc lập để đo precision/
+recall. Web cho bấm tua và ghi rõ chưa xác nhận; tổng chuyền/sút giữ
+null. Không suy ra gợi ý chiến thuật từ hai ứng viên hoặc heatmap ngắn.
+Chỉ mẫu này có artifact nghiên cứu gắn đúng SHA256/job; tải video mới
+chưa tự có hiệu chỉnh sân hoặc sự kiện. Chưa hoàn tất yêu cầu phân tích
+bóng đá tự động cho video bất kỳ. Không đổi DATA_CONTRACT/thư viện.
+
+Kiểm tra: 309 test Python qua, 1 network deselected; 13 test frontend
+qua; build/lint thành công (cảnh báo bundle/Fast Refresh cũ). Trình duyệt
+mở clip15 tại 30,1s có vị trí, đổi heatmap/ID, tua hai tình huống; ngoài
+đoạn hiệu chỉnh sân để trống. Ảnh trong data/processed/live_demo_v1/
+09-video15-pass-review.jpg, 10-video15-motion-estimate.jpg và
+11-video15-heatmap-estimate.jpg. Chi tiết/lệnh tái tạo trong
+VIDEO_FOOTBALL_RESEARCH.md. Tiếp theo cần kiểm chứng hiệu chỉnh độc lập,
+mở rộng đoạn camera, nhãn chuỗi bóng/chạm bóng/chuyền/sút và đánh giá
+sự kiện trước khi tự động hóa hay đưa khuyến nghị HLV.
+
 Ngày 27/10/2026: theo yêu cầu đổi mẫu sang đúng `Video Project 15.mp4`
 (không chọn bản `(1)` hoặc `(2)`). Đã xử lý 52,3667 giây/1.571 frame,
 1920×1080/30 FPS bằng GPU, 6 đoạn; job `e0eb4128f58d45ea85c4ef0000ca92df`.

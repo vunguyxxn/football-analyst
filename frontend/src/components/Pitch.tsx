@@ -92,8 +92,8 @@ export default function Pitch({ className, children }: PitchProps) {
         <circle cx={center.x} cy={center.y} fill="white" r="0.25" />
         <FieldRect height={40.32} width={16.5} x={0} y={13.84} />
         <FieldRect height={40.32} width={16.5} x={88.5} y={13.84} />
-        <FieldRect height={16.32} width={5.5} x={0} y={25.84} />
-        <FieldRect height={16.32} width={5.5} x={99.5} y={25.84} />
+        <FieldRect height={18.32} width={5.5} x={0} y={24.84} />
+        <FieldRect height={18.32} width={5.5} x={99.5} y={24.84} />
         <Spot radius={0.25} x={11} y={34} />
         <Spot radius={0.25} x={94} y={34} />
         <PenaltyArc />

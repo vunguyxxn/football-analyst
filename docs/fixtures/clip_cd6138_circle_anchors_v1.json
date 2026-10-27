@@ -1,0 +1,14 @@
+{
+  "source_sha256": "cd6138c73e54f8bc0507bfd7492554a3f3fce5c015f14015173f948b50dc1711",
+  "image_size": [1920, 1080],
+  "pitch_m": [105, 68],
+  "status": "agent_manual_estimate_not_independently_validated",
+  "provenance": "Agent estimated halfway-line/touchline intersections and centre-circle regions from raw sampled source frames. White circle pixels fitted inside these manually selected regions. Assumed 105x68 pitch; no surveyed ground truth.",
+  "anchors": [
+    {"frame": 0, "near": [844, 801], "far": [770, 374], "ellipse_center": [797, 503], "ellipse_size": [500, 108]},
+    {"frame": 300, "near": [604, 921], "far": [487, 319], "ellipse_center": [515, 501], "ellipse_size": [704, 142]},
+    {"frame": 600, "near": [1646, 951], "far": [1553, 326], "ellipse_center": [1580, 509], "ellipse_size": [750, 151]},
+    {"frame": 900, "near": [1301, 935], "far": [1199, 319], "ellipse_center": [1230, 506], "ellipse_size": [716, 146]},
+    {"frame": 1200, "near": [1061, 925], "far": [965, 318], "ellipse_center": [995, 500], "ellipse_size": [704, 140]}
+  ]
+}

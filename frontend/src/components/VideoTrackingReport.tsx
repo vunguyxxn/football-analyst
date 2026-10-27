@@ -15,7 +15,7 @@ type Summary = {
 const labels = { A: "Nhóm áo A", B: "Nhóm áo B", unknown: "Chưa rõ" }
 const number = (value: number, digits = 1) => value.toLocaleString("vi-VN", { maximumFractionDigits: digits })
 
-export default function VideoTrackingReport({ jobId, onSeek }: { jobId: string; onSeek: (seconds: number) => void }) {
+export default function VideoTrackingReport({ jobId, onSeek, hasPitchEstimate = false }: { jobId: string; onSeek: (seconds: number) => void; hasPitchEstimate?: boolean }) {
   const [payload, setPayload] = useState<{ id: string; summary: Summary } | null>(null)
   const [failure, setFailure] = useState<string | null>(null)
   const [attempt, setAttempt] = useState(0)
@@ -50,7 +50,7 @@ export default function VideoTrackingReport({ jobId, onSeek }: { jobId: string; 
       <div className="tracking-report-diagnostic"><strong>Độ liên tục cần rà soát</strong><p>Tracker đã cấp {number(summary.track_ids, 0)} ID; {number(summary.short_track_ids, 0)} ID được quan sát dưới 1 giây. ID có thể đổi khi mất dấu hoặc chuyển cảnh. Các con số này không phải số cầu thủ hay số lần đổi ID đã được xác minh.</p></div>
       <Button variant="outline" onClick={() => setShowTracks(value => !value)}>{showTracks ? "Thu gọn danh sách ID" : "Xem các ID được theo dõi lâu nhất"}</Button>
       {showTracks && <div className="tracking-report-table"><p>{summary.tracks_shown} / {summary.track_ids} ID, xếp theo thời gian có quan sát. Thời gian có quan sát = số frame có ID / FPS; bỏ khoảng mất dấu, không phải phút thi đấu.</p><table><thead><tr><th>ID</th><th>Nhóm áo chủ yếu</th><th>Có quan sát</th><th>Đầu – cuối</th><th>Mất dấu ở giữa</th><th>Xem lại</th></tr></thead><tbody>{summary.tracks.map(track => <tr key={track.id}><td>{track.id}</td><td>{labels[track.group]}</td><td>{number(track.observed_s)} s</td><td>{formatVideoTime(track.first_s)} – {formatVideoTime(track.last_s)}</td><td>{number(track.missing_s)} s</td><td><button onClick={() => onSeek(track.first_s)}>Tới ID {track.id}</button></td></tr>)}</tbody></table></div>}
-      <div className="tracking-report-diagnostic"><strong>Chưa tính được từ clip này</strong><p>Tọa độ sân, heatmap, quãng đường và tốc độ cần hiệu chỉnh sân. Chuyền bóng, cú sút, xG và gợi ý chiến thuật cần dữ liệu sự kiện; chưa được suy ra từ video này. Báo cáo trên các trang StatsBomb/Metrica là nguồn riêng.</p></div>
+      <div className="tracking-report-diagnostic"><strong>Giới hạn phân tích</strong><p>{hasPitchEstimate ? "Ước lượng tọa độ sân và vận động được trình bày riêng ở trên, chỉ thuộc đoạn hiệu chỉnh và chưa kiểm chứng sai số thực địa. " : "Tọa độ sân, heatmap, quãng đường và tốc độ cần hiệu chỉnh sân. "}Ứng viên chuyền bóng vẫn cần kiểm chứng; cú sút, xG và gợi ý chiến thuật chưa được suy ra đáng tin cậy từ clip này. Báo cáo trên các trang StatsBomb/Metrica là nguồn riêng.</p></div>
     </>}
   </section>
 }

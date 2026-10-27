@@ -44,6 +44,9 @@ def read_status(job_id):
         if source:
             with source.open("rb") as stream:
                 status["result"]["source_sha256"] = hashlib.file_digest(stream, "sha256").hexdigest()
+    if status["status"] == "completed" and "result" in status:
+        status["result"]["ball_events_available"] = (folder / "ball_research/report.json").is_file()
+        status["result"]["pitch_estimate_available"] = (folder / "pitch_estimate/report.json").is_file()
     return status
 
 
@@ -156,3 +159,69 @@ def summary(job_id: str):
         return summarize(folder_for(job_id), current["result"])
     except (ValueError, KeyError, OSError) as error:
         raise HTTPException(422, "Không tổng hợp được kết quả tracking. Hãy phân tích lại video.") from error
+
+
+@router.get("/{job_id}/ball-events")
+def ball_events(job_id: str):
+    current = read_status(job_id)
+    if current["status"] != "completed":
+        raise HTTPException(409, "Kết quả chưa sẵn sàng.")
+    path = folder_for(job_id) / "ball_research/report.json"
+    if not path.is_file():
+        return {"status": "not_available", "possible_passes": [], "confirmed_passes": None, "shots": None}
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+        if (payload["person_job_id"] != job_id or payload["source_sha256"] != current["result"]["source_sha256"]
+                or payload["frames"] != current["result"]["frames"]):
+            raise ValueError("Research/source mismatch")
+        for event in payload["possible_passes"]:
+            if (event["kind"] != "possible_pass" or event["status"] != "unverified"
+                    or event["group"] not in ("A", "B") or event["from_id"] == event["to_id"]
+                    or not 0 <= event["start_s"] < event["end_s"] <= current["result"]["frames"] / current["result"]["fps"]):
+                raise ValueError("Invalid research event")
+        return {**payload, "status": "research_candidates", "confirmed_passes": None, "shots": None}
+    except (KeyError, ValueError, OSError) as error:
+        raise HTTPException(422, "Kết quả thử nghiệm không khớp video; chưa thể hiển thị.") from error
+
+
+@router.get("/{job_id}/pitch-estimate")
+def pitch_estimate(job_id: str):
+    current = read_status(job_id)
+    if current["status"] != "completed":
+        raise HTTPException(409, "Video chưa xử lý xong.")
+    path = folder_for(job_id) / "pitch_estimate/report.json"
+    if not path.is_file():
+        return {"status": "not_available"}
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+        if (payload["person_job_id"] != job_id or payload["source_sha256"] != current["result"]["source_sha256"]
+                or payload["pitch_m"] != [105, 68] or payload["origin"] != "bottom_left"):
+            raise ValueError("Pitch/source mismatch")
+        return {**payload, "status": "provisional_estimate", "independently_validated": False}
+    except (KeyError, ValueError, OSError) as error:
+        raise HTTPException(422, "Ước lượng sân không khớp nguồn video.") from error
+
+
+@router.get("/{job_id}/pitch-tracking")
+def pitch_tracking(job_id: str):
+    from backend.common.schemas import TrackingRow
+    report = pitch_estimate(job_id)
+    if report["status"] != "provisional_estimate":
+        raise HTTPException(404, "Chưa có tọa độ sân cho video này.")
+    path = folder_for(job_id) / "pitch_estimate/tracking.jsonl"
+    try:
+        if path.stat().st_size > 20 * 1024 * 1024:
+            raise ValueError("Tracking too large")
+        rows = []
+        with path.open(encoding="utf-8") as stream:
+            for line in stream:
+                if line.strip():
+                    row = TrackingRow.model_validate_json(line)
+                    if not 0 <= row.x_m <= 105 or not 0 <= row.y_m <= 68:
+                        raise ValueError("Outside pitch")
+                    rows.append(row.model_dump())
+                    if len(rows) > 200000:
+                        raise ValueError("Too many rows")
+        return rows
+    except (OSError, ValueError) as error:
+        raise HTTPException(422, "Không đọc được tọa độ ước lượng hợp lệ.") from error
