@@ -2,8 +2,15 @@ import { useEffect, useRef, useState } from "react"
 
 export type ImageBox = { id: number; group: "A" | "B" | "unknown"; xyxy: number[] }
 type BoxFrame = { frame: number; time_s: number; boxes: ImageBox[] }
-type Result = { fps: number; frames: number; width: number; height: number; chunk_frames: number; chunks: number; device: string; track_ids: number; observations: number; limitations: string[] }
-type Job = { id: string; status: "queued" | "running" | "completed" | "failed" | "cancelled"; progress: number; stage: string; result?: Result }
+type Result = { fps: number; frames: number; width: number; height: number; chunk_frames: number; chunks: number; device: string; track_ids: number; observations: number; limitations: string[]; source_sha256?: string }
+export type VideoJob = { id: string; status: "queued" | "running" | "completed" | "failed" | "cancelled"; progress: number; stage: string; result?: Result }
+type Job = VideoJob
+
+export async function fetchCompletedDemo(jobId: string, sourceHash: string, signal: AbortSignal): Promise<VideoJob> {
+  const job = await jsonResponse(await fetch(`/api/video-jobs/${jobId}`, { signal })) as VideoJob
+  if (job.status !== "completed" || !job.result || job.result.source_sha256 !== sourceHash) throw new Error("Kết quả clip mẫu chưa sẵn sàng hoặc không khớp video. Hãy chuẩn bị lại clip mẫu.")
+  return job
+}
 
 async function jsonResponse(response: Response) {
   const body = await response.json()
@@ -17,16 +24,24 @@ export function useVideoJob(file: File | null, clock: number) {
   const [uploadPercent, setUploadPercent] = useState(0)
   const [error, setError] = useState<string | null>(null)
   const [segment, setSegment] = useState<{ index: number; frames: BoxFrame[] } | null>(null)
+  const [demoBound, setDemoBound] = useState<string | null>(null)
   const xhr = useRef<XMLHttpRequest | null>(null)
   const generation = useRef(0)
   const busy = uploading || job?.status === "running" || job?.status === "queued"
-  const result = job?.status === "completed" && file ? job.result : undefined
+  const result = job?.status === "completed" && (file || demoBound === job.id) ? job.result : undefined
   const index = result ? Math.floor(Math.floor(clock * result.fps + .0001) / result.chunk_frames) : -1
 
   function reset() {
     generation.current++
     xhr.current?.abort()
     setJob(null); setSegment(null); setError(null); setUploading(false)
+    setDemoBound(null)
+  }
+
+  function bindDemo(job: VideoJob) {
+    generation.current++
+    xhr.current?.abort()
+    setSegment(null); setError(null); setUploading(false); setDemoBound(job.id); setJob(job)
   }
 
   useEffect(() => () => { generation.current++; xhr.current?.abort() }, [])
@@ -120,5 +135,5 @@ export function useVideoJob(file: File | null, clock: number) {
 
   const frameId = result ? Math.floor(clock * result.fps + .0001) : -1
   const frame = segment?.index === index ? segment.frames[frameId - index * (result?.chunk_frames || 1)] : undefined
-  return { job, busy, uploading, uploadPercent, error, start, cancel, result, frame, reset }
+  return { job, busy, uploading, uploadPercent, error, start, cancel, result, frame, reset, bindDemo }
 }

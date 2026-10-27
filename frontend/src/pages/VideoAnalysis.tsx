@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { toSvg } from "@/lib/pitchCoordinates"
 import { compatibilityError, formatVideoTime, frameAt, MAX_TRACKING_BYTES, parseTracking, trackingRanges } from "@/lib/videoTracking"
 import type { TrackingTimeline } from "@/lib/videoTracking"
-import { useVideoJob } from "@/lib/useVideoJob"
+import { fetchCompletedDemo, useVideoJob } from "@/lib/useVideoJob"
 import VideoTrackingReport from "@/components/VideoTrackingReport"
 
 type VideoSource = { url: string; name: string; initialTime: number; id: number }
@@ -84,13 +84,21 @@ export default function VideoAnalysis() {
     video.current?.pause()
     setLoading(true); setError(null)
     try {
-      const [manifestResponse, trackingResponse] = await Promise.all([
-        fetch("/video-demo/manifest.json", { signal: controller.signal }),
-        fetch("/video-demo/tracking.jsonl", { signal: controller.signal }),
-      ])
-      if (!manifestResponse.ok || !trackingResponse.ok || !manifestResponse.headers.get("content-type")?.includes("application/json")) throw new Error("Clip mẫu chưa có sẵn. Bạn có thể chọn video và tracking cục bộ bên dưới.")
+      const manifestResponse = await fetch("/video-demo/manifest.json", { signal: controller.signal, cache: "no-store" })
+      if (!manifestResponse.ok || !manifestResponse.headers.get("content-type")?.includes("application/json")) throw new Error("Clip mẫu chưa có sẵn. Bạn có thể chọn video và tracking cục bộ bên dưới.")
       const manifest = await manifestResponse.json()
+      if (manifest.version === 2 && manifest.kind === "processed_video_job") {
+        if (typeof manifest.job_id !== "string" || !/^[a-f0-9]{32}$/.test(manifest.job_id) || typeof manifest.video_sha256 !== "string" || !/^[a-f0-9]{64}$/.test(manifest.video_sha256) || typeof manifest.name !== "string") throw new Error("Thông tin clip mẫu không hợp lệ.")
+        const job = await fetchCompletedDemo(manifest.job_id, manifest.video_sha256, controller.signal)
+        if (id !== requestId.current) return
+        setTimeline(null); setTrackingName(""); setOffsetInput("0"); setClock(0); setDuration(0); setSeeking(false); setMediaError(null)
+        ai.bindDemo(job)
+        setSource({ url: `/video-demo/${manifest.job_id}.mp4`, name: manifest.name, initialTime: 0, id })
+        return
+      }
       if (manifest.version !== 1 || typeof manifest.offset_seconds !== "number" || !Number.isFinite(manifest.offset_seconds)) throw new Error("Thông tin clip mẫu không hợp lệ.")
+      const trackingResponse = await fetch("/video-demo/tracking.jsonl", { signal: controller.signal })
+      if (!trackingResponse.ok) throw new Error("Chưa có tọa độ cho clip mẫu.")
       const data = parseTracking(await trackingResponse.text())
       if (id !== requestId.current) return
       setTimeline(data); setTrackingName("Tracking clip mẫu")

@@ -1,5 +1,6 @@
 """Local upload/job API. Image-space boxes are separate from TrackingRow."""
 import asyncio
+import hashlib
 import json
 from pathlib import Path
 import re
@@ -38,6 +39,11 @@ def read_status(job_id):
         if status["status"] in ("queued", "running") and job_id not in _active:
             status.update(status="failed", stage="Xử lý đã bị gián đoạn do máy chủ khởi động lại. Hãy chọn video và thử lại.")
             write_status(folder, status)
+    if status["status"] == "completed" and "result" in status and "source_sha256" not in status["result"]:
+        source = next(folder.glob("source.*"), None)
+        if source:
+            with source.open("rb") as stream:
+                status["result"]["source_sha256"] = hashlib.file_digest(stream, "sha256").hexdigest()
     return status
 
 

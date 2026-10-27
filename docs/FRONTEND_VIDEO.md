@@ -1,5 +1,20 @@
 # Bước 8a — trang video và sân 2D mini đồng bộ
 
+**Clip mẫu hiện tại (27/10/2026): `Video Project 15.mp4`.** Nút Mở clip
+mẫu dùng manifest v2 và job `e0eb4128f58d45ea85c4ef0000ca92df`: video
+52,3667 giây, 1.571 frame, 6 đoạn kết quả image-space. Kiểm hash video
+với source của job trước khi ghép; không gắn tọa độ sân/offset của clip
+cũ. Backend phải đang chạy để đọc kết quả mẫu đã xử lý.
+
+Tái lập từ job còn trên máy (không chạy lại YOLO):
+
+```powershell
+.\.venv\Scripts\python.exe -m backend.cv.prepare_video_demo --job-id e0eb4128f58d45ea85c4ef0000ca92df --source 'data/raw/Video Project 15.mp4' --name 'Video Project 15.mp4'
+```
+
+Lệnh giữ asset cũ và sao lưu manifest trước khi chuyển mẫu. Clip này
+chưa có tọa độ sân được nghiệm thu; sân mini của clip cũ không dùng lại.
+
 **Cập nhật 27/10/2026:** đã bổ sung luồng tải video và chạy AI từ giao
 diện. Xem `VIDEO_UPLOAD.md`. Mô tả bên dưới ghi lại bước 8a ban đầu;
 nhận định "không upload" chỉ còn áp dụng cho việc mở tệp để xem trước,

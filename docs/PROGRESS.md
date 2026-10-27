@@ -2,6 +2,18 @@
 
 ## Trạng thái hiện tại
 
+Ngày 27/10/2026: theo yêu cầu đổi mẫu sang đúng `Video Project 15.mp4`
+(không chọn bản `(1)` hoặc `(2)`). Đã xử lý 52,3667 giây/1.571 frame,
+1920×1080/30 FPS bằng GPU, 6 đoạn; job `e0eb4128f58d45ea85c4ef0000ca92df`.
+SHA256 nguồn `f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0`.
+Manifest demo v2 ghép video mới với job đúng hash; giữ asset/backup cũ,
+không dùng TrackingRow hay offset của clip cũ. Frontend mở kết quả đã
+xử lý bằng nút Mở clip mẫu, không cần chọn file và chạy lại cho mẫu.
+Đã mở/phát/tua giây 10 trên trình duyệt, hiện khung và báo cáo clip15;
+ảnh `data/processed/live_demo_v1/08-video15-demo.jpg`. Clip mẫu chưa có
+hiệu chỉnh sân được nghiệm thu. Nghiên cứu bóng/sự kiện đang tiếp tục,
+không coi yêu cầu "đến khi ổn" là đã hoàn tất. Chi tiết `FRONTEND_VIDEO.md`.
+
 Ngày 27/10/2026: người dùng yêu cầu kết quả bóng đá (heatmap, quãng đường,
 chuyền/sút, gợi ý chiến thuật) thay cho số liệu frame; đã xác nhận mở rộng
 nghiên cứu tự nhận diện chuyền/sút từ video và theo dõi bóng. ROADMAP đã
