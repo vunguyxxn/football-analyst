@@ -2,6 +2,25 @@
 
 ## Trạng thái hiện tại
 
+Ngày 27/10/2026: sửa thiếu báo cáo sau phân tích video. Đã có phần
+"Kết quả phân tích clip" dưới video: trung bình/cao nhất số đối tượng
+trên frame, tỷ lệ frame có phát hiện, phân bố nhóm màu, tỷ lệ lượt chưa
+rõ nhóm, biểu đồ theo giây và tối đa 100 ID quan sát lâu nhất. Bấm cột
+hoặc ID tua video và đưa trình phát vào tầm nhìn. Thời gian ID chỉ đếm
+frame có quan sát, loại khoảng mất dấu; không gọi ID là cầu thủ thật.
+Sân mini trống được ẩn khi clip đã xử lý nhưng chưa có TrackingRow sân;
+các chỉ số chưa thể tính được ghi rõ trong báo cáo. Không đổi schema
+sân, thư viện hay thuật toán CV; endpoint summary đọc từng đoạn JSON.
+
+Đã nghiệm thu trực tiếp trên job người dùng `9285f5d2bf2d48a685d34199faa67934`
+không chạy lại YOLO: 46,9 giây/1.408 frame, trung bình 22,4/cao nhất 27
+đối tượng mỗi frame, 15,5% lượt chưa rõ màu áo; 268 ID, 141 ID dưới một
+giây. Đây là số liệu tracking gồm cả người ngoài sân, không phải số
+cầu thủ, accuracy hay chỉ số chiến thuật. Bấm giây 11 tua đúng 11s;
+bấm ID 307 tua đúng 14,5667s. Đã mở sẵn bảng kết quả trên trình duyệt.
+9 test backend liên quan qua, 12 test frontend qua, build/lint exit 0
+(cảnh báo bundle/Fast Refresh cũ). Xem `VIDEO_UPLOAD.md`.
+
 Ngày 27/10/2026: đã nối luồng chọn video → bấm Phân tích video → upload
 FastAPI cục bộ → YOLO/ByteTrack + ước lượng hai nhóm màu áo → xem khung/ID
 đồng bộ trên video gốc. Có tiến độ, hủy, báo lỗi, giới hạn 500 MB/10 phút,

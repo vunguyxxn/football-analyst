@@ -41,6 +41,21 @@ vừa tải. Nhận diện sự kiện từ video vẫn ngoài phạm vi.
 
 ## API cục bộ mới
 
+Cập nhật cùng ngày: dưới video đã có **Kết quả phân tích clip**, đọc
+các đoạn tracking đã hoàn tất, không cần chạy lại YOLO cho kết quả cũ.
+Bảng gồm thời lượng/frame, số đối tượng trung bình/cao nhất trên frame,
+tỷ lệ frame có phát hiện người, phần quan sát chưa rõ màu áo và số đối
+tượng trung bình mỗi nhóm. Biểu đồ theo giây và bảng tối đa 100 ID có
+thời gian quan sát lâu nhất cho phép tua tới đoạn nguồn.
+
+Thời gian quan sát ID = số frame có ID/FPS, không tính khoảng mất dấu.
+Khoảng mất dấu chỉ đếm giữa frame đầu/cuối của cùng ID. Nhóm chủ yếu
+của ID cần ít nhất 70% lượt cùng nhóm, còn lại hiển thị chưa rõ. Các
+nhãn này không xác nhận danh tính người thật hoặc đội. Số ID dưới một
+giây chỉ giúp rà soát độ liên tục, không phải số lần đổi ID được gán nhãn.
+Không có tọa độ sân thì thu gọn phần sân mini trống và nêu rõ các chỉ
+số chưa tính được; không coi số lượt phát hiện là kiểm soát bóng.
+
 Không đổi `TrackingRow`, `AnalysisResult` hoặc `docs/DATA_CONTRACT.md`.
 API tác vụ này là giao thức riêng cho upload và **khung ảnh pixel**:
 
@@ -51,6 +66,7 @@ API tác vụ này là giao thức riêng cho upload và **khung ảnh pixel**:
 | `GET /api/video-jobs/{id}` | queued/running/completed/failed/cancelled; khi hoàn tất có `result` |
 | `POST /api/video-jobs/{id}/cancel` | Yêu cầu hủy; chờ worker dừng giữa các frame |
 | `GET /api/video-jobs/{id}/chunks/{index}` | JSON kết quả đoạn, chỉ đọc khi tác vụ completed |
+| `GET /api/video-jobs/{id}/summary` | Tổng hợp từng đoạn thành số liệu clip, timeline theo giây và tối đa 100 ID được quan sát lâu nhất; HTTP 409 nếu chưa xong, 422 nếu kết quả thiếu/hỏng |
 
 `result` gồm fps, frames, width/height, duration_s, chunk_frames, chunks,
 device, image_size/confidence, track_ids, observations, group_observations,

@@ -1,4 +1,28 @@
 .video-page { display: grid; gap: 20px; }
+.video-analysis-grid.video-result-grid { grid-template-columns: minmax(0, 1fr); }
+.tracking-report { padding: 22px; min-width: 0; }
+.tracking-report-heading { display: flex; justify-content: space-between; gap: 12px; align-items: center; }
+.tracking-report h3 { font-size: 20px; margin: 8px 0 18px; }
+.tracking-report h4 { margin: 24px 0 10px; font-size: 14px; }
+.tracking-report-heading > span, .tracking-report p { font-size: 12px; color: var(--text-secondary); line-height: 1.7; }
+.tracking-report-metrics { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.tracking-report-metrics > div, .tracking-report-groups > div { background: #ffffff04; border: 1px solid var(--border); border-radius: 10px; padding: 15px; }
+.tracking-report-metrics span, .tracking-report-groups span { display: block; color: var(--text-secondary); font-size: 11px; }
+.tracking-report-metrics strong, .tracking-report-groups strong { display: block; font-size: 25px; font-weight: 550; margin-top: 10px; }
+.tracking-report-metrics small { font-size: 12px; }
+.tracking-report-groups { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.tracking-report-chart { display: flex; height: 110px; gap: 3px; align-items: end; border-bottom: 1px solid var(--border); }
+.tracking-report-chart button { flex: 1; min-width: 2px; background: #69c98a; border: 0; border-radius: 3px 3px 0 0; cursor: pointer; }
+.tracking-report-chart button:hover, .tracking-report-chart button:focus-visible { background: #baf4cc; outline: 2px solid #baf4cc; }
+.tracking-report-chart-labels { display: flex; justify-content: space-between; font-size: 10px; color: var(--text-secondary); margin: 8px 0; }
+.tracking-report-diagnostic { border-left: 3px solid #7ba78b; background: #ffffff03; padding: 12px 14px; margin: 18px 0; font-size: 13px; }
+.tracking-report-table { overflow: auto; max-height: 420px; margin-top: 12px; }
+.video-overlay-options { display: flex; align-items: center; gap: 6px; color: var(--text-secondary); font-size: 11px; margin-bottom: 12px; }
+.tracking-report-table table { width: 100%; font-size: 12px; text-align: left; border-collapse: collapse; }
+.tracking-report-table th, .tracking-report-table td { padding: 10px; border-bottom: 1px solid var(--border); white-space: nowrap; }
+.tracking-report-table button { color: #9cdeb1; cursor: pointer; }
+@media (max-width: 900px) { .tracking-report-metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 500px) { .tracking-report { padding: 15px; } .tracking-report-groups { grid-template-columns: 1fr; } .tracking-report-heading { align-items: start; flex-direction: column; } .tracking-report-chart { gap: 1px; } }
 .video-job { padding: 18px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
 .video-job > div:first-child { flex: 1 1 280px; }
 .video-job strong { font-size: 13px; }

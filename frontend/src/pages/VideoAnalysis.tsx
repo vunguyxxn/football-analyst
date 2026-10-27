@@ -6,6 +6,7 @@ import { toSvg } from "@/lib/pitchCoordinates"
 import { compatibilityError, formatVideoTime, frameAt, MAX_TRACKING_BYTES, parseTracking, trackingRanges } from "@/lib/videoTracking"
 import type { TrackingTimeline } from "@/lib/videoTracking"
 import { useVideoJob } from "@/lib/useVideoJob"
+import VideoTrackingReport from "@/components/VideoTrackingReport"
 
 type VideoSource = { url: string; name: string; initialTime: number; id: number }
 const TEAMS = { A: { label: "Đội A", color: "#a855f7" }, B: { label: "Đội B", color: "#22d3ee" }, referee: { label: "Trọng tài", color: "#facc15" }, unknown: { label: "Chưa rõ", color: "#94a3b8" } }
@@ -147,7 +148,7 @@ export default function VideoAnalysis() {
     </section>
     {(error || mediaError || mismatch) && <div className="error-notice" role="alert"><AlertCircle size={18} /><span>{error || mediaError || mismatch}</span></div>}
 
-    <div className="video-analysis-grid">
+    <div className={`video-analysis-grid${ai.result && !timeline ? " video-result-grid" : ""}`}>
       <section aria-label="Trình phát video" className="video-player-card card-surface">
         <div className="video-panel-heading"><h3><Clapperboard size={17} /> Video trận đấu</h3><span className="video-local-tag">CỤC BỘ</span></div>
         <div className="video-screen" style={ai.result ? { aspectRatio: `${ai.result.width} / ${ai.result.height}` } : undefined}>
@@ -164,6 +165,7 @@ export default function VideoAnalysis() {
           </svg>}
         </div>
         <div className="video-timeline">
+          {ai.result && <label className="video-overlay-options"><input checked={showIds} onChange={event => setShowIds(event.target.checked)} type="checkbox" />Hiện ID trên video</label>}
           <div className="video-time-row"><span>{formatVideoTime(clock)} <span>/ {formatVideoTime(duration)}</span></span><span>{sample ? `Frame ${sample.frame}` : "—"}</span></div>
           <div className="video-seek-wrap">
             <div aria-hidden="true" className="tracking-coverage">{duration > 0 && !mismatch && ranges.map(range => <i key={range.start} style={{ left: `${Math.max(0, (range.start + offset) / duration * 100)}%`, width: `${Math.max(0, Math.min(duration, range.end + offset) - Math.max(0, range.start + offset)) / duration * 100}%` }} />)}</div>
@@ -173,7 +175,7 @@ export default function VideoAnalysis() {
         </div>
       </section>
 
-      <section aria-label="Vị trí trên sân" className="mini-pitch-card card-surface">
+      {(!ai.result || timeline) && <section aria-label="Vị trí trên sân" className="mini-pitch-card card-surface">
         <div className="video-panel-heading"><h3><LocateFixed size={17} /> Góc nhìn trên sân</h3><span className={`position-status${sample ? " has-positions" : ""}`}><i />{sample ? "Đang đồng bộ" : "Chưa có tọa độ"}</span></div>
         <div className="mini-pitch-wrap"><Pitch className="video-mini-pitch">{sample?.rows.map(row => {
           const point = toSvg(row.x_m, row.y_m), team = TEAMS[row.team]
@@ -182,8 +184,10 @@ export default function VideoAnalysis() {
         <div className="mini-pitch-summary"><strong>{sample?.rows.length ?? 0}<small>đối tượng tại thời điểm này</small></strong><label><input checked={showIds} onChange={event => setShowIds(event.target.checked)} type="checkbox" />Hiện ID</label></div>
         <div className="video-team-legend">{Object.entries(TEAMS).map(([key, team]) => <span key={key}><i style={{ background: team.color }} />{team.label}</span>)}</div>
         <div aria-live="polite" className="mini-pitch-message">{!source ? "Chọn video để bắt đầu." : !timeline ? ai.result ? "Đã có khung theo dõi trên video. Sân mini cần hiệu chỉnh sân cho clip này; chưa có tọa độ mét." : ai.busy ? "AI đang xử lý khung theo dõi trên video; chưa có hiệu chỉnh sân để vẽ vị trí tại đây." : "Bấm Phân tích video để chạy AI. Nếu đã có tọa độ sân được hiệu chỉnh, bạn có thể mở file tracking tương ứng." : mismatch ? "Kiểm tra căn chỉnh thời gian trước khi xem vị trí." : seeking ? "Đang chuyển tới thời điểm mới…" : !sample ? "Thời điểm này chưa có tọa độ hợp lệ. Sân mini được để trống." : "ID là mã theo dõi, không phải số áo. Tọa độ giữ nguyên hướng sân của video."}</div>
-      </section>
+      </section>}
     </div>
+
+    {ai.result && ai.job && <VideoTrackingReport key={ai.job.id} jobId={ai.job.id} onSeek={seconds => { video.current?.pause(); seekTo(seconds); video.current?.scrollIntoView({ behavior: "smooth", block: "center" }) }} />}
 
     <section className="video-notes card-surface">
       <div><strong>Chỉ hiển thị dữ liệu có sẵn</strong><p>Đoạn mất hiệu chỉnh hoặc thiếu tracking sẽ để trống. Tọa độ hiện dùng để minh họa, chưa dùng đo quãng đường hay tốc độ thực địa.</p></div>

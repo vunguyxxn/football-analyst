@@ -138,3 +138,15 @@ def chunk(job_id: str, index: int):
     if not 0 <= index < current["result"]["chunks"]:
         raise HTTPException(404, "Không có đoạn kết quả này.")
     return json.loads((folder_for(job_id) / f"chunk-{index}.json").read_text(encoding="utf-8"))
+
+
+@router.get("/{job_id}/summary")
+def summary(job_id: str):
+    from backend.cv.tracking_summary import summarize
+    current = read_status(job_id)
+    if current["status"] != "completed":
+        raise HTTPException(409, "Kết quả chưa sẵn sàng.")
+    try:
+        return summarize(folder_for(job_id), current["result"])
+    except (ValueError, KeyError, OSError) as error:
+        raise HTTPException(422, "Không tổng hợp được kết quả tracking. Hãy phân tích lại video.") from error
