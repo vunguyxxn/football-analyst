@@ -2,6 +2,14 @@
 
 ## Trạng thái hiện tại
 
+Ngày 27/10/2026: đã demo trực tiếp trên trình duyệt bốn trang phân tích
+trận, video đồng bộ sân mini, hồ sơ cầu thủ và báo cáo HLV. Backend/Vite
+đã khởi động; kiểm tra mạng chuyền Brazil, phát clip mẫu với tọa độ,
+tra cứu De Bruyne/Shot, đổi nguồn Metrica và truy vết báo cáo Belgium
+tới event ID/SHAP. Không sửa code hoặc hợp đồng dữ liệu. Ảnh phiên demo
+lưu cục bộ tại `data/processed/live_demo_v1/04-report.jpg`. Đây là kiểm
+tra luồng giao diện, không bổ sung nghiệm thu độ chính xác mô hình.
+
 Ngày 26/10/2026: bước 8c đã có trang `/reports`, tổng hợp xG, chọn đội/
 gợi ý/cú sút căn cứ, SHAP nhóm và từng cú sút, event ID và tải JSON.
 Đọc báo cáo bước 7, kiểm lại số liệu/truy vết/SHAP, không thêm luật,
