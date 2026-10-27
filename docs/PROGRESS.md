@@ -2,6 +2,35 @@
 
 ## Trạng thái hiện tại
 
+Ngày 27/10/2026: người dùng yêu cầu kết quả bóng đá (heatmap, quãng đường,
+chuyền/sút, gợi ý chiến thuật) thay cho số liệu frame; đã xác nhận mở rộng
+nghiên cứu tự nhận diện chuyền/sút từ video và theo dõi bóng. ROADMAP đã
+cập nhật đúng phạm vi này. Chưa coi báo cáo tracking hiện có là đáp ứng
+đầy đủ yêu cầu; chưa bổ sung nhận diện sự kiện hoặc homography tự động.
+
+Đã thực hiện bước nền nghiên cứu: probe YOLO class sports ball trên 47
+ảnh cách 1 giây của clip hiện tại, full frame + 6 crop. Baseline nhận nhầm
+đồ vật/ngoài sân và bỏ sót bóng. Fine-tune riêng một class ball từ nhãn
+nguồn cũ (ảnh/nhóm tách giữ nguyên, hash xác minh): train199 ảnh/174 bóng,
+val100/93, test73/60. Protocol khóa trước: 8 epoch, imgsz1280, batch2,
+AdamW, seed20261027; chọn best bằng validation, giữ test tới sau train.
+Không cài thêm thư viện, không đổi schema hoặc model production.
+
+Test detector: mAP50 0,3512→0,5579; mAP50–95 0,1791→0,2009; precision
+0,5083→0,7430, recall0,3333→0,5301 ở điểm validator, không phải accuracy
+chuyền/sút. Thử lại 47 ảnh clip với model mới vẫn còn nhận nhầm/bỏ sót;
+**chưa đủ tin cậy để triển khai đếm sự kiện tự động**. Giữ model ngoại
+tuyến, không thay web. Artifact: `data/processed/ball_finetune_v1/` và
+`ball_research_v1/`, `ball_research_finetuned_v1/`. Nhãn điểm agent là bản
+nháp cần rà độc lập, đã ghi rõ một sửa nhãn không chắc; không dùng làm
+ground truth hoặc nghiệm thu. 293 test Python qua/1 network deselected.
+
+Việc còn lại của yêu cầu: cải thiện và kiểm chứng detector/chuỗi bám
+bóng trên đoạn liên tục, liên kết người chạm bóng, nhãn/đánh giá chuyền
+và sút; nối heatmap/quãng đường chỉ khi có tọa độ sân đủ chất lượng,
+sau đó gợi ý có tình huống căn cứ. Không thay số liệu clip bằng mẫu
+StatsBomb/Metrica. Xem `VIDEO_FOOTBALL_RESEARCH.md` và protocol fixture.
+
 Ngày 27/10/2026: sửa thiếu báo cáo sau phân tích video. Đã có phần
 "Kết quả phân tích clip" dưới video: trung bình/cao nhất số đối tượng
 trên frame, tỷ lệ frame có phát hiện, phân bố nhóm màu, tỷ lệ lượt chưa

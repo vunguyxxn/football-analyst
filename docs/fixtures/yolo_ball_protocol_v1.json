@@ -1,0 +1,19 @@
+{
+  "version": "yolo_ball_finetune_v1",
+  "source": "existing verified football_detection_source_v1",
+  "split": "reuse group/near-duplicate-disjoint person dataset manifest; never use uploaded clip for training",
+  "source_ball_class": 0,
+  "coco_ball_class": 32,
+  "epochs": 8,
+  "image_size": 1280,
+  "batch": 2,
+  "seed": 20261027,
+  "optimizer": "AdamW",
+  "lr0": 0.001,
+  "amp": false,
+  "workers": 0,
+  "test_confidence": 0.001,
+  "test_iou": 0.7,
+  "promotion": "no automatic pipeline promotion; validate uploaded clip independently",
+  "selection": "best validation fitness; evaluate held-out test after training once"
+}

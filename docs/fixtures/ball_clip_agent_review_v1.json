@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "source_sha256": "cd6138c73e54f8bc0507bfd7492554a3f3fce5c015f14015173f948b50dc1711",
+  "scope": "development diagnostic only; sparse agent visual estimates, corrected during review; not independent human ground truth or a held-out test",
+  "status": "draft_needs_independent_review",
+  "revision_note": "Initial point at frame 60 may be a boot rather than the in-play ball; changed to uncertain after model comparison. Do not use diagnostic proxies as acceptance metrics.",
+  "image_size": [1920, 1080],
+  "center_tolerance_px": 12,
+  "score_threshold": 0.1,
+  "frames": [
+    {"frame": 60, "visibility": "uncertain", "center": null, "note": "Small white object under far dark-shirt player is not confidently distinguishable from a boot"},
+    {"frame": 240, "visibility": "uncertain", "center": null},
+    {"frame": 480, "visibility": "uncertain", "center": null},
+    {"frame": 660, "visibility": "visible", "center": [144, 408], "note": "White ball in left penalty-area vicinity"},
+    {"frame": 840, "visibility": "visible", "center": [349, 327], "note": "Ball beside far-left white-shirt player"},
+    {"frame": 1020, "visibility": "uncertain", "center": null},
+    {"frame": 1200, "visibility": "visible", "center": [267, 400], "note": "Ball at white player's feet left of midfield"},
+    {"frame": 1380, "visibility": "uncertain", "center": null}
+  ]
+}
