@@ -2,6 +2,10 @@
 
 ## Phạm vi
 
+Cập nhật rà nội bộ 29/10: panel chiến thuật clip mẫu đã lọc các quỹ đạo
+trọng tài/thủ môn được agent rà và dùng hướng suy luận ở phạm vi được
+ghi rõ; vẫn chưa có sơ đồ được xác nhận. Xem VIDEO_CONTEXT_REVIEW.md.
+
 Theo yêu cầu 29/10/2026, ưu tiên heatmap, hình thái đội và các phương án
 chiến thuật, dừng nghiên cứu bóng/chuyền/sút ở luồng video chính. Không
 đòi hỏi camera thấy đủ 11 người, không ghép cầu thủ ở các thời điểm khác

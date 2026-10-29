@@ -248,6 +248,7 @@ def pitch_tracking(job_id: str):
 def spatial_tactics(job_id: str):
     """Internal video DTO, computed from source-matched calibrated positions only."""
     from backend.tactics.video_tactics import build_report
+    from backend.tactics.video_context import load_context
     report = pitch_estimate(job_id)
     if report["status"] != "provisional_estimate":
         return {"status": "not_available", "windows": [],
@@ -255,7 +256,8 @@ def spatial_tactics(job_id: str):
     try:
         current = read_status(job_id)["result"]
         rows = pitch_tracking(job_id)
-        result = build_report(rows, report, current["fps"], current["frames"])
+        context = load_context(folder_for(job_id), current)
+        result = build_report(rows, report, current["fps"], current["frames"], context)
         result["input_sha256"] = {
             "calibration": hashlib.sha256((folder_for(job_id) / "pitch_estimate/report.json").read_bytes()).hexdigest(),
             "positions": hashlib.sha256((folder_for(job_id) / "pitch_estimate/tracking.jsonl").read_bytes()).hexdigest()}

@@ -6,6 +6,7 @@ import numpy as np
 
 from backend.tactics.formation_templates import template_points
 from backend.tactics.partial_formation import infer_partial
+from backend.tactics.video_context import role_for, window_context
 
 POLICY = {"minimum_people": 4, "maximum_people": 11, "minimum_seconds": 5,
           "minimum_frame_coverage": .5, "dominant_lane_share": .6,
@@ -75,7 +76,7 @@ def coaching_options(metrics):
     return options
 
 
-def analyze_window(frame_rows, group, segment, fps):
+def analyze_window(frame_rows, group, segment, fps, review=None):
     start, end = segment["start_s"], segment["end_s"]
     frames = {frame: [row for row in rows if row["team"] == group]
               for frame, rows in frame_rows.items() if start <= rows[0]["time_s"] < end}
@@ -83,6 +84,7 @@ def analyze_window(frame_rows, group, segment, fps):
     expected = max(1, round((end-start)*fps))
     coverage, seconds = len(valid) / expected, len(valid) / fps
     base = {"segment": segment["segment"], "group": group, "start_s": start, "end_s": end,
+            "review": review,
             "support": {"frames": len(valid), "seconds": seconds, "frame_coverage": coverage,
                         "minimum_people": POLICY["minimum_people"]},
             "formation": {"status": "insufficient_geometry", "shape": None, "candidates": [],
@@ -121,11 +123,11 @@ def analyze_window(frame_rows, group, segment, fps):
                 "players": [{"id": row["track_id"], "x_m": row["x_m"], "y_m": row["y_m"]} for row in people],
                 "bands": [{"ids": [row["track_id"] for row in band],
                            "centroid_m": np.mean([[row["x_m"],row["y_m"]] for row in band],axis=0).tolist()} for band in bands]}
-    return {**base, "formation": infer_partial(valid,representative), "status": "observed_cluster", "metrics": metrics, "heatmap_seconds": heatmap.tolist(),
+    return {**base, "formation": infer_partial(valid,representative,review["attack_direction"] if review else None), "status": "observed_cluster", "metrics": metrics, "heatmap_seconds": heatmap.tolist(),
             "snapshot": snapshot, "recommendations": coaching_options(metrics)}
 
 
-def build_report(rows, calibration, fps, total_frames):
+def build_report(rows, calibration, fps, total_frames, context=None):
     if not math.isfinite(fps) or fps <= 0 or total_frames <= 0:
         raise ValueError("Invalid clip timing")
     by_frame, keys = defaultdict(list), set()
@@ -137,7 +139,8 @@ def build_report(rows, calibration, fps, total_frames):
                 or row["team"] not in ("A","B","unknown","referee") or (frame,track) in keys):
             raise ValueError("Invalid, duplicate or mismatched pitch row")
         keys.add((frame,track))
-        by_frame[frame].append(row)
+        if context is None or role_for(row, context) is None:
+            by_frame[frame].append(row)
     segments, previous, ids = calibration["segments"], 0., set()
     for segment in segments:
         start,end = segment["start_s"],segment["end_s"]
@@ -152,7 +155,10 @@ def build_report(rows, calibration, fps, total_frames):
             "independently_validated": False, "method": "traceable_spatial_rules_not_trained_tactic_model",
             "source_sha256": calibration["source_sha256"], "person_job_id": calibration["person_job_id"],
             "coordinate_system": "105x68_bottom_left", "policy": POLICY,
-            "windows": [analyze_window(by_frame,group,segment,fps) for segment in segments for group in ("A","B")],
+            "context_review": {"status": "agent_review_not_independent", "audit": context["audit"],
+                               "team_labels": context["team_labels"],
+                               "removed_team_observations": sum(row["team"] in ("A","B") and role_for(row,context) is not None for row in rows)} if context else None,
+            "windows": [analyze_window(by_frame,group,segment,fps,window_context(context,segment,group) if context else None) for segment in segments for group in ("A","B")],
             "formation_options": [formation_option(shape) for shape in ("4-3-3","4-4-2","4-2-3-1")],
             "limits": ["Chỉ mô tả nhóm áo được nhìn thấy trong đoạn có tọa độ; phần ngoài camera không được coi là trống.",
                        "Heatmap là thời gian vị trí quan sát, không phải kiểm soát bóng; chưa biết pha có bóng/không bóng.",

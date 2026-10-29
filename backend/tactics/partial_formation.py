@@ -50,7 +50,9 @@ def rectangular_assignment(cost):
     return sum(values[row][target] for row,target in enumerate(assignment)),assignment
 
 
-def fit_snapshot(people):
+def fit_snapshot(people, attack_direction=None):
+    if attack_direction is not None and (type(attack_direction) is not int or attack_direction not in (-1, 1)):
+        raise ValueError("Direction must be +1, -1 or unknown")
     if not POLICY["minimum_observed"] <= len(people) <= 10:
         return []
     xy = np.asarray([[row["x_m"],row["y_m"]] for row in people],dtype=float)
@@ -66,7 +68,7 @@ def fit_snapshot(people):
     for shape in CATALOG:
         relative = template_points(shape)
         best = None
-        for length,breadth,dx,dy,direction in itertools.product(depths,widths,(-.25,0,.25),(-.25,0,.25),(-1,1)):
+        for length,breadth,dx,dy,direction in itertools.product(depths,widths,(-.25,0,.25),(-.25,0,.25),(-1,1) if attack_direction is None else (attack_direction,)):
             target = relative * [direction*length/2,breadth/2]+center+[dx*length,dy*breadth]
             if (target < [2,2]).any() or (target > [103,66]).any():
                 continue
@@ -110,18 +112,18 @@ def fit_snapshot(people):
     return sorted(candidates,key=lambda item:(item["rmse_m"],item["shape"]))
 
 
-def infer_partial(frames, representative):
+def infer_partial(frames, representative, attack_direction=None):
     eligible = sorted(frame for frame,people in frames.items() if POLICY["minimum_observed"] <= len(people) <= 10)
     base = {"shape": None, "status": "insufficient_geometry", "confidence": "low",
             "reason": "Cần ít nhất 6 đối tượng cùng nhóm và đủ độ trải để so giả thuyết hình học; không yêu cầu thấy đủ 11 người.",
             "candidates": [], "policy": POLICY,
-            "limits": "Nhóm áo/vai trò/hướng tấn công chưa xác nhận. Vị trí khuất là giả định của mẫu, không được đưa vào heatmap, quãng đường hay số người quan sát."}
+            "limits": "Nhóm áo/vai trò/hướng tấn công chưa được xác nhận độc lập; có thể dùng hướng suy luận từ rà video nếu được cung cấp. Vị trí khuất là giả định của mẫu, không được đưa vào heatmap, quãng đường hay số người quan sát."}
     if not eligible:
         return base
     selected = sorted({eligible[index] for index in np.linspace(0,len(eligible)-1,POLICY["sample_frames"],dtype=int)})
     if representative in eligible:
         selected = sorted(set(selected+[representative]))
-    fits = {frame:fit_snapshot(frames[frame]) for frame in selected}
+    fits = {frame:fit_snapshot(frames[frame],attack_direction) for frame in selected}
     fits = {frame:fit for frame,fit in fits.items() if fit}
     if not fits:
         return base

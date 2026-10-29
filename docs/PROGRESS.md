@@ -2,6 +2,44 @@
 
 ## Trạng thái hiện tại
 
+Ngày 29/10/2026: đã rà nhóm áo/vai trò/hướng clip15 trên9 thời điểm ở
+ba đoạn đủ hỗ trợ chiến thuật (2/5/8s,31/35/39s,41/45/49s).180 crop
+người do detector chọn:80 đỏ,85 trắng,9 trọng tài,6 thủ môn xanh lá.
+Đúng nhóm163/165 mẫu cầu thủ sân,2 unknown; trọng tài lẫn B4/9 lần,
+thủ môn6/6 unknown. Đây là nhãn agent sau khi đã thấy dự đoán cũ,
+không blinded/đánh giá độc lập/recall phát hiện người hoặc accuracy
+toàn clip. Không tạo nhãn sơ đồ chính thức để tính formation accuracy.
+
+Đã rà tiếp đầu/cuối và mỗi60 khung có mặt của quỹ đạo trọng tài
+12/49/116/157 và thủ môn196/275; vai trò chỉ mang theo ID trong phạm
+vi đã ghi, không ghép thành danh tính thật. Tactics loại những quỹ đạo
+này trước heatmap/cự ly/đếm người/so hình thái: loại thêm542 lượt trước
+đây gán A/B. API kiểm tra thực tế không còn các ID này trong snapshot/
+giả thuyết. Tracking gốc, khung video, sân mini và báo cáo vận động
+tổng hợp vẫn giữ màu gốc; panel chiến thuật ghi rõ phạm vi rà/lọc.
+
+Agent suy luận A=đỏ tấn công x tăng, B=trắng x giảm ở0–10 và30–50s,
+dựa ảnh gốc/diễn biến và vị trí thủ môn phía khung thành phải. Chưa
+xác nhận bằng thông tin trận chính thức; ngoài phạm vi vẫn unknown.
+partial_formation nhận hướng tùy chọn, không tự đảo hướng để làm điểm
+khớp tốt hơn. Sáu kết quả đủ hỗ trợ vẫn mơ hồ/khớp kém, chưa chốt sơ đồ;
+B30–40 có5-3-2 đầu bảng RMSE4,71m nhưng chưa đủ khoảng cách với mẫu sau.
+
+Thêm video_context CLI/audit; sidecar tại job/tactical_context/report.json,
+khóa hash nguồn/job, fixture nhãn, chunks và tracking sân. Đổi nhãn/
+chiếu lại/chunk phải chuẩn bị lại; API từ chối context cũ. Không có
+sidecar thì không tự gán màu/hướng. Không sửa DATA_CONTRACT, không thêm
+thư viện/model vai trò hoặc chạy lại detector. Chi tiết: VIDEO_CONTEXT_REVIEW.md,
+nhãn: docs/fixtures/clip_f51735_context_review_v1.json.
+
+15 test mới qua, toàn bộ378 Python qua/1 network deselected;14 Node
+test qua, build/lint qua với cảnh báo cũ. Browser hiện đúng áo đỏ/trắng,
+đổi B30–40 hướng trái, nútẢnh rà35s tua35,0s và dừng; console không lỗi.
+Ảnh: data/processed/live_demo_v1/18-tactical-context.jpg. Tiếp theo tổng
+hợp diễn biến không gian giữa các đoạn tương đương; vẫn cần kiểm chứng
+tọa độ/sơ đồ bằng nguồn độc lập, không suy ra chiến thuật tối ưu từ một
+đoạn hoặc gán có bóng/không bóng khi chưa có bằng chứng.
+
 Ngày 29/10/2026: đã mở rộng hiệu chỉnh sân clip15 theo yêu cầu, từ hai
 khoảng30–50s sang sáu khoảng trong clip. Fixture v4 khóa đúng nguồn/job,
 giữ neo900/1200, thêm neo0/300/600/750/1500; không chạy lại detector.

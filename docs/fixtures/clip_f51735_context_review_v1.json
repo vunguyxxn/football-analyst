@@ -1,0 +1,2175 @@
+{
+  "kind": "video_context_development_review_v1",
+  "person_job_id": "c140f8aefb4e4678b51fe6f633e1fc56",
+  "source_sha256": "f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0",
+  "frames": [
+    60,
+    150,
+    240,
+    930,
+    1050,
+    1170,
+    1230,
+    1350,
+    1470
+  ],
+  "sampling": "Three scheduled instants in each previously eligible tactical window:2/5/8,31/35/39,41/45/49s. Labels from detector-selected raw crops without group displayed; prior predictions/UI seen, not blinded or independent. No detection recall claim.",
+  "roles": [
+    "red_outfield",
+    "white_outfield",
+    "referee",
+    "goalkeeper",
+    "uncertain"
+  ],
+  "labels": [
+    {
+      "frame": 60,
+      "id": 2,
+      "xyxy": [
+        1230.8,
+        377.77,
+        1260.39,
+        450.73
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 60,
+      "id": 19,
+      "xyxy": [
+        457.64,
+        680.49,
+        498.63,
+        783.6
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 60,
+      "id": 4,
+      "xyxy": [
+        766.69,
+        517.29,
+        806.05,
+        597.07
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 60,
+      "id": 27,
+      "xyxy": [
+        982.32,
+        381.74,
+        1010.38,
+        451.56
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 60,
+      "id": 8,
+      "xyxy": [
+        1565.08,
+        677.06,
+        1605.62,
+        759.82
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 60,
+      "id": 15,
+      "xyxy": [
+        687.14,
+        270.36,
+        712.61,
+        336.96
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 60,
+      "id": 1,
+      "xyxy": [
+        1170.7,
+        570.49,
+        1223.38,
+        652.36
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 60,
+      "id": 32,
+      "xyxy": [
+        1334.95,
+        601.07,
+        1388.69,
+        692.38
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 60,
+      "id": 6,
+      "xyxy": [
+        713.75,
+        569.97,
+        757.88,
+        639.18
+      ],
+      "role": "red_outfield"
+    },
+    {
+      "frame": 60,
+      "id": 16,
+      "xyxy": [
+        921.69,
+        384.89,
+        949.6,
+        464.11
+      ],
+      "role": "red_outfield"
+    },
+    {
+      "frame": 60,
+      "id": 9,
+      "xyxy": [
+        1041.59,
+        262.34,
+        1068.96,
+        326.31
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 60,
+      "id": 5,
+      "xyxy": [
+        969.72,
+        751.52,
+        1038.82,
+        836.35
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 60,
+      "id": 7,
+      "xyxy": [
+        1465.47,
+        871.2,
+        1530.9,
+        957.16
+      ],
+      "role": "red_outfield"
+    },
+    {
+      "frame": 60,
+      "id": 13,
+      "xyxy": [
+        1277.52,
+        608.54,
+        1319.99,
+        690.24
+      ],
+      "role": "red_outfield"
+    },
+    {
+      "frame": 60,
+      "id": 28,
+      "xyxy": [
+        28.2,
+        366.58,
+        56.25,
+        437.63
+      ],
+      "role": "red_outfield"
+    },
+    {
+      "frame": 60,
+      "id": 17,
+      "xyxy": [
+        859.52,
+        305.82,
+        884.76,
+        377.77
+      ],
+      "role": "red_outfield"
+    },
+    {
+      "frame": 60,
+      "id": 12,
+      "xyxy": [
+        1061.34,
+        398.77,
+        1098.01,
+        469.52
+      ],
+      "role": "referee"
+    },
+    {
+      "frame": 60,
+      "id": 10,
+      "xyxy": [
+        404.35,
+        734.61,
+        450.32,
+        825.99
+      ],
+      "role": "red_outfield"
+    },
+    {
+      "frame": 60,
+      "id": 14,
+      "xyxy": [
+        1111.24,
+        705.13,
+        1182.31,
+        778.41
+      ],
+      "role": "red_outfield"
+    },
+    {
+      "frame": 60,
+      "id": 18,
+      "xyxy": [
+        842.09,
+        161.29,
+        864.55,
+        214.15
+      ],
+      "role": "red_outfield"
+    },
+    {
+      "frame": 60,
+      "id": 11,
+      "xyxy": [
+        942.41,
+        651.32,
+        999.89,
+        721.6
+      ],
+      "role": "red_outfield"
+    },
+    {
+      "frame": 150,
+      "id": 4,
+      "xyxy": [
+        808.69,
+        556.75,
+        862.38,
+        642.21
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 150,
+      "id": 13,
+      "xyxy": [
+        1310.42,
+        618.48,
+        1353.14,
+        705.38
+      ],
+      "role": "red_outfield"
+    },
+    {
+      "frame": 150,
+      "id": 8,
+      "xyxy": [
+        1604.83,
+        706.96,
+        1645.27,
+        802.16
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 150,
+      "id": 2,
+      "xyxy": [
+        1470.11,
+        399.77,
+        1502.46,
+        475.89
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 150,
+      "id": 10,
+      "xyxy": [
+        184.21,
+        588.73,
+        232.0,
+        669.58
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 150,
+      "id": 16,
+      "xyxy": [
+        1241.22,
+        416.76,
+        1278.89,
+        501.5
+      ],
+      "role": "red_outfield"
+    },
+    {
+      "frame": 150,
+      "id": 49,
+      "xyxy": [
+        849.44,
+        453.47,
+        879.01,
+        532.92
+      ],
+      "role": "referee"
+    },
+    {
+      "frame": 150,
+      "id": 40,
+      "xyxy": [
+        93.27,
+        649.06,
+        145.49,
+        727.82
+      ],
+      "role": "red_outfield"
+    },
+    {
+      "frame": 150,
+      "id": 41,
+      "xyxy": [
+        702.25,
+        735.94,
+        737.92,
+        828.28
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 150,
+      "id": 1,
+      "xyxy": [
+        1261.42,
+        571.79,
+        1293.67,
+        659.85
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 150,
+      "id": 9,
+      "xyxy": [
+        1348.08,
+        272.31,
+        1367.42,
+        341.64
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 150,
+      "id": 51,
+      "xyxy": [
+        466.21,
+        721.51,
+        551.49,
+        818.77
+      ],
+      "role": "red_outfield"
+    },
+    {
+      "frame": 150,
+      "id": 74,
+      "xyxy": [
+        1206.93,
+        396.52,
+        1250.3,
+        469.01
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 150,
+      "id": 32,
+      "xyxy": [
+        1407.66,
+        580.48,
+        1440.28,
+        674.6
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 150,
+      "id": 17,
+      "xyxy": [
+        993.59,
+        313.99,
+        1016.7,
+        383.22
+      ],
+      "role": "red_outfield"
+    },
+    {
+      "frame": 150,
+      "id": 7,
+      "xyxy": [
+        1231.9,
+        838.58,
+        1278.24,
+        935.35
+      ],
+      "role": "red_outfield"
+    },
+    {
+      "frame": 150,
+      "id": 15,
+      "xyxy": [
+        521.04,
+        285.68,
+        544.22,
+        346.65
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 150,
+      "id": 18,
+      "xyxy": [
+        883.65,
+        211.3,
+        919.12,
+        263.2
+      ],
+      "role": "red_outfield"
+    },
+    {
+      "frame": 150,
+      "id": 6,
+      "xyxy": [
+        488.68,
+        530.84,
+        535.62,
+        607.0
+      ],
+      "role": "red_outfield"
+    },
+    {
+      "frame": 150,
+      "id": 28,
+      "xyxy": [
+        94.67,
+        498.6,
+        144.88,
+        567.24
+      ],
+      "role": "red_outfield"
+    },
+    {
+      "frame": 150,
+      "id": 14,
+      "xyxy": [
+        739.39,
+        654.65,
+        775.3,
+        740.28
+      ],
+      "role": "red_outfield"
+    },
+    {
+      "frame": 240,
+      "id": 2,
+      "xyxy": [
+        1540.19,
+        438.67,
+        1582.55,
+        523.99
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 240,
+      "id": 98,
+      "xyxy": [
+        731.16,
+        588.11,
+        777.72,
+        677.86
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 240,
+      "id": 8,
+      "xyxy": [
+        1404.58,
+        745.8,
+        1451.19,
+        843.05
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 240,
+      "id": 116,
+      "xyxy": [
+        735.75,
+        466.35,
+        772.21,
+        552.86
+      ],
+      "role": "referee"
+    },
+    {
+      "frame": 240,
+      "id": 114,
+      "xyxy": [
+        258.24,
+        547.91,
+        287.78,
+        632.34
+      ],
+      "role": "red_outfield"
+    },
+    {
+      "frame": 240,
+      "id": 112,
+      "xyxy": [
+        281.03,
+        307.99,
+        315.37,
+        378.0
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 240,
+      "id": 7,
+      "xyxy": [
+        993.46,
+        832.83,
+        1033.39,
+        932.07
+      ],
+      "role": "red_outfield"
+    },
+    {
+      "frame": 240,
+      "id": 1,
+      "xyxy": [
+        1216.82,
+        592.08,
+        1257.1,
+        685.78
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 240,
+      "id": 9,
+      "xyxy": [
+        1480.5,
+        294.04,
+        1503.0,
+        364.35
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 240,
+      "id": 51,
+      "xyxy": [
+        265.38,
+        739.95,
+        312.03,
+        844.23
+      ],
+      "role": "red_outfield"
+    },
+    {
+      "frame": 240,
+      "id": 18,
+      "xyxy": [
+        691.82,
+        283.03,
+        730.45,
+        341.59
+      ],
+      "role": "red_outfield"
+    },
+    {
+      "frame": 240,
+      "id": 32,
+      "xyxy": [
+        1561.64,
+        595.47,
+        1615.56,
+        687.51
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 240,
+      "id": 140,
+      "xyxy": [
+        72.34,
+        548.05,
+        123.59,
+        630.22
+      ],
+      "role": "red_outfield"
+    },
+    {
+      "frame": 240,
+      "id": 16,
+      "xyxy": [
+        1423.56,
+        461.56,
+        1457.92,
+        550.06
+      ],
+      "role": "red_outfield"
+    },
+    {
+      "frame": 240,
+      "id": 17,
+      "xyxy": [
+        1052.94,
+        352.87,
+        1089.97,
+        424.07
+      ],
+      "role": "red_outfield"
+    },
+    {
+      "frame": 240,
+      "id": 41,
+      "xyxy": [
+        855.33,
+        674.11,
+        886.05,
+        765.37
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 240,
+      "id": 13,
+      "xyxy": [
+        1394.66,
+        663.62,
+        1419.13,
+        751.38
+      ],
+      "role": "red_outfield"
+    },
+    {
+      "frame": 240,
+      "id": 93,
+      "xyxy": [
+        520.26,
+        539.61,
+        568.5,
+        620.84
+      ],
+      "role": "red_outfield"
+    },
+    {
+      "frame": 240,
+      "id": 124,
+      "xyxy": [
+        824.35,
+        606.64,
+        867.43,
+        682.71
+      ],
+      "role": "red_outfield"
+    },
+    {
+      "frame": 930,
+      "id": 8,
+      "xyxy": [
+        1369.23,
+        682.3,
+        1405.61,
+        763.29
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 930,
+      "id": 237,
+      "xyxy": [
+        1011.49,
+        295.38,
+        1036.5,
+        357.56
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 930,
+      "id": 41,
+      "xyxy": [
+        637.74,
+        713.88,
+        665.48,
+        796.77
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 930,
+      "id": 112,
+      "xyxy": [
+        512.83,
+        314.33,
+        544.41,
+        377.26
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 930,
+      "id": 157,
+      "xyxy": [
+        862.88,
+        401.11,
+        886.34,
+        474.57
+      ],
+      "role": "referee"
+    },
+    {
+      "frame": 930,
+      "id": 2,
+      "xyxy": [
+        1196.07,
+        361.03,
+        1218.19,
+        428.41
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 930,
+      "id": 196,
+      "xyxy": [
+        1568.03,
+        268.72,
+        1601.34,
+        335.78
+      ],
+      "role": "goalkeeper"
+    },
+    {
+      "frame": 930,
+      "id": 7,
+      "xyxy": [
+        934.98,
+        744.47,
+        966.26,
+        833.33
+      ],
+      "role": "red_outfield"
+    },
+    {
+      "frame": 930,
+      "id": 225,
+      "xyxy": [
+        1225.3,
+        497.13,
+        1258.5,
+        575.83
+      ],
+      "role": "red_outfield"
+    },
+    {
+      "frame": 930,
+      "id": 32,
+      "xyxy": [
+        1531.65,
+        506.04,
+        1572.56,
+        584.55
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 930,
+      "id": 93,
+      "xyxy": [
+        603.02,
+        534.29,
+        627.84,
+        611.75
+      ],
+      "role": "red_outfield"
+    },
+    {
+      "frame": 930,
+      "id": 98,
+      "xyxy": [
+        756.63,
+        511.14,
+        788.16,
+        588.29
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 930,
+      "id": 143,
+      "xyxy": [
+        974.86,
+        369.56,
+        1004.19,
+        436.08
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 930,
+      "id": 251,
+      "xyxy": [
+        1066.56,
+        716.78,
+        1101.31,
+        807.98
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 930,
+      "id": 220,
+      "xyxy": [
+        301.85,
+        700.0,
+        331.54,
+        788.58
+      ],
+      "role": "red_outfield"
+    },
+    {
+      "frame": 930,
+      "id": 212,
+      "xyxy": [
+        872.53,
+        298.97,
+        901.88,
+        365.29
+      ],
+      "role": "red_outfield"
+    },
+    {
+      "frame": 930,
+      "id": 1,
+      "xyxy": [
+        1309.67,
+        668.38,
+        1345.26,
+        754.87
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 930,
+      "id": 124,
+      "xyxy": [
+        1108.86,
+        659.57,
+        1143.14,
+        745.23
+      ],
+      "role": "red_outfield"
+    },
+    {
+      "frame": 930,
+      "id": 18,
+      "xyxy": [
+        516.96,
+        193.79,
+        542.06,
+        242.26
+      ],
+      "role": "red_outfield"
+    },
+    {
+      "frame": 1050,
+      "id": 98,
+      "xyxy": [
+        888.58,
+        524.05,
+        932.59,
+        597.01
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 1050,
+      "id": 32,
+      "xyxy": [
+        1743.5,
+        591.23,
+        1806.32,
+        674.65
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 1050,
+      "id": 112,
+      "xyxy": [
+        435.86,
+        316.54,
+        458.66,
+        380.82
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 1050,
+      "id": 143,
+      "xyxy": [
+        1040.55,
+        412.99,
+        1066.78,
+        479.48
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 1050,
+      "id": 157,
+      "xyxy": [
+        872.55,
+        405.77,
+        898.74,
+        478.02
+      ],
+      "role": "referee"
+    },
+    {
+      "frame": 1050,
+      "id": 251,
+      "xyxy": [
+        894.04,
+        675.58,
+        927.28,
+        766.45
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 1050,
+      "id": 254,
+      "xyxy": [
+        843.7,
+        527.52,
+        866.98,
+        598.69
+      ],
+      "role": "red_outfield"
+    },
+    {
+      "frame": 1050,
+      "id": 1,
+      "xyxy": [
+        1335.0,
+        623.46,
+        1365.61,
+        707.68
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 1050,
+      "id": 212,
+      "xyxy": [
+        998.31,
+        315.1,
+        1022.19,
+        381.37
+      ],
+      "role": "red_outfield"
+    },
+    {
+      "frame": 1050,
+      "id": 196,
+      "xyxy": [
+        1632.81,
+        269.08,
+        1660.06,
+        328.23
+      ],
+      "role": "goalkeeper"
+    },
+    {
+      "frame": 1050,
+      "id": 2,
+      "xyxy": [
+        1210.46,
+        337.12,
+        1235.28,
+        402.9
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 1050,
+      "id": 220,
+      "xyxy": [
+        369.18,
+        688.47,
+        412.21,
+        769.92
+      ],
+      "role": "red_outfield"
+    },
+    {
+      "frame": 1050,
+      "id": 7,
+      "xyxy": [
+        756.38,
+        685.28,
+        788.04,
+        768.93
+      ],
+      "role": "red_outfield"
+    },
+    {
+      "frame": 1050,
+      "id": 225,
+      "xyxy": [
+        1675.32,
+        571.77,
+        1718.48,
+        650.91
+      ],
+      "role": "red_outfield"
+    },
+    {
+      "frame": 1050,
+      "id": 237,
+      "xyxy": [
+        1009.74,
+        268.16,
+        1038.79,
+        326.7
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 1050,
+      "id": 41,
+      "xyxy": [
+        525.71,
+        679.87,
+        555.13,
+        758.03
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 1050,
+      "id": 18,
+      "xyxy": [
+        342.44,
+        280.94,
+        365.99,
+        339.75
+      ],
+      "role": "red_outfield"
+    },
+    {
+      "frame": 1050,
+      "id": 259,
+      "xyxy": [
+        1399.2,
+        606.8,
+        1422.54,
+        679.2
+      ],
+      "role": "red_outfield"
+    },
+    {
+      "frame": 1050,
+      "id": 260,
+      "xyxy": [
+        965.48,
+        624.05,
+        1012.4,
+        702.93
+      ],
+      "role": "red_outfield"
+    },
+    {
+      "frame": 1050,
+      "id": 258,
+      "xyxy": [
+        1269.95,
+        665.45,
+        1299.06,
+        745.32
+      ],
+      "role": "red_outfield"
+    },
+    {
+      "frame": 1170,
+      "id": 2,
+      "xyxy": [
+        1270.26,
+        307.77,
+        1298.38,
+        378.45
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 1170,
+      "id": 32,
+      "xyxy": [
+        1646.47,
+        523.68,
+        1701.35,
+        616.16
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 1170,
+      "id": 280,
+      "xyxy": [
+        34.35,
+        470.14,
+        60.88,
+        548.76
+      ],
+      "role": "red_outfield"
+    },
+    {
+      "frame": 1170,
+      "id": 275,
+      "xyxy": [
+        1739.92,
+        226.02,
+        1771.88,
+        292.38
+      ],
+      "role": "goalkeeper"
+    },
+    {
+      "frame": 1170,
+      "id": 1,
+      "xyxy": [
+        1214.29,
+        584.55,
+        1273.06,
+        662.8
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 1170,
+      "id": 157,
+      "xyxy": [
+        812.22,
+        357.45,
+        840.89,
+        430.98
+      ],
+      "role": "referee"
+    },
+    {
+      "frame": 1170,
+      "id": 287,
+      "xyxy": [
+        1388.9,
+        601.35,
+        1428.13,
+        682.79
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 1170,
+      "id": 251,
+      "xyxy": [
+        848.77,
+        625.81,
+        889.21,
+        721.24
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 1170,
+      "id": 41,
+      "xyxy": [
+        441.73,
+        655.08,
+        468.91,
+        744.64
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 1170,
+      "id": 143,
+      "xyxy": [
+        1132.1,
+        398.71,
+        1162.88,
+        471.07
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 1170,
+      "id": 277,
+      "xyxy": [
+        327.84,
+        274.38,
+        358.75,
+        339.79
+      ],
+      "role": "red_outfield"
+    },
+    {
+      "frame": 1170,
+      "id": 273,
+      "xyxy": [
+        702.88,
+        662.78,
+        740.3,
+        752.66
+      ],
+      "role": "red_outfield"
+    },
+    {
+      "frame": 1170,
+      "id": 220,
+      "xyxy": [
+        328.94,
+        645.21,
+        365.63,
+        735.53
+      ],
+      "role": "red_outfield"
+    },
+    {
+      "frame": 1170,
+      "id": 212,
+      "xyxy": [
+        1080.43,
+        278.35,
+        1106.29,
+        348.87
+      ],
+      "role": "red_outfield"
+    },
+    {
+      "frame": 1170,
+      "id": 259,
+      "xyxy": [
+        1293.8,
+        596.5,
+        1332.81,
+        676.68
+      ],
+      "role": "red_outfield"
+    },
+    {
+      "frame": 1170,
+      "id": 254,
+      "xyxy": [
+        704.14,
+        500.03,
+        735.14,
+        577.98
+      ],
+      "role": "red_outfield"
+    },
+    {
+      "frame": 1170,
+      "id": 225,
+      "xyxy": [
+        1529.08,
+        583.05,
+        1568.82,
+        673.28
+      ],
+      "role": "red_outfield"
+    },
+    {
+      "frame": 1170,
+      "id": 237,
+      "xyxy": [
+        1061.75,
+        209.71,
+        1086.26,
+        270.51
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 1170,
+      "id": 268,
+      "xyxy": [
+        1085.16,
+        608.84,
+        1123.62,
+        689.26
+      ],
+      "role": "red_outfield"
+    },
+    {
+      "frame": 1170,
+      "id": 112,
+      "xyxy": [
+        464.2,
+        269.54,
+        488.59,
+        336.92
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 1170,
+      "id": 98,
+      "xyxy": [
+        867.04,
+        536.11,
+        895.95,
+        599.5
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 1170,
+      "id": 290,
+      "xyxy": [
+        867.54,
+        578.94,
+        894.99,
+        635.12
+      ],
+      "role": "red_outfield"
+    },
+    {
+      "frame": 1230,
+      "id": 251,
+      "xyxy": [
+        663.39,
+        616.94,
+        716.22,
+        700.45
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 1230,
+      "id": 287,
+      "xyxy": [
+        1300.51,
+        582.0,
+        1337.72,
+        670.59
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 1230,
+      "id": 2,
+      "xyxy": [
+        1142.4,
+        299.08,
+        1167.06,
+        368.96
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 1230,
+      "id": 143,
+      "xyxy": [
+        1012.62,
+        421.44,
+        1043.0,
+        498.78
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 1230,
+      "id": 298,
+      "xyxy": [
+        1214.14,
+        641.21,
+        1254.57,
+        732.2
+      ],
+      "role": "red_outfield"
+    },
+    {
+      "frame": 1230,
+      "id": 32,
+      "xyxy": [
+        1586.91,
+        506.14,
+        1626.78,
+        596.29
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 1230,
+      "id": 237,
+      "xyxy": [
+        916.2,
+        210.18,
+        939.72,
+        271.74
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 1230,
+      "id": 41,
+      "xyxy": [
+        296.98,
+        686.18,
+        349.36,
+        764.99
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 1230,
+      "id": 295,
+      "xyxy": [
+        735.91,
+        547.28,
+        777.69,
+        626.53
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 1230,
+      "id": 254,
+      "xyxy": [
+        602.69,
+        541.68,
+        640.94,
+        623.37
+      ],
+      "role": "red_outfield"
+    },
+    {
+      "frame": 1230,
+      "id": 112,
+      "xyxy": [
+        290.69,
+        273.88,
+        332.18,
+        336.31
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 1230,
+      "id": 157,
+      "xyxy": [
+        666.7,
+        369.52,
+        695.29,
+        431.68
+      ],
+      "role": "referee"
+    },
+    {
+      "frame": 1230,
+      "id": 220,
+      "xyxy": [
+        121.29,
+        699.09,
+        168.5,
+        784.4
+      ],
+      "role": "red_outfield"
+    },
+    {
+      "frame": 1230,
+      "id": 225,
+      "xyxy": [
+        1356.35,
+        519.05,
+        1386.06,
+        606.69
+      ],
+      "role": "red_outfield"
+    },
+    {
+      "frame": 1230,
+      "id": 212,
+      "xyxy": [
+        936.85,
+        289.61,
+        963.18,
+        360.97
+      ],
+      "role": "red_outfield"
+    },
+    {
+      "frame": 1230,
+      "id": 275,
+      "xyxy": [
+        1602.26,
+        229.83,
+        1634.18,
+        296.06
+      ],
+      "role": "goalkeeper"
+    },
+    {
+      "frame": 1230,
+      "id": 268,
+      "xyxy": [
+        921.7,
+        658.76,
+        957.93,
+        743.05
+      ],
+      "role": "red_outfield"
+    },
+    {
+      "frame": 1230,
+      "id": 273,
+      "xyxy": [
+        672.1,
+        703.98,
+        711.9,
+        785.72
+      ],
+      "role": "red_outfield"
+    },
+    {
+      "frame": 1230,
+      "id": 277,
+      "xyxy": [
+        150.75,
+        277.02,
+        175.0,
+        340.48
+      ],
+      "role": "red_outfield"
+    },
+    {
+      "frame": 1230,
+      "id": 300,
+      "xyxy": [
+        745.1,
+        625.87,
+        790.95,
+        706.72
+      ],
+      "role": "red_outfield"
+    },
+    {
+      "frame": 1350,
+      "id": 2,
+      "xyxy": [
+        1272.1,
+        332.71,
+        1302.53,
+        405.35
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 1350,
+      "id": 295,
+      "xyxy": [
+        747.38,
+        642.9,
+        792.27,
+        726.25
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 1350,
+      "id": 32,
+      "xyxy": [
+        1547.49,
+        500.47,
+        1597.05,
+        584.99
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 1350,
+      "id": 143,
+      "xyxy": [
+        1015.35,
+        470.6,
+        1049.27,
+        548.37
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 1350,
+      "id": 254,
+      "xyxy": [
+        394.76,
+        575.28,
+        433.25,
+        652.84
+      ],
+      "role": "red_outfield"
+    },
+    {
+      "frame": 1350,
+      "id": 298,
+      "xyxy": [
+        1096.7,
+        620.46,
+        1125.11,
+        709.05
+      ],
+      "role": "red_outfield"
+    },
+    {
+      "frame": 1350,
+      "id": 287,
+      "xyxy": [
+        1401.97,
+        647.78,
+        1440.01,
+        737.41
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 1350,
+      "id": 112,
+      "xyxy": [
+        359.84,
+        319.61,
+        387.67,
+        385.94
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 1350,
+      "id": 277,
+      "xyxy": [
+        309.48,
+        281.95,
+        336.71,
+        340.72
+      ],
+      "role": "red_outfield"
+    },
+    {
+      "frame": 1350,
+      "id": 251,
+      "xyxy": [
+        555.14,
+        599.43,
+        594.69,
+        687.61
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 1350,
+      "id": 1,
+      "xyxy": [
+        1186.6,
+        571.71,
+        1219.68,
+        662.62
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 1350,
+      "id": 300,
+      "xyxy": [
+        911.37,
+        644.01,
+        947.32,
+        738.3
+      ],
+      "role": "red_outfield"
+    },
+    {
+      "frame": 1350,
+      "id": 275,
+      "xyxy": [
+        1870.23,
+        269.69,
+        1905.59,
+        339.59
+      ],
+      "role": "goalkeeper"
+    },
+    {
+      "frame": 1350,
+      "id": 225,
+      "xyxy": [
+        1416.84,
+        493.06,
+        1459.81,
+        576.66
+      ],
+      "role": "red_outfield"
+    },
+    {
+      "frame": 1350,
+      "id": 268,
+      "xyxy": [
+        967.58,
+        756.39,
+        1013.34,
+        845.54
+      ],
+      "role": "red_outfield"
+    },
+    {
+      "frame": 1350,
+      "id": 157,
+      "xyxy": [
+        692.02,
+        405.02,
+        725.93,
+        474.76
+      ],
+      "role": "referee"
+    },
+    {
+      "frame": 1350,
+      "id": 212,
+      "xyxy": [
+        1065.21,
+        312.66,
+        1101.95,
+        385.62
+      ],
+      "role": "red_outfield"
+    },
+    {
+      "frame": 1350,
+      "id": 220,
+      "xyxy": [
+        79.77,
+        714.54,
+        109.99,
+        805.44
+      ],
+      "role": "red_outfield"
+    },
+    {
+      "frame": 1350,
+      "id": 41,
+      "xyxy": [
+        524.01,
+        709.39,
+        551.71,
+        787.1
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 1350,
+      "id": 308,
+      "xyxy": [
+        633.64,
+        724.16,
+        683.55,
+        806.43
+      ],
+      "role": "red_outfield"
+    },
+    {
+      "frame": 1350,
+      "id": 237,
+      "xyxy": [
+        1130.4,
+        240.47,
+        1160.13,
+        300.29
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 1470,
+      "id": 237,
+      "xyxy": [
+        907.1,
+        256.92,
+        933.65,
+        318.92
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 1470,
+      "id": 1,
+      "xyxy": [
+        1129.76,
+        576.71,
+        1157.04,
+        666.22
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 1470,
+      "id": 339,
+      "xyxy": [
+        1072.42,
+        620.19,
+        1115.1,
+        702.44
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 1470,
+      "id": 251,
+      "xyxy": [
+        377.61,
+        621.6,
+        407.68,
+        708.99
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 1470,
+      "id": 32,
+      "xyxy": [
+        1556.92,
+        498.9,
+        1596.7,
+        576.98
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 1470,
+      "id": 225,
+      "xyxy": [
+        1078.58,
+        447.73,
+        1108.04,
+        528.63
+      ],
+      "role": "red_outfield"
+    },
+    {
+      "frame": 1470,
+      "id": 275,
+      "xyxy": [
+        1662.07,
+        250.24,
+        1693.33,
+        314.71
+      ],
+      "role": "goalkeeper"
+    },
+    {
+      "frame": 1470,
+      "id": 2,
+      "xyxy": [
+        1135.3,
+        339.2,
+        1164.82,
+        407.17
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 1470,
+      "id": 112,
+      "xyxy": [
+        390.63,
+        317.55,
+        432.41,
+        383.99
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 1470,
+      "id": 287,
+      "xyxy": [
+        1404.95,
+        679.43,
+        1452.93,
+        763.1
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 1470,
+      "id": 41,
+      "xyxy": [
+        782.47,
+        710.17,
+        827.7,
+        793.73
+      ],
+      "role": "white_outfield"
+    },
+    {
+      "frame": 1470,
+      "id": 157,
+      "xyxy": [
+        752.11,
+        360.2,
+        789.34,
+        440.89
+      ],
+      "role": "referee"
+    },
+    {
+      "frame": 1470,
+      "id": 143,
+      "xyxy": [
+        1150.18,
+        486.84,
+        1189.01,
+        565.53
+      ],
+      "role": "red_outfield"
+    },
+    {
+      "frame": 1470,
+      "id": 344,
+      "xyxy": [
+        327.59,
+        270.32,
+        355.38,
+        328.45
+      ],
+      "role": "red_outfield"
+    },
+    {
+      "frame": 1470,
+      "id": 357,
+      "xyxy": [
+        1036.55,
+        601.08,
+        1063.29,
+        693.12
+      ],
+      "role": "red_outfield"
+    },
+    {
+      "frame": 1470,
+      "id": 361,
+      "xyxy": [
+        391.81,
+        569.62,
+        426.51,
+        642.21
+      ],
+      "role": "red_outfield"
+    },
+    {
+      "frame": 1470,
+      "id": 220,
+      "xyxy": [
+        200.14,
+        696.09,
+        258.42,
+        778.76
+      ],
+      "role": "red_outfield"
+    }
+  ],
+  "directions": [
+    {
+      "start_s": 0,
+      "end_s": 10,
+      "A": 1,
+      "B": -1
+    },
+    {
+      "start_s": 30,
+      "end_s": 50,
+      "A": 1,
+      "B": -1
+    }
+  ],
+  "direction_basis": "Agent inference: red side progresses towards image-right; white defenders and green goalkeeper occupy image-right penalty area across31/35/39/41/45/49s. Coordinate x increases toward that goal. Not verified against official match sheet; no claim about unseen red goalkeeper.",
+  "team_labels": {
+    "A": "Áo đỏ",
+    "B": "Áo trắng"
+  },
+  "independently_validated": false,
+  "role_tracks": [
+    {
+      "id": 12,
+      "start_frame": 0,
+      "end_frame": 75,
+      "review_frames": [
+        0,
+        60,
+        74
+      ],
+      "observations": 75,
+      "role": "referee",
+      "basis": "Agent reviewed raw track crops at endpoints and every60 frames present. Role carried only within this ID lifetime; possible undetected ID swaps remain a limitation. Not a learned role classifier."
+    },
+    {
+      "id": 49,
+      "start_frame": 92,
+      "end_frame": 169,
+      "review_frames": [
+        92,
+        120,
+        168
+      ],
+      "observations": 77,
+      "role": "referee",
+      "basis": "Agent reviewed raw track crops at endpoints and every60 frames present. Role carried only within this ID lifetime; possible undetected ID swaps remain a limitation. Not a learned role classifier."
+    },
+    {
+      "id": 116,
+      "start_frame": 175,
+      "end_frame": 371,
+      "review_frames": [
+        175,
+        180,
+        240,
+        300,
+        360,
+        370
+      ],
+      "observations": 187,
+      "role": "referee",
+      "basis": "Agent reviewed raw track crops at endpoints and every60 frames present. Role carried only within this ID lifetime; possible undetected ID swaps remain a limitation. Not a learned role classifier."
+    },
+    {
+      "id": 157,
+      "start_frame": 402,
+      "end_frame": 1571,
+      "review_frames": [
+        402,
+        480,
+        540,
+        600,
+        660,
+        720,
+        780,
+        840,
+        900,
+        960,
+        1020,
+        1080,
+        1140,
+        1200,
+        1260,
+        1320,
+        1380,
+        1440,
+        1500,
+        1560,
+        1570
+      ],
+      "observations": 1114,
+      "role": "referee",
+      "basis": "Agent reviewed raw track crops at endpoints and every60 frames present. Role carried only within this ID lifetime; possible undetected ID swaps remain a limitation. Not a learned role classifier."
+    },
+    {
+      "id": 196,
+      "start_frame": 716,
+      "end_frame": 1107,
+      "review_frames": [
+        716,
+        720,
+        780,
+        840,
+        900,
+        960,
+        1020,
+        1080,
+        1106
+      ],
+      "observations": 390,
+      "role": "goalkeeper",
+      "basis": "Agent reviewed raw track crops at endpoints and every60 frames present. Role carried only within this ID lifetime; possible undetected ID swaps remain a limitation. Not a learned role classifier."
+    },
+    {
+      "id": 275,
+      "start_frame": 1108,
+      "end_frame": 1571,
+      "review_frames": [
+        1108,
+        1140,
+        1200,
+        1260,
+        1320,
+        1380,
+        1440,
+        1500,
+        1560,
+        1570
+      ],
+      "observations": 463,
+      "role": "goalkeeper",
+      "basis": "Agent reviewed raw track crops at endpoints and every60 frames present. Role carried only within this ID lifetime; possible undetected ID swaps remain a limitation. Not a learned role classifier."
+    }
+  ],
+  "window_notes": [
+    {
+      "start_s": 0,
+      "end_s": 10,
+      "frames": [
+        60,
+        150,
+        240
+      ],
+      "shape": null,
+      "note": "Phần trung tuyến và nửa sân phải được nhìn thấy. Hai nhóm có người giãn ở hai biên; trạng thái bóng thay đổi, không gán một pha có/không bóng cho cả đoạn. Chưa chốt sơ đồ chính thức."
+    },
+    {
+      "start_s": 30,
+      "end_s": 40,
+      "frames": [
+        930,
+        1050,
+        1170
+      ],
+      "shape": null,
+      "note": "Nhóm trắng hiện trước vùng cấm địa bên phải, thủ môn xanh lá phía sau. Nhóm đỏ có người ở biên gần và hành lang xa; camera không chứng minh các vị trí khuất hoặc đủ số tuyến."
+    },
+    {
+      "start_s": 40,
+      "end_s": 50,
+      "frames": [
+        1230,
+        1350,
+        1470
+      ],
+      "shape": null,
+      "note": "Hai nhóm dịch chuyển theo vùng bóng gần biên. Các cầu thủ trắng ở phía khung thành phải, nhưng cự ly và số người thấy thay đổi theo camera; không coi một bố trí tức thời là sơ đồ cố định."
+    }
+  ]
+}
