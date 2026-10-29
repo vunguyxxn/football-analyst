@@ -76,6 +76,12 @@ Tham khảo nguyên tắc chuyên môn (không lấy các ngưỡng kỹ thuật
 
 ## Kiểm tra và kết quả clip mẫu
 
+Cập nhật sau bước mở rộng: bản hiện hành đã có tọa độ ở sáu khoảng
+trong clip, tổng42,2s hiệu chỉnh/39,93s có vị trí người. Đoạn0–10s đã
+có thêm kết quả chiến thuật A/B; một số đoạn ngắn vẫn thiếu dữ liệu
+theo điều kiện5s. Xem VIDEO_CALIBRATION_EXPANSION.md. Các số30–50s bên
+dưới là bản tham chiếu ban đầu, không phải toàn bộ phạm vi hiện hành.
+
 Lệnh từ gốc repo: `.\.venv\Scripts\python.exe -m pytest tests/test_video_tactics.py -v --basetemp .tmp/pytest_tactics`.
 Kiểm ghép tối ưu bằng vét cạn bài nhỏ, thiếu người, hướng đảo, ảnh tham
 chiếu, không tạo quan sát giả, đúng tổng heatmap/cự ly theo thời điểm,

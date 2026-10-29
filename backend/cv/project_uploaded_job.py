@@ -31,6 +31,7 @@ def project_job(job, controls_path, output, landmark_checks=None):
     with source.open("rb") as stream:
         digest = hashlib.file_digest(stream, "sha256").hexdigest()
     controls = json.loads(controls_path.read_text(encoding="utf-8"))
+    input_hashes = {"calibration": hashlib.sha256(controls_path.read_bytes()).hexdigest(), "landmark_checks": None}
     if controls["source_sha256"] != digest or controls["image_size"] != [result["width"], result["height"]] or controls.get("pitch_m") != [105, 68]:
         raise ValueError("Calibration source/dimensions differ")
     previous_end = 0
@@ -45,6 +46,7 @@ def project_job(job, controls_path, output, landmark_checks=None):
         landmark_checks = landmark_checks.resolve()
         if not landmark_checks.is_relative_to(ROOT):
             raise ValueError("Use workspace paths")
+        input_hashes["landmark_checks"] = hashlib.sha256(landmark_checks.read_bytes()).hexdigest()
         guard = LandmarkGuard(landmark_checks, digest, result["width"], result["height"],
                               [(anchor["frame"], anchor.get("end_frame", min(result["frames"], anchor["frame"] + 300)))
                                for anchor in controls["anchors"]])
@@ -151,6 +153,9 @@ def project_job(job, controls_path, output, landmark_checks=None):
         intervals.append(current_interval)
     if index != result["frames"]:
         raise ValueError("Frame count mismatch")
+    if (input_hashes["calibration"] != hashlib.sha256(controls_path.read_bytes()).hexdigest()
+            or landmark_checks and input_hashes["landmark_checks"] != hashlib.sha256(landmark_checks.read_bytes()).hexdigest()):
+        raise ValueError("Calibration/checks changed during projection")
     raw = metrics.report()
     groups = {group: np.zeros((14, 21), dtype=float) for group in ("A", "B", "unknown")}
     players = []
@@ -168,6 +173,7 @@ def project_job(job, controls_path, output, landmark_checks=None):
                         "rejected_intervals": track["rejected_steps"]})
     players.sort(key=lambda player: -player["motion_s"])
     report = {"kind": "uploaded_pitch_estimate_v1", "source_sha256": digest, "person_job_id": job.name,
+              "input_sha256": input_hashes,
               "quality": "provisional_manual_calibration_not_independently_validated",
               "pitch_m": [105, 68], "origin": "bottom_left", "duration_s": result["frames"] / result["fps"],
               "calibrated_intervals": intervals, "camera_status": dict(qualities), "frames_with_positions": len(source_frames),

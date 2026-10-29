@@ -1,0 +1,89 @@
+{
+  "kind": "sample_pitch_expansion_development_audit_v1",
+  "source_sha256": "f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0",
+  "person_job_id": "c140f8aefb4e4678b51fe6f633e1fc56",
+  "independently_validated": false,
+  "scope": "Agent-selected landmarks and scope after inspecting failed development checks; not blinded, not ground truth or player-location accuracy.",
+  "inputs_sha256": {
+    "calibration": "c828bd26e941c18b37abe973f8852c92fe531d2df0637df09619a1eec0486945",
+    "landmark_checks": "830f11a7c94a3d72a99a4720cfefc77eea0b2547b162431c2054b554a4b73685"
+  },
+  "published_artifact_sha256": {
+    "report": "39ce6a11189a7983b57efa056f5d04f8e3dbfb1c2fef311d667467f54cb2f2a7",
+    "positions": "f165676861f80d90961800beb3b02e7f45ecc416121793618a4a7fa0057a9bd0"
+  },
+  "accepted_positions": 23128,
+  "frames_with_positions": 1198,
+  "observed_position_seconds": 39.93333333333333,
+  "calibrated_seconds": 42.199999999999996,
+  "clip_seconds": 52.36666666666667,
+  "calibrated_intervals": [
+    {
+      "start_s": 0.03333333333333333,
+      "end_s": 10.0
+    },
+    {
+      "start_s": 10.033333333333333,
+      "end_s": 15.033333333333333
+    },
+    {
+      "start_s": 20.033333333333335,
+      "end_s": 25.0
+    },
+    {
+      "start_s": 30.033333333333335,
+      "end_s": 40.0
+    },
+    {
+      "start_s": 40.03333333333333,
+      "end_s": 50.0
+    },
+    {
+      "start_s": 50.03333333333333,
+      "end_s": 52.36666666666667
+    }
+  ],
+  "passing_checkpoints": 15,
+  "maximum_passing_landmark_error_m": 0.8239198433829151,
+  "development_rejections": [
+    {
+      "frame": 599,
+      "status": "lost",
+      "reason": "landmark_drift_exceeded",
+      "checkpoint_frame": 599,
+      "errors_m": [
+        0.24585494259292653,
+        0.3604220782935857,
+        1.0459130077849703,
+        0.6231889615611661
+      ],
+      "max_error_m": 1.0459130077849703,
+      "limit_m": 1.0
+    },
+    {
+      "frame": 751,
+      "status": "lost",
+      "reason": "landmark_drift_exceeded",
+      "checkpoint_frame": 751,
+      "errors_m": [
+        1.1066036792502143,
+        0.8999434669232204
+      ],
+      "max_error_m": 1.1066036792502143,
+      "limit_m": 1.0
+    }
+  ],
+  "withheld_intervals": [
+    {
+      "start_frame": 451,
+      "end_frame": 600,
+      "reason": "Truncated after last passing checkpoint450; longitudinal check599 failed in v3."
+    },
+    {
+      "start_frame": 750,
+      "end_frame": 900,
+      "reason": "Initial metre check751 failed; no positions published."
+    }
+  ],
+  "backup": "data/processed/video_jobs/c140f8aefb4e4678b51fe6f633e1fc56/pitch-estimate-backup-ae61aa98595247c88d9b1037c07ee8b3"
+}

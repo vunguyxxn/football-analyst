@@ -1,0 +1,388 @@
+{
+  "source_sha256": "f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0",
+  "image_size": [
+    1920,
+    1080
+  ],
+  "pitch_m": [
+    105,
+    68
+  ],
+  "status": "agent_manual_estimate_not_independent_ground_truth",
+  "provenance": "v3 expands with raw-frame manual line corners (0,750,1500) and manually located centre circle/halfway touchlines (300,600); old 900/1200 unchanged. Scheduled checks never fit matrices. Assumed105x68; internal agent review, not independent ground truth.",
+  "anchors": [
+    {
+      "frame": 0,
+      "end_frame": 300,
+      "image_points": [
+        [
+          249,
+          180
+        ],
+        [
+          493,
+          1064
+        ],
+        [
+          1619,
+          317
+        ],
+        [
+          1847,
+          456
+        ]
+      ],
+      "pitch_points": [
+        [
+          52.5,
+          68
+        ],
+        [
+          52.5,
+          0
+        ],
+        [
+          88.5,
+          41.3125
+        ],
+        [
+          88.5,
+          26.6875
+        ]
+      ],
+      "check_image_points": [
+        [
+          305,
+          370
+        ],
+        [
+          365,
+          577
+        ]
+      ],
+      "check_pitch_points": [
+        [
+          52.5,
+          43.15
+        ],
+        [
+          52.5,
+          24.85
+        ]
+      ],
+      "max_check_error_px": 10
+    },
+    {
+      "frame": 300,
+      "end_frame": 600,
+      "ellipse_center": [
+        1027,
+        453
+      ],
+      "ellipse_size": [
+        752,
+        208
+      ],
+      "near": [
+        1151,
+        1049
+      ],
+      "far": [
+        962,
+        164
+      ]
+    },
+    {
+      "frame": 600,
+      "end_frame": 750,
+      "ellipse_center": [
+        609,
+        472
+      ],
+      "ellipse_size": [
+        751,
+        210
+      ],
+      "near": [
+        759,
+        1058
+      ],
+      "far": [
+        544,
+        185
+      ]
+    },
+    {
+      "frame": 750,
+      "end_frame": 900,
+      "image_points": [
+        [
+          259,
+          181
+        ],
+        [
+          472,
+          942
+        ],
+        [
+          1313,
+          207
+        ],
+        [
+          1908,
+          556
+        ]
+      ],
+      "pitch_points": [
+        [
+          52.5,
+          68
+        ],
+        [
+          52.5,
+          0
+        ],
+        [
+          88.5,
+          54.16
+        ],
+        [
+          88.5,
+          13.84
+        ]
+      ],
+      "check_image_points": [
+        [
+          1453,
+          284
+        ],
+        [
+          1665,
+          405
+        ]
+      ],
+      "check_pitch_points": [
+        [
+          88.5,
+          41.3125
+        ],
+        [
+          88.5,
+          26.6875
+        ]
+      ],
+      "max_check_error_px": 10
+    },
+    {
+      "frame": 900,
+      "end_frame": 1200,
+      "image_points": [
+        [
+          1461,
+          247
+        ],
+        [
+          1767,
+          388
+        ],
+        [
+          1694,
+          270
+        ],
+        [
+          1821,
+          325
+        ]
+      ],
+      "pitch_points": [
+        [
+          99.5,
+          43.16
+        ],
+        [
+          99.5,
+          24.84
+        ],
+        [
+          105,
+          37.66
+        ],
+        [
+          105,
+          30.34
+        ]
+      ],
+      "extra_image_points": [
+        [
+          1037,
+          201
+        ],
+        [
+          1623,
+          538
+        ],
+        [
+          217,
+          967
+        ]
+      ],
+      "extra_pitch_points": [
+        [
+          88.5,
+          54.16
+        ],
+        [
+          88.5,
+          13.84
+        ],
+        [
+          52.5,
+          0
+        ]
+      ],
+      "check_image_points": [
+        [
+          1175,
+          280
+        ],
+        [
+          1384,
+          400
+        ]
+      ],
+      "check_pitch_points": [
+        [
+          88.5,
+          41.3125
+        ],
+        [
+          88.5,
+          26.6875
+        ]
+      ],
+      "max_check_error_px": 10
+    },
+    {
+      "frame": 1200,
+      "end_frame": 1500,
+      "image_points": [
+        [
+          54,
+          126
+        ],
+        [
+          285,
+          899
+        ],
+        [
+          1108,
+          141
+        ],
+        [
+          1702,
+          481
+        ]
+      ],
+      "pitch_points": [
+        [
+          52.5,
+          68
+        ],
+        [
+          52.5,
+          0
+        ],
+        [
+          88.5,
+          54.16
+        ],
+        [
+          88.5,
+          13.84
+        ]
+      ],
+      "check_image_points": [
+        [
+          1249,
+          220
+        ],
+        [
+          1458,
+          340
+        ]
+      ],
+      "check_pitch_points": [
+        [
+          88.5,
+          41.3125
+        ],
+        [
+          88.5,
+          26.6875
+        ]
+      ],
+      "max_check_error_px": 10
+    },
+    {
+      "frame": 1500,
+      "end_frame": 1571,
+      "image_points": [
+        [
+          1047,
+          170
+        ],
+        [
+          1623,
+          505
+        ],
+        [
+          1468,
+          213
+        ],
+        [
+          1777,
+          357
+        ]
+      ],
+      "pitch_points": [
+        [
+          88.5,
+          54.16
+        ],
+        [
+          88.5,
+          13.84
+        ],
+        [
+          99.5,
+          43.16
+        ],
+        [
+          99.5,
+          24.84
+        ]
+      ],
+      "check_image_points": [
+        [
+          1187,
+          249
+        ],
+        [
+          1398,
+          369
+        ]
+      ],
+      "check_pitch_points": [
+        [
+          88.5,
+          41.3125
+        ],
+        [
+          88.5,
+          26.6875
+        ]
+      ],
+      "max_check_error_px": 10
+    }
+  ]
+}

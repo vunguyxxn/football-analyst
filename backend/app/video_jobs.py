@@ -225,6 +225,10 @@ def pitch_tracking(job_id: str):
     try:
         if path.stat().st_size > 20 * 1024 * 1024:
             raise ValueError("Tracking too large")
+        if "publication" in report:
+            with path.open("rb") as stream:
+                if hashlib.file_digest(stream, "sha256").hexdigest() != report["publication"]["tracking_sha256"]:
+                    raise ValueError("Tracking/publication mismatch")
         rows = []
         with path.open(encoding="utf-8") as stream:
             for line in stream:
@@ -236,7 +240,7 @@ def pitch_tracking(job_id: str):
                     if len(rows) > 200000:
                         raise ValueError("Too many rows")
         return rows
-    except (OSError, ValueError) as error:
+    except (OSError, ValueError, KeyError) as error:
         raise HTTPException(422, "Không đọc được tọa độ ước lượng hợp lệ.") from error
 
 

@@ -2,6 +2,43 @@
 
 ## Trạng thái hiện tại
 
+Ngày 29/10/2026: đã mở rộng hiệu chỉnh sân clip15 theo yêu cầu, từ hai
+khoảng30–50s sang sáu khoảng trong clip. Fixture v4 khóa đúng nguồn/job,
+giữ neo900/1200, thêm neo0/300/600/750/1500; không chạy lại detector.
+Tổng42,20s camera có hiệu chỉnh/39,93s có vị trí người (1.198 khung),
+23.128 lượt vị trí, so với592 khung/11.591 lượt trước đó. Sân vẫn giả
+định105×68m, chưa có sai số thực địa độc lập.
+
+Các khoảng công bố:0,033–10;10,033–15,033;20,033–25;30,033–40;
+40,033–50;50,033–52,367s. Check599 bổ sung góc cấm địa phát hiện trôi
+dọc1,0459m dù các điểm giữa sân vẫn khớp; rút cửa sổ300 về sau lần
+kiểm tra đạt450, bỏ15,033–20s. Check751 lệch1,1066m, chặn toàn25–30s.
+Không nới ngưỡng1m/150khung hoặc kiểm pixel10px, không fit lại bằng
+điểm kiểm tra sau lỗi. v3 và audit giữ nguyên bằng chứng thử nghiệm.
+v4 có15 checkpoint đạt, sai lệch nội bộ lớn nhất0,8239m; không coi là
+accuracy tọa độ cầu thủ. Nhận định ban đầu về chuyển cảnh chưa xác minh,
+không dùng làm nhãn; chia neo theo phạm vi hiệu chỉnh, không gộp ID.
+
+Thêm helper publish_pitch_estimate: kiểm nguồn/fixture, hash, tổng và
+thời gian/toạ độ, yêu cầu kiểm tra đạt ở đầu/cuối mỗi khoảng, không
+chứa lỗi hoặc thiếu lịch. Giữ backup report/tracking cũ, lỗi cài đặt
+thì rollback. API pitch-tracking kiểm hash cặp dữ liệu đã công bố.
+project_uploaded_job ghi hash đầu vào và từ chối file đổi khi đang
+chiếu. Không đổi DATA_CONTRACT/thêm thư viện/sửa frontend.
+
+Đã công bố v4 cho job c140f8aefb4e4678b51fe6f633e1fc56, API trả23.128
+rows và0 rows ở các đoạn bị loại. Browser thêm heatmap/chỉ số A/B0–10s,
+đổi25–30s thì không hiện số đo/gợi ý; tua đoạn căn cứ tới5,2s và dừng,
+mini sân đồng bộ. Đoạn10–15s chỉ3,5s đủ người;20–25s/50–52s cũng chưa
+đủ5s để kết luận chiến thuật; giữ nguyên ngưỡng. Console không lỗi.
+Ảnh: data/processed/live_demo_v1/17-expanded-calibration.jpg.
+
+13 test mới qua, toàn bộ363 Python qua/1 network deselected (cảnh báo
+Starlette/SHAP cũ). Tài liệu/lệnh/audit: VIDEO_CALIBRATION_EXPANSION.md,
+docs/fixtures/clip_f51735_expansion_audit_v1.json. Tiếp theo kiểm chứng
+nhóm áo, thủ môn, hướng tấn công và hình thái từ các đoạn đủ dữ liệu;
+chưa chốt sơ đồ thật hoặc tự hiệu chỉnh video bất kỳ.
+
 Ngày 29/10/2026: theo yêu cầu mới, chuyển trọng tâm video sang heatmap,
 hình thái đội và gợi ý chiến thuật từ phần camera nhìn thấy; dừng phát
 triển bóng/chuyền/sút ở luồng chính. Đã cập nhật ROADMAP, bỏ panel thử

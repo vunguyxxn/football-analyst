@@ -1,0 +1,461 @@
+{
+  "source_sha256": "f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0",
+  "image_size": [
+    1920,
+    1080
+  ],
+  "max_error_m": 1.0,
+  "max_gap_frames": 150,
+  "status": "internal_agent_visual_checks_not_independent_ground_truth",
+  "provenance": "v3 raw-frame visual checkpoints; circle/halfway crossings or penalty arc intersections. Same agent selected anchors and checks, not independent ground truth. Future checks assess propagated motion without fitting to them. Checks599/601 include penalty-area corner/arc landmarks off the halfway line to assess longitudinal scale of circle anchors. Threshold1m/150frames unchanged. Not a scene-cut annotation. Anchor750 failed first metre check and is intentionally retained as a rejected window, not adjusted to pass.",
+  "checkpoints": [
+    {
+      "frame": 1,
+      "image_points": [
+        [
+          306,
+          370
+        ],
+        [
+          365,
+          577
+        ]
+      ],
+      "pitch_points": [
+        [
+          52.5,
+          43.15
+        ],
+        [
+          52.5,
+          24.85
+        ]
+      ]
+    },
+    {
+      "frame": 150,
+      "image_points": [
+        [
+          655,
+          347
+        ],
+        [
+          703,
+          553
+        ]
+      ],
+      "pitch_points": [
+        [
+          52.5,
+          43.15
+        ],
+        [
+          52.5,
+          24.85
+        ]
+      ]
+    },
+    {
+      "frame": 299,
+      "image_points": [
+        [
+          1003,
+          350
+        ],
+        [
+          1047,
+          558
+        ]
+      ],
+      "pitch_points": [
+        [
+          52.5,
+          43.15
+        ],
+        [
+          52.5,
+          24.85
+        ]
+      ]
+    },
+    {
+      "frame": 301,
+      "image_points": [
+        [
+          1003,
+          350
+        ],
+        [
+          1047,
+          558
+        ]
+      ],
+      "pitch_points": [
+        [
+          52.5,
+          43.15
+        ],
+        [
+          52.5,
+          24.85
+        ]
+      ]
+    },
+    {
+      "frame": 450,
+      "image_points": [
+        [
+          875,
+          356
+        ],
+        [
+          923,
+          561
+        ]
+      ],
+      "pitch_points": [
+        [
+          52.5,
+          43.15
+        ],
+        [
+          52.5,
+          24.85
+        ]
+      ]
+    },
+    {
+      "frame": 599,
+      "image_points": [
+        [
+          590,
+          369
+        ],
+        [
+          641,
+          577
+        ],
+        [
+          1747,
+          246
+        ],
+        [
+          1906,
+          343
+        ]
+      ],
+      "pitch_points": [
+        [
+          52.5,
+          43.15
+        ],
+        [
+          52.5,
+          24.85
+        ],
+        [
+          88.5,
+          54.16
+        ],
+        [
+          88.5,
+          41.3125
+        ]
+      ],
+      "purpose": "Cross-longitudinal check: penalty-area front corner and arc endpoint not used to fit centre-circle anchor."
+    },
+    {
+      "frame": 601,
+      "image_points": [
+        [
+          590,
+          369
+        ],
+        [
+          641,
+          577
+        ],
+        [
+          1747,
+          246
+        ],
+        [
+          1906,
+          343
+        ]
+      ],
+      "pitch_points": [
+        [
+          52.5,
+          43.15
+        ],
+        [
+          52.5,
+          24.85
+        ],
+        [
+          88.5,
+          54.16
+        ],
+        [
+          88.5,
+          41.3125
+        ]
+      ],
+      "purpose": "Cross-longitudinal check: penalty-area front corner and arc endpoint not used to fit centre-circle anchor."
+    },
+    {
+      "frame": 749,
+      "image_points": [
+        [
+          306,
+          334
+        ],
+        [
+          369,
+          518
+        ]
+      ],
+      "pitch_points": [
+        [
+          52.5,
+          43.15
+        ],
+        [
+          52.5,
+          24.85
+        ]
+      ]
+    },
+    {
+      "frame": 751,
+      "image_points": [
+        [
+          1452,
+          283
+        ],
+        [
+          1664,
+          405
+        ]
+      ],
+      "pitch_points": [
+        [
+          88.5,
+          41.3125
+        ],
+        [
+          88.5,
+          26.6875
+        ]
+      ]
+    },
+    {
+      "frame": 899,
+      "image_points": [
+        [
+          1177,
+          280
+        ],
+        [
+          1388,
+          399
+        ]
+      ],
+      "pitch_points": [
+        [
+          88.5,
+          41.3125
+        ],
+        [
+          88.5,
+          26.6875
+        ]
+      ]
+    },
+    {
+      "frame": 901,
+      "image_points": [
+        [
+          1172,
+          280
+        ],
+        [
+          1380,
+          398
+        ]
+      ],
+      "pitch_points": [
+        [
+          88.5,
+          41.3125
+        ],
+        [
+          88.5,
+          26.6875
+        ]
+      ]
+    },
+    {
+      "frame": 1050,
+      "image_points": [
+        [
+          1097,
+          290
+        ],
+        [
+          1308,
+          404
+        ]
+      ],
+      "pitch_points": [
+        [
+          88.5,
+          41.3125
+        ],
+        [
+          88.5,
+          26.6875
+        ]
+      ]
+    },
+    {
+      "frame": 1199,
+      "image_points": [
+        [
+          1251,
+          220
+        ],
+        [
+          1460,
+          340
+        ]
+      ],
+      "pitch_points": [
+        [
+          88.5,
+          41.3125
+        ],
+        [
+          88.5,
+          26.6875
+        ]
+      ]
+    },
+    {
+      "frame": 1201,
+      "image_points": [
+        [
+          1249,
+          220
+        ],
+        [
+          1458,
+          340
+        ]
+      ],
+      "pitch_points": [
+        [
+          88.5,
+          41.3125
+        ],
+        [
+          88.5,
+          26.6875
+        ]
+      ]
+    },
+    {
+      "frame": 1350,
+      "image_points": [
+        [
+          1537,
+          233
+        ],
+        [
+          1744,
+          360
+        ]
+      ],
+      "pitch_points": [
+        [
+          88.5,
+          41.3125
+        ],
+        [
+          88.5,
+          26.6875
+        ]
+      ]
+    },
+    {
+      "frame": 1499,
+      "image_points": [
+        [
+          1183,
+          248
+        ],
+        [
+          1393,
+          368
+        ]
+      ],
+      "pitch_points": [
+        [
+          88.5,
+          41.3125
+        ],
+        [
+          88.5,
+          26.6875
+        ]
+      ]
+    },
+    {
+      "frame": 1501,
+      "image_points": [
+        [
+          1187,
+          249
+        ],
+        [
+          1398,
+          369
+        ]
+      ],
+      "pitch_points": [
+        [
+          88.5,
+          41.3125
+        ],
+        [
+          88.5,
+          26.6875
+        ]
+      ]
+    },
+    {
+      "frame": 1570,
+      "image_points": [
+        [
+          1187,
+          249
+        ],
+        [
+          1398,
+          369
+        ]
+      ],
+      "pitch_points": [
+        [
+          88.5,
+          41.3125
+        ],
+        [
+          88.5,
+          26.6875
+        ]
+      ]
+    }
+  ]
+}
