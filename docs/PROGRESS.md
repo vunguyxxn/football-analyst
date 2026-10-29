@@ -2,6 +2,41 @@
 
 ## Trạng thái hiện tại
 
+Ngày 29/10/2026: theo yêu cầu mới, chuyển trọng tâm video sang heatmap,
+hình thái đội và gợi ý chiến thuật từ phần camera nhìn thấy; dừng phát
+triển bóng/chuyền/sút ở luồng chính. Đã cập nhật ROADMAP, bỏ panel thử
+nghiệm chuyền khỏi trang video, giữ mã/artifact lịch sử và StatsBomb.
+
+Đã có prototype API `/api/video-jobs/{id}/tactics` và giao diện chọn
+nhóm/cửa sổ, heatmap riêng, cự ly cụm và người cùng nhóm gần nhất, ảnh
+vị trí cùng thời điểm, ba khả năng sơ đồ và thẻ gợi ý có căn cứ/điều
+kiện/đánh đổi/nguồn FIFA. Dùng tọa độ hiệu chỉnh sẵn, không cần chạy
+lại YOLO; clip mới chưa có mốc sân trả not_available, không bịa mét.
+Không đổi DATA_CONTRACT, không thêm thư viện.
+
+Sơ đồ không đòi đủ11 người: module riêng ghép hình chữ nhật một-một
+6–10 người với sáu mẫu, thử hai hướng, tinh chỉnh bố trí theo người
+nhìn thấy, so3–4 thời điểm. Tách vòng nét đứt giả định khỏi chấm ID
+thật, không đưa người khuất vào số đo. Vai trò thủ môn/đội/hướng chưa
+xác nhận; thiếu độ trải, mẫu khớp kém hoặc mơ hồ thì không chốt sơ đồ.
+Chỉ số không gian vẫn có thể tính từ4 người trong >=5s và >=50% đoạn.
+
+Clip15/job c140f8aefb4e4678b51fe6f633e1fc56 chỉ phân tích khoảng30–50s;
+A trung vị8 người, B10. Nhóm B30–40s: 5-3-2/4-4-2 có RMSE5,42/5,46m,
+không đủ phân biệt; ba nhóm/cửa sổ còn lại chưa đạt mức khớp thử nghiệm.
+Gợi ý là quy tắc có điều kiện, chưa là ML/SHAP hoặc chiến thuật tối ưu;
+chưa nghiệm thu độ chính xác sơ đồ/tọa độ bằng nhãn HLV độc lập.
+
+Kiểm tra:11 test mới qua, toàn bộ350 Python qua/1 network deselected;
+14 Node test qua, build/lint qua với cảnh báo cũ. Browser đã đổi nhóm,
+đoạn, giả thuyết và mở minh họa; đối chiếu sơ đồ tua35,033s và dừng đúng,
+console không lỗi. Ảnh trong data/processed/live_demo_v1/:
+16-video-tactics-heatmap.jpg,16-video-tactics-partial.jpg,
+16-video-tactics-advice.jpg. Phương pháp/giới hạn: VIDEO_TACTICS.md.
+Tiếp theo cần kiểm chứng bằng nhãn hình thái/pha chơi và tọa độ độc lập,
+mở rộng đoạn hiệu chỉnh; không quay lại phát triển chuyền/sút nếu chưa
+có yêu cầu mới.
+
 Ngày 29/10/2026: tiếp tục kiểm chứng bóng/chuyền/sút. Đã khóa protocol
 và nhãn agent từ ảnh gốc clip15:30 điểm theo lịch ở7–10s,19–22s;
 24 nhìn rõ/6 không chắc. Đối chiếu20/24 trong12px,4 mất dự đoán;

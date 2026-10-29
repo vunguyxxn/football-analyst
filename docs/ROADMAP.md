@@ -1,5 +1,23 @@
 # Lộ trình
 
+## Ưu tiên hiện hành — cập nhật 29/10/2026
+
+Theo yêu cầu mới, dừng phát triển nhận diện chuyền/sút và theo dõi bóng
+trong luồng video chính. Giữ mã/kết quả nghiên cứu cũ để truy xuất; dữ
+liệu sự kiện StatsBomb và xG đã có vẫn giữ nguyên.
+
+Tập trung heatmap, hình thái nhóm cầu thủ nhìn thấy và gợi ý chiến thuật
+có căn cứ. Camera được phép lia, không cần thấy đủ 11 người: so nhiều
+giả thuyết sơ đồ từ phần quan sát được, kiểm tra mức khớp và nhất quán
+qua thời điểm; không chốt khi còn mơ hồ. Vị trí khuất trong mẫu chỉ là
+giả định, không bổ sung vào tracking/heatmap/quãng đường. Vai trò thủ
+môn, hướng tấn công và trạng thái có bóng chưa biết phải ghi rõ.
+
+Gợi ý phải nối với số đo, điều kiện áp dụng, hành động và đánh đổi;
+không gọi quy tắc hình học là mô hình ML/SHAP hoặc chiến thuật tối ưu.
+Tọa độ chỉ có ở các đoạn hiệu chỉnh hợp lệ; clip mới chưa có mốc sân
+không tự suy ra mét từ khung người. Không đổi DATA_CONTRACT.
+
 ## Vai trò và thời hạn
 
 - Nhóm 2 sinh viên: Nguyễn Tuấn Vũ (trưởng nhóm), Võ Nhật Hào.

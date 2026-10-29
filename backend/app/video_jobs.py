@@ -238,3 +238,23 @@ def pitch_tracking(job_id: str):
         return rows
     except (OSError, ValueError) as error:
         raise HTTPException(422, "Không đọc được tọa độ ước lượng hợp lệ.") from error
+
+
+@router.get("/{job_id}/tactics")
+def spatial_tactics(job_id: str):
+    """Internal video DTO, computed from source-matched calibrated positions only."""
+    from backend.tactics.video_tactics import build_report
+    report = pitch_estimate(job_id)
+    if report["status"] != "provisional_estimate":
+        return {"status": "not_available", "windows": [],
+                "message": "Clip đã có tracking nhưng chưa có hiệu chỉnh sân. Cần mốc sân hợp lệ theo chuyển động camera để tính heatmap và cự ly theo mét."}
+    try:
+        current = read_status(job_id)["result"]
+        rows = pitch_tracking(job_id)
+        result = build_report(rows, report, current["fps"], current["frames"])
+        result["input_sha256"] = {
+            "calibration": hashlib.sha256((folder_for(job_id) / "pitch_estimate/report.json").read_bytes()).hexdigest(),
+            "positions": hashlib.sha256((folder_for(job_id) / "pitch_estimate/tracking.jsonl").read_bytes()).hexdigest()}
+        return result
+    except (KeyError, ValueError, TypeError, OSError) as error:
+        raise HTTPException(422, "Không đủ dữ liệu sân hợp lệ để phân tích chiến thuật.") from error

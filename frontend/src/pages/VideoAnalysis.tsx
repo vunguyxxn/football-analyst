@@ -7,7 +7,7 @@ import { compatibilityError, formatVideoTime, frameAt, MAX_TRACKING_BYTES, parse
 import type { TrackingTimeline } from "@/lib/videoTracking"
 import { fetchCompletedDemo, useVideoJob } from "@/lib/useVideoJob"
 import VideoTrackingReport from "@/components/VideoTrackingReport"
-import VideoPassReview from "@/components/VideoPassReview"
+import VideoTacticalAnalysis from "@/components/VideoTacticalAnalysis"
 import VideoPitchEstimate from "@/components/VideoPitchEstimate"
 
 type VideoSource = { url: string; name: string; initialTime: number; id: number }
@@ -157,7 +157,7 @@ export default function VideoAnalysis() {
       {ai.busy && <Button variant="outline" onClick={() => { void ai.cancel() }}>Hủy xử lý</Button>}
       {(ai.uploading || ai.job) && <div className="video-job-status" role="status"><span>{ai.uploading ? `Đang gửi video: ${ai.uploadPercent}%` : ai.job?.status === "completed" ? "Đã xử lý video" : ai.job?.stage}</span><progress aria-label="Tiến độ phân tích" max="100" value={ai.uploading ? ai.uploadPercent : ai.job?.progress || 0} /><span>{!ai.uploading && ai.job ? `${Math.round(ai.job.progress)}%${ai.result ? ` · ${ai.result.device === "cpu" ? "CPU" : "GPU"}` : ""}` : ""}</span></div>}
       {ai.error && <p role="alert">{ai.error}</p>}
-      {ai.result && <div><strong>Kết quả đã sẵn sàng — phát hoặc tua video để xem khung và ID.</strong>{ai.result.limitations.filter(note => !ai.result?.pitch_estimate_available || !note.startsWith("Chưa hiệu chỉnh")).map(note => <p key={note}>{note}</p>)}{ai.result.pitch_estimate_available && <p>Vị trí, heatmap và vận động chỉ là ước lượng cho đoạn đã hiệu chỉnh; chưa kiểm chứng sai số thực địa. Xem phạm vi bên dưới.</p>}</div>}
+      {ai.result && <div><strong>{ai.result.pitch_estimate_available ? "Đã có kết quả — xem heatmap, các giả thuyết sơ đồ và gợi ý chiến thuật bên dưới." : "Đã có tracking người trong sân. Clip này cần hiệu chỉnh sân để phân tích không gian theo mét."}</strong>{ai.result.limitations.filter(note => !ai.result?.pitch_estimate_available || !note.startsWith("Chưa hiệu chỉnh")).map(note => <p key={note}>{note}</p>)}{ai.result.pitch_estimate_available && <p>Vị trí, heatmap và vận động chỉ là ước lượng cho đoạn đã hiệu chỉnh; chưa kiểm chứng sai số thực địa. Xem phạm vi bên dưới.</p>}</div>}
     </section>
 
     <section aria-label="Mở dữ liệu video" className="video-files card-surface">
@@ -207,9 +207,9 @@ export default function VideoAnalysis() {
     </div>
 
     {ai.result && ai.job && <>
-      {ai.result.pitch_estimate_available && <VideoPitchEstimate key={`pitch-${ai.job.id}`} jobId={ai.job.id} onSeek={seconds => { video.current?.pause(); seekTo(seconds); video.current?.scrollIntoView({ behavior: "smooth", block: "center" }) }} />}
-      {ai.result.ball_events_available && <VideoPassReview key={`events-${ai.job.id}`} hasPitchEstimate={ai.result.pitch_estimate_available} jobId={ai.job.id} onSeek={seconds => { video.current?.pause(); seekTo(seconds); video.current?.scrollIntoView({ behavior: "smooth", block: "center" }) }} />}
-      <details className="tracking-diagnostics" open={!ai.result.ball_events_available && !ai.result.pitch_estimate_available}><summary>Thông tin xử lý và chẩn đoán tracking</summary><VideoTrackingReport key={ai.job.id} hasPitchEstimate={ai.result.pitch_estimate_available} jobId={ai.job.id} onSeek={seconds => { video.current?.pause(); seekTo(seconds); video.current?.scrollIntoView({ behavior: "smooth", block: "center" }) }} /></details>
+      <VideoTacticalAnalysis key={`tactics-${ai.job.id}`} jobId={ai.job.id} onSeek={seconds => { video.current?.pause(); seekTo(seconds); video.current?.scrollIntoView({ behavior: "smooth", block: "center" }) }} />
+      {ai.result.pitch_estimate_available && <details className="tracking-diagnostics"><summary>Heatmap tổng hợp và vận động theo ID</summary><VideoPitchEstimate key={`pitch-${ai.job.id}`} jobId={ai.job.id} onSeek={seconds => { video.current?.pause(); seekTo(seconds); video.current?.scrollIntoView({ behavior: "smooth", block: "center" }) }} /></details>}
+      <details className="tracking-diagnostics"><summary>Thông tin xử lý và chẩn đoán tracking</summary><VideoTrackingReport key={ai.job.id} hasPitchEstimate={ai.result.pitch_estimate_available} jobId={ai.job.id} onSeek={seconds => { video.current?.pause(); seekTo(seconds); video.current?.scrollIntoView({ behavior: "smooth", block: "center" }) }} /></details>
     </>}
 
     <section className="video-notes card-surface">

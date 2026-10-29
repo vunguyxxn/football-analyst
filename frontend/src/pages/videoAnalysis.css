@@ -107,3 +107,23 @@
 .video-notes input { width: 82px; border: 1px solid #3c4d5b; padding: 5px 8px; border-radius: 5px; background: #0b0f14; color: #e5e7eb; }
 @media (max-width: 1150px) { .video-analysis-grid { grid-template-columns: minmax(0, 1fr); } .mini-pitch-wrap { max-width: 620px; margin: auto; } }
 @media (max-width: 650px) { .video-intro { flex-direction: column; align-items: stretch; gap: 16px; } .video-files { grid-template-columns: 1fr; } .video-file-input + .video-file-input { border-left: none; border-top: 1px solid var(--border); border-radius: 0 0 16px 16px; } .video-file-input { padding: 16px 14px; } .video-notes { grid-template-columns: 1fr; gap: 16px; padding: 17px 15px; } .video-notes details { border-left: 0; border-top: 1px solid var(--border); padding: 15px 0 0; } .video-panel-heading { padding: 14px; } .video-panel-heading h3 { font-size: 11px; } .position-status { font-size: 8px; } .mini-pitch-wrap { padding: 0 14px; } .video-empty-icon { width: 48px; height: 48px; margin-bottom: 8px; } .video-empty h3 { font-size: 12px; } .video-empty > span:last-child { display: none; } .video-empty p { font-size: 10px; } .video-timeline { padding: 14px; } }
+.tactics-selector { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; margin: 20px 0 12px; }
+.tactics-selector select { background: #111923; color: #dde8e1; border: 1px solid var(--border); padding: 8px; border-radius: 6px; max-width: 100%; }
+.video-tactics > p, .tactics-maps p, .tactics-formation p, .tactics-hypothesis p, .tactics-advice p { color: var(--text-secondary); font-size: 13px; line-height: 1.7; margin: 12px 0; }
+.video-tactics h4 { margin: 20px 0 12px; font-size: 16px; }
+.tactics-candidates { display: flex; flex-wrap: wrap; gap: 12px; margin: 18px 0; }
+.tactics-candidates button { flex: 1 1 150px; display: grid; gap: 8px; padding: 16px; background: #111923; border: 1px solid var(--border); border-radius: 10px; color: #cbd5e1; text-align: left; cursor: pointer; }
+.tactics-candidates button strong { color: white; font-size: 22px; }
+.tactics-candidates button span { font-size: 12px; line-height: 1.5; }
+.tactics-candidates button.selected { border-color: #60d988; background: #183024; }
+.tactics-formation { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin: 24px 0; padding: 0 0 24px; }
+.tactics-hypothesis { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 24px; margin: 20px 0; }
+.tactics-hypothesis > * { min-width: 0; }
+.tactics-advice { display: grid; gap: 16px; }
+.tactics-advice article { padding: 20px; border-radius: 12px; background: #111e1a; border: 1px solid #2a4536; }
+.tactics-advice article h4 { margin-top: 0; }
+.tactics-advice li { font-size: 14px; line-height: 1.7; margin: 8px 0; }
+.tactics-advice ul { padding-left: 20px; }
+.tactics-advice-footer { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between; }
+.tactics-advice-footer a { font-size: 12px; color: #8de4a6; text-decoration: underline; }
+@media (max-width: 900px) { .tactics-hypothesis, .tactics-maps { grid-template-columns: minmax(0, 1fr); } }
