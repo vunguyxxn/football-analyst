@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react"
 
 export type ImageBox = { id: number; group: "A" | "B" | "unknown"; xyxy: number[] }
-type BoxFrame = { frame: number; time_s: number; boxes: ImageBox[] }
+type BoxFrame = { frame: number; time_s: number; boxes: ImageBox[]; pitch_boundary?: number[][] | null }
 type Result = { fps: number; frames: number; width: number; height: number; chunk_frames: number; chunks: number; device: string; track_ids: number; observations: number; limitations: string[]; source_sha256?: string; ball_events_available?: boolean; pitch_estimate_available?: boolean }
 export type VideoJob = { id: string; status: "queued" | "running" | "completed" | "failed" | "cancelled"; progress: number; stage: string; result?: Result }
 type Job = VideoJob

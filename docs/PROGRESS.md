@@ -2,6 +2,38 @@
 
 ## Trạng thái hiện tại
 
+Ngày 29/10/2026: theo yêu cầu chỉ theo dõi trong vạch trắng sân thi đấu,
+đã thêm pitch_boundary (cỏ + cạnh Canny + Hough), lọc điểm chân trước
+ByteTrack và trước lấy mẫu màu áo cho upload. Người ngoài vùng không
+vẽ khung/ID, không vào bộ đếm/báo cáo; thiếu biên thì frame boxes rỗng.
+Frontend vẽ polygon nét đứt trắng, không đổi schema tọa độ sân chung.
+Rà bản đầu phát hiện nhầm khu kỹ thuật phía xa, đã sửa bằng cạnh ảnh
+và chọn biên phía trong; thêm test hồi quy lối đi nhạt màu.
+
+Mẫu Video Project15 đã chuyển sang job c140f8aefb4e4678b51fe6f633e1fc56,
+cùng nguồn/hash. Giữ job gốc e0eb4128f58d45ea85c4ef0000ca92df; cache
+lọc lại giữ ID trong sân, không tuyên bố chạy lại YOLO/ByteTrack. Có
+biên1511/1571 frame;60 frame không đủ biên bỏ theo dõi. Loại9219 lượt,
+giữ30499 lượt/150 ID (không phải150 cầu thủ hay accuracy). Bản thử
+f650e063b2eb493c9552d33f55bef9d6 không được dùng làm mẫu cuối.
+
+Đã tính lại pitch_estimate từ job đã lọc:11591 vị trí/592 frame,
+phạm vi30–50s, sáu landmark check nội bộ qua; vẫn chưa kiểm chứng sai
+số thực địa độc lập. Replay bóng với người đã lọc còn một ứng viên
+8–9,533s; ứng viên45,6s cũ không còn đủ điều kiện, không giữ báo cáo
+cũ. Tổng chuyền/sút vẫn null. Xem VIDEO_BOUNDARY.md.
+
+Kiểm tra:320 test Python qua/1 network deselected,14 test frontend qua,
+build/lint qua (cảnh báo cũ). Upload thật đoạn1s/30 frame960×540 qua API
+job df7293179ac748b6979457d44f898747, GPU, lọc311 detection trước tracker,
+573 lượt được giữ. Kiểm tra toàn bộ box của job mẫu và smoke nằm trong
+polygon công bố (dung sai làm tròn0,02px); không phải đánh giá độc lập.
+Ảnh rà mẫu ở data/processed/boundary_review_video15_v2/; đã xem frame
+0,904,1350: khu kỹ thuật/trợ lý ngoài biên không còn khung. Web mở mẫu
+mới và vẽ nét đứt; ảnh data/processed/live_demo_v1/14-video15-boundary-filter.jpg.
+Giới hạn: vạch mờ/cận cảnh có thể mất vùng, đáy box xấp xỉ chân nên
+người sát vạch vẫn có thể bị phân loại sai; không khẳng định lọc100%.
+
 Ngày 29/10/2026: mở rộng ước lượng sân clip mẫu Video Project 15 từ
 30–40s sang hai đoạn 30–40s và 40–50s. Thêm mốc tay frame1200, giữ
 mốc900; tái sử dụng LandmarkGuard để chặn tọa độ khi chưa kiểm tra,

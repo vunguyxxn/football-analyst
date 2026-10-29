@@ -96,6 +96,11 @@ thư viện quản lý kết quả cũ trên giao diện.
 
 ## Kiểm chứng
 
+Cập nhật29/10/2026: upload tự lọc vùng sân bằng cạnh vạch trắng trước
+ByteTrack và trước lấy mẫu màu áo. Frame không đủ biên xuất boxes rỗng;
+người ngoài vùng không đưa vào báo cáo. Đây là lọc pixel, sân mini và
+chỉ số mét vẫn cần hiệu chỉnh riêng. Chi tiết/lệnh: VIDEO_BOUNDARY.md.
+
 ### Kết quả nghiên cứu tùy chọn theo clip (27/10/2026)
 
 Ba endpoint bổ sung, chỉ đọc artifact của job hoàn tất:

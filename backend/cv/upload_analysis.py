@@ -50,6 +50,7 @@ def analyze(source: Path, folder: Path, progress, cancelled) -> dict:
     from backend.cv.team_classifier import jersey_feature
     from backend.cv.track_video import suppress_duplicate_people
     from backend.cv.team_smoother import TrackRoleSmoother
+    from backend.cv.pitch_boundary import pitch_region, inside_pitch
 
     info = video_info(source)
     weights = Path(__file__).resolve().parents[2] / "data/raw/yolo11n.pt"
@@ -72,8 +73,11 @@ def analyze(source: Path, folder: Path, progress, cancelled) -> dict:
             capture.set(cv2.CAP_PROP_POS_FRAMES, int(frame_id))
             ok, frame = capture.read()
             if ok:
+                region = pitch_region(frame)
                 result = model.predict(frame, classes=classes, conf=.1, imgsz=image_size, device=device, verbose=False)[0]
                 for box in result.boxes.xyxy.cpu().numpy():
+                    if not inside_pitch(region, box):
+                        continue
                     feature = jersey_feature(frame, box.tolist(), "foreground")
                     if feature is not None and len(features) < 300:
                         features.append(feature)
@@ -95,6 +99,7 @@ def analyze(source: Path, folder: Path, progress, cancelled) -> dict:
     ids = set()
     chunk = []
     roles_count = {"A": 0, "B": 0, "unknown": 0}
+    boundary_frames = excluded = 0
     def flush():
         nonlocal chunks, chunk
         (folder / f"chunk-{chunks}.json").write_text(json.dumps({"frames": chunk}), encoding="utf-8")
@@ -113,7 +118,15 @@ def analyze(source: Path, folder: Path, progress, cancelled) -> dict:
             if abs(timestamp - frames / info["fps"]) > max(.015, .75 / info["fps"]):
                 raise ValueError("Nhịp khung hình không đều; hãy xuất lại video với FPS cố định để đồng bộ tracking.")
             result = model.predict(frame, classes=classes, conf=.1, imgsz=image_size, device=device, verbose=False)[0]
-            detections = tracker.update_with_detections(suppress_duplicate_people(sv.Detections.from_ultralytics(result)))
+            region = pitch_region(frame)
+            boundary_frames += region is not None
+            candidates = suppress_duplicate_people(sv.Detections.from_ultralytics(result))
+            keep = np.array([inside_pitch(region, box) for box in candidates.xyxy], dtype=bool)
+            excluded += int((~keep).sum())
+            detections = tracker.update_with_detections(candidates[keep])
+            # ByteTrack may retain internal lost-track state; publish only a
+            # current observation whose foot still passes this frame's boundary.
+            detections = detections[np.array([inside_pitch(region, box) for box in detections.xyxy], dtype=bool)]
             smoother.advance(frames)
             boxes = []
             for box, track_id in zip(detections.xyxy, detections.tracker_id):
@@ -122,7 +135,8 @@ def analyze(source: Path, folder: Path, progress, cancelled) -> dict:
                 ids.add(int(track_id))
                 boxes.append({"id": int(track_id), "group": role, "xyxy": [round(float(v), 2) for v in box]})
             observations += len(boxes)
-            chunk.append({"frame": frames, "time_s": frames / info["fps"], "boxes": boxes})
+            chunk.append({"frame": frames, "time_s": frames / info["fps"], "boxes": boxes,
+                          "pitch_boundary": region.round(2).tolist() if region is not None else None})
             frames += 1
             if len(chunk) >= chunk_frames:
                 flush()
@@ -137,6 +151,9 @@ def analyze(source: Path, folder: Path, progress, cancelled) -> dict:
     return {**info, "frames": frames, "chunk_frames": chunk_frames, "chunks": chunks,
             "device": device, "image_size": image_size, "confidence": .1, "track_ids": len(ids), "observations": observations,
             "group_observations": roles_count, "color_groups_available": centers is not None,
+            "boundary_filter": {"method": "white_touchlines_grass_v1", "frames_with_boundary": boundary_frames,
+                                "excluded_detections": excluded, "missing_boundary_policy": "no_tracking"},
             "limitations": ["A/B là nhóm màu áo ước lượng, chưa xác nhận đội, thủ môn hoặc trọng tài.",
-                            "Chưa hiệu chỉnh sân: chưa lọc chắc người ngoài biên, chưa có tọa độ mét, tốc độ hoặc quãng đường.",
+                            "Chỉ theo dõi điểm chân trong vùng biên trắng ước lượng; frame không rõ biên bị bỏ. Có thể bỏ sót khi che khuất hoặc góc quay cận.",
+                            "Chưa hiệu chỉnh sân: lọc biên ảnh không tạo tọa độ mét, tốc độ hoặc quãng đường.",
                             "ID là mã theo dõi, có thể đổi khi che khuất hoặc chuyển cảnh; không phải số cầu thủ."]}

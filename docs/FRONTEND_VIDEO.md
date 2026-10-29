@@ -150,6 +150,12 @@ Phần tiếp theo là bước 8b hồ sơ cầu thủ và 8c báo cáo HLV, ch�
 trong phiên này.
 # Bổ sung demo nghiên cứu ngày 27/10/2026
 
+Cập nhật lọc biên29/10: mẫu hiện dùng job
+`c140f8aefb4e4678b51fe6f633e1fc56` (cùng Video Project15, cùng hash).
+Video vẽ polygon nét đứt trắng từ DTO pixel; chỉ hiển thị khung/ID còn
+trong vùng biên theo điểm chân. Báo cáo/sân/bóng được tính lại trên
+danh sách người đã lọc. Không dùng đếm của job cũ; xem VIDEO_BOUNDARY.md.
+
 Cập nhật29/10: artifact mẫu mở rộng hai đoạn30–40s và40–50s với kiểm
 tra vạch sân theo lịch. Chọn ID phân biệt theo từng đoạn; sân có vị trí
 tại45,1s, không giữ vị trí sau50s. Nhãn ước lượng/chưa kiểm chứng độc

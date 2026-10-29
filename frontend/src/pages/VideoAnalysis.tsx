@@ -152,7 +152,7 @@ export default function VideoAnalysis() {
     </section>
 
     <section className="video-job card-surface" aria-label="Phân tích AI">
-      <div><strong>Theo dõi người và ước lượng nhóm màu áo</strong><p>Clip tối đa 10 phút / 500 MB. Video được gửi tới máy chủ đang chạy trên máy này. Sân mini, lọc đường biên và chỉ số mét cần hiệu chỉnh sân riêng.</p></div>
+      <div><strong>Theo dõi người trong sân và ước lượng nhóm màu áo</strong><p>Clip tối đa 10 phút / 500 MB. Video được gửi tới máy chủ đang chạy trên máy này. Lọc người ngoài sân theo vạch trắng; sân mini và chỉ số mét cần hiệu chỉnh sân riêng.</p></div>
       <Button disabled={!sourceFile || !duration || !!mediaError || ai.busy || loading} onClick={() => { video.current?.pause(); void ai.start() }}>{ai.busy ? <LoaderCircle className="animate-spin" /> : <Play />}Phân tích video</Button>
       {ai.busy && <Button variant="outline" onClick={() => { void ai.cancel() }}>Hủy xử lý</Button>}
       {(ai.uploading || ai.job) && <div className="video-job-status" role="status"><span>{ai.uploading ? `Đang gửi video: ${ai.uploadPercent}%` : ai.job?.status === "completed" ? "Đã xử lý video" : ai.job?.stage}</span><progress aria-label="Tiến độ phân tích" max="100" value={ai.uploading ? ai.uploadPercent : ai.job?.progress || 0} /><span>{!ai.uploading && ai.job ? `${Math.round(ai.job.progress)}%${ai.result ? ` · ${ai.result.device === "cpu" ? "CPU" : "GPU"}` : ""}` : ""}</span></div>}
@@ -179,6 +179,7 @@ export default function VideoAnalysis() {
             if (typeof event.currentTarget.requestVideoFrameCallback !== "function" || event.currentTarget.paused) setClock(event.currentTarget.currentTime)
           }} playsInline preload="metadata" ref={video} src={source.url} /> : <div className="video-empty"><span className="video-empty-icon"><Clapperboard size={36} strokeWidth={1.3} /></span><h3>Đưa trận đấu vào góc nhìn mới</h3><p>Chọn video rồi bấm Phân tích video,<br />hoặc mở clip mẫu để xem ngay.</p><span><FolderOpen size={14} /> Xử lý trên máy chủ cục bộ</span></div>}
           {ai.result && !seeking && !mediaError && <svg className="video-box-overlay" viewBox={`0 0 ${ai.result.width} ${ai.result.height}`} aria-label={`Khung theo dõi: ${ai.frame?.boxes.length || 0} người`}>
+            {ai.frame?.pitch_boundary && <polygon points={ai.frame.pitch_boundary.map(point => point.join(",")).join(" ")} fill="none" stroke="#ffffff" strokeWidth="3" strokeDasharray="12 8"><title>Biên sân ước lượng từ vạch trắng; chỉ theo dõi điểm chân bên trong</title></polygon>}
             {ai.frame?.boxes.map(box => { const [x1, y1, x2, y2] = box.xyxy; const color = TEAMS[box.group].color; return <g key={box.id}><rect x={x1} y={y1} width={Math.max(0, x2 - x1)} height={Math.max(0, y2 - y1)} fill="none" stroke={color} strokeWidth="3" />{showIds && <text x={x1} y={Math.max(16, y1 - 5)} fill={color} stroke="#000" strokeWidth=".7" paintOrder="stroke" fontSize="18">{box.group} · ID {box.id}</text>}</g> })}
           </svg>}
         </div>
