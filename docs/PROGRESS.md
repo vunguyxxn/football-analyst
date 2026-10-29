@@ -2,6 +2,15 @@
 
 ## Trạng thái hiện tại
 
+Ngày 29/10/2026: theo yêu cầu người dùng, đã cấu hình remote origin
+https://github.com/vunguyxxn/football-analyst.git và đẩy toàn bộ lịch sử
+code đã commit trên main (đến 9e92ce4), thiết lập upstream origin/main.
+Video, trọng số model, dữ liệu raw/processed, môi trường và asset demo
+cục bộ vẫn bị loại theo .gitignore; không phải bản sao lưu toàn bộ dữ liệu.
+Phiên này chỉ đồng bộ Git, không thay code hay hợp đồng dữ liệu. Kiểm tra
+bằng git push, git ls-remote và trạng thái nhánh; không chạy lại test vì
+không thay logic (kết quả kiểm thử gần nhất được ghi ở mục bên dưới).
+
 Ngày 27/10/2026: tiếp tục nghiên cứu trên đúng clip mẫu Video Project 15.
 Đã có giao diện heatmap nhóm áo/theo ID, quãng đường và tốc độ **ước
 lượng**, chỉ cho đoạn 30–40 giây hiệu chỉnh tay; không phải toàn clip
