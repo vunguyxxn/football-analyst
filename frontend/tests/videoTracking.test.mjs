@@ -47,3 +47,13 @@ test("seeking backwards is independent of playback history and checks clip misma
   assert.match(compatibilityError(timeline, 11, 20), /không giao/)
   assert.match(compatibilityError(timeline, 11, NaN), /hợp lệ/)
 })
+
+test("rounded media-clock seeks show the first frame without retaining coordinates across a gap", () => {
+  const timeline = parseTracking(JSON.stringify([904, 905, 1199, 1204].map(frame => ({ ...row(frame), time_s: frame / 30 }))))
+  assert.equal(frameAt(timeline, Math.fround(904 / 30), 0)?.frame, 904)
+  assert.equal(frameAt(timeline, Math.fround(905 / 30), 0)?.frame, 905)
+  assert.equal(frameAt(timeline, Math.fround(1204 / 30), 0)?.frame, 1204)
+  assert.equal(frameAt(timeline, 40, 0), null)
+  assert.equal(frameAt(timeline, Math.fround(1203 / 30), 0), null)
+  assert.equal(frameAt(timeline, 904 / 30 - .001, 0), null)
+})

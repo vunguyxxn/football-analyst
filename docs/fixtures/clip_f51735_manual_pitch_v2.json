@@ -1,0 +1,27 @@
+{
+  "source_sha256": "f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0",
+  "image_size": [1920, 1080],
+  "pitch_m": [105, 68],
+  "status": "agent_manual_estimate_not_independent_ground_truth",
+  "provenance": "First anchor unchanged from v1. Second anchor visually selected on raw frame 1200 at halfway/touchline intersections and front penalty-area corners. Penalty arc intersections excluded from fitting and used for internal pixel checks. Assumed 105x68 pitch; no surveyed dimensions. Use scheduled landmark checks with this fixture; do not merge metric chains across anchors.",
+  "anchors": [
+    {
+      "frame": 900, "end_frame": 1200,
+      "image_points": [[1461,247],[1767,388],[1694,270],[1821,325]],
+      "pitch_points": [[99.5,43.16],[99.5,24.84],[105,37.66],[105,30.34]],
+      "extra_image_points": [[1037,201],[1623,538],[217,967]],
+      "extra_pitch_points": [[88.5,54.16],[88.5,13.84],[52.5,0]],
+      "check_image_points": [[1175,280],[1384,400]],
+      "check_pitch_points": [[88.5,41.3125],[88.5,26.6875]],
+      "max_check_error_px": 10
+    },
+    {
+      "frame": 1200, "end_frame": 1500,
+      "image_points": [[54,126],[285,899],[1108,141],[1702,481]],
+      "pitch_points": [[52.5,68],[52.5,0],[88.5,54.16],[88.5,13.84]],
+      "check_image_points": [[1249,220],[1458,340]],
+      "check_pitch_points": [[88.5,41.3125],[88.5,26.6875]],
+      "max_check_error_px": 10
+    }
+  ]
+}

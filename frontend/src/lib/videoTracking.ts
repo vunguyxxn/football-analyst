@@ -59,15 +59,18 @@ export function parseTracking(text: string): TrackingTimeline {
 export function frameAt(timeline: TrackingTimeline | null, videoTime: number, offset: number): TrackingFrame | null {
   if (!timeline || !Number.isFinite(videoTime) || !Number.isFinite(offset)) return null
   const time = videoTime - offset
+  // Media clocks can round a seek to float32 (e.g. 904/30 seconds).
+  // Allow microseconds of clock error, never a missing source frame.
+  const epsilon = Math.min(1e-5, timeline.frameDuration / 1000)
   let low = 0, high = timeline.frames.length
   while (low < high) {
     const middle = (low + high) >>> 1
-    if (timeline.frames[middle].time_s <= time + 1e-7) low = middle + 1
+    if (timeline.frames[middle].time_s <= time + epsilon) low = middle + 1
     else high = middle
   }
   const frame = timeline.frames[low - 1]
   // Never interpolate or retain positions through tracking/guard gaps.
-  return frame && time >= frame.time_s - 1e-7 && time < frame.time_s + timeline.frameDuration - 1e-7 ? frame : null
+  return frame && time >= frame.time_s - epsilon && time < frame.time_s + timeline.frameDuration - epsilon ? frame : null
 }
 
 export function trackingRanges(timeline: TrackingTimeline): { start: number; end: number }[] {

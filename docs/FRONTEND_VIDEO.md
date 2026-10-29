@@ -150,6 +150,13 @@ Phần tiếp theo là bước 8b hồ sơ cầu thủ và 8c báo cáo HLV, ch�
 trong phiên này.
 # Bổ sung demo nghiên cứu ngày 27/10/2026
 
+Cập nhật29/10: artifact mẫu mở rộng hai đoạn30–40s và40–50s với kiểm
+tra vạch sân theo lịch. Chọn ID phân biệt theo từng đoạn; sân có vị trí
+tại45,1s, không giữ vị trí sau50s. Nhãn ước lượng/chưa kiểm chứng độc
+lập vẫn giữ nguyên. Đồng hồ video được dung sai tối đa10 micro giây
+để mốc tua bị làm tròn không làm trống frame đầu; không bắc cầu qua
+khoảng thiếu tọa độ. Lịch sử bên dưới mô tả bản27/10.
+
 Clip mẫu hiện là đúng Video Project 15.mp4 (52,3667 giây), manifest v2
 khớp SHA256 của job hoàn tất. Mở mẫu nạp thêm vị trí sân nếu artifact
 khớp nguồn, bắt đầu tại 30,1s. Chỉ đoạn 30–40s có hiệu chỉnh tay tạm;

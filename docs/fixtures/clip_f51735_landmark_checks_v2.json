@@ -1,0 +1,16 @@
+{
+  "source_sha256": "f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0",
+  "image_size": [1920, 1080],
+  "max_error_m": 1.0,
+  "max_gap_frames": 150,
+  "status": "internal_agent_visual_checks_not_independent_ground_truth",
+  "provenance": "Agent visually marked two penalty-arc/front-penalty-line intersections on raw frames, without fitting the camera matrix to these points. Pitch dimensions assumed 105x68. A passing check only limits internal landmark disagreement at sampled frames; it does not validate player foot locations or real-world distances. Threshold fixed before running v2 projection; no widening after failure.",
+  "checkpoints": [
+    {"frame":901,"image_points":[[1172,280],[1380,398]],"pitch_points":[[88.5,41.3125],[88.5,26.6875]]},
+    {"frame":1050,"image_points":[[1097,290],[1308,404]],"pitch_points":[[88.5,41.3125],[88.5,26.6875]]},
+    {"frame":1199,"image_points":[[1251,220],[1460,340]],"pitch_points":[[88.5,41.3125],[88.5,26.6875]]},
+    {"frame":1201,"image_points":[[1249,220],[1458,340]],"pitch_points":[[88.5,41.3125],[88.5,26.6875]]},
+    {"frame":1350,"image_points":[[1537,233],[1744,360]],"pitch_points":[[88.5,41.3125],[88.5,26.6875]]},
+    {"frame":1499,"image_points":[[1183,248],[1393,368]],"pitch_points":[[88.5,41.3125],[88.5,26.6875]]}
+  ]
+}

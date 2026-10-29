@@ -168,7 +168,36 @@ Kích thước vạch sân tham chiếu [IFAB Law 1](https://www.theifab.com/law
 khung thành rộng 7,32 m, vùng cầu môn mở 5,5 m mỗi bên nên rộng 18,32 m;
 đã sửa hình sân frontend tương ứng. Kích thước sân nguồn vẫn là giả định.
 
-## Nguồn nền detector và tác vụ
+## Mở rộng đoạn sân và chặn trôi mốc (29/10/2026)
+
+Fixture `clip_f51735_manual_pitch_v2.json` bổ sung mốc frame1200 bằng
+giao đường giữa sân/biên và hai góc trước vùng cấm địa. Mốc frame900
+giữ nguyên. `clip_f51735_landmark_checks_v2.json` chứa sáu cặp giao
+cung tròn/vạch cấm địa trên frame901,1050,1199,1201,1350,1499. Tái sử
+dụng LandmarkGuard; các điểm này chỉ kiểm tra, không sửa matrix.
+Ngưỡng cố định1m theo hệ sân giả định, tối đa150 frame giữa kiểm tra.
+Chưa có checkpoint đạt thì chưa xuất vị trí; quá hạn/trôi vượt ngưỡng
+chặn tới lần neo tiếp theo. Không kiểm tra ngược toàn bộ khoảng trước
+checkpoint; vẫn cần đánh giá dày hơn/độc lập để xác nhận các khoảng đó.
+
+Nhãn thô tại frame1200 ban đầu lệch ở kiểm tra pixel (12,95/10,69px);
+đã xem crop vạch sân và sửa nhãn trước lần chạy chuỗi v2. Sai lệch sau
+sửa là3,93/3,29px. Đây là quá trình chọn mốc/kiểm tra nội bộ có quan sát
+kết quả, không được báo cáo như đánh giá blinded hoặc accuracy độc lập.
+Ngưỡng10px/1m không được nới. Không dùng nhãn để fit lại matrix.
+
+```powershell
+.\.venv\Scripts\python.exe -m backend.cv.project_uploaded_job data/processed/video_jobs/e0eb4128f58d45ea85c4ef0000ca92df docs/fixtures/clip_f51735_manual_pitch_v2.json data/processed/pitch_video15_guarded_new --landmark-checks docs/fixtures/clip_f51735_landmark_checks_v2.json
+```
+
+Kết quả lưu `data/processed/pitch_video15_guarded_v2/`: 11.703 vị trí/
+592 frame; hai khoảng camera có kiểm tra30,0333–40s và40,0333–50s;
+sai lệch nội bộ lớn nhất0,733m ở sáu checkpoint. Các ID tách theo mốc,
+không cộng thành vận động cầu thủ toàn clip. Artifact công bố của job
+đã thay bằng bản này, giữ bản cũ riêng. Đây vẫn là hiệu chỉnh tay cho
+một nguồn cụ thể; chưa tự tạo hiệu chỉnh cho video tải lên mới.
+
+## Nguồn nền detector và tác vụ tham khảo
 
 - [Ultralytics predict](https://docs.ultralytics.com/modes/predict/):
   lọc class, confidence và kích thước inference; triển khai dùng bản

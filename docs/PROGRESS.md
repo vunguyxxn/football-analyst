@@ -2,6 +2,37 @@
 
 ## Trạng thái hiện tại
 
+Ngày 29/10/2026: mở rộng ước lượng sân clip mẫu Video Project 15 từ
+30–40s sang hai đoạn 30–40s và 40–50s. Thêm mốc tay frame1200, giữ
+mốc900; tái sử dụng LandmarkGuard để chặn tọa độ khi chưa kiểm tra,
+quá hạn hoặc sai lệch vạch sân vượt ngưỡng. CLI project_uploaded_job
+có --landmark-checks, kiểm tra hash/kích thước trước khi tạo output.
+Không nối quãng đường qua hai mốc; không đổi DATA_CONTRACT/thư viện.
+
+Sáu checkpoint arc/vạch cấm địa, ngưỡng 1m trong hệ sân giả định,
+khoảng cách kiểm tra tối đa150 frame: sai lệch nội bộ lớn nhất0,733m.
+Đây là nhãn do cùng agent chọn, không phải nghiệm thu độ chính xác
+thực địa hoặc đánh giá độc lập. Đã sửa nhãn thô sau khi xem crop vạch
+sân; không dùng các điểm kiểm tra để fit matrix hoặc nới ngưỡng.
+11.703 vị trí được chấp nhận trên592 frame; các frame chờ kiểm tra,
+mất dấu hoặc ngoài phạm vi để trống. Artifact mới
+data/processed/pitch_video15_guarded_v2/; bản cũ giữ ở
+data/processed/pitch_video15_backup_20261029/. Đã cập nhật artifact job.
+
+Sửa lỗi sân mini trống ngay sau khi mở mẫu do trình phát làm tròn mốc
+904/30 giây: dung sai đồng hồ tối đa10 micro giây, vẫn xóa tọa độ qua
+khoảng thiếu frame. Test hồi quy bao phủ chính mốc làm tròn này.
+Test tích hợp mới kiểm tra chờ, quá hạn, trôi mốc, tái neo và tọa độ
+ảnh kích thước lẻ. 311 test Python qua/1 network deselected với
+--basetemp .tmp/pytest_pitch_guard_20261029_full; 14 test frontend qua;
+build/lint qua (cảnh báo cũ). Lượt đầu thiếu --basetemp có8 lỗi do
+đường dẫn temp ngoài repo; không sửa logic để bỏ kiểm tra đường dẫn.
+Web đã hiện phạm vi mới, chọn quỹ đạo40–50s, sân đồng bộ tại45,1s;
+ngoài phạm vi vẫn để trống. Ảnh trong data/processed/live_demo_v1/
+12-video15-guarded-scope.jpg và13-video15-guarded-motion.jpg.
+Chuyền/sút/khuyến nghị chưa được kiểm định
+thêm trong phiên này; tự động hiệu chỉnh video tải mới vẫn chưa có.
+
 Ngày 29/10/2026: theo yêu cầu người dùng, đã cấu hình remote origin
 https://github.com/vunguyxxn/football-analyst.git và đẩy toàn bộ lịch sử
 code đã commit trên main (đến 9e92ce4), thiết lập upstream origin/main.

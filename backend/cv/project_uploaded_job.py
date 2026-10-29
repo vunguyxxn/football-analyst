@@ -14,11 +14,12 @@ from backend.cv.circle_calibration import fit_circle_pixels, circle_matrix
 from backend.cv.pitch_metrics import PitchMetrics
 from backend.cv.pitch_smoother import PitchSmoother
 from backend.cv.homography import matrix_for, refined_matrix_for
+from backend.cv.landmark_guard import LandmarkGuard
 
 ROOT = Path(__file__).resolve().parents[2]
 
 
-def project_job(job, controls_path, output):
+def project_job(job, controls_path, output, landmark_checks=None):
     job, controls_path, output = (path.resolve() for path in (job, controls_path, output))
     if any(not path.is_relative_to(ROOT) for path in (job, controls_path, output)) or output.exists():
         raise ValueError("Use workspace paths and a new output")
@@ -39,6 +40,14 @@ def project_job(job, controls_path, output):
             raise ValueError("Calibration windows overlap or exceed clip")
         previous_end = end
     anchors = {anchor["frame"]: anchor for anchor in controls["anchors"]}
+    guard = None
+    if landmark_checks is not None:
+        landmark_checks = landmark_checks.resolve()
+        if not landmark_checks.is_relative_to(ROOT):
+            raise ValueError("Use workspace paths")
+        guard = LandmarkGuard(landmark_checks, digest, result["width"], result["height"],
+                              [(anchor["frame"], anchor.get("end_frame", min(result["frames"], anchor["frame"] + 300)))
+                               for anchor in controls["anchors"]])
     output.mkdir(parents=True)
     motion, metrics, smoother = CameraMotion(), PitchMetrics(result["fps"]), PitchSmoother()
     capture = cv2.VideoCapture(str(source))
@@ -47,6 +56,7 @@ def project_job(job, controls_path, output):
     intervals, current_interval = [], None
     index = accepted = outside = 0
     anchor_quality = []
+    landmark_results = []
     active_end = None
     small_size = (result["width"] // 2, result["height"] // 2)
     sx, sy = result["width"] / small_size[0], result["height"] / small_size[1]
@@ -81,6 +91,8 @@ def project_job(job, controls_path, output):
                         anchor_matrix = matrix @ down
                         segment += 1
                         active_end = anchor.get("end_frame", index + 300)
+                        if guard is not None:
+                            guard.start_segment(index)
                     small = cv2.resize(frame, small_size)
                     boxes = np.array([box["xyxy"] for box in record["boxes"]], dtype=float).reshape(-1, 4)
                     if active_end is None or index >= active_end:
@@ -88,8 +100,20 @@ def project_job(job, controls_path, output):
                         quality = {"status": "uncalibrated"}
                     else:
                         quality = motion.update(small, boxes / [sx, sy, sx, sy], anchor=anchor_matrix)
+                    projection_allowed = motion.matrix is not None
+                    if guard is not None and projection_allowed:
+                        check = guard.check(index, motion.matrix @ up)
+                        if "errors_m" in check or check["status"] == "lost":
+                            landmark_results.append({"frame": index, **check})
+                        projection_allowed = check["status"] == "verified"
+                        if check["status"] == "lost":
+                            motion.failed = True
+                            motion.matrix = motion.previous = motion.mask = None
+                            quality = {"status": "lost", "reason": check["reason"]}
+                        elif not projection_allowed:
+                            quality = {"status": "awaiting_landmark_check"}
                     qualities[quality["status"]] += 1
-                    if motion.matrix is not None:
+                    if projection_allowed:
                         if current_interval is None:
                             current_interval = {"start_s": index / result["fps"], "end_s": (index + 1) / result["fps"]}
                         else:
@@ -148,6 +172,8 @@ def project_job(job, controls_path, output):
               "pitch_m": [105, 68], "origin": "bottom_left", "duration_s": result["frames"] / result["fps"],
               "calibrated_intervals": intervals, "camera_status": dict(qualities), "frames_with_positions": len(source_frames),
               "accepted_positions": accepted, "outside_rejected": outside, "anchor_quality": anchor_quality,
+              "landmark_checks": {"enabled": guard is not None, "results": landmark_results,
+                                  "independently_validated": False},
               "groups": [{"group": group, "heatmap_seconds": heatmap.tolist()} for group, heatmap in groups.items()],
               "players": players, "limits": ["Ước lượng từ mốc sân do agent chọn, chưa kiểm chứng sai số bằng mốc độc lập.",
               "Sân giả định 105×68 m; chỉ tính đoạn camera còn theo dõi được. Không nối ID qua mốc hiệu chỉnh hoặc khoảng mất dấu.",
@@ -162,6 +188,7 @@ if __name__ == "__main__":
     parser.add_argument("job", type=Path)
     parser.add_argument("controls", type=Path)
     parser.add_argument("output", type=Path)
+    parser.add_argument("--landmark-checks", type=Path, help="Source-matched scheduled checks; blocks output until checked and after drift/expiry")
     args = parser.parse_args()
-    report = project_job(args.job, args.controls, args.output)
+    report = project_job(args.job, args.controls, args.output, args.landmark_checks)
     print(json.dumps({key: value for key, value in report.items() if key not in ("groups", "players")}))
