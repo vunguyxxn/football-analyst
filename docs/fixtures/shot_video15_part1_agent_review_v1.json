@@ -1,0 +1,21 @@
+{
+  "source_file": "data/raw/Video Project 15 (1).mp4",
+  "source_sha256": "11a9b033dbeca46af7e3cf1117269b04044ddf8d89b6c594efc16222606dd053",
+  "image_size": [1920,1080],
+  "frames": 1077,
+  "fps": 30,
+  "status": "agent_positive_example_needs_independent_review",
+  "independently_validated": false,
+  "provenance": "Raw-only survey followed by 0.1-second fixed crop review from 30.0 to32.6 seconds, no detector overlays. This is a separate source from the demo; never add its event to Video Project15 totals. One likely positive is not enough for separate training and held-out shot evaluation.",
+  "events": [{
+    "kind": "shot",
+    "status": "reviewed_likely",
+    "release_frame_interval": [915,921],
+    "attempt_start_s": 30.6,
+    "flight_review_end_s": 31.5,
+    "shirt_color": "white",
+    "target_goal": "left_in_image",
+    "outcome": "uncertain",
+    "evidence": "White player near penalty-area arc makes a kicking motion around30.5-30.7s; ball travels toward left goal mouth in subsequent raw frames and goalkeeper reacts/dives. Outcome deliberately unlabelled; no pitch coordinates or xG inferred from airborne ball."
+  }]
+}

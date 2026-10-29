@@ -2,6 +2,40 @@
 
 ## Trạng thái hiện tại
 
+Ngày 29/10/2026: tiếp tục kiểm chứng bóng/chuyền/sút. Đã khóa protocol
+và nhãn agent từ ảnh gốc clip15:30 điểm theo lịch ở7–10s,19–22s;
+24 nhìn rõ/6 không chắc. Đối chiếu20/24 trong12px,4 mất dự đoán;
+sai lệch trung vị1,94px khi có dự đoán. Rà13s ở bốn cửa sổ có4 đường
+chuyền do agent đánh dấu; hệ thống ghép1, bỏ sót3 (recall0,25/F1 0,40
+trên mẫu). Không phải đánh giá độc lập/accuracy toàn clip. Đã thấy
+ứng viên cũ trước khi gán nhãn nên không gọi blinded/held-out.
+
+Ba đường chuyền bị bỏ sót:7,1–7,8s,19,5–21,2s,32,3–33,2s; lỗi chính
+là đứt bóng gần chân/tranh chấp và thiếu liên kết trước/sau. Thử crop
+quanh chân trên toàn1571 frame:1691 query/1 proposal mới, không tăng
+kết quả. Giữ ngoại tuyến, không đổi model hoặc bật cho upload/web.
+Chi tiết/lệnh: BALL_SEQUENCE_VALIDATION.md. Không đổi DATA_CONTRACT.
+
+Đã tìm thêm một pha có khả năng cao là cú sút trong file KHÁC
+Video Project15 (1).mp4 khoảng30,6s, rà ảnh cách0,1s và lưu fixture
+shot_video15_part1_agent_review_v1.json (hash11a9b033...). Chưa có mô
+hình sút; pha bóng chưa được rà độc lập/kết quả chưa xác nhận, không
+gộp vào clip15 mẫu hoặc báo accuracy sút. Cần nhiều pha dương/âm và
+nhãn tiếp xúc dày, tách train/test trước khi huấn luyện/đếm tự động.
+
+Thêm evaluator streaming: kiểm tra lịch mẫu đủ, chuỗi không thiếu frame,
+ghép sự kiện một-một theo lớp/nhóm/mốc đầu-cuối; absent/uncertain/mất
+dự đoán phân biệt, lớp sút chưa triển khai giữ metric null. Audit có
+hash mọi đầu vào. API ball-events kiểm tra audit khớp nguồn/job/report/
+chuỗi, ép chưa kiểm định độc lập; confirmed_passes/shots vẫn null.
+Web có phần đối chiếu1/4,20/24 và nút tua ba pha bỏ sót, không giả làm
+kết quả tự nhận diện.339 test Python qua/1 network deselected;
+14 test frontend qua,build/lint qua (cảnh báo cũ). Chưa hoàn tất mô
+hình chuyền/sút đủ tin cậy cho video bất kỳ.
+Trình duyệt đã hiện số đối chiếu và3 thẻ bỏ sót; bấm thẻ chuyền trắng
+tua31,8s và dừng đúng trước pha32,3s. Ảnh bàn giao:
+data/processed/live_demo_v1/15-ball-pass-validation.jpg.
+
 Ngày 29/10/2026: theo yêu cầu chỉ theo dõi trong vạch trắng sân thi đấu,
 đã thêm pitch_boundary (cỏ + cạnh Canny + Hough), lọc điểm chân trước
 ByteTrack và trước lấy mẫu màu áo cho upload. Người ngoài vùng không

@@ -1,5 +1,10 @@
 # Phân tích bóng đá trực tiếp từ video — mở rộng 27/10/2026
 
+Cập nhật29/10: đã đối chiếu chuỗi theo lịch mẫu và đo bỏ sót sự kiện,
+không chỉ đếm frame có bóng. Kết quả20/24 điểm,1/4 chuyền trên mẫu agent;
+thử crop quanh chân không cải thiện. Đã tìm một pha sút ở nguồn15(1)
+để rà tiếp, chưa có mô hình sút. Xem BALL_SEQUENCE_VALIDATION.md.
+
 Người dùng xác nhận nghiên cứu tự nhận diện chuyền bóng và cú sút chỉ từ
 video, bao gồm theo dõi bóng và kiểm chứng riêng. Đây là thay đổi so với
 phạm vi cũ, đã ghi ở `ROADMAP.md`. Chưa thể gọi luồng phát hiện người,

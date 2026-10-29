@@ -182,7 +182,7 @@ def field_region(frame):
     return cv2.convexHull(largest)
 
 
-def run(job_folder, output, replay=None):
+def run(job_folder, output, replay=None, contact_crops=False):
     import cv2
     from backend.cv.ball_probe import detect_candidates
     for path in (job_folder, output):
@@ -207,7 +207,7 @@ def run(job_folder, output, replay=None):
         if previous_report["source_sha256"] != source_hash or previous_report["frames"] != result["frames"]:
             raise ValueError("Replay source differs")
         replay_stream = (replay / "ball.jsonl").open(encoding="utf-8")
-    else:
+    if replay is None or contact_crops:
         from ultralytics import YOLO
         import torch
         weights = ROOT / "data/processed/ball_finetune_v1/training/weights/best.pt"
@@ -217,7 +217,7 @@ def run(job_folder, output, replay=None):
     tracker = BallContinuity(result["width"], result["height"], result["fps"])
     handovers = HandoverCandidates(result["fps"])
     capture = cv2.VideoCapture(str(source))
-    observed = contacts = cuts = 0
+    observed = contacts = cuts = crop_queries = 0
     previous_thumbnail = None
     frame_index = 0
     try:
@@ -240,6 +240,14 @@ def run(job_folder, output, replay=None):
                     else:
                         candidates = detect_candidates(model, frame, device=device, tiled=False, confidence=.1)
                     raw_candidates = candidates
+                    if contact_crops:
+                        from backend.cv.ball_contact_crops import refine_candidates, merge_candidates
+                        # Cuts may not borrow a proposal location from the previous shot.
+                        local, queries = refine_candidates(model, frame, row["boxes"], [] if cut else tracker.history,
+                                                           frame_index, result["fps"], device)
+                        crop_queries += queries
+                        candidates = merge_candidates(candidates + local)
+                        raw_candidates = candidates
                     region = field_region(frame)
                     candidates = [] if region is None else [item for item in candidates if cv2.pointPolygonTest(region, ((item["xyxy"][0] + item["xyxy"][2]) / 2, (item["xyxy"][1] + item["xyxy"][3]) / 2), False) >= 0]
                     ball = tracker.update(frame_index, candidates, cut=cut)
@@ -260,6 +268,7 @@ def run(job_folder, output, replay=None):
     report = {"kind": "ball_sequence_research_v1", "source_sha256": source_hash, "person_job_id": job_folder.name, "frames": frame_index,
               "ball_observed_frames": observed, "near_foot_candidate_frames": contacts, "cut_resets": cuts,
               "possible_passes": handovers.events, "confirmed_passes": None, "shots": None,
+              "contact_crop_refinement": {"enabled": contact_crops, "queries": crop_queries, "status": "experimental_not_validated"},
               "warning": "Experimental pixel-space ball continuity/near-foot associations. No independent ball/contact/event labels; do not display as confirmed football totals."}
     (output / "report.json").write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
     return report
@@ -270,5 +279,6 @@ if __name__ == "__main__":
     parser.add_argument("job_folder", type=Path)
     parser.add_argument("output", type=Path)
     parser.add_argument("--replay", type=Path)
+    parser.add_argument("--contact-crops", action="store_true", help="Experimental ball-only crop detector near recently observed ball and players")
     args = parser.parse_args()
-    print(json.dumps(run(args.job_folder, args.output, args.replay), ensure_ascii=False))
+    print(json.dumps(run(args.job_folder, args.output, args.replay, args.contact_crops), ensure_ascii=False))

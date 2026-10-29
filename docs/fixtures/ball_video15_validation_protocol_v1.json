@@ -1,0 +1,19 @@
+{
+  "source_sha256": "f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0",
+  "person_job_id": "c140f8aefb4e4678b51fe6f633e1fc56",
+  "image_size": [1920,1080],
+  "frames": 1571,
+  "fps": 30,
+  "status": "development_audit_not_independent_acceptance",
+  "provenance": "Same agent has previously seen the 8-9.53s candidate; cannot claim blinded or independent testing. Raw-only sheets sampled every 0.5s across clip, dense fixed lower-pitch crops every 6 frames in 7-10s,19-22s,30-33s,44-47s. No detector overlays during point annotation. Thresholds fixed before comparing the new labels to the frozen sequence output; do not tune the production model on this audit and call it held-out performance.",
+  "point_tolerance_px": 12,
+  "sample_step_frames": 6,
+  "point_windows_frames": [[210,300],[570,660]],
+  "closed_event_windows_s": [[7,10],[19,22],[30,34],[49,52]],
+  "window_revision_note": "Extended 30-33s to 30-34s before scoring, to include receipt of the white backward pass visible in raw sheets. No threshold tuning or comparison to ball coordinates was performed to set this extension.",
+  "ambiguous_event_windows_s": [[44,47]],
+  "event_start_tolerance_s": 0.5,
+  "event_end_tolerance_s": 0.5,
+  "event_definition": "Completed visible same-colour transfer to a different physical player; start is ball release, end is first controlled receipt. Dribble, tackle, deflection, ID swap and uncertain/out-of-view receipt excluded. Shot requires visual evidence of a deliberate goal attempt, not image velocity, proximity to goal or a pass toward goalkeeper. Missing positive shots cannot establish shot recall. Events outside closed review windows are not scored.",
+  "independently_validated": false
+}

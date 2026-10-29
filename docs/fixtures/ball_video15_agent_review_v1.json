@@ -1,0 +1,51 @@
+{
+  "source_sha256": "f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0",
+  "status": "agent_development_labels_needs_independent_review",
+  "independently_validated": false,
+  "point_provenance": "Manual visual estimates on raw fixed crops: crop x0,y400, scale0.5. Original coordinates below; boots/occlusion not clearly distinguishable are uncertain. Same agent has seen earlier candidates; no independent or blinded accuracy claim. Do not alter these labels to improve evaluation scores.",
+  "points": [
+    {"frame":210,"visibility":"uncertain","center_px":null},
+    {"frame":216,"visibility":"visible","center_px":[620,662]},
+    {"frame":222,"visibility":"visible","center_px":[588,646]},
+    {"frame":228,"visibility":"visible","center_px":[544,626]},
+    {"frame":234,"visibility":"visible","center_px":[522,610]},
+    {"frame":240,"visibility":"visible","center_px":[506,636]},
+    {"frame":246,"visibility":"visible","center_px":[480,680]},
+    {"frame":252,"visibility":"visible","center_px":[462,704]},
+    {"frame":258,"visibility":"visible","center_px":[426,740]},
+    {"frame":264,"visibility":"visible","center_px":[398,766]},
+    {"frame":270,"visibility":"visible","center_px":[374,786]},
+    {"frame":276,"visibility":"visible","center_px":[344,810]},
+    {"frame":282,"visibility":"visible","center_px":[322,820]},
+    {"frame":288,"visibility":"visible","center_px":[294,840]},
+    {"frame":294,"visibility":"visible","center_px":[296,850]},
+    {"frame":570,"visibility":"visible","center_px":[474,546]},
+    {"frame":576,"visibility":"uncertain","center_px":null},
+    {"frame":582,"visibility":"visible","center_px":[404,564]},
+    {"frame":588,"visibility":"uncertain","center_px":null},
+    {"frame":594,"visibility":"visible","center_px":[426,628]},
+    {"frame":600,"visibility":"visible","center_px":[458,668]},
+    {"frame":606,"visibility":"visible","center_px":[506,718]},
+    {"frame":612,"visibility":"visible","center_px":[544,754]},
+    {"frame":618,"visibility":"visible","center_px":[580,786]},
+    {"frame":624,"visibility":"visible","center_px":[610,814]},
+    {"frame":630,"visibility":"uncertain","center_px":null},
+    {"frame":636,"visibility":"uncertain","center_px":null},
+    {"frame":642,"visibility":"visible","center_px":[670,884]},
+    {"frame":648,"visibility":"uncertain","center_px":null},
+    {"frame":654,"visibility":"visible","center_px":[710,900]}
+  ],
+  "events": [
+    {"id":"pass-red-7","kind":"pass","start_s":7.1,"end_s":7.8,"group":"A","status":"reviewed_likely","note":"Red player under pressure releases to central supporting red player, who receives then releases a second pass. Separate transfers; do not merge into one long pass."},
+    {"id":"pass-red-8","kind":"pass","start_s":8.0,"end_s":9.6,"group":"A","status":"reviewed_likely","note":"Central red player passes backwards/left to deeper red receiver."},
+    {"id":"pass-red-19","kind":"pass","start_s":19.5,"end_s":21.2,"group":"A","status":"reviewed_likely","note":"Red player near centre-circle edge passes toward red teammate nearer the near touchline."},
+    {"id":"pass-white-32","kind":"pass","start_s":32.3,"end_s":33.2,"group":"B","status":"reviewed_likely","note":"White player escapes tackle and passes toward right-side white defender; backward/lateral pass, not a goal attempt."}
+  ],
+  "negative_examples": [
+    {"start_s":30,"end_s":32.2,"kind":"tackle_dribble_not_completed_pass","note":"Contact/turnover/overlap alone does not establish a completed transfer."},
+    {"start_s":32.3,"end_s":33.2,"kind":"backward_pass_not_shot","note":"Ball moves toward goal side of image but is a white defensive pass to a white teammate."},
+    {"start_s":49,"end_s":52,"kind":"stoppage_not_shot","note":"Player down near touchline and raised assistant flag; no observed goal attempt in this review window."}
+  ],
+  "uncertain_events": [{"start_s":44,"end_s":47,"kind":"pass","note":"Near-touchline transfer/challenge; on-field receipt uncertain after boundary filtering. Not scored as a negative or completed pass."}],
+  "shot_labels_note": "No positive shot labelled in the closed review windows. This cannot measure shot recall or prove the clip has zero shots globally. Current pipeline has no implemented shot predictor."
+}

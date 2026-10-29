@@ -150,6 +150,11 @@ Phần tiếp theo là bước 8b hồ sơ cầu thủ và 8c báo cáo HLV, ch�
 trong phiên này.
 # Bổ sung demo nghiên cứu ngày 27/10/2026
 
+Cập nhật kiểm chứng29/10: thẻ chuyền có phần đối chiếu nhỏ1/4 sự kiện,
+20/24 vị trí bóng, ba nút tua đường chuyền agent đánh dấu nhưng AI bỏ
+sót. Ghi rõ chưa kiểm định độc lập, không nâng thành tổng tự nhận diện.
+Audit chỉ hiển thị khi backend xác minh đúng hash dự đoán/chuỗi của job.
+
 Cập nhật lọc biên29/10: mẫu hiện dùng job
 `c140f8aefb4e4678b51fe6f633e1fc56` (cùng Video Project15, cùng hash).
 Video vẽ polygon nét đứt trắng từ DTO pixel; chỉ hiển thị khung/ID còn

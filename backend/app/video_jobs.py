@@ -179,7 +179,20 @@ def ball_events(job_id: str):
                     or event["group"] not in ("A", "B") or event["from_id"] == event["to_id"]
                     or not 0 <= event["start_s"] < event["end_s"] <= current["result"]["frames"] / current["result"]["fps"]):
                 raise ValueError("Invalid research event")
-        return {**payload, "status": "research_candidates", "confirmed_passes": None, "shots": None}
+        validation = None
+        audit_path = path.with_name("validation.json")
+        if audit_path.is_file():
+            validation = json.loads(audit_path.read_text(encoding="utf-8"))
+            with path.with_name("ball.jsonl").open("rb") as stream:
+                sequence_hash = hashlib.file_digest(stream, "sha256").hexdigest()
+            if (validation["kind"] != "ball_sequence_development_audit_v1"
+                    or validation["source_sha256"] != payload["source_sha256"]
+                    or validation["person_job_id"] != job_id
+                    or validation["input_sha256"]["predictions"] != hashlib.sha256(path.read_bytes()).hexdigest()
+                    or validation["input_sha256"]["sequence"] != sequence_hash):
+                raise ValueError("Audit/source/prediction mismatch")
+            validation["independently_validated"] = False
+        return {**payload, "status": "research_candidates", "confirmed_passes": None, "shots": None, "validation": validation}
     except (KeyError, ValueError, OSError) as error:
         raise HTTPException(422, "Kết quả thử nghiệm không khớp video; chưa thể hiển thị.") from error
 

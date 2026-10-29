@@ -42,3 +42,28 @@ def test_research_rejects_wrong_source_wrong_job_or_claimed_confirmed_event(tmp_
                    {"possible_passes": [{**payload["possible_passes"][0], "from_id": 2}]}):
         path.write_text(json.dumps({**payload, **change}))
         assert client.get(f"/api/video-jobs/{job_id}/ball-events").status_code == 422
+
+
+def test_audit_is_source_and_prediction_locked_and_cannot_promote_totals(tmp_path, monkeypatch):
+    job_id, path, payload = fixture(tmp_path, monkeypatch)
+    path.write_text(json.dumps(payload))
+    sequence = path.with_name("ball.jsonl")
+    sequence.write_bytes(b"frozen sequence")
+    audit = {"kind": "ball_sequence_development_audit_v1", "source_sha256": payload["source_sha256"],
+             "person_job_id": job_id, "independently_validated": True,
+             "input_sha256": {"predictions": hashlib.sha256(path.read_bytes()).hexdigest(),
+                              "sequence": hashlib.sha256(sequence.read_bytes()).hexdigest()}}
+    audit_path = path.with_name("validation.json")
+    audit_path.write_text(json.dumps(audit))
+    client = TestClient(app)
+    response = client.get(f"/api/video-jobs/{job_id}/ball-events")
+    assert response.status_code == 200
+    assert response.json()["validation"]["independently_validated"] is False
+    assert response.json()["confirmed_passes"] is None and response.json()["shots"] is None
+    for change in ({"source_sha256": "other"}, {"person_job_id": "other"},
+                   {"input_sha256": {"predictions": "other", "sequence": audit["input_sha256"]["sequence"]}}):
+        audit_path.write_text(json.dumps({**audit, **change}))
+        assert client.get(f"/api/video-jobs/{job_id}/ball-events").status_code == 422
+    audit_path.write_text(json.dumps(audit))
+    sequence.write_bytes(b"changed sequence")
+    assert client.get(f"/api/video-jobs/{job_id}/ball-events").status_code == 422
