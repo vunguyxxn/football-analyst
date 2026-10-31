@@ -7,6 +7,7 @@ import numpy as np
 from backend.tactics.formation_templates import template_points
 from backend.tactics.partial_formation import infer_partial
 from backend.tactics.video_context import role_for, window_context
+from backend.tactics.video_timeline import build_timeline
 
 POLICY = {"minimum_people": 4, "maximum_people": 11, "minimum_seconds": 5,
           "minimum_frame_coverage": .5, "dominant_lane_share": .6,
@@ -151,6 +152,7 @@ def build_report(rows, calibration, fps, total_frames, context=None):
         ids.add(segment["segment"])
     if any(not any(segment["start_s"] <= row["time_s"] < segment["end_s"] for segment in segments) for row in rows):
         raise ValueError("Pitch rows outside calibrated windows")
+    windows = [analyze_window(by_frame,group,segment,fps,window_context(context,segment,group) if context else None) for segment in segments for group in ("A","B")]
     return {"kind": "video_spatial_tactics_v1", "status": "provisional_spatial_analysis",
             "independently_validated": False, "method": "traceable_spatial_rules_not_trained_tactic_model",
             "source_sha256": calibration["source_sha256"], "person_job_id": calibration["person_job_id"],
@@ -158,7 +160,7 @@ def build_report(rows, calibration, fps, total_frames, context=None):
             "context_review": {"status": "agent_review_not_independent", "audit": context["audit"],
                                "team_labels": context["team_labels"],
                                "removed_team_observations": sum(row["team"] in ("A","B") and role_for(row,context) is not None for row in rows)} if context else None,
-            "windows": [analyze_window(by_frame,group,segment,fps,window_context(context,segment,group) if context else None) for segment in segments for group in ("A","B")],
+            "windows": windows, "timeline": build_timeline(windows,by_frame,fps),
             "formation_options": [formation_option(shape) for shape in ("4-3-3","4-4-2","4-2-3-1")],
             "limits": ["Chỉ mô tả nhóm áo được nhìn thấy trong đoạn có tọa độ; phần ngoài camera không được coi là trống.",
                        "Heatmap là thời gian vị trí quan sát, không phải kiểm soát bóng; chưa biết pha có bóng/không bóng.",

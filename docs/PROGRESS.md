@@ -2,6 +2,38 @@
 
 ## Trạng thái hiện tại
 
+Ngày 31/10/2026: đã hoàn thiện phần so sánh không gian theo thời gian
+đang dở. Tactics thêm timeline DTO nội bộ và giao diện các cửa sổ đủ/
+thiếu hỗ trợ, bảng trước/sau, nhận xét có điều kiện và nút tua bằng
+chứng. Không đổi DATA_CONTRACT, thêm thư viện hoặc chạy lại detector.
+
+Chỉ so hai đoạn kề nhau cùng nhóm, không nối qua đoạn thiếu/khoảng
+trống. Lấy >=4 ID có mặt>=70% thời điểm đủ người ở mỗi đoạn, chỉ dùng
+các thời điểm toàn cụm cùng hiện>=5s và>=50% mỗi đoạn. Tính cự ly/tâm
+trên từng thời điểm rồi lấy trung vị; không ghép ID/vị trí khuất thành
+đội hình. Delta hướng tấn công chỉ có khi cùng hướng suy luận đã rà;
+không coi thay đổi tâm là quãng đường, tốc độ hoặc chiến thuật cả đội.
+
+Clip15 hiện chỉ cặp30–40→40–50s đạt: A gồm4 ID212/220/225/254,
+hỗ trợ5,9/6,933s; B gồm8 ID1/2/32/41/112/143/237/251,8,333/5,533s.
+Cụm A hẹp hơn4,91m, người gần nhất trong cụm gần hơn3,54m, tâm x giảm
+10,57m; cụm B ngang giảm1,63m, tâm x giảm10,27m. Nhận xét chỉ thuộc
+cụm ID quan sát theo hệ sân ước lượng, chưa chứng minh đổi sơ đồ/lối
+chơi hoặc nguyên nhân/hiệu quả chiến thuật. Không hạ ngưỡng để nối các
+đoạn khác. Xem VIDEO_TACTICS_TIMELINE.md.
+
+9 test mới qua; toàn bộ387 Python qua/1 network deselected,14 Node
+test qua, build/lint qua với cảnh báo bundle/FastRefresh cũ. Browser
+đổi nhóm A/B, chọn40–50 cập nhật dropdown5:A, nút trước/sau tua35/45s
+và dừng, lý do bỏ cặp thiếu hiển thị. Có log Vite websocket/HMR trong
+lúc khởi động lại máy chủ; luồng tải kết quả/chọn đoạn/tua vẫn chạy.
+Ảnh: data/processed/live_demo_v1/19-video-tactics-timeline.jpg.
+
+Đã đọc football-docs theo link người dùng: phù hợp làm tài liệu tra
+cứu nguồn/định nghĩa, chưa cài hay tích hợp MCP/thư viện mới. Hệ thống
+vẫn chưa tự hiệu chỉnh mọi video, chưa có nhãn/sai số/sơ đồ độc lập để
+nghiệm thu độ chính xác chuyên môn hoặc khuyến nghị tối ưu chiến thuật.
+
 Ngày 29/10/2026: đã rà nhóm áo/vai trò/hướng clip15 trên9 thời điểm ở
 ba đoạn đủ hỗ trợ chiến thuật (2/5/8s,31/35/39s,41/45/49s).180 crop
 người do detector chọn:80 đỏ,85 trắng,9 trọng tài,6 thủ môn xanh lá.

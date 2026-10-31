@@ -1,5 +1,10 @@
 # Phân tích chiến thuật từ phần video quan sát được
 
+Cập nhật31/10: đã có so sánh theo thời gian trên cùng cụm ID hiện đồng
+thời ở hai cửa sổ kế nhau, kèm điều kiện hỗ trợ và nút xem bằng chứng.
+Không nối qua khoảng thiếu hoặc coi delta của cụm là thay đổi cả đội.
+Phương pháp/giới hạn: VIDEO_TACTICS_TIMELINE.md.
+
 ## Phạm vi
 
 Cập nhật rà nội bộ 29/10: panel chiến thuật clip mẫu đã lọc các quỹ đạo
