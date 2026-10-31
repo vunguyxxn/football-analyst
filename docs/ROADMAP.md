@@ -1,5 +1,18 @@
 # Lộ trình
 
+## Hoàn thiện luồng ứng dụng — yêu cầu 31/10/2026
+
+Người dùng yêu cầu “hoàn thành luồng cho xong”: cho phép nối bước
+hiệu chỉnh tự động có kiểm hình học vào sau tracking, bù camera và
+thêm hiệu chỉnh tay ngay trên giao diện khi thiếu mốc. Kết quả trả
+về là ước lượng có phạm vi, không cam kết tự động đạt mọi video.
+Hiển thị riêng trạng thái tracking/hiệu chỉnh/phân tích; giữ khoảng
+trống khi mất dấu và giữ kết quả cũ khi hiệu chỉnh mới lỗi hoặc bị hủy.
+Không đổi TrackingRow/hệ sân 105×68m hoặc thêm dependency. Xem
+VIDEO_UPLOAD_WORKFLOW.md để dùng luồng sản phẩm và các giới hạn.
+
+Các mục nghiên cứu bên dưới ghi lại phạm vi của các phiên trước.
+
 ## Thử nghiệm mốc sân tự động — xác nhận 31/10/2026
 
 Theo yêu cầu “bắt đầu ngay” sau đánh giá football-ai, cho phép nghiên cứu

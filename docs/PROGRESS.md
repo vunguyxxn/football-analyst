@@ -2,6 +2,55 @@
 
 ## Trạng thái hiện tại
 
+Ngày 31/10/2026: theo yêu cầu “hoàn thành luồng”, đã tích hợp xử lý
+tracking → hiệu chỉnh tự động/bù camera → heatmap/vận động/chiến thuật
+vào tác vụ upload. Thêm chọn mốc ngay trong UI khi thiếu dữ liệu, không
+cần chạy CLI hoặc tải tracking riêng. Đây là luồng kết hợp, chưa đảm
+bảo tự động có tọa độ cho mọi đoạn của mọi video. ROADMAP đã ghi phạm
+vi tích hợp mới; các mục bên dưới là lịch sử trước phiên này.
+
+Backend thêm job_pitch_analysis.py, ghép mốc hình học với CameraMotion;
+kiểm vạch đầu/mỗi giây/cuối và chỉ ghi buffer khi có kiểm đóng đạt.
+Mất dấu hoặc kiểm thất bại bỏ buffer chưa đóng; không nối vận động
+qua gap/đổi mốc. Giữ các giới hạn opticalflow/300frames/40kmh hiện có.
+Mốc tay gồm4điểm fit+2điểm riêng kiểm≤1m, ràng buộc hash/video/sân;
+preflight trên khung nguồn để từ chối mốc không bám vạch trước khi lưu.
+Không đổi DATA_CONTRACT/TrackingRow, không thêm dependency.
+
+UI hiển thị riêng3bước và phạm vi đủ dữ liệu; tự nạp tọa độ vào sân
+mini, heatmap và báo cáo khi kết quả đổi. Có4mẫu mốc, chọn/sửa6điểm
+trên ảnh giữ từ video, phóng2×/3× và nút tới đoạn trống. Tác vụ có
+URL?job=id để mở lại video gốc/kết quả sau reload; rawmedia hỗ trợRange,
+backend vẫn trả phân tích JSON, không trả ảnh phân tích vẽ sẵn.
+
+Kết quả mới lưu bất biến trong pitch_runs/<version>, đổi con trỏ nguyên
+tử sau khi tracking/report/tactics hoàn tất. API ghim cùng phiên bản
+report+tọa độ. Lỗi/hủy/mốc sai giữ kết quả trước; mốc tự động được giữ
+cho nhánh tay dùng lại mà không nạp GPU. Hủy sau tracking không làm
+mất tracking; retry tự động có thể chạy lại finder. Trạng thái gián
+đoạn sau restart được báo rõ. Dữ liệu demo cũ không bị thay thế.
+
+Đã kiểmHTTP thật trên VideoProject15.mp4/f51735…: uploadGPU, tự hiệu
+chỉnh15,10/52,367s; gửi mốc tay hợp lệ vẫn giữ15,10s. Job kiểm mới:
+2c8e7ffdb8fc432b9abab9e53bd53c8e,8336vị trí,2cửa sổ chiến thuật đủ
+hỗ trợ và2mục gợi ý. Mốc sai trả422, giữ kết quả cũ; sourceRange206,
+proxyVite/URL mở lại trả200. Các đoạn ngắn còn lại thiếu5s/đủ người
+được báo thiếu dữ liệu; không giả định toàn clip đã phân tích đầy đủ.
+Không tuyên bố accuracy thực địa/độc lập từ kiểm chức năng này.
+
+Kiểm tra:420Python test đạt,1network deselected;14Node test đạt;
+frontend build/lint đạt, còn cảnh báo FastRefresh/bundle và Starlette/
+SHAP đã có.9test mới kiểm xuất vị trí/heatmap/tactics, phục hồi tay
+không GPU, buffer kiểm đóng, lỗi/hủy/giữ phiên bản, mốc sai, hash nguồn,
+Range media và vòng đờiAPI. Kiểm tương tác trình duyệt bị ComputerUse
+chặn do không xác định được URL; đã dừng UI và không tuyên bố visual
+QA đã đạt. Kiểm bằngAPI thật và build/unit/integration đã hoàn tất.
+
+Tài liệu: VIDEO_UPLOAD_WORKFLOW.md. Bản tóm tắt kiểm Git:
+fixtures/upload_workflow_verification_v1.json; chi tiết cục bộ dưới
+data/processed/upload_flow_verification. Còn cần nâng độ phủ tự động,
+kiểm sai số bằng nhãn độc lập và kiểm tương tác UI khi công cụ cho phép.
+
 Ngày 31/10/2026: tiếp tục tăng độ phủ bằng giao vạch sân. Thêm module
 pitch_line_calibration.py và CLI --method lines: hypothesis conic chỉ
 gợi vùng tìm, ma trận cuối tính lại từ đường giữa sân, đường trước

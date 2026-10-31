@@ -1,9 +1,11 @@
-import { useEffect, useRef, useState } from "react"
+import { useCallback, useEffect, useRef, useState } from "react"
 
 export type ImageBox = { id: number; group: "A" | "B" | "unknown"; xyxy: number[] }
 type BoxFrame = { frame: number; time_s: number; boxes: ImageBox[]; pitch_boundary?: number[][] | null }
 type Result = { fps: number; frames: number; width: number; height: number; chunk_frames: number; chunks: number; device: string; track_ids: number; observations: number; limitations: string[]; source_sha256?: string; ball_events_available?: boolean; pitch_estimate_available?: boolean }
-export type VideoJob = { id: string; status: "queued" | "running" | "completed" | "failed" | "cancelled"; progress: number; stage: string; result?: Result }
+export type CalibrationState = { status: "pending" | "running" | "needs_input" | "partial" | "ready" | "failed" | "cancelled"; message: string; version?: string; progress?: number; calibrated_seconds?: number; duration_s?: number; tactical_windows?: number }
+export type ManualPitch = { frame: number; source_sha256: string; image_points: number[][]; pitch_points: number[][] }
+export type VideoJob = { id: string; status: "queued" | "running" | "completed" | "failed" | "cancelled"; progress: number; stage: string; result?: Result; workflow?: { tracking: string; calibration: CalibrationState; analysis: string } }
 type Job = VideoJob
 
 export async function fetchCompletedDemo(jobId: string, sourceHash: string, signal: AbortSignal): Promise<VideoJob> {
@@ -22,27 +24,29 @@ export function useVideoJob(file: File | null, clock: number) {
   const [job, setJob] = useState<Job | null>(null)
   const [uploading, setUploading] = useState(false)
   const [uploadPercent, setUploadPercent] = useState(0)
+  const [sendingCalibration, setSendingCalibration] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [segment, setSegment] = useState<{ index: number; frames: BoxFrame[] } | null>(null)
   const [demoBound, setDemoBound] = useState<string | null>(null)
   const xhr = useRef<XMLHttpRequest | null>(null)
   const generation = useRef(0)
-  const busy = uploading || job?.status === "running" || job?.status === "queued"
+  const calibrationStatus = job?.workflow?.calibration.status
+  const busy = uploading || sendingCalibration || job?.status === "running" || job?.status === "queued" || calibrationStatus === "running"
   const result = job?.status === "completed" && (file || demoBound === job.id) ? job.result : undefined
   const index = result ? Math.floor(Math.floor(clock * result.fps + .0001) / result.chunk_frames) : -1
 
   function reset() {
     generation.current++
     xhr.current?.abort()
-    setJob(null); setSegment(null); setError(null); setUploading(false)
+    setJob(null); setSegment(null); setError(null); setUploading(false); setSendingCalibration(false)
     setDemoBound(null)
   }
 
-  function bindDemo(job: VideoJob) {
+  const bindDemo = useCallback((job: VideoJob) => {
     generation.current++
     xhr.current?.abort()
-    setSegment(null); setError(null); setUploading(false); setDemoBound(job.id); setJob(job)
-  }
+    setSegment(null); setError(null); setUploading(false); setSendingCalibration(false); setDemoBound(job.id); setJob(job)
+  }, [])
 
   useEffect(() => () => { generation.current++; xhr.current?.abort() }, [])
 
@@ -58,7 +62,7 @@ export function useVideoJob(file: File | null, clock: number) {
   const jobId = job?.id
   const jobStatus = job?.status
   useEffect(() => {
-    if (!jobId || !jobStatus || !["queued", "running"].includes(jobStatus)) return
+    if (!jobId || !jobStatus || (!["queued", "running"].includes(jobStatus) && calibrationStatus !== "running")) return
     let active = true
     let timer: ReturnType<typeof setTimeout>
     const controller = new AbortController()
@@ -78,7 +82,7 @@ export function useVideoJob(file: File | null, clock: number) {
     }
     timer = setTimeout(poll, 500)
     return () => { active = false; clearTimeout(timer); controller.abort() }
-  }, [jobId, jobStatus])
+  }, [jobId, jobStatus, calibrationStatus])
 
   useEffect(() => {
     if (!result || !jobId || index < 0 || index >= result.chunks) return
@@ -117,6 +121,7 @@ export function useVideoJob(file: File | null, clock: number) {
         const body = JSON.parse(request.responseText)
         if (request.status !== 202) throw new Error(body.detail || "Không nhận được video.")
         setJob(body)
+        window.history.replaceState(window.history.state, "", `/video?job=${body.id}`)
       } catch (failure) { setError(failure instanceof Error ? failure.message : "Phản hồi máy chủ không hợp lệ.") }
     }
     request.onerror = () => { if (id === generation.current) { setUploading(false); setError("Mất kết nối khi gửi video. Hãy kiểm tra máy chủ rồi thử lại.") } }
@@ -133,7 +138,28 @@ export function useVideoJob(file: File | null, clock: number) {
     } catch (failure) { setError(failure instanceof Error ? failure.message : "Không hủy được tác vụ.") }
   }
 
+  async function calibrate(payload?: ManualPitch) {
+    if (!job || busy) return
+    const id = generation.current
+    setError(null)
+    setSendingCalibration(true)
+    try {
+      await jsonResponse(await fetch(`/api/video-jobs/${job.id}/calibration`, {
+        method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload || null),
+      }))
+      if (generation.current === id) setJob(previous => previous ? { ...previous, workflow: {
+        tracking: "completed", analysis: "awaiting_calibration", calibration: { status: "running", message: "Đang hiệu chỉnh sân và tính lại phân tích." },
+      } } : previous)
+    } catch (failure) {
+      const message = failure instanceof Error ? failure.message : "Không gửi được mốc sân."
+      if (generation.current === id) setError(message)
+      throw new Error(message)
+    } finally {
+      if (generation.current === id) setSendingCalibration(false)
+    }
+  }
+
   const frameId = result ? Math.floor(clock * result.fps + .0001) : -1
   const frame = segment?.index === index ? segment.frames[frameId - index * (result?.chunk_frames || 1)] : undefined
-  return { job, busy, uploading, uploadPercent, error, start, cancel, result, frame, reset, bindDemo }
+  return { job, busy, uploading, uploadPercent, error, start, cancel, calibrate, result, frame, reset, bindDemo }
 }

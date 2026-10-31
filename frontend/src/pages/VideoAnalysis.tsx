@@ -9,6 +9,7 @@ import { fetchCompletedDemo, useVideoJob } from "@/lib/useVideoJob"
 import VideoTrackingReport from "@/components/VideoTrackingReport"
 import VideoTacticalAnalysis from "@/components/VideoTacticalAnalysis"
 import VideoPitchEstimate from "@/components/VideoPitchEstimate"
+import VideoCalibration from "@/components/VideoCalibration"
 
 type VideoSource = { url: string; name: string; initialTime: number; id: number }
 const TEAMS = { A: { label: "Đội A", color: "#a855f7" }, B: { label: "Đội B", color: "#22d3ee" }, referee: { label: "Trọng tài", color: "#facc15" }, unknown: { label: "Chưa rõ", color: "#94a3b8" } }
@@ -24,19 +25,54 @@ export default function VideoAnalysis() {
   const [clock, setClock] = useState(0)
   const [duration, setDuration] = useState(0)
   const [seeking, setSeeking] = useState(false)
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(() => /^[a-f0-9]{32}$/.test(new URLSearchParams(window.location.search).get("job") || ""))
   const [error, setError] = useState<string | null>(null)
   const [mediaError, setMediaError] = useState<string | null>(null)
   const [showIds, setShowIds] = useState(true)
   const [sourceFile, setSourceFile] = useState<File | null>(null)
   const ai = useVideoJob(sourceFile, clock)
+  const bindSavedJob = ai.bindDemo
   const offset = offsetInput.trim() ? Number(offsetInput) : NaN
   const mismatch = compatibilityError(timeline, duration, offset)
   const sample = !source || !duration || seeking || mismatch || mediaError ? null : frameAt(timeline, clock, offset)
   const ranges = useMemo(() => timeline ? trackingRanges(timeline) : [], [timeline])
+  const jobId = ai.job?.id
+  const pitchAvailable = !!ai.result?.pitch_estimate_available
+  const pitchVersion = ai.job?.workflow?.calibration.version || "legacy"
+
+  useEffect(() => {
+    if (!jobId || !pitchAvailable) return
+    const controller = new AbortController()
+    fetch(`/api/video-jobs/${jobId}/pitch-tracking`, { signal: controller.signal }).then(async response => {
+      if (!response.ok) throw new Error("Không tải được tọa độ sân. Hãy thử lại hiệu chỉnh.")
+      const data = parseTracking(await response.text())
+      if (!controller.signal.aborted) {
+        setTimeline(data); setTrackingName("Tọa độ từ phân tích video"); setOffsetInput("0"); setError(null)
+        if (video.current?.paused && video.current.currentTime < data.frames[0].time_s) video.current.currentTime = data.frames[0].time_s
+      }
+    }).catch(failure => { if (!controller.signal.aborted) setError(failure.message) })
+    return () => controller.abort()
+  }, [jobId, pitchAvailable, pitchVersion])
 
   useEffect(() => () => { requestId.current++; pending.current?.abort() }, [])
   useEffect(() => () => { if (source?.url.startsWith("blob:")) URL.revokeObjectURL(source.url) }, [source])
+
+  useEffect(() => {
+    const savedJob = new URLSearchParams(window.location.search).get("job")
+    if (!savedJob || !/^[a-f0-9]{32}$/.test(savedJob)) return
+    const id = ++requestId.current
+    const controller = new AbortController()
+    pending.current = controller
+    fetch(`/api/video-jobs/${savedJob}`, { signal: controller.signal }).then(async response => {
+      const job = await response.json()
+      if (!response.ok) throw new Error(job.detail || "Không mở lại được tác vụ.")
+      if (id !== requestId.current || controller.signal.aborted) return
+      bindSavedJob(job)
+      setSource({ url: `/api/video-jobs/${savedJob}/source`, name: "Video đã lưu trên máy này", initialTime: 0, id })
+    }).catch(failure => { if (!controller.signal.aborted && id === requestId.current) setError(failure.message) })
+      .finally(() => { if (id === requestId.current) setLoading(false) })
+    return () => controller.abort()
+  }, [bindSavedJob])
 
   useEffect(() => {
     const element = video.current
@@ -79,6 +115,7 @@ export default function VideoAnalysis() {
   async function openDemo() {
     if (ai.busy) return
     ai.reset()
+    window.history.replaceState(window.history.state, "", "/video")
     setSourceFile(null)
     const id = cancelPending()
     const controller = new AbortController()
@@ -103,6 +140,7 @@ export default function VideoAnalysis() {
         if (id !== requestId.current) return
         setTimeline(pitch); setTrackingName(pitch ? "Ước lượng sân clip mẫu" : ""); setOffsetInput("0"); setClock(0); setDuration(0); setSeeking(false); setMediaError(null)
         ai.bindDemo(job)
+        window.history.replaceState(window.history.state, "", `/video?job=${job.id}`)
         setSource({ url: `/video-demo/${manifest.job_id}.mp4`, name: manifest.name, initialTime: pitch?.frames[0].time_s || 0, id })
         return
       }
@@ -122,6 +160,7 @@ export default function VideoAnalysis() {
   function openVideo(file?: File) {
     if (!file || ai.busy) return
     ai.reset()
+    window.history.replaceState(window.history.state, "", "/video")
     const id = cancelPending()
     video.current?.pause()
     setTimeline(null); setTrackingName(""); setDuration(0); setClock(0); setOffsetInput("0"); setSeeking(false); setError(null); setMediaError(null)
@@ -152,17 +191,24 @@ export default function VideoAnalysis() {
     </section>
 
     <section className="video-job card-surface" aria-label="Phân tích AI">
-      <div><strong>Theo dõi người trong sân và ước lượng nhóm màu áo</strong><p>Clip tối đa 10 phút / 500 MB. Video được gửi tới máy chủ đang chạy trên máy này. Lọc người ngoài sân theo vạch trắng; sân mini và chỉ số mét cần hiệu chỉnh sân riêng.</p></div>
-      <Button disabled={!sourceFile || !duration || !!mediaError || ai.busy || loading} onClick={() => { video.current?.pause(); void ai.start() }}>{ai.busy ? <LoaderCircle className="animate-spin" /> : <Play />}Phân tích video</Button>
+      <div><strong>Theo dõi người → hiệu chỉnh sân → phân tích bóng đá</strong><p>Clip tối đa 10 phút / 500 MB. Máy tự theo dõi người trong sân, tìm mốc và tính kết quả trên các đoạn đủ dữ liệu. Nếu thiếu mốc, chọn ngay trên ảnh video để tiếp tục.</p></div>
+      <Button disabled={!sourceFile || !duration || !!mediaError || ai.busy || loading} onClick={() => { video.current?.pause(); setTimeline(null); setTrackingName(""); void ai.start() }}>{ai.busy ? <LoaderCircle className="animate-spin" /> : <Play />}Phân tích video</Button>
       {ai.busy && <Button variant="outline" onClick={() => { void ai.cancel() }}>Hủy xử lý</Button>}
-      {(ai.uploading || ai.job) && <div className="video-job-status" role="status"><span>{ai.uploading ? `Đang gửi video: ${ai.uploadPercent}%` : ai.job?.status === "completed" ? "Đã xử lý video" : ai.job?.stage}</span><progress aria-label="Tiến độ phân tích" max="100" value={ai.uploading ? ai.uploadPercent : ai.job?.progress || 0} /><span>{!ai.uploading && ai.job ? `${Math.round(ai.job.progress)}%${ai.result ? ` · ${ai.result.device === "cpu" ? "CPU" : "GPU"}` : ""}` : ""}</span></div>}
+      {(ai.uploading || ai.job) && <div className="video-job-status" role="status"><span>{ai.uploading ? `Đang gửi video: ${ai.uploadPercent}%` : ai.job?.workflow?.calibration.status === "running" ? ai.job.workflow.calibration.message : ai.job?.stage}</span><progress aria-label="Tiến độ phân tích" max="100" value={ai.uploading ? ai.uploadPercent : ai.job?.workflow?.calibration.status === "running" ? ai.job.workflow.calibration.progress || ai.job.progress : ai.job?.progress || 0} /><span>{!ai.uploading && ai.job ? `${Math.round(ai.job.workflow?.calibration.status === "running" ? ai.job.workflow.calibration.progress || 0 : ai.job.progress)}%${ai.result ? ` · ${ai.result.device === "cpu" ? "CPU" : "GPU"}` : ""}` : ""}</span></div>}
+      {ai.job?.workflow && <div className="analysis-workflow" aria-label="Các bước phân tích">
+        <div><strong>1. Theo dõi người</strong><span>{ai.job.workflow.tracking === "completed" ? "Đã có khung và ID" : ai.job.status === "failed" ? "Xử lý thất bại" : ai.job.status === "cancelled" ? "Đã hủy" : "Đang xử lý"}</span></div>
+        <div><strong>2. Hiệu chỉnh sân</strong><span>{({ pending: "Chờ tracking", running: "Đang hiệu chỉnh", needs_input: "Cần bạn chọn mốc", partial: "Có tọa độ một phần", ready: "Có tọa độ", failed: "Cần thử lại", cancelled: "Đã hủy hiệu chỉnh" })[ai.job.workflow.calibration.status]}</span></div>
+        <div><strong>3. Heatmap và chiến thuật</strong><span>{ai.job.workflow.analysis === "ready" ? "Có kết quả trên đoạn đủ dữ liệu" : pitchAvailable ? "Có heatmap; cần đủ người/thời gian cho chiến thuật" : "Đang chờ tọa độ sân"}</span></div>
+        <p>{ai.job.workflow.calibration.message}{ai.job.workflow.calibration.calibrated_seconds !== undefined && ` Phạm vi hiệu chỉnh: ${ai.job.workflow.calibration.calibrated_seconds.toFixed(1)} / ${ai.job.workflow.calibration.duration_s?.toFixed(1)} giây.`}</p>
+      </div>}
       {ai.error && <p role="alert">{ai.error}</p>}
+      {ai.job && !source && <a href={`/video?job=${ai.job.id}`}>Mở video và kết quả tác vụ này</a>}
       {ai.result && <div><strong>{ai.result.pitch_estimate_available ? "Đã có kết quả — xem heatmap, các giả thuyết sơ đồ và gợi ý chiến thuật bên dưới." : "Đã có tracking người trong sân. Clip này cần hiệu chỉnh sân để phân tích không gian theo mét."}</strong>{ai.result.limitations.filter(note => !ai.result?.pitch_estimate_available || !note.startsWith("Chưa hiệu chỉnh")).map(note => <p key={note}>{note}</p>)}{ai.result.pitch_estimate_available && <p>Vị trí, heatmap và vận động chỉ là ước lượng cho đoạn đã hiệu chỉnh; chưa kiểm chứng sai số thực địa. Xem phạm vi bên dưới.</p>}</div>}
     </section>
 
     <section aria-label="Mở dữ liệu video" className="video-files card-surface">
       <label className="video-file-input"><span className="file-icon"><Clapperboard size={19} /></span><span><strong>Video trận đấu</strong><small>{source?.name || "Chọn MP4, WebM hoặc video tương thích"}</small></span><Upload aria-hidden="true" size={17} /><input disabled={ai.busy} accept="video/*" aria-label="Chọn video" onChange={event => { openVideo(event.target.files?.[0]); event.target.value = "" }} type="file" /></label>
-      <label className="video-file-input"><span className="file-icon"><FileJson size={19} /></span><span><strong>Dữ liệu vị trí</strong><small>{loading ? "Đang đọc dữ liệu…" : trackingName || "Chọn file tracking JSONL hoặc JSON"}</small></span><Upload aria-hidden="true" size={17} /><input accept=".jsonl,.json,application/json" aria-label="Chọn tracking" onChange={event => { void openTracking(event.target.files?.[0]); event.target.value = "" }} type="file" /></label>
+      <label className="video-file-input"><span className="file-icon"><FileJson size={19} /></span><span><strong>Nhập tọa độ có sẵn (tùy chọn)</strong><small>{loading ? "Đang đọc dữ liệu…" : trackingName || "AI tự tạo tọa độ; chỉ nhập nếu đã có dữ liệu riêng"}</small></span><Upload aria-hidden="true" size={17} /><input accept=".jsonl,.json,application/json" aria-label="Chọn tracking" onChange={event => { void openTracking(event.target.files?.[0]); event.target.value = "" }} type="file" /></label>
     </section>
     {(error || mediaError || mismatch) && <div className="error-notice" role="alert"><AlertCircle size={18} /><span>{error || mediaError || mismatch}</span></div>}
 
@@ -207,13 +253,14 @@ export default function VideoAnalysis() {
     </div>
 
     {ai.result && ai.job && <>
-      <VideoTacticalAnalysis key={`tactics-${ai.job.id}`} jobId={ai.job.id} onSeek={seconds => { video.current?.pause(); seekTo(seconds); video.current?.scrollIntoView({ behavior: "smooth", block: "center" }) }} />
-      {ai.result.pitch_estimate_available && <details className="tracking-diagnostics"><summary>Heatmap tổng hợp và vận động theo ID</summary><VideoPitchEstimate key={`pitch-${ai.job.id}`} jobId={ai.job.id} onSeek={seconds => { video.current?.pause(); seekTo(seconds); video.current?.scrollIntoView({ behavior: "smooth", block: "center" }) }} /></details>}
+      <VideoTacticalAnalysis key={`tactics-${ai.job.id}-${pitchVersion}`} jobId={ai.job.id} onSeek={seconds => { video.current?.pause(); seekTo(seconds); video.current?.scrollIntoView({ behavior: "smooth", block: "center" }) }} />
+      {ai.result.pitch_estimate_available && <VideoPitchEstimate key={`pitch-${ai.job.id}-${pitchVersion}`} jobId={ai.job.id} onSeek={seconds => { video.current?.pause(); seekTo(seconds); video.current?.scrollIntoView({ behavior: "smooth", block: "center" }) }} />}
+      <VideoCalibration key={`calibration-${ai.job.id}`} video={video} job={ai.job} busy={ai.busy} onApply={ai.calibrate} ranges={ranges} onSeek={seekTo} />
       <details className="tracking-diagnostics"><summary>Thông tin xử lý và chẩn đoán tracking</summary><VideoTrackingReport key={ai.job.id} hasPitchEstimate={ai.result.pitch_estimate_available} jobId={ai.job.id} onSeek={seconds => { video.current?.pause(); seekTo(seconds); video.current?.scrollIntoView({ behavior: "smooth", block: "center" }) }} /></details>
     </>}
 
     <section className="video-notes card-surface">
-      <div><strong>Chỉ hiển thị dữ liệu có sẵn</strong><p>Đoạn mất hiệu chỉnh hoặc thiếu tracking sẽ để trống. Tọa độ hiện dùng để minh họa, chưa dùng đo quãng đường hay tốc độ thực địa.</p></div>
+      <div><strong>Chỉ hiển thị dữ liệu có sẵn</strong><p>Đoạn mất hiệu chỉnh hoặc thiếu tracking sẽ để trống. Chỉ số là ước lượng trên các đoạn đủ mốc sân; chưa kiểm chứng bằng đo đạc thực địa.</p></div>
       <details><summary>Căn chỉnh thời gian</summary><label>Mốc 0 của tracking trong video (giây)<input aria-label="Độ lệch thời gian" onChange={event => { video.current?.pause(); setOffsetInput(event.target.value) }} step="0.01" type="number" value={offsetInput} /></label><p>Cùng một đoạn video: nhập 0. Nếu tracking được tạo từ đoạn cắt bắt đầu ở giây 10 của video đang mở: nhập 10.</p></details>
     </section>
   </div>

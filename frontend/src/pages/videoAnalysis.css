@@ -143,3 +143,20 @@
 .tactics-comparison th:first-child { text-align: left; white-space: normal; }
 .tactics-temporal summary { cursor: pointer; font-size: 13px; color: #cbd5e1; }
 @media (max-width: 900px) { .tactics-hypothesis, .tactics-maps { grid-template-columns: minmax(0, 1fr); } }
+.analysis-workflow { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; width: 100%; }
+.analysis-workflow > div { border: 1px solid #2c3d44; border-radius: 10px; padding: 14px; display: grid; gap: 8px; }
+.analysis-workflow span { color: #a9c5b8; font-size: 13px; }
+.analysis-workflow p { grid-column: 1 / -1; margin: 0; }
+.calibration-actions { display: flex; flex-wrap: wrap; gap: 10px; margin: 14px 0; }
+.calibration-grid { display: grid; grid-template-columns: minmax(0, 1.8fr) minmax(260px, 1fr); gap: 20px; align-items: start; margin: 16px 0; }
+.calibration-image { position: relative; cursor: crosshair; overflow: hidden; }
+.calibration-viewport { overflow: auto; max-height: 650px; border: 1px solid #43545d; border-radius: 8px; }
+.calibration-image img { width: 100%; display: block; }
+.calibration-image svg { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.calibration-point { display: flex; gap: 10px; align-items: center; padding: 7px; border: 1px solid transparent; border-radius: 8px; }
+.calibration-point.selected { border-color: #eab308; background: #eab30812; }
+.calibration-point > button { min-width: 42px; min-height: 36px; cursor: pointer; border: 1px solid #43545d; border-radius: 6px; }
+.calibration-point label { min-width: 0; flex: 1; font-size: 12px; }
+.video-calibration select { display: block; max-width: 100%; width: 100%; margin-top: 4px; padding: 8px; background: #151f28; border: 1px solid #455564; border-radius: 6px; color: #e2e8f0; }
+.calibration-error { color: #fca5a5; }
+@media (max-width: 850px) { .analysis-workflow, .calibration-grid { grid-template-columns: 1fr; } }

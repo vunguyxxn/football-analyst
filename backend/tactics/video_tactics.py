@@ -164,4 +164,4 @@ def build_report(rows, calibration, fps, total_frames, context=None):
             "formation_options": [formation_option(shape) for shape in ("4-3-3","4-4-2","4-2-3-1")],
             "limits": ["Chỉ mô tả nhóm áo được nhìn thấy trong đoạn có tọa độ; phần ngoài camera không được coi là trống.",
                        "Heatmap là thời gian vị trí quan sát, không phải kiểm soát bóng; chưa biết pha có bóng/không bóng.",
-                       "Tọa độ vẫn là hiệu chỉnh tay ước lượng. Gợi ý theo quy tắc là phương án có điều kiện, chưa chứng minh hiệu quả bằng ML/SHAP."]}
+                       "Tọa độ vẫn là kết quả hiệu chỉnh sân ước lượng. Gợi ý theo quy tắc là phương án có điều kiện, chưa chứng minh hiệu quả bằng ML/SHAP."]}

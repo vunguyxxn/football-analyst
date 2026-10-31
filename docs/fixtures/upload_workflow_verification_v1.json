@@ -1,0 +1,107 @@
+{
+  "scope": "real HTTP functional workflow, not independent calibration accuracy",
+  "automatic": {
+    "tracking": "completed",
+    "calibration": {
+      "status": "partial",
+      "message": "Đã có phân tích cho các đoạn hiệu chỉnh hợp lệ.",
+      "version": "ce8260df5f094c879f112777742d999c",
+      "calibrated_seconds": 15.100000000000003,
+      "frames_with_positions": 436,
+      "duration_s": 52.36666666666667,
+      "automatic_available": true,
+      "tactical_windows": 2
+    },
+    "analysis": "ready"
+  },
+  "final": {
+    "job_id": "2c8e7ffdb8fc432b9abab9e53bd53c8e",
+    "source_sha256": "f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0",
+    "workflow": {
+      "tracking": "completed",
+      "calibration": {
+        "status": "partial",
+        "message": "Đã có phân tích cho các đoạn hiệu chỉnh hợp lệ.",
+        "rejected_manual_frames": [],
+        "version": "e0fe1725e3f74b2caeab67409d8648a3",
+        "calibrated_seconds": 15.100000000000003,
+        "frames_with_positions": 436,
+        "duration_s": 52.36666666666667,
+        "automatic_available": false,
+        "tactical_windows": 2
+      },
+      "analysis": "ready"
+    },
+    "positions": 8336,
+    "calibrated_intervals": [
+      {
+        "start_s": 0.0,
+        "end_s": 10.033333333333333
+      },
+      {
+        "start_s": 22.0,
+        "end_s": 24.033333333333335
+      },
+      {
+        "start_s": 26.0,
+        "end_s": 29.033333333333335
+      }
+    ],
+    "tactical_windows": [
+      [
+        "A",
+        0.0,
+        10.033333333333333,
+        "observed_cluster"
+      ],
+      [
+        "B",
+        0.0,
+        10.033333333333333,
+        "observed_cluster"
+      ],
+      [
+        "A",
+        22.0,
+        24.033333333333335,
+        "insufficient_data"
+      ],
+      [
+        "B",
+        22.0,
+        24.033333333333335,
+        "insufficient_data"
+      ],
+      [
+        "A",
+        26.0,
+        29.033333333333335,
+        "insufficient_data"
+      ],
+      [
+        "B",
+        26.0,
+        29.033333333333335,
+        "insufficient_data"
+      ]
+    ],
+    "recommendations": 2,
+    "invalid_manual_preserved_previous_result": true,
+    "source_range_status": 206,
+    "browser_interaction": "blocked_by_computer_use_current_URL_policy; UI build/lint checked, no visual UI test claimed"
+  },
+  "python_tests": 420,
+  "node_tests": 14,
+  "frontend_build": "passed",
+  "frontend_lint": "passed, existing FastRefresh warning",
+  "ui_interaction": "blocked by ComputerUse URL policy; not claimed verified",
+  "proxy_checks": {
+    "/api/health": 200,
+    "/video?job=2c8e7ffdb8fc432b9abab9e53bd53c8e": 200,
+    "/api/video-jobs/2c8e7ffdb8fc432b9abab9e53bd53c8e": 200,
+    "/api/video-jobs/2c8e7ffdb8fc432b9abab9e53bd53c8e/pitch-estimate": 200,
+    "/api/video-jobs/2c8e7ffdb8fc432b9abab9e53bd53c8e/tactics": 200,
+    "/src/components/VideoCalibration.tsx": 200,
+    "source_range": 206
+  }
+}
