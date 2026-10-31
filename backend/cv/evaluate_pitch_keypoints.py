@@ -12,6 +12,7 @@ import numpy as np
 
 from backend.cv.pitch_keypoints import LAYOUT, FitPolicy, check_landmarks, fit_pitch
 from backend.cv.pitch_circle_keypoints import CirclePolicy, fit_circle_pitch
+from backend.cv.pitch_line_calibration import LinePolicy, fit_line_pitch
 
 ROOT = Path(__file__).resolve().parents[2]
 WEIGHTS_SHA256 = "28f68f7c4056d6d9b137efd2e7ab5f3c494039380c63831649126ced25628b36"
@@ -43,7 +44,7 @@ def evaluate(source, weights, checks, output, stride=30, device="0", preprocess=
         raise ValueError("stride must be positive")
     if preprocess not in ("stretch", "letterbox"):
         raise ValueError("Unknown preprocessing mode")
-    if method not in ("keypoints", "circle"):
+    if method not in ("keypoints", "circle", "lines"):
         raise ValueError("Unknown calibration method")
     source, weights, checks, output, reference, source_hash = inputs(source, weights, checks, output)
     capture = cv2.VideoCapture(str(source))
@@ -82,7 +83,7 @@ def evaluate(source, weights, checks, output, stride=30, device="0", preprocess=
         torch.cuda.set_device(int(device))
         torch.cuda.reset_peak_memory_stats(int(device))
     output.mkdir(parents=True)
-    policy = CirclePolicy() if method == "circle" else FitPolicy()
+    policy = LinePolicy() if method == "lines" else CirclePolicy() if method == "circle" else FitPolicy()
     reasons, checks_summary = Counter(), Counter()
     timings, calibration_timings, evaluations = [], [], []
     index = samples = candidates = 0
@@ -111,7 +112,9 @@ def evaluate(source, weights, checks, output, stride=30, device="0", preprocess=
                         xy *= [width / 640, height / 640]
                     confidence = prediction.keypoints.conf[0].cpu().numpy()
                     calibration_started = time.perf_counter()
-                    if method == "circle":
+                    if method == "lines":
+                        row.update(fit_line_pitch(frame, xy, confidence, policy))
+                    elif method == "circle":
                         row.update(fit_circle_pitch(frame, xy, confidence, policy))
                     else:
                         row.update(fit_pitch(xy, confidence, (width, height), policy))
@@ -174,7 +177,7 @@ def main():
     parser.add_argument("--stride", type=int, default=30)
     parser.add_argument("--device", default="0")
     parser.add_argument("--preprocess", choices=["stretch", "letterbox"], default="stretch")
-    parser.add_argument("--method", choices=["keypoints", "circle"], default="keypoints")
+    parser.add_argument("--method", choices=["keypoints", "circle", "lines"], default="keypoints")
     args = parser.parse_args()
     report = evaluate(**vars(args))
     print(json.dumps({key: report[key] for key in ("samples", "geometry_candidates", "reason_counts", "reference_counts")}))

@@ -233,7 +233,8 @@ def check_penalty_lines(matrix, pixels, image_size, policy):
             "lines": checks}
 
 
-def fit_circle_pitch(frame, xy, confidence, policy=CirclePolicy()):
+def circle_hypothesis(frame, xy, confidence, policy=CirclePolicy(), *, pixels=None):
+    """Unvalidated search hypothesis. Callers MUST apply disjoint field checks."""
     result = {"status": "rejected", "reason": "insufficient_circle_seeds", "matrix": None}
     xy, confidence = np.asarray(xy, float), np.asarray(confidence, float)
     if xy.shape != (32, 2) or confidence.shape != (32,):
@@ -253,7 +254,8 @@ def fit_circle_pitch(frame, xy, confidence, policy=CirclePolicy()):
         return {**result, "reason": "invalid_circle_prior"}
     rough = (tuple(center), (major, minor), float(np.rad2deg(np.arctan2(delta[1], delta[0])) % 180))
     try:
-        pixels = white_pitch_pixels(frame)
+        if pixels is None:
+            pixels = white_pitch_pixels(frame)
         halfway = guided_line(pixels, center, xy[15] - xy[14], (width, height))
         ellipse, quality = fit_guided_circle(pixels, rough, halfway, policy)
         edges = {}
@@ -285,12 +287,23 @@ def fit_circle_pitch(frame, xy, confidence, policy=CirclePolicy()):
             return {**result, "reason": "no_observed_touchline", **quality}
         # Roundtrip is numerical validation only, not independent accuracy.
         project(matrix, np.array(list(edges.values())))
-        field_check = check_penalty_lines(matrix, pixels, (width, height), policy)
-        quality["penalty_line_check"] = field_check
-        if field_check["status"] != "passed":
-            return {**result, "reason": "penalty_line_unsupported" if field_check["lines"] else "no_visible_penalty_line", **quality}
         return {**result, "status": "candidate", "reason": None, "matrix": matrix.tolist(),
                 "ellipse": ellipse, "halfway_line": halfway.tolist(),
                 "observed_touchlines": {str(y): p.tolist() for y, p in edges.items()}, **quality}
     except (ValueError, np.linalg.LinAlgError, cv2.error) as exc:
         return {**result, "reason": str(exc)}
+
+
+def fit_circle_pitch(frame, xy, confidence, policy=CirclePolicy()):
+    """Legacy conic method with its unchanged disjoint penalty-line guard."""
+    pixels = white_pitch_pixels(frame)
+    result = circle_hypothesis(frame, xy, confidence, policy, pixels=pixels)
+    if result["status"] != "candidate":
+        return result
+    height, width = frame.shape[:2]
+    field_check = check_penalty_lines(np.asarray(result["matrix"]), pixels, (width, height), policy)
+    result["penalty_line_check"] = field_check
+    if field_check["status"] != "passed":
+        return {**result, "status": "rejected", "matrix": None,
+                "reason": "penalty_line_unsupported" if field_check["lines"] else "no_visible_penalty_line"}
+    return result

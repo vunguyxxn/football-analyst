@@ -1,0 +1,13 @@
+{
+  "source_sha256": "ee1fd930c245f46213be2dbecc7219382ce940b73cf667c0983f5e4924012541",
+  "source_name": "Video Project 15 (2).mp4",
+  "image_size": [
+    1920,
+    1080
+  ],
+  "frames": 2428,
+  "max_error_m": 1.0,
+  "status": "unlabelled_geometry_smoke_test_not_accuracy",
+  "sampling": "stride150 chosen before cross-clip inference, no metre ground truth",
+  "checkpoints": []
+}

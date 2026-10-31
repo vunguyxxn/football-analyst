@@ -1,5 +1,9 @@
 # Xác minh và cải thiện mốc sân tự động
 
+Phiên tiếp theo: [hiệu chỉnh từ giao vạch sân](AUTOMATIC_PITCH_LINES.md),
+thêm kiểm cạnh vùng cấm và thử trên ba clip khác. Số liệu bên dưới
+là lịch sử của nhánh conic v2.
+
 Ngày 31/10/2026. Phạm vi được giao: xác minh checkpoint và cải thiện
 thử nghiệm ngoại tuyến. Chưa tích hợp vào video tải lên; kết quả hiệu
 chỉnh tay và DATA_CONTRACT giữ nguyên.

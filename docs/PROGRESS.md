@@ -2,6 +2,48 @@
 
 ## Trạng thái hiện tại
 
+Ngày 31/10/2026: tiếp tục tăng độ phủ bằng giao vạch sân. Thêm module
+pitch_line_calibration.py và CLI --method lines: hypothesis conic chỉ
+gợi vùng tìm, ma trận cuối tính lại từ đường giữa sân, đường trước
+vùng cấm và hai biên dọc. Không dùng giao kéo dài ngoài ảnh như mốc
+thực thấy. Kiểm vòng tròn cách các đường fit >8px và cạnh ngang vùng
+cấm; không refit theo bằng chứng kiểm hoặc checkpoint mét. Từ chối
+giao suy biến, nghiệm phản chiếu/horizon và nhiều nghiệm chưa phân xử.
+
+Cùng66ảnh clip15: bản chẩn đoán30ứng viên,4/17checkpoint≤1m nhưng
+frame601 sai1,541m dù vòng tròn median2px. Sau guard cạnh ngang vùng
+cấm:13/66ứng viên,2/17checkpoint đạt (frame1 max0,132m,751 max0,388m),
+15thiếu ứng viên để đo mét;11ứng viên khác chưa được rà mét. Không
+gọi cả13ảnh đạt1m hay kết quả tốt hơn v2 ở mọi trường hợp. Thử guide
+chỉ từ keypoint thô làm giảm độ phủ nên không giữ biến thể đó.
+
+Đã thử thêm3clip có sẵn, khóa hash/lịch stride150 trước khi suy luận:
+Project12 0/10ảnh,Project15(1) 0/8,Project15(2) 1/17 vượt kiểm hình học.
+Các manifest không nhãn có checkpoints rỗng, không phải accuracy test.
+Rà có điều kiện bốn mốc trên ảnh duy nhất được chọn của15(2),frame900:
+max0,292m/mean0,252m, nhãn chốt từ ảnh thô trước khi so ma trận, không
+fit/chỉnh ngưỡng theo nhãn đó. Không phải ground truth độc lập/test mù
+hay đại diện35ảnh. Sân105×68m vẫn là giả định chưa khảo sát.
+
+Tách circle_hypothesis để tái dùng vùng tìm. Hồi quy nhánh circle trên
+66dự đoán lưu: toàn bộ status/reason giữ nguyên,10ứng viên, chênh ma
+trận0. Không sửa upload/API, DATA_CONTRACT, kết quả tay hoặc dependency;
+chưa xuất tracking/heatmap/quãng đường từ prototype. Chưa kiểm liên tục
+theo thời gian; hai biên và hypothesis vòng tròn vẫn giới hạn độ phủ.
+
+Tài liệu: AUTOMATIC_PITCH_LINES.md. Báo cáo khóa đầu vào lưu Git tại
+fixtures/pitch_line_calibration_benchmark_v3.json; manifest3clip và
+nhãn rà bổ sung trong fixtures/pitch_crossclip_*. Kết quả cục bộ:
+data/processed/automatic_pitch_v3/verified, crossclip_*, ảnh
+crossclip-frame900-review.jpg. Kiểm tra toàn bộ411Python test đạt,
+1network deselected,4cảnh báo Starlette/SHAP đã có;7test mới về bốn
+đường, phản chiếu/giao suy biến, thiếu biên, kiểm vòng tròn/cạnh vùng
+cấm không refit, seed lệch và nhiều nghiệm. Frontend không đổi.
+
+Nhánh mới vẫn ngoại tuyến; chưa đủ độ phủ để thay hiệu chỉnh tay.
+Cần tìm đường sân khi thiếu vòng tròn/biên, xử lý nhiều nghiệm nhất
+quán và bộ clip/nhãn kiểm riêng trước khi nối kiểm độ trôi liên tục.
+
 Ngày 31/10/2026: đã xác minh và cải thiện prototype mốc sân theo yêu
 cầu. Metadata checkpoint khóa hash ghi train dataset 9, ngày 07/05/2024,
 Ultralytics 8.2.10, YOLOv8x-pose/600epochs/640px; không đồng nhất với
