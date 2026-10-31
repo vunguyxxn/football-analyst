@@ -2,6 +2,30 @@
 
 ## Trạng thái hiện tại
 
+Ngày 31/10/2026: đã đọc/đánh giá cepat-ai/football-ai theo yêu cầu,
+khóa commit66a3f32ed6297fb3a06ec377448ef78e03b04db6 (24/07/2024), fork
+roboflow/sports. Báo cáo: FOOTBALL_AI_REPOSITORY_REVIEW.md. Ưu tiên
+nghiên cứu mốc sân YOLO pose để giảm chọn điểm tay, tiếp theo detector
+tách player/goalkeeper/referee; SigLIP+UMAP+K-means để sau. Radar/vẽ sân
+đã có tương đương; fork không có engine chiến thuật/sơ đồ/khuyến nghị.
+
+Các chỗ cần sửa khi thử: cấu hình120×70m và vùng cấm20,15m của repo
+không khớp sân105×68m, không được scale toàn bộ kích thước cố định;
+keypoint mask chỉx/y>1, thiếu confidence/kiểm độ ổn định; cách gán đội
+thủ môn theo tâm đội trong ảnh thiếu tin cậy khi lia/thiếu người. Giữ
+LandmarkGuard/CameraMotion, fallback tay và JSON của dự án. Tự khởi
+tạo homography vẫn ngoài ROADMAP hiện hành, chưa được bật trong phiên
+đánh giá này. Không tự thêm dependency theo ràng buộc AGENTS.
+
+Repo không kèm weights được main yêu cầu hoặc test tracked; notebooks
+dùng YOLOv8x/v8x-pose và dữ liệu Roboflow, không phải benchmark trên
+clip mình/RTX3050. Code MIT, cần giữ thông báo nếu port mã, còn quyền
+dùng đúng weights/dataset ngoài repo phải xác minh riêng. Đã đọc nguồn
+và code cell notebook, AST parse10 file Python, kiểm tree không có
+weights/tests; không thực thi setup/notebook/mã repo, tải model hoặc
+cài thư viện. Không sửa ứng dụng/hợp đồng dữ liệu; chưa thể công bố
+accuracy/FPS/VRAM hay hiệu quả tích hợp khi chưa thử nghiệm.
+
 Ngày 31/10/2026: đã hoàn thiện phần so sánh không gian theo thời gian
 đang dở. Tactics thêm timeline DTO nội bộ và giao diện các cửa sổ đủ/
 thiếu hỗ trợ, bảng trước/sau, nhận xét có điều kiện và nút tua bằng
