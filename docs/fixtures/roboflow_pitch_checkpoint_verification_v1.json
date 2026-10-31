@@ -1,0 +1,38 @@
+{
+  "status": "partial_semantic_verification_not_dataset9_annotation_manifest",
+  "weights_sha256": "28f68f7c4056d6d9b137efd2e7ab5f3c494039380c63831649126ced25628b36",
+  "checkpoint_metadata": {
+    "date": "2024-05-07T22:04:38.314387",
+    "ultralytics_version": "8.2.10",
+    "model": "yolov8x-pose",
+    "training_data_path": "/content/datasets/football-field-detection-9/data.yaml",
+    "epochs": 600,
+    "imgsz": 640,
+    "rect": false
+  },
+  "sources": {
+    "vendor_download_script": "https://github.com/roboflow/sports/blob/main/examples/soccer/setup.sh",
+    "template_order": "https://github.com/cepat-ai/football-ai/blob/66a3f32ed6297fb3a06ec377448ef78e03b04db6/sports/configs/soccer.py",
+    "vendor_tutorial": "https://roboflow.com/blog/camera-calibration-sports-computer-vision",
+    "vendor_topology_diagram": "https://storage.ghost.io/c/2c/8d/2c8d8c0d-1c15-4b6d-825e-02b78d61d40a/content/images/2024/08/map-of-soccer-pitch-key-points--2-.png"
+  },
+  "visual_development_frames": [0, 300, 600, 900, 1200, 1500],
+  "index_base": 0,
+  "used_seed_semantics": [
+    {"index": 13, "display_index": 14, "meaning": "far touchline / halfway intersection", "world_if_observed": [52.5, 68], "use": "local white-line search only"},
+    {"index": 14, "display_index": 15, "meaning": "far circle / halfway crossing", "world_if_observed": [52.5, 43.15], "use": "circle search and halfway direction only"},
+    {"index": 15, "display_index": 16, "meaning": "near circle / halfway crossing", "world_if_observed": [52.5, 24.85], "use": "circle search and halfway direction only"},
+    {"index": 16, "display_index": 17, "meaning": "near touchline / halfway intersection", "world_if_observed": [52.5, 0], "use": "local white-line search only"},
+    {"index": 24, "display_index": 25, "meaning": "far right pitch corner", "use": "far touchline direction guide only, not a fitted world correspondence"},
+    {"index": 30, "display_index": 31, "meaning": "left circle guide", "use": "search extent only, never a fixed world correspondence"},
+    {"index": 31, "display_index": 32, "meaning": "right circle guide", "use": "search extent only, never a fixed world correspondence"}
+  ],
+  "limitations": [
+    "No dataset9 export with original keypoint annotation names was obtained; not all 32 checkpoint labels are certified",
+    "Published tutorial uses dataset14, not the dataset9 path recorded inside these weights",
+    "Template label strings are not numeric array indices; no speculative permutation applied",
+    "Indices 10/11/18/19 (zero-based) have ambiguous marking semantics and are not used by circle calibration",
+    "Image ellipse extrema are not fixed world cardinal points under perspective",
+    "All evaluation uses a single development clip and internal agent visual reference points, not independent ground truth"
+  ]
+}

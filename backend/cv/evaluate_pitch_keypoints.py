@@ -11,6 +11,7 @@ import cv2
 import numpy as np
 
 from backend.cv.pitch_keypoints import LAYOUT, FitPolicy, check_landmarks, fit_pitch
+from backend.cv.pitch_circle_keypoints import CirclePolicy, fit_circle_pitch
 
 ROOT = Path(__file__).resolve().parents[2]
 WEIGHTS_SHA256 = "28f68f7c4056d6d9b137efd2e7ab5f3c494039380c63831649126ced25628b36"
@@ -37,11 +38,13 @@ def inputs(source, weights, checks, output):
     return source, weights, checks, output, reference, source_hash
 
 
-def evaluate(source, weights, checks, output, stride=30, device="0", preprocess="stretch"):
+def evaluate(source, weights, checks, output, stride=30, device="0", preprocess="stretch", method="keypoints"):
     if stride < 1:
         raise ValueError("stride must be positive")
     if preprocess not in ("stretch", "letterbox"):
         raise ValueError("Unknown preprocessing mode")
+    if method not in ("keypoints", "circle"):
+        raise ValueError("Unknown calibration method")
     source, weights, checks, output, reference, source_hash = inputs(source, weights, checks, output)
     capture = cv2.VideoCapture(str(source))
     if not capture.isOpened():
@@ -79,8 +82,9 @@ def evaluate(source, weights, checks, output, stride=30, device="0", preprocess=
         torch.cuda.set_device(int(device))
         torch.cuda.reset_peak_memory_stats(int(device))
     output.mkdir(parents=True)
-    policy, reasons, checks_summary = FitPolicy(), Counter(), Counter()
-    timings, evaluations = [], []
+    policy = CirclePolicy() if method == "circle" else FitPolicy()
+    reasons, checks_summary = Counter(), Counter()
+    timings, calibration_timings, evaluations = [], [], []
     index = samples = candidates = 0
     started = time.perf_counter()
     try:
@@ -106,7 +110,12 @@ def evaluate(source, weights, checks, output, stride=30, device="0", preprocess=
                     if preprocess == "stretch":
                         xy *= [width / 640, height / 640]
                     confidence = prediction.keypoints.conf[0].cpu().numpy()
-                    row.update(fit_pitch(xy, confidence, (width, height), policy))
+                    calibration_started = time.perf_counter()
+                    if method == "circle":
+                        row.update(fit_circle_pitch(frame, xy, confidence, policy))
+                    else:
+                        row.update(fit_pitch(xy, confidence, (width, height), policy))
+                    calibration_timings.append(time.perf_counter() - calibration_started)
                     # Preserve raw output for reproducibility, not a public data contract.
                     row["keypoints"] = xy.tolist()
                     row["confidence"] = confidence.tolist()
@@ -131,7 +140,10 @@ def evaluate(source, weights, checks, output, stride=30, device="0", preprocess=
         "status": "completed_offline_research", "source_sha256": source_hash,
         "weights_sha256": WEIGHTS_SHA256, "model_source": MODEL_SOURCE,
         "reference_sha256": digest(checks), "reference_status": reference.get("status"),
-        "layout": LAYOUT, "pitch_m": [105, 68], "policy": policy.json(),
+        "layout": LAYOUT, "method": method, "pitch_m": [105, 68], "policy": policy.json(),
+        "checkpoint_metadata": {key: model.ckpt.get(key) for key in ("date", "version")},
+        "checkpoint_training": {key: model.ckpt.get("train_args", {}).get(key)
+                                for key in ("data", "imgsz", "epochs", "rect")},
         "preprocess": preprocess, "imgsz": 640,
         "image_size": [width, height], "fps": fps, "decoded_frames": index,
         "stride": stride, "samples": samples, "geometry_candidates": candidates,
@@ -141,6 +153,7 @@ def evaluate(source, weights, checks, output, stride=30, device="0", preprocess=
         "torch_version": torch.__version__,
         "first_prediction_s": timings[0] if timings else None,
         "subsequent_prediction_mean_s": float(np.mean(timings[1:])) if len(timings) > 1 else None,
+        "calibration_mean_s": float(np.mean(calibration_timings)) if calibration_timings else None,
         "peak_allocated_vram_mb": torch.cuda.max_memory_allocated(int(device)) / 2**20 if gpu else None,
         "elapsed_s": time.perf_counter() - started,
         "limitations": ["Sampled frames only; no continuous motion/stability validation",
@@ -161,6 +174,7 @@ def main():
     parser.add_argument("--stride", type=int, default=30)
     parser.add_argument("--device", default="0")
     parser.add_argument("--preprocess", choices=["stretch", "letterbox"], default="stretch")
+    parser.add_argument("--method", choices=["keypoints", "circle"], default="keypoints")
     args = parser.parse_args()
     report = evaluate(**vars(args))
     print(json.dumps({key: report[key] for key in ("samples", "geometry_candidates", "reason_counts", "reference_counts")}))

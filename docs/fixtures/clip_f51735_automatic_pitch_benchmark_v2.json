@@ -1,0 +1,362 @@
+{
+  "scope": "development, sampled frames; not independent accuracy",
+  "initial_circle_without_disjoint_field_check": {
+    "status": "completed_offline_research",
+    "source_sha256": "f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0",
+    "weights_sha256": "28f68f7c4056d6d9b137efd2e7ab5f3c494039380c63831649126ced25628b36",
+    "model_source": "https://github.com/roboflow/sports/blob/main/examples/soccer/setup.sh",
+    "reference_sha256": "830f11a7c94a3d72a99a4720cfefc77eea0b2547b162431c2054b554a4b73685",
+    "reference_status": "internal_agent_visual_checks_not_independent_ground_truth",
+    "layout": "sports32-105x68-bottom-left-v1",
+    "method": "circle",
+    "pitch_m": [
+      105,
+      68
+    ],
+    "policy": {
+      "confidence": 0.6,
+      "search_band_px": 80.0,
+      "max_center_shift_px": 100.0,
+      "max_edge_shift_px": 220.0,
+      "iterations": 700,
+      "max_pixels": 4000,
+      "min_circle_inliers": 300,
+      "min_circle_fraction": 0.1,
+      "min_arc_bins": 10,
+      "circle_residual_px": 2.0
+    },
+    "checkpoint_metadata": {
+      "date": "2024-05-07T22:04:38.314387",
+      "version": "8.2.10"
+    },
+    "checkpoint_training": {
+      "data": "/content/datasets/football-field-detection-9/data.yaml",
+      "imgsz": 640,
+      "epochs": 600,
+      "rect": false
+    },
+    "preprocess": "letterbox",
+    "imgsz": 640,
+    "image_size": [
+      1920,
+      1080
+    ],
+    "fps": 30.0,
+    "decoded_frames": 1571,
+    "stride": 30,
+    "samples": 66,
+    "geometry_candidates": 53,
+    "reason_counts": {
+      "geometry_candidate": 53,
+      "no_observed_line": 5,
+      "Diameter controls disagree with circle: 12.99px": 1,
+      "Projective horizon crosses pitch": 1,
+      "insufficient_circle_seeds": 4,
+      "no_observed_touchline": 1,
+      "pitch_horizon_crossing": 1
+    },
+    "reference_counts": {
+      "passed": 8,
+      "not_evaluable": 5,
+      "failed": 4
+    },
+    "reference_max_error_m": 1.0,
+    "reference_results": [
+      {
+        "frame": 1,
+        "status": "passed",
+        "reason": null,
+        "max_error_m": 0.389561890999586,
+        "mean_error_m": 0.21073729749663003
+      },
+      {
+        "frame": 150,
+        "status": "passed",
+        "reason": null,
+        "max_error_m": 0.24684079833223335,
+        "mean_error_m": 0.14860193816493453
+      },
+      {
+        "frame": 299,
+        "status": "not_evaluable",
+        "reason": "no_observed_line"
+      },
+      {
+        "frame": 301,
+        "status": "not_evaluable",
+        "reason": "Projective horizon crosses pitch"
+      },
+      {
+        "frame": 450,
+        "status": "passed",
+        "reason": null,
+        "max_error_m": 0.13308092173285196,
+        "mean_error_m": 0.10164186624138458
+      },
+      {
+        "frame": 601,
+        "status": "passed",
+        "reason": null,
+        "max_error_m": 0.6517076792723117,
+        "mean_error_m": 0.2685231758520672
+      },
+      {
+        "frame": 749,
+        "status": "passed",
+        "reason": null,
+        "max_error_m": 0.5457990331741717,
+        "mean_error_m": 0.39027859525481745
+      },
+      {
+        "frame": 751,
+        "status": "passed",
+        "reason": null,
+        "max_error_m": 0.5550998821744269,
+        "mean_error_m": 0.5181928884383789
+      },
+      {
+        "frame": 899,
+        "status": "failed",
+        "reason": null,
+        "max_error_m": 2.806233409454702,
+        "mean_error_m": 2.7429337638991536
+      },
+      {
+        "frame": 901,
+        "status": "not_evaluable",
+        "reason": "insufficient_circle_seeds"
+      },
+      {
+        "frame": 1050,
+        "status": "not_evaluable",
+        "reason": "insufficient_circle_seeds"
+      },
+      {
+        "frame": 1199,
+        "status": "failed",
+        "reason": null,
+        "max_error_m": 2.471821604808946,
+        "mean_error_m": 2.4358520211159984
+      },
+      {
+        "frame": 1201,
+        "status": "passed",
+        "reason": null,
+        "max_error_m": 0.8185038610054535,
+        "mean_error_m": 0.7953312391118743
+      },
+      {
+        "frame": 1350,
+        "status": "passed",
+        "reason": null,
+        "max_error_m": 0.5219898110067523,
+        "mean_error_m": 0.3425458784781449
+      },
+      {
+        "frame": 1499,
+        "status": "failed",
+        "reason": null,
+        "max_error_m": 4.337524624188456,
+        "mean_error_m": 4.327458014612699
+      },
+      {
+        "frame": 1501,
+        "status": "not_evaluable",
+        "reason": "pitch_horizon_crossing"
+      },
+      {
+        "frame": 1570,
+        "status": "failed",
+        "reason": null,
+        "max_error_m": 1.2510586554162226,
+        "mean_error_m": 1.136826505255422
+      }
+    ],
+    "device": "0",
+    "gpu": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+    "torch_version": "2.8.0+cu128",
+    "first_prediction_s": 1.7124706000004153,
+    "subsequent_prediction_mean_s": 0.08640198769231715,
+    "peak_allocated_vram_mb": 384.7080078125,
+    "elapsed_s": 35.165460999999596,
+    "limitations": [
+      "Sampled frames only; no continuous motion/stability validation",
+      "Model internal geometry consistency is not independent accuracy",
+      "Reference points are internal visual checks, not independent ground truth",
+      "No TrackingRow, heatmap, distance or production calibration published"
+    ]
+  },
+  "final_circle_with_field_line_check": {
+    "status": "completed_offline_research",
+    "source_sha256": "f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0",
+    "weights_sha256": "28f68f7c4056d6d9b137efd2e7ab5f3c494039380c63831649126ced25628b36",
+    "model_source": "https://github.com/roboflow/sports/blob/main/examples/soccer/setup.sh",
+    "reference_sha256": "830f11a7c94a3d72a99a4720cfefc77eea0b2547b162431c2054b554a4b73685",
+    "reference_status": "internal_agent_visual_checks_not_independent_ground_truth",
+    "layout": "sports32-105x68-bottom-left-v1",
+    "method": "circle",
+    "pitch_m": [
+      105,
+      68
+    ],
+    "policy": {
+      "confidence": 0.6,
+      "search_band_px": 80.0,
+      "max_center_shift_px": 100.0,
+      "max_edge_shift_px": 220.0,
+      "iterations": 700,
+      "max_pixels": 4000,
+      "min_circle_inliers": 300,
+      "min_circle_fraction": 0.1,
+      "min_arc_bins": 10,
+      "circle_residual_px": 2.0,
+      "circle_refit_band_px": 4.0,
+      "circle_refit_iterations": 3,
+      "field_line_median_px": 4.0,
+      "field_line_distance_px": 5.0,
+      "field_line_min_fraction": 0.65,
+      "field_line_min_span_px": 120.0
+    },
+    "checkpoint_metadata": {
+      "date": "2024-05-07T22:04:38.314387",
+      "version": "8.2.10"
+    },
+    "checkpoint_training": {
+      "data": "/content/datasets/football-field-detection-9/data.yaml",
+      "imgsz": 640,
+      "epochs": 600,
+      "rect": false
+    },
+    "preprocess": "letterbox",
+    "imgsz": 640,
+    "image_size": [
+      1920,
+      1080
+    ],
+    "fps": 30.0,
+    "decoded_frames": 1571,
+    "stride": 30,
+    "samples": 66,
+    "geometry_candidates": 10,
+    "reason_counts": {
+      "penalty_line_unsupported": 31,
+      "no_visible_penalty_line": 12,
+      "no_observed_line": 5,
+      "circle_refit_outside_prior": 2,
+      "geometry_candidate": 10,
+      "insufficient_circle_seeds": 4,
+      "no_observed_touchline": 1,
+      "pitch_horizon_crossing": 1
+    },
+    "reference_counts": {
+      "not_evaluable": 15,
+      "passed": 2
+    },
+    "reference_max_error_m": 1.0,
+    "reference_results": [
+      {
+        "frame": 1,
+        "status": "not_evaluable",
+        "reason": "penalty_line_unsupported"
+      },
+      {
+        "frame": 150,
+        "status": "not_evaluable",
+        "reason": "penalty_line_unsupported"
+      },
+      {
+        "frame": 299,
+        "status": "not_evaluable",
+        "reason": "no_observed_line"
+      },
+      {
+        "frame": 301,
+        "status": "not_evaluable",
+        "reason": "circle_refit_outside_prior"
+      },
+      {
+        "frame": 450,
+        "status": "not_evaluable",
+        "reason": "no_visible_penalty_line"
+      },
+      {
+        "frame": 601,
+        "status": "passed",
+        "reason": null,
+        "max_error_m": 0.9769714079653935,
+        "mean_error_m": 0.45568159379986617
+      },
+      {
+        "frame": 749,
+        "status": "not_evaluable",
+        "reason": "penalty_line_unsupported"
+      },
+      {
+        "frame": 751,
+        "status": "not_evaluable",
+        "reason": "penalty_line_unsupported"
+      },
+      {
+        "frame": 899,
+        "status": "not_evaluable",
+        "reason": "penalty_line_unsupported"
+      },
+      {
+        "frame": 901,
+        "status": "not_evaluable",
+        "reason": "insufficient_circle_seeds"
+      },
+      {
+        "frame": 1050,
+        "status": "not_evaluable",
+        "reason": "insufficient_circle_seeds"
+      },
+      {
+        "frame": 1199,
+        "status": "not_evaluable",
+        "reason": "penalty_line_unsupported"
+      },
+      {
+        "frame": 1201,
+        "status": "not_evaluable",
+        "reason": "penalty_line_unsupported"
+      },
+      {
+        "frame": 1350,
+        "status": "passed",
+        "reason": null,
+        "max_error_m": 0.19975313647028872,
+        "mean_error_m": 0.18881657793534845
+      },
+      {
+        "frame": 1499,
+        "status": "not_evaluable",
+        "reason": "penalty_line_unsupported"
+      },
+      {
+        "frame": 1501,
+        "status": "not_evaluable",
+        "reason": "pitch_horizon_crossing"
+      },
+      {
+        "frame": 1570,
+        "status": "not_evaluable",
+        "reason": "penalty_line_unsupported"
+      }
+    ],
+    "device": "0",
+    "gpu": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+    "torch_version": "2.8.0+cu128",
+    "first_prediction_s": 1.2457029999995939,
+    "subsequent_prediction_mean_s": 0.08899553692302176,
+    "calibration_mean_s": 0.3615742257575496,
+    "peak_allocated_vram_mb": 384.7080078125,
+    "elapsed_s": 35.944415500000105,
+    "limitations": [
+      "Sampled frames only; no continuous motion/stability validation",
+      "Model internal geometry consistency is not independent accuracy",
+      "Reference points are internal visual checks, not independent ground truth",
+      "No TrackingRow, heatmap, distance or production calibration published"
+    ]
+  }
+}

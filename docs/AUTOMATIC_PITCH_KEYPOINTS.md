@@ -1,5 +1,10 @@
 # Thử nghiệm nhận diện mốc sân tự động
 
+Cập nhật tiếp theo ngày 31/10/2026: xem
+[xác minh và cải thiện bằng conic/vạch sân](AUTOMATIC_PITCH_VERIFICATION.md).
+Đã đọc metadata checkpoint và có nhánh thử mới; số liệu bên dưới giữ
+nguyên như lịch sử của lần thử v1.
+
 Ngày31/10/2026, người dùng yêu cầu bắt đầu ưu tiên nghiên cứu thứ nhất
 sau đánh giá cepat-ai/football-ai. Phạm vi: chương trình ngoại tuyến,
 chưa tích hợp vào upload/API và chưa thay hiệu chỉnh tay.

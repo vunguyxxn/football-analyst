@@ -2,6 +2,42 @@
 
 ## Trạng thái hiện tại
 
+Ngày 31/10/2026: đã xác minh và cải thiện prototype mốc sân theo yêu
+cầu. Metadata checkpoint khóa hash ghi train dataset 9, ngày 07/05/2024,
+Ultralytics 8.2.10, YOLOv8x-pose/600epochs/640px; không đồng nhất với
+dataset14 trong bài hướng dẫn. Đã rà nhóm mốc vòng tròn/giữa sân/biên
+trên ảnh thật và cấu hình nguồn; chưa có manifest để chứng nhận đủ32
+nhãn gốc. Hồ sơ: fixtures/roboflow_pitch_checkpoint_verification_v1.json.
+
+Nhánh ngoại tuyến mới pitch_circle_keypoints.py dùng seed model để
+tìm vạch trắng, fit đường giữa sân/biên và conic vòng tròn. Không coi
+cực trị ellipse ảnh là điểm cardinal sân. Có thể khôi phục từ một
+giao biên thực thấy; không thêm biên khuất. Kiểm vạch vùng cấm tách
+khỏi bằng chứng fit, không refit theo vạch kiểm hoặc checkpoint mét.
+Nhánh keypoints mặc định/ngưỡng cũ vẫn giữ; CLI thêm --method circle.
+
+Cùng66ảnh của clip15: conic ban đầu53ứng viên,8/17checkpoint≤1m,
+4/17>1m,5thiếu. Sau refit bề rộng vạch và guard vùng cấm:10/66ứng viên;
+2/17checkpoint đạt (frame601 max0,977m,1350 max0,200m),15bị từ chối
+trước bước đo mét.8ứng viên khác chưa có tham chiếu mét. Đây là
+development cùng clip/nhãn agent, không phải accuracy100%, test mù,
+ground truth độc lập hoặc bằng chứng đủ cho cả đoạn video.
+
+Không bật vào upload/API, không xuất tracking/heatmap/quãng đường;
+giữ nguyên kết quả tay, DATA_CONTRACT và dependency. Benchmark cuối
+ở data/processed/automatic_pitch_v2/verified; ảnh trước/sau frame1350
+ở automatic_pitch_v2/frame1350-review.jpg. Báo cáo khóa đầu vào đã
+lưu Git: fixtures/clip_f51735_automatic_pitch_benchmark_v2.json.
+Tài liệu: AUTOMATIC_PITCH_VERIFICATION.md. Lượt cuối35,94s cho quét
+clip/66ảnh thử; predict89,00ms, hiệu chỉnh361,57ms trung bình mỗi ảnh;
+VRAM tensor384,71MiB, không phải FPS pipeline/tổng VRAM.
+
+Kiểm tra:404Python test đạt,1network deselected;7test mới về conic
+phối cảnh từ một biên, seed/pixel thiếu/NaN, sai phía biên, khớp vạch,
+sai tỉ lệ xa giữa sân và check không refit. Cảnh báo Starlette/SHAP
+đã có. Frontend không đổi. Còn cần tăng độ phủ bằng giao vạch, bộ
+clip/nhãn kiểm riêng và kiểm độ trôi liên tục trước khi tích hợp.
+
 Ngày31/10/2026: theo yêu cầu “bắt đầu ngay”, đã tạo prototype ngoại
 tuyến nhận diện32mốc sân→homography105×68m, ghi nhận phạm vi được phép
 trong ROADMAP. Mã: pitch_keypoints.py và evaluate_pitch_keypoints.py;
