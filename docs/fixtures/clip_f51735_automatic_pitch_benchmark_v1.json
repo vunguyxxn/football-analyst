@@ -1,0 +1,287 @@
+{
+  "scope": "offline sampled-frame research, not independent accuracy",
+  "stretch": {
+    "status": "completed_offline_research",
+    "source_sha256": "f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0",
+    "weights_sha256": "28f68f7c4056d6d9b137efd2e7ab5f3c494039380c63831649126ced25628b36",
+    "model_source": "https://github.com/roboflow/sports/blob/main/examples/soccer/setup.sh",
+    "reference_sha256": "830f11a7c94a3d72a99a4720cfefc77eea0b2547b162431c2054b554a4b73685",
+    "reference_status": "internal_agent_visual_checks_not_independent_ground_truth",
+    "layout": "sports32-105x68-bottom-left-v1",
+    "pitch_m": [
+      105,
+      68
+    ],
+    "policy": {
+      "confidence": 0.6,
+      "min_points": 6,
+      "min_image_coverage": 0.02,
+      "min_pitch_coverage": 0.03,
+      "ransac_px": 5.0,
+      "min_inlier_ratio": 0.7,
+      "loo_median_px": 4.0,
+      "loo_max_px": 12.0
+    },
+    "preprocess": "stretch_640x640_then_restore_original_image_coordinates",
+    "image_size": [
+      1920,
+      1080
+    ],
+    "fps": 30.0,
+    "decoded_frames": 1571,
+    "stride": 30,
+    "samples": 66,
+    "geometry_candidates": 0,
+    "reason_counts": {
+      "insufficient_inliers": 45,
+      "insufficient_points": 21
+    },
+    "reference_counts": {
+      "not_evaluable": 17
+    },
+    "reference_max_error_m": 1.0,
+    "reference_results": [
+      {
+        "frame": 1,
+        "status": "not_evaluable",
+        "reason": "insufficient_inliers"
+      },
+      {
+        "frame": 150,
+        "status": "not_evaluable",
+        "reason": "insufficient_points"
+      },
+      {
+        "frame": 299,
+        "status": "not_evaluable",
+        "reason": "insufficient_points"
+      },
+      {
+        "frame": 301,
+        "status": "not_evaluable",
+        "reason": "insufficient_points"
+      },
+      {
+        "frame": 450,
+        "status": "not_evaluable",
+        "reason": "insufficient_points"
+      },
+      {
+        "frame": 601,
+        "status": "not_evaluable",
+        "reason": "insufficient_points"
+      },
+      {
+        "frame": 749,
+        "status": "not_evaluable",
+        "reason": "insufficient_inliers"
+      },
+      {
+        "frame": 751,
+        "status": "not_evaluable",
+        "reason": "insufficient_inliers"
+      },
+      {
+        "frame": 899,
+        "status": "not_evaluable",
+        "reason": "insufficient_inliers"
+      },
+      {
+        "frame": 901,
+        "status": "not_evaluable",
+        "reason": "insufficient_inliers"
+      },
+      {
+        "frame": 1050,
+        "status": "not_evaluable",
+        "reason": "insufficient_inliers"
+      },
+      {
+        "frame": 1199,
+        "status": "not_evaluable",
+        "reason": "insufficient_inliers"
+      },
+      {
+        "frame": 1201,
+        "status": "not_evaluable",
+        "reason": "insufficient_inliers"
+      },
+      {
+        "frame": 1350,
+        "status": "not_evaluable",
+        "reason": "insufficient_inliers"
+      },
+      {
+        "frame": 1499,
+        "status": "not_evaluable",
+        "reason": "insufficient_inliers"
+      },
+      {
+        "frame": 1501,
+        "status": "not_evaluable",
+        "reason": "insufficient_inliers"
+      },
+      {
+        "frame": 1570,
+        "status": "not_evaluable",
+        "reason": "insufficient_inliers"
+      }
+    ],
+    "device": "0",
+    "gpu": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+    "torch_version": "2.8.0+cu128",
+    "first_prediction_s": 2.765198500000224,
+    "subsequent_prediction_mean_s": 0.07950002923074723,
+    "peak_allocated_vram_mb": 385.228515625,
+    "elapsed_s": 13.709598200000073,
+    "limitations": [
+      "Sampled frames only; no continuous motion/stability validation",
+      "Model internal geometry consistency is not independent accuracy",
+      "Reference points are internal visual checks, not independent ground truth",
+      "No TrackingRow, heatmap, distance or production calibration published"
+    ]
+  },
+  "letterbox": {
+    "status": "completed_offline_research",
+    "source_sha256": "f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0",
+    "weights_sha256": "28f68f7c4056d6d9b137efd2e7ab5f3c494039380c63831649126ced25628b36",
+    "model_source": "https://github.com/roboflow/sports/blob/main/examples/soccer/setup.sh",
+    "reference_sha256": "830f11a7c94a3d72a99a4720cfefc77eea0b2547b162431c2054b554a4b73685",
+    "reference_status": "internal_agent_visual_checks_not_independent_ground_truth",
+    "layout": "sports32-105x68-bottom-left-v1",
+    "pitch_m": [
+      105,
+      68
+    ],
+    "policy": {
+      "confidence": 0.6,
+      "min_points": 6,
+      "min_image_coverage": 0.02,
+      "min_pitch_coverage": 0.03,
+      "ransac_px": 5.0,
+      "min_inlier_ratio": 0.7,
+      "loo_median_px": 4.0,
+      "loo_max_px": 12.0
+    },
+    "preprocess": "letterbox",
+    "imgsz": 640,
+    "image_size": [
+      1920,
+      1080
+    ],
+    "fps": 30.0,
+    "decoded_frames": 1571,
+    "stride": 30,
+    "samples": 66,
+    "geometry_candidates": 0,
+    "reason_counts": {
+      "insufficient_inliers": 52,
+      "leave_one_out_error": 11,
+      "insufficient_points": 3
+    },
+    "reference_counts": {
+      "not_evaluable": 17
+    },
+    "reference_max_error_m": 1.0,
+    "reference_results": [
+      {
+        "frame": 1,
+        "status": "not_evaluable",
+        "reason": "insufficient_inliers"
+      },
+      {
+        "frame": 150,
+        "status": "not_evaluable",
+        "reason": "insufficient_inliers"
+      },
+      {
+        "frame": 299,
+        "status": "not_evaluable",
+        "reason": "insufficient_inliers"
+      },
+      {
+        "frame": 301,
+        "status": "not_evaluable",
+        "reason": "insufficient_inliers"
+      },
+      {
+        "frame": 450,
+        "status": "not_evaluable",
+        "reason": "insufficient_points"
+      },
+      {
+        "frame": 601,
+        "status": "not_evaluable",
+        "reason": "insufficient_inliers"
+      },
+      {
+        "frame": 749,
+        "status": "not_evaluable",
+        "reason": "insufficient_inliers"
+      },
+      {
+        "frame": 751,
+        "status": "not_evaluable",
+        "reason": "insufficient_inliers"
+      },
+      {
+        "frame": 899,
+        "status": "not_evaluable",
+        "reason": "insufficient_inliers"
+      },
+      {
+        "frame": 901,
+        "status": "not_evaluable",
+        "reason": "insufficient_inliers"
+      },
+      {
+        "frame": 1050,
+        "status": "not_evaluable",
+        "reason": "insufficient_inliers"
+      },
+      {
+        "frame": 1199,
+        "status": "not_evaluable",
+        "reason": "insufficient_inliers"
+      },
+      {
+        "frame": 1201,
+        "status": "not_evaluable",
+        "reason": "insufficient_inliers"
+      },
+      {
+        "frame": 1350,
+        "status": "not_evaluable",
+        "reason": "insufficient_inliers"
+      },
+      {
+        "frame": 1499,
+        "status": "not_evaluable",
+        "reason": "insufficient_inliers"
+      },
+      {
+        "frame": 1501,
+        "status": "not_evaluable",
+        "reason": "insufficient_inliers"
+      },
+      {
+        "frame": 1570,
+        "status": "not_evaluable",
+        "reason": "insufficient_inliers"
+      }
+    ],
+    "device": "0",
+    "gpu": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+    "torch_version": "2.8.0+cu128",
+    "first_prediction_s": 1.8123186000002534,
+    "subsequent_prediction_mean_s": 0.04941728923074781,
+    "peak_allocated_vram_mb": 384.7080078125,
+    "elapsed_s": 10.506726600000093,
+    "limitations": [
+      "Sampled frames only; no continuous motion/stability validation",
+      "Model internal geometry consistency is not independent accuracy",
+      "Reference points are internal visual checks, not independent ground truth",
+      "No TrackingRow, heatmap, distance or production calibration published"
+    ]
+  }
+}

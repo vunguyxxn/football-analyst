@@ -1,5 +1,15 @@
 # Lộ trình
 
+## Thử nghiệm mốc sân tự động — xác nhận 31/10/2026
+
+Theo yêu cầu “bắt đầu ngay” sau đánh giá football-ai, cho phép nghiên cứu
+ngoại tuyến YOLO pose nhận diện mốc sân và khởi tạo homography105×68m.
+Khóa nguồn/hash trọng số, kiểm confidence, độ phủ, RANSAC, kiểm tra hình
+học và đối chiếu mốc tham chiếu trước khi xem xét tích hợp. Chưa bật cho
+video tải lên; giữ hiệu chỉnh tay và các kiểm tra camera hiện hành. Không
+đổi hợp đồng dữ liệu, không thêm dependency. Mốc không đạt phải bị từ
+chối, không tạo heatmap/quãng đường/gợi ý từ tọa độ sai.
+
 ## Ưu tiên hiện hành — cập nhật 29/10/2026
 
 Theo yêu cầu mới, dừng phát triển nhận diện chuyền/sút và theo dõi bóng
@@ -55,8 +65,9 @@ Mỗi bước nghiệm thu bằng test/lệnh và có commit riêng.
 - Phát hiện bóng và nhận diện chuyền/sút từ video trước đây ngoài phạm vi;
   đã được người dùng cho phép nghiên cứu bổ sung ngày 27/10/2026, theo
   mục mở rộng bên dưới. Chưa coi là chức năng đã nghiệm thu.
-- Tự nhận diện mốc sân/khởi tạo homography hoàn toàn tự động. Cho phép cập
-  nhật homography theo chuyển động camera sau hiệu chỉnh tay như bước 4.
+- Tự nhận diện mốc sân/khởi tạo homography trong luồng sản phẩm chưa được
+  nghiệm thu. Nghiên cứu ngoại tuyến được cho phép ngày31/10/2026 như trên;
+  vẫn dùng hiệu chỉnh tay và cập nhật theo chuyển động camera ở bước4.
 - Dự đoán kết quả trận.
 
 ## Phạm vi nghiên cứu bổ sung — xác nhận 27/10/2026

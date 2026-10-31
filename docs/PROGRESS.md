@@ -2,6 +2,41 @@
 
 ## Trạng thái hiện tại
 
+Ngày31/10/2026: theo yêu cầu “bắt đầu ngay”, đã tạo prototype ngoại
+tuyến nhận diện32mốc sân→homography105×68m, ghi nhận phạm vi được phép
+trong ROADMAP. Mã: pitch_keypoints.py và evaluate_pitch_keypoints.py;
+tài liệu/lệnh chạy: AUTOMATIC_PITCH_KEYPOINTS.md. Chưa nối API/upload,
+không đổi DATA_CONTRACT, dependency hoặc kết quả hiệu chỉnh tay.
+
+Đã tải checkpoint140212306bytes do setup.sh chính thức Roboflow liên
+kết, khóa SHA25628f68f7c…25628b36; không đưa weights vào Git hay gửi
+video lên cloud. Giữ thứ tự vertices của template32mốc, sửa hình học
+về105×68m cùng các kích thước cố định; không scale template120×70m.
+Chưa xác minh đầy đủ ngữ nghĩa nhãn của checkpoint trên dataset gốc.
+Giữ thông báo MIT Roboflow trong docs/third_party.
+
+Đã thử thực tế Video Project15.mp4 trên RTX3050:66ảnh/lượt (stride30
+cộng17checkpoint v4),2cách chuẩn bị ảnh. Stretch:21thiếu mốc/45thiếu
+inlier; letterbox:3thiếu mốc/52thiếu inlier/11không đạt bỏ từng điểm.
+Cả2lượt0/66homography vượt bộ kiểm tra;17/17checkpoint mỗi lượt không
+có ứng viên để đo sai số mét. Không tính thành accuracy0% hoặc đạt
+kiểm tra mét. Chưa đủ chất lượng tích hợp; không hạ ngưỡng hoặc xuất
+tracking/heatmap/quãng đường từ thử nghiệm này. Benchmark chỉ lấy mẫu,
+không chứng minh tính ổn định theo thời gian hay accuracy độc lập.
+
+Sau lần đầu, dự đoán trung bình79,50ms(stretch)/49,42ms(letterbox),
+VRAM tensor PyTorch cao nhất385,23/384,71MiB, không phải tổng VRAM
+hay FPS pipeline. Báo cáo/JSONL ở data/processed/automatic_pitch_v1/
+evaluation và letterbox; bản báo cáo khóa đầu vào lưu trong fixtures.
+Kiểm tra toàn bộ Python:397passed,1network deselected;10test mới
+kiểm hình học, outlier, thiếu/trùng điểm, LOO, horizon, confidence,
+mốc đối chiếu không refit và khóa nguồn/output/weights. Cảnh báo
+Starlette/SHAP đã có. Frontend không đổi nên không chạy lại build.
+
+Tiếp theo: xác minh nhãn và độ bám vạch, bổ sung nhãn kiểm độc lập;
+thử ràng buộc vạch/cung sân hoặc fine-tune trước khi nối CameraMotion/
+LandmarkGuard liên tục. Ứng dụng hiện tại tiếp tục hiệu chỉnh tay.
+
 Ngày 31/10/2026: đã đọc/đánh giá cepat-ai/football-ai theo yêu cầu,
 khóa commit66a3f32ed6297fb3a06ec377448ef78e03b04db6 (24/07/2024), fork
 roboflow/sports. Báo cáo: FOOTBALL_AI_REPOSITORY_REVIEW.md. Ưu tiên
