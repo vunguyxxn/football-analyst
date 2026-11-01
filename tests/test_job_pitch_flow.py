@@ -163,6 +163,104 @@ def test_painted_geometry_rejects_unsupported_projection():
     assert pitch.projection_quality(frame, matrix)["passed"]
 
 
+def test_validation_recovers_thin_mixed_paint_without_treating_grass_stripes_as_lines():
+    hsv = np.full((180, 320, 3), (47, 155, 145), dtype=np.uint8)
+    hsv[:, 160:] = (47, 145, 180)  # Broad grass stripe; brighter but not painted.
+    hsv[85:88, 30:290] = (47, 115, 205)  # Thin antialiased paint, S > 100.
+    frame = cv2.cvtColor(hsv, cv2.COLOR_HSV2BGR)
+    pixels = pitch.validation_pitch_pixels(frame).astype(int)
+    assert len(pixels) > 700
+    assert np.all((pixels[:, 1] >= 85) & (pixels[:, 1] < 88))
+    # Saturation contrast alone and brightness contrast alone are insufficient.
+    hsv[45:48, 30:140] = (47, 115, 145)
+    hsv[125:128, 30:140] = (47, 155, 200)
+    pixels = pitch.validation_pitch_pixels(cv2.cvtColor(hsv, cv2.COLOR_HSV2BGR)).astype(int)
+    assert np.all((pixels[:, 1] >= 85) & (pixels[:, 1] < 88))
+
+
+def test_automatic_fallback_keeps_disjoint_fit_and_product_gates(monkeypatch):
+    calls = []
+    line_matrix, circle_matrix = np.eye(3), np.diag([2., 2., 1.])
+    def line(*_):
+        calls.append("line")
+        return {"status": "candidate", "matrix": line_matrix}
+    def circle(*_):
+        calls.append("circle")
+        return {"status": "candidate", "matrix": circle_matrix}
+    monkeypatch.setattr(pitch, "fit_line_pitch", line)
+    monkeypatch.setattr(pitch, "fit_circle_pitch", circle)
+    monkeypatch.setattr(pitch, "projection_quality", lambda frame, matrix: {"passed": np.array_equal(matrix, circle_matrix)})
+    np.testing.assert_equal(pitch.automatic_matrix(None, None, None), circle_matrix)
+    assert calls == ["line", "circle"]
+    monkeypatch.setattr(pitch, "projection_quality", lambda *_: {"passed": False})
+    assert pitch.automatic_matrix(None, None, None) is None
+    monkeypatch.setattr(pitch, "fit_circle_pitch", lambda *_: {"status": "rejected", "matrix": None})
+    assert pitch.automatic_matrix(None, None, None) is None
+    monkeypatch.setattr(pitch, "projection_quality", lambda *_: {"passed": True})
+    calls.clear()
+    np.testing.assert_equal(pitch.automatic_matrix(None, None, None), line_matrix)
+    assert calls == ["line"]
+    monkeypatch.setattr(pitch, "fit_line_pitch", lambda *_: {"status": "rejected", "reason": "ambiguous_four_line_solutions"})
+    monkeypatch.setattr(pitch, "fit_circle_pitch", lambda *_: pytest.fail("Ambiguity cannot be overridden by conic fallback"))
+    assert pitch.automatic_matrix(None, None, None) is None
+
+
+def test_shifted_projection_stays_rejected_with_visible_paint():
+    frame = np.full((680, 1050, 3), (30, 140, 30), dtype=np.uint8)
+    for x in (165, 525, 885):
+        cv2.line(frame, (x, 138), (x, 542), (245, 245, 245), 3)
+    cv2.line(frame, (525, 0), (525, 679), (245, 245, 245), 3)
+    for x1, x2 in ((0, 165), (885, 1049)):
+        for y in (138, 542):
+            cv2.line(frame, (x1, y), (x2, y), (245, 245, 245), 3)
+    cv2.circle(frame, (525, 340), 92, (245, 245, 245), 3)
+    correct = np.array([[.1, 0, 0], [0, -.1, 68], [0, 0, 1.]])
+    for offset in (-5, 5):
+        wrong = correct.copy()
+        wrong[0, 2] += offset
+        assert not pitch.projection_quality(frame, wrong)["passed"]
+
+
+def test_audit_checks_heatmap_motion_and_unfitted_landmarks(clip):
+    from backend.cv.audit_pitch_result import audit
+    from backend.cv.pitch_keypoints import project
+    run(clip)
+    folder, source, info, matrix = clip
+    selected = pitch.pitch_folder(folder)
+    checkpoint = {"frame": 90, "image_points": [[100, 100]], "pitch_points": project(matrix, [[100, 100]]).tolist()}
+    reference = {"source_sha256": info["source_sha256"], "max_error_m": 1.,
+                 "checkpoints": [checkpoint, {**checkpoint, "frame": 999}]}
+    result = audit(selected, source, info["fps"], reference)
+    assert result["status"] == "checks_passed" and not result["consistency_errors"]
+    assert result["landmark_counts"] == {"passed": 1, "not_evaluable": 1}
+    assert result["heatmap_person_seconds"] == result["positions"]/info["fps"]
+    # Historical rejected development references must not silently disappear.
+    reference["excluded_checkpoints"] = [{**checkpoint, "frame": 120, "pitch_points": [[0, 0]]}]
+    assert audit(selected, source, info["fps"], reference)["landmark_counts"]["failed"] == 1
+    report = pitch.read_json(selected / "report.json")
+    report["players"][0]["heatmap_seconds"][0][0] += 1
+    report["players"][0]["distance_m"] = 10000
+    pitch.atomic_json(selected / "report.json", report)
+    errors = audit(selected, source, info["fps"], reference)["consistency_errors"]
+    assert any("heatmap" in error for error in errors)
+    assert any("motion" in error for error in errors)
+
+
+def test_audit_rejects_source_or_artifact_mismatch(clip):
+    from backend.cv.audit_pitch_result import audit
+    run(clip)
+    folder, source, info, _ = clip
+    selected = pitch.pitch_folder(folder)
+    reference = {"source_sha256": "0"*64, "max_error_m": 1., "checkpoints": []}
+    with pytest.raises(ValueError, match="hashes"):
+        audit(selected, source, info["fps"], reference)
+    reference["source_sha256"] = info["source_sha256"]
+    with (selected / "geometry.jsonl").open("a") as stream:
+        stream.write("{}\n")
+    with pytest.raises(ValueError, match="Artifact changed"):
+        audit(selected, source, info["fps"], reference)
+
+
 def test_api_manual_runs_async_and_preserves_source_binding(clip, monkeypatch):
     folder, source, info, matrix = clip
     monkeypatch.setattr(jobs, "ROOT", folder.parent)

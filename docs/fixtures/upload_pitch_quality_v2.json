@@ -1,0 +1,285 @@
+{
+  "date": "2026-11-01",
+  "scope": "development on the same clip and agent-labelled references; not independent accuracy or full match totals",
+  "job_id": "2c8e7ffdb8fc432b9abab9e53bd53c8e",
+  "source_sha256": "f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0",
+  "reference_sha256": "830f11a7c94a3d72a99a4720cfefc77eea0b2547b162431c2054b554a4b73685",
+  "weights_sha256": "28f68f7c4056d6d9b137efd2e7ab5f3c494039380c63831649126ced25628b36",
+  "before": {
+    "version": "e0fe1725e3f74b2caeab67409d8648a3",
+    "calibrated_seconds": 15.100000000000003,
+    "positions": 8336,
+    "tactical_windows": 2
+  },
+  "after": {
+    "version": "e0b9fa2caf0f41c2a5c2a50a7d72296c",
+    "workflow": {
+      "tracking": "completed",
+      "calibration": {
+        "status": "partial",
+        "message": "Đã có phân tích cho các đoạn hiệu chỉnh hợp lệ.",
+        "rejected_manual_frames": [],
+        "version": "e0b9fa2caf0f41c2a5c2a50a7d72296c",
+        "calibrated_seconds": 24.46666666666667,
+        "frames_with_positions": 714,
+        "duration_s": 52.36666666666667,
+        "automatic_available": true,
+        "tactical_windows": 4
+      },
+      "analysis": "ready"
+    },
+    "calibrated_intervals": [
+      {
+        "start_s": 0.0,
+        "end_s": 10.033333333333333
+      },
+      {
+        "start_s": 22.0,
+        "end_s": 24.033333333333335
+      },
+      {
+        "start_s": 26.0,
+        "end_s": 29.033333333333335
+      },
+      {
+        "start_s": 43.0,
+        "end_s": 52.36666666666667
+      }
+    ],
+    "positions": 13584,
+    "maximum_speed_kmh": 29.4463979987235,
+    "recommendation_items": 4,
+    "publication": {
+      "policy": "hybrid_opening_closing_marking_checks_v1",
+      "tracking_sha256": "8db33e045bfbd38d493d00118ad7ccf7be9ebecb09e0b5b6b55ddc1ab187bb73",
+      "geometry_sha256": "eb59880dc6d85312a0037a3a45187c911a66260c31c0183ffd6fdc767c9c4b31",
+      "independently_validated": false
+    }
+  },
+  "audit": {
+    "source_sha256": "f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0",
+    "result_version": "e0b9fa2caf0f41c2a5c2a50a7d72296c",
+    "scope": "internal consistency and previously labelled development landmarks; not independent ground truth",
+    "status": "checks_passed",
+    "consistency_errors": [],
+    "positions": 13584,
+    "frames_with_positions": 714,
+    "duration_s": 52.36666666666667,
+    "calibrated_seconds": 24.46666666666667,
+    "position_frame_seconds": 23.8,
+    "heatmap_person_seconds": 452.8,
+    "landmark_checks": [
+      {
+        "frame": 1,
+        "status": "not_evaluable"
+      },
+      {
+        "frame": 150,
+        "status": "passed",
+        "max_error_m": 0.11886157255006492,
+        "mean_error_m": 0.06935438014346887
+      },
+      {
+        "frame": 299,
+        "status": "passed",
+        "max_error_m": 0.19233086935577318,
+        "mean_error_m": 0.12166793435510802
+      },
+      {
+        "frame": 301,
+        "status": "not_evaluable"
+      },
+      {
+        "frame": 450,
+        "status": "not_evaluable"
+      },
+      {
+        "frame": 599,
+        "status": "not_evaluable"
+      },
+      {
+        "frame": 601,
+        "status": "not_evaluable"
+      },
+      {
+        "frame": 749,
+        "status": "not_evaluable"
+      },
+      {
+        "frame": 751,
+        "status": "not_evaluable"
+      },
+      {
+        "frame": 899,
+        "status": "not_evaluable"
+      },
+      {
+        "frame": 901,
+        "status": "not_evaluable"
+      },
+      {
+        "frame": 1050,
+        "status": "not_evaluable"
+      },
+      {
+        "frame": 1199,
+        "status": "not_evaluable"
+      },
+      {
+        "frame": 1201,
+        "status": "not_evaluable"
+      },
+      {
+        "frame": 1350,
+        "status": "passed",
+        "max_error_m": 0.1522511967775118,
+        "mean_error_m": 0.13752680552024937
+      },
+      {
+        "frame": 1499,
+        "status": "passed",
+        "max_error_m": 0.40583799727831593,
+        "mean_error_m": 0.2573230239293465
+      },
+      {
+        "frame": 1501,
+        "status": "passed",
+        "max_error_m": 0.39251226067433365,
+        "mean_error_m": 0.3249593063446232
+      },
+      {
+        "frame": 1570,
+        "status": "passed",
+        "max_error_m": 0.4277398049718967,
+        "mean_error_m": 0.342170512049814
+      }
+    ],
+    "landmark_counts": {
+      "not_evaluable": 12,
+      "passed": 6
+    },
+    "limits": [
+      "Landmarks were selected during development by the same agent; not a blind accuracy test.",
+      "Distance checks establish consistency and speed bounds, not independently measured running distance.",
+      "105x68m is assumed. Unseen players and missing time are not reconstructed."
+    ]
+  },
+  "negative_development_tests": {
+    "scope": "development perturbations; not independent false-positive rate",
+    "accepted_samples": [
+      [
+        "v2",
+        780
+      ],
+      [
+        "v2",
+        1290
+      ],
+      [
+        "v2",
+        1320
+      ],
+      [
+        "v2",
+        1350
+      ],
+      [
+        "v2",
+        1380
+      ],
+      [
+        "v2",
+        1410
+      ],
+      [
+        "v2",
+        1440
+      ],
+      [
+        "v3",
+        0
+      ],
+      [
+        "v3",
+        1
+      ],
+      [
+        "v3",
+        30
+      ],
+      [
+        "v3",
+        60
+      ],
+      [
+        "v3",
+        90
+      ],
+      [
+        "v3",
+        120
+      ],
+      [
+        "v3",
+        660
+      ],
+      [
+        "v3",
+        690
+      ],
+      [
+        "v3",
+        751
+      ],
+      [
+        "v3",
+        780
+      ],
+      [
+        "v3",
+        840
+      ],
+      [
+        "v3",
+        870
+      ],
+      [
+        "v3",
+        900
+      ]
+    ],
+    "shifted_trials": 80,
+    "accepted_wrong_shifts": []
+  },
+  "validation": {
+    "python_tests": 425,
+    "network_deselected": 1,
+    "frontend": "unchanged; no new visual UI verification",
+    "proxy_checks": {
+      "/api/health": 200,
+      "/video?job=2c8e7ffdb8fc432b9abab9e53bd53c8e": 200,
+      "/api/video-jobs/2c8e7ffdb8fc432b9abab9e53bd53c8e": 200,
+      "/api/video-jobs/2c8e7ffdb8fc432b9abab9e53bd53c8e/pitch-estimate": 200,
+      "/api/video-jobs/2c8e7ffdb8fc432b9abab9e53bd53c8e/tactics": 200,
+      "source_range": 206
+    }
+  },
+  "changes": [
+    "Local brightness AND saturation contrast for thin paint; fitter masks unchanged",
+    "Guarded conic fallback after four-line method; ambiguous four-line solutions remain rejected",
+    "Streaming internal geometry log and source/hash-bound offline audit"
+  ],
+  "unchanged_guards": [
+    "all eligible markings must pass",
+    "median <=4px and >=65% within5px",
+    "opening/closing buffer check",
+    "camera opticalflow and300frame age",
+    "40km/h observed motion bound",
+    "shared105x68 TrackingRow contract"
+  ],
+  "limits": [
+    "No new independent annotations.12/18 reference frames outside published positions; these are not passes.",
+    "No measured distance ground truth. Motion audit checks consistency and bounds only.",
+    "Sample remains partial; unavailable players/time are not inferred."
+  ]
+}

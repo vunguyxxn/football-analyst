@@ -1,5 +1,12 @@
 # Luồng tải video và phân tích trong ứng dụng
 
+Cập nhật01/11/2026: bộ kiểm nhận thêm vạch trắng mảnh có tương phản cục
+bộ và fallback vòng tròn có kiểm riêng; clip mẫu tăng từ15,10 lên24,467s
+có tọa độ, vẫn `partial`. Chi tiết kiểm và giới hạn tại
+[VIDEO_ANALYSIS_QUALITY.md](VIDEO_ANALYSIS_QUALITY.md). Số liệu31/10 bên
+dưới được giữ làm lịch sử. Phiên bản mới lưu thêm `geometry.jsonl` nội bộ
+và hash để audit tọa độ theo thời gian, không thêm endpoint/schema chung.
+
 Ngày 31/10/2026. Theo yêu cầu hoàn thiện luồng, đã nối bước hiệu chỉnh
 sân vào tác vụ tải video và thêm cách chọn mốc trên giao diện. Đây là
 luồng kết hợp tự động/người dùng hỗ trợ, chưa phải hiệu chỉnh chính xác

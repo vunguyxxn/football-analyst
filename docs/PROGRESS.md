@@ -2,6 +2,41 @@
 
 ## Trạng thái hiện tại
 
+Ngày01/11/2026: theo yêu cầu tăng độ phủ và kiểm chất lượng trước khi
+thêm tính năng, đã cải thiện kiểm vạch mảnh ở xa camera: pixel bổ sung
+phải vừa sáng hơn vừa ít bão hòa hơn vùng lân cận, vẫn gần cỏ. Giữ mask
+fitter nghiên cứu cũ; nhánh ứng dụng thử fallback conic đã có khi bốn
+đường chưa đạt, nhưng vẫn phải vượt kiểm riêng/vạch toàn ảnh. Nhiều
+nghiệm bốn đường vẫn từ chối. Không đổi DATA_CONTRACT/dependency và
+không triển khai chuyền/sút. Ngưỡng4px/65%/5px, kiểm mở/đóng, optical
+flow/300frame/40kmh và không nối qua gap được giữ.
+
+Qua API thật trên cùng VideoProject15/f51735…: job
+2c8e7ffdb8fc432b9abab9e53bd53c8e, phiên bản mới
+e0b9fa2caf0f41c2a5c2a50a7d72296c có24,467/52,367s hiệu chỉnh (trước
+15,10s),13.584vị trí,714frame,4cửa sổ chiến thuật và4mục gợi ý.
+Bổ sung tự động43–52,367s, giữ ba đoạn cũ; không thêm mốc tay. Chạy
+riêng không nạp mốc tay cũng24,467s/4cửa sổ,13.578vị trí. Kết quả
+vẫn partial, chưa phải toàn clip; kết quả/demo cũ không bị ghi đè.
+
+Thêm geometry.jsonl nội bộ ghi nối tiếp và hash trong report; công cụ
+audit_pitch_result.py kiểm khóa nguồn/artifact, các ô nhiệt, tổng nhóm,
+timestamp/segment/ID, giới hạn và tính nhất quán vận động. Có6/18khung
+mốc phát triển đo được đều≤1m,12không đánh giá được (không coi là đạt),
+bao gồm rà lại mốc từng bị loại nếu thời điểm mới được phủ. Nhiệt khớp
+13.584rows=452,8giây-người; tốc độ lớn nhất29,446kmh. Không có đo đạc
+quãng đường độc lập; kiểm mốc cùng agent/cùng clip không phải test mù.
+Rà ảnh5/45/50s bám vùng chân/bố trí; phép chiếu ngược không là accuracy
+độc lập.80phép chiếu lệch±5m nhân tạo trên20ứng viên đều bị từ chối,
+không quy thành false-positive rate thực tế.
+
+425Python test đạt,1network deselected;5test mới về vạch trộn màu,
+fallback/gate, phép chiếu sai, audit và hash. Frontend không đổi;
+chưa có visual UI QA mới. Tài liệu VIDEO_ANALYSIS_QUALITY.md, khóa kết
+quả fixtures/upload_pitch_quality_v2.json; chi tiết cục bộ và ảnh rà
+ở data/processed/coverage_verification_v1. Còn cần nhãn/bộ clip độc lập,
+tăng phủ10–22s/29–43s và kiểm UI; không suy ra người khuất/đủ11người.
+
 Ngày 31/10/2026: theo yêu cầu “hoàn thành luồng”, đã tích hợp xử lý
 tracking → hiệu chỉnh tự động/bù camera → heatmap/vận động/chiến thuật
 vào tác vụ upload. Thêm chọn mốc ngay trong UI khi thiếu dữ liệu, không

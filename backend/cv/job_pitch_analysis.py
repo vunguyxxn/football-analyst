@@ -15,7 +15,7 @@ import numpy as np
 from backend.common.schemas import TrackingRow
 from backend.cv.camera_motion import CameraMotion
 from backend.cv.homography import matrix_for
-from backend.cv.pitch_circle_keypoints import white_pitch_pixels
+from backend.cv.pitch_circle_keypoints import fit_circle_pitch
 from backend.cv.pitch_keypoints import project
 from backend.cv.pitch_line_calibration import fit_line_pitch
 from backend.cv.pitch_metrics import PitchMetrics
@@ -97,10 +97,30 @@ def validate_manual_frame(source, payload, info):
     return matrix
 
 
+def validation_pitch_pixels(frame):
+    """White paint, including thin paint mixed with grass by downsampling.
+
+    Additional pixels must be locally brighter AND less saturated; a broad
+    light grass stripe alone is not evidence of a painted marking. Keep the
+    research fitters' original masks unchanged for reproducible benchmarks.
+    """
+    hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
+    saturation, value = hsv[:, :, 1], hsv[:, :, 2]
+    grass = ((hsv[:, :, 0] > 30) & (hsv[:, :, 0] < 90) & (saturation > 60)).astype(np.float32)
+    near_grass = cv2.boxFilter(grass, -1, (31, 31)) > .45
+    kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (9, 9))
+    brighter = cv2.morphologyEx(value, cv2.MORPH_TOPHAT, kernel) >= 15
+    less_saturated = cv2.morphologyEx(saturation, cv2.MORPH_BLACKHAT, kernel) >= 20
+    white = ((saturation < 100) & (value > 150))
+    mixed = (saturation < 140) & (value > 150) & brighter & less_saturated
+    yy, xx = np.nonzero((white | mixed) & near_grass)
+    return np.column_stack([xx, yy]).astype(np.float32)
+
+
 def projection_quality(frame, matrix):
     """Visible painted markings validate propagation, never refit the matrix."""
     height, width = frame.shape[:2]
-    pixels = white_pitch_pixels(frame)
+    pixels = validation_pitch_pixels(frame)
     if not len(pixels):
         return {"passed": False, "markings": [], "reason": "no_white_markings", "independently_validated": False}
     mask = np.ones((height, width), np.uint8)
@@ -124,17 +144,36 @@ def projection_quality(frame, matrix):
         xx, yy = np.rint(xy).astype(int).T
         residual = distance[yy, xx]
         passed = bool(np.median(residual) <= 4 and np.mean(residual <= 5) >= .65)
-        results.append({"marking": name, "family": family, "passed": passed})
+        results.append({"marking": name, "family": family, "passed": passed,
+                        "median_px": float(np.median(residual)), "supported_fraction": float(np.mean(residual <= 5))})
     theta = np.linspace(0, 2*np.pi, 240)
     xy = project(forward, np.c_[52.5+9.15*np.cos(theta), 34+9.15*np.sin(theta)])
     xy = xy[(xy[:, 0] >= 4) & (xy[:, 0] < width-4) & (xy[:, 1] >= 4) & (xy[:, 1] < height-4)]
     if len(xy) >= 40:
         xx, yy = np.rint(xy).astype(int).T
         residual = distance[yy, xx]
-        results.append({"marking": "circle", "family": "curve", "passed": bool(np.median(residual) <= 4 and np.mean(residual <= 5) >= .65)})
+        results.append({"marking": "circle", "family": "curve", "passed": bool(np.median(residual) <= 4 and np.mean(residual <= 5) >= .65),
+                        "median_px": float(np.median(residual)), "supported_fraction": float(np.mean(residual <= 5))})
     families = {item["family"] for item in results if item["passed"]}
     passed = len(results) >= 3 and all(item["passed"] for item in results) and {"x", "y"} <= families
     return {"passed": passed, "markings": results, "independently_validated": False}
+
+
+def automatic_matrix(frame, xy, confidence):
+    """Prefer four-line fit; conic fallback still needs every visible marking.
+
+    Each fitter retains its own disjoint validation; neither confidence nor
+    circle agreement alone can bypass the product's opening/closing checks.
+    """
+    for fitter in (fit_line_pitch, fit_circle_pitch):
+        fit = fitter(frame, xy, confidence)
+        if fit.get("reason") == "ambiguous_four_line_solutions":
+            return None
+        if fit["status"] == "candidate":
+            matrix = np.asarray(fit["matrix"])
+            if projection_quality(frame, matrix)["passed"]:
+                return matrix
+    return None
 
 
 def automatic_finder():
@@ -151,8 +190,7 @@ def automatic_finder():
         result = model.predict(frame, imgsz=640, device=device, conf=.25, verbose=False)[0]
         if len(result.boxes) != 1 or result.keypoints is None:
             return None
-        fit = fit_line_pitch(frame, result.keypoints.xy[0].cpu().numpy(), result.keypoints.conf[0].cpu().numpy())
-        return np.asarray(fit["matrix"]) if fit["status"] == "candidate" else None
+        return automatic_matrix(frame, result.keypoints.xy[0].cpu().numpy(), result.keypoints.conf[0].cpu().numpy())
     return find
 
 
@@ -213,7 +251,7 @@ def analyze_pitch(source, folder, info, progress, cancelled, *, finder_factory=a
                 metrics.observe(segment, row)
 
     try:
-        with (output / "tracking.jsonl").open("w", encoding="utf-8", newline="\n") as stream:
+        with (output / "tracking.jsonl").open("w", encoding="utf-8", newline="\n") as stream, (output / "geometry.jsonl").open("w", encoding="utf-8", newline="\n") as geometry_stream:
             for chunk_index in range(info["chunks"]):
                 chunk = json.loads((folder / f"chunk-{chunk_index}.json").read_text(encoding="utf-8"))
                 for record in chunk["frames"]:
@@ -251,6 +289,8 @@ def analyze_pitch(source, folder, info, progress, cancelled, *, finder_factory=a
                         matrix = motion.matrix @ up
                         check_due = anchor is not None or index % interval == 0 or index == info["frames"]-1
                         valid = not check_due or quality(frame, matrix)["passed"]
+                        geometry_stream.write(json.dumps({"frame": index, "segment": segment, "matrix": matrix.tolist(),
+                                              "marking_check": bool(valid) if check_due else None}, allow_nan=False)+"\n")
                         if not valid:
                             pending.clear()
                             motion = motion_factory()
@@ -313,7 +353,8 @@ def analyze_pitch(source, folder, info, progress, cancelled, *, finder_factory=a
                   "limits": ["Tọa độ từ mốc tự động hoặc mốc bạn chọn, được kiểm hình học; chưa kiểm chứng sai số thực địa.",
                              "Sân giả định 105×68m. Chỉ tính đoạn còn theo dõi và vượt kiểm vạch; không nối quãng đường qua mất dấu/đổi mốc.",
                              "Nhóm áo/ID chưa xác nhận danh tính, trọng tài hoặc thủ môn; không phải số liệu toàn trận."],
-                  "publication": {"policy": "hybrid_opening_closing_marking_checks_v1", "tracking_sha256": digest(output / "tracking.jsonl"), "independently_validated": False}}
+                  "publication": {"policy": "hybrid_opening_closing_marking_checks_v1", "tracking_sha256": digest(output / "tracking.jsonl"),
+                                  "geometry_sha256": digest(output / "geometry.jsonl"), "independently_validated": False}}
         from backend.tactics.video_tactics import build_report
         rows = [json.loads(line) for line in (output / "tracking.jsonl").read_text(encoding="utf-8").splitlines()]
         tactics = build_report(rows, report, info["fps"], info["frames"])
