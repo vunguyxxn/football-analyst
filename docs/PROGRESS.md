@@ -2,6 +2,42 @@
 
 ## Trạng thái hiện tại
 
+Ngày01/11/2026: đã kiểm toàn luồng upload trên3clip khác theo yêu cầu.
+Kết luận baseline61f1359: tracking hoàn tất3/3, nhưng **0/3clip có tọa
+độ sân/heatmap/chiến thuật tự động**. Chưa đạt phân tích tự động tổng
+quát. Không sửa thuật toán sản phẩm/ngưỡng hoặc gán mốc tay cho các
+clip để làm đẹp baseline. Bộ dữ liệu/ảnh và nguồn/model đã khóa hash.
+
+Project12:46,93s,1402/1408frame có người (99,6%),256ID/140ID<1s;
+Project15(1):35,90s,502/1077 (46,6%),95ID/46ngắn;
+Project15(2):80,93s,237/2428 (9,8%),96ID/43ngắn. Nhận biên lần lượt
+1402/506/241frame; camera không thấy đủ hai biên gây mất tracking.
+Project12 vẫn không có hiệu chỉnh dù tracking gần toàn clip, nên
+biên và mốc sân là hai nút thắt riêng. Trạng thái đều needs_input,
+API trả not_available cho pitch/tactics, không bịa số liệu/gợi ý.
+
+Giữ job người dùng ed6ed422cb6443f6ad239f3fab0addef chạy xong;
+hai job kiểm mới f27ce9794f0c42cfb9f2fdca127e701a và
+6b996615df664a0cb99f47d2c7bdd819. Kiểm sourceRange206, API200.
+Rà48lượt điểm chân/vai trò từ6ảnh thô, không phải nhãn độc lập/MOT
+đầy đủ. Project12/15(1) mỗi clip12/12mẫu tuyến ngoài ghép được,
+ảnh sau6/6màu khớp hoán vị khóa từ ảnh trước; mỗi clip6cặp0,5s giữID.
+Nhưng trọng tài bị gánB ở cả4lượt đo được; thủ môn cũng chưa tách khỏi
+nhóm tuyến ngoài. Project15(2)0/12mẫu tuyến ngoài cóbox tại1214/1229,
+không có bằng chứng đánh giáID/màu. Không suy0IDswitch thành đạt.
+
+Thêm evaluate_crossclip_uploads.py đọc job/khóa nguồn, đo tracking và
+mẫu màu/ID, kiểm căn cứ gợi ý nếu có. Exit0 chỉ là đo xong, không đạt
+nghiệm thu sản phẩm; automatic_analysis_ready_clips=0.428Python test
+đạt,1network deselected;3test mới. Không đổi DATA_CONTRACT/dependency,
+frontend hoặc thuật toán upload; không tuyên bố visualUI đã kiểm.
+Tài liệu VIDEO_CROSSCLIP_EVALUATION.md; manifests/nhãn/job mapping và
+results trong fixtures/upload_crossclip_*_v1.json. Chi tiết cục bộ
+data/processed/upload_crossclip_v1. Tiếp theo ưu tiên khôi phục biên/
+mốc có kiểm chứng, từ chối màu ngoài hai đội và tách vai trò, rồi mới
+đánh giá chiến thuật thực tế trên đoạn đủ dữ liệu. Các mục dưới là
+lịch sử; kết quả24,467s của clip mẫu không đại diện cho ba clip này.
+
 Ngày01/11/2026: theo yêu cầu tăng độ phủ và kiểm chất lượng trước khi
 thêm tính năng, đã cải thiện kiểm vạch mảnh ở xa camera: pixel bổ sung
 phải vừa sáng hơn vừa ít bão hòa hơn vùng lân cận, vẫn gần cỏ. Giữ mask

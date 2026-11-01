@@ -1,0 +1,388 @@
+{
+  "date": "2026-11-01",
+  "baseline_commit": "61f1359",
+  "scope": "full upload smoke test and sparse agent visual review; not independent accuracy, recall, IDF1 or tactical validation",
+  "input_hashes": {
+    "manifest": "89af72c75eb585befd2e5dc02befc2e9af1da950ef66525f08384c18ad77a069",
+    "labels": "26df5d741ee527bb10cac9e8788e47f94cf64fa77edf3c30112f7c7bbec6f653"
+  },
+  "evaluation_status": "completed",
+  "automatic_analysis_ready_clips": 0,
+  "acceptance": "not_met_for_automatic_football_analysis_on_these_three_clips",
+  "clips": [
+    {
+      "name": "Video Project 12.mp4",
+      "source_sha256": "cd6138c73e54f8bc0507bfd7492554a3f3fce5c015f14015173f948b50dc1711",
+      "job_id": "f27ce9794f0c42cfb9f2fdca127e701a",
+      "duration_s": 46.93333333333333,
+      "boundary_filter": {
+        "method": "white_touchlines_grass_v1",
+        "frames_with_boundary": 1402,
+        "excluded_detections": 8794,
+        "missing_boundary_policy": "no_tracking"
+      },
+      "calibration": {
+        "status": "needs_input",
+        "message": "Đã theo dõi người. Chưa có đoạn sân đủ tin cậy; hãy chọn mốc sân bên dưới.",
+        "attempted_frames": 1408,
+        "camera_status": {
+          "manual_anchor_required": 1408
+        }
+      },
+      "pitch_audit": null,
+      "calibrated_seconds": 0,
+      "tactical_windows": 0,
+      "recommendation_items": 0,
+      "tactics_trace_errors": [],
+      "tracking": {
+        "frames": 1408,
+        "frames_with_people": 1402,
+        "observations": 26337,
+        "track_ids": 256,
+        "short_track_ids": 140,
+        "unknown_fraction": 0.06861069977598055
+      },
+      "sparse_reviews": [
+        {
+          "gate_px": 25,
+          "outfield_labels": 12,
+          "outfield_matched": 12,
+          "first_sample_colour_mapping": {
+            "white": "B",
+            "opponent": "A"
+          },
+          "heldout_sample_role_matches": 6,
+          "heldout_sample_role_correct": 6,
+          "role_pairs": {
+            "white->B": 6,
+            "opponent->A": 6,
+            "referee->B": 2
+          },
+          "sampled_identity_pairs": 6,
+          "apparent_sampled_id_changes": [],
+          "sample_disappearances": [],
+          "referee_in_team_groups": 2,
+          "outside_people_kept": 0
+        },
+        {
+          "gate_px": 35,
+          "outfield_labels": 12,
+          "outfield_matched": 12,
+          "first_sample_colour_mapping": {
+            "white": "B",
+            "opponent": "A"
+          },
+          "heldout_sample_role_matches": 6,
+          "heldout_sample_role_correct": 6,
+          "role_pairs": {
+            "white->B": 6,
+            "opponent->A": 6,
+            "referee->B": 2
+          },
+          "sampled_identity_pairs": 6,
+          "apparent_sampled_id_changes": [],
+          "sample_disappearances": [],
+          "referee_in_team_groups": 2,
+          "outside_people_kept": 0
+        },
+        {
+          "gate_px": 50,
+          "outfield_labels": 12,
+          "outfield_matched": 11,
+          "first_sample_colour_mapping": {
+            "white": "B",
+            "opponent": "A"
+          },
+          "heldout_sample_role_matches": 5,
+          "heldout_sample_role_correct": 5,
+          "role_pairs": {
+            "white->B": 6,
+            "opponent->A": 5,
+            "referee->B": 2
+          },
+          "sampled_identity_pairs": 5,
+          "apparent_sampled_id_changes": [],
+          "sample_disappearances": [
+            "O1"
+          ],
+          "referee_in_team_groups": 2,
+          "outside_people_kept": 0
+        }
+      ],
+      "frame_with_people_fraction": 0.9957386363636364,
+      "artifact_hashes": {
+        "status": "6fa65fbbc49e16e99c573466e3b7f8af2cc5bcdcb4bb2421d8006d6df57be45a",
+        "calibration_status": "63d8ebff08cbf8d7e04977de6864491b2d7786dcfa8b9ae875d1bcafeb361093",
+        "chunks": [
+          "5a7cd8430bb08072f233f0725d7c8d51b8ee42dce77d8bd5983fef43324a3201",
+          "118bbe7137c644a6ab5f0db9ca4cc7579adf25b7acf3fa77deab5db95eba78f4",
+          "0a089cb84862f7887adc8c8788ab0ccdf9900d6f749fd8a78d1f4b159801db98",
+          "46b794979e9f4e29784aab6fcb38cd53756673b3bbc03be3bd9baa8b304eebed",
+          "b59d4e7c213511b38cf5bf910b9bed8b63b2b3db24b5f1501ed69ef4009f2402"
+        ]
+      },
+      "http_checks": {
+        "summary": {
+          "code": 200,
+          "status": null
+        },
+        "pitch-estimate": {
+          "code": 200,
+          "status": "not_available"
+        },
+        "tactics": {
+          "code": 200,
+          "status": "not_available"
+        },
+        "source_range": 206
+      }
+    },
+    {
+      "name": "Video Project 15 (1).mp4",
+      "source_sha256": "11a9b033dbeca46af7e3cf1117269b04044ddf8d89b6c594efc16222606dd053",
+      "job_id": "6b996615df664a0cb99f47d2c7bdd819",
+      "duration_s": 35.9,
+      "boundary_filter": {
+        "method": "white_touchlines_grass_v1",
+        "frames_with_boundary": 506,
+        "excluded_detections": 17359,
+        "missing_boundary_policy": "no_tracking"
+      },
+      "calibration": {
+        "status": "needs_input",
+        "message": "Đã theo dõi người. Chưa có đoạn sân đủ tin cậy; hãy chọn mốc sân bên dưới.",
+        "attempted_frames": 1077,
+        "camera_status": {
+          "manual_anchor_required": 1077
+        }
+      },
+      "pitch_audit": null,
+      "calibrated_seconds": 0,
+      "tactical_windows": 0,
+      "recommendation_items": 0,
+      "tactics_trace_errors": [],
+      "tracking": {
+        "frames": 1077,
+        "frames_with_people": 502,
+        "observations": 10530,
+        "track_ids": 95,
+        "short_track_ids": 46,
+        "unknown_fraction": 0.07568850902184235
+      },
+      "sparse_reviews": [
+        {
+          "gate_px": 25,
+          "outfield_labels": 12,
+          "outfield_matched": 12,
+          "first_sample_colour_mapping": {
+            "white": "B",
+            "opponent": "A"
+          },
+          "heldout_sample_role_matches": 6,
+          "heldout_sample_role_correct": 6,
+          "role_pairs": {
+            "white->B": 6,
+            "opponent->A": 6,
+            "referee->B": 2,
+            "goalkeeper->B": 2
+          },
+          "sampled_identity_pairs": 6,
+          "apparent_sampled_id_changes": [],
+          "sample_disappearances": [],
+          "referee_in_team_groups": 2,
+          "outside_people_kept": 0
+        },
+        {
+          "gate_px": 35,
+          "outfield_labels": 12,
+          "outfield_matched": 12,
+          "first_sample_colour_mapping": {
+            "white": "B",
+            "opponent": "A"
+          },
+          "heldout_sample_role_matches": 6,
+          "heldout_sample_role_correct": 6,
+          "role_pairs": {
+            "white->B": 6,
+            "opponent->A": 6,
+            "referee->B": 2,
+            "goalkeeper->B": 2
+          },
+          "sampled_identity_pairs": 6,
+          "apparent_sampled_id_changes": [],
+          "sample_disappearances": [],
+          "referee_in_team_groups": 2,
+          "outside_people_kept": 0
+        },
+        {
+          "gate_px": 50,
+          "outfield_labels": 12,
+          "outfield_matched": 12,
+          "first_sample_colour_mapping": {
+            "white": "B",
+            "opponent": "A"
+          },
+          "heldout_sample_role_matches": 6,
+          "heldout_sample_role_correct": 6,
+          "role_pairs": {
+            "white->B": 6,
+            "opponent->A": 6,
+            "referee->B": 2,
+            "goalkeeper->B": 2
+          },
+          "sampled_identity_pairs": 6,
+          "apparent_sampled_id_changes": [],
+          "sample_disappearances": [],
+          "referee_in_team_groups": 2,
+          "outside_people_kept": 0
+        }
+      ],
+      "frame_with_people_fraction": 0.4661095636025998,
+      "artifact_hashes": {
+        "status": "3bce2718a32f5ff40111624ae26b213bdf686ca49b5a266ecbfe930cee06ca42",
+        "calibration_status": "11c0accf70a683cd53745be895184fc207024d5a0bcca245399a6a58ffc516a1",
+        "chunks": [
+          "7866d58fa9ad5f6881cc39a8bcce12c2a24e6542f48253e8de439fb9a2ceac33",
+          "3c2b45f3468332ce807fb23b5e976ed8ba13a6c286c76419e168c89383343954",
+          "503553c57797f2b037a3f3337709428ed2a7b115fa07fcb29b1d24e6d24b4326",
+          "a4e675d4eac454deef4eec58c5b3258eccc01b23870dfedf202562000922c4fd"
+        ]
+      },
+      "http_checks": {
+        "summary": {
+          "code": 200,
+          "status": null
+        },
+        "pitch-estimate": {
+          "code": 200,
+          "status": "not_available"
+        },
+        "tactics": {
+          "code": 200,
+          "status": "not_available"
+        },
+        "source_range": 206
+      }
+    },
+    {
+      "name": "Video Project 15 (2).mp4",
+      "source_sha256": "ee1fd930c245f46213be2dbecc7219382ce940b73cf667c0983f5e4924012541",
+      "job_id": "ed6ed422cb6443f6ad239f3fab0addef",
+      "duration_s": 80.93333333333334,
+      "boundary_filter": {
+        "method": "white_touchlines_grass_v1",
+        "frames_with_boundary": 241,
+        "excluded_detections": 60573,
+        "missing_boundary_policy": "no_tracking"
+      },
+      "calibration": {
+        "status": "needs_input",
+        "message": "Đã theo dõi người. Chưa có đoạn sân đủ tin cậy; hãy chọn mốc sân bên dưới.",
+        "attempted_frames": 2428,
+        "camera_status": {
+          "manual_anchor_required": 2428
+        }
+      },
+      "pitch_audit": null,
+      "calibrated_seconds": 0,
+      "tactical_windows": 0,
+      "recommendation_items": 0,
+      "tactics_trace_errors": [],
+      "tracking": {
+        "frames": 2428,
+        "frames_with_people": 237,
+        "observations": 4904,
+        "track_ids": 96,
+        "short_track_ids": 43,
+        "unknown_fraction": 0.15456769983686786
+      },
+      "sparse_reviews": [
+        {
+          "gate_px": 25,
+          "outfield_labels": 12,
+          "outfield_matched": 0,
+          "first_sample_colour_mapping": null,
+          "heldout_sample_role_matches": 0,
+          "heldout_sample_role_correct": null,
+          "role_pairs": {},
+          "sampled_identity_pairs": 0,
+          "apparent_sampled_id_changes": [],
+          "sample_disappearances": [],
+          "referee_in_team_groups": 0,
+          "outside_people_kept": 0
+        },
+        {
+          "gate_px": 35,
+          "outfield_labels": 12,
+          "outfield_matched": 0,
+          "first_sample_colour_mapping": null,
+          "heldout_sample_role_matches": 0,
+          "heldout_sample_role_correct": null,
+          "role_pairs": {},
+          "sampled_identity_pairs": 0,
+          "apparent_sampled_id_changes": [],
+          "sample_disappearances": [],
+          "referee_in_team_groups": 0,
+          "outside_people_kept": 0
+        },
+        {
+          "gate_px": 50,
+          "outfield_labels": 12,
+          "outfield_matched": 0,
+          "first_sample_colour_mapping": null,
+          "heldout_sample_role_matches": 0,
+          "heldout_sample_role_correct": null,
+          "role_pairs": {},
+          "sampled_identity_pairs": 0,
+          "apparent_sampled_id_changes": [],
+          "sample_disappearances": [],
+          "referee_in_team_groups": 0,
+          "outside_people_kept": 0
+        }
+      ],
+      "frame_with_people_fraction": 0.09761120263591433,
+      "artifact_hashes": {
+        "status": "3efbded19e2d1bf2c07c6a973e46fdfc1f076a79535457f8c14b580f2605f99c",
+        "calibration_status": "e6d8fb23053eefc9877305e4405b7edffefdb5ca520f2dd6f1a163e7acdee142",
+        "chunks": [
+          "40f1f64b037e20cffe168133cf78d816b83879ea7637578ef9705870f2b0feed",
+          "eb57b154d21728ac5bba63ec61341bb046735fbcfd7f5518efa4c8fdce0da6ca",
+          "c6a781aaf5989f30fff0c010946baf113bb0a6303039517b1caa1bb7049a256c",
+          "00333cddc7b4ab72d83ac1bb9627fa4ec995af0d26b01309c4bd6e74e2971f70",
+          "77b861ca49ac5c98d93c67af143e21155bebc71e1ef99f3adb94946755bfb587",
+          "fa634b176e3fca165d6486777be9bbfac3d222e0d8b190a9df1e6738d196788b",
+          "848b895bc1981e47f4080c2d16a2080a3f061d01fa867f215dfdc7d5d1ff7257",
+          "3ab5c9646801e0a70962c459ae7531d3163c9d00cf6d4d03180ab4bc7cdd7e47",
+          "75c864b3eff6fd5ee175801e30fbb2720482c62883ea082adfdcb2fb601b6e5e"
+        ]
+      },
+      "http_checks": {
+        "summary": {
+          "code": 200,
+          "status": null
+        },
+        "pitch-estimate": {
+          "code": 200,
+          "status": "not_available"
+        },
+        "tactics": {
+          "code": 200,
+          "status": "not_available"
+        },
+        "source_range": 206
+      }
+    }
+  ],
+  "validation": {
+    "python_tests": 428,
+    "network_deselected": 1,
+    "frontend": "unchanged; no browser interaction claimed",
+    "dataset_result": "All three tracking jobs completed; none produced pitch coordinates or tactical windows"
+  },
+  "limits": [
+    "Only48sparse agent-labelled observations across6frames, not independent ground truth or complete-frame labels",
+    "No IDF1/MOTA, identity accuracy, full-frame precision/recall or independent calibration accuracy can be claimed",
+    "No calibration means heatmap/motion/tactics unavailable, not zero physical activity",
+    "No per-clip fitting, threshold changes, or product output corrections during this baseline"
+  ]
+}

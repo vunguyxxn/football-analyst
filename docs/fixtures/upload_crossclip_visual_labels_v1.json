@@ -1,0 +1,454 @@
+{
+  "scope": "sparse agent visual labels from raw frames before inspecting prediction boxes; not independent truth or complete frame annotation",
+  "gate_px": 35,
+  "sensitivity_gates_px": [
+    25,
+    35,
+    50
+  ],
+  "identity_gap_frames": 15,
+  "identity_note": "Local visible player continuation over0.5s only; not full MOT labels",
+  "clips": [
+    {
+      "name": "Video Project 12.mp4",
+      "source_sha256": "cd6138c73e54f8bc0507bfd7492554a3f3fce5c015f14015173f948b50dc1711",
+      "opponent_shirt": "black",
+      "frames": [
+        {
+          "frame": 704,
+          "raw_image_sha256": "9911e78e6f69972170f17176e3597392dda26f1bcf1e07dcb4517428d7301a8d",
+          "people": [
+            {
+              "identity": "W0",
+              "role": "white",
+              "xy": [
+                890,
+                860
+              ]
+            },
+            {
+              "identity": "W1",
+              "role": "white",
+              "xy": [
+                1032,
+                660
+              ]
+            },
+            {
+              "identity": "W2",
+              "role": "white",
+              "xy": [
+                398,
+                457
+              ]
+            },
+            {
+              "identity": "O0",
+              "role": "opponent",
+              "xy": [
+                812,
+                680
+              ]
+            },
+            {
+              "identity": "O1",
+              "role": "opponent",
+              "xy": [
+                1217,
+                521
+              ]
+            },
+            {
+              "identity": "O2",
+              "role": "opponent",
+              "xy": [
+                1636,
+                468
+              ]
+            },
+            {
+              "identity": "R",
+              "role": "referee",
+              "xy": [
+                1060,
+                464
+              ]
+            },
+            {
+              "identity": "X",
+              "role": "outside",
+              "xy": [
+                1648,
+                1000
+              ]
+            }
+          ]
+        },
+        {
+          "frame": 719,
+          "raw_image_sha256": "d075288d8ead016c7962bad52d06a254da124d16cc036637f5f14fb29478b280",
+          "people": [
+            {
+              "identity": "W0",
+              "role": "white",
+              "xy": [
+                906,
+                850
+              ]
+            },
+            {
+              "identity": "W1",
+              "role": "white",
+              "xy": [
+                1043,
+                647
+              ]
+            },
+            {
+              "identity": "W2",
+              "role": "white",
+              "xy": [
+                394,
+                448
+              ]
+            },
+            {
+              "identity": "O0",
+              "role": "opponent",
+              "xy": [
+                825,
+                672
+              ]
+            },
+            {
+              "identity": "O1",
+              "role": "opponent",
+              "xy": [
+                1205,
+                519
+              ]
+            },
+            {
+              "identity": "O2",
+              "role": "opponent",
+              "xy": [
+                1627,
+                461
+              ]
+            },
+            {
+              "identity": "R",
+              "role": "referee",
+              "xy": [
+                1060,
+                445
+              ]
+            },
+            {
+              "identity": "X",
+              "role": "outside",
+              "xy": [
+                1627,
+                1000
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Video Project 15 (1).mp4",
+      "source_sha256": "11a9b033dbeca46af7e3cf1117269b04044ddf8d89b6c594efc16222606dd053",
+      "opponent_shirt": "red",
+      "frames": [
+        {
+          "frame": 538,
+          "raw_image_sha256": "ac2755052920e19dfdc900035aea3c2def9ede9af0ea48724c5a1528d6d3e4c0",
+          "people": [
+            {
+              "identity": "W0",
+              "role": "white",
+              "xy": [
+                218,
+                982
+              ]
+            },
+            {
+              "identity": "W1",
+              "role": "white",
+              "xy": [
+                251,
+                814
+              ]
+            },
+            {
+              "identity": "W2",
+              "role": "white",
+              "xy": [
+                1531,
+                663
+              ]
+            },
+            {
+              "identity": "O0",
+              "role": "opponent",
+              "xy": [
+                135,
+                756
+              ]
+            },
+            {
+              "identity": "O1",
+              "role": "opponent",
+              "xy": [
+                666,
+                600
+              ]
+            },
+            {
+              "identity": "O2",
+              "role": "opponent",
+              "xy": [
+                1236,
+                641
+              ]
+            },
+            {
+              "identity": "R",
+              "role": "referee",
+              "xy": [
+                549,
+                543
+              ]
+            },
+            {
+              "identity": "K",
+              "role": "goalkeeper",
+              "xy": [
+                1796,
+                546
+              ]
+            }
+          ]
+        },
+        {
+          "frame": 553,
+          "raw_image_sha256": "b6936715f188f5a351d6e764cb6fdc6420bce879b6fa89737a66cf7a97b4ce03",
+          "people": [
+            {
+              "identity": "W0",
+              "role": "white",
+              "xy": [
+                218,
+                979
+              ]
+            },
+            {
+              "identity": "W1",
+              "role": "white",
+              "xy": [
+                292,
+                805
+              ]
+            },
+            {
+              "identity": "W2",
+              "role": "white",
+              "xy": [
+                1514,
+                651
+              ]
+            },
+            {
+              "identity": "O0",
+              "role": "opponent",
+              "xy": [
+                129,
+                755
+              ]
+            },
+            {
+              "identity": "O1",
+              "role": "opponent",
+              "xy": [
+                648,
+                595
+              ]
+            },
+            {
+              "identity": "O2",
+              "role": "opponent",
+              "xy": [
+                1239,
+                636
+              ]
+            },
+            {
+              "identity": "R",
+              "role": "referee",
+              "xy": [
+                524,
+                544
+              ]
+            },
+            {
+              "identity": "K",
+              "role": "goalkeeper",
+              "xy": [
+                1788,
+                548
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Video Project 15 (2).mp4",
+      "source_sha256": "ee1fd930c245f46213be2dbecc7219382ce940b73cf667c0983f5e4924012541",
+      "opponent_shirt": "red",
+      "frames": [
+        {
+          "frame": 1214,
+          "raw_image_sha256": "f4d05d0ecbf5cec1ba61fab24dd3f9bb36c4480189155c5fe12dddec865d0a8c",
+          "people": [
+            {
+              "identity": "W0",
+              "role": "white",
+              "xy": [
+                1047,
+                718
+              ]
+            },
+            {
+              "identity": "W1",
+              "role": "white",
+              "xy": [
+                1128,
+                553
+              ]
+            },
+            {
+              "identity": "W2",
+              "role": "white",
+              "xy": [
+                781,
+                463
+              ]
+            },
+            {
+              "identity": "O0",
+              "role": "opponent",
+              "xy": [
+                957,
+                901
+              ]
+            },
+            {
+              "identity": "O1",
+              "role": "opponent",
+              "xy": [
+                1150,
+                885
+              ]
+            },
+            {
+              "identity": "O2",
+              "role": "opponent",
+              "xy": [
+                1045,
+                528
+              ]
+            },
+            {
+              "identity": "R",
+              "role": "referee",
+              "xy": [
+                609,
+                416
+              ]
+            },
+            {
+              "identity": "K",
+              "role": "goalkeeper",
+              "xy": [
+                1702,
+                401
+              ]
+            }
+          ]
+        },
+        {
+          "frame": 1229,
+          "raw_image_sha256": "41b59ca3424c3b4728cf966fca69caaab2023389569752157fc740a190fc6275",
+          "people": [
+            {
+              "identity": "W0",
+              "role": "white",
+              "xy": [
+                1061,
+                709
+              ]
+            },
+            {
+              "identity": "W1",
+              "role": "white",
+              "xy": [
+                1141,
+                529
+              ]
+            },
+            {
+              "identity": "W2",
+              "role": "white",
+              "xy": [
+                803,
+                439
+              ]
+            },
+            {
+              "identity": "O0",
+              "role": "opponent",
+              "xy": [
+                962,
+                887
+              ]
+            },
+            {
+              "identity": "O1",
+              "role": "opponent",
+              "xy": [
+                1122,
+                862
+              ]
+            },
+            {
+              "identity": "O2",
+              "role": "opponent",
+              "xy": [
+                1059,
+                507
+              ]
+            },
+            {
+              "identity": "R",
+              "role": "referee",
+              "xy": [
+                608,
+                404
+              ]
+            },
+            {
+              "identity": "K",
+              "role": "goalkeeper",
+              "xy": [
+                1708,
+                402
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

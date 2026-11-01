@@ -1,0 +1,71 @@
+{
+  "scope": "full local upload clips; development evaluation, not independent match-level validation",
+  "commit": "61f1359b76f81f4e11a95d936febbd42b40caafb",
+  "model_sha256": "28f68f7c4056d6d9b137efd2e7ab5f3c494039380c63831649126ced25628b36",
+  "clips": [
+    {
+      "name": "Video Project 12.mp4",
+      "source_sha256": "cd6138c73e54f8bc0507bfd7492554a3f3fce5c015f14015173f948b50dc1711",
+      "info": {
+        "fps": 30.0,
+        "frames": 1408,
+        "width": 1920,
+        "height": 1080,
+        "duration_s": 46.93333333333333
+      },
+      "review_frames": [
+        0,
+        704,
+        1407
+      ],
+      "checkpoints": [],
+      "identity_pair_frames": [
+        704,
+        719
+      ]
+    },
+    {
+      "name": "Video Project 15 (1).mp4",
+      "source_sha256": "11a9b033dbeca46af7e3cf1117269b04044ddf8d89b6c594efc16222606dd053",
+      "info": {
+        "fps": 30.0,
+        "frames": 1077,
+        "width": 1920,
+        "height": 1080,
+        "duration_s": 35.9
+      },
+      "review_frames": [
+        0,
+        538,
+        1076
+      ],
+      "checkpoints": [],
+      "identity_pair_frames": [
+        538,
+        553
+      ]
+    },
+    {
+      "name": "Video Project 15 (2).mp4",
+      "source_sha256": "ee1fd930c245f46213be2dbecc7219382ce940b73cf667c0983f5e4924012541",
+      "info": {
+        "fps": 30.0,
+        "frames": 2428,
+        "width": 1920,
+        "height": 1080,
+        "duration_s": 80.93333333333334
+      },
+      "review_frames": [
+        0,
+        1214,
+        2427
+      ],
+      "checkpoints": [],
+      "identity_pair_frames": [
+        1214,
+        1229
+      ]
+    }
+  ],
+  "detector_model_sha256": "0ebbc80d4a7680d14987a577cd21342b65ecfd94632bd9a8da63ae6417644ee1"
+}

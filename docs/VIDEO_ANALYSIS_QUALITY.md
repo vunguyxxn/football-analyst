@@ -1,5 +1,10 @@
 # Kiểm chất lượng tọa độ, heatmap và vận động
 
+Cập nhật kiểm đa clip01/11/2026: ba video khác đều chưa tự tạo tọa độ
+sân. Kết quả clip mẫu bên dưới không đại diện khả năng tổng quát.
+Xem [VIDEO_CROSSCLIP_EVALUATION.md](VIDEO_CROSSCLIP_EVALUATION.md)
+để biết độ phủ tracking, lỗi vai trò và các giới hạn đã đo.
+
 Ngày 01/11/2026. Mục tiêu phiên này là mở rộng thời gian có dữ liệu hợp lệ
 và rà kết quả của luồng upload, giữ nguyên hợp đồng TrackingRow và sân
 105 × 68 m. Không triển khai lại chuyền/sút hay thêm thư viện.
