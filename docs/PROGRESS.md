@@ -2,6 +2,21 @@
 
 ## Trạng thái hiện tại
 
+Ngày02/11/2026: đã đọc/đánh giá withqwerty/football-docs theo yêu cầu,
+khóa commit b1fb1c175226b9726ac31524bf232d54cf960745 (package0.17.4).
+Đáng học metric cards có variant/công thức/nguồn/giới hạn, fixture khóa
+commit/hash và kiểm chất lượng tra cứu. MCP phù hợp hỗ trợ agent phát
+triển; không giải quyết trực tiếp thiếu biên/mốc sân hay phân vai video.
+Có thể nghiên cứu PPDA/field tilt ở nhánh StatsBomb sau khi chốt định
+nghĩa và adapter; chưa cho phép thêm tính năng từ đánh giá này. Đã chỉ
+ra hàm đổi mét tham khảo giữ y hướng xuống, không khớp gốc dưới của
+DATA_CONTRACT; mã tham chiếu dùng JSON nested, không cắm thẳng CSV.
+Chi tiết/ưu tiên/điều kiện nghiệm thu: FOOTBALL_DOCS_REPOSITORY_REVIEW.md.
+Không sửa mã ứng dụng, hợp đồng hoặc dependency; không cài/chạy MCP,
+không tải model/dataset. Kiểm git diff --check; không chạy lại test
+backend/frontend cho thay đổi tài liệu, không tuyên bố test upstream đạt.
+Trạng thái chất lượng video bên dưới vẫn giữ nguyên.
+
 Ngày01/11/2026: đã kiểm toàn luồng upload trên3clip khác theo yêu cầu.
 Kết luận baseline61f1359: tracking hoàn tất3/3, nhưng **0/3clip có tọa
 độ sân/heatmap/chiến thuật tự động**. Chưa đạt phân tích tự động tổng
