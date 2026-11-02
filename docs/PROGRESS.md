@@ -2,6 +2,36 @@
 
 ## Trạng thái hiện tại
 
+Ngày 02/11/2026: hoàn tất bước 1 bổ sung/rà nhãn trọng tài, chưa train lại.
+Gói referee_annotations_v2.json có 83 ROI từ 15 frame video mới rà và
+10 ảnh nguồn thuộc train: 30 lượt trọng tài mới (xanh nhạt), 17 nhãn
+gốc rà lại (không tính mới), 30 vùng cầu thủ đối chiếu, 6 vùng nhân viên/
+camera làm nền. Rà 395 crop person, 22 nhãn trọng tài gốc và overlay83ROI.
+5 nhãn nguồn mờ/nhỏ và2 trường hợp đầu/áo bị cắt được quarantine, không
+gán vai trò hoặc âm tính. Chưa có người kiểm độc lập; bbox có model hỗ trợ.
+
+47 lượt trọng tài được giữ: xanh33/vàng10/đỏ3/đen1; đây là lượt quan
+sát có lặp người, không phải47người/trận độc lập. 32 lượt dưới24px khi
+quy640,3bị che một phần,2cắt mép ảnh;8góc trước/23bên/14sau/2chưa rõ.
+Nguồn mới vẫn ba clip đỏ–trắng đã ở train; không lấy Project12/08fd33
+hoặc nhóm sân vàng validation. Giữ nguyên protocol/dataset v1 và raw;
+5 nhãn gốc chưa rõ chỉ bị loại khỏi gói ROI mới, chưa sửa cả frame v1.
+
+Chỉ ROI đã rà có nhãn; phần ngoài ROI chưa gán nhãn, không được lấy cả
+frame làm train với nền giả. Vai trò trọng tài biên là nhãn ngữ nghĩa,
+không thay bộ lọc ngoài sân hoặc cấp ID ngoài biên. Không đổi model,
+weights, DATA_CONTRACT, frontend/dependency; chưa có recall mới.
+
+Thêm validate_referee_annotations.py/13test: khóa hash nguồn, chặn
+test/validation kể cả đổi tên video, không tính lại frame cũ là mới,
+giới hạn bbox trong ROI, không đổi lớp chính/đếm nhãn cũ thành mới,
+không nhận quarantine ở đối tượng phụ hoặc tuyên bố kiểm độc lập.
+Đã xác minh bytes25nguồn/frame/crop; snapshot referee_annotation_audit_v2.
+502 Python test đạt,1network deselected,4warning cũ. Xem
+REFEREE_ANNOTATIONS_V2.md; ảnh local data/processed/referee_annotation_v2.
+Bước2 tiếp theo mới chuyển ROI đủ điều kiện thành dataset mới/cân bằng
+train; cần giữ số mẫu thật riêng số crop/lặp, kiểm nhãn cắt mép và chưa rõ.
+
 Ngày 02/11/2026: hoàn tất bổ sung nhãn và huấn luyện vai trò nano/small.
 Khôi phục ba lớp player/goalkeeper/referee từ dữ liệu gốc đã khóa hash,
 bổ sung 177 bbox trên 8 frame/4 video, rà ảnh đầy đủ/crop theo proposal;

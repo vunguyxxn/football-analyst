@@ -1,0 +1,3279 @@
+{
+  "kind": "referee_annotation_packet_v2",
+  "date": "2026-11-02",
+  "base_protocol": "docs/fixtures/role_finetune_protocol_v1.json",
+  "base_protocol_sha256": "43199bc0b3511e3b477cb903eca4a73af78806ff7006ce5fbca3851ca16645fe",
+  "scope": "Train sources only. Explicit reviewed rectangular ROIs; all pixels outside ROI are unlabelled, never background. No training, oversampling or runtime changes. Existing source reviews are not counted as new referee observations.",
+  "annotation_method": "Role-blind COCO11n person proposals, sorted by centre x then top y, plus original native dataset boxes. Agent assigns roles from raw images; no trained role-detector output used. Model-assisted boxes, no independent second reviewer.",
+  "independently_validated": false,
+  "sources": [
+    {
+      "key": "c0-f330",
+      "source": "data/raw/Video Project 15.mp4",
+      "source_sha256": "f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0",
+      "frame": 330,
+      "width": 1920,
+      "height": 1080,
+      "raw_image_sha256": "b77fb77d025d77faa967abacd72e2e52fa64db8104d27b9a24486c846002d4f7",
+      "id": "c0-f330",
+      "type": "video_frame",
+      "family": "euro_red_white",
+      "split": "train"
+    },
+    {
+      "key": "c0-f510",
+      "source": "data/raw/Video Project 15.mp4",
+      "source_sha256": "f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0",
+      "frame": 510,
+      "width": 1920,
+      "height": 1080,
+      "raw_image_sha256": "11f312d003d05c3f22f1e229196e14846a8f6fd83e572cb7270d5fea06943aee",
+      "id": "c0-f510",
+      "type": "video_frame",
+      "family": "euro_red_white",
+      "split": "train"
+    },
+    {
+      "key": "c0-f690",
+      "source": "data/raw/Video Project 15.mp4",
+      "source_sha256": "f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0",
+      "frame": 690,
+      "width": 1920,
+      "height": 1080,
+      "raw_image_sha256": "0bd49ddc0396b8f17ce12f002f3829edec2039d5b1826549bfc261301c42a08b",
+      "id": "c0-f690",
+      "type": "video_frame",
+      "family": "euro_red_white",
+      "split": "train"
+    },
+    {
+      "key": "c0-f870",
+      "source": "data/raw/Video Project 15.mp4",
+      "source_sha256": "f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0",
+      "frame": 870,
+      "width": 1920,
+      "height": 1080,
+      "raw_image_sha256": "78a895af637c4aca268394979cd5e5d1036c9ac39a2fed4041935af4583d9727",
+      "id": "c0-f870",
+      "type": "video_frame",
+      "family": "euro_red_white",
+      "split": "train"
+    },
+    {
+      "key": "c0-f1110",
+      "source": "data/raw/Video Project 15.mp4",
+      "source_sha256": "f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0",
+      "frame": 1110,
+      "width": 1920,
+      "height": 1080,
+      "raw_image_sha256": "50c29e4b9782c55348001a4dc84d3232865610439b7e47612f4420487bcd59fc",
+      "id": "c0-f1110",
+      "type": "video_frame",
+      "family": "euro_red_white",
+      "split": "train"
+    },
+    {
+      "key": "c0-f1290",
+      "source": "data/raw/Video Project 15.mp4",
+      "source_sha256": "f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0",
+      "frame": 1290,
+      "width": 1920,
+      "height": 1080,
+      "raw_image_sha256": "376b645add87fb6f8a0e63aace34221e06671893b25700d09598a35f3a3e5ccf",
+      "id": "c0-f1290",
+      "type": "video_frame",
+      "family": "euro_red_white",
+      "split": "train"
+    },
+    {
+      "key": "c0-f1530",
+      "source": "data/raw/Video Project 15.mp4",
+      "source_sha256": "f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0",
+      "frame": 1530,
+      "width": 1920,
+      "height": 1080,
+      "raw_image_sha256": "7a3f57a2ac885b51efbc9dccd35a0736807d42c7d3c9a8ecf6f7bcbe9073c709",
+      "id": "c0-f1530",
+      "type": "video_frame",
+      "family": "euro_red_white",
+      "split": "train"
+    },
+    {
+      "key": "c1-f150",
+      "source": "data/raw/Video Project 15 (1).mp4",
+      "source_sha256": "11a9b033dbeca46af7e3cf1117269b04044ddf8d89b6c594efc16222606dd053",
+      "frame": 150,
+      "width": 1920,
+      "height": 1080,
+      "raw_image_sha256": "b30668f53e725275c38bc4b6c0fa93ae68681a7ba53dee3e27e7ce7e96241bea",
+      "id": "c1-f150",
+      "type": "video_frame",
+      "family": "euro_red_white",
+      "split": "train"
+    },
+    {
+      "key": "c1-f350",
+      "source": "data/raw/Video Project 15 (1).mp4",
+      "source_sha256": "11a9b033dbeca46af7e3cf1117269b04044ddf8d89b6c594efc16222606dd053",
+      "frame": 350,
+      "width": 1920,
+      "height": 1080,
+      "raw_image_sha256": "abf121b7f45017c8927f140902f82cd6cc28e2e931aba2564382df32587566c0",
+      "id": "c1-f350",
+      "type": "video_frame",
+      "family": "euro_red_white",
+      "split": "train"
+    },
+    {
+      "key": "c1-f650",
+      "source": "data/raw/Video Project 15 (1).mp4",
+      "source_sha256": "11a9b033dbeca46af7e3cf1117269b04044ddf8d89b6c594efc16222606dd053",
+      "frame": 650,
+      "width": 1920,
+      "height": 1080,
+      "raw_image_sha256": "6a2a472e9286b07e56c8731cea82cbff6a3c9b50cdbb737bc349fadc011f977c",
+      "id": "c1-f650",
+      "type": "video_frame",
+      "family": "euro_red_white",
+      "split": "train"
+    },
+    {
+      "key": "c1-f1000",
+      "source": "data/raw/Video Project 15 (1).mp4",
+      "source_sha256": "11a9b033dbeca46af7e3cf1117269b04044ddf8d89b6c594efc16222606dd053",
+      "frame": 1000,
+      "width": 1920,
+      "height": 1080,
+      "raw_image_sha256": "5aef53703a0c1b424b8d2c2d70298526582479b6e88fd0535836e2e508a0badb",
+      "id": "c1-f1000",
+      "type": "video_frame",
+      "family": "euro_red_white",
+      "split": "train"
+    },
+    {
+      "key": "c2-f300",
+      "source": "data/raw/Video Project 15 (2).mp4",
+      "source_sha256": "ee1fd930c245f46213be2dbecc7219382ce940b73cf667c0983f5e4924012541",
+      "frame": 300,
+      "width": 1920,
+      "height": 1080,
+      "raw_image_sha256": "769ef3f153566da924a1323dca131b6e0bf5b24758551e9b8a54cd39c5b64c83",
+      "id": "c2-f300",
+      "type": "video_frame",
+      "family": "euro_red_white",
+      "split": "train"
+    },
+    {
+      "key": "c2-f700",
+      "source": "data/raw/Video Project 15 (2).mp4",
+      "source_sha256": "ee1fd930c245f46213be2dbecc7219382ce940b73cf667c0983f5e4924012541",
+      "frame": 700,
+      "width": 1920,
+      "height": 1080,
+      "raw_image_sha256": "c01d718d274f96569321fc5aaaf8e487efd3cac7039d6971f16c84b1dba15624",
+      "id": "c2-f700",
+      "type": "video_frame",
+      "family": "euro_red_white",
+      "split": "train"
+    },
+    {
+      "key": "c2-f1750",
+      "source": "data/raw/Video Project 15 (2).mp4",
+      "source_sha256": "ee1fd930c245f46213be2dbecc7219382ce940b73cf667c0983f5e4924012541",
+      "frame": 1750,
+      "width": 1920,
+      "height": 1080,
+      "raw_image_sha256": "a40cc8bd78b619eb6811540f0c45e29f32611e36f717f5b68e929b2b47bbf6f8",
+      "id": "c2-f1750",
+      "type": "video_frame",
+      "family": "euro_red_white",
+      "split": "train"
+    },
+    {
+      "key": "c2-f2250",
+      "source": "data/raw/Video Project 15 (2).mp4",
+      "source_sha256": "ee1fd930c245f46213be2dbecc7219382ce940b73cf667c0983f5e4924012541",
+      "frame": 2250,
+      "width": 1920,
+      "height": 1080,
+      "raw_image_sha256": "5c5bb3a36627caa2fbb52dab202c60fc8bb5b5e591306c6a800a759bf83c2b79",
+      "id": "c2-f2250",
+      "type": "video_frame",
+      "family": "euro_red_white",
+      "split": "train"
+    },
+    {
+      "id": "native-40cd38_7_6_png.rf.81d37056bceae603a917ca7775c114a8",
+      "type": "image",
+      "source": "data/raw/football_detection_source_v1/data/test/images/40cd38_7_6_png.rf.81d37056bceae603a917ca7775c114a8.jpg",
+      "source_sha256": "b4f38c008fd8d3034bb93bcede6ffc1d8a131b6ac52fe2244d168aacf32fb2b0",
+      "label_source": "data/test/labels/40cd38_7_6_png.rf.81d37056bceae603a917ca7775c114a8.txt",
+      "label_source_sha256": "52263c8c8bb93bd2c37e7ea51c9bd7abe76fa76d36521a8ec7e6fd16fb764927",
+      "width": 1920,
+      "height": 1080,
+      "family": "red_stadiums",
+      "split": "train"
+    },
+    {
+      "id": "native-42ba34_1_5_png.rf.091a3bb1daf07a70b2cc0c9f50b1e79e",
+      "type": "image",
+      "source": "data/raw/football_detection_source_v1/data/test/images/42ba34_1_5_png.rf.091a3bb1daf07a70b2cc0c9f50b1e79e.jpg",
+      "source_sha256": "7ad2d1dab2a7e19c68b9a90c77f66100079aa90ea311c072126886b364cff2ee",
+      "label_source": "data/test/labels/42ba34_1_5_png.rf.091a3bb1daf07a70b2cc0c9f50b1e79e.txt",
+      "label_source_sha256": "9403c8ab9b6b8a0af152a0ffcf45b4adf93a425b56edd93694fe13857184c901",
+      "width": 1920,
+      "height": 1080,
+      "family": "red_stadiums",
+      "split": "train"
+    },
+    {
+      "id": "native-573e61_1_9_png.rf.295dfa87016366f8d7b83f4cf93905bb",
+      "type": "image",
+      "source": "data/raw/football_detection_source_v1/data/test/images/573e61_1_9_png.rf.295dfa87016366f8d7b83f4cf93905bb.jpg",
+      "source_sha256": "e08fe697ad97ea11fbcc09c930eff0645f263738aab3c85ad510030da167d593",
+      "label_source": "data/test/labels/573e61_1_9_png.rf.295dfa87016366f8d7b83f4cf93905bb.txt",
+      "label_source_sha256": "1786bebe8ada810f9cdaee307557e6a6857a6fa1d89b8e847c4a01d663688cb2",
+      "width": 1920,
+      "height": 1080,
+      "family": "red_stadiums",
+      "split": "train"
+    },
+    {
+      "id": "native-744b27_1_10_png.rf.6506ec3c9f955401d7e297b9f24cd1c2",
+      "type": "image",
+      "source": "data/raw/football_detection_source_v1/data/test/images/744b27_1_10_png.rf.6506ec3c9f955401d7e297b9f24cd1c2.jpg",
+      "source_sha256": "ade2d8eb008f638a7e6b7bb05a5db36392081034ef981c7820af6a147f943ebb",
+      "label_source": "data/test/labels/744b27_1_10_png.rf.6506ec3c9f955401d7e297b9f24cd1c2.txt",
+      "label_source_sha256": "b35cf54f4fd9f2d001dd3d4d33d625aa8aa7939cfb6e63d1c5a24a4a9dc13a3f",
+      "width": 1920,
+      "height": 1080,
+      "family": "red_stadiums",
+      "split": "train"
+    },
+    {
+      "id": "native-a9f16c_2_10_png.rf.1f142141ca710d8cfe79ff3aad386944",
+      "type": "image",
+      "source": "data/raw/football_detection_source_v1/data/test/images/a9f16c_2_10_png.rf.1f142141ca710d8cfe79ff3aad386944.jpg",
+      "source_sha256": "c72500247285795a52310e3ec339000024c737149a7c18f11a0246f3b8056eb5",
+      "label_source": "data/test/labels/a9f16c_2_10_png.rf.1f142141ca710d8cfe79ff3aad386944.txt",
+      "label_source_sha256": "7fd0d85138e4c6eaef0881972d716e55de4ad188d7aaf0dfee7e5d64f813f61f",
+      "width": 1920,
+      "height": 1080,
+      "family": "red_stadiums",
+      "split": "train"
+    },
+    {
+      "id": "native-121364_7_10_png.rf.d612470c8674d649a7a09ef6ce000e72",
+      "type": "image",
+      "source": "data/raw/football_detection_source_v1/data/train/images/121364_7_10_png.rf.d612470c8674d649a7a09ef6ce000e72.jpg",
+      "source_sha256": "c5fa11220a26a81489f4f1e8d8d15e83819cc59203c433eb351c89610eb6a3a0",
+      "label_source": "data/train/labels/121364_7_10_png.rf.d612470c8674d649a7a09ef6ce000e72.txt",
+      "label_source_sha256": "53f878b16f378532baa27bd38f5f424f82c2ca28719e9c7fb99d1e749a00abc2",
+      "width": 1920,
+      "height": 1080,
+      "family": "red_stadiums",
+      "split": "train"
+    },
+    {
+      "id": "native-2e57b9_1_10_png.rf.ec1ea28433a4f736551f4040e902e236",
+      "type": "image",
+      "source": "data/raw/football_detection_source_v1/data/train/images/2e57b9_1_10_png.rf.ec1ea28433a4f736551f4040e902e236.jpg",
+      "source_sha256": "f60dfd5321ea4bb50eda91ff70681cd25dea28bbae84f4b8c8f204bf0940eed1",
+      "label_source": "data/train/labels/2e57b9_1_10_png.rf.ec1ea28433a4f736551f4040e902e236.txt",
+      "label_source_sha256": "3ebfade8553391e425e54225d40c85f50d48c421f93316f49e5e666aab2e8741",
+      "width": 1920,
+      "height": 1080,
+      "family": "red_stadiums",
+      "split": "train"
+    },
+    {
+      "id": "native-54745b_1_7_png.rf.bda9767fc2a07387f263821d1e449e3c",
+      "type": "image",
+      "source": "data/raw/football_detection_source_v1/data/train/images/54745b_1_7_png.rf.bda9767fc2a07387f263821d1e449e3c.jpg",
+      "source_sha256": "ee642b65a320427f1273daa8ed22c96c21f26fadd818b3ca12cdf1925cd00a3e",
+      "label_source": "data/train/labels/54745b_1_7_png.rf.bda9767fc2a07387f263821d1e449e3c.txt",
+      "label_source_sha256": "40e83e45456cb0d9b0c4e58f137fb951a50fd3de5d39e93740d3dc5abe4212ac",
+      "width": 1920,
+      "height": 1080,
+      "family": "red_stadiums",
+      "split": "train"
+    },
+    {
+      "id": "native-55c9d1_3_1_png.rf.07c7686af5672912560847946b4b001c",
+      "type": "image",
+      "source": "data/raw/football_detection_source_v1/data/train/images/55c9d1_3_1_png.rf.07c7686af5672912560847946b4b001c.jpg",
+      "source_sha256": "635279de68b56bcb63dfd8fe94ec1f38fcf5325105b4bfabb1e6160ebc28af2b",
+      "label_source": "data/train/labels/55c9d1_3_1_png.rf.07c7686af5672912560847946b4b001c.txt",
+      "label_source_sha256": "c70ab35cd4ef25d9957dbb248edc9c022be6d58094ef98bc266d25be8c179a93",
+      "width": 1920,
+      "height": 1080,
+      "family": "red_stadiums",
+      "split": "train"
+    },
+    {
+      "id": "native-c01561_1_10_png.rf.3f004c5d1ff29736ea3c76c15311b910",
+      "type": "image",
+      "source": "data/raw/football_detection_source_v1/data/train/images/c01561_1_10_png.rf.3f004c5d1ff29736ea3c76c15311b910.jpg",
+      "source_sha256": "89ff83a3964ab1408262c21481919b1b3b628c58d948745cdc47d190a69347ed",
+      "label_source": "data/train/labels/c01561_1_10_png.rf.3f004c5d1ff29736ea3c76c15311b910.txt",
+      "label_source_sha256": "3155f2a5f3f8659b778cb3d71c9e2804e2cac8ef3f3326591a66d79b9ccf2ca0",
+      "width": 1920,
+      "height": 1080,
+      "family": "red_stadiums",
+      "split": "train"
+    }
+  ],
+  "regions": [
+    {
+      "id": "c0-f330-5",
+      "source_id": "c0-f330",
+      "roi": [
+        377,
+        106,
+        400,
+        169
+      ],
+      "origin": "new_local_frame",
+      "subject_id": "5",
+      "kind": "referee",
+      "attributes": {
+        "shirt_color": "light_blue",
+        "occlusion": "none_visible",
+        "body_clipped_by_image": false,
+        "pose": "uncertain",
+        "height_at_imgsz640": 19.21
+      },
+      "objects": [
+        {
+          "id": "5",
+          "role": "referee",
+          "xyxy": [
+            379.4,
+            108.56,
+            397.93,
+            166.19
+          ]
+        }
+      ],
+      "patch_sha256": "e4865f8af0c484391ede1b84d47d39e398f0ffa74e95b3acaf314966fad379a0",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "c0-f330-14",
+      "source_id": "c0-f330",
+      "roi": [
+        927,
+        476,
+        961,
+        570
+      ],
+      "origin": "new_local_frame",
+      "subject_id": "14",
+      "kind": "referee",
+      "attributes": {
+        "shirt_color": "light_blue",
+        "occlusion": "none_visible",
+        "body_clipped_by_image": false,
+        "pose": "front",
+        "height_at_imgsz640": 29.42
+      },
+      "objects": [
+        {
+          "id": "14",
+          "role": "referee",
+          "xyxy": [
+            929.16,
+            478.91,
+            958.63,
+            567.16
+          ]
+        }
+      ],
+      "patch_sha256": "b92147d7aff48544bb1b8d9f15da2cff974fcb6a562666a9832f3732c1afa1dc",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "c0-f330-0",
+      "source_id": "c0-f330",
+      "roi": [
+        55,
+        601,
+        100,
+        697
+      ],
+      "origin": "new_local_frame",
+      "subject_id": "0",
+      "kind": "player_hard_negative",
+      "attributes": {
+        "reason": "active player; shirt colour alone is not referee evidence"
+      },
+      "objects": [
+        {
+          "id": "0",
+          "role": "player",
+          "xyxy": [
+            57.61,
+            603.61,
+            97.81,
+            694.13
+          ]
+        }
+      ],
+      "patch_sha256": "30e9c4414216d43fbcec39fd25811f68a7d2a7a4c34fe05d0c06eff849b400f9",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "c0-f330-1",
+      "source_id": "c0-f330",
+      "roi": [
+        99,
+        431,
+        134,
+        508
+      ],
+      "origin": "new_local_frame",
+      "subject_id": "1",
+      "kind": "player_hard_negative",
+      "attributes": {
+        "reason": "active player; shirt colour alone is not referee evidence"
+      },
+      "objects": [
+        {
+          "id": "1",
+          "role": "player",
+          "xyxy": [
+            101.52,
+            433.65,
+            131.49,
+            505.6
+          ]
+        }
+      ],
+      "patch_sha256": "fde5506edeff05f878733056bb1fe035d09fa5ad5f92ddf4243b751bcafee463",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "c0-f330-11",
+      "source_id": "c0-f330",
+      "roi": [
+        815,
+        96,
+        841,
+        157
+      ],
+      "origin": "new_local_frame",
+      "subject_id": "11",
+      "kind": "staff_background",
+      "attributes": {
+        "reason": "sideline staff or camera operator, not an active player or match official"
+      },
+      "objects": [],
+      "patch_sha256": "a8361604d66769220009bd355f04f910fc53f0b565d45bff92b5b3ced0f54bdc",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "c0-f510-1",
+      "source_id": "c0-f510",
+      "roi": [
+        120,
+        143,
+        143,
+        193
+      ],
+      "origin": "new_local_frame",
+      "subject_id": "1",
+      "kind": "referee",
+      "attributes": {
+        "shirt_color": "light_blue",
+        "occlusion": "none_visible",
+        "body_clipped_by_image": false,
+        "pose": "side",
+        "height_at_imgsz640": 15.26
+      },
+      "objects": [
+        {
+          "id": "1",
+          "role": "referee",
+          "xyxy": [
+            122.94,
+            145.12,
+            140.68,
+            190.9
+          ]
+        }
+      ],
+      "patch_sha256": "a79e229f4af73365c2162cf6a0d87022cd4f1fceaaba209ee148fb5a7a3faccc",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "c0-f510-16",
+      "source_id": "c0-f510",
+      "roi": [
+        1034,
+        411,
+        1069,
+        498
+      ],
+      "origin": "new_local_frame",
+      "subject_id": "16",
+      "kind": "referee",
+      "attributes": {
+        "shirt_color": "light_blue",
+        "occlusion": "none_visible",
+        "body_clipped_by_image": false,
+        "pose": "back",
+        "height_at_imgsz640": 27.04
+      },
+      "objects": [
+        {
+          "id": "16",
+          "role": "referee",
+          "xyxy": [
+            1036.96,
+            413.96,
+            1066.14,
+            495.08
+          ]
+        },
+        {
+          "id": "18",
+          "role": "player",
+          "xyxy": [
+            1066.0,
+            411,
+            1069,
+            413.2
+          ]
+        }
+      ],
+      "patch_sha256": "66e9a6171e70f8a4d128f57260a1c045970662f3fbf5b16b40bbfc879fb4d169",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "c0-f510-24",
+      "source_id": "c0-f510",
+      "roi": [
+        1713,
+        982,
+        1781,
+        1080
+      ],
+      "origin": "new_local_frame",
+      "subject_id": "24",
+      "kind": "referee",
+      "attributes": {
+        "shirt_color": "light_blue",
+        "occlusion": "none_visible",
+        "body_clipped_by_image": false,
+        "pose": "back",
+        "height_at_imgsz640": 31.37
+      },
+      "objects": [
+        {
+          "id": "24",
+          "role": "referee",
+          "xyxy": [
+            1715.73,
+            984.14,
+            1778.63,
+            1078.25
+          ]
+        }
+      ],
+      "patch_sha256": "785ab5f80ba7f50179b3e144b15344309cee8d4534dc904ca15ee2ef9a3e2c73",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "c0-f510-0",
+      "source_id": "c0-f510",
+      "roi": [
+        69,
+        274,
+        96,
+        344
+      ],
+      "origin": "new_local_frame",
+      "subject_id": "0",
+      "kind": "player_hard_negative",
+      "attributes": {
+        "reason": "active player; shirt colour alone is not referee evidence"
+      },
+      "objects": [
+        {
+          "id": "0",
+          "role": "player",
+          "xyxy": [
+            71.44,
+            276.49,
+            93.89,
+            341.02
+          ]
+        }
+      ],
+      "patch_sha256": "7a34fb9cc20a219d532e2320f5642d055beadc6266b25011e81f3359fa8f10dd",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "c0-f510-2",
+      "source_id": "c0-f510",
+      "roi": [
+        276,
+        446,
+        320,
+        528
+      ],
+      "origin": "new_local_frame",
+      "subject_id": "2",
+      "kind": "player_hard_negative",
+      "attributes": {
+        "reason": "active player; shirt colour alone is not referee evidence"
+      },
+      "objects": [
+        {
+          "id": "2",
+          "role": "player",
+          "xyxy": [
+            278.89,
+            448.71,
+            317.57,
+            525.54
+          ]
+        }
+      ],
+      "patch_sha256": "c2f0948f754887d2a52ace09620f2c2aee470566d74efbf3ec3e557db18d7252",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "c0-f510-6",
+      "source_id": "c0-f510",
+      "roi": [
+        579,
+        110,
+        606,
+        172
+      ],
+      "origin": "new_local_frame",
+      "subject_id": "6",
+      "kind": "staff_background",
+      "attributes": {
+        "reason": "sideline staff or camera operator, not an active player or match official"
+      },
+      "objects": [],
+      "patch_sha256": "9f455a7cf6ca4a46fbc0724a0cb9c8ad9ca99db807e4bafe247b932aa16249f9",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "c0-f690-0",
+      "source_id": "c0-f690",
+      "roi": [
+        0,
+        122,
+        15,
+        186
+      ],
+      "origin": "new_local_frame",
+      "subject_id": "0",
+      "kind": "referee",
+      "attributes": {
+        "shirt_color": "light_blue",
+        "occlusion": "none_visible",
+        "body_clipped_by_image": true,
+        "pose": "uncertain",
+        "height_at_imgsz640": 19.7
+      },
+      "objects": [
+        {
+          "id": "0",
+          "role": "referee",
+          "xyxy": [
+            0,
+            124.01,
+            12.36,
+            183.1
+          ]
+        }
+      ],
+      "patch_sha256": "5418965a39db8f4898fdcfb8b199a57e11dfae544a6258060945d559913ad4fe",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "c0-f690-12",
+      "source_id": "c0-f690",
+      "roi": [
+        991,
+        381,
+        1031,
+        455
+      ],
+      "origin": "new_local_frame",
+      "subject_id": "12",
+      "kind": "referee",
+      "attributes": {
+        "shirt_color": "light_blue",
+        "occlusion": "none_visible",
+        "body_clipped_by_image": false,
+        "pose": "side",
+        "height_at_imgsz640": 22.78
+      },
+      "objects": [
+        {
+          "id": "12",
+          "role": "referee",
+          "xyxy": [
+            993.39,
+            384.0,
+            1028.72,
+            452.34
+          ]
+        },
+        {
+          "id": "13",
+          "role": "player",
+          "xyxy": [
+            992.11,
+            381,
+            1031,
+            390.45
+          ]
+        }
+      ],
+      "patch_sha256": "6bbefc82a99fbbd5462dd769f560700c081943c87f37ba199c2195e432c452b5",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "c0-f690-25",
+      "source_id": "c0-f690",
+      "roi": [
+        1849,
+        871,
+        1912,
+        973
+      ],
+      "origin": "new_local_frame",
+      "subject_id": "25",
+      "kind": "referee",
+      "attributes": {
+        "shirt_color": "light_blue",
+        "occlusion": "none_visible",
+        "body_clipped_by_image": false,
+        "pose": "back",
+        "height_at_imgsz640": 32.2
+      },
+      "objects": [
+        {
+          "id": "25",
+          "role": "referee",
+          "xyxy": [
+            1851.33,
+            873.83,
+            1909.45,
+            970.43
+          ]
+        }
+      ],
+      "patch_sha256": "14ec4303729e7e5f1ec585f4be0cfc157f655c8c81a7b074459db28d697b68af",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "c0-f690-1",
+      "source_id": "c0-f690",
+      "roi": [
+        0,
+        295,
+        20,
+        360
+      ],
+      "origin": "new_local_frame",
+      "subject_id": "1",
+      "kind": "player_hard_negative",
+      "attributes": {
+        "reason": "active player; shirt colour alone is not referee evidence"
+      },
+      "objects": [
+        {
+          "id": "1",
+          "role": "player",
+          "xyxy": [
+            0.04,
+            297.95,
+            17.18,
+            357.6
+          ]
+        }
+      ],
+      "patch_sha256": "a1f3541bf7be0b2f5969edf809a63cef9d2083d37bbd06bec2112590495a5b03",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "c0-f690-7",
+      "source_id": "c0-f690",
+      "roi": [
+        635,
+        274,
+        663,
+        342
+      ],
+      "origin": "new_local_frame",
+      "subject_id": "7",
+      "kind": "player_hard_negative",
+      "attributes": {
+        "reason": "active player; shirt colour alone is not referee evidence"
+      },
+      "objects": [
+        {
+          "id": "7",
+          "role": "player",
+          "xyxy": [
+            637.76,
+            276.72,
+            660.01,
+            339.13
+          ]
+        }
+      ],
+      "patch_sha256": "a654b52aff47fc74c60a2b86f40b767fe6546d998af4f49141c13c35d67c7c64",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "c0-f690-2",
+      "source_id": "c0-f690",
+      "roi": [
+        285,
+        106,
+        313,
+        166
+      ],
+      "origin": "new_local_frame",
+      "subject_id": "2",
+      "kind": "staff_background",
+      "attributes": {
+        "reason": "sideline staff or camera operator, not an active player or match official"
+      },
+      "objects": [],
+      "patch_sha256": "96f16d75664b78cf4a55ab6c28334eeb23d5e75e563d0467046b947e56466e04",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "c0-f870-10",
+      "source_id": "c0-f870",
+      "roi": [
+        883,
+        389,
+        929,
+        466
+      ],
+      "origin": "new_local_frame",
+      "subject_id": "10",
+      "kind": "referee",
+      "attributes": {
+        "shirt_color": "light_blue",
+        "occlusion": "none_visible",
+        "body_clipped_by_image": false,
+        "pose": "side",
+        "height_at_imgsz640": 24.0
+      },
+      "objects": [
+        {
+          "id": "10",
+          "role": "referee",
+          "xyxy": [
+            885.33,
+            391.07,
+            926.5,
+            463.06
+          ]
+        }
+      ],
+      "patch_sha256": "7a70333952fa2121cb80734be2e1d7a77c5ebc310a895ffdc1b0d813bc73645b",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "c0-f870-28",
+      "source_id": "c0-f870",
+      "roi": [
+        1730,
+        737,
+        1767,
+        829
+      ],
+      "origin": "new_local_frame",
+      "subject_id": "28",
+      "kind": "referee",
+      "attributes": {
+        "shirt_color": "light_blue",
+        "occlusion": "none_visible",
+        "body_clipped_by_image": false,
+        "pose": "back",
+        "height_at_imgsz640": 29.07
+      },
+      "objects": [
+        {
+          "id": "28",
+          "role": "referee",
+          "xyxy": [
+            1732.66,
+            739.35,
+            1764.65,
+            826.57
+          ]
+        }
+      ],
+      "patch_sha256": "5d2c925acd55694c1df1b416e6dfdf24649fdee3ae2466cb4ef59e693689cbd5",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "c0-f870-1",
+      "source_id": "c0-f870",
+      "roi": [
+        118,
+        662,
+        176,
+        753
+      ],
+      "origin": "new_local_frame",
+      "subject_id": "1",
+      "kind": "player_hard_negative",
+      "attributes": {
+        "reason": "active player; shirt colour alone is not referee evidence"
+      },
+      "objects": [
+        {
+          "id": "1",
+          "role": "player",
+          "xyxy": [
+            120.44,
+            664.03,
+            173.37,
+            750.29
+          ]
+        }
+      ],
+      "patch_sha256": "f5a6263341d28af796d617f730ee9c2937944391c6b48c71656cd0c8b69f313f",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "c0-f870-4",
+      "source_id": "c0-f870",
+      "roi": [
+        549,
+        294,
+        576,
+        360
+      ],
+      "origin": "new_local_frame",
+      "subject_id": "4",
+      "kind": "player_hard_negative",
+      "attributes": {
+        "reason": "active player; shirt colour alone is not referee evidence"
+      },
+      "objects": [
+        {
+          "id": "4",
+          "role": "player",
+          "xyxy": [
+            551.27,
+            296.24,
+            573.74,
+            357.03
+          ]
+        }
+      ],
+      "patch_sha256": "9e5b8bb80611ad9bb231e14fc92d00a48c28bed07e237dae7e381a0d8962ea66",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "c0-f870-23",
+      "source_id": "c0-f870",
+      "roi": [
+        1417,
+        891,
+        1454,
+        985
+      ],
+      "origin": "new_local_frame",
+      "subject_id": "23",
+      "kind": "staff_background",
+      "attributes": {
+        "reason": "sideline staff or camera operator, not an active player or match official"
+      },
+      "objects": [],
+      "patch_sha256": "308b86b24a1b2709382fc7bc1d25df6786efbd5e7a89f04b5967fe067ca07093",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "c0-f1110-7",
+      "source_id": "c0-f1110",
+      "roi": [
+        759,
+        382,
+        793,
+        459
+      ],
+      "origin": "new_local_frame",
+      "subject_id": "7",
+      "kind": "referee",
+      "attributes": {
+        "shirt_color": "light_blue",
+        "occlusion": "none_visible",
+        "body_clipped_by_image": false,
+        "pose": "front",
+        "height_at_imgsz640": 23.73
+      },
+      "objects": [
+        {
+          "id": "7",
+          "role": "referee",
+          "xyxy": [
+            761.49,
+            384.83,
+            790.67,
+            456.01
+          ]
+        }
+      ],
+      "patch_sha256": "54c4264990a878027612bb7d05850db5700ff3b84ace073bf37fb11607e23987",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "c0-f1110-24",
+      "source_id": "c0-f1110",
+      "roi": [
+        1882,
+        649,
+        1920,
+        720
+      ],
+      "origin": "new_local_frame",
+      "subject_id": "24",
+      "kind": "referee",
+      "attributes": {
+        "shirt_color": "light_blue",
+        "occlusion": "none_visible",
+        "body_clipped_by_image": true,
+        "pose": "side",
+        "height_at_imgsz640": 21.88
+      },
+      "objects": [
+        {
+          "id": "24",
+          "role": "referee",
+          "xyxy": [
+            1884.77,
+            651.59,
+            1919.71,
+            717.23
+          ]
+        }
+      ],
+      "patch_sha256": "902f998e299e8872a41541f7c394a537c4d4bc58ad92464fa6f4ee8cf18cf9af",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "c0-f1110-1",
+      "source_id": "c0-f1110",
+      "roi": [
+        234,
+        688,
+        282,
+        785
+      ],
+      "origin": "new_local_frame",
+      "subject_id": "1",
+      "kind": "player_hard_negative",
+      "attributes": {
+        "reason": "active player; shirt colour alone is not referee evidence"
+      },
+      "objects": [
+        {
+          "id": "1",
+          "role": "player",
+          "xyxy": [
+            236.28,
+            690.59,
+            279.24,
+            782.39
+          ]
+        }
+      ],
+      "patch_sha256": "9f82b7f72b4a800d4801ee1e8453761c2775d2b72994a3de0b831f5746964701",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "c0-f1110-3",
+      "source_id": "c0-f1110",
+      "roi": [
+        357,
+        675,
+        390,
+        768
+      ],
+      "origin": "new_local_frame",
+      "subject_id": "3",
+      "kind": "player_hard_negative",
+      "attributes": {
+        "reason": "active player; shirt colour alone is not referee evidence"
+      },
+      "objects": [
+        {
+          "id": "3",
+          "role": "player",
+          "xyxy": [
+            359.62,
+            677.83,
+            387.15,
+            765.48
+          ]
+        }
+      ],
+      "patch_sha256": "76cf4473873abf79dbf36ad87b0827914d9237d6ad3eb8bbaa1ac376efd70838",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "c0-f1290-14",
+      "source_id": "c0-f1290",
+      "roi": [
+        644,
+        383,
+        681,
+        461
+      ],
+      "origin": "new_local_frame",
+      "subject_id": "14",
+      "kind": "referee",
+      "attributes": {
+        "shirt_color": "light_blue",
+        "occlusion": "none_visible",
+        "body_clipped_by_image": false,
+        "pose": "front",
+        "height_at_imgsz640": 24.59
+      },
+      "objects": [
+        {
+          "id": "14",
+          "role": "referee",
+          "xyxy": [
+            646.6,
+            385.03,
+            678.55,
+            458.81
+          ]
+        }
+      ],
+      "patch_sha256": "8d6924afea466396db2a885ecd51ce201058a86333bf0157ddd01864d2652912",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "c0-f1290-30",
+      "source_id": "c0-f1290",
+      "roi": [
+        1790,
+        677,
+        1832,
+        769
+      ],
+      "origin": "new_local_frame",
+      "subject_id": "30",
+      "kind": "referee",
+      "attributes": {
+        "shirt_color": "light_blue",
+        "occlusion": "none_visible",
+        "body_clipped_by_image": false,
+        "pose": "side",
+        "height_at_imgsz640": 29.09
+      },
+      "objects": [
+        {
+          "id": "30",
+          "role": "referee",
+          "xyxy": [
+            1792.13,
+            679.44,
+            1829.46,
+            766.71
+          ]
+        }
+      ],
+      "patch_sha256": "caf4d1b21587b1e928aafc8317698425e44aa91ecfd4465c81a0b193f7fc39c9",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "c0-f1290-4",
+      "source_id": "c0-f1290",
+      "roi": [
+        181,
+        686,
+        223,
+        784
+      ],
+      "origin": "new_local_frame",
+      "subject_id": "4",
+      "kind": "player_hard_negative",
+      "attributes": {
+        "reason": "active player; shirt colour alone is not referee evidence"
+      },
+      "objects": [
+        {
+          "id": "4",
+          "role": "player",
+          "xyxy": [
+            183.84,
+            688.27,
+            220.39,
+            781.87
+          ]
+        }
+      ],
+      "patch_sha256": "984acbf9f45d95ee7baddfea2423cc57e6a106acfa0ef4f67df0e99fd2996116",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "c0-f1290-6",
+      "source_id": "c0-f1290",
+      "roi": [
+        250,
+        688,
+        285,
+        778
+      ],
+      "origin": "new_local_frame",
+      "subject_id": "6",
+      "kind": "player_hard_negative",
+      "attributes": {
+        "reason": "active player; shirt colour alone is not referee evidence"
+      },
+      "objects": [
+        {
+          "id": "6",
+          "role": "player",
+          "xyxy": [
+            252.34,
+            690.63,
+            282.58,
+            775.39
+          ]
+        }
+      ],
+      "patch_sha256": "db5ebd9eceb67a4b48ffee08d004e7bf08a46e4248b771438965028a31ca967b",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "c0-f1290-26",
+      "source_id": "c0-f1290",
+      "roi": [
+        1537,
+        842,
+        1574,
+        936
+      ],
+      "origin": "new_local_frame",
+      "subject_id": "26",
+      "kind": "staff_background",
+      "attributes": {
+        "reason": "sideline staff or camera operator, not an active player or match official"
+      },
+      "objects": [],
+      "patch_sha256": "f2acddf1644ad3d5cd773b8cd012fcc1cc059d957a4ef4b1b1caae90c0788986",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "c0-f1530-8",
+      "source_id": "c0-f1530",
+      "roi": [
+        796,
+        367,
+        832,
+        442
+      ],
+      "origin": "new_local_frame",
+      "subject_id": "8",
+      "kind": "referee",
+      "attributes": {
+        "shirt_color": "light_blue",
+        "occlusion": "none_visible",
+        "body_clipped_by_image": false,
+        "pose": "side",
+        "height_at_imgsz640": 23.44
+      },
+      "objects": [
+        {
+          "id": "8",
+          "role": "referee",
+          "xyxy": [
+            798.62,
+            369.13,
+            829.67,
+            439.45
+          ]
+        }
+      ],
+      "patch_sha256": "f24afae9e197e7ab42d8d51046748b6e43234376cfd3c14f807092162f1dfa7f",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "c0-f1530-24",
+      "source_id": "c0-f1530",
+      "roi": [
+        1632,
+        663,
+        1721,
+        762
+      ],
+      "origin": "new_local_frame",
+      "subject_id": "24",
+      "kind": "referee",
+      "attributes": {
+        "shirt_color": "light_blue",
+        "occlusion": "partial",
+        "body_clipped_by_image": false,
+        "pose": "side",
+        "height_at_imgsz640": 31.38
+      },
+      "objects": [
+        {
+          "id": "22",
+          "role": "player",
+          "xyxy": [
+            1632,
+            663,
+            1653.65,
+            736.23
+          ]
+        },
+        {
+          "id": "24",
+          "role": "referee",
+          "xyxy": [
+            1634.83,
+            665.73,
+            1718.29,
+            759.87
+          ]
+        }
+      ],
+      "patch_sha256": "d7096a47c0daf19a01155d9649e82a53ea2479d10f9a16bc1e5b1334bbdf63d9",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "c0-f1530-1",
+      "source_id": "c0-f1530",
+      "roi": [
+        280,
+        675,
+        335,
+        768
+      ],
+      "origin": "new_local_frame",
+      "subject_id": "1",
+      "kind": "player_hard_negative",
+      "attributes": {
+        "reason": "active player; shirt colour alone is not referee evidence"
+      },
+      "objects": [
+        {
+          "id": "1",
+          "role": "player",
+          "xyxy": [
+            282.4,
+            677.8,
+            332.46,
+            765.58
+          ]
+        }
+      ],
+      "patch_sha256": "d47e74f05a694531ed7d2be0d372ccc47f1d0a8a1eef216b398f7fed4019a372",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "c0-f1530-6",
+      "source_id": "c0-f1530",
+      "roi": [
+        471,
+        313,
+        515,
+        382
+      ],
+      "origin": "new_local_frame",
+      "subject_id": "6",
+      "kind": "player_hard_negative",
+      "attributes": {
+        "reason": "active player; shirt colour alone is not referee evidence"
+      },
+      "objects": [
+        {
+          "id": "6",
+          "role": "player",
+          "xyxy": [
+            473.58,
+            315.4,
+            512.46,
+            379.0
+          ]
+        }
+      ],
+      "patch_sha256": "6eef163c1848cda0b6e29352fddb28b2da399736719d4fe4ce6f845ff26d739b",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "c1-f150-15",
+      "source_id": "c1-f150",
+      "roi": [
+        869,
+        585,
+        905,
+        665
+      ],
+      "origin": "new_local_frame",
+      "subject_id": "15",
+      "kind": "referee",
+      "attributes": {
+        "shirt_color": "light_blue",
+        "occlusion": "partial",
+        "body_clipped_by_image": false,
+        "pose": "side",
+        "height_at_imgsz640": 25.16
+      },
+      "objects": [
+        {
+          "id": "14",
+          "role": "player",
+          "xyxy": [
+            869,
+            587.54,
+            892.35,
+            660.92
+          ]
+        },
+        {
+          "id": "15",
+          "role": "referee",
+          "xyxy": [
+            871.96,
+            587.47,
+            902.17,
+            662.94
+          ]
+        }
+      ],
+      "patch_sha256": "b5123e5f16b34b365142001cfb9927af8f9814e0fdb176904b0d7c8529f4bcb6",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "c1-f150-3",
+      "source_id": "c1-f150",
+      "roi": [
+        292,
+        684,
+        339,
+        767
+      ],
+      "origin": "new_local_frame",
+      "subject_id": "3",
+      "kind": "player_hard_negative",
+      "attributes": {
+        "reason": "active player; shirt colour alone is not referee evidence"
+      },
+      "objects": [
+        {
+          "id": "3",
+          "role": "player",
+          "xyxy": [
+            294.23,
+            686.47,
+            336.93,
+            764.85
+          ]
+        }
+      ],
+      "patch_sha256": "946e8a5feb7765739e25248fbc6efa7f7cd598012840d034e9da367017f6b811",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "c1-f150-2",
+      "source_id": "c1-f150",
+      "roi": [
+        270,
+        798,
+        303,
+        891
+      ],
+      "origin": "new_local_frame",
+      "subject_id": "2",
+      "kind": "player_hard_negative",
+      "attributes": {
+        "reason": "active player; shirt colour alone is not referee evidence"
+      },
+      "objects": [
+        {
+          "id": "2",
+          "role": "player",
+          "xyxy": [
+            272.84,
+            800.1,
+            300.68,
+            888.16
+          ]
+        }
+      ],
+      "patch_sha256": "86201ea39440da73c338b054362429a164cbeb6422194cb771c4feb450866453",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "c1-f350-7",
+      "source_id": "c1-f350",
+      "roi": [
+        253,
+        531,
+        298,
+        590
+      ],
+      "origin": "new_local_frame",
+      "subject_id": "7",
+      "kind": "referee",
+      "attributes": {
+        "shirt_color": "light_blue",
+        "occlusion": "none_visible",
+        "body_clipped_by_image": false,
+        "pose": "side",
+        "height_at_imgsz640": 17.71
+      },
+      "objects": [
+        {
+          "id": "7",
+          "role": "referee",
+          "xyxy": [
+            255.45,
+            533.92,
+            295.07,
+            587.07
+          ]
+        }
+      ],
+      "patch_sha256": "4acde91cfdea7af8bbae57314e514263245998b6fa53d18bbce9599b302c52ad",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "c1-f350-14",
+      "source_id": "c1-f350",
+      "roi": [
+        568,
+        930,
+        613,
+        1009
+      ],
+      "origin": "new_local_frame",
+      "subject_id": "14",
+      "kind": "referee",
+      "attributes": {
+        "shirt_color": "light_blue",
+        "occlusion": "none_visible",
+        "body_clipped_by_image": false,
+        "pose": "side",
+        "height_at_imgsz640": 24.73
+      },
+      "objects": [
+        {
+          "id": "14",
+          "role": "referee",
+          "xyxy": [
+            570.02,
+            932.13,
+            610.72,
+            1006.32
+          ]
+        }
+      ],
+      "patch_sha256": "8437f9c3351142d2e04bffa3668612a42a0a7f0dc9643c7225945b8029a0c189",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "c1-f350-23",
+      "source_id": "c1-f350",
+      "roi": [
+        1456,
+        894,
+        1502,
+        955
+      ],
+      "origin": "new_local_frame",
+      "subject_id": "23",
+      "kind": "referee",
+      "attributes": {
+        "shirt_color": "light_blue",
+        "occlusion": "none_visible",
+        "body_clipped_by_image": false,
+        "pose": "side",
+        "height_at_imgsz640": 18.7
+      },
+      "objects": [
+        {
+          "id": "23",
+          "role": "referee",
+          "xyxy": [
+            1458.91,
+            896.11,
+            1499.87,
+            952.2
+          ]
+        }
+      ],
+      "patch_sha256": "251833040161f12d4747841bd43518c050b34d2424e5591cf3635de376848f5a",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "c1-f350-1",
+      "source_id": "c1-f350",
+      "roi": [
+        16,
+        694,
+        51,
+        760
+      ],
+      "origin": "new_local_frame",
+      "subject_id": "1",
+      "kind": "player_hard_negative",
+      "attributes": {
+        "reason": "active player; shirt colour alone is not referee evidence"
+      },
+      "objects": [
+        {
+          "id": "1",
+          "role": "player",
+          "xyxy": [
+            18.84,
+            696.92,
+            48.42,
+            757.42
+          ]
+        }
+      ],
+      "patch_sha256": "e6b49af94ab0af5d6ab63b5521264900e6f95e94ea81f2c8b09ee0f8a8717281",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "c1-f350-0",
+      "source_id": "c1-f350",
+      "roi": [
+        0,
+        850,
+        23,
+        922
+      ],
+      "origin": "new_local_frame",
+      "subject_id": "0",
+      "kind": "player_hard_negative",
+      "attributes": {
+        "reason": "active player; shirt colour alone is not referee evidence"
+      },
+      "objects": [
+        {
+          "id": "0",
+          "role": "player",
+          "xyxy": [
+            0.04,
+            852.99,
+            20.01,
+            919.14
+          ]
+        }
+      ],
+      "patch_sha256": "cfd1501272b7db04293e2756bc46f44119384e15b1341de8ee2602befbf11b39",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "c1-f650-8",
+      "source_id": "c1-f650",
+      "roi": [
+        303,
+        555,
+        328,
+        624
+      ],
+      "origin": "new_local_frame",
+      "subject_id": "8",
+      "kind": "referee",
+      "attributes": {
+        "shirt_color": "light_blue",
+        "occlusion": "none_visible",
+        "body_clipped_by_image": false,
+        "pose": "side",
+        "height_at_imgsz640": 21.19
+      },
+      "objects": [
+        {
+          "id": "8",
+          "role": "referee",
+          "xyxy": [
+            305.88,
+            557.75,
+            325.94,
+            621.33
+          ]
+        }
+      ],
+      "patch_sha256": "62a421021dc55833c7c37105c24d3815291ff055b733f15b500210aa1b4cb41d",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "c1-f650-24",
+      "source_id": "c1-f650",
+      "roi": [
+        1750,
+        956,
+        1803,
+        1043
+      ],
+      "origin": "new_local_frame",
+      "subject_id": "24",
+      "kind": "referee",
+      "attributes": {
+        "shirt_color": "light_blue",
+        "occlusion": "none_visible",
+        "body_clipped_by_image": false,
+        "pose": "side",
+        "height_at_imgsz640": 27.47
+      },
+      "objects": [
+        {
+          "id": "24",
+          "role": "referee",
+          "xyxy": [
+            1752.25,
+            958.01,
+            1800.6,
+            1040.43
+          ]
+        }
+      ],
+      "patch_sha256": "16fab11269a1dc93bd0f3fb5980ae1903e630eec0f6f55168d51477d78f958d6",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "c1-f650-3",
+      "source_id": "c1-f650",
+      "roi": [
+        38,
+        356,
+        72,
+        415
+      ],
+      "origin": "new_local_frame",
+      "subject_id": "3",
+      "kind": "player_hard_negative",
+      "attributes": {
+        "reason": "active player; shirt colour alone is not referee evidence"
+      },
+      "objects": [
+        {
+          "id": "3",
+          "role": "player",
+          "xyxy": [
+            40.85,
+            358.61,
+            69.3,
+            412.95
+          ]
+        },
+        {
+          "id": "4",
+          "role": "player",
+          "xyxy": [
+            49.63,
+            356,
+            71.8,
+            359.89
+          ]
+        }
+      ],
+      "patch_sha256": "fc64e7e3abdbd089e0cff7cf37d2b3a43f92c68f9831d70f137b736c5b8ebb26",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "c1-f650-1",
+      "source_id": "c1-f650",
+      "roi": [
+        33,
+        461,
+        63,
+        520
+      ],
+      "origin": "new_local_frame",
+      "subject_id": "1",
+      "kind": "player_hard_negative",
+      "attributes": {
+        "reason": "active player; shirt colour alone is not referee evidence"
+      },
+      "objects": [
+        {
+          "id": "1",
+          "role": "player",
+          "xyxy": [
+            35.6,
+            463.94,
+            60.08,
+            517.67
+          ]
+        }
+      ],
+      "patch_sha256": "9dcc071179e0557c2082ce04870f92b5d4ac1bcd71d2320fa7067d86fc6eeb57",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "c1-f650-16",
+      "source_id": "c1-f650",
+      "roi": [
+        751,
+        1042,
+        788,
+        1080
+      ],
+      "origin": "new_local_frame",
+      "subject_id": "16",
+      "kind": "staff_background",
+      "attributes": {
+        "reason": "sideline staff or camera operator, not an active player or match official"
+      },
+      "objects": [],
+      "patch_sha256": "df0f75fec042bc02ab210c987c1fc4eee6aaa51a6ce6e06f2b68bcef3de32ab3",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "c1-f1000-10",
+      "source_id": "c1-f1000",
+      "roi": [
+        624,
+        508,
+        664,
+        579
+      ],
+      "origin": "new_local_frame",
+      "subject_id": "10",
+      "kind": "referee",
+      "attributes": {
+        "shirt_color": "light_blue",
+        "occlusion": "none_visible",
+        "body_clipped_by_image": false,
+        "pose": "back",
+        "height_at_imgsz640": 22.1
+      },
+      "objects": [
+        {
+          "id": "10",
+          "role": "referee",
+          "xyxy": [
+            626.98,
+            510.26,
+            661.03,
+            576.56
+          ]
+        }
+      ],
+      "patch_sha256": "e5af0b3a29062e2b8ca9c3373146ae68df950bd86ded0c8457a6a4e7709379c9",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "c1-f1000-1",
+      "source_id": "c1-f1000",
+      "roi": [
+        334,
+        512,
+        378,
+        583
+      ],
+      "origin": "new_local_frame",
+      "subject_id": "1",
+      "kind": "player_hard_negative",
+      "attributes": {
+        "reason": "active player; shirt colour alone is not referee evidence"
+      },
+      "objects": [
+        {
+          "id": "1",
+          "role": "player",
+          "xyxy": [
+            336.23,
+            514.2,
+            375.87,
+            580.51
+          ]
+        }
+      ],
+      "patch_sha256": "93ff80cfaaa78d55baafa8b350401fae57f825c6f18a9bb308f1682a3e1b2d28",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "c1-f1000-0",
+      "source_id": "c1-f1000",
+      "roi": [
+        106,
+        588,
+        145,
+        649
+      ],
+      "origin": "new_local_frame",
+      "subject_id": "0",
+      "kind": "player_hard_negative",
+      "attributes": {
+        "reason": "active player; shirt colour alone is not referee evidence"
+      },
+      "objects": [
+        {
+          "id": "0",
+          "role": "player",
+          "xyxy": [
+            108.48,
+            591.0,
+            142.68,
+            646.13
+          ]
+        }
+      ],
+      "patch_sha256": "87ca77da7ffcf4e151cbc1bd3af429e7a32c0832d058d73e1696f78e3c676e76",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "c2-f300-10",
+      "source_id": "c2-f300",
+      "roi": [
+        651,
+        403,
+        679,
+        466
+      ],
+      "origin": "new_local_frame",
+      "subject_id": "10",
+      "kind": "referee",
+      "attributes": {
+        "shirt_color": "light_blue",
+        "occlusion": "none_visible",
+        "body_clipped_by_image": false,
+        "pose": "back",
+        "height_at_imgsz640": 19.48
+      },
+      "objects": [
+        {
+          "id": "10",
+          "role": "referee",
+          "xyxy": [
+            653.57,
+            405.41,
+            676.19,
+            463.83
+          ]
+        }
+      ],
+      "patch_sha256": "6eb7233c24fb0321ca0c604eeb221ec14d9d92d9a363c65d5799e31f1d7b31ae",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "c2-f300-21",
+      "source_id": "c2-f300",
+      "roi": [
+        1506,
+        999,
+        1543,
+        1076
+      ],
+      "origin": "new_local_frame",
+      "subject_id": "21",
+      "kind": "referee",
+      "attributes": {
+        "shirt_color": "light_blue",
+        "occlusion": "none_visible",
+        "body_clipped_by_image": false,
+        "pose": "back",
+        "height_at_imgsz640": 23.98
+      },
+      "objects": [
+        {
+          "id": "21",
+          "role": "referee",
+          "xyxy": [
+            1508.91,
+            1001.17,
+            1540.66,
+            1073.1
+          ]
+        }
+      ],
+      "patch_sha256": "2eb9fd60117e9218952df63f8cc7d4aa7222e931a980012616b09b49f40f7a55",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "c2-f300-0",
+      "source_id": "c2-f300",
+      "roi": [
+        91,
+        712,
+        126,
+        790
+      ],
+      "origin": "new_local_frame",
+      "subject_id": "0",
+      "kind": "player_hard_negative",
+      "attributes": {
+        "reason": "active player; shirt colour alone is not referee evidence"
+      },
+      "objects": [
+        {
+          "id": "0",
+          "role": "player",
+          "xyxy": [
+            93.09,
+            714.77,
+            123.44,
+            787.75
+          ]
+        }
+      ],
+      "patch_sha256": "55e4983dcb2c9fa0577f2c00b7356c8135bc3788eabfe42b88c0499ef1e7866f",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "c2-f300-2",
+      "source_id": "c2-f300",
+      "roi": [
+        186,
+        471,
+        226,
+        548
+      ],
+      "origin": "new_local_frame",
+      "subject_id": "2",
+      "kind": "player_hard_negative",
+      "attributes": {
+        "reason": "active player; shirt colour alone is not referee evidence"
+      },
+      "objects": [
+        {
+          "id": "2",
+          "role": "player",
+          "xyxy": [
+            188.56,
+            473.87,
+            223.32,
+            545.06
+          ]
+        }
+      ],
+      "patch_sha256": "c9866ed6b94e85dcb1e4ee7bf67fd4eac5c69b63b76282117695d2965437c936",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "c2-f700-7",
+      "source_id": "c2-f700",
+      "roi": [
+        605,
+        352,
+        632,
+        422
+      ],
+      "origin": "new_local_frame",
+      "subject_id": "7",
+      "kind": "referee",
+      "attributes": {
+        "shirt_color": "light_blue",
+        "occlusion": "none_visible",
+        "body_clipped_by_image": false,
+        "pose": "side",
+        "height_at_imgsz640": 21.61
+      },
+      "objects": [
+        {
+          "id": "7",
+          "role": "referee",
+          "xyxy": [
+            607.99,
+            354.2,
+            629.62,
+            419.03
+          ]
+        }
+      ],
+      "patch_sha256": "1ab6035b962a419b30e55fd6e0225003320a4666d766ca548f13b662bb729fda",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "c2-f700-20",
+      "source_id": "c2-f700",
+      "roi": [
+        1547,
+        984,
+        1607,
+        1069
+      ],
+      "origin": "new_local_frame",
+      "subject_id": "20",
+      "kind": "referee",
+      "attributes": {
+        "shirt_color": "light_blue",
+        "occlusion": "none_visible",
+        "body_clipped_by_image": false,
+        "pose": "back",
+        "height_at_imgsz640": 26.47
+      },
+      "objects": [
+        {
+          "id": "20",
+          "role": "referee",
+          "xyxy": [
+            1549.79,
+            986.72,
+            1604.4,
+            1066.14
+          ]
+        }
+      ],
+      "patch_sha256": "e87f6beaaf1f7538a8d0f1fea099eb70172dd461adbd85cf682543f37cab1e2d",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "c2-f700-0",
+      "source_id": "c2-f700",
+      "roi": [
+        232,
+        426,
+        266,
+        498
+      ],
+      "origin": "new_local_frame",
+      "subject_id": "0",
+      "kind": "player_hard_negative",
+      "attributes": {
+        "reason": "active player; shirt colour alone is not referee evidence"
+      },
+      "objects": [
+        {
+          "id": "0",
+          "role": "player",
+          "xyxy": [
+            234.75,
+            428.35,
+            263.35,
+            495.73
+          ]
+        }
+      ],
+      "patch_sha256": "44b40d1d2af1ddbfa54086fb6060a2d7546e04ab8c18c93fe2c724e962a50e2e",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "c2-f700-1",
+      "source_id": "c2-f700",
+      "roi": [
+        406,
+        497,
+        445,
+        572
+      ],
+      "origin": "new_local_frame",
+      "subject_id": "1",
+      "kind": "player_hard_negative",
+      "attributes": {
+        "reason": "active player; shirt colour alone is not referee evidence"
+      },
+      "objects": [
+        {
+          "id": "1",
+          "role": "player",
+          "xyxy": [
+            408.74,
+            499.53,
+            442.88,
+            569.51
+          ]
+        }
+      ],
+      "patch_sha256": "f5b7a8019d683aaeface24213cfca73cb419e098921c12adf7141a73040eb11b",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "c2-f1750-2",
+      "source_id": "c2-f1750",
+      "roi": [
+        404,
+        416,
+        442,
+        476
+      ],
+      "origin": "new_local_frame",
+      "subject_id": "2",
+      "kind": "referee",
+      "attributes": {
+        "shirt_color": "light_blue",
+        "occlusion": "none_visible",
+        "body_clipped_by_image": false,
+        "pose": "side",
+        "height_at_imgsz640": 18.23
+      },
+      "objects": [
+        {
+          "id": "2",
+          "role": "referee",
+          "xyxy": [
+            406.17,
+            418.82,
+            439.85,
+            473.51
+          ]
+        }
+      ],
+      "patch_sha256": "a0d1fb40e890955d1032d6071c4b47fb7778a8321f1831b2436ab019e2c82a19",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "c2-f1750-24",
+      "source_id": "c2-f1750",
+      "roi": [
+        1393,
+        932,
+        1442,
+        1005
+      ],
+      "origin": "new_local_frame",
+      "subject_id": "24",
+      "kind": "referee",
+      "attributes": {
+        "shirt_color": "light_blue",
+        "occlusion": "none_visible",
+        "body_clipped_by_image": false,
+        "pose": "back",
+        "height_at_imgsz640": 22.59
+      },
+      "objects": [
+        {
+          "id": "24",
+          "role": "referee",
+          "xyxy": [
+            1395.41,
+            934.87,
+            1439.57,
+            1002.65
+          ]
+        }
+      ],
+      "patch_sha256": "243b89bc2fdd20fe78ed36ebae4de92791f314df469237cf7f4b177b7271e2a8",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "c2-f1750-3",
+      "source_id": "c2-f1750",
+      "roi": [
+        413,
+        293,
+        453,
+        349
+      ],
+      "origin": "new_local_frame",
+      "subject_id": "3",
+      "kind": "player_hard_negative",
+      "attributes": {
+        "reason": "active player; shirt colour alone is not referee evidence"
+      },
+      "objects": [
+        {
+          "id": "3",
+          "role": "player",
+          "xyxy": [
+            415.8,
+            295.05,
+            450.25,
+            346.13
+          ]
+        }
+      ],
+      "patch_sha256": "50303658f29a20a85a64b95e08389de6632393185352a54a829d70d6514aacbf",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "c2-f1750-4",
+      "source_id": "c2-f1750",
+      "roi": [
+        416,
+        596,
+        466,
+        665
+      ],
+      "origin": "new_local_frame",
+      "subject_id": "4",
+      "kind": "player_hard_negative",
+      "attributes": {
+        "reason": "active player; shirt colour alone is not referee evidence"
+      },
+      "objects": [
+        {
+          "id": "4",
+          "role": "player",
+          "xyxy": [
+            418.62,
+            598.04,
+            463.21,
+            662.55
+          ]
+        }
+      ],
+      "patch_sha256": "c43f48a82976cb6b28191463a1edcf7e1f3a0e24c12a748331c91044f454929f",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "c2-f2250-9",
+      "source_id": "c2-f2250",
+      "roi": [
+        730,
+        345,
+        763,
+        421
+      ],
+      "origin": "new_local_frame",
+      "subject_id": "9",
+      "kind": "referee",
+      "attributes": {
+        "shirt_color": "light_blue",
+        "occlusion": "none_visible",
+        "body_clipped_by_image": false,
+        "pose": "front",
+        "height_at_imgsz640": 23.7
+      },
+      "objects": [
+        {
+          "id": "9",
+          "role": "referee",
+          "xyxy": [
+            732.79,
+            347.67,
+            760.32,
+            418.78
+          ]
+        },
+        {
+          "id": "11",
+          "role": "player",
+          "xyxy": [
+            751.68,
+            396.27,
+            763,
+            421
+          ]
+        }
+      ],
+      "patch_sha256": "1d3a06a25b3bf582dd80b72f185e020be895ce9370fca388f14036833923a93f",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "c2-f2250-1",
+      "source_id": "c2-f2250",
+      "roi": [
+        288,
+        797,
+        341,
+        880
+      ],
+      "origin": "new_local_frame",
+      "subject_id": "1",
+      "kind": "player_hard_negative",
+      "attributes": {
+        "reason": "active player; shirt colour alone is not referee evidence"
+      },
+      "objects": [
+        {
+          "id": "1",
+          "role": "player",
+          "xyxy": [
+            290.98,
+            799.81,
+            338.4,
+            877.41
+          ]
+        }
+      ],
+      "patch_sha256": "a13be8ec9a5ab20c68d6b4232e1b1ccf37f6001f022f7b1b21538fa00924fd07",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "c2-f2250-0",
+      "source_id": "c2-f2250",
+      "roi": [
+        222,
+        376,
+        257,
+        456
+      ],
+      "origin": "new_local_frame",
+      "subject_id": "0",
+      "kind": "player_hard_negative",
+      "attributes": {
+        "reason": "active player; shirt colour alone is not referee evidence"
+      },
+      "objects": [
+        {
+          "id": "0",
+          "role": "player",
+          "xyxy": [
+            224.4,
+            378.62,
+            254.97,
+            453.67
+          ]
+        }
+      ],
+      "patch_sha256": "e9737f1943e017a3f2e9f77d1bca0a8e1f7f5f87cf635a8b6440756bcd91a31e",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "native-40cd38_7_6_png.rf.81d37056bceae603a917ca7775c114a8-6",
+      "source_id": "native-40cd38_7_6_png.rf.81d37056bceae603a917ca7775c114a8",
+      "roi": [
+        1124,
+        500,
+        1156,
+        555
+      ],
+      "origin": "reviewed_existing_source",
+      "subject_id": "6",
+      "kind": "referee",
+      "attributes": {
+        "shirt_color": "light_blue",
+        "occlusion": "none_visible",
+        "body_clipped_by_image": false,
+        "pose": "side",
+        "height_at_imgsz640": 16.67
+      },
+      "objects": [
+        {
+          "id": "6",
+          "role": "referee",
+          "xyxy": [
+            1126.0,
+            502.0,
+            1154.0,
+            552.0
+          ]
+        }
+      ],
+      "patch_sha256": "b86aa51a1c1b05cf7092cc2f71717bba84c8cc62920d959e20716919f810bbd7",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "native-42ba34_1_5_png.rf.091a3bb1daf07a70b2cc0c9f50b1e79e-0",
+      "source_id": "native-42ba34_1_5_png.rf.091a3bb1daf07a70b2cc0c9f50b1e79e",
+      "roi": [
+        881,
+        221,
+        903,
+        257
+      ],
+      "origin": "reviewed_existing_source",
+      "subject_id": "0",
+      "kind": "referee",
+      "attributes": {
+        "shirt_color": "light_blue",
+        "occlusion": "none_visible",
+        "body_clipped_by_image": false,
+        "pose": "side",
+        "height_at_imgsz640": 10.13
+      },
+      "objects": [
+        {
+          "id": "0",
+          "role": "referee",
+          "xyxy": [
+            883.1,
+            224.0,
+            901.0,
+            254.38
+          ]
+        }
+      ],
+      "patch_sha256": "cf32eeae1ca656201ce762338466e0c6ac521b1ad3a7c639e3f5f05aa6cbf857",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "native-42ba34_1_5_png.rf.091a3bb1daf07a70b2cc0c9f50b1e79e-16",
+      "source_id": "native-42ba34_1_5_png.rf.091a3bb1daf07a70b2cc0c9f50b1e79e",
+      "roi": [
+        966,
+        406,
+        994,
+        456
+      ],
+      "origin": "reviewed_existing_source",
+      "subject_id": "16",
+      "kind": "referee",
+      "attributes": {
+        "shirt_color": "light_blue",
+        "occlusion": "none_visible",
+        "body_clipped_by_image": false,
+        "pose": "side",
+        "height_at_imgsz640": 15.1
+      },
+      "objects": [
+        {
+          "id": "16",
+          "role": "referee",
+          "xyxy": [
+            968.0,
+            408.0,
+            991.66,
+            453.31
+          ]
+        }
+      ],
+      "patch_sha256": "2718e5d319532c985fed9b5af00a916a8e624001e00ce76aaac4c8d301e40931",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "native-573e61_1_9_png.rf.295dfa87016366f8d7b83f4cf93905bb-0",
+      "source_id": "native-573e61_1_9_png.rf.295dfa87016366f8d7b83f4cf93905bb",
+      "roi": [
+        432,
+        286,
+        453,
+        328
+      ],
+      "origin": "reviewed_existing_source",
+      "subject_id": "0",
+      "kind": "referee",
+      "attributes": {
+        "shirt_color": "yellow",
+        "occlusion": "none_visible",
+        "body_clipped_by_image": false,
+        "pose": "side",
+        "height_at_imgsz640": 12.54
+      },
+      "objects": [
+        {
+          "id": "0",
+          "role": "referee",
+          "xyxy": [
+            434.0,
+            288.12,
+            451.0,
+            325.74
+          ]
+        }
+      ],
+      "patch_sha256": "9baab60431153733e47ec74ca14f1a23e9468b286d2fad85a55b3f923e359517",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "native-573e61_1_9_png.rf.295dfa87016366f8d7b83f4cf93905bb-3",
+      "source_id": "native-573e61_1_9_png.rf.295dfa87016366f8d7b83f4cf93905bb",
+      "roi": [
+        1023,
+        415,
+        1062,
+        472
+      ],
+      "origin": "reviewed_existing_source",
+      "subject_id": "3",
+      "kind": "referee",
+      "attributes": {
+        "shirt_color": "yellow",
+        "occlusion": "none_visible",
+        "body_clipped_by_image": false,
+        "pose": "back",
+        "height_at_imgsz640": 17.33
+      },
+      "objects": [
+        {
+          "id": "3",
+          "role": "referee",
+          "xyxy": [
+            1026.0,
+            417.0,
+            1060.0,
+            469.0
+          ]
+        }
+      ],
+      "patch_sha256": "69f0a612a628d398ab215b8db9949c33e168a004a9fbab10cd899d98e6bedce7",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "native-744b27_1_10_png.rf.6506ec3c9f955401d7e297b9f24cd1c2-12",
+      "source_id": "native-744b27_1_10_png.rf.6506ec3c9f955401d7e297b9f24cd1c2",
+      "roi": [
+        1040,
+        451,
+        1067,
+        513
+      ],
+      "origin": "reviewed_existing_source",
+      "subject_id": "12",
+      "kind": "referee",
+      "attributes": {
+        "shirt_color": "yellow",
+        "occlusion": "none_visible",
+        "body_clipped_by_image": false,
+        "pose": "front",
+        "height_at_imgsz640": 19.0
+      },
+      "objects": [
+        {
+          "id": "12",
+          "role": "referee",
+          "xyxy": [
+            1042.0,
+            453.0,
+            1065.0,
+            510.0
+          ]
+        }
+      ],
+      "patch_sha256": "52b900f20b142a5611d673e8b4d1f660c34eb1350ca250e0448049646fa11ec5",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "native-744b27_1_10_png.rf.6506ec3c9f955401d7e297b9f24cd1c2-23",
+      "source_id": "native-744b27_1_10_png.rf.6506ec3c9f955401d7e297b9f24cd1c2",
+      "roi": [
+        460,
+        331,
+        482,
+        372
+      ],
+      "origin": "reviewed_existing_source",
+      "subject_id": "23",
+      "kind": "referee",
+      "attributes": {
+        "shirt_color": "yellow",
+        "occlusion": "none_visible",
+        "body_clipped_by_image": false,
+        "pose": "side",
+        "height_at_imgsz640": 11.98
+      },
+      "objects": [
+        {
+          "id": "23",
+          "role": "referee",
+          "xyxy": [
+            462.06,
+            333.52,
+            479.67,
+            369.45
+          ]
+        }
+      ],
+      "patch_sha256": "9aa1498feede96af523926e3376ac2fa15c95dddb089a01c9288bc41d492f8ca",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "native-a9f16c_2_10_png.rf.1f142141ca710d8cfe79ff3aad386944-12",
+      "source_id": "native-a9f16c_2_10_png.rf.1f142141ca710d8cfe79ff3aad386944",
+      "roi": [
+        747,
+        516,
+        771,
+        567
+      ],
+      "origin": "reviewed_existing_source",
+      "subject_id": "12",
+      "kind": "referee",
+      "attributes": {
+        "shirt_color": "yellow",
+        "occlusion": "none_visible",
+        "body_clipped_by_image": false,
+        "pose": "back",
+        "height_at_imgsz640": 15.67
+      },
+      "objects": [
+        {
+          "id": "12",
+          "role": "referee",
+          "xyxy": [
+            749.0,
+            518.0,
+            769.0,
+            565.0
+          ]
+        }
+      ],
+      "patch_sha256": "e1f0b8793d44de32f4e61c24d29e84815ac34df7970b7ddfdb71920b87a922a1",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "native-a9f16c_2_10_png.rf.1f142141ca710d8cfe79ff3aad386944-19",
+      "source_id": "native-a9f16c_2_10_png.rf.1f142141ca710d8cfe79ff3aad386944",
+      "roi": [
+        1840,
+        917,
+        1900,
+        1007
+      ],
+      "origin": "reviewed_existing_source",
+      "subject_id": "19",
+      "kind": "referee",
+      "attributes": {
+        "shirt_color": "yellow",
+        "occlusion": "none_visible",
+        "body_clipped_by_image": false,
+        "pose": "back",
+        "height_at_imgsz640": 28.33
+      },
+      "objects": [
+        {
+          "id": "19",
+          "role": "referee",
+          "xyxy": [
+            1842.0,
+            919.25,
+            1898.0,
+            1004.25
+          ]
+        }
+      ],
+      "patch_sha256": "d15ea441acd9f5d156100adfe08d7a630a2c5449f2434dd4e6e5512ace8ce031",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "native-121364_7_10_png.rf.d612470c8674d649a7a09ef6ce000e72-10",
+      "source_id": "native-121364_7_10_png.rf.d612470c8674d649a7a09ef6ce000e72",
+      "roi": [
+        1021,
+        419,
+        1063,
+        470
+      ],
+      "origin": "reviewed_existing_source",
+      "subject_id": "10",
+      "kind": "referee",
+      "attributes": {
+        "shirt_color": "black",
+        "occlusion": "none_visible",
+        "body_clipped_by_image": false,
+        "pose": "side",
+        "height_at_imgsz640": 15.67
+      },
+      "objects": [
+        {
+          "id": "8",
+          "role": "player",
+          "xyxy": [
+            1021,
+            420.0,
+            1023.0,
+            468.0
+          ]
+        },
+        {
+          "id": "10",
+          "role": "referee",
+          "xyxy": [
+            1023.0,
+            421.0,
+            1061.0,
+            468.0
+          ]
+        }
+      ],
+      "patch_sha256": "cd49c436c2f892340a7f23f79099e15cda87bd5a25a42f7ad30a4d2a325df037",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "native-2e57b9_1_10_png.rf.ec1ea28433a4f736551f4040e902e236-13",
+      "source_id": "native-2e57b9_1_10_png.rf.ec1ea28433a4f736551f4040e902e236",
+      "roi": [
+        1751,
+        888,
+        1839,
+        1002
+      ],
+      "origin": "reviewed_existing_source",
+      "subject_id": "13",
+      "kind": "referee",
+      "attributes": {
+        "shirt_color": "yellow",
+        "occlusion": "none_visible",
+        "body_clipped_by_image": false,
+        "pose": "back",
+        "height_at_imgsz640": 36.4
+      },
+      "objects": [
+        {
+          "id": "13",
+          "role": "referee",
+          "xyxy": [
+            1753.68,
+            890.0,
+            1837.0,
+            999.2
+          ]
+        }
+      ],
+      "patch_sha256": "d6869b434a7da63172b9ea4fc7e38ef64d0f83905845973c7352e2416db17831",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "native-2e57b9_1_10_png.rf.ec1ea28433a4f736551f4040e902e236-17",
+      "source_id": "native-2e57b9_1_10_png.rf.ec1ea28433a4f736551f4040e902e236",
+      "roi": [
+        920,
+        359,
+        955,
+        426
+      ],
+      "origin": "reviewed_existing_source",
+      "subject_id": "17",
+      "kind": "referee",
+      "attributes": {
+        "shirt_color": "yellow",
+        "occlusion": "none_visible",
+        "body_clipped_by_image": false,
+        "pose": "front",
+        "height_at_imgsz640": 21.0
+      },
+      "objects": [
+        {
+          "id": "17",
+          "role": "referee",
+          "xyxy": [
+            922.0,
+            361.0,
+            953.0,
+            424.0
+          ]
+        }
+      ],
+      "patch_sha256": "87fe66afd1d2cf69986317f677ca149a20a514743d9341836f7c880d2374215e",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "native-54745b_1_7_png.rf.bda9767fc2a07387f263821d1e449e3c-1",
+      "source_id": "native-54745b_1_7_png.rf.bda9767fc2a07387f263821d1e449e3c",
+      "roi": [
+        817,
+        171,
+        840,
+        209
+      ],
+      "origin": "reviewed_existing_source",
+      "subject_id": "1",
+      "kind": "referee",
+      "attributes": {
+        "shirt_color": "red",
+        "occlusion": "none_visible",
+        "body_clipped_by_image": false,
+        "pose": "side",
+        "height_at_imgsz640": 11.33
+      },
+      "objects": [
+        {
+          "id": "1",
+          "role": "referee",
+          "xyxy": [
+            819.0,
+            173.0,
+            838.0,
+            207.0
+          ]
+        }
+      ],
+      "patch_sha256": "dab6745cee73e3fb60c99b4db26477d6a04886b2184ed6c5a012f5ba7fddea26",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "native-54745b_1_7_png.rf.bda9767fc2a07387f263821d1e449e3c-14",
+      "source_id": "native-54745b_1_7_png.rf.bda9767fc2a07387f263821d1e449e3c",
+      "roi": [
+        763,
+        460,
+        787,
+        528
+      ],
+      "origin": "reviewed_existing_source",
+      "subject_id": "14",
+      "kind": "referee",
+      "attributes": {
+        "shirt_color": "red",
+        "occlusion": "none_visible",
+        "body_clipped_by_image": false,
+        "pose": "front",
+        "height_at_imgsz640": 21.33
+      },
+      "objects": [
+        {
+          "id": "14",
+          "role": "referee",
+          "xyxy": [
+            765.0,
+            462.0,
+            785.0,
+            526.0
+          ]
+        }
+      ],
+      "patch_sha256": "d1df1b217d3013039c2a5972de7acf561924ffaa8390a759b4aff1701405ef39",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "native-54745b_1_7_png.rf.bda9767fc2a07387f263821d1e449e3c-24",
+      "source_id": "native-54745b_1_7_png.rf.bda9767fc2a07387f263821d1e449e3c",
+      "roi": [
+        1775,
+        846,
+        1833,
+        952
+      ],
+      "origin": "reviewed_existing_source",
+      "subject_id": "24",
+      "kind": "referee",
+      "attributes": {
+        "shirt_color": "red",
+        "occlusion": "none_visible",
+        "body_clipped_by_image": false,
+        "pose": "back",
+        "height_at_imgsz640": 34.0
+      },
+      "objects": [
+        {
+          "id": "24",
+          "role": "referee",
+          "xyxy": [
+            1777.0,
+            848.0,
+            1831.0,
+            950.0
+          ]
+        }
+      ],
+      "patch_sha256": "b5a54b7a93097788c78428eabb8a49a01e7b51a7cf0a3de88f3cef77f81e8f56",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "native-55c9d1_3_1_png.rf.07c7686af5672912560847946b4b001c-12",
+      "source_id": "native-55c9d1_3_1_png.rf.07c7686af5672912560847946b4b001c",
+      "roi": [
+        836,
+        326,
+        858,
+        377
+      ],
+      "origin": "reviewed_existing_source",
+      "subject_id": "12",
+      "kind": "referee",
+      "attributes": {
+        "shirt_color": "yellow",
+        "occlusion": "partial",
+        "body_clipped_by_image": false,
+        "pose": "front",
+        "height_at_imgsz640": 15.67
+      },
+      "objects": [
+        {
+          "id": "3",
+          "role": "player",
+          "xyxy": [
+            846.0,
+            326,
+            858,
+            338.0
+          ]
+        },
+        {
+          "id": "12",
+          "role": "referee",
+          "xyxy": [
+            838.0,
+            328.0,
+            856.0,
+            375.0
+          ]
+        },
+        {
+          "id": "23",
+          "role": "player",
+          "xyxy": [
+            836,
+            356.34,
+            856.95,
+            377
+          ]
+        }
+      ],
+      "patch_sha256": "e056a610d16df8749b5a5b394c94801962fc75b28d7924567ad7e88d54425ffc",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    },
+    {
+      "id": "native-c01561_1_10_png.rf.3f004c5d1ff29736ea3c76c15311b910-16",
+      "source_id": "native-c01561_1_10_png.rf.3f004c5d1ff29736ea3c76c15311b910",
+      "roi": [
+        842,
+        289,
+        874,
+        352
+      ],
+      "origin": "reviewed_existing_source",
+      "subject_id": "16",
+      "kind": "referee",
+      "attributes": {
+        "shirt_color": "yellow",
+        "occlusion": "none_visible",
+        "body_clipped_by_image": false,
+        "pose": "side",
+        "height_at_imgsz640": 19.67
+      },
+      "objects": [
+        {
+          "id": "16",
+          "role": "referee",
+          "xyxy": [
+            844.0,
+            291.0,
+            872.0,
+            350.0
+          ]
+        }
+      ],
+      "patch_sha256": "58c6e9fd341123b6aa76cd5a8a602db4be8966d7a3eb7d2ec45afe857389c1b0",
+      "review_status": "agent_reviewed",
+      "coverage": "visible match targets inside ROI only; outside ROI unlabelled",
+      "review_note": "Inspected exact ROI and all displayed target boxes after discarding nested duplicate proposals. Context fragments remain clipped labels, not complete-frame annotations."
+    }
+  ],
+  "quarantine": [
+    {
+      "source_id": "native-40cd38_7_6_png.rf.81d37056bceae603a917ca7775c114a8",
+      "source_line": 22,
+      "xyxy": [
+        867.75,
+        383.24,
+        884.99,
+        416.78
+      ],
+      "reason": "Too blurred/small to confirm official role from the reviewed crop; existing source label retained unchanged but not admitted to this reviewed packet."
+    },
+    {
+      "source_id": "native-a9f16c_2_10_png.rf.1f142141ca710d8cfe79ff3aad386944",
+      "source_line": 21,
+      "xyxy": [
+        770.185,
+        284.14,
+        784.4750000000001,
+        317.38000000000005
+      ],
+      "reason": "Too blurred/small to confirm official role from the reviewed crop; existing source label retained unchanged but not admitted to this reviewed packet."
+    },
+    {
+      "source_id": "native-121364_7_10_png.rf.d612470c8674d649a7a09ef6ce000e72",
+      "source_line": 21,
+      "xyxy": [
+        618.23,
+        276.28499999999997,
+        646.2499999999999,
+        315.59499999999997
+      ],
+      "reason": "Too blurred/small to confirm official role from the reviewed crop; existing source label retained unchanged but not admitted to this reviewed packet."
+    },
+    {
+      "source_id": "native-2e57b9_1_10_png.rf.ec1ea28433a4f736551f4040e902e236",
+      "source_line": 23,
+      "xyxy": [
+        750.965,
+        130.97500000000002,
+        769.9350000000002,
+        165.145
+      ],
+      "reason": "Too blurred/small to confirm official role from the reviewed crop; existing source label retained unchanged but not admitted to this reviewed packet."
+    },
+    {
+      "source_id": "native-55c9d1_3_1_png.rf.07c7686af5672912560847946b4b001c",
+      "source_line": 1,
+      "xyxy": [
+        256.54,
+        288.2,
+        273.54,
+        330.28000000000003
+      ],
+      "reason": "Too blurred/small to confirm official role from the reviewed crop; existing source label retained unchanged but not admitted to this reviewed packet."
+    },
+    {
+      "source_id": "c1-f650",
+      "subject_id": "9",
+      "xyxy": [
+        418.1246337890625,
+        1049.81494140625,
+        443.50030517578125,
+        1079.931396484375
+      ],
+      "reason": "Only cropped/blurred head and upper shirt visible at image edge; match-official role not confirmed. No positive or background training label emitted."
+    },
+    {
+      "source_id": "c2-f2250",
+      "subject_id": "22",
+      "xyxy": [
+        1658.297607421875,
+        1047.7496337890625,
+        1691.830078125,
+        1079.03662109375
+      ],
+      "reason": "Only cropped/blurred head and upper shirt visible at image edge; match-official role not confirmed. No positive or background training label emitted."
+    }
+  ],
+  "review": "Agent reviewed all 395 raw person-proposal crops and 83 final ROI overlays; re-reviewed 22 native referee labels. No independent human validation. Five blurred native labels and two local head-only cases quarantined.",
+  "proposal_model_sha256": "0ebbc80d4a7680d14987a577cd21342b65ecfd94632bd9a8da63ae6417644ee1",
+  "training_performed": false,
+  "runtime_changed": false
+}

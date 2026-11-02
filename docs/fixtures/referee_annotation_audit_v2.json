@@ -1,0 +1,31 @@
+{
+  "kind": "referee_annotation_audit_v2",
+  "packet_sha256": "17180798a628c0e0012d4f53734c95aef47ce05be9dc5964ca219688fd4d8bd6",
+  "assets_verified": true,
+  "sources": 25,
+  "new_local_frames": 15,
+  "new_local_referees": 30,
+  "reviewed_existing_referees": 17,
+  "player_hard_negative_regions": 30,
+  "staff_background_regions": 6,
+  "regions": 83,
+  "quarantined": 7,
+  "referee_shirt_colors": {
+    "light_blue": 33,
+    "yellow": 10,
+    "black": 1,
+    "red": 3
+  },
+  "referee_poses": {
+    "uncertain": 2,
+    "front": 8,
+    "side": 23,
+    "back": 14
+  },
+  "referees_under_24px_at_imgsz640": 32,
+  "partial_occlusions": 3,
+  "image_clipped_referees": 2,
+  "training_performed": false,
+  "independently_validated": false,
+  "full_frames_are_training_ready": false
+}
