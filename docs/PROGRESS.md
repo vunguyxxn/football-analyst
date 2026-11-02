@@ -2,6 +2,33 @@
 
 ## Trạng thái hiện tại
 
+Đã tuyển chọn mẫu đối chiếu vai trò cùng màu áo v3 để xử lý lỗi cầu thủ
+vàng bị gọi trọng tài; chưa huấn luyện v3 hoặc đổi detector ứng dụng.
+Gói role_counterexamples_v3.json có 11 ảnh phát sóng thật / 4 nhóm cảnh,
+58 ROI ngữ cảnh đệm 48px: 39 player vàng, 4 referee vàng, 13 referee
+xanh ngọc, 1 referee hồng, 1 goalkeeper vàng. Agent đã rà tất cả ROI;
+chưa kiểm độc lập, các lượt có thể lặp người giữa các frame.
+
+Hai nguồn nhận là skaczylo/Football-Image-Dataset và keremberke/football-
+object-detection, khóa revision và bằng chứng CC BY 4.0 trong packet.
+Không nhận PES mô phỏng, nguồn referee-tracking CC BY-NC hoặc scout
+chưa rõ. Nhãn nguồn gộp vai trò được rà riêng, giữ nguyên raw; một bbox
+cầu thủ đỏ bị gán referee/trùng trong g30 được sửa tại nhãn ROI.
+
+Đã kiểm hash ảnh/nhãn toàn bộ 380 ảnh v1, provenance nguồn và pixel
+58 crop; sàng lọc exact/near-image không phát hiện trùng ảnh cũ. Val128/
+test35 không đổi. Chưa xác minh độc lập danh tính trận, không khẳng
+định tách trận tuyệt đối. Chỉ xuất ROI đã rà, không dùng phần ngoài
+ROI chưa gán nhãn làm nền. Export local role_counterexamples_v3/
+reviewed_train_rois; chưa ghép dataset hoặc tạo data.yaml huấn luyện.
+
+Thêm curate_role_counterexamples.py và 17 test bảo vệ phạm vi ROI,
+nguồn train, giấy phép/revision, thủ môn, ngữ cảnh chưa rõ và mẫu trùng.
+535 Python test đạt, 1 network deselected, 4 warning cũ. Tài liệu
+ROLE_COUNTEREXAMPLES_V3.md và snapshot role_counterexample_audit_v3.json.
+Không đổi weights, DATA_CONTRACT, frontend hay dependency. Bước sau:
+khóa protocol ghép/sampling v3 và gate trước khi train, giữ bộ kiểm cũ.
+
 Ngày 02/11/2026: đã cân bằng mẫu và huấn luyện lại small; v2 chưa đạt
 điều kiện chọn thay baseline nghiên cứu. Không đổi model của ứng dụng.
 Dataset v2 bỏ5ảnh train toàn cảnh có nhãn quarantine, giữ212ảnh gốc;

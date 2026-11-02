@@ -1,0 +1,23 @@
+{
+  "kind": "role_counterexample_audit_v3",
+  "packet_sha256": "23de51e8ff5cd6f0431bff73075c7b15117e30e722e361abaa92bf61604193bd",
+  "protected_manifest_sha256": "390626f43158857feafac2823799a405000d9fa6b4007e7c8f97e65cd0e15255",
+  "sources": 11,
+  "scene_groups": 4,
+  "reviewed_regions": 58,
+  "primary_counts": {
+    "player/yellow": 39,
+    "referee/turquoise": 13,
+    "referee/pink": 1,
+    "referee/yellow": 4,
+    "goalkeeper/yellow": 1
+  },
+  "assets_verified": true,
+  "prior_images_screened": 380,
+  "prior_duplicate_hits": 0,
+  "exported_regions": 58,
+  "training_performed": false,
+  "independently_validated": false,
+  "full_frames_are_training_ready": false,
+  "limitation": "Hash/thumbnail and visual scene checks do not prove independently verified disjoint matches; observations may repeat the same people."
+}

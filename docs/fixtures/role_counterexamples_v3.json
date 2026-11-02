@@ -1,0 +1,3251 @@
+{
+  "kind": "role_counterexamples_v3",
+  "date": "2026-11-02",
+  "scope": "New external train candidates with wider reviewed context. No training, no runtime change, no independent validation or match-disjoint claim.",
+  "protected_dataset": "data/processed/role_dataset_v1_final",
+  "protected_manifest_sha256": "390626f43158857feafac2823799a405000d9fa6b4007e7c8f97e65cd0e15255",
+  "providers": [
+    {
+      "id": "skaczylo",
+      "repository": "skaczylo/Football-Image-Dataset",
+      "revision": "264212872f1bfa6a9a3413f298793474da741aec",
+      "tree_sha": "8afcac384895b54e2cea84aebf2722e3adccbb9f",
+      "license": "CC-BY-4.0",
+      "attribution": "skaczylo, Football Image Dataset (2026)",
+      "url": "https://github.com/skaczylo/Football-Image-Dataset/tree/264212872f1bfa6a9a3413f298793474da741aec",
+      "license_file": "data/raw/role_counterexamples_v3/github/LICENSE",
+      "license_sha256": "3b126c282d37622981c4418af825b51a47498ef36c720843a97eb3dc66803725",
+      "license_git_blob_sha": "8565344e1b981743a4fe889548d3958f48fa94b5"
+    },
+    {
+      "id": "keremberke",
+      "repository": "keremberke/football-object-detection",
+      "revision": "788fb2722316ee7cad1ace2f6c94e563556a1d3e",
+      "license": "CC-BY-4.0",
+      "attribution": "Augmented Startups / Roboflow football-player-detection-kucab; Hugging Face mirror keremberke",
+      "url": "https://huggingface.co/datasets/keremberke/football-object-detection/tree/788fb2722316ee7cad1ace2f6c94e563556a1d3e",
+      "license_file": "data/raw/role_counterexamples_v3/keremberke-README.md",
+      "license_sha256": "460480c22baa453cdaca2bf56ea63df993a3ec2e59b6f3ab3f6f04f125b787a6",
+      "archive": "data/raw/role_counterexamples_v3/keremberke-test.zip",
+      "archive_sha256": "a4040882cd9341cca00c8a7832d7da87a7c731c746466cffbbc8ffd095044e71"
+    }
+  ],
+  "sources": [
+    {
+      "id": "g30",
+      "provider": "skaczylo",
+      "local_path": "data/raw/role_counterexamples_v3/github/20250710_145737_2ec182.jpg",
+      "sha256": "7ce470c1dab841f2213fa04eae5b8dba982eee673bb1ea464c5cca710e9e2fcd",
+      "width": 1920,
+      "height": 1080,
+      "scene_family": "spanish_yellow_red_white",
+      "split": "train",
+      "scene_review": "Agent inspected broadcast context and kit/scoreboard differences from protected sources. Exact official match identities/dates not independently verified.",
+      "uncertain_boxes": [],
+      "origin_path": "images/train/20250710_145737_2ec182.jpg",
+      "git_blob_sha": "e96ff19872ad2ab076172a8f3d9fc37cd89ff411",
+      "label_origin_path": "labels/train/20250710_145737_2ec182.txt",
+      "label_local_path": "data/raw/role_counterexamples_v3/github/20250710_145737_2ec182.txt",
+      "label_sha256": "9291cc10ff4f4b08d8dea3111b7aefe174861a6d9d0d06e0179acd290f0f4bcf",
+      "label_git_blob_sha": "46a78976220a57d3abd7bc053e7507999f65f891",
+      "media_kind": "real_match_broadcast",
+      "media_review": "Broadcast score/field/kit context visually inspected; named PES simulation subset and unresolved scout frames excluded."
+    },
+    {
+      "id": "g49",
+      "provider": "skaczylo",
+      "local_path": "data/raw/role_counterexamples_v3/github/20250710_145737_3f48b0.jpg",
+      "sha256": "9488bd775556fe3d5acd5f294b69f67ebff442deee4eb92c999f2c0638debeef",
+      "width": 1920,
+      "height": 1080,
+      "scene_family": "spanish_yellow_red_white",
+      "split": "train",
+      "scene_review": "Agent inspected broadcast context and kit/scoreboard differences from protected sources. Exact official match identities/dates not independently verified.",
+      "uncertain_boxes": [],
+      "origin_path": "images/train/20250710_145737_3f48b0.jpg",
+      "git_blob_sha": "b42dd16d1f0da9444802830015d3dd0360ed4be9",
+      "label_origin_path": "labels/train/20250710_145737_3f48b0.txt",
+      "label_local_path": "data/raw/role_counterexamples_v3/github/20250710_145737_3f48b0.txt",
+      "label_sha256": "530e33917fe6b082a85e475436518438e886b57221c885e90a7e880e9db596af",
+      "label_git_blob_sha": "43b8c134fc810201b3d44c6e7844c6e9eeb9f8f8",
+      "media_kind": "real_match_broadcast",
+      "media_review": "Broadcast score/field/kit context visually inspected; named PES simulation subset and unresolved scout frames excluded."
+    },
+    {
+      "id": "g54",
+      "provider": "skaczylo",
+      "local_path": "data/raw/role_counterexamples_v3/github/20250710_145737_46774a.jpg",
+      "sha256": "85604238e9663d79c2fb7ed26e5710e72d2917d2716cbe125c6f633aea4d5d2a",
+      "width": 1920,
+      "height": 1080,
+      "scene_family": "spanish_yellow_red_white",
+      "split": "train",
+      "scene_review": "Agent inspected broadcast context and kit/scoreboard differences from protected sources. Exact official match identities/dates not independently verified.",
+      "uncertain_boxes": [],
+      "origin_path": "images/train/20250710_145737_46774a.jpg",
+      "git_blob_sha": "470136beefe81f1b7bdf4477427f1505e43c2d65",
+      "label_origin_path": "labels/train/20250710_145737_46774a.txt",
+      "label_local_path": "data/raw/role_counterexamples_v3/github/20250710_145737_46774a.txt",
+      "label_sha256": "237355dd4efa58a916c540214c213a87b81f86f82c155b809125403db825c093",
+      "label_git_blob_sha": "db4d3f8e9c5736eb040644c60e5de992f730fdae",
+      "media_kind": "real_match_broadcast",
+      "media_review": "Broadcast score/field/kit context visually inspected; named PES simulation subset and unresolved scout frames excluded."
+    },
+    {
+      "id": "g63",
+      "provider": "skaczylo",
+      "local_path": "data/raw/role_counterexamples_v3/github/20250710_145737_51d854.jpg",
+      "sha256": "44edcab23d770b0ca4b2e20bd9193318c30482a6aae0d2efb78be0ec15a99d81",
+      "width": 1920,
+      "height": 1080,
+      "scene_family": "spanish_yellow_red_white",
+      "split": "train",
+      "scene_review": "Agent inspected broadcast context and kit/scoreboard differences from protected sources. Exact official match identities/dates not independently verified.",
+      "uncertain_boxes": [],
+      "origin_path": "images/train/20250710_145737_51d854.jpg",
+      "git_blob_sha": "ef303cbc6340ae358453029cd7db25c73cb26ce2",
+      "label_origin_path": "labels/train/20250710_145737_51d854.txt",
+      "label_local_path": "data/raw/role_counterexamples_v3/github/20250710_145737_51d854.txt",
+      "label_sha256": "165a1c131c87f342dee5ef15ffafee9a1f41f2c4951eaf789a3bb64aa747067c",
+      "label_git_blob_sha": "20d47b78485de4055abcb3e6313183c7e5a561d7",
+      "media_kind": "real_match_broadcast",
+      "media_review": "Broadcast score/field/kit context visually inspected; named PES simulation subset and unresolved scout frames excluded."
+    },
+    {
+      "id": "g90",
+      "provider": "skaczylo",
+      "local_path": "data/raw/role_counterexamples_v3/github/20250710_145737_7a52b6.jpg",
+      "sha256": "d3871458cc5fa175a12003e720367516890f8f4d19cc14c40db22898cd3bee16",
+      "width": 1920,
+      "height": 1080,
+      "scene_family": "spanish_yellow_red_white",
+      "split": "train",
+      "scene_review": "Agent inspected broadcast context and kit/scoreboard differences from protected sources. Exact official match identities/dates not independently verified.",
+      "uncertain_boxes": [
+        {
+          "id": "11",
+          "xyxy": [
+            0.17772674560546875,
+            282.11212158203125,
+            36.29161834716797,
+            378.8450927734375
+          ]
+        }
+      ],
+      "origin_path": "images/train/20250710_145737_7a52b6.jpg",
+      "git_blob_sha": "c604911995a9b29e4ea879cf2e6c3338a257ab49",
+      "label_origin_path": "labels/train/20250710_145737_7a52b6.txt",
+      "label_local_path": "data/raw/role_counterexamples_v3/github/20250710_145737_7a52b6.txt",
+      "label_sha256": "f4307b9795c2eac294ee2420d153e8e9c7bfc690d21d00805c5f0fdeb7c64fe9",
+      "label_git_blob_sha": "36e3cbc11d2b9aac4c95a55b663232f26f04d1c8",
+      "media_kind": "real_match_broadcast",
+      "media_review": "Broadcast score/field/kit context visually inspected; named PES simulation subset and unresolved scout frames excluded."
+    },
+    {
+      "id": "g192",
+      "provider": "skaczylo",
+      "local_path": "data/raw/role_counterexamples_v3/github/20250710_145737_fe44c6.jpg",
+      "sha256": "b63156eb89acf3ea04bca61c290059ba5e5ec640cc577707b6026f3a3091cd6c",
+      "width": 1920,
+      "height": 1080,
+      "scene_family": "spanish_yellow_red_white",
+      "split": "train",
+      "scene_review": "Agent inspected broadcast context and kit/scoreboard differences from protected sources. Exact official match identities/dates not independently verified.",
+      "uncertain_boxes": [],
+      "origin_path": "images/train/20250710_145737_fe44c6.jpg",
+      "git_blob_sha": "8ce99334def755dcfcec904575ac66e039fdad64",
+      "label_origin_path": "labels/train/20250710_145737_fe44c6.txt",
+      "label_local_path": "data/raw/role_counterexamples_v3/github/20250710_145737_fe44c6.txt",
+      "label_sha256": "d24fea5b490c4b733ccace26d8f785bc699251cfcb5a603e648fb2b9d367e632",
+      "label_git_blob_sha": "30650233e60840ec7148591192f210236622e77d",
+      "media_kind": "real_match_broadcast",
+      "media_review": "Broadcast score/field/kit context visually inspected; named PES simulation subset and unresolved scout frames excluded."
+    },
+    {
+      "id": "gFCS",
+      "provider": "skaczylo",
+      "local_path": "data/raw/role_counterexamples_v3/github/20250710_144746_1c90bc.jpg",
+      "sha256": "586006216ee0f32a4a825c5f34a557eac2502b866ae71c11dab7dca1b9092517",
+      "width": 1920,
+      "height": 1080,
+      "scene_family": "german_FCS_EBS_blue_yellow_ground",
+      "split": "train",
+      "scene_review": "Agent inspected broadcast context and kit/scoreboard differences from protected sources. Exact official match identities/dates not independently verified.",
+      "uncertain_boxes": [],
+      "origin_path": "images/train/20250710_144746_1c90bc.jpg",
+      "git_blob_sha": "19f4e43095de483ecda08a5568efbc622ee1d981",
+      "label_origin_path": "labels/train/20250710_144746_1c90bc.txt",
+      "label_local_path": "data/raw/role_counterexamples_v3/github/20250710_144746_1c90bc.txt",
+      "label_sha256": "91cd3cc92176f0fb230c88b0b44b2952492d3439f9326fd918a05571fbf2e724",
+      "label_git_blob_sha": "c39f2faa36a8db9b5d00f62d7d2af18fa5c050df",
+      "media_kind": "real_match_broadcast",
+      "media_review": "Broadcast score/field/kit context visually inspected; named PES simulation subset and unresolved scout frames excluded."
+    },
+    {
+      "id": "k0",
+      "provider": "keremberke",
+      "local_path": "data/raw/role_counterexamples_v3/keremberke/5496_jpg.rf.02195adf61db5b0f8f27df131ed35996.jpg",
+      "sha256": "34d8ed0e9187a5104d740b3f518327a02888efff9ebc97c9068d9a9fd7499865",
+      "width": 1280,
+      "height": 720,
+      "scene_family": "euro2016_HUN_BEL",
+      "split": "train",
+      "scene_review": "Agent inspected broadcast context and kit/scoreboard differences from protected sources. Exact official match identities/dates not independently verified.",
+      "uncertain_boxes": [
+        {
+          "id": "4",
+          "xyxy": [
+            582,
+            312,
+            604.88,
+            372
+          ]
+        }
+      ],
+      "archive_entry": "5496_jpg.rf.02195adf61db5b0f8f27df131ed35996.jpg",
+      "media_kind": "real_match_broadcast",
+      "media_review": "Broadcast score/field/kit context visually inspected; named PES simulation subset and unresolved scout frames excluded."
+    },
+    {
+      "id": "k63",
+      "provider": "keremberke",
+      "local_path": "data/raw/role_counterexamples_v3/keremberke/5558_jpg.rf.8153317f66795b94a147343ae5b6306a.jpg",
+      "sha256": "07d1eba58aa4b9ce6df0879297a1f9dbf517a1a25400d7f7621e978d1cb2e478",
+      "width": 1280,
+      "height": 720,
+      "scene_family": "euro2016_HUN_BEL",
+      "split": "train",
+      "scene_review": "Agent inspected broadcast context and kit/scoreboard differences from protected sources. Exact official match identities/dates not independently verified.",
+      "uncertain_boxes": [
+        {
+          "id": "10",
+          "xyxy": [
+            703,
+            94,
+            717.49,
+            126.72999999999999
+          ]
+        }
+      ],
+      "archive_entry": "5558_jpg.rf.8153317f66795b94a147343ae5b6306a.jpg",
+      "media_kind": "real_match_broadcast",
+      "media_review": "Broadcast score/field/kit context visually inspected; named PES simulation subset and unresolved scout frames excluded."
+    },
+    {
+      "id": "k105",
+      "provider": "keremberke",
+      "local_path": "data/raw/role_counterexamples_v3/keremberke/5596_jpg.rf.e52bcd8dd1b5326863e950fecd51b6be.jpg",
+      "sha256": "a1d82a86568b23c44917c32dfd24f23381f34957bd39bb0a663236902718c0f6",
+      "width": 1280,
+      "height": 720,
+      "scene_family": "euro2016_HUN_BEL",
+      "split": "train",
+      "scene_review": "Agent inspected broadcast context and kit/scoreboard differences from protected sources. Exact official match identities/dates not independently verified.",
+      "uncertain_boxes": [
+        {
+          "id": "3",
+          "xyxy": [
+            252,
+            192,
+            274.22,
+            258.92
+          ]
+        },
+        {
+          "id": "4",
+          "xyxy": [
+            250,
+            187,
+            277.22,
+            254.69
+          ]
+        }
+      ],
+      "archive_entry": "5596_jpg.rf.e52bcd8dd1b5326863e950fecd51b6be.jpg",
+      "media_kind": "real_match_broadcast",
+      "media_review": "Broadcast score/field/kit context visually inspected; named PES simulation subset and unresolved scout frames excluded."
+    },
+    {
+      "id": "k13",
+      "provider": "keremberke",
+      "local_path": "data/raw/role_counterexamples_v3/keremberke/296_pp_jpg.rf.1ab39e77dc4c4ede465e761ed187968a.jpg",
+      "sha256": "f9093e7c3427a70da670f56f145fac76c8da938be7e35376df1216314e0949d9",
+      "width": 1280,
+      "height": 720,
+      "scene_family": "rai_replay_blue_white_broadcast",
+      "split": "train",
+      "scene_review": "Agent inspected broadcast context and kit/scoreboard differences from protected sources. Exact official match identities/dates not independently verified.",
+      "uncertain_boxes": [],
+      "archive_entry": "296_pp_jpg.rf.1ab39e77dc4c4ede465e761ed187968a.jpg",
+      "media_kind": "real_match_broadcast",
+      "media_review": "Broadcast score/field/kit context visually inspected; named PES simulation subset and unresolved scout frames excluded."
+    }
+  ],
+  "regions": [
+    {
+      "id": "g30-1",
+      "source_id": "g30",
+      "roi": [
+        427,
+        485,
+        583,
+        698
+      ],
+      "primary_id": "1",
+      "primary_role": "player",
+      "primary_color": "yellow",
+      "objects": [
+        {
+          "id": "1",
+          "source_object_id": "1",
+          "role": "player",
+          "xyxy": [
+            475.74,
+            533.13,
+            534.38,
+            649.2
+          ]
+        },
+        {
+          "id": "19",
+          "source_object_id": "19",
+          "role": "player",
+          "xyxy": [
+            427,
+            505.11,
+            450.3,
+            616.21
+          ]
+        }
+      ],
+      "context_margin_px": 48,
+      "patch_sha256": "2c7415530e2292a0df8c6b1a1cd9a812cb532d85544e5846525ed213c503a0af",
+      "review_status": "agent_reviewed",
+      "coverage": "Only this reviewed ROI; pixels outside ROI remain unlabelled.",
+      "primary_source_xyxy": [
+        475.7420501708985,
+        533.1298828124999,
+        534.3753814697267,
+        649.2034912109374
+      ],
+      "review_note": "Agent inspected numbered source-actor crops, broadcast context, and every wider ROI overlay. Only visible targets inside ROI are labelled; clipped context actors retained. No independent second reviewer."
+    },
+    {
+      "id": "g30-6",
+      "source_id": "g30",
+      "roi": [
+        1379,
+        560,
+        1540,
+        788
+      ],
+      "primary_id": "6",
+      "primary_role": "player",
+      "primary_color": "yellow",
+      "objects": [
+        {
+          "id": "6",
+          "source_object_id": "6",
+          "role": "player",
+          "xyxy": [
+            1427.71,
+            608.78,
+            1491.89,
+            739.19
+          ]
+        },
+        {
+          "id": "13",
+          "source_object_id": "13",
+          "role": "player",
+          "xyxy": [
+            1470.84,
+            560.21,
+            1527.43,
+            682.91
+          ]
+        }
+      ],
+      "context_margin_px": 48,
+      "patch_sha256": "7ecb86dd38ec90a00323135b72da170d44e54fe9a526cc37ae7ad094e4131d6b",
+      "review_status": "agent_reviewed",
+      "coverage": "Only this reviewed ROI; pixels outside ROI remain unlabelled.",
+      "primary_source_xyxy": [
+        1427.7141723632812,
+        608.781433105469,
+        1491.891784667969,
+        739.1919555664062
+      ],
+      "review_note": "Agent inspected numbered source-actor crops, broadcast context, and every wider ROI overlay. Only visible targets inside ROI are labelled; clipped context actors retained. No independent second reviewer."
+    },
+    {
+      "id": "g30-8",
+      "source_id": "g30",
+      "roi": [
+        1285,
+        304,
+        1437,
+        487
+      ],
+      "primary_id": "8",
+      "primary_role": "player",
+      "primary_color": "yellow",
+      "objects": [
+        {
+          "id": "8",
+          "source_object_id": "8",
+          "role": "player",
+          "xyxy": [
+            1333.47,
+            352.23,
+            1388.79,
+            438.05
+          ]
+        },
+        {
+          "id": "11",
+          "source_object_id": "11",
+          "role": "player",
+          "xyxy": [
+            1295.79,
+            304,
+            1342.9,
+            345.43
+          ]
+        },
+        {
+          "id": "15",
+          "source_object_id": "15",
+          "role": "player",
+          "xyxy": [
+            1424.42,
+            304,
+            1437,
+            379.39
+          ]
+        }
+      ],
+      "context_margin_px": 48,
+      "patch_sha256": "92fd1fc1b4aea7d0e0066794be1b974f3cf9ca5321be2519675f577b03a45eeb",
+      "review_status": "agent_reviewed",
+      "coverage": "Only this reviewed ROI; pixels outside ROI remain unlabelled.",
+      "primary_source_xyxy": [
+        1333.4739379882815,
+        352.23458862304693,
+        1388.788269042969,
+        438.0458068847656
+      ],
+      "review_note": "Agent inspected numbered source-actor crops, broadcast context, and every wider ROI overlay. Only visible targets inside ROI are labelled; clipped context actors retained. No independent second reviewer."
+    },
+    {
+      "id": "g30-9",
+      "source_id": "g30",
+      "roi": [
+        585,
+        295,
+        739,
+        485
+      ],
+      "primary_id": "9",
+      "primary_role": "player",
+      "primary_color": "yellow",
+      "objects": [
+        {
+          "id": "2",
+          "source_object_id": "2",
+          "role": "player",
+          "xyxy": [
+            689.4,
+            316.85,
+            739,
+            395.2
+          ]
+        },
+        {
+          "id": "5",
+          "source_object_id": "5",
+          "role": "player",
+          "xyxy": [
+            585,
+            357.95,
+            599.49,
+            452.08
+          ]
+        },
+        {
+          "id": "9",
+          "source_object_id": "9",
+          "role": "player",
+          "xyxy": [
+            633.49,
+            343.96,
+            690.43,
+            436.32
+          ]
+        }
+      ],
+      "context_margin_px": 48,
+      "patch_sha256": "357c0fed2c58ffd3c1e49f90a69f83eeeb2de3cbe96a98e66bea91597a696455",
+      "review_status": "agent_reviewed",
+      "coverage": "Only this reviewed ROI; pixels outside ROI remain unlabelled.",
+      "primary_source_xyxy": [
+        633.4876098632812,
+        343.96388244628906,
+        690.4287719726562,
+        436.31883239746094
+      ],
+      "review_note": "Agent inspected numbered source-actor crops, broadcast context, and every wider ROI overlay. Only visible targets inside ROI are labelled; clipped context actors retained. No independent second reviewer."
+    },
+    {
+      "id": "g30-11",
+      "source_id": "g30",
+      "roi": [
+        1247,
+        227,
+        1391,
+        394
+      ],
+      "primary_id": "11",
+      "primary_role": "player",
+      "primary_color": "yellow",
+      "objects": [
+        {
+          "id": "8",
+          "source_object_id": "8",
+          "role": "player",
+          "xyxy": [
+            1333.47,
+            352.23,
+            1388.79,
+            394
+          ]
+        },
+        {
+          "id": "11",
+          "source_object_id": "11",
+          "role": "player",
+          "xyxy": [
+            1295.79,
+            275.18,
+            1342.9,
+            345.43
+          ]
+        },
+        {
+          "id": "12",
+          "source_object_id": "12",
+          "role": "player",
+          "xyxy": [
+            1247,
+            343.13,
+            1279.87,
+            394
+          ]
+        }
+      ],
+      "context_margin_px": 48,
+      "patch_sha256": "668f4935e47e65a1d7eb35ba2a530cefe2304d597bd2bfe8557ab25ce7c23841",
+      "review_status": "agent_reviewed",
+      "coverage": "Only this reviewed ROI; pixels outside ROI remain unlabelled.",
+      "primary_source_xyxy": [
+        1295.7919311523438,
+        275.17718505859375,
+        1342.903381347656,
+        345.42663574218756
+      ],
+      "review_note": "Agent inspected numbered source-actor crops, broadcast context, and every wider ROI overlay. Only visible targets inside ROI are labelled; clipped context actors retained. No independent second reviewer."
+    },
+    {
+      "id": "g30-17",
+      "source_id": "g30",
+      "roi": [
+        871,
+        151,
+        1006,
+        304
+      ],
+      "primary_id": "17",
+      "primary_role": "player",
+      "primary_color": "yellow",
+      "objects": [
+        {
+          "id": "10",
+          "source_object_id": "10",
+          "role": "player",
+          "xyxy": [
+            871,
+            248.11,
+            873.49,
+            304
+          ]
+        },
+        {
+          "id": "17",
+          "source_object_id": "17",
+          "role": "player",
+          "xyxy": [
+            919.77,
+            199.03,
+            957.25,
+            255.0
+          ]
+        }
+      ],
+      "context_margin_px": 48,
+      "patch_sha256": "75f9723e1cbfd6ef9fee1e881462ce25677b6a08d86cffdf5e13171029d41f92",
+      "review_status": "agent_reviewed",
+      "coverage": "Only this reviewed ROI; pixels outside ROI remain unlabelled.",
+      "primary_source_xyxy": [
+        919.7726135253906,
+        199.0320281982422,
+        957.2459411621094,
+        255.00340270996094
+      ],
+      "review_note": "Agent inspected numbered source-actor crops, broadcast context, and every wider ROI overlay. Only visible targets inside ROI are labelled; clipped context actors retained. No independent second reviewer."
+    },
+    {
+      "id": "g30-3",
+      "source_id": "g30",
+      "roi": [
+        995,
+        324,
+        1140,
+        513
+      ],
+      "primary_id": "3",
+      "primary_role": "referee",
+      "primary_color": "turquoise",
+      "objects": [
+        {
+          "id": "3",
+          "source_object_id": "3",
+          "role": "referee",
+          "xyxy": [
+            1043.22,
+            372.28,
+            1091.39,
+            464.11
+          ]
+        }
+      ],
+      "context_margin_px": 48,
+      "patch_sha256": "dccf1dcf95ae52a218af960ad0dfbb87d03d58b08558768d156d79796748f4eb",
+      "review_status": "agent_reviewed",
+      "coverage": "Only this reviewed ROI; pixels outside ROI remain unlabelled.",
+      "primary_source_xyxy": [
+        1043.2208251953125,
+        372.27568054199224,
+        1091.3905029296875,
+        464.1128692626953
+      ],
+      "review_note": "Agent inspected numbered source-actor crops, broadcast context, and every wider ROI overlay. Only visible targets inside ROI are labelled; clipped context actors retained. No independent second reviewer."
+    },
+    {
+      "id": "g30-18",
+      "source_id": "g30",
+      "roi": [
+        991,
+        117,
+        1125,
+        282
+      ],
+      "primary_id": "18",
+      "primary_role": "referee",
+      "primary_color": "turquoise",
+      "objects": [
+        {
+          "id": "18",
+          "source_object_id": "18",
+          "role": "referee",
+          "xyxy": [
+            1039.33,
+            165.05,
+            1076.25,
+            233.46
+          ]
+        }
+      ],
+      "context_margin_px": 48,
+      "patch_sha256": "734e0766530867e34d26a54ef33e50e4ab270eadbfc587f02de8b01aa46eb67e",
+      "review_status": "agent_reviewed",
+      "coverage": "Only this reviewed ROI; pixels outside ROI remain unlabelled.",
+      "primary_source_xyxy": [
+        1039.3286743164062,
+        165.04537963867188,
+        1076.2518920898438,
+        233.4564208984375
+      ],
+      "review_note": "Agent inspected numbered source-actor crops, broadcast context, and every wider ROI overlay. Only visible targets inside ROI are labelled; clipped context actors retained. No independent second reviewer."
+    },
+    {
+      "id": "g49-1",
+      "source_id": "g49",
+      "roi": [
+        1188,
+        354,
+        1370,
+        567
+      ],
+      "primary_id": "1",
+      "primary_role": "player",
+      "primary_color": "yellow",
+      "objects": [
+        {
+          "id": "1",
+          "source_object_id": "1",
+          "role": "player",
+          "xyxy": [
+            1236.45,
+            402.96,
+            1321.21,
+            518.22
+          ]
+        }
+      ],
+      "context_margin_px": 48,
+      "patch_sha256": "76127d00da1445c468a850b2ad770e3010f26323340b95a96dfc30ec491cb191",
+      "review_status": "agent_reviewed",
+      "coverage": "Only this reviewed ROI; pixels outside ROI remain unlabelled.",
+      "primary_source_xyxy": [
+        1236.4521484375,
+        402.95782470703125,
+        1321.214111328125,
+        518.2229614257812
+      ],
+      "review_note": "Agent inspected numbered source-actor crops, broadcast context, and every wider ROI overlay. Only visible targets inside ROI are labelled; clipped context actors retained. No independent second reviewer."
+    },
+    {
+      "id": "g49-3",
+      "source_id": "g49",
+      "roi": [
+        714,
+        413,
+        896,
+        629
+      ],
+      "primary_id": "3",
+      "primary_role": "player",
+      "primary_color": "yellow",
+      "objects": [
+        {
+          "id": "3",
+          "source_object_id": "3",
+          "role": "player",
+          "xyxy": [
+            762.48,
+            461.3,
+            847.55,
+            580.51
+          ]
+        },
+        {
+          "id": "5",
+          "source_object_id": "5",
+          "role": "player",
+          "xyxy": [
+            828.22,
+            413,
+            896,
+            488.72
+          ]
+        }
+      ],
+      "context_margin_px": 48,
+      "patch_sha256": "864909330c677ed21c80d8eda1555d31f5a3dbb0aa686e9fcbd9e787fb8593b6",
+      "review_status": "agent_reviewed",
+      "coverage": "Only this reviewed ROI; pixels outside ROI remain unlabelled.",
+      "primary_source_xyxy": [
+        762.4780883789062,
+        461.3011474609375,
+        847.5497436523438,
+        580.509521484375
+      ],
+      "review_note": "Agent inspected numbered source-actor crops, broadcast context, and every wider ROI overlay. Only visible targets inside ROI are labelled; clipped context actors retained. No independent second reviewer."
+    },
+    {
+      "id": "g49-7",
+      "source_id": "g49",
+      "roi": [
+        973,
+        918,
+        1163,
+        1080
+      ],
+      "primary_id": "7",
+      "primary_role": "player",
+      "primary_color": "yellow",
+      "objects": [
+        {
+          "id": "7",
+          "source_object_id": "7",
+          "role": "player",
+          "xyxy": [
+            1022.0,
+            966.55,
+            1114.75,
+            1080
+          ]
+        }
+      ],
+      "context_margin_px": 48,
+      "patch_sha256": "ac549eaa20a4e5bf99f7cc1bda64fd6a850a5e731b7276bf6a4b3c080dcf3ba1",
+      "review_status": "agent_reviewed",
+      "coverage": "Only this reviewed ROI; pixels outside ROI remain unlabelled.",
+      "primary_source_xyxy": [
+        1021.9962158203124,
+        966.5487976074219,
+        1114.7491455078123,
+        1080
+      ],
+      "review_note": "Agent inspected numbered source-actor crops, broadcast context, and every wider ROI overlay. Only visible targets inside ROI are labelled; clipped context actors retained. No independent second reviewer."
+    },
+    {
+      "id": "g49-9",
+      "source_id": "g49",
+      "roi": [
+        872,
+        308,
+        1013,
+        509
+      ],
+      "primary_id": "9",
+      "primary_role": "player",
+      "primary_color": "yellow",
+      "objects": [
+        {
+          "id": "5",
+          "source_object_id": "5",
+          "role": "player",
+          "xyxy": [
+            872,
+            384.72,
+            897.64,
+            488.72
+          ]
+        },
+        {
+          "id": "8",
+          "source_object_id": "8",
+          "role": "player",
+          "xyxy": [
+            986.4,
+            369.1,
+            1013,
+            473.9
+          ]
+        },
+        {
+          "id": "9",
+          "source_object_id": "9",
+          "role": "player",
+          "xyxy": [
+            920.34,
+            356.57,
+            964.48,
+            460.77
+          ]
+        }
+      ],
+      "context_margin_px": 48,
+      "patch_sha256": "1309541d2d8b89f37b35185432d1b5426960b38faf7843950b8fe732c4a091b4",
+      "review_status": "agent_reviewed",
+      "coverage": "Only this reviewed ROI; pixels outside ROI remain unlabelled.",
+      "primary_source_xyxy": [
+        920.3397216796875,
+        356.5701904296875,
+        964.4791259765624,
+        460.7720947265625
+      ],
+      "review_note": "Agent inspected numbered source-actor crops, broadcast context, and every wider ROI overlay. Only visible targets inside ROI are labelled; clipped context actors retained. No independent second reviewer."
+    },
+    {
+      "id": "g49-2",
+      "source_id": "g49",
+      "roi": [
+        1810,
+        420,
+        1920,
+        639
+      ],
+      "primary_id": "2",
+      "primary_role": "referee",
+      "primary_color": "turquoise",
+      "objects": [
+        {
+          "id": "2",
+          "source_object_id": "2",
+          "role": "referee",
+          "xyxy": [
+            1858.64,
+            468.76,
+            1915.3,
+            590.76
+          ]
+        },
+        {
+          "id": "6",
+          "source_object_id": "6",
+          "role": "player",
+          "xyxy": [
+            1810,
+            420,
+            1817.2,
+            528.89
+          ]
+        }
+      ],
+      "context_margin_px": 48,
+      "patch_sha256": "09b972fa52612fc1cb8ca6e14442962b7c06a36dae5bd10c597dac1cca792c72",
+      "review_status": "agent_reviewed",
+      "coverage": "Only this reviewed ROI; pixels outside ROI remain unlabelled.",
+      "primary_source_xyxy": [
+        1858.641357421875,
+        468.76322937011713,
+        1915.29736328125,
+        590.7582550048828
+      ],
+      "review_note": "Agent inspected numbered source-actor crops, broadcast context, and every wider ROI overlay. Only visible targets inside ROI are labelled; clipped context actors retained. No independent second reviewer."
+    },
+    {
+      "id": "g49-11",
+      "source_id": "g49",
+      "roi": [
+        1830,
+        204,
+        1920,
+        386
+      ],
+      "primary_id": "11",
+      "primary_role": "referee",
+      "primary_color": "turquoise",
+      "objects": [
+        {
+          "id": "11",
+          "source_object_id": "11",
+          "role": "referee",
+          "xyxy": [
+            1878.06,
+            252.59,
+            1919.18,
+            337.67
+          ]
+        }
+      ],
+      "context_margin_px": 48,
+      "patch_sha256": "519b5b52e2df251f04859892b68e67e8c95bf652f15c0a9fec930dc55fe2c96a",
+      "review_status": "agent_reviewed",
+      "coverage": "Only this reviewed ROI; pixels outside ROI remain unlabelled.",
+      "primary_source_xyxy": [
+        1878.0621337890627,
+        252.59487915039068,
+        1919.1773681640625,
+        337.6739807128907
+      ],
+      "review_note": "Agent inspected numbered source-actor crops, broadcast context, and every wider ROI overlay. Only visible targets inside ROI are labelled; clipped context actors retained. No independent second reviewer."
+    },
+    {
+      "id": "g54-0",
+      "source_id": "g54",
+      "roi": [
+        578,
+        336,
+        737,
+        554
+      ],
+      "primary_id": "0",
+      "primary_role": "player",
+      "primary_color": "yellow",
+      "objects": [
+        {
+          "id": "0",
+          "source_object_id": "0",
+          "role": "player",
+          "xyxy": [
+            626.51,
+            384.28,
+            688.77,
+            505.56
+          ]
+        },
+        {
+          "id": "2",
+          "source_object_id": "2",
+          "role": "player",
+          "xyxy": [
+            578,
+            502.98,
+            621.57,
+            554
+          ]
+        },
+        {
+          "id": "13",
+          "source_object_id": "13",
+          "role": "referee",
+          "xyxy": [
+            699.91,
+            430.55,
+            737,
+            546.4
+          ]
+        }
+      ],
+      "context_margin_px": 48,
+      "patch_sha256": "88beff3fe85dc089b4ef6ecd4ba87e82a4cc45e824f3de1ac2bc6a1d9b22f4d6",
+      "review_status": "agent_reviewed",
+      "coverage": "Only this reviewed ROI; pixels outside ROI remain unlabelled.",
+      "primary_source_xyxy": [
+        626.5094299316406,
+        384.2771453857422,
+        688.7654724121094,
+        505.5623321533203
+      ],
+      "review_note": "Agent inspected numbered source-actor crops, broadcast context, and every wider ROI overlay. Only visible targets inside ROI are labelled; clipped context actors retained. No independent second reviewer."
+    },
+    {
+      "id": "g54-6",
+      "source_id": "g54",
+      "roi": [
+        1083,
+        178,
+        1227,
+        355
+      ],
+      "primary_id": "6",
+      "primary_role": "player",
+      "primary_color": "yellow",
+      "objects": [
+        {
+          "id": "6",
+          "source_object_id": "6",
+          "role": "player",
+          "xyxy": [
+            1131.89,
+            226.95,
+            1178.5,
+            306.44
+          ]
+        }
+      ],
+      "context_margin_px": 48,
+      "patch_sha256": "095c1785c6dd7490687482d5d4bc3106439da9a5da48b0829fc8a2263d54b74f",
+      "review_status": "agent_reviewed",
+      "coverage": "Only this reviewed ROI; pixels outside ROI remain unlabelled.",
+      "primary_source_xyxy": [
+        1131.8909301757812,
+        226.95449829101557,
+        1178.4953002929688,
+        306.4367980957031
+      ],
+      "review_note": "Agent inspected numbered source-actor crops, broadcast context, and every wider ROI overlay. Only visible targets inside ROI are labelled; clipped context actors retained. No independent second reviewer."
+    },
+    {
+      "id": "g54-8",
+      "source_id": "g54",
+      "roi": [
+        1202,
+        418,
+        1362,
+        640
+      ],
+      "primary_id": "8",
+      "primary_role": "player",
+      "primary_color": "yellow",
+      "objects": [
+        {
+          "id": "8",
+          "source_object_id": "8",
+          "role": "player",
+          "xyxy": [
+            1250.24,
+            466.86,
+            1313.88,
+            591.07
+          ]
+        }
+      ],
+      "context_margin_px": 48,
+      "patch_sha256": "81a968c260aebd86c56ef4946ecc17535e5bf803c72c0419ea5b88138c329001",
+      "review_status": "agent_reviewed",
+      "coverage": "Only this reviewed ROI; pixels outside ROI remain unlabelled.",
+      "primary_source_xyxy": [
+        1250.2351684570312,
+        466.85798645019526,
+        1313.8834838867185,
+        591.0748748779297
+      ],
+      "review_note": "Agent inspected numbered source-actor crops, broadcast context, and every wider ROI overlay. Only visible targets inside ROI are labelled; clipped context actors retained. No independent second reviewer."
+    },
+    {
+      "id": "g54-9",
+      "source_id": "g54",
+      "roi": [
+        340,
+        671,
+        530,
+        955
+      ],
+      "primary_id": "9",
+      "primary_role": "player",
+      "primary_color": "yellow",
+      "objects": [
+        {
+          "id": "9",
+          "source_object_id": "9",
+          "role": "player",
+          "xyxy": [
+            388.15,
+            719.69,
+            481.29,
+            906.19
+          ]
+        }
+      ],
+      "context_margin_px": 48,
+      "patch_sha256": "33fcefe6113251e9b9a590287fc0e9fa8fe718aefaf794a19412bb553bb824cd",
+      "review_status": "agent_reviewed",
+      "coverage": "Only this reviewed ROI; pixels outside ROI remain unlabelled.",
+      "primary_source_xyxy": [
+        388.14532470703125,
+        719.6893920898436,
+        481.28662109375006,
+        906.1880493164061
+      ],
+      "review_note": "Agent inspected numbered source-actor crops, broadcast context, and every wider ROI overlay. Only visible targets inside ROI are labelled; clipped context actors retained. No independent second reviewer."
+    },
+    {
+      "id": "g54-10",
+      "source_id": "g54",
+      "roi": [
+        1537,
+        219,
+        1684,
+        405
+      ],
+      "primary_id": "10",
+      "primary_role": "player",
+      "primary_color": "yellow",
+      "objects": [
+        {
+          "id": "10",
+          "source_object_id": "10",
+          "role": "player",
+          "xyxy": [
+            1585.23,
+            267.3,
+            1635.67,
+            356.98
+          ]
+        }
+      ],
+      "context_margin_px": 48,
+      "patch_sha256": "457044cd3aac13a9d2d3f1f50b9602b41a838328dfb350f26c7b40f4d08d816b",
+      "review_status": "agent_reviewed",
+      "coverage": "Only this reviewed ROI; pixels outside ROI remain unlabelled.",
+      "primary_source_xyxy": [
+        1585.2264404296875,
+        267.30447387695307,
+        1635.6666259765625,
+        356.9757995605469
+      ],
+      "review_note": "Agent inspected numbered source-actor crops, broadcast context, and every wider ROI overlay. Only visible targets inside ROI are labelled; clipped context actors retained. No independent second reviewer."
+    },
+    {
+      "id": "g54-13",
+      "source_id": "g54",
+      "roi": [
+        651,
+        382,
+        799,
+        595
+      ],
+      "primary_id": "13",
+      "primary_role": "referee",
+      "primary_color": "turquoise",
+      "objects": [
+        {
+          "id": "0",
+          "source_object_id": "0",
+          "role": "player",
+          "xyxy": [
+            651,
+            384.28,
+            688.77,
+            505.56
+          ]
+        },
+        {
+          "id": "13",
+          "source_object_id": "13",
+          "role": "referee",
+          "xyxy": [
+            699.91,
+            430.55,
+            750.87,
+            546.4
+          ]
+        }
+      ],
+      "context_margin_px": 48,
+      "patch_sha256": "4817f5f79478142f884d90c377a7a7fba397f1a8212c02ea35c4015f70ea6473",
+      "review_status": "agent_reviewed",
+      "coverage": "Only this reviewed ROI; pixels outside ROI remain unlabelled.",
+      "primary_source_xyxy": [
+        699.9119873046875,
+        430.54858398437494,
+        750.871337890625,
+        546.395751953125
+      ],
+      "review_note": "Agent inspected numbered source-actor crops, broadcast context, and every wider ROI overlay. Only visible targets inside ROI are labelled; clipped context actors retained. No independent second reviewer."
+    },
+    {
+      "id": "g54-15",
+      "source_id": "g54",
+      "roi": [
+        753,
+        141,
+        887,
+        319
+      ],
+      "primary_id": "15",
+      "primary_role": "referee",
+      "primary_color": "turquoise",
+      "objects": [
+        {
+          "id": "15",
+          "source_object_id": "15",
+          "role": "referee",
+          "xyxy": [
+            801.98,
+            189.1,
+            838.51,
+            270.8
+          ]
+        }
+      ],
+      "context_margin_px": 48,
+      "patch_sha256": "e541d6a17180a4b750a9b6dfe29ac9b1a86899c2e5b66eef29e009177e61b2df",
+      "review_status": "agent_reviewed",
+      "coverage": "Only this reviewed ROI; pixels outside ROI remain unlabelled.",
+      "primary_source_xyxy": [
+        801.9767761230469,
+        189.10415649414062,
+        838.512237548828,
+        270.79699707031256
+      ],
+      "review_note": "Agent inspected numbered source-actor crops, broadcast context, and every wider ROI overlay. Only visible targets inside ROI are labelled; clipped context actors retained. No independent second reviewer."
+    },
+    {
+      "id": "g63-0",
+      "source_id": "g63",
+      "roi": [
+        1255,
+        234,
+        1418,
+        435
+      ],
+      "primary_id": "0",
+      "primary_role": "player",
+      "primary_color": "yellow",
+      "objects": [
+        {
+          "id": "0",
+          "source_object_id": "0",
+          "role": "player",
+          "xyxy": [
+            1303.82,
+            282.48,
+            1369.41,
+            386.72
+          ]
+        },
+        {
+          "id": "5",
+          "source_object_id": "5",
+          "role": "referee",
+          "xyxy": [
+            1255,
+            320.13,
+            1260.73,
+            421.45
+          ]
+        }
+      ],
+      "context_margin_px": 48,
+      "patch_sha256": "a908b9a338c4fb9add027091dff3173efd4e78957c5fa14cece9ea35d183d4c5",
+      "review_status": "agent_reviewed",
+      "coverage": "Only this reviewed ROI; pixels outside ROI remain unlabelled.",
+      "primary_source_xyxy": [
+        1303.8178710937498,
+        282.4818878173828,
+        1369.405517578125,
+        386.7167205810547
+      ],
+      "review_note": "Agent inspected numbered source-actor crops, broadcast context, and every wider ROI overlay. Only visible targets inside ROI are labelled; clipped context actors retained. No independent second reviewer."
+    },
+    {
+      "id": "g63-1",
+      "source_id": "g63",
+      "roi": [
+        1568,
+        352,
+        1743,
+        577
+      ],
+      "primary_id": "1",
+      "primary_role": "player",
+      "primary_color": "yellow",
+      "objects": [
+        {
+          "id": "1",
+          "source_object_id": "1",
+          "role": "player",
+          "xyxy": [
+            1616.17,
+            400.16,
+            1694.62,
+            528.72
+          ]
+        },
+        {
+          "id": "3",
+          "source_object_id": "3",
+          "role": "player",
+          "xyxy": [
+            1568,
+            524.98,
+            1613.15,
+            577
+          ]
+        },
+        {
+          "id": "10",
+          "source_object_id": "10",
+          "role": "player",
+          "xyxy": [
+            1613.88,
+            352,
+            1665.83,
+            359.47
+          ]
+        }
+      ],
+      "context_margin_px": 48,
+      "patch_sha256": "4382214f3798c7d386ac0f10a69b59327f75f921a843a31bab91d1597c5f38fe",
+      "review_status": "agent_reviewed",
+      "coverage": "Only this reviewed ROI; pixels outside ROI remain unlabelled.",
+      "primary_source_xyxy": [
+        1616.1715087890623,
+        400.1599884033203,
+        1694.6204833984375,
+        528.7153778076173
+      ],
+      "review_note": "Agent inspected numbered source-actor crops, broadcast context, and every wider ROI overlay. Only visible targets inside ROI are labelled; clipped context actors retained. No independent second reviewer."
+    },
+    {
+      "id": "g63-4",
+      "source_id": "g63",
+      "roi": [
+        1099,
+        154,
+        1248,
+        332
+      ],
+      "primary_id": "4",
+      "primary_role": "player",
+      "primary_color": "yellow",
+      "objects": [
+        {
+          "id": "4",
+          "source_object_id": "4",
+          "role": "player",
+          "xyxy": [
+            1147.75,
+            202.23,
+            1199.44,
+            283.2
+          ]
+        },
+        {
+          "id": "5",
+          "source_object_id": "5",
+          "role": "referee",
+          "xyxy": [
+            1215.02,
+            320.13,
+            1248,
+            332
+          ]
+        }
+      ],
+      "context_margin_px": 48,
+      "patch_sha256": "2e2701c2220107854083823b1889cde836efa53c56aca34654ce28526cba0fa7",
+      "review_status": "agent_reviewed",
+      "coverage": "Only this reviewed ROI; pixels outside ROI remain unlabelled.",
+      "primary_source_xyxy": [
+        1147.75439453125,
+        202.23397064208987,
+        1199.44140625,
+        283.19889068603516
+      ],
+      "review_note": "Agent inspected numbered source-actor crops, broadcast context, and every wider ROI overlay. Only visible targets inside ROI are labelled; clipped context actors retained. No independent second reviewer."
+    },
+    {
+      "id": "g63-7",
+      "source_id": "g63",
+      "roi": [
+        613,
+        381,
+        785,
+        577
+      ],
+      "primary_id": "7",
+      "primary_role": "player",
+      "primary_color": "yellow",
+      "objects": [
+        {
+          "id": "6",
+          "source_object_id": "6",
+          "role": "player",
+          "xyxy": [
+            613,
+            407.64,
+            655.67,
+            513.97
+          ]
+        },
+        {
+          "id": "7",
+          "source_object_id": "7",
+          "role": "player",
+          "xyxy": [
+            661.67,
+            429.46,
+            736.79,
+            528.65
+          ]
+        },
+        {
+          "id": "11",
+          "source_object_id": "11",
+          "role": "player",
+          "xyxy": [
+            637.38,
+            381,
+            711.86,
+            426.12
+          ]
+        },
+        {
+          "id": "15",
+          "source_object_id": "15",
+          "role": "player",
+          "xyxy": [
+            701.4,
+            381,
+            757.58,
+            426.26
+          ]
+        },
+        {
+          "id": "16",
+          "source_object_id": "16",
+          "role": "player",
+          "xyxy": [
+            731.64,
+            381,
+            785,
+            406.94
+          ]
+        }
+      ],
+      "context_margin_px": 48,
+      "patch_sha256": "cda2502a4369b76fa4921791f01ff7c6dec860f2ecdf7f4910a1375074f17ac3",
+      "review_status": "agent_reviewed",
+      "coverage": "Only this reviewed ROI; pixels outside ROI remain unlabelled.",
+      "primary_source_xyxy": [
+        661.674072265625,
+        429.46479797363287,
+        736.78759765625,
+        528.6475067138672
+      ],
+      "review_note": "Agent inspected numbered source-actor crops, broadcast context, and every wider ROI overlay. Only visible targets inside ROI are labelled; clipped context actors retained. No independent second reviewer."
+    },
+    {
+      "id": "g63-12",
+      "source_id": "g63",
+      "roi": [
+        884,
+        315,
+        1036,
+        527
+      ],
+      "primary_id": "12",
+      "primary_role": "player",
+      "primary_color": "yellow",
+      "objects": [
+        {
+          "id": "8",
+          "source_object_id": "8",
+          "role": "player",
+          "xyxy": [
+            1000.29,
+            315,
+            1036,
+            333.2
+          ]
+        },
+        {
+          "id": "9",
+          "source_object_id": "9",
+          "role": "player",
+          "xyxy": [
+            984.29,
+            356.6,
+            1036,
+            453.67
+          ]
+        },
+        {
+          "id": "12",
+          "source_object_id": "12",
+          "role": "player",
+          "xyxy": [
+            932.83,
+            363.91,
+            988.0,
+            478.7
+          ]
+        }
+      ],
+      "context_margin_px": 48,
+      "patch_sha256": "6e8f066d0fb1e533ed14bb58b75a3010ebf0ac3ca735e924dbbcaca6ff42b943",
+      "review_status": "agent_reviewed",
+      "coverage": "Only this reviewed ROI; pixels outside ROI remain unlabelled.",
+      "primary_source_xyxy": [
+        932.8285522460938,
+        363.9086456298828,
+        987.9994506835938,
+        478.7037811279297
+      ],
+      "review_note": "Agent inspected numbered source-actor crops, broadcast context, and every wider ROI overlay. Only visible targets inside ROI are labelled; clipped context actors retained. No independent second reviewer."
+    },
+    {
+      "id": "g63-13",
+      "source_id": "g63",
+      "roi": [
+        255,
+        589,
+        471,
+        838
+      ],
+      "primary_id": "13",
+      "primary_role": "player",
+      "primary_color": "yellow",
+      "objects": [
+        {
+          "id": "13",
+          "source_object_id": "13",
+          "role": "player",
+          "xyxy": [
+            303.08,
+            637.25,
+            422.22,
+            789.22
+          ]
+        }
+      ],
+      "context_margin_px": 48,
+      "patch_sha256": "3db466d3a86cae774de03e9620b48a22b808905c5a190b82118d33a0e5a0b51b",
+      "review_status": "agent_reviewed",
+      "coverage": "Only this reviewed ROI; pixels outside ROI remain unlabelled.",
+      "primary_source_xyxy": [
+        303.08059692382807,
+        637.2467041015625,
+        422.2160339355469,
+        789.218505859375
+      ],
+      "review_note": "Agent inspected numbered source-actor crops, broadcast context, and every wider ROI overlay. Only visible targets inside ROI are labelled; clipped context actors retained. No independent second reviewer."
+    },
+    {
+      "id": "g63-5",
+      "source_id": "g63",
+      "roi": [
+        1167,
+        272,
+        1309,
+        470
+      ],
+      "primary_id": "5",
+      "primary_role": "referee",
+      "primary_color": "turquoise",
+      "objects": [
+        {
+          "id": "0",
+          "source_object_id": "0",
+          "role": "player",
+          "xyxy": [
+            1303.82,
+            282.48,
+            1309,
+            386.72
+          ]
+        },
+        {
+          "id": "2",
+          "source_object_id": "2",
+          "role": "player",
+          "xyxy": [
+            1167,
+            401.28,
+            1181.41,
+            470
+          ]
+        },
+        {
+          "id": "4",
+          "source_object_id": "4",
+          "role": "player",
+          "xyxy": [
+            1167,
+            272,
+            1199.44,
+            283.2
+          ]
+        },
+        {
+          "id": "5",
+          "source_object_id": "5",
+          "role": "referee",
+          "xyxy": [
+            1215.02,
+            320.13,
+            1260.73,
+            421.45
+          ]
+        }
+      ],
+      "context_margin_px": 48,
+      "patch_sha256": "839233ca45e858b25ba9b57e7bfeb8ede129462094416a46b893c0e6fac9b4b1",
+      "review_status": "agent_reviewed",
+      "coverage": "Only this reviewed ROI; pixels outside ROI remain unlabelled.",
+      "primary_source_xyxy": [
+        1215.0199584960938,
+        320.13246154785156,
+        1260.7251586914062,
+        421.450424194336
+      ],
+      "review_note": "Agent inspected numbered source-actor crops, broadcast context, and every wider ROI overlay. Only visible targets inside ROI are labelled; clipped context actors retained. No independent second reviewer."
+    },
+    {
+      "id": "g63-14",
+      "source_id": "g63",
+      "roi": [
+        1338,
+        87,
+        1476,
+        261
+      ],
+      "primary_id": "14",
+      "primary_role": "referee",
+      "primary_color": "turquoise",
+      "objects": [
+        {
+          "id": "14",
+          "source_object_id": "14",
+          "role": "referee",
+          "xyxy": [
+            1387.0,
+            135.77,
+            1427.3,
+            212.84
+          ]
+        }
+      ],
+      "context_margin_px": 48,
+      "patch_sha256": "7a25c61b96f6b409d086259a408d53ac7d68f0a1b18e342eaeb031e94dc158af",
+      "review_status": "agent_reviewed",
+      "coverage": "Only this reviewed ROI; pixels outside ROI remain unlabelled.",
+      "primary_source_xyxy": [
+        1386.997802734375,
+        135.76759338378906,
+        1427.30224609375,
+        212.83836364746094
+      ],
+      "review_note": "Agent inspected numbered source-actor crops, broadcast context, and every wider ROI overlay. Only visible targets inside ROI are labelled; clipped context actors retained. No independent second reviewer."
+    },
+    {
+      "id": "g90-0",
+      "source_id": "g90",
+      "roi": [
+        1234,
+        306,
+        1417,
+        516
+      ],
+      "primary_id": "0",
+      "primary_role": "player",
+      "primary_color": "yellow",
+      "objects": [
+        {
+          "id": "0",
+          "source_object_id": "0",
+          "role": "player",
+          "xyxy": [
+            1282.39,
+            354.32,
+            1368.73,
+            467.72
+          ]
+        },
+        {
+          "id": "9",
+          "source_object_id": "9",
+          "role": "player",
+          "xyxy": [
+            1234,
+            336.19,
+            1247.88,
+            440.68
+          ]
+        }
+      ],
+      "context_margin_px": 48,
+      "patch_sha256": "635cb6bbd588cc0ce1bcfa269d7b283cbe484bb0805c8ac17332d7b6a82d4ff1",
+      "review_status": "agent_reviewed",
+      "coverage": "Only this reviewed ROI; pixels outside ROI remain unlabelled.",
+      "primary_source_xyxy": [
+        1282.3936767578123,
+        354.3199462890625,
+        1368.7254638671875,
+        467.72430419921875
+      ],
+      "review_note": "Agent inspected numbered source-actor crops, broadcast context, and every wider ROI overlay. Only visible targets inside ROI are labelled; clipped context actors retained. No independent second reviewer."
+    },
+    {
+      "id": "g90-4",
+      "source_id": "g90",
+      "roi": [
+        561,
+        361,
+        722,
+        584
+      ],
+      "primary_id": "4",
+      "primary_role": "player",
+      "primary_color": "yellow",
+      "objects": [
+        {
+          "id": "4",
+          "source_object_id": "4",
+          "role": "player",
+          "xyxy": [
+            609.24,
+            409.96,
+            673.31,
+            535.05
+          ]
+        },
+        {
+          "id": "7",
+          "source_object_id": "7",
+          "role": "player",
+          "xyxy": [
+            718.17,
+            372.21,
+            722,
+            494.1
+          ]
+        },
+        {
+          "id": "8",
+          "source_object_id": "8",
+          "role": "player",
+          "xyxy": [
+            687.21,
+            402.06,
+            722,
+            534.64
+          ]
+        }
+      ],
+      "context_margin_px": 48,
+      "patch_sha256": "fa8b6987c3dccca7e65c98cd64ab16fd02b1e0c0d00030cce889f1cb0ffdde7f",
+      "review_status": "agent_reviewed",
+      "coverage": "Only this reviewed ROI; pixels outside ROI remain unlabelled.",
+      "primary_source_xyxy": [
+        609.2358398437499,
+        409.95507812500006,
+        673.310546875,
+        535.0504150390626
+      ],
+      "review_note": "Agent inspected numbered source-actor crops, broadcast context, and every wider ROI overlay. Only visible targets inside ROI are labelled; clipped context actors retained. No independent second reviewer."
+    },
+    {
+      "id": "g90-5",
+      "source_id": "g90",
+      "roi": [
+        1409,
+        416,
+        1573,
+        651
+      ],
+      "primary_id": "5",
+      "primary_role": "player",
+      "primary_color": "yellow",
+      "objects": [
+        {
+          "id": "5",
+          "source_object_id": "5",
+          "role": "player",
+          "xyxy": [
+            1457.11,
+            464.42,
+            1524.78,
+            602.45
+          ]
+        }
+      ],
+      "context_margin_px": 48,
+      "patch_sha256": "6d4df5f442676f4e6c30b2092e524cc76fef220dd2eb0151e66cf0fb7ef44325",
+      "review_status": "agent_reviewed",
+      "coverage": "Only this reviewed ROI; pixels outside ROI remain unlabelled.",
+      "primary_source_xyxy": [
+        1457.114990234375,
+        464.41760253906256,
+        1524.77587890625,
+        602.4473876953125
+      ],
+      "review_note": "Agent inspected numbered source-actor crops, broadcast context, and every wider ROI overlay. Only visible targets inside ROI are labelled; clipped context actors retained. No independent second reviewer."
+    },
+    {
+      "id": "g90-6",
+      "source_id": "g90",
+      "roi": [
+        985,
+        269,
+        1153,
+        475
+      ],
+      "primary_id": "6",
+      "primary_role": "player",
+      "primary_color": "yellow",
+      "objects": [
+        {
+          "id": "6",
+          "source_object_id": "6",
+          "role": "player",
+          "xyxy": [
+            1033.84,
+            317.97,
+            1104.0,
+            426.68
+          ]
+        }
+      ],
+      "context_margin_px": 48,
+      "patch_sha256": "32e787f5fefc3e43c4e6ccc92cb9c635671e0f5c96087a5e5961b96d16d241b6",
+      "review_status": "agent_reviewed",
+      "coverage": "Only this reviewed ROI; pixels outside ROI remain unlabelled.",
+      "primary_source_xyxy": [
+        1033.841552734375,
+        317.97457885742193,
+        1104.00390625,
+        426.68490600585943
+      ],
+      "review_note": "Agent inspected numbered source-actor crops, broadcast context, and every wider ROI overlay. Only visible targets inside ROI are labelled; clipped context actors retained. No independent second reviewer."
+    },
+    {
+      "id": "g90-7",
+      "source_id": "g90",
+      "roi": [
+        670,
+        324,
+        817,
+        543
+      ],
+      "primary_id": "7",
+      "primary_role": "player",
+      "primary_color": "yellow",
+      "objects": [
+        {
+          "id": "4",
+          "source_object_id": "4",
+          "role": "player",
+          "xyxy": [
+            670,
+            409.96,
+            673.31,
+            535.05
+          ]
+        },
+        {
+          "id": "7",
+          "source_object_id": "7",
+          "role": "player",
+          "xyxy": [
+            718.17,
+            372.21,
+            768.5,
+            494.1
+          ]
+        },
+        {
+          "id": "8",
+          "source_object_id": "8",
+          "role": "player",
+          "xyxy": [
+            687.21,
+            402.06,
+            740.57,
+            534.64
+          ]
+        }
+      ],
+      "context_margin_px": 48,
+      "patch_sha256": "f41911ab2b1e231700250465373a1e6fa70e85674e1c5705d6fb82c72281297b",
+      "review_status": "agent_reviewed",
+      "coverage": "Only this reviewed ROI; pixels outside ROI remain unlabelled.",
+      "primary_source_xyxy": [
+        718.171142578125,
+        372.20904541015625,
+        768.503173828125,
+        494.1015625
+      ],
+      "review_note": "Agent inspected numbered source-actor crops, broadcast context, and every wider ROI overlay. Only visible targets inside ROI are labelled; clipped context actors retained. No independent second reviewer."
+    },
+    {
+      "id": "g90-1",
+      "source_id": "g90",
+      "roi": [
+        1529,
+        325,
+        1704,
+        536
+      ],
+      "primary_id": "1",
+      "primary_role": "referee",
+      "primary_color": "turquoise",
+      "objects": [
+        {
+          "id": "1",
+          "source_object_id": "1",
+          "role": "referee",
+          "xyxy": [
+            1577.35,
+            373.11,
+            1655.61,
+            488.0
+          ]
+        },
+        {
+          "id": "3",
+          "source_object_id": "3",
+          "role": "player",
+          "xyxy": [
+            1529,
+            325,
+            1544.64,
+            339.65
+          ]
+        }
+      ],
+      "context_margin_px": 48,
+      "patch_sha256": "693b8df0a1a5e2033bbfabdb09ac88eef21c520137f9f6d37d89ea47ded3b942",
+      "review_status": "agent_reviewed",
+      "coverage": "Only this reviewed ROI; pixels outside ROI remain unlabelled.",
+      "primary_source_xyxy": [
+        1577.3529052734377,
+        373.1146697998047,
+        1655.6072998046875,
+        487.9986114501953
+      ],
+      "review_note": "Agent inspected numbered source-actor crops, broadcast context, and every wider ROI overlay. Only visible targets inside ROI are labelled; clipped context actors retained. No independent second reviewer."
+    },
+    {
+      "id": "g192-3",
+      "source_id": "g192",
+      "roi": [
+        1355,
+        355,
+        1503,
+        568
+      ],
+      "primary_id": "3",
+      "primary_role": "player",
+      "primary_color": "yellow",
+      "objects": [
+        {
+          "id": "3",
+          "source_object_id": "3",
+          "role": "player",
+          "xyxy": [
+            1403.18,
+            403.94,
+            1454.74,
+            519.63
+          ]
+        }
+      ],
+      "context_margin_px": 48,
+      "patch_sha256": "43dd477e403cb97c01c3d2376fb0da55f43a0d030351ebc2e97dbc0176b13466",
+      "review_status": "agent_reviewed",
+      "coverage": "Only this reviewed ROI; pixels outside ROI remain unlabelled.",
+      "primary_source_xyxy": [
+        1403.1756591796877,
+        403.93646240234375,
+        1454.7442626953125,
+        519.6272583007811
+      ],
+      "review_note": "Agent inspected numbered source-actor crops, broadcast context, and every wider ROI overlay. Only visible targets inside ROI are labelled; clipped context actors retained. No independent second reviewer."
+    },
+    {
+      "id": "g192-5",
+      "source_id": "g192",
+      "roi": [
+        1419,
+        672,
+        1592,
+        951
+      ],
+      "primary_id": "5",
+      "primary_role": "player",
+      "primary_color": "yellow",
+      "objects": [
+        {
+          "id": "5",
+          "source_object_id": "5",
+          "role": "player",
+          "xyxy": [
+            1467.91,
+            720.42,
+            1543.65,
+            902.96
+          ]
+        }
+      ],
+      "context_margin_px": 48,
+      "patch_sha256": "80dbd984bcc271aa2a420d32a7c43e5b648dda4645d5a27db1852d1ae2812ed5",
+      "review_status": "agent_reviewed",
+      "coverage": "Only this reviewed ROI; pixels outside ROI remain unlabelled.",
+      "primary_source_xyxy": [
+        1467.90966796875,
+        720.4184265136718,
+        1543.646240234375,
+        902.9631652832031
+      ],
+      "review_note": "Agent inspected numbered source-actor crops, broadcast context, and every wider ROI overlay. Only visible targets inside ROI are labelled; clipped context actors retained. No independent second reviewer."
+    },
+    {
+      "id": "g192-6",
+      "source_id": "g192",
+      "roi": [
+        672,
+        256,
+        818,
+        460
+      ],
+      "primary_id": "6",
+      "primary_role": "player",
+      "primary_color": "yellow",
+      "objects": [
+        {
+          "id": "6",
+          "source_object_id": "6",
+          "role": "player",
+          "xyxy": [
+            720.81,
+            304.66,
+            769.88,
+            411.22
+          ]
+        },
+        {
+          "id": "9",
+          "source_object_id": "9",
+          "role": "player",
+          "xyxy": [
+            716.5,
+            438.19,
+            771.64,
+            460
+          ]
+        },
+        {
+          "id": "12",
+          "source_object_id": "12",
+          "role": "player",
+          "xyxy": [
+            817.93,
+            439.2,
+            818,
+            460
+          ]
+        }
+      ],
+      "context_margin_px": 48,
+      "patch_sha256": "7a56dc51cde8ea5f228a9951a655064a4c13ef4f07be605e18feafad1a29f1ae",
+      "review_status": "agent_reviewed",
+      "coverage": "Only this reviewed ROI; pixels outside ROI remain unlabelled.",
+      "primary_source_xyxy": [
+        720.8139038085938,
+        304.6607971191406,
+        769.8822631835938,
+        411.2187194824219
+      ],
+      "review_note": "Agent inspected numbered source-actor crops, broadcast context, and every wider ROI overlay. Only visible targets inside ROI are labelled; clipped context actors retained. No independent second reviewer."
+    },
+    {
+      "id": "g192-7",
+      "source_id": "g192",
+      "roi": [
+        199,
+        375,
+        351,
+        602
+      ],
+      "primary_id": "7",
+      "primary_role": "player",
+      "primary_color": "yellow",
+      "objects": [
+        {
+          "id": "7",
+          "source_object_id": "7",
+          "role": "player",
+          "xyxy": [
+            247.29,
+            423.08,
+            302.41,
+            553.01
+          ]
+        }
+      ],
+      "context_margin_px": 48,
+      "patch_sha256": "c7bcf940a1e859b8e17f35531c9ab5b6a2fa46fde89b30e23a2dcb4eff7f1800",
+      "review_status": "agent_reviewed",
+      "coverage": "Only this reviewed ROI; pixels outside ROI remain unlabelled.",
+      "primary_source_xyxy": [
+        247.28713989257812,
+        423.07879638671875,
+        302.4057312011718,
+        553.0134887695312
+      ],
+      "review_note": "Agent inspected numbered source-actor crops, broadcast context, and every wider ROI overlay. Only visible targets inside ROI are labelled; clipped context actors retained. No independent second reviewer."
+    },
+    {
+      "id": "g192-8",
+      "source_id": "g192",
+      "roi": [
+        1095,
+        165,
+        1248,
+        340
+      ],
+      "primary_id": "8",
+      "primary_role": "player",
+      "primary_color": "yellow",
+      "objects": [
+        {
+          "id": "8",
+          "source_object_id": "8",
+          "role": "player",
+          "xyxy": [
+            1143.49,
+            213.48,
+            1199.96,
+            291.22
+          ]
+        },
+        {
+          "id": "11",
+          "source_object_id": "11",
+          "role": "player",
+          "xyxy": [
+            1207.46,
+            305.39,
+            1248,
+            340
+          ]
+        }
+      ],
+      "context_margin_px": 48,
+      "patch_sha256": "decdac2f71f1253fcb150a562354e0201c1ae03a4dba96f9683d4f955bf6726e",
+      "review_status": "agent_reviewed",
+      "coverage": "Only this reviewed ROI; pixels outside ROI remain unlabelled.",
+      "primary_source_xyxy": [
+        1143.4928588867188,
+        213.48327636718747,
+        1199.9622192382812,
+        291.2214965820312
+      ],
+      "review_note": "Agent inspected numbered source-actor crops, broadcast context, and every wider ROI overlay. Only visible targets inside ROI are labelled; clipped context actors retained. No independent second reviewer."
+    },
+    {
+      "id": "g192-9",
+      "source_id": "g192",
+      "roi": [
+        668,
+        390,
+        820,
+        616
+      ],
+      "primary_id": "9",
+      "primary_role": "player",
+      "primary_color": "yellow",
+      "objects": [
+        {
+          "id": "4",
+          "source_object_id": "4",
+          "role": "player",
+          "xyxy": [
+            803.77,
+            532.69,
+            820,
+            616
+          ]
+        },
+        {
+          "id": "6",
+          "source_object_id": "6",
+          "role": "player",
+          "xyxy": [
+            720.81,
+            390,
+            769.88,
+            411.22
+          ]
+        },
+        {
+          "id": "9",
+          "source_object_id": "9",
+          "role": "player",
+          "xyxy": [
+            716.5,
+            438.19,
+            771.64,
+            567.91
+          ]
+        },
+        {
+          "id": "12",
+          "source_object_id": "12",
+          "role": "player",
+          "xyxy": [
+            817.93,
+            439.2,
+            820,
+            556.32
+          ]
+        }
+      ],
+      "context_margin_px": 48,
+      "patch_sha256": "23fa7bceb1b8910fd3d466fabad68b7a8718bba1fbe17dbd38b1ff233534c177",
+      "review_status": "agent_reviewed",
+      "coverage": "Only this reviewed ROI; pixels outside ROI remain unlabelled.",
+      "primary_source_xyxy": [
+        716.4974060058594,
+        438.18519592285156,
+        771.6449279785156,
+        567.9138031005859
+      ],
+      "review_note": "Agent inspected numbered source-actor crops, broadcast context, and every wider ROI overlay. Only visible targets inside ROI are labelled; clipped context actors retained. No independent second reviewer."
+    },
+    {
+      "id": "g192-11",
+      "source_id": "g192",
+      "roi": [
+        1159,
+        257,
+        1308,
+        454
+      ],
+      "primary_id": "11",
+      "primary_role": "player",
+      "primary_color": "yellow",
+      "objects": [
+        {
+          "id": "8",
+          "source_object_id": "8",
+          "role": "player",
+          "xyxy": [
+            1159,
+            257,
+            1199.96,
+            291.22
+          ]
+        },
+        {
+          "id": "11",
+          "source_object_id": "11",
+          "role": "player",
+          "xyxy": [
+            1207.46,
+            305.39,
+            1259.41,
+            405.7
+          ]
+        },
+        {
+          "id": "17",
+          "source_object_id": "17",
+          "role": "referee",
+          "xyxy": [
+            1173.67,
+            419.05,
+            1234.33,
+            454
+          ]
+        }
+      ],
+      "context_margin_px": 48,
+      "patch_sha256": "fc1dbde0f0768b7db67fdcdd4f655cfd4a4bbb676c50ee58e411f877cba97e2a",
+      "review_status": "agent_reviewed",
+      "coverage": "Only this reviewed ROI; pixels outside ROI remain unlabelled.",
+      "primary_source_xyxy": [
+        1207.4573974609375,
+        305.3909454345703,
+        1259.4068603515625,
+        405.6977996826172
+      ],
+      "review_note": "Agent inspected numbered source-actor crops, broadcast context, and every wider ROI overlay. Only visible targets inside ROI are labelled; clipped context actors retained. No independent second reviewer."
+    },
+    {
+      "id": "g192-12",
+      "source_id": "g192",
+      "roi": [
+        769,
+        391,
+        923,
+        605
+      ],
+      "primary_id": "12",
+      "primary_role": "player",
+      "primary_color": "yellow",
+      "objects": [
+        {
+          "id": "4",
+          "source_object_id": "4",
+          "role": "player",
+          "xyxy": [
+            803.77,
+            532.69,
+            885.69,
+            605
+          ]
+        },
+        {
+          "id": "6",
+          "source_object_id": "6",
+          "role": "player",
+          "xyxy": [
+            769,
+            391,
+            769.88,
+            411.22
+          ]
+        },
+        {
+          "id": "9",
+          "source_object_id": "9",
+          "role": "player",
+          "xyxy": [
+            769,
+            438.19,
+            771.64,
+            567.91
+          ]
+        },
+        {
+          "id": "12",
+          "source_object_id": "12",
+          "role": "player",
+          "xyxy": [
+            817.93,
+            439.2,
+            874.12,
+            556.32
+          ]
+        },
+        {
+          "id": "13",
+          "source_object_id": "13",
+          "role": "player",
+          "xyxy": [
+            913.92,
+            391,
+            923,
+            436.28
+          ]
+        }
+      ],
+      "context_margin_px": 48,
+      "patch_sha256": "c92cee545eccb681b73ea6983ce959faafb5f45602230cc128f3262f944fa435",
+      "review_status": "agent_reviewed",
+      "coverage": "Only this reviewed ROI; pixels outside ROI remain unlabelled.",
+      "primary_source_xyxy": [
+        817.9348754882812,
+        439.1974945068359,
+        874.1235961914062,
+        556.3219146728516
+      ],
+      "review_note": "Agent inspected numbered source-actor crops, broadcast context, and every wider ROI overlay. Only visible targets inside ROI are labelled; clipped context actors retained. No independent second reviewer."
+    },
+    {
+      "id": "g192-13",
+      "source_id": "g192",
+      "roi": [
+        865,
+        283,
+        1007,
+        485
+      ],
+      "primary_id": "13",
+      "primary_role": "player",
+      "primary_color": "yellow",
+      "objects": [
+        {
+          "id": "10",
+          "source_object_id": "10",
+          "role": "player",
+          "xyxy": [
+            962.97,
+            296.16,
+            1007,
+            403.1
+          ]
+        },
+        {
+          "id": "12",
+          "source_object_id": "12",
+          "role": "player",
+          "xyxy": [
+            865,
+            439.2,
+            874.12,
+            485
+          ]
+        },
+        {
+          "id": "13",
+          "source_object_id": "13",
+          "role": "player",
+          "xyxy": [
+            913.92,
+            331.91,
+            958.9,
+            436.28
+          ]
+        },
+        {
+          "id": "16",
+          "source_object_id": "16",
+          "role": "player",
+          "xyxy": [
+            931.2,
+            283,
+            970.12,
+            361.4
+          ]
+        }
+      ],
+      "context_margin_px": 48,
+      "patch_sha256": "65f2c7737e9a2b273cfb4ee2dc119b6219725ed53971ad4e760902cbb20008b2",
+      "review_status": "agent_reviewed",
+      "coverage": "Only this reviewed ROI; pixels outside ROI remain unlabelled.",
+      "primary_source_xyxy": [
+        913.9190673828125,
+        331.90850830078125,
+        958.8995361328126,
+        436.2755126953125
+      ],
+      "review_note": "Agent inspected numbered source-actor crops, broadcast context, and every wider ROI overlay. Only visible targets inside ROI are labelled; clipped context actors retained. No independent second reviewer."
+    },
+    {
+      "id": "g192-14",
+      "source_id": "g192",
+      "roi": [
+        1525,
+        96,
+        1660,
+        267
+      ],
+      "primary_id": "14",
+      "primary_role": "referee",
+      "primary_color": "turquoise",
+      "objects": [
+        {
+          "id": "14",
+          "source_object_id": "14",
+          "role": "referee",
+          "xyxy": [
+            1573.16,
+            144.66,
+            1611.04,
+            218.18
+          ]
+        }
+      ],
+      "context_margin_px": 48,
+      "patch_sha256": "c470addce4775e6acb9fe0f09371a83628981f4cfec70b4f624715136a2272f7",
+      "review_status": "agent_reviewed",
+      "coverage": "Only this reviewed ROI; pixels outside ROI remain unlabelled.",
+      "primary_source_xyxy": [
+        1573.163818359375,
+        144.66320800781247,
+        1611.042236328125,
+        218.18417358398438
+      ],
+      "review_note": "Agent inspected numbered source-actor crops, broadcast context, and every wider ROI overlay. Only visible targets inside ROI are labelled; clipped context actors retained. No independent second reviewer."
+    },
+    {
+      "id": "g192-17",
+      "source_id": "g192",
+      "roi": [
+        1125,
+        371,
+        1283,
+        584
+      ],
+      "primary_id": "17",
+      "primary_role": "referee",
+      "primary_color": "turquoise",
+      "objects": [
+        {
+          "id": "11",
+          "source_object_id": "11",
+          "role": "player",
+          "xyxy": [
+            1207.46,
+            371,
+            1259.41,
+            405.7
+          ]
+        },
+        {
+          "id": "17",
+          "source_object_id": "17",
+          "role": "referee",
+          "xyxy": [
+            1173.67,
+            419.05,
+            1234.33,
+            535.02
+          ]
+        }
+      ],
+      "context_margin_px": 48,
+      "patch_sha256": "1b086a7f03c57949c0fb6cc14d18d357b1a695cb9e1629f968c05ad5407ee67e",
+      "review_status": "agent_reviewed",
+      "coverage": "Only this reviewed ROI; pixels outside ROI remain unlabelled.",
+      "primary_source_xyxy": [
+        1173.6679077148438,
+        419.05047607421875,
+        1234.3340454101562,
+        535.0247802734375
+      ],
+      "review_note": "Agent inspected numbered source-actor crops, broadcast context, and every wider ROI overlay. Only visible targets inside ROI are labelled; clipped context actors retained. No independent second reviewer."
+    },
+    {
+      "id": "gFCS-0",
+      "source_id": "gFCS",
+      "roi": [
+        854,
+        469,
+        1036,
+        698
+      ],
+      "primary_id": "0",
+      "primary_role": "player",
+      "primary_color": "yellow",
+      "objects": [
+        {
+          "id": "0",
+          "source_object_id": "0",
+          "role": "player",
+          "xyxy": [
+            902.63,
+            517.49,
+            987.44,
+            649.41
+          ]
+        },
+        {
+          "id": "3",
+          "source_object_id": "3",
+          "role": "player",
+          "xyxy": [
+            995.14,
+            469,
+            1036,
+            557.13
+          ]
+        },
+        {
+          "id": "9",
+          "source_object_id": "9",
+          "role": "player",
+          "xyxy": [
+            923.1,
+            469,
+            992.64,
+            532.11
+          ]
+        },
+        {
+          "id": "14",
+          "source_object_id": "14",
+          "role": "player",
+          "xyxy": [
+            974.4,
+            469,
+            1024.53,
+            518.43
+          ]
+        },
+        {
+          "id": "15",
+          "source_object_id": "16",
+          "role": "player",
+          "xyxy": [
+            961.45,
+            469,
+            999.48,
+            520.27
+          ]
+        }
+      ],
+      "context_margin_px": 48,
+      "patch_sha256": "94f0a48c665b329196935e192e7ba23b01e0da41171c041db2b10ea500c0cb48",
+      "review_status": "agent_reviewed",
+      "coverage": "Only this reviewed ROI; pixels outside ROI remain unlabelled.",
+      "primary_source_xyxy": [
+        902.630371093748,
+        517.4856903417834,
+        987.4444580078105,
+        649.411776767565
+      ],
+      "review_note": "Agent inspected numbered source-actor crops, broadcast context, and every wider ROI overlay. Only visible targets inside ROI are labelled; clipped context actors retained. No independent second reviewer."
+    },
+    {
+      "id": "gFCS-1",
+      "source_id": "gFCS",
+      "roi": [
+        426,
+        477,
+        582,
+        711
+      ],
+      "primary_id": "1",
+      "primary_role": "player",
+      "primary_color": "yellow",
+      "objects": [
+        {
+          "id": "1",
+          "source_object_id": "1",
+          "role": "player",
+          "xyxy": [
+            474.93,
+            525.56,
+            533.86,
+            662.4
+          ]
+        },
+        {
+          "id": "8",
+          "source_object_id": "8",
+          "role": "player",
+          "xyxy": [
+            426,
+            477,
+            446.27,
+            570.24
+          ]
+        }
+      ],
+      "context_margin_px": 48,
+      "patch_sha256": "d17caa5722e6781a8bc231714f28e4a016a364fb5b11f63911260f9db70a9ab5",
+      "review_status": "agent_reviewed",
+      "coverage": "Only this reviewed ROI; pixels outside ROI remain unlabelled.",
+      "primary_source_xyxy": [
+        474.9261627197265,
+        525.5633239746094,
+        533.8644866943359,
+        662.3983459472656
+      ],
+      "review_note": "Agent inspected numbered source-actor crops, broadcast context, and every wider ROI overlay. Only visible targets inside ROI are labelled; clipped context actors retained. No independent second reviewer."
+    },
+    {
+      "id": "gFCS-7",
+      "source_id": "gFCS",
+      "roi": [
+        1411,
+        562,
+        1616,
+        772
+      ],
+      "primary_id": "7",
+      "primary_role": "player",
+      "primary_color": "yellow",
+      "objects": [
+        {
+          "id": "6",
+          "source_object_id": "6",
+          "role": "goalkeeper",
+          "xyxy": [
+            1411,
+            562,
+            1429.2,
+            592.98
+          ]
+        },
+        {
+          "id": "7",
+          "source_object_id": "7",
+          "role": "player",
+          "xyxy": [
+            1459.02,
+            610.42,
+            1567.96,
+            723.1
+          ]
+        },
+        {
+          "id": "10",
+          "source_object_id": "10",
+          "role": "player",
+          "xyxy": [
+            1493.18,
+            562,
+            1575.76,
+            663.76
+          ]
+        }
+      ],
+      "context_margin_px": 48,
+      "patch_sha256": "1e4429fe1c35ecf7c4eb944029eed7db3df990c91678a20610557a5e671ca336",
+      "review_status": "agent_reviewed",
+      "coverage": "Only this reviewed ROI; pixels outside ROI remain unlabelled.",
+      "primary_source_xyxy": [
+        1459.0229492187502,
+        610.4246520996094,
+        1567.9577636718752,
+        723.1019592285156
+      ],
+      "review_note": "Agent inspected numbered source-actor crops, broadcast context, and every wider ROI overlay. Only visible targets inside ROI are labelled; clipped context actors retained. No independent second reviewer."
+    },
+    {
+      "id": "gFCS-9",
+      "source_id": "gFCS",
+      "roi": [
+        875,
+        366,
+        1041,
+        581
+      ],
+      "primary_id": "9",
+      "primary_role": "player",
+      "primary_color": "yellow",
+      "objects": [
+        {
+          "id": "0",
+          "source_object_id": "0",
+          "role": "player",
+          "xyxy": [
+            902.63,
+            517.49,
+            987.44,
+            581
+          ]
+        },
+        {
+          "id": "3",
+          "source_object_id": "3",
+          "role": "player",
+          "xyxy": [
+            995.14,
+            438.2,
+            1041,
+            557.13
+          ]
+        },
+        {
+          "id": "9",
+          "source_object_id": "9",
+          "role": "player",
+          "xyxy": [
+            923.1,
+            414.39,
+            992.64,
+            532.11
+          ]
+        },
+        {
+          "id": "14",
+          "source_object_id": "14",
+          "role": "player",
+          "xyxy": [
+            974.4,
+            399.37,
+            1024.53,
+            518.43
+          ]
+        },
+        {
+          "id": "15",
+          "source_object_id": "16",
+          "role": "player",
+          "xyxy": [
+            961.45,
+            402.22,
+            999.48,
+            520.27
+          ]
+        }
+      ],
+      "context_margin_px": 48,
+      "patch_sha256": "82dc12f6ece356d38a7114e318aedd4d99c9d71fc9991fbc0e1e2cd35c43691a",
+      "review_status": "agent_reviewed",
+      "coverage": "Only this reviewed ROI; pixels outside ROI remain unlabelled.",
+      "primary_source_xyxy": [
+        923.1030273437499,
+        414.39399719238287,
+        992.6391601562499,
+        532.1102752685548
+      ],
+      "review_note": "Agent inspected numbered source-actor crops, broadcast context, and every wider ROI overlay. Only visible targets inside ROI are labelled; clipped context actors retained. No independent second reviewer."
+    },
+    {
+      "id": "gFCS-13",
+      "source_id": "gFCS",
+      "roi": [
+        305,
+        460,
+        474,
+        678
+      ],
+      "primary_id": "13",
+      "primary_role": "referee",
+      "primary_color": "pink",
+      "objects": [
+        {
+          "id": "8",
+          "source_object_id": "8",
+          "role": "player",
+          "xyxy": [
+            384.42,
+            461.83,
+            446.27,
+            570.24
+          ]
+        },
+        {
+          "id": "13",
+          "source_object_id": "13",
+          "role": "referee",
+          "xyxy": [
+            353.63,
+            508.73,
+            425.29,
+            629.37
+          ]
+        }
+      ],
+      "context_margin_px": 48,
+      "patch_sha256": "5636e451e34f383b5d43b13de7e36c30b31204478bb4ac769eb928c2b9ca7f4a",
+      "review_status": "agent_reviewed",
+      "coverage": "Only this reviewed ROI; pixels outside ROI remain unlabelled.",
+      "primary_source_xyxy": [
+        353.63024902343756,
+        508.72746276855463,
+        425.2926635742188,
+        629.3683624267578
+      ],
+      "review_note": "Agent inspected numbered source-actor crops, broadcast context, and every wider ROI overlay. Only visible targets inside ROI are labelled; clipped context actors retained. No independent second reviewer."
+    },
+    {
+      "id": "k0-2",
+      "source_id": "k0",
+      "roi": [
+        471,
+        432,
+        625,
+        622
+      ],
+      "primary_id": "2",
+      "primary_role": "referee",
+      "primary_color": "yellow",
+      "objects": [
+        {
+          "id": "1",
+          "source_object_id": "1",
+          "role": "player",
+          "xyxy": [
+            471,
+            432,
+            481.38,
+            443.5
+          ]
+        },
+        {
+          "id": "2",
+          "source_object_id": "2",
+          "role": "referee",
+          "xyxy": [
+            519,
+            480,
+            576.89,
+            574
+          ]
+        },
+        {
+          "id": "7",
+          "source_object_id": "7",
+          "role": "player",
+          "xyxy": [
+            615,
+            432,
+            625,
+            507.5
+          ]
+        }
+      ],
+      "context_margin_px": 48,
+      "patch_sha256": "6de29b7f0eda13d8b8a80ca9fdb4300e53a096a8081e74b145fe9f51911064b0",
+      "review_status": "agent_reviewed",
+      "coverage": "Only this reviewed ROI; pixels outside ROI remain unlabelled.",
+      "primary_source_xyxy": [
+        519,
+        480,
+        576.89,
+        574
+      ],
+      "review_note": "Agent inspected numbered source-actor crops, broadcast context, and every wider ROI overlay. Only visible targets inside ROI are labelled; clipped context actors retained. No independent second reviewer."
+    },
+    {
+      "id": "k0-9",
+      "source_id": "k0",
+      "roi": [
+        754,
+        172,
+        873,
+        331
+      ],
+      "primary_id": "9",
+      "primary_role": "referee",
+      "primary_color": "yellow",
+      "objects": [
+        {
+          "id": "9",
+          "source_object_id": "9",
+          "role": "referee",
+          "xyxy": [
+            802,
+            220,
+            824.88,
+            282.5
+          ]
+        }
+      ],
+      "context_margin_px": 48,
+      "patch_sha256": "05fbe1e933efa20b9b89c52ca71237a68359a5c2321c612b1eded29d2bd66fbe",
+      "review_status": "agent_reviewed",
+      "coverage": "Only this reviewed ROI; pixels outside ROI remain unlabelled.",
+      "primary_source_xyxy": [
+        802,
+        220,
+        824.88,
+        282.5
+      ],
+      "review_note": "Agent inspected numbered source-actor crops, broadcast context, and every wider ROI overlay. Only visible targets inside ROI are labelled; clipped context actors retained. No independent second reviewer."
+    },
+    {
+      "id": "k63-8",
+      "source_id": "k63",
+      "roi": [
+        805,
+        327,
+        930,
+        494
+      ],
+      "primary_id": "8",
+      "primary_role": "referee",
+      "primary_color": "yellow",
+      "objects": [
+        {
+          "id": "7",
+          "source_object_id": "1172",
+          "role": "player",
+          "xyxy": [
+            859,
+            327,
+            883.4,
+            382.55
+          ]
+        },
+        {
+          "id": "8",
+          "source_object_id": "1173",
+          "role": "referee",
+          "xyxy": [
+            853,
+            375,
+            881.04,
+            445.45
+          ]
+        }
+      ],
+      "context_margin_px": 48,
+      "patch_sha256": "1c2d85245e1dc3925bf829618b6a17a2b49bba619ba1e502920ce65192a1cbf7",
+      "review_status": "agent_reviewed",
+      "coverage": "Only this reviewed ROI; pixels outside ROI remain unlabelled.",
+      "primary_source_xyxy": [
+        853,
+        375,
+        881.04,
+        445.45
+      ],
+      "review_note": "Agent inspected numbered source-actor crops, broadcast context, and every wider ROI overlay. Only visible targets inside ROI are labelled; clipped context actors retained. No independent second reviewer."
+    },
+    {
+      "id": "k105-9",
+      "source_id": "k105",
+      "roi": [
+        578,
+        187,
+        699,
+        353
+      ],
+      "primary_id": "9",
+      "primary_role": "referee",
+      "primary_color": "yellow",
+      "objects": [
+        {
+          "id": "7",
+          "source_object_id": "1961",
+          "role": "player",
+          "xyxy": [
+            578,
+            187,
+            583.43,
+            215.15
+          ]
+        },
+        {
+          "id": "8",
+          "source_object_id": "1962",
+          "role": "player",
+          "xyxy": [
+            665,
+            187,
+            686.08,
+            231.77
+          ]
+        },
+        {
+          "id": "9",
+          "source_object_id": "1963",
+          "role": "referee",
+          "xyxy": [
+            626,
+            235,
+            650.93,
+            304.23
+          ]
+        },
+        {
+          "id": "10",
+          "source_object_id": "1964",
+          "role": "player",
+          "xyxy": [
+            636,
+            259,
+            668.24,
+            342.46
+          ]
+        }
+      ],
+      "context_margin_px": 48,
+      "patch_sha256": "e5b607a7c23d448b66a9e4060bdf6330537194e99258099e47ba1502b29b1320",
+      "review_status": "agent_reviewed",
+      "coverage": "Only this reviewed ROI; pixels outside ROI remain unlabelled.",
+      "primary_source_xyxy": [
+        626,
+        235,
+        650.93,
+        304.23
+      ],
+      "review_note": "Agent inspected numbered source-actor crops, broadcast context, and every wider ROI overlay. Only visible targets inside ROI are labelled; clipped context actors retained. No independent second reviewer."
+    },
+    {
+      "id": "k13-9",
+      "source_id": "k13",
+      "roi": [
+        686,
+        275,
+        800,
+        406
+      ],
+      "primary_id": "9",
+      "primary_role": "referee",
+      "primary_color": "turquoise",
+      "objects": [
+        {
+          "id": "7",
+          "source_object_id": "241",
+          "role": "player",
+          "xyxy": [
+            686,
+            275,
+            699.3,
+            306.16
+          ]
+        },
+        {
+          "id": "8",
+          "source_object_id": "242",
+          "role": "player",
+          "xyxy": [
+            686,
+            371,
+            693.87,
+            406
+          ]
+        },
+        {
+          "id": "9",
+          "source_object_id": "243",
+          "role": "referee",
+          "xyxy": [
+            734,
+            323,
+            751.97,
+            357.23
+          ]
+        },
+        {
+          "id": "10",
+          "source_object_id": "244",
+          "role": "player",
+          "xyxy": [
+            767,
+            366,
+            787.16,
+            401.11
+          ]
+        }
+      ],
+      "context_margin_px": 48,
+      "patch_sha256": "346ffbbe62491ebf5593de072faef0659eac05f73bddb8e5d5d652ccdc678844",
+      "review_status": "agent_reviewed",
+      "coverage": "Only this reviewed ROI; pixels outside ROI remain unlabelled.",
+      "primary_source_xyxy": [
+        734,
+        323,
+        751.97,
+        357.23
+      ],
+      "review_note": "Agent inspected numbered source-actor crops, broadcast context, and every wider ROI overlay. Only visible targets inside ROI are labelled; clipped context actors retained. No independent second reviewer."
+    },
+    {
+      "id": "k13-18",
+      "source_id": "k13",
+      "roi": [
+        1098,
+        157,
+        1210,
+        282
+      ],
+      "primary_id": "18",
+      "primary_role": "referee",
+      "primary_color": "turquoise",
+      "objects": [
+        {
+          "id": "18",
+          "source_object_id": "253",
+          "role": "referee",
+          "xyxy": [
+            1146,
+            205,
+            1161.74,
+            233.09
+          ]
+        }
+      ],
+      "context_margin_px": 48,
+      "patch_sha256": "90337d7004b71fb8c2382c9207c48b3fa679c374e785436befedd98b702726fe",
+      "review_status": "agent_reviewed",
+      "coverage": "Only this reviewed ROI; pixels outside ROI remain unlabelled.",
+      "primary_source_xyxy": [
+        1146,
+        205,
+        1161.74,
+        233.09
+      ],
+      "review_note": "Agent inspected numbered source-actor crops, broadcast context, and every wider ROI overlay. Only visible targets inside ROI are labelled; clipped context actors retained. No independent second reviewer."
+    },
+    {
+      "id": "k13-19",
+      "source_id": "k13",
+      "roi": [
+        602,
+        52,
+        710,
+        177
+      ],
+      "primary_id": "19",
+      "primary_role": "goalkeeper",
+      "primary_color": "yellow",
+      "objects": [
+        {
+          "id": "19",
+          "source_object_id": "256",
+          "role": "goalkeeper",
+          "xyxy": [
+            650,
+            100,
+            661.35,
+            128.96
+          ]
+        }
+      ],
+      "context_margin_px": 48,
+      "patch_sha256": "67d8c61a07a02326770bfbf94437cf843ac0b578fe489d28f3d2c262f660724c",
+      "review_status": "agent_reviewed",
+      "coverage": "Only this reviewed ROI; pixels outside ROI remain unlabelled.",
+      "primary_source_xyxy": [
+        650,
+        100,
+        661.35,
+        128.96
+      ],
+      "review_note": "Agent inspected numbered source-actor crops, broadcast context, and every wider ROI overlay. Only visible targets inside ROI are labelled; clipped context actors retained. No independent second reviewer."
+    }
+  ],
+  "quarantine": [],
+  "source_annotation_corrections": [
+    {
+      "source_id": "g30",
+      "discarded_object_index": 14,
+      "basis": "Source class2 bbox covers a red outfield player wearing number4, duplicated by object19. Agent retains object19 as player; original file unchanged."
+    }
+  ],
+  "excluded_scout_sources": [
+    {
+      "source_id": "g157",
+      "reason": "Combined/occluded goalkeeper-player proposals not fully resolved; not admitted."
+    },
+    {
+      "source_id": "k84",
+      "reason": "Insufficient clear yellow counterexamples; blurred crop proposals not admitted."
+    },
+    {
+      "source_id": "k67",
+      "reason": "Not selected for yellow-focused pilot; no role inferred from generic source player labels."
+    }
+  ],
+  "annotation_method": "HSV used only for scene screening. Roles assigned from source context, kit numbers, match-official signals and goalkeeper position; never inferred from yellow colour alone. Source bbox proposals manually reviewed, including goalkeeper/referee relabelling.",
+  "independently_validated": false,
+  "training_performed": false,
+  "runtime_changed": false,
+  "review": "58 wider ROI overlays inspected, with manual role corrections and separate goalkeeper class; all candidates are train-only, not an independent evaluation set."
+}
