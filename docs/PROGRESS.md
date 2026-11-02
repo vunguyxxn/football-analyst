@@ -2,6 +2,21 @@
 
 ## Trạng thái hiện tại
 
+Ngày02/11/2026: đọc/đánh giá karidasd/football-predictions tại commit
+6e82ae048919b27222a3c56810f9dc8e331560c2. Repo là dashboard dự đoán/kèo
+lấy API-Football, Python/Actions ghi JSON và frontend tĩnh đọc; chưa có
+source huấn luyện ML/test để chứng minh tuyên bố giới thiệu. Học được
+ý tưởng chế độ thẻ/bảng, tách JSON và lịch sử/độ mới dữ liệu; không có
+CV/homography/chiến thuật để sửa nút thắt video của mình. Không đề xuất
+thêm dự đoán kết quả trận (ngoài ROADMAP). Đã chỉ ra kiểm sai vị trí
+fixture.status trong updater, bỏ qua InPlay và hit-rate chấm short_tip
+double-chance không phải accuracy ba lớp. Snapshot220/314nhưng chỉ còn
+100log; today01/11rỗng, yesterday/tomorrow vẫn ngày tháng6. Không chạy
+code ngoài/dùng key/cài gói hoặc sửa ứng dụng. Chi tiết/nguồn ghim:
+FOOTBALL_PREDICTIONS_REPOSITORY_REVIEW.md. Kiểm diff tài liệu; không
+chạy lại test mã ứng dụng cho phiên chỉ đánh giá. Giữ thay đổi CV song
+song ngoài commit này; các trạng thái sản phẩm bên dưới vẫn giữ nguyên.
+
 Ngày02/11/2026: theo yêu cầu bắt đầu tích hợp phần phù hợp từ football-docs,
 đã thêm6thẻ định nghĩa có version/công thức/nguồn/giới hạn;4chỉ số được
 tính trong API và trang Phân tích trận: PPDA Hudl, field tilt xấp xỉ từ
