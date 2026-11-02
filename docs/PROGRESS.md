@@ -2,6 +2,38 @@
 
 ## Trạng thái hiện tại
 
+Ngày 02/11/2026: đã cân bằng mẫu và huấn luyện lại small; v2 chưa đạt
+điều kiện chọn thay baseline nghiên cứu. Không đổi model của ứng dụng.
+Dataset v2 bỏ5ảnh train toàn cảnh có nhãn quarantine, giữ212ảnh gốc;
+83ROIđã rà tạo129lượt: referee xanh33/vàng30/đỏ18/đen6, player30,
+staff12. Cap6lần/ROI; chỉ47lượt referee thật, không đếm lặp thành mới.
+Train341/val128/test35, bytes ảnh/nhãn val/test giữ nguyên v1. ROI đổi
+bbox về crop, không dùng phần ngoài vùng đã rà làm nền; raw/v1 không đổi.
+
+Warm-start từ small v1, AdamW mới,20epoch bổ sung,640/batch4/AMP off,
+lr0,0003/seed20261102;994,6giây,peak tensor2948MiB trên RTX3050 6GB.
+Val mAP50–95 từ37,15% lên39,87%; referee AP50 chỉ6,45%→6,71%, tăng
+0,25điểm, chưa đạt gate+5điểm. Ba guard tổng/player/keeper đạt, guard
+referee không đạt. Khóa lựa chọn baseline trước test bằng report.
+
+Test hồi quy đã biết mAP50–95 41,23%→41,12%; tại conf0,25 referee
+TP10→13/76,FPtheonhãn0→9,recall13,16%→17,11%,precision100%→59,09%.
+Val player bị gọi referee757→940/2557. Đã xem15crop từ4prefix val:
+cầu thủ áo vàng bị gọi referee, confidence0,41–0,87; không khẳng định
+đây là nguyên nhân duy nhất hoặc mọi lỗi đó mới xuất hiện sau cân bằng.
+Không lấy mAP tổng để duyệt model hoặc bỏ qua FP/các lớp khác.
+
+Thêm balance_role_dataset.py,compare_role_models.py và16test sampling/
+ROI/giữ tập kiểm/ghép role-blind/FP-FN/gateval;518Python test đạt,
+1network deselected,4warning cũ. Đã kiểm hash baseline/candidate/dataset.
+Tài liệu ROLE_BALANCE_TRAINING_V2.md; fixtures/role_balance_protocol_v2,
+role_balance_dataset_summary_v2,role_balance_result_v2.json.
+Weights local role_balance_training_v2/small/training/weights/best.pt,
+SHA ef24764d1d84702932aca1714a5f5d96bc89bfeab41800b3672597d49f7a81ce.
+Không commit dữ liệu/weights, không đổi DATA_CONTRACT/dependency/frontend.
+Hướng cần tiếp: mẫu cùng màu giữa player/referee và ngữ cảnh từ nguồn
+train mới, rà nhãn val; không chuyển ảnh sân vàng val vào train để sửa số.
+
 Ngày 02/11/2026: hoàn tất bước 1 bổ sung/rà nhãn trọng tài, chưa train lại.
 Gói referee_annotations_v2.json có 83 ROI từ 15 frame video mới rà và
 10 ảnh nguồn thuộc train: 30 lượt trọng tài mới (xanh nhạt), 17 nhãn

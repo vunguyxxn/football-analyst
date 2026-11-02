@@ -1,0 +1,65 @@
+{
+  "kind": "balanced_role_dataset_summary_v2",
+  "protocol_sha256": "44ee9c10cb305fff5820ab60ee088949374c68d44d1c9d4a2ad38452743d1c7b",
+  "manifest_sha256": "4603bd9d616069bbab8588558d26270411e16d1f11a9338461953eddc4bea230",
+  "images": {
+    "test": 35,
+    "train": 341,
+    "val": 128
+  },
+  "train_origins": {
+    "base_full_frame": 212,
+    "reviewed_roi": 129
+  },
+  "class_exposures": {
+    "test": {
+      "referee": 76,
+      "player": 695,
+      "goalkeeper": 12
+    },
+    "train": {
+      "referee": 588,
+      "player": 4277,
+      "goalkeeper": 187
+    },
+    "val": {
+      "referee": 292,
+      "player": 2557,
+      "goalkeeper": 92
+    }
+  },
+  "unique_reviewed_rois": 83,
+  "unique_referee_observations": 47,
+  "new_local_referee_observations": 30,
+  "referee_roi_exposures": {
+    "light_blue": 33,
+    "yellow": 30,
+    "red": 18,
+    "black": 6
+  },
+  "excluded_base_images": [
+    {
+      "image": "images/train/40cd38_7_6_png.rf.81d37056bceae603a917ca7775c114a8.png",
+      "image_sha256": "ac65c3a5fa2247524c78d204f3e93006e9932adc4f18af350375ff70590ff37d"
+    },
+    {
+      "image": "images/train/a9f16c_2_10_png.rf.1f142141ca710d8cfe79ff3aad386944.png",
+      "image_sha256": "bb6064be154c5550c74774a49c97f0200f19eb60aa0ba43dc684a56b80b5612b"
+    },
+    {
+      "image": "images/train/121364_7_10_png.rf.d612470c8674d649a7a09ef6ce000e72.png",
+      "image_sha256": "cbb650672e0cbbca526dd0f32fe88107a0c79f4744e7f2a1ce9ef8a47dd03ce8"
+    },
+    {
+      "image": "images/train/2e57b9_1_10_png.rf.ec1ea28433a4f736551f4040e902e236.png",
+      "image_sha256": "204836972e831e5c76693028398529f620e8bea6c7e1bc020587b831efba668d"
+    },
+    {
+      "image": "images/train/55c9d1_3_1_png.rf.07c7686af5672912560847946b4b001c.png",
+      "image_sha256": "e0f83e6860e016673ec790d52848088b00ecce231f5c3191fcb516354b636c43"
+    }
+  ],
+  "validation_test_bytes_and_labels_unchanged": true,
+  "independently_validated": false,
+  "limitation": "Repeated ROI exposures are not new independent examples. Old val/test sources unchanged and previously inspected; no independent match validation."
+}
