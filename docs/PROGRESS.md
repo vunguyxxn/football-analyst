@@ -2,6 +2,20 @@
 
 ## Trạng thái hiện tại
 
+Ngày 02/11/2026: hoàn tất đánh giá UI/UX theo yêu cầu, chỉ viết tài liệu,
+chưa sửa giao diện hoặc backend. Xem `docs/UI_UX_AUDIT.md` cho đánh giá
+sáu trang, hướng thiết kế chung, mobile, accessibility và thứ tự ưu tiên.
+Đã khảo sát trực tiếp desktop 1440×1000 và mobile 390×844, StatsBomb/Metrica,
+báo cáo thẻ/bảng, video trống/mẫu có kết quả và bảng chiến thuật hiện có.
+Ảnh/số đo ở `data/processed/ui_audit_20261102/` (local, không commit).
+Video mẫu mở từ UI là job cũ c140f8aefb4e4678b51fe6f633e1fc56;
+đánh giá này không thay kết luận chất lượng CV của phiên bên dưới.
+Ưu tiên đề xuất: chữ/độ tương phản, phân cấp nội dung, trang tổng quan,
+component chung và bố cục mobile. Ghi nhận nhãn “lần chạm” chưa đúng
+với số sự kiện; số 14 cầu thủ/mô tả trước thay người cần xác minh riêng.
+Kiểm tra phiên tài liệu: `git diff --cached --check`; không chạy lại test
+ứng dụng vì không thay mã. Chưa kiểm định WCAG đầy đủ hoặc Lighthouse.
+
 Ngày02/11/2026: sửa hiệu chỉnh sân/phân loại vai trò theo yêu cầu.
 TeamPalette giữ K-means2Lab và gate45/8, thêm ellipse màu hue tròn
 median/MAD để loại màu ngoài đội thànhunknown, không bịa nhãn trọng
