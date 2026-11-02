@@ -1,0 +1,170 @@
+{
+  "kind": "role_finetune_result_v1",
+  "protocol_sha256": "43199bc0b3511e3b477cb903eca4a73af78806ff7006ce5fbca3851ca16645fe",
+  "manifest_sha256": "390626f43158857feafac2823799a405000d9fa6b4007e7c8f97e65cd0e15255",
+  "images": {
+    "test": 35,
+    "train": 217,
+    "val": 128
+  },
+  "preferred_by_validation": "small",
+  "models": [
+    {
+      "model_id": "nano",
+      "status": "complete",
+      "protocol_sha256": "43199bc0b3511e3b477cb903eca4a73af78806ff7006ce5fbca3851ca16645fe",
+      "manifest_sha256": "390626f43158857feafac2823799a405000d9fa6b4007e7c8f97e65cd0e15255",
+      "initial_weights_sha256": "0ebbc80d4a7680d14987a577cd21342b65ecfd94632bd9a8da63ae6417644ee1",
+      "python": "3.11.3",
+      "torch": "2.8.0+cu128",
+      "ultralytics": "8.3.221",
+      "gpu": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+      "test_opened": true,
+      "peak_allocated_mib": 1337.4169921875,
+      "elapsed_s": 471.2602880000013,
+      "images": {
+        "test": 35,
+        "train": 217,
+        "val": 128
+      },
+      "validation": {
+        "map50": 0.3911779327432801,
+        "map50_95": 0.25001817100715945,
+        "classes": {
+          "player": {
+            "precision": 0.7350878899715275,
+            "recall": 0.9456394211967148,
+            "map50": 0.8967968161427574,
+            "map50_95": 0.5850683306666633
+          },
+          "goalkeeper": {
+            "precision": 0.26933238339311355,
+            "recall": 0.043478260869565216,
+            "map50": 0.09653858089517826,
+            "map50_95": 0.0525257789710971
+          },
+          "referee": {
+            "precision": 0.21474123298077397,
+            "recall": 0.1541095890410959,
+            "map50": 0.1801984011919047,
+            "map50_95": 0.11246040338371781
+          }
+        }
+      },
+      "best_weights": "data/processed/role_training_v1/nano_final/training/weights/best.pt",
+      "best_weights_sha256": "e83de19daea1222c2600bad7e2ca367fcde9c82e0730a1a645acb51c5af4f6a5",
+      "heldout_test": {
+        "map50": 0.4013114374753794,
+        "map50_95": 0.2593148736641498,
+        "classes": {
+          "player": {
+            "precision": 0.7908869923632426,
+            "recall": 0.9294964028776979,
+            "map50": 0.9205331885686153,
+            "map50_95": 0.6154846464526363
+          },
+          "goalkeeper": {
+            "precision": 1.0,
+            "recall": 0.0,
+            "map50": 0.044255808035869676,
+            "map50_95": 0.024302779876866232
+          },
+          "referee": {
+            "precision": 0.8179152255943032,
+            "recall": 0.09210526315789473,
+            "map50": 0.23914531582165321,
+            "map50_95": 0.13815719466294676
+          }
+        }
+      }
+    },
+    {
+      "model_id": "small",
+      "status": "complete",
+      "protocol_sha256": "43199bc0b3511e3b477cb903eca4a73af78806ff7006ce5fbca3851ca16645fe",
+      "manifest_sha256": "390626f43158857feafac2823799a405000d9fa6b4007e7c8f97e65cd0e15255",
+      "initial_weights_sha256": "85a76fe86dd8afe384648546b56a7a78580c7cb7b404fc595f97969322d502d5",
+      "python": "3.11.3",
+      "torch": "2.8.0+cu128",
+      "ultralytics": "8.3.221",
+      "gpu": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+      "test_opened": true,
+      "peak_allocated_mib": 2327.51904296875,
+      "elapsed_s": 577.4610897999992,
+      "images": {
+        "test": 35,
+        "train": 217,
+        "val": 128
+      },
+      "validation": {
+        "map50": 0.5572323036331724,
+        "map50_95": 0.37151732763789574,
+        "classes": {
+          "player": {
+            "precision": 0.8120818134689582,
+            "recall": 0.806155166211489,
+            "map50": 0.857583152699035,
+            "map50_95": 0.6130178428157315
+          },
+          "goalkeeper": {
+            "precision": 0.7467606950513203,
+            "recall": 0.7051697235049301,
+            "map50": 0.7495687527472913,
+            "map50_95": 0.46874232459626386
+          },
+          "referee": {
+            "precision": 0.056920260370716624,
+            "recall": 0.2191780821917808,
+            "map50": 0.064545005453191,
+            "map50_95": 0.03279181550169174
+          }
+        }
+      },
+      "best_weights": "data/processed/role_training_v1/small_final/training/weights/best.pt",
+      "best_weights_sha256": "5b07c6ed1e7374c21656dad5e64dfc4d0a0f3e4f66b0068fdaeb051bc7602958",
+      "heldout_test": {
+        "map50": 0.5577535933730225,
+        "map50_95": 0.4123106825364157,
+        "classes": {
+          "player": {
+            "precision": 0.8319059950986422,
+            "recall": 0.9697841726618706,
+            "map50": 0.9506665432221757,
+            "map50_95": 0.7282905245143605
+          },
+          "goalkeeper": {
+            "precision": 0.4667817804038318,
+            "recall": 0.4166666666666667,
+            "map50": 0.47688733503245945,
+            "map50_95": 0.3529422736320239
+          },
+          "referee": {
+            "precision": 0.764936703280096,
+            "recall": 0.13157894736842105,
+            "map50": 0.24570690186443236,
+            "map50_95": 0.15569924946286254
+          }
+        }
+      }
+    }
+  ],
+  "pipeline_promoted": false,
+  "limitation": "Visual source families, not independently verified match identities; model-assisted local boxes reviewed by one agent.",
+  "independently_validated": false,
+  "date": "2026-11-02",
+  "runtime_decision": "not_promoted_referee_coverage_insufficient",
+  "software_tests": {
+    "passed": 489,
+    "network_deselected": 1
+  },
+  "source_modules_sha256": {
+    "backend/cv/prepare_role_dataset.py": "6a9e0ecc49d1cbf21df2d678f00e7ed7cbe85c63ac1366b56f6ee06cb99f53c8",
+    "backend/cv/finetune_roles.py": "4f2878ae0a75a8cb78034d11e0fb527b1f4c9a821a50407413ffa0a79226359d",
+    "backend/cv/evaluate_role_detector.py": "9c3458323782438cda08925a1711c4ae46696aad153c56e3ba5497a38d784ac5"
+  },
+  "source_artifacts_sha256": {
+    "final_test\\selection-before-test.json": "3d0025faeea8cce224eb5eebe852e5c4ec868ddcf5b6e32b418bddabd0a40564",
+    "nano_final\\training\\results.csv": "86c87ee18c18ff7b173af11b56a835ee4f01fe34e9433c0bd345f70f250be0cd",
+    "small_final\\training\\results.csv": "0d3cd3f0fa96051f0060140c20b9478208c7ce45bf0410a65a4c0ee0ece78697"
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "kind": "role_finetune_video_diagnostic_protocol_v1",
+  "date": "2026-11-02",
+  "scope": "Post-training fixed-confidence diagnostic on old sparse labels. Project12 source held out; all other three source clips were used in training, so those results measure fit/regression only, not unseen-video generalization. Labels are not independent. No threshold/model selection from this diagnostic.",
+  "models": [
+    {
+      "id": "nano",
+      "path": "data/processed/role_training_v1/nano_final/training/weights/best.pt",
+      "sha256": "e83de19daea1222c2600bad7e2ca367fcde9c82e0730a1a645acb51c5af4f6a5",
+      "class_map": {
+        "0": "player",
+        "1": "goalkeeper",
+        "2": "referee"
+      }
+    },
+    {
+      "id": "small",
+      "path": "data/processed/role_training_v1/small_final/training/weights/best.pt",
+      "sha256": "5b07c6ed1e7374c21656dad5e64dfc4d0a0f3e4f66b0068fdaeb051bc7602958",
+      "class_map": {
+        "0": "player",
+        "1": "goalkeeper",
+        "2": "referee"
+      }
+    }
+  ],
+  "datasets": [
+    {
+      "format": "context_boxes",
+      "fixture": "docs/fixtures/clip_f51735_context_review_v1.json",
+      "fixture_sha256": "35b9a6466356f9b793e7b931ce72a741545796aff7759a57425a6431c03ff914",
+      "source": "data/processed/video_jobs/c140f8aefb4e4678b51fe6f633e1fc56/source.mp4"
+    },
+    {
+      "format": "crossclip_points",
+      "fixture": "docs/fixtures/upload_crossclip_visual_labels_v1.json",
+      "fixture_sha256": "26df5d741ee527bb10cac9e8788e47f94cf64fa77edf3c30112f7c7bbec6f653",
+      "sources": {
+        "Video Project 12.mp4": "data/processed/video_jobs/f27ce9794f0c42cfb9f2fdca127e701a/source.mp4",
+        "Video Project 15 (1).mp4": "data/processed/video_jobs/6b996615df664a0cb99f47d2c7bdd819/source.mp4",
+        "Video Project 15 (2).mp4": "data/processed/video_jobs/ed6ed422cb6443f6ad239f3fab0addef/source.mp4"
+      }
+    }
+  ],
+  "image_sizes": [
+    640,
+    1280
+  ],
+  "confidence": 0.25,
+  "nms_iou": 0.7,
+  "box_iou": 0.5,
+  "foot_gates_px": [
+    25,
+    35,
+    50
+  ],
+  "primary_foot_gate_px": 35,
+  "matching": "role-blind greedy by descending IoU for box fixtures or ascending foot distance for point fixtures, one-to-one",
+  "metrics": "Correct role / labelled observations, confusion and misses; no precision/mAP from incomplete frames. Outside labels excluded from role denominators. All frames retained including camera cuts.",
+  "acceptance": "Screening only; do not promote model from these development labels. Require independent, complete frames across multiple matches and resource budget before integration.",
+  "timing": "CUDA batch1 FP32 defaults, synchronized end-to-end predict excluding decode and warmup; not full pipeline FPS. Architecture comparison is not size-fair. Peak allocated memory is process-only, not total VRAM.",
+  "training_source_sha256": [
+    "f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0",
+    "11a9b033dbeca46af7e3cf1117269b04044ddf8d89b6c594efc16222606dd053",
+    "ee1fd930c245f46213be2dbecc7219382ce940b73cf667c0983f5e4924012541"
+  ]
+}

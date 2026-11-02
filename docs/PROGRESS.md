@@ -2,6 +2,42 @@
 
 ## Trạng thái hiện tại
 
+Ngày 02/11/2026: hoàn tất bổ sung nhãn và huấn luyện vai trò nano/small.
+Khôi phục ba lớp player/goalkeeper/referee từ dữ liệu gốc đã khóa hash,
+bổ sung 177 bbox trên 8 frame/4 video, rà ảnh đầy đủ/crop theo proposal;
+thêm tay một trọng tài biên xa bị detector bỏ sót. Nhãn agent, chưa có
+người kiểm độc lập. Lượt preflight bị bỏ trước test để khóa lại nhãn;
+chỉ dùng nano_final/small_final sau khi chuẩn bị dataset lại.
+
+Dataset 380 ảnh: train 217, validation 128, test 35. Gom bảo thủ theo
+nhóm nguồn/sân/màu, giữ toàn bộ 08fd33 + Project12 trong test, sân vàng
+trong val và ba clip đỏ–trắng trong train. Không tuyên bố danh tính
+trận đã được xác minh. Kiểm nguồn/pixel/ảnh gần trùng không giao tập;
+giữ keeper riêng, bỏ ball. Không đổi DATA_CONTRACT hoặc dependency.
+
+Đã chạy CUDA RTX3050 6GB, cả nano/small 20 epoch, 640/batch4/AMP off,
+AdamW lr0,001/seed20261102. Small ưu tiên bằng validation trước khi mở
+test: mAP50–95 val nano25,00%/small37,15%; test25,93%/41,23%.
+Small test AP50 player95,07%/keeper47,69%/referee24,57%; recall trọng
+tài13,16% trên76lượt, keeper41,67% trên12lượt. Chưa duyệt upload.
+Weights local role_training_v1/nano_final và small_final/training/weights;
+hash đầy đủ trong ROLE_FINETUNING.md và fixtures/role_finetune_result_v1.json.
+
+Kiểm chẩn đoán conf0,25 trên15frame cũ: small640 đúng201/201tuyến ngoài,
+10/10keeper,9/15referee; small1280 đúng197/201,8/10,10/15. Ba nguồn đã
+tham gia train nên không coi tổng này là tổng quát hóa; riêng Project12
+giữ ngoài train, small640 đúng12/12tuyến ngoài,2/2referee (mẫu rất nhỏ).
+Đã xem lại25crop vai trò hiếm, không sửa nhãn. Nano vẫn0/10keeper,
+0/15referee ở cả hai cỡ. Không lấy điểm tổng hoặc mẫu đã học che lỗi.
+
+Thêm prepare_role_dataset.py/finetune_roles.py và11test về mapping,
+không gộp/swap vai trò, chia nguồn/pixel, hash và metric IDs. Toàn bộ
+489Python test đạt,1network deselected,4warning cũ. Runtime detector,
+lọc ngoài sân, palette/unknown, tracking và frontend không đổi. Không
+commit video/ảnh/weights; giữ modelsmall là ứng viên nghiên cứu. Bước
+cần cải thiện là nhãn/crop/độ phủ trọng tài và kiểm nguồn mới; tập test
+phiên này đã biết, không gọi các lượt sau là phép kiểm mù mới.
+
 Ngày 02/11/2026: hoàn tất cải thiện UI đợt 1 theo yêu cầu bắt đầu audit.
 Xem `docs/UI_REFRESH.md`. Có Tổng quan thật, chữ/focus/tương phản rõ hơn,
 menu mobile Escape/Tab/inert; Match ưu tiên sân, KPI gọn/vi-VN, bỏ icon

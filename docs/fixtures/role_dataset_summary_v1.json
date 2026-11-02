@@ -1,0 +1,84 @@
+{
+  "kind": "role_dataset_summary_v1",
+  "protocol_sha256": "43199bc0b3511e3b477cb903eca4a73af78806ff7006ce5fbca3851ca16645fe",
+  "manifest_sha256": "390626f43158857feafac2823799a405000d9fa6b4007e7c8f97e65cd0e15255",
+  "images": {
+    "test": 35,
+    "train": 217,
+    "val": 128
+  },
+  "classes": [
+    "player",
+    "goalkeeper",
+    "referee"
+  ],
+  "split_counts": {
+    "train": {
+      "player": 4329,
+      "referee": 513,
+      "goalkeeper": 190
+    },
+    "val": {
+      "referee": 292,
+      "player": 2557,
+      "goalkeeper": 92
+    },
+    "test": {
+      "referee": 76,
+      "player": 695,
+      "goalkeeper": 12
+    }
+  },
+  "local_frames": 8,
+  "local_boxes": 177,
+  "local_annotation_sha256": "afe52ae4b0f5c5fe26e56590d542b0edb8ec28139114ca53a340a1d8f7ff5732",
+  "independently_validated": false,
+  "verified_match_identities": false,
+  "cross_split_exact_and_near_duplicates": 0,
+  "source_families": {
+    "euro_red_white": {
+      "split": "train",
+      "images": 6,
+      "sources": [
+        "11a9b033dbeca46af7e3cf1117269b04044ddf8d89b6c594efc16222606dd053",
+        "ee1fd930c245f46213be2dbecc7219382ce940b73cf667c0983f5e4924012541",
+        "f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0"
+      ]
+    },
+    "red_stadiums": {
+      "split": "train",
+      "images": 211,
+      "sources": [
+        "external:121364",
+        "external:2e57b9",
+        "external:40cd38",
+        "external:42ba34",
+        "external:54745b",
+        "external:55c9d1",
+        "external:573e61",
+        "external:744b27",
+        "external:a9f16c",
+        "external:c01561"
+      ]
+    },
+    "white_dark_euro": {
+      "split": "test",
+      "images": 35,
+      "sources": [
+        "cd6138c73e54f8bc0507bfd7492554a3f3fce5c015f14015173f948b50dc1711",
+        "external:08fd33"
+      ]
+    },
+    "yellow_stadium": {
+      "split": "val",
+      "images": 128,
+      "sources": [
+        "external:4b770a",
+        "external:538438",
+        "external:798b45",
+        "external:cd987c"
+      ]
+    }
+  },
+  "limitation": "Visual source families, not independently verified match identities; model-assisted local boxes reviewed by one agent."
+}

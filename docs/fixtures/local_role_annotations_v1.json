@@ -1,0 +1,1931 @@
+{
+  "kind": "local_role_annotations_v1",
+  "date": "2026-11-02",
+  "proposal_model_sha256": "0ebbc80d4a7680d14987a577cd21342b65ecfd94632bd9a8da63ae6417644ee1",
+  "proposal_imgsz": 1280,
+  "proposal_conf": 0.15,
+  "review": "Agent inspected numbered full frames and every proposal crop before training. Retained visible active players and match officials; discarded staff/camera/vested sideline people and one duplicate. No independent second annotator, no official match sheet. Intended complete visible-target annotation but missed/occluded targets remain possible. Boxes are model-assisted, not independently drawn. Added one distant assistant referee missed by proposals after magnified raw-frame review. First training preflight aborted before test evaluation to relock annotations.",
+  "official_policy": "Includes assistant referees as semantic referee even outside touchline; downstream pitch boundary must still remove outside observations. Coaches, spectators, substitutes/staff outside playing area are background.",
+  "frames": [
+    {
+      "key": "c0-f930",
+      "source": "data/raw/Video Project 15.mp4",
+      "source_sha256": "f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0",
+      "frame": 930,
+      "split": "train",
+      "width": 1920,
+      "height": 1080,
+      "raw_image_sha256": "9f925ed404d2dfdafc8860a725b0c7fac299c8d942f07333777fc70ddd7507e7",
+      "people": [
+        {
+          "proposal_id": 1,
+          "role": "player",
+          "xyxy": [
+            301.85,
+            700.0,
+            331.54,
+            788.58
+          ]
+        },
+        {
+          "proposal_id": 2,
+          "role": "player",
+          "xyxy": [
+            512.83,
+            314.33,
+            544.41,
+            377.26
+          ]
+        },
+        {
+          "proposal_id": 3,
+          "role": "player",
+          "xyxy": [
+            516.96,
+            193.79,
+            542.06,
+            242.26
+          ]
+        },
+        {
+          "proposal_id": 4,
+          "role": "player",
+          "xyxy": [
+            603.02,
+            534.29,
+            627.84,
+            611.75
+          ]
+        },
+        {
+          "proposal_id": 5,
+          "role": "player",
+          "xyxy": [
+            637.74,
+            713.88,
+            665.48,
+            796.77
+          ]
+        },
+        {
+          "proposal_id": 6,
+          "role": "player",
+          "xyxy": [
+            756.63,
+            511.14,
+            788.16,
+            588.29
+          ]
+        },
+        {
+          "proposal_id": 7,
+          "role": "referee",
+          "xyxy": [
+            862.88,
+            401.11,
+            886.34,
+            474.57
+          ]
+        },
+        {
+          "proposal_id": 8,
+          "role": "player",
+          "xyxy": [
+            872.53,
+            298.97,
+            901.88,
+            365.29
+          ]
+        },
+        {
+          "proposal_id": 9,
+          "role": "player",
+          "xyxy": [
+            934.98,
+            744.47,
+            966.26,
+            833.33
+          ]
+        },
+        {
+          "proposal_id": 10,
+          "role": "player",
+          "xyxy": [
+            974.86,
+            369.56,
+            1004.19,
+            436.08
+          ]
+        },
+        {
+          "proposal_id": 11,
+          "role": "player",
+          "xyxy": [
+            1011.49,
+            295.38,
+            1036.5,
+            357.56
+          ]
+        },
+        {
+          "proposal_id": 12,
+          "role": "player",
+          "xyxy": [
+            1066.56,
+            716.78,
+            1101.31,
+            807.98
+          ]
+        },
+        {
+          "proposal_id": 13,
+          "role": "player",
+          "xyxy": [
+            1108.86,
+            659.57,
+            1143.14,
+            745.23
+          ]
+        },
+        {
+          "proposal_id": 14,
+          "role": "player",
+          "xyxy": [
+            1196.07,
+            361.03,
+            1218.19,
+            428.41
+          ]
+        },
+        {
+          "proposal_id": 15,
+          "role": "player",
+          "xyxy": [
+            1225.3,
+            497.13,
+            1258.5,
+            575.83
+          ]
+        },
+        {
+          "proposal_id": 17,
+          "role": "player",
+          "xyxy": [
+            1299.29,
+            761.09,
+            1333.84,
+            793.68
+          ]
+        },
+        {
+          "proposal_id": 18,
+          "role": "player",
+          "xyxy": [
+            1309.67,
+            668.38,
+            1345.26,
+            754.87
+          ]
+        },
+        {
+          "proposal_id": 19,
+          "role": "player",
+          "xyxy": [
+            1369.23,
+            682.3,
+            1405.61,
+            763.29
+          ]
+        },
+        {
+          "proposal_id": 20,
+          "role": "player",
+          "xyxy": [
+            1448.22,
+            706.72,
+            1495.82,
+            801.6
+          ]
+        },
+        {
+          "proposal_id": 21,
+          "role": "player",
+          "xyxy": [
+            1531.65,
+            506.04,
+            1572.56,
+            584.55
+          ]
+        },
+        {
+          "proposal_id": 22,
+          "role": "goalkeeper",
+          "xyxy": [
+            1568.03,
+            268.72,
+            1601.34,
+            335.78
+          ]
+        },
+        {
+          "proposal_id": 24,
+          "role": "referee",
+          "xyxy": [
+            1760.91,
+            700.82,
+            1792.42,
+            785.81
+          ]
+        }
+      ],
+      "excluded_proposal_ids": [
+        0,
+        16,
+        23
+      ]
+    },
+    {
+      "key": "c0-f1350",
+      "source": "data/raw/Video Project 15.mp4",
+      "source_sha256": "f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0",
+      "frame": 1350,
+      "split": "train",
+      "width": 1920,
+      "height": 1080,
+      "raw_image_sha256": "7c4bf3260b17ce3c8edf568b03c23ea1da90c797f0ae8cd1b239b34223ee0210",
+      "people": [
+        {
+          "proposal_id": 1,
+          "role": "player",
+          "xyxy": [
+            79.77,
+            714.54,
+            109.99,
+            805.44
+          ]
+        },
+        {
+          "proposal_id": 2,
+          "role": "referee",
+          "xyxy": [
+            96.79,
+            76.66,
+            120.94,
+            122.68
+          ]
+        },
+        {
+          "proposal_id": 4,
+          "role": "player",
+          "xyxy": [
+            309.48,
+            281.95,
+            336.71,
+            340.72
+          ]
+        },
+        {
+          "proposal_id": 6,
+          "role": "player",
+          "xyxy": [
+            359.84,
+            319.61,
+            387.67,
+            385.94
+          ]
+        },
+        {
+          "proposal_id": 7,
+          "role": "player",
+          "xyxy": [
+            394.76,
+            575.28,
+            433.25,
+            652.84
+          ]
+        },
+        {
+          "proposal_id": 9,
+          "role": "player",
+          "xyxy": [
+            524.01,
+            709.39,
+            551.71,
+            787.1
+          ]
+        },
+        {
+          "proposal_id": 10,
+          "role": "player",
+          "xyxy": [
+            555.14,
+            599.43,
+            594.69,
+            687.61
+          ]
+        },
+        {
+          "proposal_id": 12,
+          "role": "player",
+          "xyxy": [
+            633.64,
+            724.16,
+            683.55,
+            806.43
+          ]
+        },
+        {
+          "proposal_id": 13,
+          "role": "referee",
+          "xyxy": [
+            692.02,
+            405.02,
+            725.93,
+            474.76
+          ]
+        },
+        {
+          "proposal_id": 14,
+          "role": "player",
+          "xyxy": [
+            747.38,
+            642.9,
+            792.27,
+            726.25
+          ]
+        },
+        {
+          "proposal_id": 15,
+          "role": "player",
+          "xyxy": [
+            911.37,
+            644.01,
+            947.32,
+            738.3
+          ]
+        },
+        {
+          "proposal_id": 16,
+          "role": "player",
+          "xyxy": [
+            967.58,
+            756.39,
+            1013.34,
+            845.54
+          ]
+        },
+        {
+          "proposal_id": 17,
+          "role": "player",
+          "xyxy": [
+            1015.35,
+            470.6,
+            1049.27,
+            548.37
+          ]
+        },
+        {
+          "proposal_id": 18,
+          "role": "player",
+          "xyxy": [
+            1065.21,
+            312.66,
+            1101.95,
+            385.62
+          ]
+        },
+        {
+          "proposal_id": 19,
+          "role": "player",
+          "xyxy": [
+            1096.7,
+            620.46,
+            1125.11,
+            709.05
+          ]
+        },
+        {
+          "proposal_id": 20,
+          "role": "player",
+          "xyxy": [
+            1130.4,
+            240.47,
+            1160.13,
+            300.29
+          ]
+        },
+        {
+          "proposal_id": 21,
+          "role": "player",
+          "xyxy": [
+            1186.6,
+            571.71,
+            1219.68,
+            662.62
+          ]
+        },
+        {
+          "proposal_id": 22,
+          "role": "player",
+          "xyxy": [
+            1272.1,
+            332.71,
+            1302.53,
+            405.35
+          ]
+        },
+        {
+          "proposal_id": 23,
+          "role": "player",
+          "xyxy": [
+            1401.97,
+            647.78,
+            1440.01,
+            737.41
+          ]
+        },
+        {
+          "proposal_id": 24,
+          "role": "player",
+          "xyxy": [
+            1416.84,
+            493.06,
+            1459.81,
+            576.66
+          ]
+        },
+        {
+          "proposal_id": 25,
+          "role": "player",
+          "xyxy": [
+            1547.49,
+            500.47,
+            1597.05,
+            584.99
+          ]
+        },
+        {
+          "proposal_id": 27,
+          "role": "referee",
+          "xyxy": [
+            1797.23,
+            711.62,
+            1841.3,
+            796.25
+          ]
+        },
+        {
+          "proposal_id": 29,
+          "role": "goalkeeper",
+          "xyxy": [
+            1870.23,
+            269.69,
+            1905.59,
+            339.59
+          ]
+        }
+      ],
+      "excluded_proposal_ids": [
+        0,
+        3,
+        5,
+        8,
+        11,
+        26,
+        28
+      ]
+    },
+    {
+      "key": "c1-f538",
+      "source": "data/raw/Video Project 15 (1).mp4",
+      "source_sha256": "11a9b033dbeca46af7e3cf1117269b04044ddf8d89b6c594efc16222606dd053",
+      "frame": 538,
+      "split": "train",
+      "width": 1920,
+      "height": 1080,
+      "raw_image_sha256": "911d44a78cc5b424603da3c271686d06076e5ac5b410b41d87804d07e2bff7e2",
+      "people": [
+        {
+          "proposal_id": 0,
+          "role": "player",
+          "xyxy": [
+            42.03,
+            587.27,
+            68.56,
+            649.11
+          ]
+        },
+        {
+          "proposal_id": 1,
+          "role": "player",
+          "xyxy": [
+            74.25,
+            463.75,
+            97.19,
+            523.34
+          ]
+        },
+        {
+          "proposal_id": 2,
+          "role": "player",
+          "xyxy": [
+            91.81,
+            296.05,
+            117.5,
+            344.38
+          ]
+        },
+        {
+          "proposal_id": 3,
+          "role": "player",
+          "xyxy": [
+            125.76,
+            693.79,
+            154.65,
+            773.13
+          ]
+        },
+        {
+          "proposal_id": 4,
+          "role": "player",
+          "xyxy": [
+            132.9,
+            453.84,
+            153.59,
+            513.3
+          ]
+        },
+        {
+          "proposal_id": 5,
+          "role": "player",
+          "xyxy": [
+            134.93,
+            345.71,
+            155.74,
+            400.61
+          ]
+        },
+        {
+          "proposal_id": 6,
+          "role": "player",
+          "xyxy": [
+            197.44,
+            903.3,
+            233.24,
+            990.3
+          ]
+        },
+        {
+          "proposal_id": 7,
+          "role": "player",
+          "xyxy": [
+            238.55,
+            749.65,
+            262.74,
+            817.04
+          ]
+        },
+        {
+          "proposal_id": 8,
+          "role": "player",
+          "xyxy": [
+            420.83,
+            279.15,
+            450.85,
+            317.52
+          ]
+        },
+        {
+          "proposal_id": 9,
+          "role": "referee",
+          "xyxy": [
+            441.12,
+            1017.62,
+            476.28,
+            1079.63
+          ]
+        },
+        {
+          "proposal_id": 10,
+          "role": "player",
+          "xyxy": [
+            501.2,
+            228.9,
+            522.53,
+            279.3
+          ]
+        },
+        {
+          "proposal_id": 11,
+          "role": "referee",
+          "xyxy": [
+            535.5,
+            487.56,
+            564.06,
+            546.68
+          ]
+        },
+        {
+          "proposal_id": 12,
+          "role": "player",
+          "xyxy": [
+            655.26,
+            540.25,
+            680.32,
+            602.15
+          ]
+        },
+        {
+          "proposal_id": 14,
+          "role": "player",
+          "xyxy": [
+            826.29,
+            365.17,
+            851.82,
+            414.7
+          ]
+        },
+        {
+          "proposal_id": 15,
+          "role": "player",
+          "xyxy": [
+            856.28,
+            396.33,
+            882.04,
+            453.64
+          ]
+        },
+        {
+          "proposal_id": 16,
+          "role": "player",
+          "xyxy": [
+            894.39,
+            300.11,
+            915.54,
+            347.13
+          ]
+        },
+        {
+          "proposal_id": 17,
+          "role": "player",
+          "xyxy": [
+            929.34,
+            405.58,
+            959.57,
+            451.26
+          ]
+        },
+        {
+          "proposal_id": 18,
+          "role": "player",
+          "xyxy": [
+            967.41,
+            590.85,
+            990.28,
+            657.69
+          ]
+        },
+        {
+          "proposal_id": 19,
+          "role": "player",
+          "xyxy": [
+            994.22,
+            394.02,
+            1013.96,
+            444.0
+          ]
+        },
+        {
+          "proposal_id": 21,
+          "role": "player",
+          "xyxy": [
+            1163.71,
+            306.4,
+            1185.88,
+            354.76
+          ]
+        },
+        {
+          "proposal_id": 22,
+          "role": "player",
+          "xyxy": [
+            1222.29,
+            571.29,
+            1248.42,
+            637.98
+          ]
+        },
+        {
+          "proposal_id": 24,
+          "role": "player",
+          "xyxy": [
+            1518.93,
+            600.4,
+            1545.47,
+            663.66
+          ]
+        },
+        {
+          "proposal_id": 25,
+          "role": "goalkeeper",
+          "xyxy": [
+            1780.77,
+            490.19,
+            1808.72,
+            550.12
+          ]
+        },
+        {
+          "proposal_id": 26,
+          "role": "referee",
+          "xyxy": [
+            1876.14,
+            925.37,
+            1914.29,
+            1004.44
+          ]
+        }
+      ],
+      "excluded_proposal_ids": [
+        13,
+        20,
+        23
+      ]
+    },
+    {
+      "key": "c1-f800",
+      "source": "data/raw/Video Project 15 (1).mp4",
+      "source_sha256": "11a9b033dbeca46af7e3cf1117269b04044ddf8d89b6c594efc16222606dd053",
+      "frame": 800,
+      "split": "train",
+      "width": 1920,
+      "height": 1080,
+      "raw_image_sha256": "84c4f8b03c676d847f34207f826f2ffbc522e5f78b9aebfd6be91fd136bfe645",
+      "people": [
+        {
+          "proposal_id": 1,
+          "role": "goalkeeper",
+          "xyxy": [
+            59.73,
+            435.43,
+            81.99,
+            484.05
+          ]
+        },
+        {
+          "proposal_id": 2,
+          "role": "player",
+          "xyxy": [
+            221.61,
+            742.54,
+            272.19,
+            802.96
+          ]
+        },
+        {
+          "proposal_id": 3,
+          "role": "player",
+          "xyxy": [
+            278.22,
+            821.41,
+            323.3,
+            887.96
+          ]
+        },
+        {
+          "proposal_id": 4,
+          "role": "player",
+          "xyxy": [
+            437.23,
+            577.2,
+            478.6,
+            628.36
+          ]
+        },
+        {
+          "proposal_id": 5,
+          "role": "player",
+          "xyxy": [
+            529.58,
+            475.48,
+            562.12,
+            520.41
+          ]
+        },
+        {
+          "proposal_id": 6,
+          "role": "player",
+          "xyxy": [
+            554.14,
+            720.72,
+            579.05,
+            773.67
+          ]
+        },
+        {
+          "proposal_id": 7,
+          "role": "player",
+          "xyxy": [
+            576.44,
+            674.2,
+            602.84,
+            720.78
+          ]
+        },
+        {
+          "proposal_id": 8,
+          "role": "player",
+          "xyxy": [
+            629.96,
+            400.79,
+            661.07,
+            442.75
+          ]
+        },
+        {
+          "proposal_id": 9,
+          "role": "referee",
+          "xyxy": [
+            643.66,
+            600.33,
+            677.98,
+            651.3
+          ]
+        },
+        {
+          "proposal_id": 10,
+          "role": "player",
+          "xyxy": [
+            665.04,
+            486.69,
+            691.24,
+            530.84
+          ]
+        },
+        {
+          "proposal_id": 11,
+          "role": "player",
+          "xyxy": [
+            690.98,
+            365.37,
+            723.32,
+            407.1
+          ]
+        },
+        {
+          "proposal_id": 12,
+          "role": "player",
+          "xyxy": [
+            794.02,
+            359.7,
+            818.39,
+            399.16
+          ]
+        },
+        {
+          "proposal_id": 14,
+          "role": "player",
+          "xyxy": [
+            1012.22,
+            484.66,
+            1036.28,
+            535.42
+          ]
+        },
+        {
+          "proposal_id": 15,
+          "role": "player",
+          "xyxy": [
+            1146.6,
+            461.88,
+            1166.98,
+            505.34
+          ]
+        },
+        {
+          "proposal_id": 16,
+          "role": "referee",
+          "xyxy": [
+            1151.46,
+            985.91,
+            1179.57,
+            1069.79
+          ]
+        },
+        {
+          "proposal_id": 17,
+          "role": "player",
+          "xyxy": [
+            1220.55,
+            441.84,
+            1243.3,
+            483.88
+          ]
+        },
+        {
+          "proposal_id": 18,
+          "role": "player",
+          "xyxy": [
+            1218.88,
+            515.69,
+            1245.84,
+            557.51
+          ]
+        },
+        {
+          "proposal_id": 19,
+          "role": "player",
+          "xyxy": [
+            1276.04,
+            592.53,
+            1300.23,
+            646.24
+          ]
+        },
+        {
+          "proposal_id": 20,
+          "role": "player",
+          "xyxy": [
+            1310.86,
+            389.96,
+            1336.73,
+            430.01
+          ]
+        },
+        {
+          "proposal_id": 21,
+          "role": "player",
+          "xyxy": [
+            1391.38,
+            532.68,
+            1425.53,
+            583.97
+          ]
+        },
+        {
+          "proposal_id": 23,
+          "role": "player",
+          "xyxy": [
+            1641.83,
+            671.46,
+            1666.9,
+            733.88
+          ]
+        },
+        {
+          "proposal_id": 24,
+          "role": "player",
+          "xyxy": [
+            1678.47,
+            500.8,
+            1714.27,
+            548.26
+          ]
+        },
+        {
+          "proposal_id": 25,
+          "role": "player",
+          "xyxy": [
+            1758.27,
+            686.45,
+            1788.69,
+            744.91
+          ]
+        }
+      ],
+      "excluded_proposal_ids": [
+        0,
+        13,
+        22
+      ]
+    },
+    {
+      "key": "c2-f1214",
+      "source": "data/raw/Video Project 15 (2).mp4",
+      "source_sha256": "ee1fd930c245f46213be2dbecc7219382ce940b73cf667c0983f5e4924012541",
+      "frame": 1214,
+      "split": "train",
+      "width": 1920,
+      "height": 1080,
+      "raw_image_sha256": "8fc3eb646512e0e350a7783ffa570a5cf703e2e90541d2e379192f34bdf3ed57",
+      "people": [
+        {
+          "proposal_id": 0,
+          "role": "player",
+          "xyxy": [
+            183.9,
+            729.2,
+            216.98,
+            801.1
+          ]
+        },
+        {
+          "proposal_id": 1,
+          "role": "player",
+          "xyxy": [
+            214.91,
+            400.45,
+            237.49,
+            465.04
+          ]
+        },
+        {
+          "proposal_id": 2,
+          "role": "player",
+          "xyxy": [
+            328.69,
+            258.27,
+            349.29,
+            319.79
+          ]
+        },
+        {
+          "proposal_id": 3,
+          "role": "player",
+          "xyxy": [
+            412.37,
+            519.24,
+            441.73,
+            582.55
+          ]
+        },
+        {
+          "proposal_id": 4,
+          "role": "player",
+          "xyxy": [
+            445.64,
+            501.94,
+            469.95,
+            558.92
+          ]
+        },
+        {
+          "proposal_id": 5,
+          "role": "player",
+          "xyxy": [
+            559.67,
+            260.38,
+            591.68,
+            312.24
+          ]
+        },
+        {
+          "proposal_id": 6,
+          "role": "player",
+          "xyxy": [
+            573.47,
+            107.62,
+            593.31,
+            149.41
+          ]
+        },
+        {
+          "proposal_id": 7,
+          "role": "player",
+          "xyxy": [
+            570.61,
+            174.5,
+            606.81,
+            219.13
+          ]
+        },
+        {
+          "proposal_id": 8,
+          "role": "referee",
+          "xyxy": [
+            594.88,
+            360.97,
+            627.27,
+            416.35
+          ]
+        },
+        {
+          "proposal_id": 9,
+          "role": "player",
+          "xyxy": [
+            612.61,
+            105.87,
+            630.99,
+            149.08
+          ]
+        },
+        {
+          "proposal_id": 10,
+          "role": "player",
+          "xyxy": [
+            742.85,
+            237.97,
+            767.5,
+            288.81
+          ]
+        },
+        {
+          "proposal_id": 11,
+          "role": "player",
+          "xyxy": [
+            767.45,
+            394.25,
+            793.81,
+            456.25
+          ]
+        },
+        {
+          "proposal_id": 12,
+          "role": "player",
+          "xyxy": [
+            869.85,
+            233.01,
+            900.04,
+            290.24
+          ]
+        },
+        {
+          "proposal_id": 13,
+          "role": "player",
+          "xyxy": [
+            942.3,
+            815.19,
+            975.4,
+            886.27
+          ]
+        },
+        {
+          "proposal_id": 14,
+          "role": "player",
+          "xyxy": [
+            1025.39,
+            462.16,
+            1060.45,
+            531.81
+          ]
+        },
+        {
+          "proposal_id": 15,
+          "role": "player",
+          "xyxy": [
+            1031.92,
+            639.14,
+            1059.91,
+            706.28
+          ]
+        },
+        {
+          "proposal_id": 16,
+          "role": "player",
+          "xyxy": [
+            1061.45,
+            331.23,
+            1087.68,
+            394.9
+          ]
+        },
+        {
+          "proposal_id": 17,
+          "role": "player",
+          "xyxy": [
+            1116.61,
+            474.79,
+            1140.76,
+            537.13
+          ]
+        },
+        {
+          "proposal_id": 18,
+          "role": "player",
+          "xyxy": [
+            1123.32,
+            811.62,
+            1164.5,
+            891.83
+          ]
+        },
+        {
+          "proposal_id": 19,
+          "role": "referee",
+          "xyxy": [
+            1534.75,
+            1032.25,
+            1568.01,
+            1079.51
+          ]
+        },
+        {
+          "proposal_id": 20,
+          "role": "goalkeeper",
+          "xyxy": [
+            1685.68,
+            345.79,
+            1710.13,
+            407.75
+          ]
+        }
+      ],
+      "excluded_proposal_ids": [
+        21
+      ]
+    },
+    {
+      "key": "c2-f1500",
+      "source": "data/raw/Video Project 15 (2).mp4",
+      "source_sha256": "ee1fd930c245f46213be2dbecc7219382ce940b73cf667c0983f5e4924012541",
+      "frame": 1500,
+      "split": "train",
+      "width": 1920,
+      "height": 1080,
+      "raw_image_sha256": "263f615e8e56984e0101958b98a4a5affe2e097f6573ecad95486349e8de511f",
+      "people": [
+        {
+          "proposal_id": 0,
+          "role": "player",
+          "xyxy": [
+            20.42,
+            488.47,
+            40.26,
+            549.28
+          ]
+        },
+        {
+          "proposal_id": 1,
+          "role": "player",
+          "xyxy": [
+            56.76,
+            468.0,
+            86.6,
+            531.96
+          ]
+        },
+        {
+          "proposal_id": 2,
+          "role": "player",
+          "xyxy": [
+            168.46,
+            376.18,
+            190.24,
+            435.55
+          ]
+        },
+        {
+          "proposal_id": 4,
+          "role": "player",
+          "xyxy": [
+            615.69,
+            703.37,
+            652.06,
+            765.87
+          ]
+        },
+        {
+          "proposal_id": 6,
+          "role": "player",
+          "xyxy": [
+            684.64,
+            508.6,
+            709.5,
+            562.27
+          ]
+        },
+        {
+          "proposal_id": 7,
+          "role": "player",
+          "xyxy": [
+            685.57,
+            364.58,
+            724.46,
+            418.66
+          ]
+        },
+        {
+          "proposal_id": 8,
+          "role": "player",
+          "xyxy": [
+            693.66,
+            181.92,
+            717.4,
+            225.55
+          ]
+        },
+        {
+          "proposal_id": 9,
+          "role": "player",
+          "xyxy": [
+            737.14,
+            281.11,
+            765.51,
+            328.09
+          ]
+        },
+        {
+          "proposal_id": 10,
+          "role": "player",
+          "xyxy": [
+            746.48,
+            519.09,
+            769.88,
+            575.67
+          ]
+        },
+        {
+          "proposal_id": 11,
+          "role": "referee",
+          "xyxy": [
+            811.52,
+            442.22,
+            834.91,
+            501.15
+          ]
+        },
+        {
+          "proposal_id": 12,
+          "role": "player",
+          "xyxy": [
+            887.76,
+            252.59,
+            906.85,
+            303.84
+          ]
+        },
+        {
+          "proposal_id": 13,
+          "role": "player",
+          "xyxy": [
+            919.05,
+            374.08,
+            944.79,
+            428.14
+          ]
+        },
+        {
+          "proposal_id": 14,
+          "role": "player",
+          "xyxy": [
+            1043.03,
+            340.76,
+            1066.69,
+            395.23
+          ]
+        },
+        {
+          "proposal_id": 15,
+          "role": "player",
+          "xyxy": [
+            1061.49,
+            333.48,
+            1089.91,
+            389.24
+          ]
+        },
+        {
+          "proposal_id": 16,
+          "role": "player",
+          "xyxy": [
+            1113.96,
+            519.1,
+            1148.83,
+            580.82
+          ]
+        },
+        {
+          "proposal_id": 17,
+          "role": "player",
+          "xyxy": [
+            1181.39,
+            378.58,
+            1207.37,
+            440.01
+          ]
+        },
+        {
+          "proposal_id": 18,
+          "role": "goalkeeper",
+          "xyxy": [
+            1294.91,
+            348.55,
+            1329.16,
+            412.51
+          ]
+        },
+        {
+          "proposal_id": 20,
+          "role": "player",
+          "xyxy": [
+            1362.39,
+            775.42,
+            1389.86,
+            849.44
+          ]
+        },
+        {
+          "proposal_id": 21,
+          "role": "player",
+          "xyxy": [
+            1436.21,
+            608.13,
+            1462.74,
+            669.02
+          ]
+        },
+        {
+          "proposal_id": 25,
+          "role": "player",
+          "xyxy": [
+            1662.35,
+            695.85,
+            1708.08,
+            745.61
+          ]
+        },
+        {
+          "proposal_id": 28,
+          "role": "player",
+          "xyxy": [
+            1732.3,
+            728.08,
+            1758.22,
+            785.25
+          ]
+        },
+        {
+          "proposal_id": 29,
+          "role": "referee",
+          "xyxy": [
+            1800.9,
+            811.93,
+            1840.61,
+            869.55
+          ]
+        }
+      ],
+      "excluded_proposal_ids": [
+        3,
+        5,
+        19,
+        22,
+        23,
+        24,
+        26,
+        27,
+        30
+      ]
+    },
+    {
+      "key": "c3-f704",
+      "source": "data/raw/Video Project 12.mp4",
+      "source_sha256": "cd6138c73e54f8bc0507bfd7492554a3f3fce5c015f14015173f948b50dc1711",
+      "frame": 704,
+      "split": "test",
+      "width": 1920,
+      "height": 1080,
+      "raw_image_sha256": "39bc412e1dceea11ef8c9d5d062049e4e87cce2785bf631334c7d8bc9b1dbb82",
+      "people": [
+        {
+          "proposal_id": 0,
+          "role": "player",
+          "xyxy": [
+            22.41,
+            436.17,
+            44.51,
+            499.75
+          ]
+        },
+        {
+          "proposal_id": 1,
+          "role": "player",
+          "xyxy": [
+            295.54,
+            301.65,
+            321.98,
+            345.27
+          ]
+        },
+        {
+          "proposal_id": 2,
+          "role": "player",
+          "xyxy": [
+            381.08,
+            395.3,
+            409.9,
+            458.46
+          ]
+        },
+        {
+          "proposal_id": 4,
+          "role": "player",
+          "xyxy": [
+            568.39,
+            371.55,
+            588.3,
+            432.54
+          ]
+        },
+        {
+          "proposal_id": 5,
+          "role": "player",
+          "xyxy": [
+            793.02,
+            597.24,
+            828.95,
+            681.57
+          ]
+        },
+        {
+          "proposal_id": 6,
+          "role": "player",
+          "xyxy": [
+            838.5,
+            367.05,
+            864.41,
+            430.41
+          ]
+        },
+        {
+          "proposal_id": 7,
+          "role": "player",
+          "xyxy": [
+            870.23,
+            759.29,
+            917.24,
+            863.76
+          ]
+        },
+        {
+          "proposal_id": 8,
+          "role": "player",
+          "xyxy": [
+            1013.89,
+            573.55,
+            1046.07,
+            665.49
+          ]
+        },
+        {
+          "proposal_id": 10,
+          "role": "referee",
+          "xyxy": [
+            1044.3,
+            398.33,
+            1073.97,
+            464.31
+          ]
+        },
+        {
+          "proposal_id": 11,
+          "role": "player",
+          "xyxy": [
+            1070.06,
+            314.78,
+            1090.35,
+            363.24
+          ]
+        },
+        {
+          "proposal_id": 12,
+          "role": "player",
+          "xyxy": [
+            1144.24,
+            461.42,
+            1170.85,
+            529.66
+          ]
+        },
+        {
+          "proposal_id": 13,
+          "role": "player",
+          "xyxy": [
+            1148.41,
+            373.54,
+            1169.16,
+            429.55
+          ]
+        },
+        {
+          "proposal_id": 14,
+          "role": "player",
+          "xyxy": [
+            1167.81,
+            276.7,
+            1205.44,
+            327.03
+          ]
+        },
+        {
+          "proposal_id": 15,
+          "role": "player",
+          "xyxy": [
+            1204.21,
+            462.28,
+            1229.87,
+            530.93
+          ]
+        },
+        {
+          "proposal_id": 17,
+          "role": "player",
+          "xyxy": [
+            1490.5,
+            350.33,
+            1520.09,
+            416.57
+          ]
+        },
+        {
+          "proposal_id": 19,
+          "role": "player",
+          "xyxy": [
+            1569.6,
+            354.1,
+            1589.69,
+            412.79
+          ]
+        },
+        {
+          "proposal_id": 20,
+          "role": "player",
+          "xyxy": [
+            1589.98,
+            581.67,
+            1628.64,
+            672.83
+          ]
+        },
+        {
+          "proposal_id": 21,
+          "role": "player",
+          "xyxy": [
+            1624.58,
+            399.4,
+            1653.5,
+            468.2
+          ]
+        },
+        {
+          "proposal_id": 24,
+          "role": "player",
+          "xyxy": [
+            1725.05,
+            514.64,
+            1750.58,
+            562.34
+          ]
+        },
+        {
+          "proposal_id": 25,
+          "role": "player",
+          "xyxy": [
+            1727.91,
+            555.35,
+            1763.27,
+            649.21
+          ]
+        },
+        {
+          "proposal_id": null,
+          "role": "referee",
+          "xyxy": [
+            435,
+            253,
+            459,
+            298
+          ],
+          "basis": "Manually added distant assistant referee after inspecting raw far-touchline crop; missed by person detector."
+        }
+      ],
+      "excluded_proposal_ids": [
+        3,
+        9,
+        16,
+        18,
+        22,
+        23
+      ]
+    },
+    {
+      "key": "c3-f1000",
+      "source": "data/raw/Video Project 12.mp4",
+      "source_sha256": "cd6138c73e54f8bc0507bfd7492554a3f3fce5c015f14015173f948b50dc1711",
+      "frame": 1000,
+      "split": "test",
+      "width": 1920,
+      "height": 1080,
+      "raw_image_sha256": "3b1eae9822b587ae3eb8e2e981687cc8455dc3ad45b4e56bf117c6d606c63fde",
+      "people": [
+        {
+          "proposal_id": 0,
+          "role": "player",
+          "xyxy": [
+            220.11,
+            443.9,
+            243.5,
+            517.93
+          ]
+        },
+        {
+          "proposal_id": 1,
+          "role": "player",
+          "xyxy": [
+            389.26,
+            274.08,
+            411.36,
+            322.54
+          ]
+        },
+        {
+          "proposal_id": 2,
+          "role": "player",
+          "xyxy": [
+            529.87,
+            391.2,
+            560.25,
+            450.75
+          ]
+        },
+        {
+          "proposal_id": 3,
+          "role": "player",
+          "xyxy": [
+            588.34,
+            330.02,
+            610.56,
+            382.83
+          ]
+        },
+        {
+          "proposal_id": 4,
+          "role": "player",
+          "xyxy": [
+            725.52,
+            279.2,
+            745.71,
+            328.93
+          ]
+        },
+        {
+          "proposal_id": 5,
+          "role": "player",
+          "xyxy": [
+            722.99,
+            595.89,
+            761.47,
+            684.71
+          ]
+        },
+        {
+          "proposal_id": 6,
+          "role": "player",
+          "xyxy": [
+            758.27,
+            333.88,
+            803.63,
+            387.54
+          ]
+        },
+        {
+          "proposal_id": 8,
+          "role": "player",
+          "xyxy": [
+            817.04,
+            462.12,
+            849.35,
+            536.0
+          ]
+        },
+        {
+          "proposal_id": 9,
+          "role": "player",
+          "xyxy": [
+            834.6,
+            313.09,
+            867.61,
+            362.38
+          ]
+        },
+        {
+          "proposal_id": 10,
+          "role": "player",
+          "xyxy": [
+            875.54,
+            373.57,
+            906.03,
+            421.54
+          ]
+        },
+        {
+          "proposal_id": 11,
+          "role": "referee",
+          "xyxy": [
+            911.4,
+            352.82,
+            934.29,
+            414.2
+          ]
+        },
+        {
+          "proposal_id": 12,
+          "role": "player",
+          "xyxy": [
+            963.03,
+            336.35,
+            985.06,
+            383.49
+          ]
+        },
+        {
+          "proposal_id": 14,
+          "role": "player",
+          "xyxy": [
+            1009.68,
+            317.92,
+            1034.99,
+            373.54
+          ]
+        },
+        {
+          "proposal_id": 15,
+          "role": "player",
+          "xyxy": [
+            1032.56,
+            294.58,
+            1054.43,
+            345.78
+          ]
+        },
+        {
+          "proposal_id": 16,
+          "role": "player",
+          "xyxy": [
+            1114.96,
+            314.32,
+            1144.76,
+            359.57
+          ]
+        },
+        {
+          "proposal_id": 19,
+          "role": "player",
+          "xyxy": [
+            1288.89,
+            419.19,
+            1314.45,
+            487.7
+          ]
+        },
+        {
+          "proposal_id": 20,
+          "role": "player",
+          "xyxy": [
+            1374.8,
+            394.49,
+            1401.04,
+            471.37
+          ]
+        },
+        {
+          "proposal_id": 21,
+          "role": "player",
+          "xyxy": [
+            1433.2,
+            465.08,
+            1457.83,
+            536.88
+          ]
+        },
+        {
+          "proposal_id": 22,
+          "role": "player",
+          "xyxy": [
+            1451.37,
+            416.69,
+            1482.86,
+            467.78
+          ]
+        },
+        {
+          "proposal_id": 24,
+          "role": "player",
+          "xyxy": [
+            1505.69,
+            358.89,
+            1533.81,
+            422.45
+          ]
+        },
+        {
+          "proposal_id": 25,
+          "role": "referee",
+          "xyxy": [
+            1820.01,
+            860.22,
+            1883.94,
+            958.34
+          ]
+        }
+      ],
+      "excluded_proposal_ids": [
+        7,
+        13,
+        17,
+        18,
+        23
+      ]
+    }
+  ]
+}
