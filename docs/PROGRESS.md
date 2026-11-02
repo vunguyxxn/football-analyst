@@ -2,6 +2,34 @@
 
 ## Trạng thái hiện tại
 
+Ngày 02/11/2026: đã kiểm chứng ngoại tuyến detector vai trò theo yêu cầu.
+Ứng viên YOLO11m của martinjolif/yolo-football-player-detection, revision
+5e83fafa8d564243001ce8e063612a618a138fbe, model card AGPL-3.0;
+weights SHA-256 69c652bfa9814ef882c439617f04b8fd5749b6b8455aaa3c36110bc2e802aadd
+được đối chiếu LFS. Chỉ tải weights vào data/raw local, không commit.
+Không dùng model từ StrikerAI, thêm dependency hoặc đổi DATA_CONTRACT.
+
+Protocol khóa nguồn/nhãn/model và class-map, so COCO11n với ứng viên
+tại imgsz 640/1280, conf 0,25. Chạy thật CUDA trên 15 frame/4 clip:
+201 lượt cầu thủ, 10 thủ môn, 15 trọng tài. Nhãn agent cũ thưa, chưa
+độc lập, không công bố precision/mAP/recall đầy đủ. Ghép role-blind
+một-một IoU 0,5 hoặc chân 35 px; kiểm 25/50 px không đổi tổng kết.
+
+Ứng viên tại 1280 đúng 196/201 cầu thủ, 4/10 thủ môn, 2/15 trọng tài;
+3 cầu thủ bị gọi trọng tài, 2 không ghép được. Tại 640 đúng 200/201,
+6/10, 0/15; vẫn 19/25 lượt thủ môn/trọng tài bị gọi player ở cả hai cỡ.
+Đã xem lại 28 crop; không sửa nhãn theo model. Kết luận không duyệt
+ứng viên vào upload, không thay runtime model hoặc bộ lọc sân/palette.
+Baseline detector COCO11n chỉ person, không đại diện cả pipeline màu.
+Hướng tiếp: bộ nhãn vai trò đầy đủ, tách theo trận rồi thử nano/small;
+chưa huấn luyện hoặc tích hợp trong phiên kiểm chứng này.
+
+Thêm module evaluate_role_detector.py và 4 test về ghép một-một không
+dùng class, mẫu thiếu và kiểm hash/path. 478 Python test đạt, 1 network
+deselected, 4 warning hiện có. Xem ROLE_DETECTOR_VERIFICATION.md,
+fixtures/role_detector_protocol_v1.json, role_detector_result_v1.json;
+quan sát đầy đủ/ảnh kiểm local data/processed/role_detector_screening_v1.
+
 Ngày 02/11/2026: hoàn tất đọc StrikerAI sau bản sửa CV `d95d663`.
 Khóa nguồn `b0972ff77905583fd15fae23612e61624ddf23af`; xem
 `docs/STRIKERAI_REPOSITORY_REVIEW.md` và snapshot nguồn trong

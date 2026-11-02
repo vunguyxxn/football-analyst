@@ -1,0 +1,720 @@
+{
+  "protocol_sha256": "cf9c1a41850f371f4cd9c7718b4123906a7596caa0d8937df13c5e7fe7692d68",
+  "torch": "2.8.0+cu128",
+  "ultralytics": "8.3.221",
+  "gpu": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+  "runtime_changed": false,
+  "runs": [
+    {
+      "model": "coco11n",
+      "image_size": 640,
+      "frames": 15,
+      "mean_ms": 25.90587333337074,
+      "peak_allocated_mb": 58.3251953125,
+      "groups": [
+        {
+          "source": "data\\processed\\video_jobs\\6b996615df664a0cb99f47d2c7bdd819\\source.mp4",
+          "foot_gate_px": 35,
+          "classes": {
+            "player": {
+              "labels": 12,
+              "predicted": {
+                "player": 12
+              },
+              "correct_fraction_of_labels": 1.0
+            },
+            "goalkeeper": {
+              "labels": 2,
+              "predicted": {
+                "player": 2
+              },
+              "correct_fraction_of_labels": 0.0
+            },
+            "referee": {
+              "labels": 2,
+              "predicted": {
+                "player": 2
+              },
+              "correct_fraction_of_labels": 0.0
+            }
+          },
+          "nonplayers_predicted_player": 4,
+          "nonplayer_labels": 4,
+          "precision": null,
+          "mAP": null,
+          "note": "Sparse development labels: no full-frame precision/mAP, independent generalization or full detection recall claim."
+        },
+        {
+          "source": "data\\processed\\video_jobs\\c140f8aefb4e4678b51fe6f633e1fc56\\source.mp4",
+          "foot_gate_px": 35,
+          "classes": {
+            "player": {
+              "labels": 165,
+              "predicted": {
+                "player": 158,
+                "missed": 7
+              },
+              "correct_fraction_of_labels": 0.9575757575757575
+            },
+            "goalkeeper": {
+              "labels": 6,
+              "predicted": {
+                "missed": 5,
+                "player": 1
+              },
+              "correct_fraction_of_labels": 0.0
+            },
+            "referee": {
+              "labels": 9,
+              "predicted": {
+                "player": 9
+              },
+              "correct_fraction_of_labels": 0.0
+            }
+          },
+          "nonplayers_predicted_player": 10,
+          "nonplayer_labels": 15,
+          "precision": null,
+          "mAP": null,
+          "note": "Sparse development labels: no full-frame precision/mAP, independent generalization or full detection recall claim."
+        },
+        {
+          "source": "data\\processed\\video_jobs\\ed6ed422cb6443f6ad239f3fab0addef\\source.mp4",
+          "foot_gate_px": 35,
+          "classes": {
+            "player": {
+              "labels": 12,
+              "predicted": {
+                "player": 12
+              },
+              "correct_fraction_of_labels": 1.0
+            },
+            "goalkeeper": {
+              "labels": 2,
+              "predicted": {
+                "missed": 2
+              },
+              "correct_fraction_of_labels": 0.0
+            },
+            "referee": {
+              "labels": 2,
+              "predicted": {
+                "player": 2
+              },
+              "correct_fraction_of_labels": 0.0
+            }
+          },
+          "nonplayers_predicted_player": 2,
+          "nonplayer_labels": 4,
+          "precision": null,
+          "mAP": null,
+          "note": "Sparse development labels: no full-frame precision/mAP, independent generalization or full detection recall claim."
+        },
+        {
+          "source": "data\\processed\\video_jobs\\f27ce9794f0c42cfb9f2fdca127e701a\\source.mp4",
+          "foot_gate_px": 35,
+          "classes": {
+            "player": {
+              "labels": 12,
+              "predicted": {
+                "player": 12
+              },
+              "correct_fraction_of_labels": 1.0
+            },
+            "goalkeeper": {
+              "labels": 0,
+              "predicted": {},
+              "correct_fraction_of_labels": null
+            },
+            "referee": {
+              "labels": 2,
+              "predicted": {
+                "player": 1,
+                "missed": 1
+              },
+              "correct_fraction_of_labels": 0.0
+            }
+          },
+          "nonplayers_predicted_player": 1,
+          "nonplayer_labels": 2,
+          "precision": null,
+          "mAP": null,
+          "note": "Sparse development labels: no full-frame precision/mAP, independent generalization or full detection recall claim."
+        }
+      ],
+      "summary_at_primary_gate": {
+        "classes": {
+          "player": {
+            "labels": 201,
+            "predicted": {
+              "player": 194,
+              "missed": 7
+            },
+            "correct_fraction_of_labels": 0.9651741293532339
+          },
+          "goalkeeper": {
+            "labels": 10,
+            "predicted": {
+              "missed": 7,
+              "player": 3
+            },
+            "correct_fraction_of_labels": 0.0
+          },
+          "referee": {
+            "labels": 15,
+            "predicted": {
+              "player": 14,
+              "missed": 1
+            },
+            "correct_fraction_of_labels": 0.0
+          }
+        },
+        "nonplayers_predicted_player": 17,
+        "nonplayer_labels": 25,
+        "precision": null,
+        "mAP": null,
+        "note": "Sparse development labels: no full-frame precision/mAP, independent generalization or full detection recall claim."
+      },
+      "foot_gate_25_35_50_summary_unchanged": true
+    },
+    {
+      "model": "coco11n",
+      "image_size": 1280,
+      "frames": 15,
+      "mean_ms": 75.7689599998533,
+      "peak_allocated_mb": 106.38525390625,
+      "groups": [
+        {
+          "source": "data\\processed\\video_jobs\\6b996615df664a0cb99f47d2c7bdd819\\source.mp4",
+          "foot_gate_px": 35,
+          "classes": {
+            "player": {
+              "labels": 12,
+              "predicted": {
+                "player": 12
+              },
+              "correct_fraction_of_labels": 1.0
+            },
+            "goalkeeper": {
+              "labels": 2,
+              "predicted": {
+                "player": 2
+              },
+              "correct_fraction_of_labels": 0.0
+            },
+            "referee": {
+              "labels": 2,
+              "predicted": {
+                "player": 2
+              },
+              "correct_fraction_of_labels": 0.0
+            }
+          },
+          "nonplayers_predicted_player": 4,
+          "nonplayer_labels": 4,
+          "precision": null,
+          "mAP": null,
+          "note": "Sparse development labels: no full-frame precision/mAP, independent generalization or full detection recall claim."
+        },
+        {
+          "source": "data\\processed\\video_jobs\\c140f8aefb4e4678b51fe6f633e1fc56\\source.mp4",
+          "foot_gate_px": 35,
+          "classes": {
+            "player": {
+              "labels": 165,
+              "predicted": {
+                "player": 165
+              },
+              "correct_fraction_of_labels": 1.0
+            },
+            "goalkeeper": {
+              "labels": 6,
+              "predicted": {
+                "player": 6
+              },
+              "correct_fraction_of_labels": 0.0
+            },
+            "referee": {
+              "labels": 9,
+              "predicted": {
+                "player": 9
+              },
+              "correct_fraction_of_labels": 0.0
+            }
+          },
+          "nonplayers_predicted_player": 15,
+          "nonplayer_labels": 15,
+          "precision": null,
+          "mAP": null,
+          "note": "Sparse development labels: no full-frame precision/mAP, independent generalization or full detection recall claim."
+        },
+        {
+          "source": "data\\processed\\video_jobs\\ed6ed422cb6443f6ad239f3fab0addef\\source.mp4",
+          "foot_gate_px": 35,
+          "classes": {
+            "player": {
+              "labels": 12,
+              "predicted": {
+                "player": 12
+              },
+              "correct_fraction_of_labels": 1.0
+            },
+            "goalkeeper": {
+              "labels": 2,
+              "predicted": {
+                "player": 2
+              },
+              "correct_fraction_of_labels": 0.0
+            },
+            "referee": {
+              "labels": 2,
+              "predicted": {
+                "player": 2
+              },
+              "correct_fraction_of_labels": 0.0
+            }
+          },
+          "nonplayers_predicted_player": 4,
+          "nonplayer_labels": 4,
+          "precision": null,
+          "mAP": null,
+          "note": "Sparse development labels: no full-frame precision/mAP, independent generalization or full detection recall claim."
+        },
+        {
+          "source": "data\\processed\\video_jobs\\f27ce9794f0c42cfb9f2fdca127e701a\\source.mp4",
+          "foot_gate_px": 35,
+          "classes": {
+            "player": {
+              "labels": 12,
+              "predicted": {
+                "player": 12
+              },
+              "correct_fraction_of_labels": 1.0
+            },
+            "goalkeeper": {
+              "labels": 0,
+              "predicted": {},
+              "correct_fraction_of_labels": null
+            },
+            "referee": {
+              "labels": 2,
+              "predicted": {
+                "player": 2
+              },
+              "correct_fraction_of_labels": 0.0
+            }
+          },
+          "nonplayers_predicted_player": 2,
+          "nonplayer_labels": 2,
+          "precision": null,
+          "mAP": null,
+          "note": "Sparse development labels: no full-frame precision/mAP, independent generalization or full detection recall claim."
+        }
+      ],
+      "summary_at_primary_gate": {
+        "classes": {
+          "player": {
+            "labels": 201,
+            "predicted": {
+              "player": 201
+            },
+            "correct_fraction_of_labels": 1.0
+          },
+          "goalkeeper": {
+            "labels": 10,
+            "predicted": {
+              "player": 10
+            },
+            "correct_fraction_of_labels": 0.0
+          },
+          "referee": {
+            "labels": 15,
+            "predicted": {
+              "player": 15
+            },
+            "correct_fraction_of_labels": 0.0
+          }
+        },
+        "nonplayers_predicted_player": 25,
+        "nonplayer_labels": 25,
+        "precision": null,
+        "mAP": null,
+        "note": "Sparse development labels: no full-frame precision/mAP, independent generalization or full detection recall claim."
+      },
+      "foot_gate_25_35_50_summary_unchanged": true
+    },
+    {
+      "model": "football11m",
+      "image_size": 640,
+      "frames": 15,
+      "mean_ms": 81.73036000007414,
+      "peak_allocated_mb": 157.23974609375,
+      "groups": [
+        {
+          "source": "data\\processed\\video_jobs\\6b996615df664a0cb99f47d2c7bdd819\\source.mp4",
+          "foot_gate_px": 35,
+          "classes": {
+            "player": {
+              "labels": 12,
+              "predicted": {
+                "player": 12
+              },
+              "correct_fraction_of_labels": 1.0
+            },
+            "goalkeeper": {
+              "labels": 2,
+              "predicted": {
+                "player": 1,
+                "goalkeeper": 1
+              },
+              "correct_fraction_of_labels": 0.5
+            },
+            "referee": {
+              "labels": 2,
+              "predicted": {
+                "player": 2
+              },
+              "correct_fraction_of_labels": 0.0
+            }
+          },
+          "nonplayers_predicted_player": 3,
+          "nonplayer_labels": 4,
+          "precision": null,
+          "mAP": null,
+          "note": "Sparse development labels: no full-frame precision/mAP, independent generalization or full detection recall claim."
+        },
+        {
+          "source": "data\\processed\\video_jobs\\c140f8aefb4e4678b51fe6f633e1fc56\\source.mp4",
+          "foot_gate_px": 35,
+          "classes": {
+            "player": {
+              "labels": 165,
+              "predicted": {
+                "player": 164,
+                "referee": 1
+              },
+              "correct_fraction_of_labels": 0.9939393939393939
+            },
+            "goalkeeper": {
+              "labels": 6,
+              "predicted": {
+                "goalkeeper": 4,
+                "player": 2
+              },
+              "correct_fraction_of_labels": 0.6666666666666666
+            },
+            "referee": {
+              "labels": 9,
+              "predicted": {
+                "player": 9
+              },
+              "correct_fraction_of_labels": 0.0
+            }
+          },
+          "nonplayers_predicted_player": 11,
+          "nonplayer_labels": 15,
+          "precision": null,
+          "mAP": null,
+          "note": "Sparse development labels: no full-frame precision/mAP, independent generalization or full detection recall claim."
+        },
+        {
+          "source": "data\\processed\\video_jobs\\ed6ed422cb6443f6ad239f3fab0addef\\source.mp4",
+          "foot_gate_px": 35,
+          "classes": {
+            "player": {
+              "labels": 12,
+              "predicted": {
+                "player": 12
+              },
+              "correct_fraction_of_labels": 1.0
+            },
+            "goalkeeper": {
+              "labels": 2,
+              "predicted": {
+                "player": 1,
+                "goalkeeper": 1
+              },
+              "correct_fraction_of_labels": 0.5
+            },
+            "referee": {
+              "labels": 2,
+              "predicted": {
+                "player": 2
+              },
+              "correct_fraction_of_labels": 0.0
+            }
+          },
+          "nonplayers_predicted_player": 3,
+          "nonplayer_labels": 4,
+          "precision": null,
+          "mAP": null,
+          "note": "Sparse development labels: no full-frame precision/mAP, independent generalization or full detection recall claim."
+        },
+        {
+          "source": "data\\processed\\video_jobs\\f27ce9794f0c42cfb9f2fdca127e701a\\source.mp4",
+          "foot_gate_px": 35,
+          "classes": {
+            "player": {
+              "labels": 12,
+              "predicted": {
+                "player": 12
+              },
+              "correct_fraction_of_labels": 1.0
+            },
+            "goalkeeper": {
+              "labels": 0,
+              "predicted": {},
+              "correct_fraction_of_labels": null
+            },
+            "referee": {
+              "labels": 2,
+              "predicted": {
+                "player": 2
+              },
+              "correct_fraction_of_labels": 0.0
+            }
+          },
+          "nonplayers_predicted_player": 2,
+          "nonplayer_labels": 2,
+          "precision": null,
+          "mAP": null,
+          "note": "Sparse development labels: no full-frame precision/mAP, independent generalization or full detection recall claim."
+        }
+      ],
+      "summary_at_primary_gate": {
+        "classes": {
+          "player": {
+            "labels": 201,
+            "predicted": {
+              "player": 200,
+              "referee": 1
+            },
+            "correct_fraction_of_labels": 0.9950248756218906
+          },
+          "goalkeeper": {
+            "labels": 10,
+            "predicted": {
+              "goalkeeper": 6,
+              "player": 4
+            },
+            "correct_fraction_of_labels": 0.6
+          },
+          "referee": {
+            "labels": 15,
+            "predicted": {
+              "player": 15
+            },
+            "correct_fraction_of_labels": 0.0
+          }
+        },
+        "nonplayers_predicted_player": 19,
+        "nonplayer_labels": 25,
+        "precision": null,
+        "mAP": null,
+        "note": "Sparse development labels: no full-frame precision/mAP, independent generalization or full detection recall claim."
+      },
+      "foot_gate_25_35_50_summary_unchanged": true
+    },
+    {
+      "model": "football11m",
+      "image_size": 1280,
+      "frames": 15,
+      "mean_ms": 99.65975333343522,
+      "peak_allocated_mb": 294.9384765625,
+      "groups": [
+        {
+          "source": "data\\processed\\video_jobs\\6b996615df664a0cb99f47d2c7bdd819\\source.mp4",
+          "foot_gate_px": 35,
+          "classes": {
+            "player": {
+              "labels": 12,
+              "predicted": {
+                "player": 12
+              },
+              "correct_fraction_of_labels": 1.0
+            },
+            "goalkeeper": {
+              "labels": 2,
+              "predicted": {
+                "player": 2
+              },
+              "correct_fraction_of_labels": 0.0
+            },
+            "referee": {
+              "labels": 2,
+              "predicted": {
+                "player": 2
+              },
+              "correct_fraction_of_labels": 0.0
+            }
+          },
+          "nonplayers_predicted_player": 4,
+          "nonplayer_labels": 4,
+          "precision": null,
+          "mAP": null,
+          "note": "Sparse development labels: no full-frame precision/mAP, independent generalization or full detection recall claim."
+        },
+        {
+          "source": "data\\processed\\video_jobs\\c140f8aefb4e4678b51fe6f633e1fc56\\source.mp4",
+          "foot_gate_px": 35,
+          "classes": {
+            "player": {
+              "labels": 165,
+              "predicted": {
+                "player": 160,
+                "referee": 3,
+                "missed": 2
+              },
+              "correct_fraction_of_labels": 0.9696969696969697
+            },
+            "goalkeeper": {
+              "labels": 6,
+              "predicted": {
+                "goalkeeper": 2,
+                "player": 4
+              },
+              "correct_fraction_of_labels": 0.3333333333333333
+            },
+            "referee": {
+              "labels": 9,
+              "predicted": {
+                "player": 8,
+                "referee": 1
+              },
+              "correct_fraction_of_labels": 0.1111111111111111
+            }
+          },
+          "nonplayers_predicted_player": 12,
+          "nonplayer_labels": 15,
+          "precision": null,
+          "mAP": null,
+          "note": "Sparse development labels: no full-frame precision/mAP, independent generalization or full detection recall claim."
+        },
+        {
+          "source": "data\\processed\\video_jobs\\ed6ed422cb6443f6ad239f3fab0addef\\source.mp4",
+          "foot_gate_px": 35,
+          "classes": {
+            "player": {
+              "labels": 12,
+              "predicted": {
+                "player": 12
+              },
+              "correct_fraction_of_labels": 1.0
+            },
+            "goalkeeper": {
+              "labels": 2,
+              "predicted": {
+                "goalkeeper": 2
+              },
+              "correct_fraction_of_labels": 1.0
+            },
+            "referee": {
+              "labels": 2,
+              "predicted": {
+                "player": 1,
+                "referee": 1
+              },
+              "correct_fraction_of_labels": 0.5
+            }
+          },
+          "nonplayers_predicted_player": 1,
+          "nonplayer_labels": 4,
+          "precision": null,
+          "mAP": null,
+          "note": "Sparse development labels: no full-frame precision/mAP, independent generalization or full detection recall claim."
+        },
+        {
+          "source": "data\\processed\\video_jobs\\f27ce9794f0c42cfb9f2fdca127e701a\\source.mp4",
+          "foot_gate_px": 35,
+          "classes": {
+            "player": {
+              "labels": 12,
+              "predicted": {
+                "player": 12
+              },
+              "correct_fraction_of_labels": 1.0
+            },
+            "goalkeeper": {
+              "labels": 0,
+              "predicted": {},
+              "correct_fraction_of_labels": null
+            },
+            "referee": {
+              "labels": 2,
+              "predicted": {
+                "player": 2
+              },
+              "correct_fraction_of_labels": 0.0
+            }
+          },
+          "nonplayers_predicted_player": 2,
+          "nonplayer_labels": 2,
+          "precision": null,
+          "mAP": null,
+          "note": "Sparse development labels: no full-frame precision/mAP, independent generalization or full detection recall claim."
+        }
+      ],
+      "summary_at_primary_gate": {
+        "classes": {
+          "player": {
+            "labels": 201,
+            "predicted": {
+              "player": 196,
+              "referee": 3,
+              "missed": 2
+            },
+            "correct_fraction_of_labels": 0.9751243781094527
+          },
+          "goalkeeper": {
+            "labels": 10,
+            "predicted": {
+              "goalkeeper": 4,
+              "player": 6
+            },
+            "correct_fraction_of_labels": 0.4
+          },
+          "referee": {
+            "labels": 15,
+            "predicted": {
+              "player": 13,
+              "referee": 2
+            },
+            "correct_fraction_of_labels": 0.13333333333333333
+          }
+        },
+        "nonplayers_predicted_player": 19,
+        "nonplayer_labels": 25,
+        "precision": null,
+        "mAP": null,
+        "note": "Sparse development labels: no full-frame precision/mAP, independent generalization or full detection recall claim."
+      },
+      "foot_gate_25_35_50_summary_unchanged": true
+    }
+  ],
+  "kind": "role_detector_screening_result_v1",
+  "decision": "rejected_for_runtime_integration",
+  "date": "2026-11-02",
+  "independently_validated": false,
+  "fully_annotated": false,
+  "architecture_size_fair": false,
+  "source_module_sha256": "9c3458323782438cda08925a1711c4ae46696aad153c56e3ba5497a38d784ac5",
+  "artifacts": {
+    "coco11n-1280-observations.json": "5ce16cf8d1881d4d59eea113881d300467d54e60e92fb397e6173a26945b664d",
+    "coco11n-1280-predictions.json": "940be57091922456fa28928311f8220359bf12e9c2bb85a9f0a0a646bd542837",
+    "coco11n-640-observations.json": "34946820300f104dd267322879dcbf695f7c131ad829c4ea00ed3965db3611ab",
+    "coco11n-640-predictions.json": "e7735fcbee1259e49cca041678729c004797f1f83cea951164a91856038b7374",
+    "football11m-1280-observations.json": "1cbbbd3daef2f9bad4e7e44f09e255a8e0ac166faaf3dd1e4b6ae83a78baa318",
+    "football11m-1280-predictions.json": "7a4e749886cfb83f25705ae9863a30b8752c3066b41e6a4ac228dd747ad1409c",
+    "football11m-640-observations.json": "e454eb5f1f5615c3a8d9af1c51ee714481846a36efcf6c29ba84b6cf197c3eb7",
+    "football11m-640-predictions.json": "979615260dffca52ed093c96c2c0e942f943b2b3106a0ced16e242aa79c58f5b",
+    "result.json": "50acac03d277c1a8673bb9db44ec396a2bbd4653524e42ae22c4e3b914882255",
+    "special-role-audit-index.json": "24202a548173ff13ff56a2ac8c92aae9307c2dd163168527d03f96fbfec3e14b",
+    "special-role-audit.jpg": "0fabdb17af81009b45b5b0e8210753b75bec148cf1b0a08adb7c0df90c35d87b"
+  },
+  "visual_audit": {
+    "file": "special-role-audit.jpg",
+    "crops": 28,
+    "labels_changed": false,
+    "scope": "same-agent reinspection, not independent validation"
+  }
+}
