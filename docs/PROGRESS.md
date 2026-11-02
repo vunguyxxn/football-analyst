@@ -2,6 +2,47 @@
 
 ## Trạng thái hiện tại
 
+Ngày02/11/2026: sửa hiệu chỉnh sân/phân loại vai trò theo yêu cầu.
+TeamPalette giữ K-means2Lab và gate45/8, thêm ellipse màu hue tròn
+median/MAD để loại màu ngoài đội thànhunknown, không bịa nhãn trọng
+tài/thủ môn. Học màu có lịch bổ sung khi12probe đầu thất bại, tối đa
+300feature/72probe bổ sung/12khung bổ sung có biên; có metadata kiểm.
+
+Thêm nhánh fit vạch phần sân/vùng cấm: keypoint chỉ hướng tìm, cần
+bốn vạch thật và vòng tròn/cung đối chiếu riêng; từ chối horizon/gương/
+nghiệm mơ hồ. Native rồi640vuông có đổi pixel về ảnh nguồn. Mask tìm
+vạch lẫn xanh tách mask duyệt saturation<140; không nới gate đường
+thẳng4px/65%/5px. Siết witness cong75%, giữ kiểm đóng/opticalflow/
+300frame/40kmh/không nối gap. Không đổi DATA_CONTRACT/dependency,
+bộ lọc biên ảnh hay frontend trong nhiệm vụ CV này.
+
+Replay có kiểm soát trên nguyên box/ID/polygon baseline, học lại màu
+và chạy API hiệu chỉnh tự động; không gọi là chạy detector mới.
+Project12 từ0 lên1,067s/538vị trí, chưa đủ chiến thuật.15(1)/15(2)
+vẫn0s. Clip mẫu từ24,467 lên25,267s/13.978vị trí/4cửa sổ; vẫnpartial.
+Ba clip mới còn0/3đủ dữ liệu chiến thuật, chưa giải quyết độ phủ chung.
+Giữ baseline/demo cũ. Job mẫu mớifc0cd4212aaa436a8614dacd4b74241f,
+phiên bảnb22e45115882497cb3aba43dec234bdd.
+
+Trên48mẫu vai trò cũ:24/24tuyến ngoài đo được vẫn ghép đúng, ảnh sau
+12/12màu đúng;4lượt trọng tài và2lượt thủ môn thànhunknown thay vìB.
+Clip15(2)0/12mẫu cóbox nên không kết luận accuracy màu/ID. Palette
+cuối clip đó có25feature, không giữ thử nghiệm100%unknown. Không
+tuyên bố đã nhận diện chắc vai trò hay có nhãn độc lập.
+
+Audit clip mẫu cuối7/18frame đo được≤1m,11thiếu; nhiệt/vận động/hash
+khớp. Biến thể27,2s cóframe1350 lệch1,035m đã không chọn, bản cuối
+không xuất đoạn đó. Nhãn Project12v1 có điểm bị che cho lỗi1,807m;
+giữ v1, v2 bỏ điểm không nhìn thấy,3điểm còn lại khoảng0,751m, sửa
+nhãn posthoc không là kiểm độc lập.80dịch±5m nhân tạo đều bị loại.
+
+474Python test đạt,1network deselected;8test mới. Sửa race polling
+testAPI: đọc trạng thái sau khiworkerxong, giữ yêu cầu ready. HTTP
+report/tracking/tactics200,sourceRange206; chưa visualUI QA. Tài liệu
+PITCH_ROLE_FIXES.md, fixtures/pitch_role_fix_verification_v1.json,
+project12_pitch_checks_v1/v2.json; dữ liệu local pitch_role_fix_v1.
+Hiệu chỉnh tự động trên clip khó/vaitrò trùng màu vẫn là phần còn lại.
+
 Ngày02/11/2026: theo yêu cầu có bảng như freetacticsboard.com/ảnh mẫu, đã
 thêm menu/trang Bảng chiến thuật /tactics. Có2đội/6mẫu sơ đồ11người, kéo
 thả cầu thủ/bóng, chỉnh số/tên/màu, vẽ chuyền/chạy/vùng/nhãn, notes, danh

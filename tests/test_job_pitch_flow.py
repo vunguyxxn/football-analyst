@@ -275,11 +275,12 @@ def test_api_manual_runs_async_and_preserves_source_binding(clip, monkeypatch):
     assert client.post(f"/api/video-jobs/{folder.name}/calibration", json=bad).status_code == 422
     assert not jobs._slot.locked()
     assert client.post(f"/api/video-jobs/{folder.name}/calibration", json=manual(clip)).status_code == 202
-    for _ in range(400):
-        status = client.get(f"/api/video-jobs/{folder.name}").json()
-        if not jobs._slot.locked():
-            break
+    deadline = time.monotonic()+15
+    while jobs._slot.locked() and time.monotonic() < deadline:
         time.sleep(.01)
+    assert not jobs._slot.locked(), "Calibration worker did not finish"
+    # Read after worker completion, not just before the lock is released.
+    status = client.get(f"/api/video-jobs/{folder.name}").json()
     assert status["workflow"]["calibration"]["status"] == "ready"
     assert status["result"]["pitch_estimate_available"]
     assert client.get(f"/api/video-jobs/{folder.name}/pitch-tracking").status_code == 200

@@ -20,6 +20,7 @@ from backend.cv.pitch_keypoints import project
 from backend.cv.pitch_line_calibration import fit_line_pitch
 from backend.cv.pitch_metrics import PitchMetrics
 from backend.cv.pitch_smoother import PitchSmoother
+from backend.cv.partial_pitch_calibration import fit_partial_pitch
 from backend.cv.upload_analysis import AnalysisCancelled
 
 WEIGHTS = Path(__file__).resolve().parents[2] / "data/raw/pitch_keypoints/roboflow-football-pitch.pt"
@@ -98,36 +99,22 @@ def validate_manual_frame(source, payload, info):
 
 
 def validation_pitch_pixels(frame):
-    """White paint, including thin paint mixed with grass by downsampling.
-
-    Additional pixels must be locally brighter AND less saturated; a broad
-    light grass stripe alone is not evidence of a painted marking. Keep the
-    research fitters' original masks unchanged for reproducible benchmarks.
-    """
-    hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
-    saturation, value = hsv[:, :, 1], hsv[:, :, 2]
-    grass = ((hsv[:, :, 0] > 30) & (hsv[:, :, 0] < 90) & (saturation > 60)).astype(np.float32)
-    near_grass = cv2.boxFilter(grass, -1, (31, 31)) > .45
-    kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (9, 9))
-    brighter = cv2.morphologyEx(value, cv2.MORPH_TOPHAT, kernel) >= 15
-    less_saturated = cv2.morphologyEx(saturation, cv2.MORPH_BLACKHAT, kernel) >= 20
-    white = ((saturation < 100) & (value > 150))
-    mixed = (saturation < 140) & (value > 150) & brighter & less_saturated
-    yy, xx = np.nonzero((white | mixed) & near_grass)
-    return np.column_stack([xx, yy]).astype(np.float32)
+    from backend.cv.pitch_paint import paint_pixels
+    return paint_pixels(frame)
 
 
-def projection_quality(frame, matrix):
+def projection_quality(frame, matrix, *, pixels=None, distance=None):
     """Visible painted markings validate propagation, never refit the matrix."""
     height, width = frame.shape[:2]
-    pixels = validation_pitch_pixels(frame)
+    if pixels is None:
+        pixels = validation_pitch_pixels(frame)
     if not len(pixels):
         return {"passed": False, "markings": [], "reason": "no_white_markings", "independently_validated": False}
-    mask = np.ones((height, width), np.uint8)
-    if len(pixels):
+    if distance is None:
+        mask = np.ones((height, width), np.uint8)
         xx, yy = pixels.astype(int).T
         mask[yy, xx] = 0
-    distance = cv2.distanceTransform(mask, cv2.DIST_L2, 5)
+        distance = cv2.distanceTransform(mask, cv2.DIST_L2, 5)
     forward = np.linalg.inv(matrix)
     markings = [("halfway", [52.5, 0], [52.5, 68], "x"),
                 ("far", [0, 68], [105, 68], "y"), ("near", [0, 0], [105, 0], "y")]
@@ -152,7 +139,7 @@ def projection_quality(frame, matrix):
     if len(xy) >= 40:
         xx, yy = np.rint(xy).astype(int).T
         residual = distance[yy, xx]
-        results.append({"marking": "circle", "family": "curve", "passed": bool(np.median(residual) <= 4 and np.mean(residual <= 5) >= .65),
+        results.append({"marking": "circle", "family": "curve", "passed": bool(np.median(residual) <= 4 and np.mean(residual <= 5) >= .75),
                         "median_px": float(np.median(residual)), "supported_fraction": float(np.mean(residual <= 5))})
     families = {item["family"] for item in results if item["passed"]}
     passed = len(results) >= 3 and all(item["passed"] for item in results) and {"x", "y"} <= families
@@ -173,12 +160,28 @@ def automatic_matrix(frame, xy, confidence):
             matrix = np.asarray(fit["matrix"])
             if projection_quality(frame, matrix)["passed"]:
                 return matrix
+    if frame is not None:
+        from backend.cv.pitch_paint import paint_pixels
+        pixels = validation_pitch_pixels(frame)
+        mask = np.ones(frame.shape[:2], np.uint8)
+        if len(pixels):
+            xx, yy = pixels.astype(int).T
+            mask[yy, xx] = 0
+        distance = cv2.distanceTransform(mask, cv2.DIST_L2, 5)
+        fit = fit_partial_pitch(frame, xy, confidence, pixels=paint_pixels(frame, expanded=True),
+                               quality=lambda f, m: projection_quality(f, m, pixels=pixels, distance=distance))
+        if fit["status"] == "candidate":
+            return np.asarray(fit["matrix"])
     return None
 
 
 def automatic_finder():
     if not WEIGHTS.is_file() or digest(WEIGHTS) != WEIGHTS_HASH:
         return None
+    import os
+    config = Path(__file__).resolve().parents[2] / ".tmp/ultralytics"
+    config.mkdir(parents=True, exist_ok=True)
+    os.environ["YOLO_CONFIG_DIR"] = str(config)
     import torch
     from ultralytics import YOLO
     model = YOLO(str(WEIGHTS))
@@ -187,10 +190,20 @@ def automatic_finder():
     device = 0 if torch.cuda.is_available() else "cpu"
 
     def find(frame):
-        result = model.predict(frame, imgsz=640, device=device, conf=.25, verbose=False)[0]
-        if len(result.boxes) != 1 or result.keypoints is None:
-            return None
-        return automatic_matrix(frame, result.keypoints.xy[0].cpu().numpy(), result.keypoints.conf[0].cpu().numpy())
+        # The research checkpoint was also evaluated on stretched square
+        # images. Map its coordinates back explicitly; never stretch metres.
+        for square in (False, True):
+            source = cv2.resize(frame, (640, 640)) if square else frame
+            result = model.predict(source, imgsz=640, device=device, conf=.25, verbose=False)[0]
+            if len(result.boxes) != 1 or result.keypoints is None:
+                continue
+            xy = result.keypoints.xy[0].cpu().numpy().astype(float)
+            if square:
+                xy *= [frame.shape[1]/640, frame.shape[0]/640]
+            matrix = automatic_matrix(frame, xy, result.keypoints.conf[0].cpu().numpy())
+            if matrix is not None:
+                return matrix
+        return None
     return find
 
 
@@ -353,7 +366,7 @@ def analyze_pitch(source, folder, info, progress, cancelled, *, finder_factory=a
                   "limits": ["Tọa độ từ mốc tự động hoặc mốc bạn chọn, được kiểm hình học; chưa kiểm chứng sai số thực địa.",
                              "Sân giả định 105×68m. Chỉ tính đoạn còn theo dõi và vượt kiểm vạch; không nối quãng đường qua mất dấu/đổi mốc.",
                              "Nhóm áo/ID chưa xác nhận danh tính, trọng tài hoặc thủ môn; không phải số liệu toàn trận."],
-                  "publication": {"policy": "hybrid_opening_closing_marking_checks_v1", "tracking_sha256": digest(output / "tracking.jsonl"),
+                  "publication": {"policy": "hybrid_opening_closing_marking_checks_curve75_v2", "tracking_sha256": digest(output / "tracking.jsonl"),
                                   "geometry_sha256": digest(output / "geometry.jsonl"), "independently_validated": False}}
         from backend.tactics.video_tactics import build_report
         rows = [json.loads(line) for line in (output / "tracking.jsonl").read_text(encoding="utf-8").splitlines()]

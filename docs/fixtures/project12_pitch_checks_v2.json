@@ -1,0 +1,56 @@
+{
+  "source_sha256": "cd6138c73e54f8bc0507bfd7492554a3f3fce5c015f14015173f948b50dc1711",
+  "status": "posthoc_visibility_correction_not_independent_ground_truth",
+  "max_error_m": 1.0,
+  "selection": "Frame600 was a candidate in development. Raw frame was inspected without projected overlays before recording these points. No matrix fitting or threshold tuning uses these coordinates. Assumes105x68m.",
+  "image_sha256": "8ca8cf698eec62cbe2626b8eefe74e012428739603ae506b5e74e457888ea23f",
+  "checkpoints": [
+    {
+      "frame": 600,
+      "image_points": [
+        [
+          1567,
+          442
+        ],
+        [
+          1589,
+          582
+        ],
+        [
+          345,
+          413
+        ]
+      ],
+      "pitch_points": [
+        [
+          52.5,
+          43.15
+        ],
+        [
+          52.5,
+          24.85
+        ],
+        [
+          16.5,
+          41.3125
+        ]
+      ]
+    }
+  ],
+  "parent_sha256": "d70765165bde5505438ed493ae4efa19846bdc4c068dd72edc2c54c375aeb960",
+  "correction": "The fourth original point was on/near an occluding player, not a visibly measurable arc intersection. Retain v1 and its failed result. Remove that point after inspecting the raw crop, not by shifting coordinates or changing thresholds. Remaining three coordinates unchanged. This correction is posthoc and not an unbiased holdout.",
+  "excluded_points": [
+    {
+      "frame": 600,
+      "image_point": [
+        166,
+        496
+      ],
+      "pitch_point": [
+        16.5,
+        26.6875
+      ],
+      "reason": "occluded and not visibly labelable"
+    }
+  ]
+}

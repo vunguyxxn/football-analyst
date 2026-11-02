@@ -1,0 +1,942 @@
+{
+  "date": "2026-11-02",
+  "scope": "controlled replay of baseline boxes/IDs with new palette and real calibration API; not a fresh detector run or independent accuracy test",
+  "preserved_original_jobs": true,
+  "source_release_sha256": {
+    "backend\\cv\\job_pitch_analysis.py": "0bf2ed2653d97247ad990d3f1e675b0e596bf700d8a8a2fb2fef51a6efff421f",
+    "backend\\cv\\upload_analysis.py": "399d8ebf852a3d3e69ca545dd36293ccd98869853968462914055d59a5d2b881",
+    "backend\\cv\\team_palette.py": "b7213b74a8f88188b4923b0e2181bb28dd321d7b4e003de75c9e45837f3b666e",
+    "backend\\cv\\pitch_paint.py": "3b58c4ddbfa729644ef62b27b1220179139cea8b2062a41c583d5450dcb8518a",
+    "backend\\cv\\partial_pitch_calibration.py": "8d8a25206c234dbf8fc7fa8aa2d0a37902ad7dcb6720c32cf42db8f07407e37b"
+  },
+  "detector_sha256": "0ebbc80d4a7680d14987a577cd21342b65ecfd94632bd9a8da63ae6417644ee1",
+  "pose_weights_sha256": "28f68f7c4056d6d9b137efd2e7ab5f3c494039380c63831649126ced25628b36",
+  "clips": [
+    {
+      "name": "Video Project 12.mp4",
+      "job_id": "d6e4d395c20f4b38b3b40d0d4bc4c855",
+      "source_sha256": "cd6138c73e54f8bc0507bfd7492554a3f3fce5c015f14015173f948b50dc1711",
+      "reclassified_from": "f27ce9794f0c42cfb9f2fdca127e701a",
+      "boxes_and_ids_unchanged": true,
+      "workflow": {
+        "tracking": "completed",
+        "calibration": {
+          "status": "partial",
+          "message": "Đã có phân tích cho các đoạn hiệu chỉnh hợp lệ.",
+          "rejected_manual_frames": [],
+          "version": "cc857a953b4b4c8aa6ec6e996ae09679",
+          "calibrated_seconds": 1.0666666666666682,
+          "frames_with_positions": 28,
+          "duration_s": 46.93333333333333,
+          "automatic_available": true,
+          "tactical_windows": 0
+        },
+        "analysis": "insufficient_data"
+      },
+      "tracking": {
+        "frames": 1408,
+        "duration_s": 46.93333333333333,
+        "frames_with_people": 1402,
+        "observations": 26337,
+        "track_ids": 256,
+        "unknown_fraction": 0.11846451759881535
+      },
+      "role_calibration": {
+        "sampled_frames": [
+          0,
+          127,
+          255,
+          383,
+          511,
+          639,
+          767,
+          895,
+          1023,
+          1151,
+          1279,
+          1407
+        ],
+        "feature_frames": [
+          0,
+          127,
+          255,
+          383,
+          511,
+          639,
+          767,
+          895,
+          1023,
+          1151,
+          1279,
+          1407
+        ],
+        "features": 300,
+        "extra_probes": 0,
+        "maximum_features": 300
+      },
+      "role_model": {
+        "method": "lab_two_teams_robust_chroma_rejection_v1",
+        "centers_lab": [
+          [
+            85.52173913043465,
+            120.56159420289855,
+            142.08695652173913
+          ],
+          [
+            228.06481481481472,
+            125.18518518518519,
+            130.83333333333334
+          ]
+        ],
+        "chroma_centers": [
+          [
+            6.6310897588965645,
+            26.98679934643509
+          ],
+          [
+            7.074136216251181e-16,
+            8.346013312970346
+          ]
+        ],
+        "chroma_limits": [
+          [
+            15.307485291751565,
+            42.94714025830339
+          ],
+          [
+            12.0,
+            24.619026433179048
+          ]
+        ],
+        "foreign_colour_role": "unknown",
+        "semantic_referee_or_goalkeeper_verified": false
+      },
+      "sparse_reviews": [
+        {
+          "gate_px": 25,
+          "outfield_labels": 12,
+          "outfield_matched": 12,
+          "first_sample_colour_mapping": {
+            "white": "B",
+            "opponent": "A"
+          },
+          "heldout_sample_role_matches": 6,
+          "heldout_sample_role_correct": 6,
+          "role_pairs": {
+            "white->B": 6,
+            "opponent->A": 6,
+            "referee->unknown": 2
+          },
+          "sampled_identity_pairs": 6,
+          "apparent_sampled_id_changes": [],
+          "sample_disappearances": [],
+          "referee_in_team_groups": 0,
+          "outside_people_kept": 0
+        },
+        {
+          "gate_px": 35,
+          "outfield_labels": 12,
+          "outfield_matched": 12,
+          "first_sample_colour_mapping": {
+            "white": "B",
+            "opponent": "A"
+          },
+          "heldout_sample_role_matches": 6,
+          "heldout_sample_role_correct": 6,
+          "role_pairs": {
+            "white->B": 6,
+            "opponent->A": 6,
+            "referee->unknown": 2
+          },
+          "sampled_identity_pairs": 6,
+          "apparent_sampled_id_changes": [],
+          "sample_disappearances": [],
+          "referee_in_team_groups": 0,
+          "outside_people_kept": 0
+        },
+        {
+          "gate_px": 50,
+          "outfield_labels": 12,
+          "outfield_matched": 11,
+          "first_sample_colour_mapping": {
+            "white": "B",
+            "opponent": "A"
+          },
+          "heldout_sample_role_matches": 5,
+          "heldout_sample_role_correct": 5,
+          "role_pairs": {
+            "white->B": 6,
+            "opponent->A": 5,
+            "referee->unknown": 2
+          },
+          "sampled_identity_pairs": 5,
+          "apparent_sampled_id_changes": [],
+          "sample_disappearances": [
+            "O1"
+          ],
+          "referee_in_team_groups": 0,
+          "outside_people_kept": 0
+        }
+      ],
+      "audit": {
+        "source_sha256": "cd6138c73e54f8bc0507bfd7492554a3f3fce5c015f14015173f948b50dc1711",
+        "result_version": "cc857a953b4b4c8aa6ec6e996ae09679",
+        "scope": "internal consistency and previously labelled development landmarks; not independent ground truth",
+        "status": "insufficient_landmark_evidence",
+        "consistency_errors": [],
+        "positions": 538,
+        "frames_with_positions": 28,
+        "duration_s": 46.93333333333333,
+        "calibrated_seconds": 1.0666666666666669,
+        "position_frame_seconds": 0.9333333333333333,
+        "heatmap_person_seconds": 17.933333333333334,
+        "landmark_checks": [],
+        "landmark_counts": {},
+        "limits": [
+          "Landmarks were selected during development by the same agent; not a blind accuracy test.",
+          "Distance checks establish consistency and speed bounds, not independently measured running distance.",
+          "105x68m is assumed. Unseen players and missing time are not reconstructed."
+        ]
+      },
+      "accepted_positions": 538,
+      "calibrated_intervals": [
+        {
+          "start_s": 12.0,
+          "end_s": 12.033333333333333
+        },
+        {
+          "start_s": 20.0,
+          "end_s": 21.033333333333335
+        }
+      ],
+      "publication": {
+        "policy": "hybrid_opening_closing_marking_checks_curve75_v2",
+        "tracking_sha256": "9cfb418d187a3fc5e61ffbdacdec17b2d5827b01471127baa430ed61b0898a05",
+        "geometry_sha256": "2aba82f2ddc6db886301fb6d43c7a878a4ef8156d9237fa9b285ac82fc06ccd3",
+        "independently_validated": false
+      },
+      "tactical_windows": 0,
+      "conditional_anchor_checks": {
+        "v1": {
+          "status": "failed",
+          "max_error_m": 1.8101909369371305,
+          "mean_error_m": 0.7335503774166212
+        },
+        "v2": {
+          "status": "passed",
+          "max_error_m": 0.7803047842851383,
+          "mean_error_m": 0.3746701909097847
+        }
+      },
+      "http_checks": {
+        "summary": {
+          "code": 200,
+          "status": null
+        },
+        "pitch-estimate": {
+          "code": 200,
+          "status": "provisional_estimate"
+        },
+        "tactics": {
+          "code": 200,
+          "status": "provisional_spatial_analysis"
+        },
+        "source_range": 206
+      }
+    },
+    {
+      "name": "Video Project 15 (1).mp4",
+      "job_id": "7f1c09060c464b79baceb889f60d475b",
+      "source_sha256": "11a9b033dbeca46af7e3cf1117269b04044ddf8d89b6c594efc16222606dd053",
+      "reclassified_from": "6b996615df664a0cb99f47d2c7bdd819",
+      "boxes_and_ids_unchanged": true,
+      "workflow": {
+        "tracking": "completed",
+        "calibration": {
+          "status": "needs_input",
+          "message": "Đã theo dõi người. Chưa có đoạn sân đủ tin cậy; hãy chọn mốc sân bên dưới.",
+          "attempted_frames": 1077,
+          "camera_status": {
+            "manual_anchor_required": 1077
+          }
+        },
+        "analysis": "awaiting_calibration"
+      },
+      "tracking": {
+        "frames": 1077,
+        "duration_s": 35.9,
+        "frames_with_people": 502,
+        "observations": 10530,
+        "track_ids": 95,
+        "unknown_fraction": 0.13770180436847104
+      },
+      "role_calibration": {
+        "sampled_frames": [
+          0,
+          97,
+          195,
+          293,
+          391,
+          489,
+          586,
+          684,
+          782,
+          880,
+          978,
+          1076
+        ],
+        "feature_frames": [
+          391,
+          489,
+          586,
+          684,
+          782
+        ],
+        "features": 126,
+        "extra_probes": 0,
+        "maximum_features": 300
+      },
+      "role_model": {
+        "method": "lab_two_teams_robust_chroma_rejection_v1",
+        "centers_lab": [
+          [
+            127.6269841269841,
+            134.16666666666666,
+            159.6349206349206
+          ],
+          [
+            240.23015873015868,
+            117.8015873015873,
+            140.57936507936506
+          ]
+        ],
+        "chroma_centers": [
+          [
+            64.00371238091974,
+            49.52878507852333
+          ],
+          [
+            1.9832722927251354,
+            26.08923392620693
+          ]
+        ],
+        "chroma_limits": [
+          [
+            43.701870251950076,
+            37.0130988006652
+          ],
+          [
+            12.841247058037993,
+            42.577696197395454
+          ]
+        ],
+        "foreign_colour_role": "unknown",
+        "semantic_referee_or_goalkeeper_verified": false
+      },
+      "sparse_reviews": [
+        {
+          "gate_px": 25,
+          "outfield_labels": 12,
+          "outfield_matched": 12,
+          "first_sample_colour_mapping": {
+            "white": "B",
+            "opponent": "A"
+          },
+          "heldout_sample_role_matches": 6,
+          "heldout_sample_role_correct": 6,
+          "role_pairs": {
+            "white->B": 6,
+            "opponent->A": 6,
+            "referee->unknown": 2,
+            "goalkeeper->unknown": 2
+          },
+          "sampled_identity_pairs": 6,
+          "apparent_sampled_id_changes": [],
+          "sample_disappearances": [],
+          "referee_in_team_groups": 0,
+          "outside_people_kept": 0
+        },
+        {
+          "gate_px": 35,
+          "outfield_labels": 12,
+          "outfield_matched": 12,
+          "first_sample_colour_mapping": {
+            "white": "B",
+            "opponent": "A"
+          },
+          "heldout_sample_role_matches": 6,
+          "heldout_sample_role_correct": 6,
+          "role_pairs": {
+            "white->B": 6,
+            "opponent->A": 6,
+            "referee->unknown": 2,
+            "goalkeeper->unknown": 2
+          },
+          "sampled_identity_pairs": 6,
+          "apparent_sampled_id_changes": [],
+          "sample_disappearances": [],
+          "referee_in_team_groups": 0,
+          "outside_people_kept": 0
+        },
+        {
+          "gate_px": 50,
+          "outfield_labels": 12,
+          "outfield_matched": 12,
+          "first_sample_colour_mapping": {
+            "white": "B",
+            "opponent": "A"
+          },
+          "heldout_sample_role_matches": 6,
+          "heldout_sample_role_correct": 6,
+          "role_pairs": {
+            "white->B": 6,
+            "opponent->A": 6,
+            "referee->unknown": 2,
+            "goalkeeper->unknown": 2
+          },
+          "sampled_identity_pairs": 6,
+          "apparent_sampled_id_changes": [],
+          "sample_disappearances": [],
+          "referee_in_team_groups": 0,
+          "outside_people_kept": 0
+        }
+      ],
+      "accepted_positions": 0,
+      "tactical_windows": 0,
+      "http_checks": {
+        "summary": {
+          "code": 200,
+          "status": null
+        },
+        "pitch-estimate": {
+          "code": 200,
+          "status": "not_available"
+        },
+        "tactics": {
+          "code": 200,
+          "status": "not_available"
+        },
+        "source_range": 206
+      }
+    },
+    {
+      "name": "Video Project 15 (2).mp4",
+      "job_id": "3f66873b34914289acf524adbd5e5a51",
+      "source_sha256": "ee1fd930c245f46213be2dbecc7219382ce940b73cf667c0983f5e4924012541",
+      "reclassified_from": "ed6ed422cb6443f6ad239f3fab0addef",
+      "boxes_and_ids_unchanged": true,
+      "workflow": {
+        "tracking": "completed",
+        "calibration": {
+          "status": "needs_input",
+          "message": "Đã theo dõi người. Chưa có đoạn sân đủ tin cậy; hãy chọn mốc sân bên dưới.",
+          "attempted_frames": 2428,
+          "camera_status": {
+            "manual_anchor_required": 2428
+          }
+        },
+        "analysis": "awaiting_calibration"
+      },
+      "tracking": {
+        "frames": 2428,
+        "duration_s": 80.93333333333334,
+        "frames_with_people": 237,
+        "observations": 4904,
+        "track_ids": 96,
+        "unknown_fraction": 0.21207177814029363
+      },
+      "role_calibration": {
+        "sampled_frames": [
+          0,
+          220,
+          441,
+          661,
+          882,
+          1103,
+          1323,
+          1544,
+          1765,
+          1985,
+          2206,
+          2427
+        ],
+        "feature_frames": [
+          882
+        ],
+        "features": 25,
+        "extra_probes": 0,
+        "maximum_features": 300
+      },
+      "role_model": {
+        "method": "lab_two_teams_robust_chroma_rejection_v1",
+        "centers_lab": [
+          [
+            85.89285714285714,
+            130.32142857142858,
+            150.78571428571428
+          ],
+          [
+            207.0,
+            118.27272727272727,
+            142.9090909090909
+          ]
+        ],
+        "chroma_centers": [
+          [
+            46.04822731419327,
+            32.14385144290837
+          ],
+          [
+            2.737616762414469,
+            24.47227067120238
+          ]
+        ],
+        "chroma_limits": [
+          [
+            45.99150400226723,
+            30.417138533212995
+          ],
+          [
+            18.12942082474702,
+            24.847869802743695
+          ]
+        ],
+        "foreign_colour_role": "unknown",
+        "semantic_referee_or_goalkeeper_verified": false
+      },
+      "sparse_reviews": [
+        {
+          "gate_px": 25,
+          "outfield_labels": 12,
+          "outfield_matched": 0,
+          "first_sample_colour_mapping": null,
+          "heldout_sample_role_matches": 0,
+          "heldout_sample_role_correct": null,
+          "role_pairs": {},
+          "sampled_identity_pairs": 0,
+          "apparent_sampled_id_changes": [],
+          "sample_disappearances": [],
+          "referee_in_team_groups": 0,
+          "outside_people_kept": 0
+        },
+        {
+          "gate_px": 35,
+          "outfield_labels": 12,
+          "outfield_matched": 0,
+          "first_sample_colour_mapping": null,
+          "heldout_sample_role_matches": 0,
+          "heldout_sample_role_correct": null,
+          "role_pairs": {},
+          "sampled_identity_pairs": 0,
+          "apparent_sampled_id_changes": [],
+          "sample_disappearances": [],
+          "referee_in_team_groups": 0,
+          "outside_people_kept": 0
+        },
+        {
+          "gate_px": 50,
+          "outfield_labels": 12,
+          "outfield_matched": 0,
+          "first_sample_colour_mapping": null,
+          "heldout_sample_role_matches": 0,
+          "heldout_sample_role_correct": null,
+          "role_pairs": {},
+          "sampled_identity_pairs": 0,
+          "apparent_sampled_id_changes": [],
+          "sample_disappearances": [],
+          "referee_in_team_groups": 0,
+          "outside_people_kept": 0
+        }
+      ],
+      "accepted_positions": 0,
+      "tactical_windows": 0,
+      "http_checks": {
+        "summary": {
+          "code": 200,
+          "status": null
+        },
+        "pitch-estimate": {
+          "code": 200,
+          "status": "not_available"
+        },
+        "tactics": {
+          "code": 200,
+          "status": "not_available"
+        },
+        "source_range": 206
+      }
+    },
+    {
+      "name": "Video Project 15.mp4",
+      "job_id": "fc0cd4212aaa436a8614dacd4b74241f",
+      "source_sha256": "f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0",
+      "reclassified_from": "2c8e7ffdb8fc432b9abab9e53bd53c8e",
+      "boxes_and_ids_unchanged": true,
+      "workflow": {
+        "tracking": "completed",
+        "calibration": {
+          "status": "partial",
+          "message": "Đã có phân tích cho các đoạn hiệu chỉnh hợp lệ.",
+          "rejected_manual_frames": [],
+          "version": "b22e45115882497cb3aba43dec234bdd",
+          "calibrated_seconds": 25.266666666666662,
+          "frames_with_positions": 730,
+          "duration_s": 52.36666666666667,
+          "automatic_available": true,
+          "tactical_windows": 4
+        },
+        "analysis": "ready"
+      },
+      "tracking": {
+        "frames": 1571,
+        "duration_s": 52.36666666666667,
+        "frames_with_people": 1511,
+        "observations": 30364,
+        "track_ids": 146,
+        "unknown_fraction": 0.12343564747727571
+      },
+      "role_calibration": {
+        "sampled_frames": [
+          0,
+          142,
+          285,
+          428,
+          570,
+          713,
+          856,
+          999,
+          1141,
+          1284,
+          1427,
+          1570
+        ],
+        "feature_frames": [
+          0,
+          142,
+          285,
+          570,
+          713,
+          856,
+          999,
+          1141,
+          1284,
+          1427,
+          1570
+        ],
+        "features": 286,
+        "extra_probes": 0,
+        "maximum_features": 300
+      },
+      "role_model": {
+        "method": "lab_two_teams_robust_chroma_rejection_v1",
+        "centers_lab": [
+          [
+            109.53007518797007,
+            147.7932330827067,
+            139.09774436090228
+          ],
+          [
+            233.71568627450995,
+            123.80718954248363,
+            129.562091503268
+          ]
+        ],
+        "chroma_centers": [
+          [
+            57.90669587711782,
+            3.6256953059005363
+          ],
+          [
+            -1.9137254901960785,
+            1.6505425342715183
+          ]
+        ],
+        "chroma_limits": [
+          [
+            34.19845934723558,
+            25.260960041934787
+          ],
+          [
+            12.0,
+            12.0
+          ]
+        ],
+        "foreign_colour_role": "unknown",
+        "semantic_referee_or_goalkeeper_verified": false
+      },
+      "audit": {
+        "source_sha256": "f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0",
+        "result_version": "b22e45115882497cb3aba43dec234bdd",
+        "scope": "internal consistency and previously labelled development landmarks; not independent ground truth",
+        "status": "checks_passed",
+        "consistency_errors": [],
+        "positions": 13978,
+        "frames_with_positions": 730,
+        "duration_s": 52.36666666666667,
+        "calibrated_seconds": 25.266666666666666,
+        "position_frame_seconds": 24.333333333333332,
+        "heatmap_person_seconds": 465.93333333333334,
+        "landmark_checks": [
+          {
+            "frame": 1,
+            "status": "not_evaluable"
+          },
+          {
+            "frame": 150,
+            "status": "passed",
+            "max_error_m": 0.4405759640748095,
+            "mean_error_m": 0.39091447680057134
+          },
+          {
+            "frame": 299,
+            "status": "passed",
+            "max_error_m": 0.524579373862499,
+            "mean_error_m": 0.4292645499211418
+          },
+          {
+            "frame": 301,
+            "status": "not_evaluable"
+          },
+          {
+            "frame": 450,
+            "status": "not_evaluable"
+          },
+          {
+            "frame": 599,
+            "status": "not_evaluable"
+          },
+          {
+            "frame": 601,
+            "status": "not_evaluable"
+          },
+          {
+            "frame": 749,
+            "status": "passed",
+            "max_error_m": 0.5778584075363018,
+            "mean_error_m": 0.5056484944616462
+          },
+          {
+            "frame": 751,
+            "status": "passed",
+            "max_error_m": 0.6778364363611905,
+            "mean_error_m": 0.6756079746622725
+          },
+          {
+            "frame": 899,
+            "status": "passed",
+            "max_error_m": 0.5965531512840974,
+            "mean_error_m": 0.4854922899126959
+          },
+          {
+            "frame": 901,
+            "status": "passed",
+            "max_error_m": 0.6686452689549522,
+            "mean_error_m": 0.5968609971988297
+          },
+          {
+            "frame": 1050,
+            "status": "not_evaluable"
+          },
+          {
+            "frame": 1199,
+            "status": "passed",
+            "max_error_m": 0.9871013704633653,
+            "mean_error_m": 0.8568668361481611
+          },
+          {
+            "frame": 1201,
+            "status": "not_evaluable"
+          },
+          {
+            "frame": 1350,
+            "status": "not_evaluable"
+          },
+          {
+            "frame": 1499,
+            "status": "not_evaluable"
+          },
+          {
+            "frame": 1501,
+            "status": "not_evaluable"
+          },
+          {
+            "frame": 1570,
+            "status": "not_evaluable"
+          }
+        ],
+        "landmark_counts": {
+          "not_evaluable": 11,
+          "passed": 7
+        },
+        "limits": [
+          "Landmarks were selected during development by the same agent; not a blind accuracy test.",
+          "Distance checks establish consistency and speed bounds, not independently measured running distance.",
+          "105x68m is assumed. Unseen players and missing time are not reconstructed."
+        ]
+      },
+      "accepted_positions": 13978,
+      "calibrated_intervals": [
+        {
+          "start_s": 0.0,
+          "end_s": 10.033333333333333
+        },
+        {
+          "start_s": 19.0,
+          "end_s": 19.033333333333335
+        },
+        {
+          "start_s": 20.0,
+          "end_s": 27.033333333333335
+        },
+        {
+          "start_s": 29.0,
+          "end_s": 31.033333333333335
+        },
+        {
+          "start_s": 38.0,
+          "end_s": 40.03333333333333
+        },
+        {
+          "start_s": 42.0,
+          "end_s": 44.03333333333333
+        },
+        {
+          "start_s": 46.0,
+          "end_s": 46.03333333333333
+        },
+        {
+          "start_s": 47.0,
+          "end_s": 49.03333333333333
+        }
+      ],
+      "publication": {
+        "policy": "hybrid_opening_closing_marking_checks_curve75_v2",
+        "tracking_sha256": "4930b634c2163259e3581b8fcae32eda6b36b8bb8a5c1e8bcb13a102b1da19de",
+        "geometry_sha256": "8a216e6883f1a279fd3d6d7d783dced3bb3c94e8817a2ff51b172293dfdb686a",
+        "independently_validated": false
+      },
+      "tactical_windows": 4,
+      "http_checks": {
+        "summary": {
+          "code": 200,
+          "status": null
+        },
+        "pitch-estimate": {
+          "code": 200,
+          "status": "provisional_estimate"
+        },
+        "tactics": {
+          "code": 200,
+          "status": "provisional_spatial_analysis"
+        },
+        "source_range": 206
+      }
+    }
+  ],
+  "rejected_development_variant": {
+    "sample_version": "cb9b38bcaa1743b9bfd5240db8b21b61",
+    "failed_checkpoint": 1350,
+    "max_error_m": 1.0352746245672477,
+    "action": "not release; narrow publication mask retained and curved witness tightened to75%; final published interval excludes that frame",
+    "retained_audit": "data/processed/pitch_role_fix_v1/final-sample-audit.json"
+  },
+  "negative_projection_checks": {
+    "scope": "development perturbations; not independent false-positive rate",
+    "accepted_samples": [
+      [
+        "v2",
+        780
+      ],
+      [
+        "v2",
+        1290
+      ],
+      [
+        "v2",
+        1320
+      ],
+      [
+        "v2",
+        1350
+      ],
+      [
+        "v2",
+        1380
+      ],
+      [
+        "v2",
+        1410
+      ],
+      [
+        "v2",
+        1440
+      ],
+      [
+        "v3",
+        0
+      ],
+      [
+        "v3",
+        1
+      ],
+      [
+        "v3",
+        30
+      ],
+      [
+        "v3",
+        60
+      ],
+      [
+        "v3",
+        90
+      ],
+      [
+        "v3",
+        120
+      ],
+      [
+        "v3",
+        660
+      ],
+      [
+        "v3",
+        690
+      ],
+      [
+        "v3",
+        751
+      ],
+      [
+        "v3",
+        780
+      ],
+      [
+        "v3",
+        840
+      ],
+      [
+        "v3",
+        870
+      ],
+      [
+        "v3",
+        900
+      ]
+    ],
+    "shifted_trials": 80,
+    "accepted_wrong_shifts": []
+  },
+  "validation": {
+    "python_tests": 474,
+    "network_deselected": 1,
+    "new_tests": 8,
+    "frontend": "unchanged by this CV task; no new browser interaction claimed"
+  },
+  "limits": [
+    "Two new clips still have no reliable automatic calibration; new Project12 interval is too short for tactics.",
+    "Foreign colours are unknown, not verified referee/goalkeeper identities. Similar coloured kits can remain ambiguous.",
+    "Project12 v2 visibility correction is posthoc; v1 failed annotation retained. No threshold or runtime matrix fitted to these labels.",
+    "Only conditional development landmarks and sparse role labels; no independent distance/accuracy certification."
+  ]
+}

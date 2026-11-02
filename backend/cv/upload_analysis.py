@@ -37,6 +37,61 @@ def classify_color(feature, centers):
     return ("A", "B")[int(order[0])]
 
 
+def learn_palette(source, info, model, classes, image_size, device, progress, cancelled):
+    """Bounded palette fitting; retry visible-field frames if uniform probes fail."""
+    import cv2
+    import numpy as np
+    from backend.cv.team_palette import TeamPalette
+    from backend.cv.team_classifier import jersey_feature
+    from backend.cv.pitch_boundary import pitch_region, inside_pitch
+    palette, features = TeamPalette(), []
+    sampled, feature_frames = [], []
+    capture = cv2.VideoCapture(str(source))
+    def sample(frame_id):
+        if cancelled():
+            raise AnalysisCancelled()
+        sampled.append(int(frame_id))
+        capture.set(cv2.CAP_PROP_POS_FRAMES, int(frame_id))
+        ok, frame = capture.read()
+        if not ok:
+            return False
+        region = pitch_region(frame)
+        if region is None:
+            return False
+        result = model.predict(frame, classes=classes, conf=.1, imgsz=image_size, device=device, verbose=False)[0]
+        before = len(features)
+        for box in result.boxes.xyxy.cpu().numpy():
+            if inside_pitch(region, box):
+                feature = jersey_feature(frame, box.tolist(), "foreground")
+                if feature is not None and len(features) < 300:
+                    features.append(feature)
+        if len(features) > before:
+            feature_frames.append(int(frame_id))
+        return True
+    extras = 0
+    try:
+        initial = np.linspace(0, info["frames"]-1, min(12, info["frames"]), dtype=int)
+        for i, frame_id in enumerate(initial):
+            sample(frame_id)
+            progress(stage="Đang ước lượng màu áo", progress=round((i+1)/len(initial)*8, 1), device=device)
+        palette.fit(features)
+        if palette.centers is None:
+            valid_extra = 0
+            for frame_id in np.linspace(0, info["frames"]-1, min(72, info["frames"]), dtype=int):
+                if int(frame_id) in sampled:
+                    continue
+                extras += 1
+                valid_extra += sample(frame_id)
+                palette.fit(features)
+                progress(stage="Đang tìm khung rõ biên để ước lượng màu áo", progress=8, device=device)
+                if (palette.centers is not None and len(features) >= 30 and len(feature_frames) >= 2) or valid_extra >= 12:
+                    break
+    finally:
+        capture.release()
+    return palette, {"sampled_frames": sampled, "feature_frames": feature_frames,
+                     "features": len(features), "extra_probes": extras, "maximum_features": 300}
+
+
 def analyze(source: Path, folder: Path, progress, cancelled) -> dict:
     config = Path(__file__).resolve().parents[2] / ".tmp/ultralytics"
     config.mkdir(parents=True, exist_ok=True)
@@ -46,7 +101,6 @@ def analyze(source: Path, folder: Path, progress, cancelled) -> dict:
     import supervision as sv
     import torch
     from ultralytics import YOLO
-    from sklearn.cluster import KMeans
     from backend.cv.team_classifier import jersey_feature
     from backend.cv.track_video import suppress_duplicate_people
     from backend.cv.team_smoother import TrackRoleSmoother
@@ -62,34 +116,8 @@ def analyze(source: Path, folder: Path, progress, cancelled) -> dict:
     classes = [key for key, name in model.names.items() if name == "person"]
     if not classes:
         raise ValueError("Trọng số không có lớp person.")
-    capture = cv2.VideoCapture(str(source))
-    centers = None
-    try:
-        # Calibration uses at most 12 decoded frames and 300 torso features.
-        features = []
-        for i, frame_id in enumerate(np.linspace(0, info["frames"] - 1, min(12, info["frames"]), dtype=int)):
-            if cancelled():
-                raise AnalysisCancelled()
-            capture.set(cv2.CAP_PROP_POS_FRAMES, int(frame_id))
-            ok, frame = capture.read()
-            if ok:
-                region = pitch_region(frame)
-                result = model.predict(frame, classes=classes, conf=.1, imgsz=image_size, device=device, verbose=False)[0]
-                for box in result.boxes.xyxy.cpu().numpy():
-                    if not inside_pitch(region, box):
-                        continue
-                    feature = jersey_feature(frame, box.tolist(), "foreground")
-                    if feature is not None and len(features) < 300:
-                        features.append(feature)
-            progress(stage="Đang ước lượng màu áo", progress=round((i + 1) / 12 * 8, 1), device=device)
-        if len(features) >= 10 and len(np.unique(features, axis=0)) >= 2:
-            clustering = KMeans(n_clusters=2, random_state=42, n_init=10).fit(np.array(features))
-            candidate = clustering.cluster_centers_
-            counts = np.bincount(clustering.labels_, minlength=2)
-            if np.linalg.norm(candidate[0] - candidate[1]) >= 20 and min(counts) >= 3:
-                centers = candidate[np.argsort(candidate[:, 0])]
-    finally:
-        capture.release()
+    palette, colour_calibration = learn_palette(source, info, model, classes, image_size, device, progress, cancelled)
+    (folder / "jersey-palette.json").write_text(json.dumps({**palette.report(), "calibration": colour_calibration}), encoding="utf-8")
 
     tracker = sv.ByteTrack(frame_rate=round(info["fps"]))
     smoother = TrackRoleSmoother(info["fps"])
@@ -130,7 +158,7 @@ def analyze(source: Path, folder: Path, progress, cancelled) -> dict:
             smoother.advance(frames)
             boxes = []
             for box, track_id in zip(detections.xyxy, detections.tracker_id):
-                role = smoother.update(frames, int(track_id), classify_color(jersey_feature(frame, box.tolist(), "foreground"), centers))
+                role = smoother.update(frames, int(track_id), palette.predict_feature(jersey_feature(frame, box.tolist(), "foreground")))
                 roles_count[role] += 1
                 ids.add(int(track_id))
                 boxes.append({"id": int(track_id), "group": role, "xyxy": [round(float(v), 2) for v in box]})
@@ -150,7 +178,8 @@ def analyze(source: Path, folder: Path, progress, cancelled) -> dict:
         capture.release()
     return {**info, "frames": frames, "chunk_frames": chunk_frames, "chunks": chunks,
             "device": device, "image_size": image_size, "confidence": .1, "track_ids": len(ids), "observations": observations,
-            "group_observations": roles_count, "color_groups_available": centers is not None,
+            "group_observations": roles_count, "color_groups_available": palette.centers is not None,
+            "role_model": palette.report(), "role_calibration": colour_calibration,
             "boundary_filter": {"method": "white_touchlines_grass_v1", "frames_with_boundary": boundary_frames,
                                 "excluded_detections": excluded, "missing_boundary_policy": "no_tracking"},
             "limitations": ["A/B là nhóm màu áo ước lượng, chưa xác nhận đội, thủ môn hoặc trọng tài.",
