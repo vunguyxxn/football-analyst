@@ -7,7 +7,10 @@ from fastapi import APIRouter, HTTPException, Query
 from pydantic import BaseModel
 from requests.exceptions import RequestException
 
+from backend.common.metric_catalog import MetricDefinition, metric_definitions
+from backend.common.schemas import AnalysisResult
 from backend.tactics import loader
+from backend.tactics.event_metrics import compute_event_metrics
 from backend.tactics.loader import MatchNotFoundError
 from backend.tactics.pass_network import compute_pass_network
 
@@ -164,3 +167,23 @@ def get_pass_network(
     except MatchNotFoundError as error:
         raise HTTPException(status_code=404, detail=str(error)) from error
     return compute_pass_network(events, team)
+
+
+@router.get("/metric-definitions", response_model=list[MetricDefinition])
+def get_metric_definitions():
+    return metric_definitions()
+
+
+@router.get("/{match_id}/event-metrics", response_model=AnalysisResult)
+def get_event_metrics(match_id: int, team: str = Query(..., min_length=1)):
+    try:
+        events = loader.load_events(match_id)
+        if "match_id" in events and not pd.to_numeric(events["match_id"], errors="coerce").eq(match_id).all():
+            raise ValueError("Mã trận trong cache không khớp trận được yêu cầu.")
+        return compute_event_metrics(events, team)
+    except MatchNotFoundError as error:
+        raise HTTPException(status_code=404, detail=str(error)) from error
+    except RequestException as error:
+        raise HTTPException(status_code=502, detail="StatsBomb Open Data tạm thời không khả dụng.") from error
+    except ValueError as error:
+        raise HTTPException(status_code=422, detail=str(error)) from error

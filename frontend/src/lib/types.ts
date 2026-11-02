@@ -41,6 +41,33 @@ export type HealthResponse = {
   status: string
 }
 
+export type MetricItem = {
+  key: string
+  label: string
+  value: number | string
+  unit: string | null
+  scope: "team" | "player" | "match"
+  subject: string | null
+}
+
+export type AnalysisResult = { source: "video" | "statsbomb"; metrics: MetricItem[] }
+
+export type MetricDefinition = {
+  key: string
+  version: number
+  label: string
+  unit: string | null
+  source: "statsbomb" | "video"
+  implementation: "computed" | "documented"
+  mapping: "same-provider" | "approximation" | "project"
+  formula: string
+  required_columns: string[]
+  interpretation: string
+  caveats: string[]
+  source_url: string
+  reference_url: string
+}
+
 export type TrackingRow = {
   frame: number
   time_s: number

@@ -2,6 +2,38 @@
 
 ## Trạng thái hiện tại
 
+Ngày02/11/2026: theo yêu cầu bắt đầu tích hợp phần phù hợp từ football-docs,
+đã thêm6thẻ định nghĩa có version/công thức/nguồn/giới hạn;4chỉ số được
+tính trong API và trang Phân tích trận: PPDA Hudl, field tilt xấp xỉ từ
+StatsBomb, pass completion và tổng xG provider. Hai thẻ còn lại tài liệu
+hóa xG XGBoost của dự án và bề ngang cụm video hiện có, không chạy thêm
+model/đổi số đo. Không đổi DATA_CONTRACT/schema hiện có hoặc dependency;
+không cài MCP, thêm provider hay khởi động lại chuyền/sút video.
+
+API event-metrics trả AnalysisResult/MetricItem cũ; thiếu dữ liệu/mẫu số0
+trả chuỗi nguyên nhân, UI hiện Chưa đủ dữ liệu. Loại luân lưu, tính hiệp
+phụ; kiểm đúng2đội/mã trận/hiệp/vùng sân và không cộng xG thiếu một phần.
+Loader chuẩn hóa thêm tên pass_type/pass_body_part/duel_type trước CSV,
+không tự tạo cột vắng. UI có cách tính/nguồn, tách toàn trận với phạm vi
+sơ đồ chuyền; chờ request network để tránh đồng thời ghi cache lần đầu.
+
+Fixture khóa commit/hash trận3869685 đã khớp cả8giá trị tham chiếu và giữ
+nguyên qua normalize/CSV round-trip: Argentina PPDA7,4222/tilt61,86%/
+completion80,81%/xG2,7583; France9,0909/38,14%/76,14%/2,2726. Đây là
+kiểm công thức/adapter trên1trận, không là đánh giá hiệu quả chiến thuật.
+HTTP qua Vite thật ở8650 cho Brazil/Belgium và6card trả200, /match200;
+khóa nguồn cache/kết quả trong fixtures/event_metrics_smoke_v1.json.
+
+466Python test đạt,1network deselected;38test Python mới. Lượt đầu18lỗi
+do temp mặc định ngoài repo; chạy lại TEMP/TMP và basetemp trong .tmp
+thì toàn bộ đạt, không nới kiểm đường dẫn.44test liên quan đạt sau rà
+cuối;15Node test/frontend build/lint đạt (1Node test mới). Còn cảnh báo
+Starlette/SHAP, FastRefresh/bundle đã có. Computer Use bị cơ chế kiểm
+soát dừng do không xác định chắc URL trình duyệt; đã dừng input, chưa
+tuyên bố visualUI QA đạt. Tài liệu/lệnh: EVENT_METRICS.md; ROADMAP ghi
+phạm vi được giao. Chất lượng CV baseline bên dưới không đổi bởi phần
+tích hợp này; các thay đổi CV song song không thuộc commit của phiên.
+
 Ngày02/11/2026: đã đọc/đánh giá withqwerty/football-docs theo yêu cầu,
 khóa commit b1fb1c175226b9726ac31524bf232d54cf960745 (package0.17.4).
 Đáng học metric cards có variant/công thức/nguồn/giới hạn, fixture khóa

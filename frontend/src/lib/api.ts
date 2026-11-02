@@ -3,6 +3,8 @@ import type {
   HealthResponse,
   Match,
   PassNetwork,
+  AnalysisResult,
+  MetricDefinition,
 } from "@/lib/types"
 
 async function getJson<T>(path: string): Promise<T> {
@@ -54,4 +56,13 @@ export function fetchPassNetwork(
   return getJson<PassNetwork>(
     `/api/matches/${matchId}/pass-network?${params.toString()}`,
   )
+}
+
+export function fetchEventMetrics(matchId: number, team: string): Promise<AnalysisResult> {
+  const params = new URLSearchParams({ team })
+  return getJson<AnalysisResult>(`/api/matches/${matchId}/event-metrics?${params.toString()}`)
+}
+
+export function fetchMetricDefinitions(): Promise<MetricDefinition[]> {
+  return getJson<MetricDefinition[]>("/api/matches/metric-definitions")
 }

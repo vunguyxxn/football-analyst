@@ -1,0 +1,26 @@
+{
+  "reference_repository": "https://github.com/withqwerty/football-docs",
+  "reference_revision": "b1fb1c175226b9726ac31524bf232d54cf960745",
+  "data_repository": "https://github.com/statsbomb/open-data",
+  "data_revision": "4b73468fc5b0f1950f9f66fada70ad3a4f9327cb",
+  "match_id": 3869685,
+  "local_events": "data/raw/statsbomb_xg_v1/data/events/3869685.json",
+  "events_sha256": "a0b0036d50c10a4c8879d1ee9f24a7502ec2cfb264a61951c8d500dfc897ec35",
+  "attribution": "StatsBomb Open Data; see data/raw/statsbomb_xg_v1/LICENSE.pdf. Raw events are not bundled in this fixture.",
+  "reference_cards": "metrics/cards/{ppda,field_tilt,pass_completion,xg}.toml at reference_revision",
+  "tolerance": 0.0001,
+  "expected": {
+    "Argentina": {
+      "ppda.statsbomb-hudl": 7.4222,
+      "field_tilt.stats-perform-2016": 0.6186,
+      "pass_completion.statsbomb-hudl": 0.8081,
+      "xg.statsbomb-hudl": 2.7583
+    },
+    "France": {
+      "ppda.statsbomb-hudl": 9.0909,
+      "field_tilt.stats-perform-2016": 0.3814,
+      "pass_completion.statsbomb-hudl": 0.7614,
+      "xg.statsbomb-hudl": 2.2726
+    }
+  }
+}

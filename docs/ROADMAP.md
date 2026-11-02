@@ -1,5 +1,15 @@
 # Lộ trình
 
+## Tích hợp tham khảo football-docs — yêu cầu 02/11/2026
+
+Theo yêu cầu “bắt đầu tích hợp những thứ tốt và phù hợp”, thêm thẻ định
+nghĩa có phiên bản/nguồn/giới hạn và chỉ số sự kiện StatsBomb: PPDA theo
+Hudl, field tilt xấp xỉ, pass completion và tổng xG provider. Nối vào trang
+Phân tích trận, kiểm fixture commit/hash và CSV round-trip; giữ schema,
+hệ sân và dependency. Chi tiết: EVENT_METRICS.md. Đây là nhánh dữ liệu
+sự kiện, không khởi động lại nhận diện chuyền/sút video. Chưa cài MCP,
+thêm provider/identity, xT/VAEP hoặc thay thuật toán CV từ đánh giá này.
+
 ## Hoàn thiện luồng ứng dụng — yêu cầu 31/10/2026
 
 Người dùng yêu cầu “hoàn thành luồng cho xong”: cho phép nối bước

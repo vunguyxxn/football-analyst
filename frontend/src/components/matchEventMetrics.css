@@ -1,0 +1,16 @@
+.event-metrics { padding: 22px; margin-bottom: 20px; }
+.event-metrics-context { color: var(--muted-foreground, #9ca3af); font-size: 12px; line-height: 1.7; margin: 10px 0 18px; }
+.event-metrics-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; align-items: start; }
+.event-metric { min-width: 0; border: 1px solid #ffffff18; border-radius: 12px; padding: 16px; }
+.event-metric h4 { font-size: 12px; line-height: 1.6; margin: 0 0 8px; font-weight: 500; }
+.event-metric-value { display: block; font-size: 24px; line-height: 1.5; overflow-wrap: anywhere; }
+.event-metric > span, .event-metric details, .event-metric-unavailable { font-size: 12px; line-height: 1.7; }
+.event-metric details { margin-top: 14px; }
+.event-metric summary { cursor: pointer; color: #86efac; }
+.event-metric details p { margin: 10px 0; }
+.event-metric details ul { padding-left: 18px; }
+.event-metric details li { margin-bottom: 8px; }
+.event-metric a { color: #86efac; text-decoration: underline; }
+.event-metric-variant { overflow-wrap: anywhere; color: #9ca3af; }
+@media (max-width: 1100px) { .event-metrics-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .event-metrics { padding: 14px; } .event-metrics-grid { grid-template-columns: minmax(0, 1fr); } }

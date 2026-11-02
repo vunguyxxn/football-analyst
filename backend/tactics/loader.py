@@ -123,7 +123,7 @@ def normalize_events(events: pd.DataFrame, match_id: int) -> pd.DataFrame:
         for point, use_end in zip(ends, uses_end_location)
     ]
 
-    for field in ("pass_outcome", "pass_recipient"):
+    for field in ("pass_outcome", "pass_recipient", "pass_type", "pass_body_part", "duel_type"):
         if field in normalized:
             normalized[field] = normalized[field].map(_named_value)
     return normalized.drop(columns=["location", "end_location"], errors="ignore")

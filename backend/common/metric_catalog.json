@@ -1,0 +1,68 @@
+[
+  {
+    "key": "ppda.statsbomb-hudl", "version": 1,
+    "label": "PPDA · Hudl StatsBomb", "unit": "chuyền/hành động",
+    "source": "statsbomb", "implementation": "computed", "mapping": "same-provider",
+    "formula": "Chuyền thành công của đối thủ ở x_m < 63 / hành động phòng ngự của đội ở x_m >= 42. Hành động gồm Duel loại Tackle, Interception, Pass loại Interception, Dribbled Past và Foul Committed.",
+    "required_columns": ["event_type", "team", "period", "x_m", "pass_outcome", "pass_type", "duel_type"],
+    "interpretation": "Giá trị thấp gợi ý ít đường chuyền đối thủ trên mỗi hành động phòng ngự trong vùng pressing cao.",
+    "caveats": ["Không tự chứng minh hiệu quả pressing; phụ thuộc lãnh thổ, tỷ số và thời điểm trận.", "Không đếm Pressure hoặc Ball Recovery vào mẫu số. Mẫu số 0 là chưa có giá trị.", "Mỗi đội StatsBomb đều tấn công về x tăng. Tính cả hiệp phụ, loại luân lưu; không áp dụng trực tiếp cho tracking video."],
+    "source_url": "https://support.hudl.com/s/article/passes-defensive-action",
+    "reference_url": "https://github.com/withqwerty/football-docs/blob/b1fb1c175226b9726ac31524bf232d54cf960745/metrics/cards/ppda.toml"
+  },
+  {
+    "key": "field_tilt.stats-perform-2016", "version": 1,
+    "label": "Field tilt · xấp xỉ từ StatsBomb", "unit": "tỷ lệ",
+    "source": "statsbomb", "implementation": "computed", "mapping": "approximation",
+    "formula": "Số chuyền của đội bắt đầu ở x_m >= 70 / tổng số chuyền của hai đội ở một phần ba sân tấn công riêng. Đếm cả thành công và thất bại; loại pass_cross, Throw-in và Keeper Arm.",
+    "required_columns": ["event_type", "team", "period", "x_m", "pass_type", "pass_cross", "pass_body_part"],
+    "interpretation": "Tỷ trọng chuyền trong vùng một phần ba sân tấn công; hai đội cộng lại bằng 100% khi có mẫu số.",
+    "caveats": ["Đây là phép xấp xỉ định nghĩa Opta bằng sự kiện StatsBomb, không phải số liệu Opta chính thức.", "Nguồn không chốt cách xử lý chuyền thất bại; biến thể này đếm tất cả. Không gọi đây là tỷ lệ kiểm soát bóng theo thời gian.", "Field tilt cao không đồng nghĩa tạo cơ hội tốt. Tính cả hiệp phụ, loại luân lưu."],
+    "source_url": "https://www.statsperform.com/insights/how-we-measure-pressure/",
+    "reference_url": "https://github.com/withqwerty/football-docs/blob/b1fb1c175226b9726ac31524bf232d54cf960745/metrics/cards/field_tilt.toml"
+  },
+  {
+    "key": "pass_completion.statsbomb-hudl", "version": 1,
+    "label": "Chuyền thành công · StatsBomb", "unit": "tỷ lệ",
+    "source": "statsbomb", "implementation": "computed", "mapping": "same-provider",
+    "formula": "Số Pass không có pass_outcome / tổng số Pass của đội, gồm bóng chết, tạt bóng, ném biên và phát bóng.",
+    "required_columns": ["event_type", "team", "period", "pass_outcome"],
+    "interpretation": "Tỷ lệ chuyền hoàn thành, độc lập với ngưỡng lọc cạnh của sơ đồ chuyền bóng.",
+    "caveats": ["Không đánh giá độ khó hoặc giá trị đường chuyền. Không có lần chuyền là chưa có tỷ lệ.", "Thiếu toàn bộ cột pass_outcome là thiếu dữ liệu; ô trống trong cột StatsBomb đã có là thành công.", "Tính toàn trận và hiệp phụ, loại luân lưu; khác phạm vi sơ đồ chuyền trước lần thay người đầu tiên."],
+    "source_url": "https://support.hudl.com/s/article/event-data-glossary-team-metrics",
+    "reference_url": "https://github.com/withqwerty/football-docs/blob/b1fb1c175226b9726ac31524bf232d54cf960745/metrics/cards/pass_completion.toml"
+  },
+  {
+    "key": "xg.statsbomb-hudl", "version": 1,
+    "label": "Tổng xG · StatsBomb", "unit": "bàn kỳ vọng",
+    "source": "statsbomb", "implementation": "computed", "mapping": "same-provider",
+    "formula": "Tổng shot_statsbomb_xg trên các Shot của đội ở hiệp 1–4, gồm phạt đền trong trận; loại luân lưu.",
+    "required_columns": ["event_type", "team", "period", "shot_statsbomb_xg"],
+    "interpretation": "Tổng xác suất ghi bàn do StatsBomb cung cấp cho các cú sút đã xảy ra.",
+    "caveats": ["Không phải dự đoán của mô hình XGBoost của dự án và không phải dự đoán tỷ số.", "Thiếu xG ở một cú sút thì không xuất tổng một phần. Tổng có thể lớn hơn 1; từng cú sút phải trong [0, 1]."],
+    "source_url": "https://github.com/statsbomb/open-data",
+    "reference_url": "https://github.com/withqwerty/football-docs/blob/b1fb1c175226b9726ac31524bf232d54cf960745/metrics/cards/xg.toml"
+  },
+  {
+    "key": "xg.football-analyst-pre-shot-v1", "version": 1,
+    "label": "xG · mô hình của dự án", "unit": "xác suất",
+    "source": "statsbomb", "implementation": "documented", "mapping": "project",
+    "formula": "XGBoost pre-shot từ khoảng cách, góc sút, độ lệch ngang, bộ phận cơ thể, đá phạt, first_time và under_pressure; không dùng outcome/provider xG làm feature.",
+    "required_columns": ["distance_m", "angle_rad", "lateral_m", "is_header", "is_other_body", "is_free_kick", "first_time", "under_pressure"],
+    "interpretation": "Xác suất ghi bàn ước lượng bởi model đã huấn luyện của dự án; xem docs/XG_BASELINE.md để biết tập chia và đánh giá.",
+    "caveats": ["Card chỉ tài liệu hóa mô hình hiện có; endpoint chỉ số trận không nạp hoặc chạy mô hình này.", "Không thay thế xG StatsBomb và không suy quan hệ nhân quả từ SHAP."],
+    "source_url": "https://github.com/statsbomb/open-data",
+    "reference_url": "https://github.com/withqwerty/football-docs/blob/b1fb1c175226b9726ac31524bf232d54cf960745/metrics/cards/xg.toml"
+  },
+  {
+    "key": "video.visible-median-width-v1", "version": 1,
+    "label": "Bề ngang cụm nhìn thấy", "unit": "m",
+    "source": "video", "implementation": "documented", "mapping": "project",
+    "formula": "Trung vị theo frame của max(y_m) - min(y_m) trong nhóm cầu thủ quan sát hợp lệ của cửa sổ video, theo backend/tactics/video_tactics.py.",
+    "required_columns": ["frame", "time_s", "track_id", "team", "x_m", "y_m"],
+    "interpretation": "Bề ngang phần nhóm nhìn thấy sau hiệu chỉnh hợp lệ; không phải toàn bộ đội.",
+    "caveats": ["Chỉ cửa sổ vượt policy dữ liệu của video_tactics mới có số đo. Người ngoài camera không được bổ sung.", "Ngưỡng gợi ý là quy tắc kỹ thuật của dự án, chưa được xác nhận là chiến thuật tối ưu.", "Card tài liệu hóa median_width_m hiện có; không sửa pipeline video hoặc tự tạo tọa độ sân."],
+    "source_url": "https://www.fifatrainingcentre.com/en/game/game-analysis/in-possession/switch-of-play.php",
+    "reference_url": "https://github.com/withqwerty/football-docs/blob/b1fb1c175226b9726ac31524bf232d54cf960745/src/metrics.ts"
+  }
+]

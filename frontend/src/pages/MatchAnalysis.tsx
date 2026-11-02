@@ -3,6 +3,7 @@ import { useQuery } from "@tanstack/react-query"
 import { AnimatePresence, motion } from "framer-motion"
 import { AlertCircle, ArrowDownRight, ArrowUpRight, LoaderCircle } from "lucide-react"
 import Pitch from "@/components/Pitch"
+import MatchEventMetrics from "@/components/MatchEventMetrics"
 import { SelectField, type SelectOption } from "@/components/ui/select"
 import {
   fetchCompetitions,
@@ -355,6 +356,10 @@ export default function MatchAnalysis() {
         </div>
       </div>
 
+      {selectedMatch && selectedTeam && (
+        <MatchEventMetrics matchId={selectedMatch.match_id} team={selectedTeam} ready={!networkQuery.isFetching} />
+      )}
+
       {networkQuery.isPending && selectedMatch ? (
         <LoadingState label="Đang tải sơ đồ chuyền bóng" />
       ) : network ? (
@@ -364,7 +369,7 @@ export default function MatchAnalysis() {
               <div>
                 <h3>Sơ đồ chuyền bóng</h3>
                 <p>
-                  {team} <span>·</span> {network.nodes.length} cầu thủ tham gia
+                  {selectedTeam} <span>·</span> {network.nodes.length} cầu thủ tham gia
                 </p>
               </div>
               <div aria-label="Chú giải" className="legend">

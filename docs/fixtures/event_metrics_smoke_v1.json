@@ -1,0 +1,24 @@
+{
+  "match_id": 8650,
+  "cache_path": "data/processed/events_8650.csv",
+  "cache_sha256": "3242a723defb57cdfc46121ded0a43c7e55ffd8e75ad90c321bbee4308a9e495",
+  "catalog_sha256": "09d1ea4da78eac5615ebdb318dc38bb805924a77760fd76271d4267f9755d405",
+  "http_via_vite_proxy": 200,
+  "match_route_http": 200,
+  "visual_ui_verified": false,
+  "visual_ui_reason": "Computer Use stopped because the browser URL could not be determined with confidence",
+  "results": {
+    "Brazil": {
+      "ppda.statsbomb-hudl": 6.7941,
+      "field_tilt.stats-perform-2016": 0.7149,
+      "pass_completion.statsbomb-hudl": 0.8628,
+      "xg.statsbomb-hudl": 2.6092
+    },
+    "Belgium": {
+      "ppda.statsbomb-hudl": 12.2727,
+      "field_tilt.stats-perform-2016": 0.2851,
+      "pass_completion.statsbomb-hudl": 0.8052,
+      "xg.statsbomb-hudl": 0.4053
+    }
+  }
+}
