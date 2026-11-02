@@ -1,9 +1,10 @@
-import type { ReactNode } from "react"
+import type { ReactNode, SVGProps } from "react"
 import { toSvg } from "@/lib/pitchCoordinates"
 
 type PitchProps = {
   className?: string
   children?: ReactNode
+  svgProps?: SVGProps<SVGSVGElement>
 }
 
 function FieldRect({
@@ -57,7 +58,7 @@ function PenaltyArc({ right = false }: { right?: boolean }) {
   )
 }
 
-export default function Pitch({ className, children }: PitchProps) {
+export default function Pitch({ className, children, svgProps }: PitchProps) {
   const center = toSvg(52.5, 34)
   return (
     <svg
@@ -66,6 +67,7 @@ export default function Pitch({ className, children }: PitchProps) {
       preserveAspectRatio="xMidYMid meet"
       role="img"
       viewBox="0 0 105 68"
+      {...svgProps}
     >
       <defs>
         <pattern

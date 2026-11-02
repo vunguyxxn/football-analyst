@@ -7,6 +7,7 @@ import {
   ClipboardList,
   LayoutDashboard,
   UserRound,
+  Waypoints,
 } from "lucide-react"
 import { NavLink, Navigate, Route, Routes, useLocation } from "react-router-dom"
 import { ComingSoon } from "@/components/ComingSoon"
@@ -14,6 +15,7 @@ import MatchAnalysis from "@/pages/MatchAnalysis"
 import VideoAnalysis from "@/pages/VideoAnalysis"
 import PlayerProfiles from "@/pages/PlayerProfiles"
 import CoachReport from "@/pages/CoachReport"
+import TacticsBoard from "@/pages/TacticsBoard"
 import { fetchHealth } from "@/lib/api"
 
 const navigation = [
@@ -22,6 +24,7 @@ const navigation = [
   { label: "Phân tích video", path: "/video", icon: Clapperboard },
   { label: "Hồ sơ cầu thủ", path: "/players", icon: UserRound },
   { label: "Báo cáo HLV", path: "/reports", icon: ClipboardList },
+  { label: "Bảng chiến thuật", path: "/tactics", icon: Waypoints },
 ]
 
 function AppShell() {
@@ -116,6 +119,7 @@ function AppShell() {
                 path="/overview"
               />
               <Route element={<MatchAnalysis />} path="/match" />
+              <Route element={<TacticsBoard />} path="/tactics" />
               <Route
                 element={<VideoAnalysis />}
                 path="/video"

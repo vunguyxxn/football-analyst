@@ -2,6 +2,31 @@
 
 ## Trạng thái hiện tại
 
+Ngày02/11/2026: theo yêu cầu có bảng như freetacticsboard.com/ảnh mẫu, đã
+thêm menu/trang Bảng chiến thuật /tactics. Có2đội/6mẫu sơ đồ11người, kéo
+thả cầu thủ/bóng, chỉnh số/tên/màu, vẽ chuyền/chạy/vùng/nhãn, notes, danh
+sách đối tượng và thao tác phím. Undo/redo40bước, kéo một lượt một bước;
+làm trống pha có thể undo. Tối đa8pha/150đối tượng/pha, sao chép/chuyển/
+xóa và trình chiếu1,4s/pha; chưa nội suy chuyển động hoặc xuất video.
+
+Đây là bảng HLV soạn tay, không suy đội hình từ video hoặc thêm vị trí
+vào tracking/heatmap. Giữ hệ105×68m/gốc dưới và DATA_CONTRACT/backend;
+không thêm dependency. File frontend riêng tactics_board_v1 kiểm đủ loại/
+ID/đội/tọa độ/màu/số/giới hạn1MiB. localStorage riêng lưu bảng hiện tại,
+debounce400ms + thử ghi lúc pagehide/unmount; báo trạng thái đúng. Bản
+lưu hỏng được giữ, không tự ghi đè. Có nhập/xuất JSON và PNG1680×1088
+xem trước/tải; không xuất dấu chọn editor hoặc notes sidebar vào ảnh.
+
+32Node test đạt (9mới), frontend build/lint đạt, còn FastRefresh/bundle
+warning cũ. Không chạy Python vì không đổi backend. Đã kiểm in-app browser:
+kéo A6/undo/redo, đổi sơ đồ đúng đội, nhãn, nét chuyền/chạy/vùng, pha/notes
+riêng, trình chiếu, reload và rời route vẫn giữ, phím ArrowRight/CtrlZ.
+PNG đã render/giải mã đúng1680×1088; desktop1360×900 và mobile390×844
+không tràn ngang (viewport khả dụng375px), chưa kiểm cảm ứng vật lý hoặc
+file chooser/SaveOS. Ảnh tactics-board-desktop/mobile.png trong screenshots;
+đã reset viewport QA. Tài liệu TACTICS_BOARD.md, ROADMAP ghi phạm vi.
+Các thay đổi CV/fixture/test đang làm song song không thuộc commit này.
+
 Ngày02/11/2026: theo yêu cầu tích hợp phần đáng học từ football-predictions,
 đã thêm thẻ/bảng ở báo cáo HLV, nguồn/phiên bản nội dung và lịch sử mở lại
 JSON trên trình duyệt. Không đổi backend/schema/dependency, luật advisor,

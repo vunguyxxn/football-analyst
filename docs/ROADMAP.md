@@ -1,5 +1,14 @@
 # Lộ trình
 
+## Bảng chiến thuật tương tác — yêu cầu 02/11/2026
+
+Theo ảnh và freetacticsboard.com người dùng gửi, thêm trang /tactics trong
+ứng dụng hiện có: bố trí thủ công2đội,6mẫu sơ đồ, kéo thả/chỉnh cầu thủ/bóng,
+vẽ chuyền/chạy/vùng/nhãn, notes, undo/redo, nhiều pha, trình chiếu, lưu cục
+bộ và xuất PNG/JSON. Tọa độ105×68m; dữ liệu bảng tách khỏi tracking/phân
+tích CV, không thêm backend/schema/dependency. Chưa nội suy animation,
+xuất video, chia sẻ cloud hoặc lấy đội hình từ video. Xem TACTICS_BOARD.md.
+
 ## Tham khảo giao diện football-predictions — yêu cầu 02/11/2026
 
 Tích hợp chế độ thẻ/bảng cho gợi ý HLV, thông tin nguồn/phiên bản và lịch
