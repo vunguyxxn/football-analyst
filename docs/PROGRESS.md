@@ -2,6 +2,25 @@
 
 ## Trạng thái hiện tại
 
+Ngày 02/11/2026: hoàn tất đọc StrikerAI sau bản sửa CV `d95d663`.
+Khóa nguồn `b0972ff77905583fd15fae23612e61624ddf23af`; xem
+`docs/STRIKERAI_REPOSITORY_REVIEW.md` và snapshot nguồn trong
+`docs/fixtures/strikerai_review_snapshot_v1.json`.
+Hướng đáng thử nhất là detector tách cầu thủ/trọng tài/thủ môn trước
+phân đội, sau đó thử tách nền crop áo và marker chọn ID trên frontend.
+Đây là đề xuất nghiên cứu, chưa tích hợp mã hoặc model từ repo.
+
+StrikerAI dùng ByteTrack, bốn điểm hiệu chỉnh cố định cho vùng cục bộ
+23,32 × 68 m và xG đặt quy tắc; không giải quyết tự hiệu chỉnh clip lia
+máy, cũng chưa có engine chiến thuật để thay luồng hiện tại. Không lấy
+FPS 24 cố định, cache pickle không khóa nguồn hoặc thao tác gộp thủ môn
+vào cầu thủ tuyến ngoài. Không tìm thấy license trong tree đã khóa;
+chưa tải checkpoint ngoài repo, chạy mã ngoài hay thêm dependency.
+Giữ phạm vi bỏ bóng/chuyền/sút, DATA_CONTRACT và các gate chất lượng.
+Kiểm tra tài liệu: snapshot JSON hợp lệ và `git diff --cached --check`.
+Không chạy lại test ứng dụng cho phiên chỉ viết tài liệu; bản sửa CV
+trước đó đã đạt 474 test. Hai clip khó vẫn chưa tự hiệu chỉnh được.
+
 Ngày 02/11/2026: hoàn tất đánh giá UI/UX theo yêu cầu, chỉ viết tài liệu,
 chưa sửa giao diện hoặc backend. Xem `docs/UI_UX_AUDIT.md` cho đánh giá
 sáu trang, hướng thiết kế chung, mobile, accessibility và thứ tự ưu tiên.
