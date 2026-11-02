@@ -2,6 +2,22 @@
 
 ## Trạng thái hiện tại
 
+Ngày 02/11/2026: hoàn tất cải thiện UI đợt 1 theo yêu cầu bắt đầu audit.
+Xem `docs/UI_REFRESH.md`. Có Tổng quan thật, chữ/focus/tương phản rõ hơn,
+menu mobile Escape/Tab/inert; Match ưu tiên sân, KPI gọn/vi-VN, bỏ icon
+xu hướng thiếu baseline và sửa nhãn số sự kiện. Video chọn file trước,
+ba mục phân tích, tiến độ gọn có nhãn partial; Players chọn nhanh mobile;
+Reports ưu tiên nhận xét trước history/hash; Tactics có tab inspector,
+bố cục tablet/mobile và chế độ tập trung có Escape. Không đổi thư viện,
+API/DATA_CONTRACT hoặc CV. 32/32 test frontend đạt, build đạt, lint không
+lỗi, còn warning Fast Refresh cũ ở button.tsx và bundle >500 kB.
+QA sáu trang ở 1440×1000, 390×844, 1024×768, chưa thấy overflow ngang
+toàn trang trong trạng thái đã xem; kiểm thao tác chọn cầu thủ/menu/
+video tabs/board. Ảnh local `data/processed/ui_refresh_20261102/`.
+Chưa làm zoom/pan, tương tác chart/legend/code splitting/WCAG đầy đủ,
+mọi luồng upload/GPU. Số 14 người/phạm vi mạng chuyền cần xác minh riêng.
+Không dùng thay đổi UI để kết luận chất lượng CV.
+
 Ngày 02/11/2026: đã kiểm chứng ngoại tuyến detector vai trò theo yêu cầu.
 Ứng viên YOLO11m của martinjolif/yolo-football-player-detection, revision
 5e83fafa8d564243001ce8e063612a618a138fbe, model card AGPL-3.0;

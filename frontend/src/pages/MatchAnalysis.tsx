@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react"
 import { useQuery } from "@tanstack/react-query"
 import { AnimatePresence, motion } from "framer-motion"
-import { AlertCircle, ArrowDownRight, ArrowUpRight, LoaderCircle } from "lucide-react"
+import { AlertCircle, ArrowUpRight, LoaderCircle } from "lucide-react"
 import Pitch from "@/components/Pitch"
 import MatchEventMetrics from "@/components/MatchEventMetrics"
 import { SelectField, type SelectOption } from "@/components/ui/select"
@@ -110,7 +110,7 @@ function NetworkPitch({
                 strokeWidth="0.2"
               >
                 <title>
-                  {`${node.player} · ${node.pass_count} chuyền · ${node.touches} lần chạm`}
+                  {`${node.player} · ${node.pass_count} chuyền · ${node.touches} sự kiện ghi nhận`}
                 </title>
               </circle>
               <text
@@ -138,20 +138,16 @@ function StatCard({
   label,
   value,
   footnote,
-  icon,
 }: {
   label: string
   value: string | number
   footnote: string
-  icon: "up" | "down"
 }) {
-  const TrendIcon = icon === "up" ? ArrowUpRight : ArrowDownRight
   return (
     <div className="stat-card card-surface">
       <span className="stat-label">{label}</span>
       <strong className="stat-value">{value}</strong>
       <span className="stat-footnote">
-        <TrendIcon aria-hidden="true" size={14} />
         {footnote}
       </span>
     </div>
@@ -261,7 +257,7 @@ export default function MatchAnalysis() {
         </div>
         <div className="live-badge">
           <span />
-          DỮ LIỆU THẬT
+          STATSBOMB
         </div>
       </section>
 
@@ -356,9 +352,7 @@ export default function MatchAnalysis() {
         </div>
       </div>
 
-      {selectedMatch && selectedTeam && (
-        <MatchEventMetrics matchId={selectedMatch.match_id} team={selectedTeam} ready={!networkQuery.isFetching} />
-      )}
+
 
       {networkQuery.isPending && selectedMatch ? (
         <LoadingState label="Đang tải sơ đồ chuyền bóng" />
@@ -396,13 +390,11 @@ export default function MatchAnalysis() {
             <section className="stats-grid" aria-label="Chỉ số chuyền bóng">
               <StatCard
                 footnote="cầu thủ có dữ liệu"
-                icon="up"
                 label="Cầu thủ"
                 value={network.nodes.length}
               />
               <StatCard
                 footnote="liên kết chuyền"
-                icon="up"
                 label="Số cạnh"
                 value={network.edges.length}
               />
@@ -412,7 +404,6 @@ export default function MatchAnalysis() {
                     ? `${getSurname(strongestEdge.source)} → ${getSurname(strongestEdge.target)}`
                     : "Chưa có liên kết"
                 }
-                icon="up"
                 label="Cạnh mạnh nhất"
                 value={strongestEdge?.count ?? 0}
               />
@@ -467,6 +458,9 @@ export default function MatchAnalysis() {
             </motion.div>
           )}
         </AnimatePresence>
+      )}
+      {selectedMatch && selectedTeam && (
+        <MatchEventMetrics matchId={selectedMatch.match_id} team={selectedTeam} ready={!networkQuery.isFetching} />
       )}
     </motion.div>
   )

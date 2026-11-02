@@ -40,8 +40,8 @@ export default function CoachReportHistory({ report, name, onOpen }: {
     finally { setBusy(false) }
   }
 
-  return <section className="coach-history card-surface" aria-label="Nguồn và lịch sử báo cáo">
-    <h3>Nguồn và phiên bản báo cáo</h3>
+  return <details className="coach-history card-surface" aria-label="Nguồn và lịch sử báo cáo">
+    <summary>Nguồn, phiên bản và báo cáo gần đây ({entries.length})</summary>
     {report && <dl className="coach-provenance">
       <div><dt>Thời điểm tạo do JSON ghi</dt><dd>{provenance?.generatedAt ? coachOpenedTime(provenance.generatedAt) : "Báo cáo chưa ghi thời điểm tạo"}</dd></div>
       <div><dt>Lần mở này · giờ Việt Nam/Thái Lan (UTC+7)</dt><dd>{current ? coachOpenedTime(current.openedAt) : "Đang xác định…"}</dd></div>
@@ -62,5 +62,5 @@ export default function CoachReportHistory({ report, name, onOpen }: {
       </li>)}</ul> : <p>Chưa có báo cáo được lưu trong trình duyệt này.</p>}
     </details>
     {notice && <p role="status" className="coach-history-notice">Lịch sử: {notice}</p>}
-  </section>
+  </details>
 }

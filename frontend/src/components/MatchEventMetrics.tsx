@@ -26,7 +26,7 @@ export default function MatchEventMetrics({ matchId, team, ready }: { matchId: n
         </div>
       </div>
       <p className="event-metrics-context">
-        Các chỉ số dùng toàn trận; sơ đồ chuyền bên dưới giới hạn trước lần thay người đầu tiên.
+        Các chỉ số dùng toàn trận; sơ đồ chuyền giới hạn trước lần thay người đầu tiên.
         PPDA và field tilt cần được đọc cùng diễn biến, tỷ số và phạm vi dữ liệu.
       </p>
       {metrics.isPending && <p role="status">Đang tính chỉ số sự kiện…</p>}

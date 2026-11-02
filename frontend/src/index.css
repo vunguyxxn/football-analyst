@@ -3,6 +3,7 @@
 @import "shadcn/tailwind.css";
 @import "@fontsource-variable/geist";
 @import "./pages/videoAnalysis.css";
+@import "./workspaceRefinement.css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -154,7 +155,7 @@ a {
 .brand-copy small {
   margin-top: 3px;
   color: #75808e;
-  font-size: 9px;
+  font-size:12px;
   font-weight: 650;
   letter-spacing: 0.13em;
 }
@@ -163,7 +164,7 @@ a {
   padding: 0 12px;
   margin-bottom: 12px;
   color: #687383;
-  font-size: 10px;
+  font-size:12px;
   font-weight: 650;
   letter-spacing: 0.14em;
 }
@@ -230,7 +231,7 @@ a {
   border-radius: 11px;
   background: #19222d;
   color: #c5d0dc;
-  font-size: 11px;
+  font-size:12px;
   font-weight: 700;
 }
 
@@ -242,7 +243,7 @@ a {
 .profile-copy strong {
   overflow: hidden;
   color: #d5dbe2;
-  font-size: 11px;
+  font-size:12px;
   font-weight: 550;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -250,7 +251,7 @@ a {
 
 .profile-copy span {
   color: #778291;
-  font-size: 10px;
+  font-size:12px;
 }
 
 .profile-menu {
@@ -305,7 +306,7 @@ a {
   border-radius: 999px;
   background: #111820;
   color: #9ca3af;
-  font-size: 11px;
+  font-size:12px;
   font-weight: 560;
 }
 
@@ -354,7 +355,7 @@ a {
   justify-content: space-between;
   padding-top: 22px;
   color: #596473;
-  font-size: 9px;
+  font-size:12px;
   font-weight: 650;
   letter-spacing: 0.12em;
 }
@@ -367,7 +368,7 @@ a {
 
 .eyebrow {
   color: #67d88a;
-  font-size: 10px;
+  font-size:12px;
   font-weight: 700;
   letter-spacing: 0.13em;
 }
@@ -452,7 +453,7 @@ a {
   border-radius: 999px;
   background: rgb(56 189 248 / 5%);
   color: #7dd3fc;
-  font-size: 9px;
+  font-size:12px;
   font-weight: 700;
   letter-spacing: 0.1em;
 }
@@ -480,7 +481,7 @@ a {
 
 .field-label {
   color: #8e99a7;
-  font-size: 10px;
+  font-size:12px;
   font-weight: 620;
   letter-spacing: 0.04em;
 }
@@ -590,7 +591,7 @@ a {
 
 .summary-kicker {
   color: #7f8c9a;
-  font-size: 9px;
+  font-size:12px;
   font-weight: 650;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -604,7 +605,7 @@ a {
 
 .summary-date {
   color: #7f8b98;
-  font-size: 10px;
+  font-size:12px;
 }
 
 .scoreline {
@@ -651,7 +652,7 @@ a {
 .panel-heading p {
   margin: 5px 0 0;
   color: #8d99a6;
-  font-size: 10px;
+  font-size:12px;
 }
 
 .panel-heading p span {
@@ -664,7 +665,7 @@ a {
   align-items: center;
   gap: 6px;
   color: #8f9ba8;
-  font-size: 9px;
+  font-size:12px;
   white-space: nowrap;
 }
 
@@ -726,7 +727,7 @@ a {
   align-items: center;
   gap: 5px;
   color: #d5f7df;
-  font-size: 8px;
+  font-size:12px;
   font-weight: 680;
   letter-spacing: 0.08em;
   opacity: 0.8;
@@ -737,7 +738,7 @@ a {
   justify-content: space-between;
   margin-top: 11px;
   color: #748190;
-  font-size: 8px;
+  font-size:12px;
   font-weight: 650;
   letter-spacing: 0.1em;
 }
@@ -769,7 +770,7 @@ a {
 
 .stat-label {
   color: #909ba8;
-  font-size: 10px;
+  font-size:12px;
 }
 
 .stat-value {
@@ -789,7 +790,7 @@ a {
   gap: 4px;
   overflow: hidden;
   color: #778594;
-  font-size: 9px;
+  font-size:12px;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -814,7 +815,7 @@ a {
 
 .table-unit {
   color: #738090;
-  font-size: 8px;
+  font-size:12px;
   font-weight: 700;
   letter-spacing: 0.1em;
 }
@@ -839,20 +840,20 @@ a {
 
 .player-rank {
   color: #657281;
-  font-size: 9px;
+  font-size:12px;
 }
 
 .player-name {
   overflow: hidden;
   color: #c9d2dc;
-  font-size: 10px;
+  font-size:12px;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
 .player-passes {
   color: #e6edf3;
-  font-size: 11px;
+  font-size:12px;
   font-weight: 630;
   text-align: right;
 }
@@ -1051,7 +1052,7 @@ a {
   .backend-indicator {
     gap: 6px;
     padding: 7px 9px;
-    font-size: 10px;
+    font-size:12px;
   }
 
   .main-content {
@@ -1097,14 +1098,14 @@ a {
 
   .match-intro p {
     max-width: 235px;
-    font-size: 11px;
+    font-size:12px;
     line-height: 1.5;
   }
 
   .live-badge {
     margin-top: 3px;
     padding: 6px 8px;
-    font-size: 8px;
+    font-size:12px;
   }
 
   .filter-panel {
@@ -1116,7 +1117,7 @@ a {
   .select-trigger {
     height: 38px;
     padding: 0 9px;
-    font-size: 11px;
+    font-size:12px;
   }
 
   .match-summary {
@@ -1129,7 +1130,7 @@ a {
   }
 
   .summary-date {
-    font-size: 9px;
+    font-size:12px;
   }
 
   .scoreline {
@@ -1172,7 +1173,7 @@ a {
   }
 
   .stat-footnote {
-    font-size: 8px;
+    font-size:12px;
   }
 
   .players-card {
@@ -1184,11 +1185,11 @@ a {
   }
 
   .panel-heading h3 {
-    font-size: 11px;
+    font-size:12px;
   }
 
   .panel-heading p {
-    font-size: 9px;
+    font-size:12px;
   }
 
   .player-row {

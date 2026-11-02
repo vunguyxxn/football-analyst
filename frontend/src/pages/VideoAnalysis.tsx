@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react"
 import { AlertCircle, Clapperboard, FileJson, FolderOpen, LoaderCircle, LocateFixed, Play, Upload } from "lucide-react"
+import SectionTabs from "@/components/SectionTabs"
 import Pitch from "@/components/Pitch"
 import { Button } from "@/components/ui/button"
 import { toSvg } from "@/lib/pitchCoordinates"
@@ -15,6 +16,7 @@ type VideoSource = { url: string; name: string; initialTime: number; id: number 
 const TEAMS = { A: { label: "Đội A", color: "#a855f7" }, B: { label: "Đội B", color: "#22d3ee" }, referee: { label: "Trọng tài", color: "#facc15" }, unknown: { label: "Chưa rõ", color: "#94a3b8" } }
 
 export default function VideoAnalysis() {
+  const [panel, setPanel] = useState<"space" | "movement" | "calibration">("space")
   const video = useRef<HTMLVideoElement>(null)
   const requestId = useRef(0)
   const pending = useRef<AbortController | null>(null)
@@ -190,7 +192,13 @@ export default function VideoAnalysis() {
       <Button className="demo-button" disabled={loading || ai.busy} onClick={openDemo} size="lg">{loading ? <LoaderCircle className="animate-spin" /> : <Play />}Mở clip mẫu</Button>
     </section>
 
-    <section className="video-job card-surface" aria-label="Phân tích AI">
+    <section aria-label="Mở dữ liệu video" className={`video-files card-surface${!source ? " video-upload-start" : ""}`}>
+      <label className="video-file-input"><span className="file-icon"><Clapperboard size={19} /></span><span><strong>{source ? "Đổi video trận đấu" : "Chọn video để bắt đầu"}</strong><small>{source?.name || "MP4, WebM hoặc định dạng tương thích · Tối đa 10 phút / 500 MB"}</small></span><Upload aria-hidden="true" size={17} /><input disabled={ai.busy} accept="video/*" aria-label="Chọn video" onChange={event => { openVideo(event.target.files?.[0]); event.target.value = "" }} type="file" /></label>
+      <details className="video-advanced-file"><summary>Đã có file tọa độ? Mở tùy chọn nâng cao</summary><label className="video-file-input"><span className="file-icon"><FileJson size={19} /></span><span><strong>Nhập tọa độ có sẵn (tùy chọn)</strong><small>{loading ? "Đang đọc dữ liệu…" : trackingName || "AI tự tạo tọa độ; chỉ nhập nếu đã có dữ liệu riêng"}</small></span><Upload aria-hidden="true" size={17} /><input accept=".jsonl,.json,application/json" aria-label="Chọn tracking" onChange={event => { void openTracking(event.target.files?.[0]); event.target.value = "" }} type="file" /></label></details>
+    </section>
+    {!source && !loading && <section className="video-start-steps" aria-label="Cách bắt đầu"><article><b>01</b><h3>Mở một video</h3><p>Chọn clip trên máy hoặc mở mẫu có sẵn để khám phá giao diện.</p></article><article><b>02</b><h3>Phân tích trên máy chủ cục bộ</h3><p>Theo dõi tiến độ nhận diện người và hiệu chỉnh sân ngay trong ứng dụng.</p></article><article><b>03</b><h3>Đối chiếu từng đoạn</h3><p>Xem vị trí, heatmap và căn cứ trên những đoạn đủ dữ liệu.</p></article></section>}
+    {(source || ai.busy || ai.job) && <details className="video-job card-surface" open={ai.busy || !!ai.error || !ai.result} aria-label="Phân tích AI">
+      <summary>{ai.result ? `Đã xử lý video · ${ai.job?.workflow?.calibration.status === "partial" ? "Tọa độ một phần" : pitchAvailable ? "Có tọa độ trên đoạn hiệu chỉnh" : "Cần hiệu chỉnh sân"}` : "Phân tích AI · Theo dõi tiến độ"}</summary>
       <div><strong>Theo dõi người → hiệu chỉnh sân → phân tích bóng đá</strong><p>Clip tối đa 10 phút / 500 MB. Máy tự theo dõi người trong sân, tìm mốc và tính kết quả trên các đoạn đủ dữ liệu. Nếu thiếu mốc, chọn ngay trên ảnh video để tiếp tục.</p></div>
       <Button disabled={!sourceFile || !duration || !!mediaError || ai.busy || loading} onClick={() => { video.current?.pause(); setTimeline(null); setTrackingName(""); void ai.start() }}>{ai.busy ? <LoaderCircle className="animate-spin" /> : <Play />}Phân tích video</Button>
       {ai.busy && <Button variant="outline" onClick={() => { void ai.cancel() }}>Hủy xử lý</Button>}
@@ -203,16 +211,13 @@ export default function VideoAnalysis() {
       </div>}
       {ai.error && <p role="alert">{ai.error}</p>}
       {ai.job && !source && <a href={`/video?job=${ai.job.id}`}>Mở video và kết quả tác vụ này</a>}
-      {ai.result && <div><strong>{ai.result.pitch_estimate_available ? "Đã có kết quả — xem heatmap, các giả thuyết sơ đồ và gợi ý chiến thuật bên dưới." : "Đã có tracking người trong sân. Clip này cần hiệu chỉnh sân để phân tích không gian theo mét."}</strong>{ai.result.limitations.filter(note => !ai.result?.pitch_estimate_available || !note.startsWith("Chưa hiệu chỉnh")).map(note => <p key={note}>{note}</p>)}{ai.result.pitch_estimate_available && <p>Vị trí, heatmap và vận động chỉ là ước lượng cho đoạn đã hiệu chỉnh; chưa kiểm chứng sai số thực địa. Xem phạm vi bên dưới.</p>}</div>}
-    </section>
+      {ai.result && <details className="video-limitations"><summary>Phạm vi và giới hạn của kết quả</summary><strong>{ai.result.pitch_estimate_available ? "Đã có kết quả — xem heatmap, các giả thuyết sơ đồ và gợi ý chiến thuật bên dưới." : "Đã có tracking người trong sân. Clip này cần hiệu chỉnh sân để phân tích không gian theo mét."}</strong>{ai.result.limitations.filter(note => !ai.result?.pitch_estimate_available || !note.startsWith("Chưa hiệu chỉnh")).map(note => <p key={note}>{note}</p>)}{ai.result.pitch_estimate_available && <p>Vị trí, heatmap và vận động chỉ là ước lượng cho đoạn đã hiệu chỉnh; chưa kiểm chứng sai số thực địa. Xem phạm vi bên dưới.</p>}</details>}
+    </details>}
 
-    <section aria-label="Mở dữ liệu video" className="video-files card-surface">
-      <label className="video-file-input"><span className="file-icon"><Clapperboard size={19} /></span><span><strong>Video trận đấu</strong><small>{source?.name || "Chọn MP4, WebM hoặc video tương thích"}</small></span><Upload aria-hidden="true" size={17} /><input disabled={ai.busy} accept="video/*" aria-label="Chọn video" onChange={event => { openVideo(event.target.files?.[0]); event.target.value = "" }} type="file" /></label>
-      <label className="video-file-input"><span className="file-icon"><FileJson size={19} /></span><span><strong>Nhập tọa độ có sẵn (tùy chọn)</strong><small>{loading ? "Đang đọc dữ liệu…" : trackingName || "AI tự tạo tọa độ; chỉ nhập nếu đã có dữ liệu riêng"}</small></span><Upload aria-hidden="true" size={17} /><input accept=".jsonl,.json,application/json" aria-label="Chọn tracking" onChange={event => { void openTracking(event.target.files?.[0]); event.target.value = "" }} type="file" /></label>
-    </section>
+    {ai.result && <p className="video-scope-brief">{pitchAvailable ? "Kết quả ước lượng trên đoạn đã hiệu chỉnh" : "Tracking trên ảnh video · Chưa có tọa độ sân theo mét"} · ID là mã theo dõi, không phải số áo · Chưa kiểm chứng sai số thực địa.</p>}
     {(error || mediaError || mismatch) && <div className="error-notice" role="alert"><AlertCircle size={18} /><span>{error || mediaError || mismatch}</span></div>}
 
-    <div className={`video-analysis-grid${ai.result && !timeline ? " video-result-grid" : ""}`}>
+    {source && <div className={`video-analysis-grid${ai.result && !timeline ? " video-result-grid" : ""}`}>
       <section aria-label="Trình phát video" className="video-player-card card-surface">
         <div className="video-panel-heading"><h3><Clapperboard size={17} /> Video trận đấu</h3><span className="video-local-tag">CỤC BỘ</span></div>
         <div className="video-screen" style={ai.result ? { aspectRatio: `${ai.result.width} / ${ai.result.height}` } : undefined}>
@@ -250,18 +255,26 @@ export default function VideoAnalysis() {
         <div className="video-team-legend">{Object.entries(TEAMS).map(([key, team]) => <span key={key}><i style={{ background: team.color }} />{team.label}</span>)}</div>
         <div aria-live="polite" className="mini-pitch-message">{!source ? "Chọn video để bắt đầu." : !timeline ? ai.result ? "Đã có khung theo dõi trên video. Sân mini cần hiệu chỉnh sân cho clip này; chưa có tọa độ mét." : ai.busy ? "AI đang xử lý khung theo dõi trên video; chưa có hiệu chỉnh sân để vẽ vị trí tại đây." : "Bấm Phân tích video để chạy AI. Nếu đã có tọa độ sân được hiệu chỉnh, bạn có thể mở file tracking tương ứng." : mismatch ? "Kiểm tra căn chỉnh thời gian trước khi xem vị trí." : seeking ? "Đang chuyển tới thời điểm mới…" : !sample ? "Thời điểm này chưa có tọa độ hợp lệ. Sân mini được để trống." : "ID là mã theo dõi, không phải số áo. Tọa độ giữ nguyên hướng sân của video."}</div>
       </section>}
-    </div>
+    </div>}
 
     {ai.result && ai.job && <>
+      <SectionTabs label="Nội dung phân tích video" value={panel} onChange={setPanel} items={[{ id: "space", label: "Không gian đội" }, { id: "movement", label: "Vận động" }, { id: "calibration", label: "Hiệu chỉnh" }]} />
+      <div hidden={panel !== "space"}>
       <VideoTacticalAnalysis key={`tactics-${ai.job.id}-${pitchVersion}`} jobId={ai.job.id} onSeek={seconds => { video.current?.pause(); seekTo(seconds); video.current?.scrollIntoView({ behavior: "smooth", block: "center" }) }} />
+      </div>
+      <div hidden={panel !== "movement"}>
       {ai.result.pitch_estimate_available && <VideoPitchEstimate key={`pitch-${ai.job.id}-${pitchVersion}`} jobId={ai.job.id} onSeek={seconds => { video.current?.pause(); seekTo(seconds); video.current?.scrollIntoView({ behavior: "smooth", block: "center" }) }} />}
+      {!ai.result.pitch_estimate_available && <p className="card-surface panel-empty">Cần hiệu chỉnh sân trước khi xem heatmap và vận động theo mét. Chọn mục Hiệu chỉnh để tiếp tục.</p>}
+      </div>
+      <div hidden={panel !== "calibration"}>
       <VideoCalibration key={`calibration-${ai.job.id}`} video={video} job={ai.job} busy={ai.busy} onApply={ai.calibrate} ranges={ranges} onSeek={seekTo} />
+      </div>
       <details className="tracking-diagnostics"><summary>Thông tin xử lý và chẩn đoán tracking</summary><VideoTrackingReport key={ai.job.id} hasPitchEstimate={ai.result.pitch_estimate_available} jobId={ai.job.id} onSeek={seconds => { video.current?.pause(); seekTo(seconds); video.current?.scrollIntoView({ behavior: "smooth", block: "center" }) }} /></details>
     </>}
 
-    <section className="video-notes card-surface">
+    {source && <section className="video-notes card-surface">
       <div><strong>Chỉ hiển thị dữ liệu có sẵn</strong><p>Đoạn mất hiệu chỉnh hoặc thiếu tracking sẽ để trống. Chỉ số là ước lượng trên các đoạn đủ mốc sân; chưa kiểm chứng bằng đo đạc thực địa.</p></div>
       <details><summary>Căn chỉnh thời gian</summary><label>Mốc 0 của tracking trong video (giây)<input aria-label="Độ lệch thời gian" onChange={event => { video.current?.pause(); setOffsetInput(event.target.value) }} step="0.01" type="number" value={offsetInput} /></label><p>Cùng một đoạn video: nhập 0. Nếu tracking được tạo từ đoạn cắt bắt đầu ở giây 10 của video đang mở: nhập 10.</p></details>
-    </section>
+    </section>}
   </div>
 }

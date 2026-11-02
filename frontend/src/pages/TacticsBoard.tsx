@@ -1,6 +1,7 @@
 import { useEffect, useReducer, useRef, useState } from "react"
 import type { PointerEvent as ReactPointerEvent } from "react"
-import { ArrowUpRight, CircleDot, Download, Eraser, FileJson, MousePointer2, MoveUpRight, Play, Plus, RectangleHorizontal, Redo2, Save, Square, Trash2, Type, Undo2, Upload, UserRound, Waypoints } from "lucide-react"
+import { ArrowUpRight, CircleDot, Download, Eraser, FileJson, MousePointer2, MoveUpRight, Maximize2, Minimize2, Play, Plus, RectangleHorizontal, Redo2, Save, Square, Trash2, Type, Undo2, Upload, UserRound, Waypoints } from "lucide-react"
+import SectionTabs from "@/components/SectionTabs"
 import Pitch from "@/components/Pitch"
 import { toSvg } from "@/lib/pitchCoordinates"
 import { applyFormation, BOARD_STORAGE_KEY, boardReducer, clampPoint, FORMATIONS, initialBoard, MAX_BOARD_BYTES, parseTacticsBoard, storeTacticsBoard, translateObject } from "@/lib/tacticsBoard"
@@ -53,6 +54,16 @@ function BoardMark({ object, color, selected, onFocus }: { object: BoardObject; 
 }
 
 export default function TacticsBoard() {
+  const [focused, setFocused] = useState(false)
+  useEffect(() => {
+    if (!focused) return
+    const overflow = document.body.style.overflow
+    document.body.style.overflow = "hidden"
+    const escape = (event: KeyboardEvent) => { if (event.key === "Escape") setFocused(false) }
+    document.addEventListener("keydown", escape)
+    return () => { document.body.style.overflow = overflow; document.removeEventListener("keydown", escape) }
+  }, [focused])
+  const [inspector, setInspector] = useState<"shape" | "style" | "plan">("shape")
   const [loaded] = useState(() => {
     try { const raw = localStorage.getItem(BOARD_STORAGE_KEY); return { board: raw ? parseTacticsBoard(raw) : initialBoard(), error: "", canSave: true } }
     catch { return { board: initialBoard(), error: "Chưa đọc được bảng đã lưu. Bản cũ được giữ; chọn Lưu trên máy khi muốn lưu bảng hiện tại.", canSave: false } }
@@ -232,7 +243,7 @@ export default function TacticsBoard() {
   const objects = phase.objects.map(object => preview?.id === object.id ? preview : object)
   if (preview && !objects.some(object => object.id === preview.id)) objects.push(preview)
   const ordered = [...objects.filter(object => ["zone", "pass", "run"].includes(object.type)), ...objects.filter(object => !["zone", "pass", "run"].includes(object.type))]
-  return <div className="tactics-page">
+  return <div className={`tactics-page${focused ? " is-focused" : ""}`}>
     {pngPreview && <dialog ref={exportDialog} className="tactics-png-dialog" aria-label="Ảnh bảng chiến thuật" onCancel={event => { event.preventDefault(); setPngPreview(null) }}>
       <div><h3>Ảnh bảng chiến thuật</h3><button aria-label="Đóng ảnh xem trước" onClick={() => setPngPreview(null)}>×</button></div>
       <img src={pngPreview.url} alt="Bản PNG của pha chiến thuật đang chọn" />
@@ -242,6 +253,7 @@ export default function TacticsBoard() {
       <div className="tactics-heading"><span className="tactics-logo"><Waypoints size={23} /></span><div><span className="eyebrow">TOUCHLINE · COACH STUDIO</span><h2>Bảng chiến thuật</h2></div></div>
       <label className="tactics-title">TÊN BUỔI TẬP<input maxLength={100} value={board.title} disabled={playing} onChange={event => commit({ ...board, title: event.target.value })} /></label>
       <div className="tactics-header-actions">
+        <button aria-label={focused ? "Thoát chế độ tập trung" : "Tập trung vào sân"} title={focused ? "Thoát chế độ tập trung" : "Tập trung vào sân"} aria-pressed={focused} onClick={() => setFocused(!focused)}>{focused ? <Minimize2 size={17} /> : <Maximize2 size={17} />}</button>
         <span className="tactics-save-status" role="status">{!canSave ? "Chưa lưu trên máy" : saveResult?.board === board ? saveResult.status : "Đang lưu…"}</span>
         <button title="Hoàn tác (Ctrl+Z)" aria-label="Hoàn tác" disabled={!history.past.length || playing} onClick={() => dispatch({ type: "undo" })}><Undo2 size={16} /></button>
         <button title="Làm lại (Ctrl+Shift+Z)" aria-label="Làm lại" disabled={!history.future.length || playing} onClick={() => dispatch({ type: "redo" })}><Redo2 size={16} /></button>
@@ -269,12 +281,16 @@ export default function TacticsBoard() {
         <p className="tactics-local-note"><i />Lưu tại trình duyệt · Tải JSON để tiếp tục chỉnh sửa trên máy khác · Tối đa 8 pha</p>
       </section>
       <aside className="tactics-inspector" aria-label="Thiết lập chiến thuật">
-        <div className="tactics-panel-title">ĐỘI HÌNH & KẾ HOẠCH</div>
+        <SectionTabs label="Thiết lập chiến thuật" value={inspector} onChange={setInspector} items={[{ id: "shape", label: "Bố trí" }, { id: "style", label: "Hiển thị" }, { id: "plan", label: "Kế hoạch" }]} />
+        <div hidden={inspector !== "shape"}>
         <section><h3>Đội đang chỉnh</h3><p>Chọn đội để thêm hoặc đổi sơ đồ.</p><div className="tactics-team-switch">{(["A", "B"] as const).map(side => <button key={side} aria-pressed={team === side} onClick={() => setTeam(side)}><i style={{ background: board.colors[side] }} />Đội {side}</button>)}</div></section>
         <section><h3>Thư viện sơ đồ</h3><p>Áp dụng cho đội {team} trong pha hiện tại.</p><div className="tactics-formations">{FORMATIONS.map(shape => <button disabled={playing} key={shape} aria-pressed={phase.formations[team] === shape} onClick={() => { updatePhase(applyFormation(phase, team, shape)); setSelectedId("") }}>{shape}</button>)}</div></section>
         <section><h3>Đối tượng đang chọn</h3>{selected ? <div className="tactics-selected-editor"><span className="tactics-object-kind">{TOOLS.find(item => item.id === selected.type)?.label} · Đội {selected.team}</span>{selected.type === "player" && <label>Số áo<input aria-label="Số áo" type="number" min={1} max={99} value={selected.number} disabled={playing} onChange={event => { const n = Number(event.target.value); if (Number.isInteger(n) && n >= 1 && n <= 99) updateSelected({ number: n }) }} /></label>}{(selected.type === "player" || selected.type === "text") && <label>{selected.type === "text" ? "Nội dung" : "Tên / vai trò"}<input aria-label={selected.type === "text" ? "Nội dung nhãn" : "Tên cầu thủ"} value={selected.label} maxLength={60} disabled={playing} onChange={event => updateSelected({ label: event.target.value })} /></label>}<small>x {selected.x_m.toFixed(1)} m · y {selected.y_m.toFixed(1)} m</small><button disabled={playing} onClick={() => { updatePhase({ ...phase, objects: phase.objects.filter(object => object.id !== selected.id) }); setSelectedId("") }}><Trash2 size={13} />Xóa đối tượng</button></div> : <div className="tactics-empty-selection"><MousePointer2 size={24} /><p>Chọn cầu thủ, bóng hoặc nét vẽ trên sân để chỉnh sửa.</p></div>}</section>
+        </div><div hidden={inspector !== "style"}>
         <section><h3>Hiển thị</h3><div className="tactics-colors">{(["A", "B"] as const).map(side => <label key={side}>Màu đội {side}<input aria-label={`Màu đội ${side}`} type="color" value={board.colors[side]} disabled={playing} onChange={event => commit({ ...board, colors: { ...board.colors, [side]: event.target.value } })} /></label>)}</div><label className="tactics-checkbox"><input type="checkbox" checked={lanes} onChange={event => setLanes(event.target.checked)} />Hiện 5 hành lang dọc</label></section>
+        </div><div hidden={inspector !== "plan"}>
         <section><h3>Kế hoạch của pha</h3><label>Tên pha<input aria-label="Tên pha" value={phase.name} maxLength={80} disabled={playing} onChange={event => updatePhase({ ...phase, name: event.target.value })} /></label><label>Ghi chú cho HLV<textarea aria-label="Ghi chú chiến thuật" value={phase.notes} maxLength={4000} rows={4} disabled={playing} placeholder="Ví dụ: tiền vệ trụ lùi nhận bóng, hậu vệ biên mở rộng…" onChange={event => updatePhase({ ...phase, notes: event.target.value })} /></label></section>
+        </div>
         <section><h3>Đối tượng trong pha ({phase.objects.length})</h3><div className="tactics-object-list">{phase.objects.map(object => <button key={object.id} aria-pressed={selectedId === object.id} onClick={() => { setSelectedId(object.id); setTool("select") }}>{object.type === "player" ? `Đội ${object.team} · #${object.number} ${object.label}` : `${TOOLS.find(item => item.id === object.type)?.label} · ${object.label || `Đội ${object.team}`}`}</button>)}</div></section>
       </aside>
     </div>
