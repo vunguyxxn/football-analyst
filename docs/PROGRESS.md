@@ -2,6 +2,28 @@
 
 ## Trạng thái hiện tại
 
+Ngày02/11/2026: theo yêu cầu tích hợp phần đáng học từ football-predictions,
+đã thêm thẻ/bảng ở báo cáo HLV, nguồn/phiên bản nội dung và lịch sử mở lại
+JSON trên trình duyệt. Không đổi backend/schema/dependency, luật advisor,
+xG/SHAP hoặc phạm vi video. Bảng/thẻ dùng cùng căn cứ; cả2cách vẫn xem
+được SHAP nhóm và chọn cú sút giải thích. Đổi đội/gợi ý reset chọn cũ.
+
+Lịch sử localStorage theo origin tối đa5bản/2MiB, dedup bằng SHA256 JSON
+nội dung; bản khác cùng trận vẫn riêng, loại bản mở cũ nhất khi đầy. Mở
+lại kiểm hash, parser/số liệu/SHAP và metadata; storage hỏng/quota hoặc
+file quá lớn giữ báo cáo đang xem và báo không lưu, không âm thầm ghi đè.
+Ngày mở UTC+7 tách khỏi ngày tạo JSON; mẫu chưa ghi generated_at thì báo
+chưa có, không giả định dữ liệu mới. Có model/source/events hash đã ghi
+trong JSON, không coi hiển thị hash là xác minh nguồn độc lập.
+
+23Node test đạt (8test mới), frontend build/lint đạt; còn FastRefresh/
+bundle warning cũ. Không chạy lại Python vì không đổi backend. Đã kiểm
+in-app browser thật8650: thẻ/bảng, Brazil13/25=52%, Belgium6/8=75%, chọn
+Chadli7:35/#330, SHAP nhóm, nguồn/hash, history sau reload và mở lại bản
+lưu. Ảnh docs/screenshots/coach-report-table-history.png; chưa kiểm mọi
+breakpoint/file nhập qua UI. Tài liệu: FRONTEND_COACH.md; ROADMAP cập nhật.
+Giữ thay đổi CV/fixture/test song song ngoài commit của phần giao diện.
+
 Ngày02/11/2026: đọc/đánh giá karidasd/football-predictions tại commit
 6e82ae048919b27222a3c56810f9dc8e331560c2. Repo là dashboard dự đoán/kèo
 lấy API-Football, Python/Actions ghi JSON và frontend tĩnh đọc; chưa có

@@ -1,5 +1,13 @@
 # Lộ trình
 
+## Tham khảo giao diện football-predictions — yêu cầu 02/11/2026
+
+Tích hợp chế độ thẻ/bảng cho gợi ý HLV, thông tin nguồn/phiên bản và lịch
+sử mở lại báo cáo JSON tại trình duyệt. Dùng kết quả xG/SHAP/advisor đã có,
+không sinh gợi ý hoặc dự đoán kết quả trận mới. Không thêm provider, API,
+schema hay dependency; giới hạn lịch sử5bản/2MiB và kiểm hash/parser khi
+khôi phục. Chi tiết sử dụng/kiểm tra: FRONTEND_COACH.md.
+
 ## Tích hợp tham khảo football-docs — yêu cầu 02/11/2026
 
 Theo yêu cầu “bắt đầu tích hợp những thứ tốt và phù hợp”, thêm thẻ định
