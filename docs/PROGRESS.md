@@ -2,6 +2,23 @@
 
 ## Trạng thái hiện tại
 
+Ngày03/11/2026: đã rà lỗi v3 so với v1 trên từng player validation.
+654lỗi persistent,147introduced,103removed; tái lập đúng801vs757.
+147lỗi mới: v1 đúng132/bỏsót15;103hết nhầm: v3 đúng92/keeper5/bỏsót6.
+654/801lỗi v3 có người cao dưới24px ở640,147còn lại24–48px. Rà60crop
+chia20mỗi nhóm: đều cầu thủ áo vàng; chưa thấy cần đổi nhãn ở mẫu rà,
+không khẳng định toàn tập nhãn sạch hoặc đã kiểm độc lập. Mẫu theo
+thứ tự/cách đều, không dùng để ước lượng tỷ lệ màu trên toàn bộ801lỗi.
+
+39ROI player train mới có người quy640 cao234–420px,trung vị348px
+trướcaugmentation; chênh mạnh so với người nhỏ ở val. Đây là dấu hiệu
+dịch phân bố kích thước/ngữ cảnh, chưa chứng minh nguyên nhân nhân quả.
+Đề xuất bổ sung ảnh train toàn cảnh mới gán nhãn đầy đủ, giữ người nhỏ,
+chưa train v4 hoặc đổi runtime. Không chuyển ảnh val sang train.
+Thêm audit_role_errors_v3.py, ROLE_ERROR_AUDIT_V3.md và fixture snapshot;
+60crop/full audit local role_error_audit_v3. Kiểm bằng lệnh audit và
+33test liên quan ROI/sampling/role matching/gate; không đổi hợp đồng.
+
 Ngày 03/11/2026: đã ghép 58 ROI mới vào train v2 và huấn luyện small v3
 đủ20epoch; train399/val128/test35. Giữ bytes ảnh/nhãn val/test, không
 đổi runtime. Khởi tạo cùng small v1 như v2;640/batch4/AdamW lr0,0003,
