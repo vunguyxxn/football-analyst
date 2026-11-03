@@ -1,0 +1,533 @@
+{
+  "kind": "role_sources_review_v9",
+  "source_split": "docs/fixtures/role_source_split_v8.json",
+  "source_split_sha256": "025ce71fa9af9d3af50c6190ac18b8a64dbc84396aa771ae38f0fa8332ef9229",
+  "provider_license_readme": "data/raw/role_sources_v8/README.md",
+  "provider_license_readme_sha256": "d90fd926781becad192caa8d142f3294122f9eb9cbcfeda1dbebd105af16c8bd",
+  "upstream_license_file": "data/raw/role_sources_v8/LICENSE-DATA",
+  "upstream_license_sha256": "f9e30cb7bd39bc7a1221f73ccdd3c29eb03f3a9f83c02a63b8458e751b989bb3",
+  "annotation_proposal_model_sha256": "0ebbc80d4a7680d14987a577cd21342b65ecfd94632bd9a8da63ae6417644ee1",
+  "proposal_method": "COCO person-only YOLO11n1280 confidence0.15, then agent role/context review. No v6/v7 role inference on heldout clip.",
+  "media": "Real footage with artificial moving camera crop, not raw broadcast or CG simulation",
+  "independently_validated": false,
+  "training_performed": false,
+  "release_kind": "role_source_release_v9",
+  "previous_packet": "docs/fixtures/role_sources_review_v8.json",
+  "previous_packet_sha256": "b60ae2c6a56d04478b1a68d89e8f07d834d642470952ed0029ca0fa5e2e4d149",
+  "frames": [
+    {
+      "id": "117093-f749",
+      "match_id": "117093",
+      "split": "train_candidate",
+      "frame": 749,
+      "roi": [
+        0,
+        0,
+        1280,
+        720
+      ],
+      "source_frame_sha256": "324c9d4ad4454310eac99ede82790f3f07aa955ceb3c49223e5cdce470aae18a",
+      "review_status": "agent_reviewed",
+      "objects": [
+        {
+          "id": "0",
+          "role": "player",
+          "xyxy": [
+            0.9833660125732422,
+            47.02330780029297,
+            28.803632736206055,
+            115.6943588256836
+          ]
+        },
+        {
+          "id": "1",
+          "role": "player",
+          "xyxy": [
+            245.46487426757812,
+            78.29331970214844,
+            276.3870544433594,
+            112.85496520996094
+          ]
+        },
+        {
+          "id": "2",
+          "role": "player",
+          "xyxy": [
+            296.87060546875,
+            69.67611694335938,
+            329.1915283203125,
+            133.7660369873047
+          ]
+        },
+        {
+          "id": "3",
+          "role": "player",
+          "xyxy": [
+            350.4297180175781,
+            48.87944030761719,
+            378.6996765136719,
+            128.01292419433594
+          ]
+        },
+        {
+          "id": "4",
+          "role": "player",
+          "xyxy": [
+            397.00958251953125,
+            125.77670288085938,
+            431.53387451171875,
+            204.66641235351562
+          ]
+        },
+        {
+          "id": "5",
+          "role": "goalkeeper",
+          "xyxy": [
+            458.3652648925781,
+            96.31632995605469,
+            489.4024353027344,
+            157.8778533935547
+          ]
+        },
+        {
+          "id": "6",
+          "role": "player",
+          "xyxy": [
+            547.328125,
+            226.40383911132812,
+            582.702880859375,
+            316.1092224121094
+          ]
+        }
+      ],
+      "coverage": "All visible match targets in reviewed ROI; clipped edge people retained. Outside ROI unlabelled. Staff, duplicate COCO proposals and shadows excluded. Agent review, no independent reviewer."
+    },
+    {
+      "id": "117093-f500",
+      "match_id": "117093",
+      "split": "train_candidate",
+      "frame": 500,
+      "roi": [
+        0,
+        180,
+        400,
+        720
+      ],
+      "source_frame_sha256": "45604b2e2154debd2962155cc227b6cc597b8b6156c6d36b57e448c0e2f89ddd",
+      "review_status": "agent_reviewed",
+      "objects": [
+        {
+          "id": "2",
+          "role": "referee",
+          "xyxy": [
+            69.63978576660156,
+            188.05056762695312,
+            101.73478698730469,
+            250.87240600585938
+          ]
+        },
+        {
+          "id": "4",
+          "role": "player",
+          "xyxy": [
+            195.0772247314453,
+            198.42312622070312,
+            231.17762756347656,
+            262.2867736816406
+          ]
+        },
+        {
+          "id": "5",
+          "role": "player",
+          "xyxy": [
+            222.17974853515625,
+            302.043701171875,
+            265.93695068359375,
+            390.12213134765625
+          ]
+        },
+        {
+          "id": "6",
+          "role": "player",
+          "xyxy": [
+            278.78680419921875,
+            180,
+            296.0596923828125,
+            213.78518676757812
+          ]
+        },
+        {
+          "id": "7",
+          "role": "player",
+          "xyxy": [
+            317.63140869140625,
+            180,
+            346.67059326171875,
+            214.3406982421875
+          ]
+        }
+      ],
+      "coverage": "All visible match targets in reviewed ROI; clipped edge people retained. Outside ROI unlabelled. Staff, duplicate COCO proposals and shadows excluded. Agent review, no independent reviewer."
+    },
+    {
+      "id": "118575-f250",
+      "match_id": "118575",
+      "split": "train_candidate",
+      "frame": 250,
+      "roi": [
+        1000,
+        100,
+        1280,
+        720
+      ],
+      "source_frame_sha256": "2b35b979a282a87fef9e5e3810cb66d8c39917faa7f5e03be614ac41774806e7",
+      "review_status": "agent_reviewed",
+      "objects": [
+        {
+          "id": "17",
+          "role": "goalkeeper",
+          "xyxy": [
+            1123.994384765625,
+            126.478271484375,
+            1142.175537109375,
+            161.4813232421875
+          ]
+        },
+        {
+          "id": "19",
+          "role": "referee",
+          "xyxy": [
+            1206.946533203125,
+            358.9211730957031,
+            1242.728271484375,
+            442.5104064941406
+          ]
+        }
+      ],
+      "coverage": "All visible match targets in reviewed ROI; clipped edge people retained. Outside ROI unlabelled. Staff, duplicate COCO proposals and shadows excluded. Agent review, no independent reviewer."
+    },
+    {
+      "id": "118575-f500",
+      "match_id": "118575",
+      "split": "train_candidate",
+      "frame": 500,
+      "roi": [
+        0,
+        0,
+        1280,
+        720
+      ],
+      "source_frame_sha256": "2a38d84233ae048fa4aa333b1b2962ee19725cfcddab32a7cf4a4430ffc8a5b7",
+      "review_status": "agent_reviewed",
+      "objects": [
+        {
+          "id": "0",
+          "role": "player",
+          "xyxy": [
+            0.07767105102539062,
+            283.64117431640625,
+            35.635623931884766,
+            408.30377197265625
+          ]
+        },
+        {
+          "id": "1",
+          "role": "player",
+          "xyxy": [
+            105.6168212890625,
+            122.58193969726562,
+            141.05958557128906,
+            210.38729858398438
+          ]
+        },
+        {
+          "id": "2",
+          "role": "player",
+          "xyxy": [
+            468.78082275390625,
+            418.99951171875,
+            528.7783813476562,
+            565.5784301757812
+          ]
+        },
+        {
+          "id": "3",
+          "role": "goalkeeper",
+          "xyxy": [
+            561.1392822265625,
+            214.8876190185547,
+            609.6368408203125,
+            302.30340576171875
+          ]
+        },
+        {
+          "id": "4",
+          "role": "player",
+          "xyxy": [
+            671.6340942382812,
+            316.7525634765625,
+            716.4310913085938,
+            421.8509521484375
+          ]
+        }
+      ],
+      "coverage": "All visible match targets in reviewed ROI; clipped edge people retained. Outside ROI unlabelled. Staff, duplicate COCO proposals and shadows excluded. Agent review, no independent reviewer."
+    },
+    {
+      "id": "118575-f749",
+      "match_id": "118575",
+      "split": "train_candidate",
+      "frame": 749,
+      "roi": [
+        0,
+        230,
+        800,
+        720
+      ],
+      "source_frame_sha256": "8818b8779316dd472873ce873c5b0d8a6b1a4ed3ca619f2d7d6d00d8403ac15e",
+      "review_status": "agent_reviewed",
+      "objects": [
+        {
+          "id": "0",
+          "role": "goalkeeper",
+          "xyxy": [
+            94.85047912597656,
+            276.8275146484375,
+            118.57508850097656,
+            342.2969970703125
+          ]
+        },
+        {
+          "id": "3",
+          "role": "player",
+          "xyxy": [
+            354.91168212890625,
+            272.50628662109375,
+            381.10516357421875,
+            354.06463623046875
+          ]
+        },
+        {
+          "id": "4",
+          "role": "player",
+          "xyxy": [
+            407.2506408691406,
+            413.12255859375,
+            449.4514465332031,
+            537.0671997070312
+          ]
+        }
+      ],
+      "coverage": "All visible match targets in reviewed ROI; clipped edge people retained. Outside ROI unlabelled. Staff, duplicate COCO proposals and shadows excluded. Agent review, no independent reviewer."
+    },
+    {
+      "id": "128057-f250",
+      "match_id": "128057",
+      "split": "heldout_review",
+      "frame": 250,
+      "roi": [
+        0,
+        145,
+        1280,
+        720
+      ],
+      "source_frame_sha256": "f2c08bb8adcfb79f4100863a9d13d5d2f94c1e83767f1211199b740663cc35b2",
+      "review_status": "agent_reviewed",
+      "objects": [
+        {
+          "id": "1",
+          "role": "player",
+          "xyxy": [
+            214.7958984375,
+            268.4544677734375,
+            269.1662292480469,
+            400.7459716796875
+          ]
+        },
+        {
+          "id": "2",
+          "role": "player",
+          "xyxy": [
+            314.93780517578125,
+            152.73065185546875,
+            356.06341552734375,
+            257.2672119140625
+          ]
+        },
+        {
+          "id": "4",
+          "role": "player",
+          "xyxy": [
+            380.0780029296875,
+            369.93450927734375,
+            463.3853759765625,
+            520.3180541992188
+          ]
+        },
+        {
+          "id": "6",
+          "role": "player",
+          "xyxy": [
+            579.8673095703125,
+            145,
+            607.6573486328125,
+            219.64724731445312
+          ]
+        },
+        {
+          "id": "7",
+          "role": "referee",
+          "xyxy": [
+            896.0374755859375,
+            310.36566162109375,
+            949.4425048828125,
+            407.10235595703125
+          ]
+        },
+        {
+          "id": "8",
+          "role": "player",
+          "xyxy": [
+            899.36767578125,
+            420.4261474609375,
+            959.334228515625,
+            552.5338134765625
+          ]
+        }
+      ],
+      "coverage": "All visible match targets in reviewed ROI; clipped edge people retained. Outside ROI unlabelled. Staff, duplicate COCO proposals and shadows excluded. Agent review, no independent reviewer."
+    },
+    {
+      "id": "128057-f500",
+      "match_id": "128057",
+      "split": "heldout_review",
+      "frame": 500,
+      "roi": [
+        0,
+        50,
+        1280,
+        720
+      ],
+      "source_frame_sha256": "84c2ac62d0a0fd0ff6a95a6dfe78826ffba7adf637fa9defb439b16e34dba306",
+      "review_status": "agent_reviewed",
+      "objects": [
+        {
+          "id": "0",
+          "role": "player",
+          "xyxy": [
+            0.009922027587890625,
+            212.98023986816406,
+            28.842777252197266,
+            329.9129638671875
+          ]
+        },
+        {
+          "id": "1",
+          "role": "player",
+          "xyxy": [
+            5.755084991455078,
+            50,
+            52.567161560058594,
+            88.28941345214844
+          ]
+        },
+        {
+          "id": "2",
+          "role": "player",
+          "xyxy": [
+            265.6186218261719,
+            50,
+            313.9888610839844,
+            128.38243103027344
+          ]
+        },
+        {
+          "id": "3",
+          "role": "player",
+          "xyxy": [
+            459.71453857421875,
+            100.06871795654297,
+            496.98736572265625,
+            200.99945068359375
+          ]
+        },
+        {
+          "id": "5",
+          "role": "player",
+          "xyxy": [
+            651.2108154296875,
+            80.8712387084961,
+            690.7340087890625,
+            161.23379516601562
+          ]
+        },
+        {
+          "id": "6",
+          "role": "player",
+          "xyxy": [
+            731.243408203125,
+            86.89399719238281,
+            770.5882568359375,
+            161.79502868652344
+          ]
+        },
+        {
+          "id": "7",
+          "role": "player",
+          "xyxy": [
+            881.7396240234375,
+            83.7581787109375,
+            908.4654541015625,
+            157.215087890625
+          ]
+        },
+        {
+          "id": "9",
+          "role": "player",
+          "xyxy": [
+            979.54541015625,
+            77.96449279785156,
+            1006.141845703125,
+            141.68841552734375
+          ]
+        },
+        {
+          "id": "10",
+          "role": "player",
+          "xyxy": [
+            1026.7440185546875,
+            230.2164306640625,
+            1071.8026123046875,
+            335.2786865234375
+          ]
+        },
+        {
+          "id": "11",
+          "role": "player",
+          "xyxy": [
+            1070.774169921875,
+            219.10723876953125,
+            1107.013916015625,
+            307.17138671875
+          ]
+        }
+      ],
+      "coverage": "All visible match targets in reviewed ROI; clipped edge people retained. Outside ROI unlabelled. Staff, duplicate COCO proposals and shadows excluded. Agent review, no independent reviewer."
+    }
+  ],
+  "sampling": "Systematic 0/250/500/749 for train and 250/500 for heldout; selective reviewed ROIs admitted, not detection-score-selected. Remaining frames pending review, never negatives.",
+  "pending_frames": [
+    {
+      "match_id": "117093",
+      "frame": 0
+    },
+    {
+      "match_id": "117093",
+      "frame": 250
+    },
+    {
+      "match_id": "118575",
+      "frame": 0
+    }
+  ]
+}

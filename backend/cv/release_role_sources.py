@@ -29,10 +29,24 @@ def verify_frame(frame,mapping):
     return crop_labels(frame)
 
 
-def main(root):
+def verify_increment(packet, previous):
+    """A later review may add frames, but cannot recycle old observations."""
+    old={(f['match_id'],f['frame']) for f in previous['frames']}
+    new=[(f['match_id'],f['frame']) for f in packet['frames']]
+    if len(set(new))!=len(new) or old.intersection(new):
+        raise ValueError('Repeated reviewed source frame')
+    if packet['source_split_sha256']!=previous['source_split_sha256']:
+        raise ValueError('Increment changed locked source split')
+
+
+def main(root, packet_relative='docs/fixtures/role_sources_review_v8.json',
+         output_relative='data/processed/role_source_release_v8'):
     import cv2
-    packet_path=root/'docs/fixtures/role_sources_review_v8.json'
+    packet_path=checked(root,packet_relative)
     packet=json.loads(packet_path.read_text())
+    if 'previous_packet' in packet:
+        previous=checked(root,packet['previous_packet'],packet['previous_packet_sha256'])
+        verify_increment(packet,json.loads(previous.read_text()))
     split_path=checked(root,packet['source_split'],packet['source_split_sha256'])
     sources=json.loads(split_path.read_text());mapping=match_splits(sources['sources'])
     for prefix in ['provider_license_readme','upstream_license']:
@@ -52,7 +66,9 @@ def main(root):
         if not name.startswith('st'+s['match_id']+'_'):raise ValueError('Clip/match naming mismatch')
         path=checked(root,'data/raw/role_sources_v8/'+name,s['lfs']['sha256'])
         paths[s['match_id']]=path
-    output=root/'data/processed/role_source_release_v8';output.mkdir(exist_ok=False)
+    output=(root/output_relative).resolve()
+    if not output.is_relative_to(root.resolve()):raise ValueError('Foreign output path')
+    output.mkdir(exist_ok=False)
     rows=[];counts=Counter();colours={'player':(255,200,0),'goalkeeper':(0,255,0),'referee':(0,0,255)}
     for f in packet['frames']:
         label=verify_frame(f,mapping);cap=cv2.VideoCapture(str(paths[f['match_id']]))
@@ -78,10 +94,16 @@ def main(root):
         cv2.imwrite(str(output/f'{f["id"]}-review.jpg'),overlay)
         rows.append({'id':f['id'],'match_id':f['match_id'],'split':f['split'],'frame':f['frame'],'image':ip.relative_to(output).as_posix(),
                      'label':lp.relative_to(output).as_posix(),'image_sha256':digest(ip),'label_sha256':digest(lp),'targets':len(f['objects'])})
-    result={'kind':'role_source_release_v8','packet_sha256':digest(packet_path),'locked_match_splits':mapping,'files':rows,'counts':dict(counts),
+    result={'kind':packet.get('release_kind','role_source_release_v8'),'packet_sha256':digest(packet_path),'locked_match_splits':mapping,'files':rows,'counts':dict(counts),
             'prior_unique_images_screened':len(references),'training_performed':False,'heldout_role_detector_evaluated':False,
             'independently_validated':False,'scope':'New real-footage virtual-followcam domain; sparse COCO-assisted agent role labels. Train candidate and heldout match groups never merged. Not raw broadcast accuracy.'}
     (output/'manifest.json').write_text(json.dumps(result,indent=2));print(json.dumps(result))
 
 
-if __name__=='__main__':main(Path(__file__).resolve().parents[2])
+if __name__=='__main__':
+    import argparse
+    parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--packet',default='docs/fixtures/role_sources_review_v8.json')
+    parser.add_argument('--output',default='data/processed/role_source_release_v8')
+    args=parser.parse_args()
+    main(Path(__file__).resolve().parents[2],args.packet,args.output)

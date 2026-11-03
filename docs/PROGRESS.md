@@ -2,6 +2,25 @@
 
 ## Trạng thái hiện tại
 
+Ngày 03/11/2026: hoàn tất gói nhãn bổ sung v9 trên ba clip v8, chưa train.
+Nhận 7 vùng mới: 5 train candidate (16 player / 4 goalkeeper / 2 referee),
+2 heldout (15 player / 0 goalkeeper / 1 referee). Chỉ 2 vùng toàn khung;
+5 ROI giới hạn phạm vi đã rà, giữ nhãn người cắt mép. Thêm keeper đỏ/vàng,
+ref áo tối; không coi các thời điểm cùng trận là nguồn độc lập.
+
+Cộng v8/v9 có 9 vùng train candidate (46/6/4) và 4 vùng heldout (31/1/3).
+Giữ split toàn match 117093/118575 train, 128057 heldout; khóa hash packet
+cũ và chặn đếm lại frame cũ/đổi split. Video/frame/nhãn đã kiểm hash,
+sàng lọc gần trùng với 465 ảnh v6. Ba mốc train mới còn chờ rà, không dùng
+làm nền âm. Nhãn agent có COCO hỗ trợ, chưa kiểm độc lập; chưa đánh giá
+detector trên v9, chưa có bằng chứng cải thiện model. Không đổi runtime,
+schema hay dependency. Chi tiết: docs/ROLE_SOURCES_V9.md và hai fixture v9.
+
+Kiểm tra: 5 test đích đạt; toàn bộ 560 test Python đạt, 1 network deselected,
+4 warning cũ. Bước tiếp theo: ghép train v8/v9 thành dataset version mới,
+khóa sampling và phép so sánh ba lớp 640/1280 trước khi train small; giữ
+nguyên val/test và match heldout. Vẫn cần nguồn broadcast lia thật khác trận.
+
 Ngày03/11/2026: đã bổsung3clip côngkhai30giây1280×720/25fps từ
 SoccerTrackv2followcam bảncắtCCBY4 pinned5ca71d867ee073335abb24b771e0604ff22d1b88.
 Footagetrậnthật/cameraảoliazoom,khôngCG/khôngbroadcastgốc. Match117093/
