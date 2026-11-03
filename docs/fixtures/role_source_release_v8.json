@@ -1,0 +1,90 @@
+{
+  "kind": "role_source_release_v8",
+  "packet_sha256": "b60ae2c6a56d04478b1a68d89e8f07d834d642470952ed0029ca0fa5e2e4d149",
+  "locked_match_splits": {
+    "117093": "train_candidate",
+    "118575": "train_candidate",
+    "128057": "heldout_review"
+  },
+  "files": [
+    {
+      "id": "117093-f125",
+      "match_id": "117093",
+      "split": "train_candidate",
+      "frame": 125,
+      "image": "images/train/117093-f125.png",
+      "label": "labels/train/117093-f125.txt",
+      "image_sha256": "f993fbad49c168c6b344f303db960e2bb80fc083b34840f66d43042385b1e06b",
+      "label_sha256": "b8f1a8541e51a5157f53dac7b3263c2079565b315fee0cb63fe4bdaf18f10bcf",
+      "targets": 2
+    },
+    {
+      "id": "117093-f625",
+      "match_id": "117093",
+      "split": "train_candidate",
+      "frame": 625,
+      "image": "images/train/117093-f625.png",
+      "label": "labels/train/117093-f625.txt",
+      "image_sha256": "60244e1dc7aae9af1051c8daa849e628fc9df3449b967a422bd447eb2865029e",
+      "label_sha256": "85ffdec880e0819a6b4a2e0717e46a0851ae3ae0d58ddd3c37db5f0c2657028a",
+      "targets": 15
+    },
+    {
+      "id": "118575-f125",
+      "match_id": "118575",
+      "split": "train_candidate",
+      "frame": 125,
+      "image": "images/train/118575-f125.png",
+      "label": "labels/train/118575-f125.txt",
+      "image_sha256": "2615100ca8feaf708e513a635319adca886661f2e81b940a481be1465a754bff",
+      "label_sha256": "fc99b341631c4a3c963375980ceee4cb1fab9bccfe10aa13b36d51caad1c439d",
+      "targets": 10
+    },
+    {
+      "id": "118575-f375",
+      "match_id": "118575",
+      "split": "train_candidate",
+      "frame": 375,
+      "image": "images/train/118575-f375.png",
+      "label": "labels/train/118575-f375.txt",
+      "image_sha256": "0711be905357277b7c0d9004cf80aba376faf9074e628187fccef5b1945b450a",
+      "label_sha256": "a30a3cd7afb8781a43c421b0db51131ccdb7e2097a446842dcd30013dee949fa",
+      "targets": 7
+    },
+    {
+      "id": "128057-f375",
+      "match_id": "128057",
+      "split": "heldout_review",
+      "frame": 375,
+      "image": "images/heldout/128057-f375.png",
+      "label": "labels/heldout/128057-f375.txt",
+      "image_sha256": "fe7f8c77f19ab3513bb0484e78101c937aab9ad7052126b13ee1dcf29127c1c5",
+      "label_sha256": "956d33825307756d2d36ebd8b5d4e6ff20d26d6049a51d273e73d5293efea5fe",
+      "targets": 6
+    },
+    {
+      "id": "128057-f625",
+      "match_id": "128057",
+      "split": "heldout_review",
+      "frame": 625,
+      "image": "images/heldout/128057-f625.png",
+      "label": "labels/heldout/128057-f625.txt",
+      "image_sha256": "c827226b0c43c18eb526d2697060386248238123817fbf10789c7182fc8eed0c",
+      "label_sha256": "e840ad4f5443b66fb6717595a101bc8130329fc5fc594c964fb9a9f2a3e5c11e",
+      "targets": 13
+    }
+  ],
+  "counts": {
+    "train_candidate/player": 30,
+    "train_candidate/referee": 2,
+    "train_candidate/goalkeeper": 2,
+    "heldout_review/player": 16,
+    "heldout_review/referee": 2,
+    "heldout_review/goalkeeper": 1
+  },
+  "prior_unique_images_screened": 465,
+  "training_performed": false,
+  "heldout_role_detector_evaluated": false,
+  "independently_validated": false,
+  "scope": "New real-footage virtual-followcam domain; sparse COCO-assisted agent role labels. Train candidate and heldout match groups never merged. Not raw broadcast accuracy."
+}

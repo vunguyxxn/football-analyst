@@ -1,0 +1,45 @@
+{
+  "repository": "algo-dev99/soccertrack-v2-followcam-events",
+  "revision": "5ca71d867ee073335abb24b771e0604ff22d1b88",
+  "license": "CC-BY-4.0",
+  "selection_rule": "First half c000 for two training match IDs and one different heldout match ID, selected before role inference; no matches used in existing project corpus.",
+  "sources": [
+    {
+      "rfilename": "soccertrack/clips/st117093_h1_c000.mp4",
+      "blobId": "1c3abfffea3214044b91e451eed2ecc8c336cdd4",
+      "size": 23999815,
+      "lfs": {
+        "sha256": "6b09f6160cc65768da35cf74dda0241ca6baccc1e4771b8304b80921d169da95",
+        "size": 23999815,
+        "pointerSize": 133
+      },
+      "match_id": "117093",
+      "split": "train_candidate"
+    },
+    {
+      "rfilename": "soccertrack/clips/st118575_h1_c000.mp4",
+      "blobId": "6b94e46d2348308890711e632e2326093666091b",
+      "size": 27541469,
+      "lfs": {
+        "sha256": "9cb3e68d0cbb16cad2195da5c0a021ea8b51f3b646e7634f5eb0b5eb7da158fe",
+        "size": 27541469,
+        "pointerSize": 133
+      },
+      "match_id": "118575",
+      "split": "train_candidate"
+    },
+    {
+      "rfilename": "soccertrack/clips/st128057_h1_c000.mp4",
+      "blobId": "bcd2c945b04db0ff910be9ae085f037fd52f3059",
+      "size": 22849569,
+      "lfs": {
+        "sha256": "0e05b39e41c6c8e13c1e320ac6f2c51c41e0759730a9fe59b62c7f643d508738",
+        "size": 22849569,
+        "pointerSize": 133
+      },
+      "match_id": "128057",
+      "split": "heldout_review"
+    }
+  ],
+  "heldout_exclusion": "All clips/halves from match128057 excluded from any future train, no model-selection claim until reviewed labels frozen."
+}

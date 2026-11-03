@@ -1,0 +1,665 @@
+{
+  "kind": "role_sources_review_v8",
+  "source_split": "docs/fixtures/role_source_split_v8.json",
+  "source_split_sha256": "025ce71fa9af9d3af50c6190ac18b8a64dbc84396aa771ae38f0fa8332ef9229",
+  "provider_license_readme": "data/raw/role_sources_v8/README.md",
+  "provider_license_readme_sha256": "d90fd926781becad192caa8d142f3294122f9eb9cbcfeda1dbebd105af16c8bd",
+  "upstream_license_file": "data/raw/role_sources_v8/LICENSE-DATA",
+  "upstream_license_sha256": "f9e30cb7bd39bc7a1221f73ccdd3c29eb03f3a9f83c02a63b8458e751b989bb3",
+  "annotation_proposal_model_sha256": "0ebbc80d4a7680d14987a577cd21342b65ecfd94632bd9a8da63ae6417644ee1",
+  "proposal_method": "COCO person-only YOLO11n1280 confidence0.15, then agent role/context review. No v6/v7 role inference on heldout clip.",
+  "frames": [
+    {
+      "id": "117093-f125",
+      "match_id": "117093",
+      "split": "train_candidate",
+      "frame": 125,
+      "roi": [
+        0,
+        0,
+        1280,
+        720
+      ],
+      "source_frame_sha256": "f993fbad49c168c6b344f303db960e2bb80fc083b34840f66d43042385b1e06b",
+      "review_status": "agent_reviewed",
+      "objects": [
+        {
+          "id": "4",
+          "role": "player",
+          "xyxy": [
+            844.8387451171875,
+            318.375244140625,
+            912.250732421875,
+            457.38134765625
+          ]
+        },
+        {
+          "id": "5",
+          "role": "player",
+          "xyxy": [
+            1056.697265625,
+            313.74090576171875,
+            1131.68994140625,
+            447.58575439453125
+          ]
+        }
+      ],
+      "coverage": "All active match targets visible in this reviewed ROI; outside pixels not labelled; staff/bystanders excluded. COCO proposals corrected by agent; no independent reviewer."
+    },
+    {
+      "id": "117093-f625",
+      "match_id": "117093",
+      "split": "train_candidate",
+      "frame": 625,
+      "roi": [
+        0,
+        205,
+        1280,
+        720
+      ],
+      "source_frame_sha256": "0a91d1e729a7f7f6b0cc04ee60a07958e99ba83b58a51756c490ff1bd3e9755e",
+      "review_status": "agent_reviewed",
+      "objects": [
+        {
+          "id": "1",
+          "role": "player",
+          "xyxy": [
+            226.2708282470703,
+            205,
+            248.5998077392578,
+            250.234130859375
+          ]
+        },
+        {
+          "id": "2",
+          "role": "player",
+          "xyxy": [
+            233.27069091796875,
+            260.90716552734375,
+            273.470458984375,
+            345.43121337890625
+          ]
+        },
+        {
+          "id": "5",
+          "role": "player",
+          "xyxy": [
+            446.9560852050781,
+            382.0533447265625,
+            493.6830749511719,
+            498.650390625
+          ]
+        },
+        {
+          "id": "9",
+          "role": "referee",
+          "xyxy": [
+            626.2224731445312,
+            243.08465576171875,
+            650.8136596679688,
+            315.739013671875
+          ]
+        },
+        {
+          "id": "10",
+          "role": "player",
+          "xyxy": [
+            659.6829223632812,
+            211.7939453125,
+            687.7308959960938,
+            272.83697509765625
+          ]
+        },
+        {
+          "id": "11",
+          "role": "player",
+          "xyxy": [
+            701.088134765625,
+            205,
+            726.588623046875,
+            248.55621337890625
+          ]
+        },
+        {
+          "id": "12",
+          "role": "player",
+          "xyxy": [
+            764.2288818359375,
+            205,
+            784.66015625,
+            220.8900146484375
+          ]
+        },
+        {
+          "id": "13",
+          "role": "player",
+          "xyxy": [
+            760.7496337890625,
+            251.69351196289062,
+            792.8370361328125,
+            327.9892883300781
+          ]
+        },
+        {
+          "id": "14",
+          "role": "player",
+          "xyxy": [
+            804.4420776367188,
+            243.20333862304688,
+            833.7959594726562,
+            318.7439880371094
+          ]
+        },
+        {
+          "id": "15",
+          "role": "player",
+          "xyxy": [
+            965.0153198242188,
+            402.88519287109375,
+            1013.3247680664062,
+            508.68902587890625
+          ]
+        },
+        {
+          "id": "17",
+          "role": "player",
+          "xyxy": [
+            1054.3218994140625,
+            228.99851989746094,
+            1086.5765380859375,
+            286.3712158203125
+          ]
+        },
+        {
+          "id": "19",
+          "role": "player",
+          "xyxy": [
+            1091.6241455078125,
+            209.47088623046875,
+            1120.7596435546875,
+            262.9664306640625
+          ]
+        },
+        {
+          "id": "20",
+          "role": "player",
+          "xyxy": [
+            1120.37060546875,
+            258.7407531738281,
+            1154.31494140625,
+            329.0857238769531
+          ]
+        },
+        {
+          "id": "21",
+          "role": "player",
+          "xyxy": [
+            1205.2462158203125,
+            214.842529296875,
+            1233.7576904296875,
+            259.6376953125
+          ]
+        },
+        {
+          "id": "24",
+          "role": "player",
+          "xyxy": [
+            1225.859375,
+            208.15878295898438,
+            1247.71142578125,
+            261.60137939453125
+          ]
+        }
+      ],
+      "coverage": "All active match targets visible in this reviewed ROI; outside pixels not labelled; staff/bystanders excluded. COCO proposals corrected by agent; no independent reviewer."
+    },
+    {
+      "id": "118575-f125",
+      "match_id": "118575",
+      "split": "train_candidate",
+      "frame": 125,
+      "roi": [
+        0,
+        50,
+        1280,
+        720
+      ],
+      "source_frame_sha256": "6795734a18f16dc9faf9baf4f6d9d170132691c869c2398fd5d2a0e5098218e5",
+      "review_status": "agent_reviewed",
+      "objects": [
+        {
+          "id": "1",
+          "role": "goalkeeper",
+          "xyxy": [
+            337.55133056640625,
+            152.79721069335938,
+            363.25567626953125,
+            197.45608520507812
+          ]
+        },
+        {
+          "id": "2",
+          "role": "player",
+          "xyxy": [
+            434.08251953125,
+            271.42999267578125,
+            481.3443603515625,
+            358.31414794921875
+          ]
+        },
+        {
+          "id": "3",
+          "role": "player",
+          "xyxy": [
+            536.1630249023438,
+            164.0865020751953,
+            572.4047241210938,
+            225.5304718017578
+          ]
+        },
+        {
+          "id": "5",
+          "role": "player",
+          "xyxy": [
+            824.2033081054688,
+            58.22892761230469,
+            847.1112670898438,
+            106.81825256347656
+          ]
+        },
+        {
+          "id": "6",
+          "role": "player",
+          "xyxy": [
+            850.1201782226562,
+            133.8748779296875,
+            879.9669799804688,
+            205.1329345703125
+          ]
+        },
+        {
+          "id": "7",
+          "role": "player",
+          "xyxy": [
+            858.7574462890625,
+            98.27643585205078,
+            879.9429931640625,
+            151.8079833984375
+          ]
+        },
+        {
+          "id": "8",
+          "role": "player",
+          "xyxy": [
+            983.2750244140625,
+            87.87290954589844,
+            1008.3297119140625,
+            149.4492950439453
+          ]
+        },
+        {
+          "id": "10",
+          "role": "player",
+          "xyxy": [
+            1040.233642578125,
+            227.89694213867188,
+            1089.92041015625,
+            314.6007385253906
+          ]
+        },
+        {
+          "id": "11",
+          "role": "player",
+          "xyxy": [
+            1095.017578125,
+            66.89096069335938,
+            1114.54541015625,
+            120.06996154785156
+          ]
+        },
+        {
+          "id": "14",
+          "role": "player",
+          "xyxy": [
+            1201.923828125,
+            85.45223999023438,
+            1228.89404296875,
+            142.07125854492188
+          ]
+        }
+      ],
+      "coverage": "All active match targets visible in this reviewed ROI; outside pixels not labelled; staff/bystanders excluded. COCO proposals corrected by agent; no independent reviewer."
+    },
+    {
+      "id": "118575-f375",
+      "match_id": "118575",
+      "split": "train_candidate",
+      "frame": 375,
+      "roi": [
+        0,
+        0,
+        1280,
+        720
+      ],
+      "source_frame_sha256": "0711be905357277b7c0d9004cf80aba376faf9074e628187fccef5b1945b450a",
+      "review_status": "agent_reviewed",
+      "objects": [
+        {
+          "id": "0",
+          "role": "player",
+          "xyxy": [
+            61.46155548095703,
+            0,
+            77.7343978881836,
+            36.26751708984375
+          ]
+        },
+        {
+          "id": "1",
+          "role": "player",
+          "xyxy": [
+            121.46478271484375,
+            160.08242797851562,
+            161.13421630859375,
+            253.31539916992188
+          ]
+        },
+        {
+          "id": "2",
+          "role": "player",
+          "xyxy": [
+            391.3132019042969,
+            46.79142761230469,
+            419.1440124511719,
+            121.02490234375
+          ]
+        },
+        {
+          "id": "3",
+          "role": "player",
+          "xyxy": [
+            376.19073486328125,
+            246.06643676757812,
+            439.33612060546875,
+            354.1929016113281
+          ]
+        },
+        {
+          "id": "4",
+          "role": "goalkeeper",
+          "xyxy": [
+            655.97900390625,
+            52.74412536621094,
+            678.8067626953125,
+            107.80497741699219
+          ]
+        },
+        {
+          "id": "5",
+          "role": "player",
+          "xyxy": [
+            720.35302734375,
+            193.29336547851562,
+            752.69384765625,
+            278.7683410644531
+          ]
+        },
+        {
+          "id": "6",
+          "role": "referee",
+          "xyxy": [
+            1065.036376953125,
+            382.7454833984375,
+            1113.99462890625,
+            489.19219970703125
+          ]
+        }
+      ],
+      "coverage": "All active match targets visible in this reviewed ROI; outside pixels not labelled; staff/bystanders excluded. COCO proposals corrected by agent; no independent reviewer."
+    },
+    {
+      "id": "128057-f375",
+      "match_id": "128057",
+      "split": "heldout_review",
+      "frame": 375,
+      "roi": [
+        0,
+        0,
+        1280,
+        720
+      ],
+      "source_frame_sha256": "fe7f8c77f19ab3513bb0484e78101c937aab9ad7052126b13ee1dcf29127c1c5",
+      "review_status": "agent_reviewed",
+      "objects": [
+        {
+          "id": "0",
+          "role": "player",
+          "xyxy": [
+            28.329910278320312,
+            159.58657836914062,
+            98.19235229492188,
+            312.331298828125
+          ]
+        },
+        {
+          "id": "1",
+          "role": "player",
+          "xyxy": [
+            142.31394958496094,
+            5.889892578125,
+            201.6424102783203,
+            99.78775024414062
+          ]
+        },
+        {
+          "id": "2",
+          "role": "player",
+          "xyxy": [
+            440.97271728515625,
+            79.90756225585938,
+            494.08856201171875,
+            189.8133544921875
+          ]
+        },
+        {
+          "id": "3",
+          "role": "player",
+          "xyxy": [
+            737.072998046875,
+            119.61189270019531,
+            777.55322265625,
+            223.6407012939453
+          ]
+        },
+        {
+          "id": "4",
+          "role": "player",
+          "xyxy": [
+            766.287841796875,
+            250.7215576171875,
+            853.91064453125,
+            396.551025390625
+          ]
+        },
+        {
+          "id": "5",
+          "role": "referee",
+          "xyxy": [
+            1052.172607421875,
+            251.21676635742188,
+            1109.356689453125,
+            351.6428527832031
+          ]
+        }
+      ],
+      "coverage": "All active match targets visible in this reviewed ROI; outside pixels not labelled; staff/bystanders excluded. COCO proposals corrected by agent; no independent reviewer."
+    },
+    {
+      "id": "128057-f625",
+      "match_id": "128057",
+      "split": "heldout_review",
+      "frame": 625,
+      "roi": [
+        0,
+        0,
+        1280,
+        720
+      ],
+      "source_frame_sha256": "c827226b0c43c18eb526d2697060386248238123817fbf10789c7182fc8eed0c",
+      "review_status": "agent_reviewed",
+      "objects": [
+        {
+          "id": "0",
+          "role": "goalkeeper",
+          "xyxy": [
+            151.41030883789062,
+            97.72200012207031,
+            166.33554077148438,
+            137.94546508789062
+          ]
+        },
+        {
+          "id": "1",
+          "role": "player",
+          "xyxy": [
+            310.87103271484375,
+            259.1871643066406,
+            337.96038818359375,
+            356.9487609863281
+          ]
+        },
+        {
+          "id": "4",
+          "role": "player",
+          "xyxy": [
+            322.75665283203125,
+            220.35964965820312,
+            349.21185302734375,
+            300.3185729980469
+          ]
+        },
+        {
+          "id": "5",
+          "role": "player",
+          "xyxy": [
+            389.63323974609375,
+            295.5570068359375,
+            433.3970947265625,
+            393.7557373046875
+          ]
+        },
+        {
+          "id": "6",
+          "role": "player",
+          "xyxy": [
+            552.6258544921875,
+            99.67247772216797,
+            583.370849609375,
+            162.28857421875
+          ]
+        },
+        {
+          "id": "7",
+          "role": "player",
+          "xyxy": [
+            617.792236328125,
+            287.51409912109375,
+            671.9781494140625,
+            388.5811767578125
+          ]
+        },
+        {
+          "id": "8",
+          "role": "player",
+          "xyxy": [
+            676.8121337890625,
+            249.92202758789062,
+            722.9586181640625,
+            344.8384094238281
+          ]
+        },
+        {
+          "id": "9",
+          "role": "player",
+          "xyxy": [
+            710.8172607421875,
+            179.29989624023438,
+            745.6566162109375,
+            251.75552368164062
+          ]
+        },
+        {
+          "id": "10",
+          "role": "player",
+          "xyxy": [
+            736.2666015625,
+            175.5872039794922,
+            758.148681640625,
+            243.2140655517578
+          ]
+        },
+        {
+          "id": "11",
+          "role": "player",
+          "xyxy": [
+            739.8472900390625,
+            39.46595764160156,
+            759.5906982421875,
+            90.18397521972656
+          ]
+        },
+        {
+          "id": "12",
+          "role": "referee",
+          "xyxy": [
+            802.9422607421875,
+            96.31219482421875,
+            832.7447509765625,
+            162.98321533203125
+          ]
+        },
+        {
+          "id": "13",
+          "role": "player",
+          "xyxy": [
+            834.447998046875,
+            223.20504760742188,
+            878.2757568359375,
+            330.1159362792969
+          ]
+        },
+        {
+          "id": "14",
+          "role": "player",
+          "xyxy": [
+            1118.531982421875,
+            8.721220016479492,
+            1141.654052734375,
+            53.453948974609375
+          ]
+        }
+      ],
+      "coverage": "All active match targets visible in this reviewed ROI; outside pixels not labelled; staff/bystanders excluded. COCO proposals corrected by agent; no independent reviewer."
+    }
+  ],
+  "quarantine_frames": [
+    {
+      "match_id": "117093",
+      "frame": 375,
+      "reason": "Unresolved overlapping/duplicate or distant bystander proposals; not admitted as full-frame labels."
+    },
+    {
+      "match_id": "118575",
+      "frame": 625,
+      "reason": "Unresolved overlapping/duplicate or distant bystander proposals; not admitted as full-frame labels."
+    },
+    {
+      "match_id": "128057",
+      "frame": 125,
+      "reason": "Unresolved overlapping/duplicate or distant bystander proposals; not admitted as full-frame labels."
+    }
+  ],
+  "media": "Real footage with artificial moving camera crop, not raw broadcast or CG simulation",
+  "independently_validated": false,
+  "training_performed": false
+}

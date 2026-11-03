@@ -2,6 +2,28 @@
 
 ## Trạng thái hiện tại
 
+Ngày03/11/2026: đã bổsung3clip côngkhai30giây1280×720/25fps từ
+SoccerTrackv2followcam bảncắtCCBY4 pinned5ca71d867ee073335abb24b771e0604ff22d1b88.
+Footagetrậnthật/cameraảoliazoom,khôngCG/khôngbroadcastgốc. Match117093/
+118575traincandidate,128057giữriêngtrướcinference,loạitoànmatchkhỏitrain.
+KhôngtảifilegatedSoccerTrackgốc;khôngdùngnhãnnoisymachinecủanguồn.
+
+Rà9mốc bằngCOCOpersonproposals/ảnhcontext/crop;nhận6ROI:train4vùng
+30player/2keeper/2ref;heldout2frame16player/1keeper/2ref. HaiROItrain
+cógiớihạndảimépchưarõ,khônggọiđềulàfullframe. Quarantine3mốcchồng/
+xa;ngườingoàiROI chưađượclấyđểtrainâm. 465ảnhv6khácnhau screenkhông
+near-imagehit;kiểmvideohash/decodeframe/nhãn,khôngđổitậpkiểmcũ.
+
+Khóamanifesttrướcv6/v7inferenceở640/1280:heldoutref0/2mọimodel;
+keeper1/1chỉv7multi640,cònlại0/1;player12–15/16. Chỉ2keyframe,
+khôngđộchínhxáccảclip/kiểmđộc lập;chưađủkếtluậntổngquáthóa.
+Giữclipheldout,khôngchuyểnsangtrainsaukhi xemđiểm. Chưatrainthêm.
+Thêmrelease/evaluate_role_sources.py,split/packet/2snapshot vàROLE_SOURCES_V8.md.
+20testđíchđạt;khôngruntime/schema/dependency/frontendthayđổi.
+Toànbộ558testPythonđạt,1networkdeselected,4warningcũ.
+Bướcsau thêmkeyframekeeper/refở2matchtrain,vàthêmmốchệthốngcho
+heldout128057;giữsplit,cầnthêmnguồnbroadcastlia thậtđểđánhgiákhácmiền.
+
 Ngày03/11/2026: đã chạyfixedrồimulti v7 đủ20epochmỗinhánh vàso3lớp
 ở640/1280. Fixedliêntục;multigiánđoạn sauepoch9,resumeoptimizer10–20,
 khôngbảođảmreplayRNGliêntục. Cùngdata369/128/35,weightsv6,tham số
