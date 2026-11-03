@@ -1,0 +1,421 @@
+{
+  "kind": "role_training_comparison_v3",
+  "protocol_sha256": "81b3dd76935bd61b048425e58fe40b25feb2af025ce5410f297c15f3c536b3f3",
+  "manifest_sha256": "d90352389509a63fecda8ffe50b7740b27fdbd8de9cc3b485f6e5119b948ca74",
+  "selection": {
+    "checks": {
+      "referee_ap50_gain": false,
+      "overall_map_guard": true,
+      "player_ap_guard": true,
+      "keeper_ap_guard": true
+    },
+    "preferred_by_validation": "baseline"
+  },
+  "models": {
+    "baseline": {
+      "validation": {
+        "map50": 0.5572323036331724,
+        "map50_95": 0.37151732763789574,
+        "classes": {
+          "player": {
+            "precision": 0.8120818134689582,
+            "recall": 0.806155166211489,
+            "map50": 0.857583152699035,
+            "map50_95": 0.6130178428157315
+          },
+          "goalkeeper": {
+            "precision": 0.7467606950513203,
+            "recall": 0.7051697235049301,
+            "map50": 0.7495687527472913,
+            "map50_95": 0.46874232459626386
+          },
+          "referee": {
+            "precision": 0.056920260370716624,
+            "recall": 0.2191780821917808,
+            "map50": 0.064545005453191,
+            "map50_95": 0.03279181550169174
+          }
+        }
+      },
+      "validation_fixed_confidence": {
+        "classes": {
+          "player": {
+            "tp": 1604,
+            "fp": 557,
+            "fn": 953,
+            "precision": 0.7422489588153632,
+            "recall": 0.6272976143918655
+          },
+          "goalkeeper": {
+            "tp": 33,
+            "fp": 12,
+            "fn": 59,
+            "precision": 0.7333333333333333,
+            "recall": 0.358695652173913
+          },
+          "referee": {
+            "tp": 35,
+            "fp": 907,
+            "fn": 257,
+            "precision": 0.037154989384288746,
+            "recall": 0.11986301369863013
+          }
+        },
+        "player_called_referee": 757,
+        "nonplayers_called_player": 176,
+        "confusion": {
+          "player": {
+            "player": 1604,
+            "goalkeeper": 1,
+            "referee": 757,
+            "missed": 195
+          },
+          "goalkeeper": {
+            "player": 44,
+            "goalkeeper": 33,
+            "referee": 0,
+            "missed": 15
+          },
+          "referee": {
+            "player": 132,
+            "goalkeeper": 0,
+            "referee": 35,
+            "missed": 125
+          }
+        },
+        "unmatched_predictions": {
+          "player": 381,
+          "referee": 150,
+          "goalkeeper": 11
+        },
+        "frames": 128,
+        "confidence": 0.25,
+        "matching_iou": 0.5,
+        "note": "Same provided/agent labels for both models; not independent ground truth. No field-boundary filtering in detector-only evaluation."
+      },
+      "known_regression_test": {
+        "map50": 0.5577535933730225,
+        "map50_95": 0.4123106825364157,
+        "classes": {
+          "player": {
+            "precision": 0.8319059950986422,
+            "recall": 0.9697841726618706,
+            "map50": 0.9506665432221757,
+            "map50_95": 0.7282905245143605
+          },
+          "goalkeeper": {
+            "precision": 0.4667817804038318,
+            "recall": 0.4166666666666667,
+            "map50": 0.47688733503245945,
+            "map50_95": 0.3529422736320239
+          },
+          "referee": {
+            "precision": 0.764936703280096,
+            "recall": 0.13157894736842105,
+            "map50": 0.24570690186443236,
+            "map50_95": 0.15569924946286254
+          }
+        }
+      },
+      "test_fixed_confidence": {
+        "classes": {
+          "player": {
+            "tp": 673,
+            "fp": 123,
+            "fn": 22,
+            "precision": 0.8454773869346733,
+            "recall": 0.9683453237410072
+          },
+          "goalkeeper": {
+            "tp": 3,
+            "fp": 2,
+            "fn": 9,
+            "precision": 0.6,
+            "recall": 0.25
+          },
+          "referee": {
+            "tp": 10,
+            "fp": 0,
+            "fn": 66,
+            "precision": 1.0,
+            "recall": 0.13157894736842105
+          }
+        },
+        "player_called_referee": 0,
+        "nonplayers_called_player": 59,
+        "confusion": {
+          "player": {
+            "player": 673,
+            "goalkeeper": 0,
+            "referee": 0,
+            "missed": 22
+          },
+          "goalkeeper": {
+            "player": 7,
+            "goalkeeper": 3,
+            "referee": 0,
+            "missed": 2
+          },
+          "referee": {
+            "player": 52,
+            "goalkeeper": 0,
+            "referee": 10,
+            "missed": 14
+          }
+        },
+        "unmatched_predictions": {
+          "player": 64,
+          "goalkeeper": 2
+        },
+        "frames": 35,
+        "confidence": 0.25,
+        "matching_iou": 0.5,
+        "note": "Same provided/agent labels for both models; not independent ground truth. No field-boundary filtering in detector-only evaluation."
+      }
+    },
+    "balanced": {
+      "validation": {
+        "map50": 0.5540988485187917,
+        "map50_95": 0.3757307221701506,
+        "classes": {
+          "player": {
+            "precision": 0.8374781197705095,
+            "recall": 0.6730543605788033,
+            "map50": 0.845213836769802,
+            "map50_95": 0.6078449080389465
+          },
+          "goalkeeper": {
+            "precision": 0.6425280191546381,
+            "recall": 0.75,
+            "map50": 0.7509347839738993,
+            "map50_95": 0.48677896216723715
+          },
+          "referee": {
+            "precision": 0.05025746289045102,
+            "recall": 0.17469840998958647,
+            "map50": 0.06614792481267365,
+            "map50_95": 0.03256829630426827
+          }
+        }
+      },
+      "validation_fixed_confidence": {
+        "classes": {
+          "player": {
+            "tp": 1571,
+            "fp": 457,
+            "fn": 986,
+            "precision": 0.77465483234714,
+            "recall": 0.6143918654673446
+          },
+          "goalkeeper": {
+            "tp": 44,
+            "fp": 32,
+            "fn": 48,
+            "precision": 0.5789473684210527,
+            "recall": 0.4782608695652174
+          },
+          "referee": {
+            "tp": 43,
+            "fp": 934,
+            "fn": 249,
+            "precision": 0.044012282497441144,
+            "recall": 0.14726027397260275
+          }
+        },
+        "player_called_referee": 801,
+        "nonplayers_called_player": 188,
+        "confusion": {
+          "player": {
+            "player": 1571,
+            "goalkeeper": 10,
+            "referee": 801,
+            "missed": 175
+          },
+          "goalkeeper": {
+            "player": 40,
+            "goalkeeper": 44,
+            "referee": 0,
+            "missed": 8
+          },
+          "referee": {
+            "player": 148,
+            "goalkeeper": 0,
+            "referee": 43,
+            "missed": 101
+          }
+        },
+        "unmatched_predictions": {
+          "player": 269,
+          "referee": 133,
+          "goalkeeper": 22
+        },
+        "frames": 128,
+        "confidence": 0.25,
+        "matching_iou": 0.5,
+        "note": "Same provided/agent labels for both models; not independent ground truth. No field-boundary filtering in detector-only evaluation."
+      },
+      "known_regression_test": {
+        "map50": 0.5735621716454542,
+        "map50_95": 0.42153066577256726,
+        "classes": {
+          "player": {
+            "precision": 0.8049106580294758,
+            "recall": 0.9854565700409232,
+            "map50": 0.948770759022311,
+            "map50_95": 0.7394887861171513
+          },
+          "goalkeeper": {
+            "precision": 0.4284912322215808,
+            "recall": 0.5833333333333334,
+            "map50": 0.47093839852529856,
+            "map50_95": 0.3478260191074135
+          },
+          "referee": {
+            "precision": 0.5709018147822452,
+            "recall": 0.17105263157894737,
+            "map50": 0.3009773573887531,
+            "map50_95": 0.17727719209313691
+          }
+        }
+      },
+      "test_fixed_confidence": {
+        "classes": {
+          "player": {
+            "tp": 683,
+            "fp": 130,
+            "fn": 12,
+            "precision": 0.8400984009840098,
+            "recall": 0.9827338129496402
+          },
+          "goalkeeper": {
+            "tp": 4,
+            "fp": 2,
+            "fn": 8,
+            "precision": 0.6666666666666666,
+            "recall": 0.3333333333333333
+          },
+          "referee": {
+            "tp": 11,
+            "fp": 6,
+            "fn": 65,
+            "precision": 0.6470588235294118,
+            "recall": 0.14473684210526316
+          }
+        },
+        "player_called_referee": 0,
+        "nonplayers_called_player": 62,
+        "confusion": {
+          "player": {
+            "player": 683,
+            "goalkeeper": 0,
+            "referee": 0,
+            "missed": 12
+          },
+          "goalkeeper": {
+            "player": 7,
+            "goalkeeper": 4,
+            "referee": 0,
+            "missed": 1
+          },
+          "referee": {
+            "player": 55,
+            "goalkeeper": 0,
+            "referee": 11,
+            "missed": 10
+          }
+        },
+        "unmatched_predictions": {
+          "player": 68,
+          "referee": 6,
+          "goalkeeper": 2
+        },
+        "frames": 35,
+        "confidence": 0.25,
+        "matching_iou": 0.5,
+        "note": "Same provided/agent labels for both models; not independent ground truth. No field-boundary filtering in detector-only evaluation."
+      }
+    }
+  },
+  "training": {
+    "model_id": "small",
+    "status": "complete",
+    "protocol_sha256": "81b3dd76935bd61b048425e58fe40b25feb2af025ce5410f297c15f3c536b3f3",
+    "manifest_sha256": "d90352389509a63fecda8ffe50b7740b27fdbd8de9cc3b485f6e5119b948ca74",
+    "initial_weights_sha256": "5b07c6ed1e7374c21656dad5e64dfc4d0a0f3e4f66b0068fdaeb051bc7602958",
+    "python": "3.11.3",
+    "torch": "2.8.0+cu128",
+    "ultralytics": "8.3.221",
+    "gpu": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+    "test_opened": false,
+    "validation": {
+      "map50": 0.5540988485187917,
+      "map50_95": 0.3757307221701506,
+      "classes": {
+        "player": {
+          "precision": 0.8374781197705095,
+          "recall": 0.6730543605788033,
+          "map50": 0.845213836769802,
+          "map50_95": 0.6078449080389465
+        },
+        "goalkeeper": {
+          "precision": 0.6425280191546381,
+          "recall": 0.75,
+          "map50": 0.7509347839738993,
+          "map50_95": 0.48677896216723715
+        },
+        "referee": {
+          "precision": 0.05025746289045102,
+          "recall": 0.17469840998958647,
+          "map50": 0.06614792481267365,
+          "map50_95": 0.03256829630426827
+        }
+      }
+    },
+    "best_weights": "data/processed/role_training_v3/small/training/weights/best.pt",
+    "best_weights_sha256": "49c506916dde438311ef39a0a77330bbce1c1b60c0d9311f307f6a7dc26b53b2",
+    "images": {
+      "test": 35,
+      "train": 399,
+      "val": 128
+    },
+    "elapsed_s": 852.3793904999998,
+    "resumed_after_interruption": true
+  },
+  "pipeline_promoted": false,
+  "independently_validated": false,
+  "test_previously_inspected": true,
+  "images": {
+    "test": 35,
+    "train": 399,
+    "val": 128
+  },
+  "excluded_base_images": [
+    {
+      "image": "images/train/40cd38_7_6_png.rf.81d37056bceae603a917ca7775c114a8.png",
+      "image_sha256": "ac65c3a5fa2247524c78d204f3e93006e9932adc4f18af350375ff70590ff37d"
+    },
+    {
+      "image": "images/train/a9f16c_2_10_png.rf.1f142141ca710d8cfe79ff3aad386944.png",
+      "image_sha256": "bb6064be154c5550c74774a49c97f0200f19eb60aa0ba43dc684a56b80b5612b"
+    },
+    {
+      "image": "images/train/121364_7_10_png.rf.d612470c8674d649a7a09ef6ce000e72.png",
+      "image_sha256": "cbb650672e0cbbca526dd0f32fe88107a0c79f4744e7f2a1ce9ef8a47dd03ce8"
+    },
+    {
+      "image": "images/train/2e57b9_1_10_png.rf.ec1ea28433a4f736551f4040e902e236.png",
+      "image_sha256": "204836972e831e5c76693028398529f620e8bea6c7e1bc020587b831efba668d"
+    },
+    {
+      "image": "images/train/55c9d1_3_1_png.rf.07c7686af5672912560847946b4b001c.png",
+      "image_sha256": "e0f83e6860e016673ec790d52848088b00ecce231f5c3191fcb516354b636c43"
+    }
+  ],
+  "model_key_note": "balanced denotes candidate small v3; baseline denotes small v1",
+  "comparison_to_v2": {
+    "validation_player_called_referee_before": 940,
+    "after": 801,
+    "reduction_fraction": 0.1478723404255319,
+    "same_validation_labels_and_confidence": true
+  }
+}

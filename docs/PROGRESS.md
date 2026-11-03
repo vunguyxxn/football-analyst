@@ -2,6 +2,28 @@
 
 ## Trạng thái hiện tại
 
+Ngày 03/11/2026: đã ghép 58 ROI mới vào train v2 và huấn luyện small v3
+đủ20epoch; train399/val128/test35. Giữ bytes ảnh/nhãn val/test, không
+đổi runtime. Khởi tạo cùng small v1 như v2;640/batch4/AdamW lr0,0003,
+AMPoff,seed20261102. Phiên bị ngắt sau epoch18, resume last.pt và
+optimizer để chạy19–20, không bắt đầu một lịch mới.
+
+Ngưỡng0,25: player→referee trên val940(v2)→801(v3), giảm14,8%; vẫn
+cao hơn v1 757 (tăng5,8%). Referee val TP43/292,FP934,precision4,40%,
+recall14,73%; v2 TP39,FP1058. Referee AP50 v3 6,61%, v1 6,45%, chưa
+đạt gate tăng5điểm; guard tổng/player/keeper đạt. Khóa baseline trước
+test, không promote. Test hồi quy đã biết: player→referee0 cả3bản;
+referee TP11/76,FP6 (v2 TP13,FP9), mAP50–95 42,15%. Không khẳng định
+đã giải quyết phân vai trò hoặc có kiểm định độc lập.
+
+Thêm merge_role_v3.py, protocol/result_v3 và ROLE_TRAINING_V3.md.
+535 Python test đạt,1network deselected,4warning cũ; đã kiểm dataset,
+hash weights và so sánh detector trên cùng tập kiểm. Best weights local
+role_training_v3/small/training/weights/best.pt, SHA256
+49c506916dde438311ef39a0a77330bbce1c1b60c0d9311f307f6a7dc26b53b2.
+Không đổi DATA_CONTRACT/frontend/dependency. Bước tiếp theo cần điều
+tra các nhầm lẫn còn lại và ngữ cảnh toàn sân; chưa nên thay model app.
+
 Đã tuyển chọn mẫu đối chiếu vai trò cùng màu áo v3 để xử lý lỗi cầu thủ
 vàng bị gọi trọng tài; chưa huấn luyện v3 hoặc đổi detector ứng dụng.
 Gói role_counterexamples_v3.json có 11 ảnh phát sóng thật / 4 nhóm cảnh,
