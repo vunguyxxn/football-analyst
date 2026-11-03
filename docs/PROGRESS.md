@@ -2,6 +2,44 @@
 
 ## Trạng thái hiện tại
 
+Ngày 04/11/2026: hoàn tất kiểm kê độ phủ train v10, chưa thêm dữ liệu/train.
+405 lượt ảnh =311 đơn vị pixel–label, thuộc248 khung nguồn theo SHA/frame;
+không gọi các khung/prefix là trận độc lập. GT keeper199/ref560 theo unit,
+235/636 lượt box; gộp cùng parent/role IoU>=0.7 còn199/550 cụm box.
+Đã rà màu759 crop, toàn bộ35 ref tối bằng context rộng; vị trí525 ref màu
+khác để unknown, không coi là không có mẫu. Không inference val/test/heldout.
+
+Keeper nhỏ<24px tại long-side640:190 unit box,205 lượt. Nhóm màu gần đúng:
+vàng/xanh lá/ánh vàng101,đỏ/cam/hồng51,xanh lam/ngọc24,sáng/xám/trắng14.
+Keeper xanh nhỏ17/24 thuộc prefix42ba34,6/24 thuộc573e61; prefix không
+phải danh tính trận. V8/v9 thêm6 keeper đỏ/vàng, chỉ1/6 nhỏ sau crop,
+không thêm keeper xanh/sáng. Không kết luận thiếu mọi keeper nhỏ.
+
+Ref tối35 unit box/58 lượt, từ20 khung nguồn:12 biên xa,16 giữa sân,
+6 biên gần,1 chưa chắc staff/official. Cả12 biên xa nhỏ<24px,12 khung/
+12 lượt, prefix121364 có11,a9f16c có1; cùng kiểu sân/bộ áo/bảng quảng cáo,
+không gọi là hai trận độc lập. V8/v9 thêm2 ref giữa sân và2 biên gần,
+không tăng độ phủ ref tối biên xa. Đây là nhóm thiếu đa dạng rõ nhất.
+
+47 ROI ref cũ tạo87 lượt: cả47 trở thành>=48px trên ảnh nạp train,
+nhưng32/47 vốn<24px trên khung gốc. Crop phóng lớn không thay thế ngữ cảnh
+assistant nhỏ cạnh quảng cáo. Các thống kê kích thước đều trước augmentation.
+
+Hai cờ chất lượng chưa sửa GT: goalkeeper-114, ảnh744b27_3_5...ad8d209...
+label index17 có dấu hiệu assistant áo vàng cạnh biên gần; referee-158,
+ảnh42ba34_3_1...5bb4bc1... label index4 mặc tracksuit đen cạnh khu kỹ thuật,
+staff/official chưa chắc. Native context C131/C64 và hash lưu trong review.
+Không lấy một case đáng nghi làm nguyên nhân cho toàn bộ hồi quy model.
+
+Thêm audit_role_train_coverage.py,7 test,ROLE_TRAIN_COVERAGE_V10.md,
+review/summary fixtures; inventory/context cục bộ trong data/processed.
+575 test toàn bộ đạt,1networkdeselected,4warningcũ;7testđích đạt sau thêm
+guard review/prefix. Hai lệnh inventory/summarize thành công, manifest,
+ảnh/labels giữ nguyên. Không đổi runtime/schema/dependency/frontend.
+Bước tiếp theo: chốt bản làm sạch hai case trước train; sau đó ưu tiên
+nguồn khác bối cảnh cho keeper nhỏ xanh/sáng và ref tối biên xa. Chưa
+tăng epoch/lặp ROI hoặc đưa val/test/heldout vào train.
+
 Sau v10: hoàn tất audit từng nhãn keeper/ref trên val, không train thêm.
 Tái hiện chính xác toàn bộ TP/FP/FN và confusion cả ba lớp của v6/v10 ở
 640/1280. Giữ confidence0.25 / NMS0.7 / matching IoU0.5 / max_det300;

@@ -1,0 +1,362 @@
+{
+  "date": "2026-11-04",
+  "dataset_manifest_sha256": "78b88f0df6be2f1f03eb98c3ef17139b009e760f816f620461f8d182c84a46d0",
+  "inventory_sha256": "a10cd1ed7bb46dc03f219f28e96adf515aeff6b8e2a581f530aeffd69c4ced7b",
+  "review_packet_sha256": "ba7ce69f4b2e4f2a513a1b6a5386502acf04054da69927db5d702bb93a3cb9e3",
+  "image_exposures": 405,
+  "unique_pixel_label_units": 311,
+  "source_parent_frames": 248,
+  "box_exposures": {
+    "referee": {
+      "under24": 423,
+      "24to48": 114,
+      "48plus": 99
+    },
+    "player": {
+      "under24": 3944,
+      "24to48": 823,
+      "48plus": 98
+    },
+    "goalkeeper": {
+      "under24": 205,
+      "24to48": 26,
+      "48plus": 4
+    }
+  },
+  "unique_unit_boxes": {
+    "referee": {
+      "under24": 414,
+      "24to48": 96,
+      "48plus": 50
+    },
+    "player": {
+      "under24": 3818,
+      "24to48": 547,
+      "48plus": 50
+    },
+    "goalkeeper": {
+      "under24": 190,
+      "24to48": 8,
+      "48plus": 1
+    }
+  },
+  "parent_frame_box_clusters": {
+    "referee": 550,
+    "goalkeeper": 199
+  },
+  "appearance": {
+    "goalkeeper": {
+      "blue_cyan": {
+        "unique_unit_boxes": 25,
+        "box_exposures": 31,
+        "small_unique_unit_boxes": 24,
+        "small_box_exposures": 27,
+        "source_parent_frames": 25,
+        "families": {
+          "red_stadiums": 23,
+          "german_FCS_EBS_blue_yellow_ground": 1,
+          "euro2016_GER_FRA_broadcast": 1
+        },
+        "small_filename_prefixes": {
+          "42ba34": 17,
+          "573e61": 6,
+          "non_external_or_unknown": 1
+        }
+      },
+      "light_neutral": {
+        "unique_unit_boxes": 14,
+        "box_exposures": 17,
+        "small_unique_unit_boxes": 14,
+        "small_box_exposures": 17,
+        "source_parent_frames": 14,
+        "families": {
+          "red_stadiums": 13,
+          "rai_replay_blue_white_broadcast": 1
+        },
+        "small_filename_prefixes": {
+          "121364": 2,
+          "40cd38": 5,
+          "55c9d1": 5,
+          "573e61": 1,
+          "non_external_or_unknown": 1
+        }
+      },
+      "red_orange_pink": {
+        "unique_unit_boxes": 54,
+        "box_exposures": 69,
+        "small_unique_unit_boxes": 51,
+        "small_box_exposures": 57,
+        "source_parent_frames": 54,
+        "families": {
+          "red_stadiums": 49,
+          "las_palmas_leganes": 2,
+          "soccertrack-match-118575": 2,
+          "soccertrack-match-117093": 1
+        },
+        "small_filename_prefixes": {
+          "42ba34": 17,
+          "2e57b9": 27,
+          "40cd38": 5,
+          "non_external_or_unknown": 2
+        }
+      },
+      "yellow_green_gold": {
+        "unique_unit_boxes": 106,
+        "box_exposures": 118,
+        "small_unique_unit_boxes": 101,
+        "small_box_exposures": 104,
+        "source_parent_frames": 103,
+        "families": {
+          "red_stadiums": 96,
+          "euro_red_white": 6,
+          "rai_replay_blue_white_broadcast": 1,
+          "soccertrack-match-118575": 3
+        },
+        "small_filename_prefixes": {
+          "573e61": 9,
+          "744b27": 27,
+          "a9f16c": 20,
+          "121364": 5,
+          "2e57b9": 15,
+          "54745b": 10,
+          "c01561": 8,
+          "non_external_or_unknown": 7
+        }
+      }
+    },
+    "referee": {
+      "blue_cyan": {
+        "unique_unit_boxes": 162,
+        "box_exposures": 171,
+        "small_unique_unit_boxes": 109,
+        "small_box_exposures": 115,
+        "source_parent_frames": 72,
+        "families": {
+          "red_stadiums": 115,
+          "euro_red_white": 44,
+          "rai_replay_blue_white_broadcast": 2,
+          "esp_bel_women": 1
+        },
+        "small_filename_prefixes": {
+          "42ba34": 68,
+          "40cd38": 30,
+          "non_external_or_unknown": 11
+        }
+      },
+      "dark": {
+        "unique_unit_boxes": 35,
+        "box_exposures": 58,
+        "small_unique_unit_boxes": 24,
+        "small_box_exposures": 27,
+        "source_parent_frames": 20,
+        "families": {
+          "red_stadiums": 29,
+          "euro2016_GER_FRA_broadcast": 1,
+          "las_palmas_leganes": 1,
+          "soccertrack-match-117093": 2,
+          "soccertrack-match-118575": 2
+        },
+        "small_filename_prefixes": {
+          "a9f16c": 1,
+          "121364": 22,
+          "non_external_or_unknown": 1
+        }
+      },
+      "red_pink": {
+        "unique_unit_boxes": 37,
+        "box_exposures": 61,
+        "small_unique_unit_boxes": 25,
+        "small_box_exposures": 25,
+        "source_parent_frames": 18,
+        "families": {
+          "red_stadiums": 34,
+          "german_FCS_EBS_blue_yellow_ground": 1,
+          "libertadores_yellow_navy": 2
+        },
+        "small_filename_prefixes": {
+          "54745b": 25
+        }
+      },
+      "yellow_green": {
+        "unique_unit_boxes": 326,
+        "box_exposures": 346,
+        "small_unique_unit_boxes": 256,
+        "small_box_exposures": 256,
+        "source_parent_frames": 133,
+        "families": {
+          "red_stadiums": 326
+        },
+        "small_filename_prefixes": {
+          "573e61": 44,
+          "744b27": 69,
+          "a9f16c": 40,
+          "2e57b9": 82,
+          "55c9d1": 10,
+          "c01561": 11
+        }
+      }
+    }
+  },
+  "origin_geometry": {
+    "base_full_frame/referee": {
+      "unique_unit_boxes": 501,
+      "exposures": 501,
+      "loaded_size_bins": {
+        "under24": 411,
+        "24to48": 90
+      },
+      "source_size_bins": {
+        "under24": 411,
+        "24to48": 90
+      }
+    },
+    "base_full_frame/goalkeeper": {
+      "unique_unit_boxes": 187,
+      "exposures": 187,
+      "loaded_size_bins": {
+        "under24": 185,
+        "24to48": 2
+      },
+      "source_size_bins": {
+        "under24": 185,
+        "24to48": 2
+      }
+    },
+    "reviewed_roi/referee": {
+      "unique_unit_boxes": 47,
+      "exposures": 87,
+      "loaded_size_bins": {
+        "48plus": 47
+      },
+      "source_size_bins": {
+        "under24": 32,
+        "24to48": 15
+      }
+    },
+    "reviewed_full_frame/goalkeeper": {
+      "unique_unit_boxes": 6,
+      "exposures": 24,
+      "loaded_size_bins": {
+        "24to48": 2,
+        "under24": 4
+      },
+      "source_size_bins": {
+        "24to48": 2,
+        "under24": 4
+      }
+    },
+    "reviewed_full_frame/referee": {
+      "unique_unit_boxes": 8,
+      "exposures": 32,
+      "loaded_size_bins": {
+        "24to48": 5,
+        "under24": 3
+      },
+      "source_size_bins": {
+        "24to48": 5,
+        "under24": 3
+      }
+    },
+    "reviewed_source_roi/referee": {
+      "unique_unit_boxes": 4,
+      "exposures": 16,
+      "loaded_size_bins": {
+        "24to48": 1,
+        "48plus": 3
+      },
+      "source_size_bins": {
+        "24to48": 3,
+        "48plus": 1
+      }
+    },
+    "reviewed_source_roi/goalkeeper": {
+      "unique_unit_boxes": 6,
+      "exposures": 24,
+      "loaded_size_bins": {
+        "under24": 1,
+        "24to48": 4,
+        "48plus": 1
+      },
+      "source_size_bins": {
+        "under24": 2,
+        "24to48": 4
+      }
+    }
+  },
+  "dark_referee": {
+    "unique_unit_boxes": 35,
+    "exposures": 58,
+    "context_counts": {
+      "far_touchline": 12,
+      "interior": 16,
+      "near_touchline": 6,
+      "uncertain_staff_or_official": 1
+    },
+    "confirmed_far_ids": [
+      "referee-16",
+      "referee-18",
+      "referee-20",
+      "referee-23",
+      "referee-24",
+      "referee-28",
+      "referee-30",
+      "referee-32",
+      "referee-401",
+      "referee-403",
+      "referee-406",
+      "referee-410"
+    ],
+    "far_source_frames": 12,
+    "far_exposures": 12,
+    "far_loaded_small_count": 12,
+    "far_filename_prefixes": {
+      "a9f16c": 1,
+      "121364": 11
+    },
+    "far_family_counts": {
+      "red_stadiums": 12
+    },
+    "remaining_referee_positions_unknown": 525
+  },
+  "quality_flags": [
+    {
+      "id": "referee-158",
+      "image_sha256": "8d4f9eeb35dc9369745963f0f07e88d2b3e2b27ba0bea639f9997c90ea87ca12",
+      "label_sha256": "6f72ae584603778247b92031a113636ed78dd90a8121c9b65d0fc53f784030b7",
+      "shirt_appearance": "dark",
+      "filename_prefix": "42ba34",
+      "context": "uncertain_staff_or_official",
+      "quality_flag": "Uncertain match official versus staff: black tracksuit by technical area, blue official kit elsewhere in frame C64. Do not count as confirmed dark referee.",
+      "board_background": false,
+      "image": "images/train/42ba34_3_1_png.rf.5bb4bc1a81118c5f226a108e76bbad8a.png",
+      "label_id": 4,
+      "xyxy": [
+        1006.9999996800001,
+        754.0000003800001,
+        1037.99999904,
+        841.99999986
+      ]
+    },
+    {
+      "id": "goalkeeper-114",
+      "image_sha256": "61e790aabe23908676fd7cf7306b2c6b528fc188dbc85193e4177dfdf3f6ff56",
+      "label_sha256": "8b875ecf25a83067b8c6e838452f028a0976a683a53924d1f784270a4dd51993",
+      "shirt_appearance": "yellow_green_gold",
+      "filename_prefix": "744b27",
+      "context": "not_reviewed_for_position",
+      "quality_flag": "Suspected wrong role: yellow near-touchline assistant labelled goalkeeper; body/position seen in native C131.",
+      "image": "images/train/744b27_3_5_png.rf.ad8d20930f605327cf07d41e51e9a6ef.png",
+      "label_id": 17,
+      "xyxy": [
+        1716.99999936,
+        851.9999995799999,
+        1758.9999993600002,
+        946.99999962
+      ]
+    }
+  ],
+  "scope": "All759 role crops visually reviewed for broad shirt appearance; all35 dark referee contexts reviewed for far/near/interior, other referee positions intentionally unknown. Agent review only, no training GT changes. Appearance group names approximate, not calibrated kit-color labels.",
+  "geometry_scope": "Train only. Cluster same source frame/role atIoU>=.7 to screen overlapping ROI observations, not unique people/matches. Sizes before augmentation at640 long side; loaded crop and source frame geometry separately. Visual family not official match identity.",
+  "training_performed": false,
+  "labels_modified": false
+}
