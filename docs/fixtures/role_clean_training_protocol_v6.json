@@ -1,0 +1,120 @@
+{
+  "kind": "clean_role_training_v6",
+  "date": "2026-11-03",
+  "source_revision": "e8b8cea002692efd74c945fcdad63e729adc5671",
+  "source_repo": "martinjolif/football-player-detection",
+  "source_license_declared": "CC BY 4.0",
+  "inventory": "docs/fixtures/football_detection_inventory.json",
+  "inventory_sha256": "71b4dec3d6989212ab35d938c17c6a2ba968e22b07961a1b55d5d8e0ff10c1ac",
+  "local_annotations": "docs/fixtures/local_role_annotations_v1.json",
+  "local_annotations_sha256": "afe52ae4b0f5c5fe26e56590d542b0edb8ec28139114ca53a340a1d8f7ff5732",
+  "target_names": [
+    "player",
+    "goalkeeper",
+    "referee"
+  ],
+  "source_mapping": {
+    "0": null,
+    "1": 1,
+    "2": 0,
+    "3": 2
+  },
+  "prefix_families": {
+    "08fd33": "white_dark_euro",
+    "121364": "red_stadiums",
+    "2e57b9": "red_stadiums",
+    "40cd38": "red_stadiums",
+    "42ba34": "red_stadiums",
+    "4b770a": "yellow_stadium",
+    "538438": "yellow_stadium",
+    "54745b": "red_stadiums",
+    "55c9d1": "red_stadiums",
+    "573e61": "red_stadiums",
+    "744b27": "red_stadiums",
+    "798b45": "yellow_stadium",
+    "a9f16c": "red_stadiums",
+    "c01561": "red_stadiums",
+    "cd987c": "yellow_stadium"
+  },
+  "local_families": {
+    "Video Project 12.mp4": "white_dark_euro",
+    "Video Project 15.mp4": "euro_red_white",
+    "Video Project 15 (1).mp4": "euro_red_white",
+    "Video Project 15 (2).mp4": "euro_red_white"
+  },
+  "family_splits": {
+    "white_dark_euro": "test",
+    "yellow_stadium": "val",
+    "red_stadiums": "train",
+    "euro_red_white": "train"
+  },
+  "split_basis": "Conservative visual venue/kit families, all prefixes of a potentially related family kept together. External08fd33 shares visible source with Project12: all held out. Euro red/white clips kept together in train. No official match identity verification. Filename prefix alone is NOT called match-disjoint.",
+  "models": [
+    {
+      "id": "small",
+      "path": "data/raw/role_detector_v1/yolo11s.pt",
+      "sha256": "85a76fe86dd8afe384648546b56a7a78580c7cb7b404fc595f97969322d502d5"
+    }
+  ],
+  "small_source": {
+    "repo": "ultralytics/assets",
+    "tag": "v8.3.0",
+    "release_id": 177482232,
+    "asset_id": 196201263,
+    "url": "https://github.com/ultralytics/assets/releases/download/v8.3.0/yolo11s.pt",
+    "sha256": "85a76fe86dd8afe384648546b56a7a78580c7cb7b404fc595f97969322d502d5",
+    "bytes": 19313732,
+    "api_digest": null
+  },
+  "epochs": 20,
+  "image_size": 640,
+  "batch": 4,
+  "amp": false,
+  "optimizer": "AdamW",
+  "lr0": 0.0003,
+  "seed": 20261102,
+  "workers": 0,
+  "mosaic": 0.5,
+  "close_mosaic": 3,
+  "selection": "Best checkpoint by validation fitness. Compare baseline and candidate on unchanged validation before regression test; do not select or tune using test.",
+  "test_confidence": 0.001,
+  "test_nms_iou": 0.7,
+  "max_detections": 300,
+  "runtime_confidence": 0.25,
+  "acceptance": "No automatic live promotion. Test already inspected in v1: known regression set only, not a blind independent evaluation. No claim of pure causal sampling effect: warm-start, extra updates and sampling change together.",
+  "base_protocol": "docs/fixtures/role_finetune_protocol_v1.json",
+  "base_protocol_sha256": "43199bc0b3511e3b477cb903eca4a73af78806ff7006ce5fbca3851ca16645fe",
+  "base_dataset": "data/processed/role_dataset_v1_final",
+  "base_manifest_sha256": "390626f43158857feafac2823799a405000d9fa6b4007e7c8f97e65cd0e15255",
+  "annotation_packet": "docs/fixtures/referee_annotations_v2.json",
+  "annotation_packet_sha256": "17180798a628c0e0012d4f53734c95aef47ce05be9dc5964ca219688fd4d8bd6",
+  "expected_excluded_base_images": 5,
+  "sampling": {
+    "referee_color_repeats": {
+      "light_blue": 1,
+      "yellow": 3,
+      "red": 6,
+      "black": 6
+    },
+    "player_hard_negative_repeats": 1,
+    "staff_background_repeats": 2,
+    "maximum_repeats": 6
+  },
+  "initialization": "COCO small, fresh AdamW; no role fine-tune checkpoint reused",
+  "validation_gate": {
+    "referee_map50_gain_min": 0.05,
+    "overall_map50_95_drop_max": 0.03,
+    "player_map50_drop_max": 0.03,
+    "goalkeeper_map50_drop_max": 0.05
+  },
+  "merge_base_dataset": "data/processed/role_balanced_dataset_v2",
+  "merge_base_manifest_sha256": "4603bd9d616069bbab8588558d26270411e16d1f11a9338461953eddc4bea230",
+  "comparison_baseline": {
+    "id": "small",
+    "path": "data/processed/role_training_v1/small_final/training/weights/best.pt",
+    "sha256": "5b07c6ed1e7374c21656dad5e64dfc4d0a0f3e4f66b0068fdaeb051bc7602958"
+  },
+  "clean_full_packet": "docs/fixtures/clean_full_frame_roles_v5.json",
+  "clean_full_packet_sha256": "fe35a7d6d8d383d0656293b7b8d797decc629e2cd5623fcb288cb80b5e606d15",
+  "full_frame_repeats": 4
+}

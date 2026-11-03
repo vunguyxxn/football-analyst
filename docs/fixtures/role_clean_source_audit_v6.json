@@ -1,0 +1,16 @@
+{
+  "reviewed_base_images": 212,
+  "base_visual_review": "All 212 contact-sheet frames inspected for real camera context; not a fresh per-box annotation or verified match identity audit.",
+  "base_manifest_sha256": "4603bd9d616069bbab8588558d26270411e16d1f11a9338461953eddc4bea230",
+  "dataset_manifest_sha256": "295fb4d10a21beacf9b7dd655b9c19145608ca7f5c874c405cd75c0fb2665ee8",
+  "full_frame_unique": 7,
+  "full_frame_exposures": 28,
+  "images": {
+    "test": 35,
+    "train": 369,
+    "val": 128
+  },
+  "quarantine_base_images_preserved": 5,
+  "excluded_media": "No role_counterexamples_v3 ROI merged; no v3 checkpoint reused",
+  "initialization_sha256": "85a76fe86dd8afe384648546b56a7a78580c7cb7b404fc595f97969322d502d5"
+}

@@ -2,6 +2,29 @@
 
 ## Trạng thái hiện tại
 
+Ngày03/11/2026: hoàn thành kiểm nguồn nền/ghép/train smallv6. Xem212
+ảnh nềnv2 qua6sheet: ngữ cảnh quay trận thật, không thấy mediaVillarreal;
+kiểm bytes ảnh/nhãn, giữ loại5ảnhquarantine. Đây không phải kiểm độc
+lập mọibbox/trận. Giữ341trainv2,thêm7fullframev5×4=28lượt:train369,
+val128/test35byteskhôngđổi; không nhập ROIv3. Khởi tạoCOCOsmallgốc,
+không dùng weightsrolev1/v2/v3;20epoch640batch4AMPoffAdamWlr0,0003,
+seed20261102,877,98giây. Không quy kết cải thiện riêng cho7ảnh mới.
+
+Valplayer→ref757→409(giảm45,97%so v1),refTP35→63/292,FP907→511,
+precision10,98%,recall21,58%;keeperTP33→50/92,mAP37,15→41,78%.
+RefAP50 6,45→10,46%,tăng4,00điểm chưa đạt gate+5;3guardkhácđạt.
+Khóa baseline trước test,khôngpromote. Testhồiquyknown:refTP15/76,
+FP8,player→ref0→3,keeperTP6/12; có đánh đổi,không phải blindtest.
+
+Thêmprepare_clean_roles.py, hỗ trợcomparison_baseline riêngkhởi tạo
+trongcompare_role_models.py;sourceaudit/protocol/resultv6 và
+ROLE_CLEAN_TRAINING_V6.md.542testđạt,1networkdeselected,4warningcũ;
+kiểm lại dataset/protected split/weights sau train. Bestweightslocal
+role_clean_training_v6/small/training/weights/best.pt SHA256
+6d99be77ca79b3e3c924e7568a061bf151909da62f9e9b4708595cef46510c8f.
+Bước sau rà lỗi v6/clip thật chưa train, chưa coi vai trò đã giải quyết;
+không đổi runtime,hiệu chỉnh sân,DATA_CONTRACT/dependency/frontend.
+
 Ngày03/11/2026: hoàn thành release train bổ sung toàn cảnh v5:7ảnh,
 115nhãn (101player/6keeper/8ref),43người<24px,71từ24–48px ở640.
 Tải/screen276ảnh pinnedGitHub,188HSVứng viên nhưng chỉ nhận4ảnh mới

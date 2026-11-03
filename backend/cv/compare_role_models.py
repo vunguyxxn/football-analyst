@@ -84,7 +84,7 @@ def compare(root, dataset, protocol_path, run, output):
     status = json.loads((run / "status.json").read_text())
     if status["status"] != "complete" or status["protocol_sha256"] != digest(protocol_path) or status["manifest_sha256"] != digest(dataset / "manifest.json"):
         raise ValueError("Incomplete or stale training run")
-    baseline_spec = protocol["models"][0]
+    baseline_spec = protocol.get("comparison_baseline", protocol["models"][0])
     paths = {"baseline": checked(root, baseline_spec["path"], baseline_spec["sha256"]),
              "balanced": checked(root, status["best_weights"], status["best_weights_sha256"])}
     if output.exists():
