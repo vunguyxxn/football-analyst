@@ -2,6 +2,28 @@
 
 ## Trạng thái hiện tại
 
+Ngày03/11/2026: đã chạyfixedrồimulti v7 đủ20epochmỗinhánh vàso3lớp
+ở640/1280. Fixedliêntục;multigiánđoạn sauepoch9,resumeoptimizer10–20,
+khôngbảođảmreplayRNGliêntục. Cùngdata369/128/35,weightsv6,tham số
+đãkhóa. Valhaiarms/haisizekhóatrướctestknown;khôngoffline rolededup.
+
+Val640TP/FP/FNfixed:player1924/372/633,keeper37/15/55,ref37/528/255;
+multi:player1866/339/691,keeper41/9/51,ref24/519/268. Val1280fixed:
+player2405/367/152,keeper50/34/42,ref47/168/245;multi:2247/401/310,
+keeper53/67/39,ref89/402/203. Player→ref640449vs444,128087vs220.
+Testchi tiết trongROLE_SCALE_RESULTS_V7.md/snapshotrole_scale_result_v7.
+Cảhai failrefAPgain gate640,multifailthêmkeeperguard;khôngpromote.
+
+Fixed1227,23s/tensorpeak2148,15MiB;multi~1451,15s/peakresume2720,46MiB,
+khôngđọclàtổngVRAM/tỷlệtốcđộchuẩn. 555testđạt,1networkdeselected,
+4warningcũ. Thêmcompare_role_scale_runs.py,snapshot/docs;kiểmhash
+weights/dataset/protocolvàhaiarmgiốngdata,baselinev1APcùngbatch1.
+WeightsfixedSHA78c519e27a2f8deadec3b20229d94d053b7215f04e4cc79c557b8e6af7a7c827;
+multiSHA530b1c28fc199e46669c20f3f79218772ee651b0e04216cdaae8975b9203f4a4.
+Khôngđổiruntime/schema/frontend/dependency. Bướcsauưu tiênràmàu/
+ngữcảnhrefáotối,thêmnguồntrainmới vàclipkiểmchứngđộc lập,khôngtăng
+epochliêntiếptrêncùngcorpusítđa dạng hoặcđổigateđểchọnmodel.
+
 Ngày03/11/2026: đã thốngkêphânbốv6 vàchuẩnbịtrainmulti-scalev7.
 Train369exposure/302pixel-labelunits;boxplayer4681,keeper211,ref620.
 Keeper201/211<24px;unique193keepertrongđó189nhỏ. Val92/test12keeper
