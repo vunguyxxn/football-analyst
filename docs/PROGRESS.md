@@ -2,6 +2,27 @@
 
 ## Trạng thái hiện tại
 
+Ngày03/11/2026: bổ sung pilot train toàn cảnh3ảnh,60bbox đã rà:
+52player/4keeper/4referee;41dưới24px ở640,18từ24–48px,1từ48px.
+Giữ bytes ảnh gốc, không cắt/phóng người nhỏ. gFCS/k13 vốn có ROIv3,
+k84trước chỉ scout; không đếm3ảnh là3cảnh độc lập mới. Agent rà hết
+đối tượng thi đấu nhìn thấy theo chính sách loại staff/khán giả/dự bị;
+chưa kiểm độc lập. Export local full_frame_roles_v4, chưa train/mergev4.
+
+QUAN TRỌNG: rà toàn cảnh phát hiện nhóm Villarreal g30/g49/g54/g63/
+g90/g192 có dấu hiệu mô phỏng, tuyên bố phát sóng thật trước đây chưa
+đáng tin. Quarantine khỏi gói mới; v3 đã dùng ROI nhóm này nên coi
+thí nghiệm có media chưa xác minh, không khẳng định chỉ train trận thật.
+Giữ nguyên lịch sử hash/weights; runtime chưa dùng v3. k0/k63/k105 cũng
+chưa xuất full-frame vì người chưa rõ/chồng nhau. Cần tiếp tục thêm
+nguồn thật có cầu thủ vàng nhỏ; pilot này chưa đủ độ đa dạng.
+
+Đã kiểm bytes ảnh/nhãn datasetv3 và screen163ảnh val/test, không thấy
+near-image hit; không chứng minh tuyệt đối tách trận. Thêm exporter,
+packet/audit fixture, FULL_FRAME_ROLES_V4.md;23test liên quan đạt.
+Không đổi DATA_CONTRACT/runtime/dependency. Bước sau mới khóa cách
+ghép/sampling toàn cảnh, loại/quản lý nguồn chưa xác minh trước train.
+
 Ngày03/11/2026: đã rà lỗi v3 so với v1 trên từng player validation.
 654lỗi persistent,147introduced,103removed; tái lập đúng801vs757.
 147lỗi mới: v1 đúng132/bỏsót15;103hết nhầm: v3 đúng92/keeper5/bỏsót6.

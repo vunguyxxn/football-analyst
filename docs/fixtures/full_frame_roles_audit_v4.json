@@ -1,0 +1,38 @@
+{
+  "images": 3,
+  "objects": {
+    "player": 52,
+    "goalkeeper": 4,
+    "referee": 4
+  },
+  "height_at_640": {
+    "24to48": 18,
+    "48plus": 1,
+    "under24": 41
+  },
+  "files": [
+    {
+      "id": "gFCS",
+      "image_sha256": "586006216ee0f32a4a825c5f34a557eac2502b866ae71c11dab7dca1b9092517",
+      "label_sha256": "ad2e7596e81e489d94403b2d908544987cd9821679bf3a51ca5732531c42b383",
+      "objects": 16
+    },
+    {
+      "id": "k13",
+      "image_sha256": "f9093e7c3427a70da670f56f145fac76c8da938be7e35376df1216314e0949d9",
+      "label_sha256": "756e9a2624d665d80dbce692990e19541be97bb06a5f272968a453805e3767c0",
+      "objects": 24
+    },
+    {
+      "id": "k84",
+      "image_sha256": "f04c896a9e41b18c01e4051dbb1d814582b05ac3127a84aefc6f81a5fba00d1f",
+      "label_sha256": "67e394ddd8b8e4d541ac62d8d2a7fde8ee89487160c26922a80aba73dc82314f",
+      "objects": 20
+    }
+  ],
+  "packet_sha256": "5a995301e1ffa2a2e3ceed665ef13d776f188e1c8a301c4153103862fc6849ed",
+  "protected_images_screened": 163,
+  "training_performed": false,
+  "independently_validated": false,
+  "native_pixels_preserved": true
+}
