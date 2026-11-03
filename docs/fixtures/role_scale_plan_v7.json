@@ -1,0 +1,72 @@
+{
+  "arms": {
+    "fixed": {
+      "protocol": "docs/fixtures/role_scale_fixed_protocol_v7.json",
+      "protocol_sha256": "f6bbd6b0464416464e81e0aeb19d7ac158fd4dd2266f6db01edfbfd8af0cd46c",
+      "dataset": "data/processed/role_scale_v7/fixed_dataset",
+      "manifest_sha256": "d58bd181f221530a15493c33356e2404f14c807bd039bee83fb3a09631dc0deb"
+    },
+    "multi": {
+      "protocol": "docs/fixtures/role_scale_multi_protocol_v7.json",
+      "protocol_sha256": "e0c1f0c65a4d5ada179bfe9be3a8fdc2e8799e751f2b07a05f90adb5b33203b4",
+      "dataset": "data/processed/role_scale_v7/multi_dataset",
+      "manifest_sha256": "1269fe0704379993cd9b89d02674b4a43cd2277266c77c89c93b783a9be109b4"
+    }
+  },
+  "training_started": false,
+  "data_changes": "None; same 369 exposures and immutable validation/test. Colour inventory incomplete; no claim of newly collected dark referees.",
+  "multiscale_range_long_side": [
+    448,
+    1344
+  ],
+  "resource_status": "Maximum-square1344 FP32 batch1 disposable loss/backward/AdamW smoke passed; full-run memory not guaranteed.",
+  "software_source": "Installed ultralytics 8.3.221 detection train preprocess_batch, boolean multi_scale samples 0.5..1.5 times imgsz aligned to stride32",
+  "memory_probe": "docs/fixtures/role_scale_memory_probe_v7.json",
+  "verified_full_frame_colours": {
+    "dark_referees": [
+      {
+        "source_id": "k84",
+        "object_id": "7",
+        "colour": "dark"
+      },
+      {
+        "source_id": "new11",
+        "object_id": "10",
+        "colour": "black"
+      }
+    ],
+    "goalkeepers": [
+      {
+        "source_id": "gFCS",
+        "object_id": "6",
+        "colour": "blue"
+      },
+      {
+        "source_id": "k13",
+        "object_id": "0",
+        "colour": "white"
+      },
+      {
+        "source_id": "k13",
+        "object_id": "19",
+        "colour": "yellow"
+      },
+      {
+        "source_id": "k84",
+        "object_id": "0",
+        "colour": "yellow"
+      },
+      {
+        "source_id": "new140",
+        "object_id": "9",
+        "colour": "orange"
+      },
+      {
+        "source_id": "new11",
+        "object_id": "9",
+        "colour": "pink_red"
+      }
+    ],
+    "scope": "Agent visual context reviews from accepted full-frame packets; partial colour inventory only, no independent colour validation. No new sources collected."
+  }
+}

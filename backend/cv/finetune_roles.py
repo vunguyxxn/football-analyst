@@ -44,12 +44,21 @@ def metric_report(metrics):
     return {"map50": float(metrics.box.map50), "map50_95": float(metrics.box.map), "classes": per_class}
 
 
+def scale_options(protocol):
+    enabled = protocol.get('multi_scale', False)
+    if not isinstance(enabled, bool):
+        raise ValueError('Installed Ultralytics expects boolean multi_scale')
+    if enabled and (protocol['image_size'] != 896 or protocol['batch'] != 1):
+        raise ValueError('Multi-scale plan requires reviewed 896/batch1 resource envelope')
+    return {'multi_scale': enabled}
+
+
 def evaluate(path, dataset, protocol, output, split, name):
     from ultralytics import YOLO
     model = YOLO(str(path))
     if list(model.names.values()) != NAMES:
         raise ValueError("Role class map differs from dataset")
-    metrics = model.val(data=str(dataset / "data.yaml"), split=split, imgsz=protocol["image_size"], batch=protocol["batch"],
+    metrics = model.val(data=str(dataset / "data.yaml"), split=split, imgsz=protocol.get("evaluation_image_size", protocol["image_size"]), batch=protocol["batch"],
                         workers=0, device=0, half=False, single_cls=False, conf=protocol["test_confidence"],
                         iou=protocol["test_nms_iou"], max_det=protocol["max_detections"], plots=False,
                         save_json=False, verbose=False, project=str(output), name=name)
@@ -86,7 +95,8 @@ def train_one(root, dataset, protocol_path, output, model_id):
                            batch=protocol["batch"], device=0, workers=0, amp=protocol["amp"], seed=protocol["seed"],
                            deterministic=True, optimizer=protocol["optimizer"], lr0=protocol["lr0"], warmup_epochs=1.,
                            patience=protocol["epochs"], mosaic=protocol["mosaic"], close_mosaic=protocol["close_mosaic"],
-                           cache=False, plots=False, project=str(output), name="training", exist_ok=False, verbose=False)
+                           cache=False, plots=False, project=str(output), name="training", exist_ok=False, verbose=False,
+                           **scale_options(protocol))
             best = Path(training.trainer.best)
             status["peak_allocated_mib"] = torch.cuda.max_memory_allocated()/1024**2
             del training

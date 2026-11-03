@@ -2,6 +2,26 @@
 
 ## Trạng thái hiện tại
 
+Ngày03/11/2026: đã thốngkêphânbốv6 vàchuẩnbịtrainmulti-scalev7.
+Train369exposure/302pixel-labelunits;boxplayer4681,keeper211,ref620.
+Keeper201/211<24px;unique193keepertrongđó189nhỏ. Val92/test12keeper
+đềunhỏ. MetadataROIrefđenchỉ1unique/6exposure;fullnềnchưagánmàuđầy
+đủ,khôngsuychỉcó1refđen trongtrain. Có2refáotốiđãxemởfullv5,
+keepernhiềumàu. KhôngthêmnguồnmớivàkhôngtănglặpROIđenmáymóc.
+
+Chuẩnbị2dataset/protocolv7 cùngweightsv6,369/128/35/samplingkhôngđổi,
+20epoch896batch1FP32lr0,0001;chỉkhác bật/tắtmulti_scale. Codeinstalled
+8.3.221boolscales448–1344;evalcuối640,checkpointfitnessnộibộ896.
+Thêmhỗtrợflagmultiscale/evalsize trongtrainer/evaluator,giữdefaults
+protocolcũ. Probe1stepcopyloss/backward/AdamW1344đạt,tensorpeak2473,94
+MiB,reserved4178MiB,khônglưuweights;khôngbảođảmpeaktoànrun.
+
+555testđạt,1networkdeselected,4warningcũ;7testmới. Kiểmhashrow2dataset
+giốngnhau,protocolchỉkhácarmID/flag. XemROLE_MULTISCALE_PREPARATION_V7.md,
+distribution/plan/protocol/probefixtures. Chưatrain2lịchđầyđủ/chưacó
+kếtquảv7,khôngđổiruntime/schema/dependency/frontend.
+Bướcsau chạyfixedrồimulti tuần tự,khóavaltrướctest,đo3lớpở640/1280.
+
 Ngày03/11/2026: đã thử lọckhung trùngrole ngoại tuyến ở1280,weightsv6,
 conf0,25/perclassNMS0,7/matching0,5 giữ nguyên. Greedy crossroleIoU>0,7,
 giữconfidencecao,khôngưu tiênrole,khôngdùngGT,khôngsweepngưỡng;

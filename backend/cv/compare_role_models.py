@@ -95,7 +95,7 @@ def compare(root, dataset, protocol_path, run, output):
     with (output / "evaluation.log").open("w", encoding="utf-8") as log, contextlib.redirect_stdout(log), contextlib.redirect_stderr(log):
         for key, path in paths.items():
             results[key]["validation"] = evaluate(path, dataset, protocol, output, "val", key+"_validation")
-            results[key]["validation_fixed_confidence"] = fixed_confidence(path, dataset, manifest, "val", protocol["runtime_confidence"], protocol["image_size"])
+            results[key]["validation_fixed_confidence"] = fixed_confidence(path, dataset, manifest, "val", protocol["runtime_confidence"], protocol.get("evaluation_image_size", protocol["image_size"]))
             gc.collect()
             torch.cuda.empty_cache()
         decision = validation_choice(results["baseline"]["validation"], results["balanced"]["validation"], protocol["validation_gate"])
@@ -103,7 +103,7 @@ def compare(root, dataset, protocol_path, run, output):
                    "protocol_sha256": digest(protocol_path), "weights_sha256": {key: digest(path) for key, path in paths.items()}})
         for key, path in paths.items():
             results[key]["known_regression_test"] = evaluate(path, dataset, protocol, output, "test", key+"_test")
-            results[key]["test_fixed_confidence"] = fixed_confidence(path, dataset, manifest, "test", protocol["runtime_confidence"], protocol["image_size"])
+            results[key]["test_fixed_confidence"] = fixed_confidence(path, dataset, manifest, "test", protocol["runtime_confidence"], protocol.get("evaluation_image_size", protocol["image_size"]))
             gc.collect()
             torch.cuda.empty_cache()
     verify_dataset(root, dataset, protocol_path)

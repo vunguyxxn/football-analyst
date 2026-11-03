@@ -1,0 +1,136 @@
+{
+  "dataset_manifest_sha256": "295fb4d10a21beacf9b7dd655b9c19145608ca7f5c874c405cd75c0fb2665ee8",
+  "splits": {
+    "train": {
+      "image_exposures": 369,
+      "unique_pixel_label_units": 302,
+      "origin_exposures": {
+        "base_full_frame": 212,
+        "reviewed_roi": 129,
+        "reviewed_full_frame": 28
+      },
+      "box_exposures": {
+        "referee": {
+          "under24": 423,
+          "24to48": 110,
+          "48plus": 87
+        },
+        "player": {
+          "under24": 3920,
+          "24to48": 711,
+          "48plus": 50
+        },
+        "goalkeeper": {
+          "under24": 201,
+          "24to48": 10
+        }
+      },
+      "unique_unit_boxes": {
+        "referee": {
+          "under24": 414,
+          "24to48": 95,
+          "48plus": 47
+        },
+        "player": {
+          "under24": 3812,
+          "24to48": 519,
+          "48plus": 38
+        },
+        "goalkeeper": {
+          "under24": 189,
+          "24to48": 4
+        }
+      }
+    },
+    "val": {
+      "image_exposures": 128,
+      "unique_pixel_label_units": 128,
+      "origin_exposures": {
+        "base_full_frame": 128
+      },
+      "box_exposures": {
+        "referee": {
+          "under24": 234,
+          "24to48": 58
+        },
+        "player": {
+          "under24": 2089,
+          "24to48": 468
+        },
+        "goalkeeper": {
+          "under24": 92
+        }
+      },
+      "unique_unit_boxes": {
+        "referee": {
+          "under24": 234,
+          "24to48": 58
+        },
+        "player": {
+          "under24": 2089,
+          "24to48": 468
+        },
+        "goalkeeper": {
+          "under24": 92
+        }
+      }
+    },
+    "test": {
+      "image_exposures": 35,
+      "unique_pixel_label_units": 35,
+      "origin_exposures": {
+        "base_full_frame": 35
+      },
+      "box_exposures": {
+        "referee": {
+          "under24": 64,
+          "24to48": 12
+        },
+        "player": {
+          "under24": 518,
+          "24to48": 177
+        },
+        "goalkeeper": {
+          "under24": 12
+        }
+      },
+      "unique_unit_boxes": {
+        "referee": {
+          "under24": 64,
+          "24to48": 12
+        },
+        "player": {
+          "under24": 518,
+          "24to48": 177
+        },
+        "goalkeeper": {
+          "under24": 12
+        }
+      }
+    }
+  },
+  "train_family_exposures": {
+    "red_stadiums": 263,
+    "euro_red_white": 78,
+    "german_FCS_EBS_blue_yellow_ground": 4,
+    "rai_replay_blue_white_broadcast": 4,
+    "euro2016_GER_FRA_broadcast": 4,
+    "libertadores_yellow_navy": 4,
+    "las_palmas_leganes": 8,
+    "esp_bel_women": 4
+  },
+  "reviewed_referee_roi_colour_exposures": {
+    "light_blue": 33,
+    "yellow": 30,
+    "black": 6,
+    "red": 18
+  },
+  "reviewed_referee_roi_unique_colours": {
+    "light_blue": 33,
+    "yellow": 10,
+    "black": 1,
+    "red": 3
+  },
+  "colour_scope": "Only main referee subjects with existing reviewed ROI colour metadata. No complete colour annotation for base full-frame boxes; unrecorded is unknown, not absence.",
+  "geometry_scope": "BBox height at longest-side640 before augmentation. Unique pixel+label units are not unique people/matches. Overlapping crops remain separate units."
+}
