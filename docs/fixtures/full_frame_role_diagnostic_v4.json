@@ -1,0 +1,118 @@
+{
+  "scope": "Development-only full-frame diagnostic; gFCS/k13 supplied training ROI in v3. Not independent validation.",
+  "results": {
+    "v1": {
+      "classes": {
+        "player": {
+          "tp": 45,
+          "fp": 11,
+          "fn": 7,
+          "precision": 0.8035714285714286,
+          "recall": 0.8653846153846154
+        },
+        "goalkeeper": {
+          "tp": 0,
+          "fp": 3,
+          "fn": 4,
+          "precision": 0.0,
+          "recall": 0.0
+        },
+        "referee": {
+          "tp": 2,
+          "fp": 4,
+          "fn": 2,
+          "precision": 0.3333333333333333,
+          "recall": 0.5
+        }
+      },
+      "player_called_referee": 3,
+      "nonplayers_called_player": 5,
+      "confusion": {
+        "player": {
+          "player": 45,
+          "goalkeeper": 0,
+          "referee": 3,
+          "missed": 4
+        },
+        "goalkeeper": {
+          "player": 3,
+          "goalkeeper": 0,
+          "referee": 0,
+          "missed": 1
+        },
+        "referee": {
+          "player": 2,
+          "goalkeeper": 0,
+          "referee": 2,
+          "missed": 0
+        }
+      },
+      "unmatched_predictions": {
+        "player": 6,
+        "referee": 1,
+        "goalkeeper": 3
+      },
+      "frames": 3,
+      "confidence": 0.25,
+      "matching_iou": 0.5,
+      "note": "Same provided/agent labels for both models; not independent ground truth. No field-boundary filtering in detector-only evaluation."
+    },
+    "v3": {
+      "classes": {
+        "player": {
+          "tp": 47,
+          "fp": 17,
+          "fn": 5,
+          "precision": 0.734375,
+          "recall": 0.9038461538461539
+        },
+        "goalkeeper": {
+          "tp": 0,
+          "fp": 7,
+          "fn": 4,
+          "precision": 0.0,
+          "recall": 0.0
+        },
+        "referee": {
+          "tp": 1,
+          "fp": 1,
+          "fn": 3,
+          "precision": 0.5,
+          "recall": 0.25
+        }
+      },
+      "player_called_referee": 0,
+      "nonplayers_called_player": 5,
+      "confusion": {
+        "player": {
+          "player": 47,
+          "goalkeeper": 2,
+          "referee": 0,
+          "missed": 3
+        },
+        "goalkeeper": {
+          "player": 3,
+          "goalkeeper": 0,
+          "referee": 0,
+          "missed": 1
+        },
+        "referee": {
+          "player": 2,
+          "goalkeeper": 1,
+          "referee": 1,
+          "missed": 0
+        }
+      },
+      "unmatched_predictions": {
+        "player": 12,
+        "referee": 1,
+        "goalkeeper": 4
+      },
+      "frames": 3,
+      "confidence": 0.25,
+      "matching_iou": 0.5,
+      "note": "Same provided/agent labels for both models; not independent ground truth. No field-boundary filtering in detector-only evaluation."
+    }
+  },
+  "packet_sha256": "5a995301e1ffa2a2e3ceed665ef13d776f188e1c8a301c4153103862fc6849ed"
+}

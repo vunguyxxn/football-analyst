@@ -1,0 +1,12 @@
+{
+  "job_id": "fc0cd4212aaa436a8614dacd4b74241f",
+  "source_sha256": "f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0",
+  "calibrated_seconds": 25.266666666666662,
+  "duration_s": 52.36666666666667,
+  "position_rows": 13978,
+  "supported_tactical_windows": 4,
+  "recommendations": 5,
+  "errors": [],
+  "api_consistency_passed": true,
+  "scope": "Existing processed job/API readback, not fresh-upload or browser acceptance. Partial provisional calibration; not independently validated tactical accuracy."
+}

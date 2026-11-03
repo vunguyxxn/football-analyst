@@ -2,6 +2,24 @@
 
 ## Trạng thái hiện tại
 
+Ngày03/11/2026: kiểm chứng phân vai trò full-frame pilot3ảnh/60nhãn:
+v1player45/52,keeper0/4,ref2/4;v3player47/52,keeper0/4,ref1/4.
+Player→ref3→0 nhưng FPplayer11→17. Không đủ để duyệt v3; gFCS/k13
+đã có crop train nên chỉ là chẩn đoán phát triển, chưa kiểm độc lập.
+Snapshot full_frame_role_diagnostic_v4. Chưa hoàn thiện dữ liệu thật
+đa dạng, chưa trainv4, chưa sửa thuật toán hiệu chỉnh.
+
+Thêm verify_demo_flow.py và snapshot demo_flow_readback_v1: đọc APIjob
+fc0cd4212aaa436a8614dacd4b74241f,25,27/52,37giây hiệu chỉnh ước lượng,
+13978vị trí hợp lệ,4cửa sổ có heatmap,5gợi ý có evidence khớp metric.
+12cửa sổ thiếu hỗ trợ được phép heatmapnull, không được phát gợi ý.
+Đọc lại job sẵn có không phải nghiệm thu upload mới/browser hoặc sai
+số tọa độ độc lập. Xem DEMO_READINESS_V1.md để chạy và giới hạn demo.
+541Python test đạt,1network deselected,4warning cũ; frontend build/lint
+đạt, còn warning bundle lớn và Fast Refresh cũ. Không thêm dependency.
+Bước tiếp: bổ sung dữ liệu thật/phân vai trò; đo sai số mốc sân theo
+thời gian rồi mới cải thiện coverage, sau đó nghiệm thu upload mới.
+
 Ngày03/11/2026: bổ sung pilot train toàn cảnh3ảnh,60bbox đã rà:
 52player/4keeper/4referee;41dưới24px ở640,18từ24–48px,1từ48px.
 Giữ bytes ảnh gốc, không cắt/phóng người nhỏ. gFCS/k13 vốn có ROIv3,
