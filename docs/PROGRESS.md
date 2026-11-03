@@ -2,6 +2,22 @@
 
 ## Trạng thái hiện tại
 
+Ngày03/11/2026: đã rà lỗi v6 vs v1 trên128ảnhval và xem100crop/5sheet.
+Player→ref357persistent,52introduced,400removed; chỉ389removedđổi
+thànhplayerđúng,4keeper,7khôngghép. Tái lập409vs757;372/409(91,0%)
+lỗi hiện tại cao<24px. RefFN229=130gọiplayer+99khôngghép;keeperFN42
+=32gọiplayer+10khôngghép,tấtcảkeeperlỗi<24px. Khôngghép có thể do
+định vị/confidence,bỏsót; không suy duy nhất một nguyên nhân.
+
+Rà100mẫu theo20mỗi nhóm,cáchđều khôngngẫunhiên: playeráovàng,
+refchủyếuđen/biêncầmcờ,keepernhiềumàu. Mẫu61trọngtàiđen chồngcầuthủ
+đỏ cần rà attribution; chỉ tạo reviewqueue,không sửa nhãnval. Chưa rà
+trựcquan102FPreferee khôngghépnhãn (ngoài409playernhầm),không gọi
+tất cả FP nền thật. Thêm audit_role_errors_v6.py,snapshot và
+ROLE_ERROR_AUDIT_V6.md;23testliênquan đạt,khôngtrain/đổiruntime/schema.
+Bước sau thử cùngweightsv6ở1280,giữ ngưỡng,đo FP/FN/tốcđộ,đồngthời
+rà FP khôngghép vàbboxchồng. Chưa chuyển sang hiệu chỉnh sân.
+
 Ngày03/11/2026: hoàn thành kiểm nguồn nền/ghép/train smallv6. Xem212
 ảnh nềnv2 qua6sheet: ngữ cảnh quay trận thật, không thấy mediaVillarreal;
 kiểm bytes ảnh/nhãn, giữ loại5ảnhquarantine. Đây không phải kiểm độc
