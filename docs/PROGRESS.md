@@ -2,6 +2,38 @@
 
 ## Trạng thái hiện tại
 
+Sau v10: hoàn tất audit từng nhãn keeper/ref trên val, không train thêm.
+Tái hiện chính xác toàn bộ TP/FP/FN và confusion cả ba lớp của v6/v10 ở
+640/1280. Giữ confidence0.25 / NMS0.7 / matching IoU0.5 / max_det300;
+không mở test hoặc match128057, không đổi labels/weights/runtime/schema.
+
+640: keeper mất18, nhận lại2 (50→34); ref mất41, nhận lại3 (63→25).
+1280: keeper mất3, nhận lại15 (22→34); ref mất45, nhận lại55 (91→101).
+Tổng107 lượt hồi quy =96 nhãn khác nhau trong75 ảnh; không gọi là107 người.
+Đã xem107 crop/6sheet, mọi keeper không overlay và9 ảnh context đại diện.
+
+Raw head trước argmax/NMS:94 lượt điểm lớp đúng quanh GT dưới0.25;
+6 lượt lớp đúng đạt ngưỡng nhưng thua argmax (đều thành player);
+6 lượt khung đúng vai trò còn sau NMS nhưng player có IoU cao hơn được
+matcher chọn (correct box đều chưa ghép;4/6 còn confidence cao hơn player).
+1 lượt raw IoU cao nhất0.4941, score ref0.1811, sát dưới cả hai ngưỡng.
+Replay raw→postprocess ở hai weights × hai size trên ảnh đại diện khớp
+predict chuẩn. Không thấy case winning-correct raw box bị mất hoàn toàn
+do bước trước matching. Không đổi phép chấm hay hạ ngưỡng để cải thiện số.
+
+Cả18 keeper mất ở640 đều<24px. Ref mất640:25/41<24px;1280:38/45
+từ24–48px, vẫn5/45≥48px. Keeper hồi quy có áo vàng/xanh lá, xanh lam,
+xám/trắng và đỏ sẫm; ref nhìn như áo tối, nhiều assistant xa cạnh bảng
+quảng cáo. Chẩn đoán trực tiếp là score/nhầm vai trò, không chỉ thiếu một
+màu hoặc NMS. Chưa có ablation để quy nguyên nhân huấn luyện cho9ROI mới.
+
+Thêm audit_role_regressions.py,6test,ROLE_REGRESSIONS_V10.md và snapshot
+role_regressions_audit_v10.json gồm đủ107 lượt mất và bằng chứng hash/raw.
+570 test đạt,1networkdeselected,4warningcũ; audit thực tế thành công.
+Bước tiếp theo: audit độ phủ train sẵn có theo kích thước/màu/ngữ cảnh
+cho keeper nhỏ và ref biên xa, tách ảnh độc lập khỏi lượt lặp trước khi
+chốt dữ liệu bổ sung. Chưa tăng epoch hoặc đưa val/test/heldout vào train.
+
 Ngày 03/11/2026: hoàn tất ghép v8/v9 và train small v10, chưa thay model ứng dụng.
 Khóa protocol và sampling trước train: giữ nền v6 (369 lượt), thêm 9 ROI
 train của match 117093/118575 ×4. Tổng 405 lượt / 311 đơn vị ảnh–nhãn;
