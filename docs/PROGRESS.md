@@ -2,6 +2,21 @@
 
 ## Trạng thái hiện tại
 
+Ngày03/11/2026: đã thử cùngweightsv6 ở640/1280,conf0,25,NMS0,7,
+matchingIoU0,5,batch1FP32 trênval128/test35.640tái lập đúng snapshot.
+Valplayer→ref409→155(-62,1%),refTP63→91/292,FP511→354;playerTP1971
+→2336 nhưng FP386→472;keeperTP50→22/92,FP28→38. Testplayer→ref3→2,
+refTP15→23/76 nhưng FP8→15,keeperTP6→2/12. Chưa duyệt1280/runtimemới.
+
+Valpredict walltime62,16→93,54ms (~16,09→10,69ảnh/s),p9584,97→117,59ms.
+CUDAallocatedtensorpeak94,02→165,17MiB,không phải tổngVRAM. Warmup3
+mỗi size,xen kẽ thứ tự,synchronizeCUDA;loại IO/ghép nhãn/CPUextract,
+không coi làFPSvideođầucuối. Mộtpass,không có kiểm định độc lập.
+Thêmcompare_role_resolution.py,ROLE_RESOLUTION_V6.md vàsnapshotresult;
+23testliênquan đạt;khôngtrain/đổischema/dependency/frontend/runtime.
+Bước sau ghép từngkeeperđểrà nguyên nhân TPgiảmròng28,kiểmFPplayer
+tăng;chưa chọn giải pháp tăng resolution đại trà hoặctrainthêm.
+
 Ngày03/11/2026: đã rà lỗi v6 vs v1 trên128ảnhval và xem100crop/5sheet.
 Player→ref357persistent,52introduced,400removed; chỉ389removedđổi
 thànhplayerđúng,4keeper,7khôngghép. Tái lập409vs757;372/409(91,0%)

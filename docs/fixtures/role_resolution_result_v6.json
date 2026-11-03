@@ -1,0 +1,263 @@
+{
+  "kind": "role_resolution_v6",
+  "weights_sha256": "6d99be77ca79b3e3c924e7568a061bf151909da62f9e9b4708595cef46510c8f",
+  "manifest_sha256": "295fb4d10a21beacf9b7dd655b9c19145608ca7f5c874c405cd75c0fb2665ee8",
+  "gpu": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+  "torch": "2.8.0+cu128",
+  "confidence": 0.25,
+  "nms_iou": 0.7,
+  "matching_iou": 0.5,
+  "precision": "FP32",
+  "batch": 1,
+  "warmup_per_size": 3,
+  "reports": {
+    "val": {
+      "640": {
+        "classes": {
+          "player": {
+            "tp": 1971,
+            "fp": 386,
+            "fn": 586,
+            "precision": 0.8362324989393296,
+            "recall": 0.7708251857645678
+          },
+          "goalkeeper": {
+            "tp": 50,
+            "fp": 28,
+            "fn": 42,
+            "precision": 0.6410256410256411,
+            "recall": 0.5434782608695652
+          },
+          "referee": {
+            "tp": 63,
+            "fp": 511,
+            "fn": 229,
+            "precision": 0.10975609756097561,
+            "recall": 0.21575342465753425
+          }
+        },
+        "player_called_referee": 409,
+        "nonplayers_called_player": 162,
+        "confusion": {
+          "player": {
+            "player": 1971,
+            "goalkeeper": 7,
+            "referee": 409,
+            "missed": 170
+          },
+          "goalkeeper": {
+            "player": 32,
+            "goalkeeper": 50,
+            "referee": 0,
+            "missed": 10
+          },
+          "referee": {
+            "player": 130,
+            "goalkeeper": 0,
+            "referee": 63,
+            "missed": 99
+          }
+        },
+        "unmatched_predictions": {
+          "player": 224,
+          "referee": 102,
+          "goalkeeper": 21
+        },
+        "frames": 128,
+        "speed": {
+          "mean_ms": 62.1601531250171,
+          "median_ms": 60.730699999794524,
+          "p95_ms": 84.97173499988547,
+          "predict_only_fps": 16.08747645760766,
+          "peak_allocated_mib": 94.01806640625
+        }
+      },
+      "1280": {
+        "classes": {
+          "player": {
+            "tp": 2336,
+            "fp": 472,
+            "fn": 221,
+            "precision": 0.8319088319088319,
+            "recall": 0.9135705905357842
+          },
+          "goalkeeper": {
+            "tp": 22,
+            "fp": 38,
+            "fn": 70,
+            "precision": 0.36666666666666664,
+            "recall": 0.2391304347826087
+          },
+          "referee": {
+            "tp": 91,
+            "fp": 354,
+            "fn": 201,
+            "precision": 0.20449438202247192,
+            "recall": 0.3116438356164384
+          }
+        },
+        "player_called_referee": 155,
+        "nonplayers_called_player": 196,
+        "confusion": {
+          "player": {
+            "player": 2336,
+            "goalkeeper": 6,
+            "referee": 155,
+            "missed": 60
+          },
+          "goalkeeper": {
+            "player": 68,
+            "goalkeeper": 22,
+            "referee": 0,
+            "missed": 2
+          },
+          "referee": {
+            "player": 128,
+            "goalkeeper": 0,
+            "referee": 91,
+            "missed": 73
+          }
+        },
+        "unmatched_predictions": {
+          "player": 276,
+          "referee": 199,
+          "goalkeeper": 32
+        },
+        "frames": 128,
+        "speed": {
+          "mean_ms": 93.53550156248502,
+          "median_ms": 95.76194999999643,
+          "p95_ms": 117.59054500005276,
+          "predict_only_fps": 10.691127788863831,
+          "peak_allocated_mib": 165.17431640625
+        }
+      }
+    },
+    "test": {
+      "640": {
+        "classes": {
+          "player": {
+            "tp": 670,
+            "fp": 98,
+            "fn": 25,
+            "precision": 0.8723958333333334,
+            "recall": 0.9640287769784173
+          },
+          "goalkeeper": {
+            "tp": 6,
+            "fp": 6,
+            "fn": 6,
+            "precision": 0.5,
+            "recall": 0.5
+          },
+          "referee": {
+            "tp": 15,
+            "fp": 8,
+            "fn": 61,
+            "precision": 0.6521739130434783,
+            "recall": 0.19736842105263158
+          }
+        },
+        "player_called_referee": 3,
+        "nonplayers_called_player": 55,
+        "confusion": {
+          "player": {
+            "player": 670,
+            "goalkeeper": 3,
+            "referee": 3,
+            "missed": 19
+          },
+          "goalkeeper": {
+            "player": 5,
+            "goalkeeper": 6,
+            "referee": 0,
+            "missed": 1
+          },
+          "referee": {
+            "player": 50,
+            "goalkeeper": 0,
+            "referee": 15,
+            "missed": 11
+          }
+        },
+        "unmatched_predictions": {
+          "goalkeeper": 3,
+          "player": 43,
+          "referee": 5
+        },
+        "frames": 35,
+        "speed": {
+          "mean_ms": 50.772651428542304,
+          "median_ms": 50.73760000004768,
+          "p95_ms": 65.87251999999353,
+          "predict_only_fps": 19.695642671082584,
+          "peak_allocated_mib": 94.01806640625
+        }
+      },
+      "1280": {
+        "classes": {
+          "player": {
+            "tp": 683,
+            "fp": 92,
+            "fn": 12,
+            "precision": 0.8812903225806452,
+            "recall": 0.9827338129496402
+          },
+          "goalkeeper": {
+            "tp": 2,
+            "fp": 4,
+            "fn": 10,
+            "precision": 0.3333333333333333,
+            "recall": 0.16666666666666666
+          },
+          "referee": {
+            "tp": 23,
+            "fp": 15,
+            "fn": 53,
+            "precision": 0.6052631578947368,
+            "recall": 0.3026315789473684
+          }
+        },
+        "player_called_referee": 2,
+        "nonplayers_called_player": 56,
+        "confusion": {
+          "player": {
+            "player": 683,
+            "goalkeeper": 0,
+            "referee": 2,
+            "missed": 10
+          },
+          "goalkeeper": {
+            "player": 9,
+            "goalkeeper": 2,
+            "referee": 1,
+            "missed": 0
+          },
+          "referee": {
+            "player": 47,
+            "goalkeeper": 0,
+            "referee": 23,
+            "missed": 6
+          }
+        },
+        "unmatched_predictions": {
+          "player": 36,
+          "referee": 12,
+          "goalkeeper": 4
+        },
+        "frames": 35,
+        "speed": {
+          "mean_ms": 84.51189428569705,
+          "median_ms": 83.65760000015143,
+          "p95_ms": 98.49211999985528,
+          "predict_only_fps": 11.832653953057136,
+          "peak_allocated_mib": 165.17431640625
+        }
+      }
+    }
+  },
+  "training_performed": false,
+  "pipeline_promoted": false,
+  "timing_scope": "Synchronized predict wall time including preprocessing/forward/NMS; excludes file IO, label matching, CPU extraction. Not full video pipeline FPS. CUDA allocated tensor peak excludes reserved and other process memory.",
+  "limitation": "Single paired pass, alternating resolution order. Known val/test, provided/agent labels, not independent accuracy or causal proof. No automatic runtime resolution selection."
+}
