@@ -1,0 +1,39 @@
+{
+  "protocol_sha256": "4553740132361ac17b7027d957088ebf42ebc1c0814566948987530ea431a1c1",
+  "manifest_sha256": "78b88f0df6be2f1f03eb98c3ef17139b009e760f816f620461f8d182c84a46d0",
+  "images": {
+    "test": 35,
+    "train": 405,
+    "val": 128
+  },
+  "box_exposures": {
+    "train": {
+      "2": 636,
+      "0": 4865,
+      "1": 235
+    },
+    "val": {
+      "2": 292,
+      "0": 2557,
+      "1": 92
+    },
+    "test": {
+      "2": 76,
+      "0": 695,
+      "1": 12
+    }
+  },
+  "pixel_label_units": {
+    "train": 311,
+    "val": 128,
+    "test": 35
+  },
+  "protected_rows_identical": true,
+  "source_train_match_ids": [
+    "117093",
+    "118575"
+  ],
+  "heldout_match_excluded": true,
+  "scope": "Post-merge audit, no sampling or hyperparameter changes; repeated exposures are not independent samples.",
+  "run_protocol_and_dataset_bound": true
+}

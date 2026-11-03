@@ -1,0 +1,51 @@
+{
+  "kind": "merged_role_sources_v10",
+  "protocol_sha256": "4553740132361ac17b7027d957088ebf42ebc1c0814566948987530ea431a1c1",
+  "names": [
+    "player",
+    "goalkeeper",
+    "referee"
+  ],
+  "images": {
+    "test": 35,
+    "train": 405,
+    "val": 128
+  },
+  "excluded_base_images": [
+    {
+      "image": "images/train/40cd38_7_6_png.rf.81d37056bceae603a917ca7775c114a8.png",
+      "image_sha256": "ac65c3a5fa2247524c78d204f3e93006e9932adc4f18af350375ff70590ff37d"
+    },
+    {
+      "image": "images/train/a9f16c_2_10_png.rf.1f142141ca710d8cfe79ff3aad386944.png",
+      "image_sha256": "bb6064be154c5550c74774a49c97f0200f19eb60aa0ba43dc684a56b80b5612b"
+    },
+    {
+      "image": "images/train/121364_7_10_png.rf.d612470c8674d649a7a09ef6ce000e72.png",
+      "image_sha256": "cbb650672e0cbbca526dd0f32fe88107a0c79f4744e7f2a1ce9ef8a47dd03ce8"
+    },
+    {
+      "image": "images/train/2e57b9_1_10_png.rf.ec1ea28433a4f736551f4040e902e236.png",
+      "image_sha256": "204836972e831e5c76693028398529f620e8bea6c7e1bc020587b831efba668d"
+    },
+    {
+      "image": "images/train/55c9d1_3_1_png.rf.07c7686af5672912560847946b4b001c.png",
+      "image_sha256": "e0f83e6860e016673ec790d52848088b00ecce231f5c3191fcb516354b636c43"
+    }
+  ],
+  "reviewed_roi_units": 83,
+  "referee_observations_new": 30,
+  "referee_observations_reviewed_existing": 17,
+  "limitation": "Repeated ROI exposures are not new independent examples. Old val/test sources unchanged and previously inspected; no independent match validation.",
+  "new_unique_train_rois": 9,
+  "new_train_exposures": 36,
+  "locked_match_splits": {
+    "117093": "train_candidate",
+    "118575": "train_candidate",
+    "128057": "heldout_review"
+  },
+  "source_roi_repeats": 4,
+  "manifest_sha256": "78b88f0df6be2f1f03eb98c3ef17139b009e760f816f620461f8d182c84a46d0",
+  "protocol": "docs/fixtures/role_sources_training_protocol_v10.json",
+  "training_started": false
+}

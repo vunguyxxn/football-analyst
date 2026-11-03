@@ -2,6 +2,45 @@
 
 ## Trạng thái hiện tại
 
+Ngày 03/11/2026: hoàn tất ghép v8/v9 và train small v10, chưa thay model ứng dụng.
+Khóa protocol và sampling trước train: giữ nền v6 (369 lượt), thêm 9 ROI
+train của match 117093/118575 ×4. Tổng 405 lượt / 311 đơn vị ảnh–nhãn;
+val 128 / test 35 giữ nguyên mọi byte. Match 128057 không có trong train/val.
+Train box exposure: player 4865 / keeper 235 / ref 636. Không thêm nguồn.
+
+COCO11s fresh AdamW, 20 epoch, 640/batch4/FP32/lr0.0003/seed20261102;
+mosaic0.5 đóng 3 epoch cuối, không multi-scale, không dùng v7 weights.
+Chạy liên tục 1014.36s gồm validation cuối; tensor peak allocated 2949.11MiB
+(không phải tổng VRAM). Best weights SHA256:
+70e44344f01d9190daa7cae276a290b057e09f911ce9398cc2ab7115a10cdd2f.
+
+So v6→v10 tại conf0.25 / NMS0.7 / matching IoU0.5, không role dedup:
+- Val640 TP: player 1971→2113, keeper 50→34, ref 63→25;
+  FP ref 511→326; nhầm player→ref 409→269.
+- Val1280 TP: player 2336→2368, keeper 22→34, ref 91→101;
+  FP ref 354→232; nhầm player→ref 155→127.
+- Val ref AP50: 640 0.1046→0.1131, 1280 0.2050→0.3626.
+  Tổng mAP50-95: 640 0.4178→0.4181, 1280 0.3682→0.4548.
+- Gate khóa tại 640 so với v6 không đạt ref AP50 gain >=0.05;
+  các guard AP khác đạt. Giảm FP ở640 đi kèm giảm TP keeper/ref.
+
+Khóa toàn bộ val trước khi chấm known test và diagnostic. Known test TP
+ref: 640 15→6, 1280 23→15; FP ref1280 15→18. Diagnostic 4 ROI của
+match 128057 (31P/1G/3R): TP v10 tại640 29/1/1, tại1280 29/1/2;
+v6 tương ứng 30/0/0 và 26/0/0; FP ref v10 là 3/1. Nhãn agent/COCO hỗ
+trợ, một match đã xem một phần ởv8; không phải kiểm chứng độc lập,
+không chọn checkpoint/size/threshold từ test/diagnostic. Predict-only FPS
+trên 20 ảnh val, 3 warmup: 640 v6 36.81 / v10 39.05; 1280 23.99 / 22.96.
+Chỉ một lượt đo, không phải FPS xử lý video toàn luồng.
+
+Thêm merge_role_sources.py, compare_role_sources.py, 2 file test, protocol/
+plan/audit/result v10 và ROLE_SOURCES_TRAINING_V10.md. Full 564 test đạt,
+1 network deselected, 4 warning cũ; 9 test đích đạt sau kiểm hash cuối.
+Lệnh ghép/train/compare đều thành công. Không đổi runtime/schema,
+dependency hoặc frontend. Bước tiếp theo: audit trên val các keeper/ref
+v6 nhận đúng nhưng v10 mất, phân nhóm size/màu/score/khung trùng trước
+khi chốt nguồn train bổ sung; không đưa heldout/test vào train, chưa tăng epoch.
+
 Ngày 03/11/2026: hoàn tất gói nhãn bổ sung v9 trên ba clip v8, chưa train.
 Nhận 7 vùng mới: 5 train candidate (16 player / 4 goalkeeper / 2 referee),
 2 heldout (15 player / 0 goalkeeper / 1 referee). Chỉ 2 vùng toàn khung;
