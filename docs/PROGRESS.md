@@ -2,6 +2,24 @@
 
 ## Trạng thái hiện tại
 
+Ngày03/11/2026: đã thử lọckhung trùngrole ngoại tuyến ở1280,weightsv6,
+conf0,25/perclassNMS0,7/matching0,5 giữ nguyên. Greedy crossroleIoU>0,7,
+giữconfidencecao,khôngưu tiênrole,khôngdùngGT,khôngsweepngưỡng;
+survivorsvềthứtựgốc đểphépchấmkhôngđổi. Baseline1280táilậpđúng.
+
+Val:playerTP2336→2356,FP472→340,FN221→201;keeperTP22→26,FP38→19,
+FN70→66;refTP91→81,FP354→195,FN201→211. Player→ref155→138.
+Keeper8gained/4lost/18retained;lọc296khung khôngđồngnghĩa296sửađúng.
+Test:playerTP683giữnguyên,FP92→84;keeperTP2giữnguyên,FP4→3;
+refTP23→21,FP15→7. GiảmFP nhưnggiảmrefrecall,khôngpromote/training.
+
+Thêmoffline_role_dedup.py,6testmới,report/snapshot;22testđích đạt.
+Toànbộ548testPythonđạt,1networkdeselected,4warningcũ.
+Khôngràtrựcquanmọikhungbịloại nênkhôngcoi mọicặpoverlaplàcùngngười.
+Khôngđổiruntime/schema/frontend/dependency. Bướcsaukiểmphânbốdata,
+chuẩnbịtrainmulti-scalevớikeepernhỏ/nhiềumàuvàrefđennguồntrainmới;
+giữsplit/gate,khôngtiếptụcnớilọcđểlàmđẹpsố.
+
 Ngày03/11/2026: đã rà từng104nhãnkeeper ở640/1280, cùngweights/ngưỡng.
 Val92:17đúngcảhai,33mấtTP,5đượcTP,37sai cảhai;test12:2giữ,4mất,
 0được,6sai. Cả37mấtTPvẫn ghép playerIoU>.736val/>.813test,không
