@@ -2,6 +2,24 @@
 
 ## Trạng thái hiện tại
 
+Ngày03/11/2026: đã rà từng104nhãnkeeper ở640/1280, cùngweights/ngưỡng.
+Val92:17đúngcảhai,33mấtTP,5đượcTP,37sai cảhai;test12:2giữ,4mất,
+0được,6sai. Cả37mấtTPvẫn ghép playerIoU>.736val/>.813test,không
+phải chỉmấtkhung. Ràtrựcquan37contextcrop,đềungườinhỏ/nhiềumàu;
+chưa có bằngchứngsửanhãn hoặckiểmđộc lập.
+
+Val33mấtTP:23khôngkeeperprobeconf0,001đủIoU,1keeperdướingưỡng0,25,
+9cókeeperhighconfđủIoUnhưngplayercóIoUcaohơn nênthắngmatching.
+Test4mất:3khôngkeeperprobeđủIoU,1dướingưỡng. Probe làoutputpostNMS,
+khôngphải rawclassscore. Giữ nguyên matching role-blind,khôngnới
+ngưỡng đểlàmđẹpsố.5/9ca khungtrùng cóscorekeepercaohơnplayer.
+
+Thêmaudit_keeper_resolution.py,snapshot104nhãn và
+KEEPER_RESOLUTION_AUDIT_V6.md;23testliênquanđạt,hash/TPtotalskiểmđúng.
+Khôngtrain/đổiweights/runtime/schema. Bướcsau thửxửlýkhungtrùngrole
+ngoạituyến,giữphépchấm,báocáo3lớp;chỉsauđómớicânnhắctrainmultiscale
+với keeper nhỏ,màuáođa dạng từnguồntrainmới;chưasửahiệuchỉnhsân.
+
 Ngày03/11/2026: đã thử cùngweightsv6 ở640/1280,conf0,25,NMS0,7,
 matchingIoU0,5,batch1FP32 trênval128/test35.640tái lập đúng snapshot.
 Valplayer→ref409→155(-62,1%),refTP63→91/292,FP511→354;playerTP1971
