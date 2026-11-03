@@ -35,3 +35,13 @@ def test_packet_has_reviewed_full_images_and_all_three_roles():
     assert len(p['sources'])==3
     assert sum(len(labels(s).splitlines()) for s in p['sources'])==60
     assert {o['role'] for s in p['sources'] for o in s['objects']}=={'player','goalkeeper','referee'}
+
+
+def test_clean_release_excludes_quarantine_and_preserves_full_frame_targets():
+    p=json.loads((Path(__file__).resolve().parents[1]/'docs/fixtures/clean_full_frame_roles_v5.json').read_text())
+    excluded={i for item in p['quarantine'] for i in item['ids']}
+    assert not excluded.intersection(s['id'] for s in p['sources'])
+    assert len({s['sha256'] for s in p['sources']})==7
+    assert sum(len(labels(s).splitlines()) for s in p['sources'])==115
+    assert all(s['split']=='train' for s in p['sources'])
+    assert all(s['scene_family']!='yellow_stadium' for s in p['sources'])

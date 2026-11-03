@@ -28,9 +28,9 @@ def labels(source):
     return '\n'.join(lines)+'\n'
 
 
-def export(root):
+def export(root, packet_relative='docs/fixtures/full_frame_roles_v4.json', output_relative='data/processed/full_frame_roles_v4'):
     import cv2
-    packet_path = root / 'docs/fixtures/full_frame_roles_v4.json'
+    packet_path = checked(root, packet_relative)
     packet = json.loads(packet_path.read_text())
     base = root / packet['protected_dataset']
     manifest = json.loads(checked(base,'manifest.json',packet['protected_manifest_sha256']).read_text())
@@ -47,7 +47,9 @@ def export(root):
         checked(root,p['license_file'],p['license_sha256'])
         if p.get('archive'):
             checked(root,p['archive'],p['archive_sha256'])
-    output=root/'data/processed/full_frame_roles_v4'
+    output=(root/output_relative).resolve()
+    if not output.is_relative_to(root):
+        raise ValueError('Output must stay in workspace')
     if output.exists():
         raise FileExistsError(output)
     rows=[]; counts=Counter(); sizes=Counter()
@@ -84,4 +86,9 @@ def export(root):
 
 
 if __name__=='__main__':
-    export(Path(__file__).resolve().parents[2])
+    import argparse
+    parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--packet',default='docs/fixtures/full_frame_roles_v4.json')
+    parser.add_argument('--output',default='data/processed/full_frame_roles_v4')
+    args=parser.parse_args()
+    export(Path(__file__).resolve().parents[2],args.packet,args.output)

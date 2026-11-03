@@ -1,0 +1,62 @@
+{
+  "images": 7,
+  "objects": {
+    "player": 101,
+    "goalkeeper": 6,
+    "referee": 8
+  },
+  "height_at_640": {
+    "24to48": 71,
+    "48plus": 1,
+    "under24": 43
+  },
+  "files": [
+    {
+      "id": "gFCS",
+      "image_sha256": "586006216ee0f32a4a825c5f34a557eac2502b866ae71c11dab7dca1b9092517",
+      "label_sha256": "ad2e7596e81e489d94403b2d908544987cd9821679bf3a51ca5732531c42b383",
+      "objects": 16
+    },
+    {
+      "id": "k13",
+      "image_sha256": "f9093e7c3427a70da670f56f145fac76c8da938be7e35376df1216314e0949d9",
+      "label_sha256": "756e9a2624d665d80dbce692990e19541be97bb06a5f272968a453805e3767c0",
+      "objects": 24
+    },
+    {
+      "id": "k84",
+      "image_sha256": "f04c896a9e41b18c01e4051dbb1d814582b05ac3127a84aefc6f81a5fba00d1f",
+      "label_sha256": "67e394ddd8b8e4d541ac62d8d2a7fde8ee89487160c26922a80aba73dc82314f",
+      "objects": 20
+    },
+    {
+      "id": "new120",
+      "image_sha256": "43bea1e11964519ea7d8e61070c8111adcd075201506537b18c61edd65b59e81",
+      "label_sha256": "f2c154b02926d005af4a51fc0c628f522103fe3c6aeb6502b40eb21dd11ac4c1",
+      "objects": 16
+    },
+    {
+      "id": "new140",
+      "image_sha256": "463167fe06bff5212e62e6a35c0c3ad0d244da8af893a156f1570f9ff708d546",
+      "label_sha256": "d0394825a9ac65294b683ca17cc3b571e9e859db58d97a91a1d295edf41938d9",
+      "objects": 10
+    },
+    {
+      "id": "new11",
+      "image_sha256": "0f48eb0143c15f480eb5dfcc4440ba44a4e93f0f1a38295c8541eb394948476f",
+      "label_sha256": "b107b04eaae0bdb8e1e9a1091b42c5301c1a772ed55d3f59d96dd90606ee9541",
+      "objects": 13
+    },
+    {
+      "id": "new17",
+      "image_sha256": "3ff8b344b599dce766a79dbbda26808d4fb7cb3eb0279c4819794ff2e5cb08d3",
+      "label_sha256": "7e1122a1cb842551291e784a61434e10f0a8f5190dba052094a4e869c6129150",
+      "objects": 16
+    }
+  ],
+  "packet_sha256": "fe35a7d6d8d383d0656293b7b8d797decc629e2cd5623fcb288cb80b5e606d15",
+  "protected_images_screened": 163,
+  "training_performed": false,
+  "independently_validated": false,
+  "native_pixels_preserved": true
+}

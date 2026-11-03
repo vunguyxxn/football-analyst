@@ -2,6 +2,24 @@
 
 ## Trạng thái hiện tại
 
+Ngày03/11/2026: hoàn thành release train bổ sung toàn cảnh v5:7ảnh,
+115nhãn (101player/6keeper/8ref),43người<24px,71từ24–48px ở640.
+Tải/screen276ảnh pinnedGitHub,188HSVứng viên nhưng chỉ nhận4ảnh mới
+đã rà (Libertadores,LPA–LEG,ESP–BEL nữ),55nhãn; cộng3ảnhv4. Bốn ảnh
+mới có2người<24px và53từ24–48px, không phóng crop. Loại new128 trùng
+gFCS,new112chồng bbox chưa rõ,nhóm Dortmund/Bayern nguy cơ cùngval;
+không nhận media Villarreal nghi mô phỏng. Không tự gọi cảbase sạch.
+
+Xuất datasetclean_full_frame_roles_v5,giữval128/test35; kiểm bytes và
+screen163ảnh kiểm không near-image hit,không chứng minh tách trận.
+Chẩn đoán lạiv1/v3 trên7ảnh:player83→85/101,keeper0→0/6,ref4→3/8;
+player→ref10→3 nhưng FPplayer29→41. Chưa đạt yêu cầu phân vai trò,
+chưa trainv5/chưa đổi runtime hoặc hiệu chỉnh sân. gFCS/k13 từng có
+ROItrainv3 nên không gọi kết quả này kiểm định độc lập.
+40test liên quan đạt; CLEAN_FULL_FRAME_ROLES_V5.md và3fixturev5.
+Bước sau: kiểm nguồn base,khóa protocol ghép/sampling sạch rồi train
+small/đánh giá; chưa chuyển sang cải thiện hiệu chỉnh sân.
+
 Ngày03/11/2026: kiểm chứng phân vai trò full-frame pilot3ảnh/60nhãn:
 v1player45/52,keeper0/4,ref2/4;v3player47/52,keeper0/4,ref1/4.
 Player→ref3→0 nhưng FPplayer11→17. Không đủ để duyệt v3; gFCS/k13
