@@ -2,6 +2,19 @@
 
 ## Trạng thái hiện tại
 
+Ngày 04/11/2026: dọn workspace theo yêu cầu, không đổi mã hoặc ứng dụng.
+Xóa 255 mục/32.751 file tạm, bộ cài cũ, ảnh review UI và 4 bản video
+demo dư (2 public, 2 dist), tổng logical 4.779.857.623 byte ≈4,45 GiB.
+Kiểm đường dẫn trong repo, gỡ symlink pytest không đệ quy sau kiểm đích.
+Giữ toàn bộ raw/model/dataset/video_jobs, môi trường Python/Node,
+source/tests/docs và tài nguyên demo đang dùng. Đối chiếu 14.064 file
+bảo vệ không thiếu/đổi size; 226 hash source/public không đổi.
+577 Python test đạt,1networkdeselected,4warningcũ;32frontend test đạt,
+build/lint đạt với warning cũ. API health/metrics/network200 và demo
+readback nhất quán,13.978vị trí. Chưa chạy lại GPU/upload. Chi tiết
+WORKSPACE_CLEANUP.md và fixtures/workspace_cleanup_20261104.json;
+audit local data/processed/cleanup_20261104. Cache nhỏ có thể sinh lại.
+
 Ngày 04/11/2026: hoàn tất kiểm kê độ phủ train v10, chưa thêm dữ liệu/train.
 405 lượt ảnh =311 đơn vị pixel–label, thuộc248 khung nguồn theo SHA/frame;
 không gọi các khung/prefix là trận độc lập. GT keeper199/ref560 theo unit,
