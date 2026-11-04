@@ -2,6 +2,43 @@
 
 ## Trạng thái hiện tại
 
+Ngày 04/11/2026: hoàn tất thử cross-role dedup ngoại tuyến trên v11 ở640/1280.
+Dùng nguyên suppress_cross_role của v6: confidence giảm dần, khác vai trò
+IoU>0.7 thì bỏ khung điểm thấp hơn; không ưu tiên role, giữ khung cùng lớp,
+không loại dây chuyền, survivor giữ thứ tự gốc trước matching. Protocol
+cd5a0a63653ea6b33b924e1a89bf97ff6881c474e615fafa876e5285221d70af khóa trước chạy.
+Weights/dataset/conf0.25/NMS0.7/matchingIoU0.5/max_det300/FP32 giữ nguyên.
+Chỉ128val và35known regression test, không inference match128057.
+Không train thêm, không đổi labels/API/schema/frontend/model ứng dụng.
+
+Val640 trước→sau: P TP2184→2183/FP446→386/FN373→374;
+G TP66→66/FP18→15/FN26→26; R TP46→47/FP310→257/FN246→245.
+Val1280: P TP2459→2475/FP437→339/FN98→82;
+G TP50→55/FP49→29/FN42→37; R TP143→139/FP230→140/FN149→153.
+Loại116/191khung val640/1280. Ref1280 precision38.34%→49.82% nhưng
+recall48.97%→47.60%; mất15TP/nhận thêm11. Không coi giảmFP là đạt mọi lớp.
+
+Known test640 refTP12→11,FP5→3;1280 refTP39→39,FP43→33.
+Test1280 tổngTP từng lớp giữ nguyên vẫn có1player/3ref mất, được bù bởi
+số nhận đúng thêm tương ứng. Không chọn hoặc sửa policy theo test.
+Tổng70lượt mấtTP qua2size/2split:69predictionđúng bịlọc,1predictiongiữ
+nhưng ghép lại sang GTkhác. Đã xem70crop/4sheet, chưa rà mọi suppression
+event; không gọi70lượt là70người hay mọi overlap là cùng người.
+
+49FPkeeper val1280 cũ:15bịloại,5thànhTP,29vẫnFP; gồm6đèn/2cột/1cờ/
+3bóng/7người ngoài sân/8cầu thủ/1GTkeepercạnhtranh/1vậtmờ. Lọc trùng
+không thay thế dữ liệu âm khó/kiểm sân. Trong50refbiênxa còn sai đã rà,
+0được sửa bởi policy. Chưa phù hợp áp dụng toàn cục; runtime giữ nguyên.
+
+Thêm runner offline_role_dedup_v11.py,3test mới;9testđích và596test toàn bộ
+đạt,1networkdeselected,4warningcũ. Replay baseline đủ3lớp khớp snapshot,
+val1280 từngbox/score/thứtự khớp audit cũ;hashpolicy/dataset/weights không đổi.
+Chi tiết OFFLINE_ROLE_DEDUP_V11.md,3fixtureprotocol/result/review; artifact
+local data/processed/offline_role_dedup_v11. Không sửa code dedup/runtime cũ.
+Bước tiếp theo: nguồn train khác bối cảnh có âm khó/đủnhãn toàn cảnh,
+keeper đứng xa xanh/sáng và ref tối biên xa; kiểm split/nhãn rồi mới chốt
+sampling, chưa train tiếp và không sao chép val/test vào train.
+
 Ngày 04/11/2026: hoàn tất audit lỗi v11 so v10 trên val1280, chưa train tiếp.
 Replay đúng TP/FP/FN, confusion và unmatched cả ba lớp trên128ảnh val;
 conf0.25/NMS0.7/matchingIoU0.5/max_det300/FP32 giữ nguyên. Không inference

@@ -1,0 +1,33 @@
+{
+  "kind": "offline_role_dedup_v11",
+  "date": "2026-11-04",
+  "dataset": "data/processed/role_sources_training_v11/dataset",
+  "manifest_sha256": "560064870de51c8114f5ba358b0382d621e044ecf5127dda3c5fd947b6293243",
+  "dataset_protocol": "docs/fixtures/role_sources_training_protocol_v11.json",
+  "dataset_protocol_sha256": "92b88f2e2f6f35d082591bb3df6a6ec36d408a616873a2aeb09fb63d81306900",
+  "reference_result": "docs/fixtures/role_sources_training_result_v11.json",
+  "reference_result_sha256": "4675dbca3908a3cbc1b97612a9f09982485932c18a163d24f5a41ba27bd3b489",
+  "weights": {
+    "path": "data/processed/role_sources_training_v11/small/training/weights/best.pt",
+    "sha256": "d576a3aceb80bc0a9f797da9b4d4bdba36995c2ea4203eed786ac7c63b89be72"
+  },
+  "policy_source": "backend/cv/offline_role_dedup.py",
+  "policy_source_sha256": "cd88e3b4fb3228b8912fd2c49eb219bdcb50b89a77e612dc0ae1950aae27c96f",
+  "sizes": [
+    640,
+    1280
+  ],
+  "splits": [
+    "val",
+    "test"
+  ],
+  "confidence": 0.25,
+  "nms_iou": 0.7,
+  "cross_role_iou_strictly_greater_than": 0.7,
+  "matching_iou": 0.5,
+  "max_det": 300,
+  "half": false,
+  "output": "data/processed/offline_role_dedup_v11",
+  "policy": "Existing greedy confidence-ordered cross-role suppression; stable ties and original survivor order; same-role boxes preserved; no priority, no threshold sweep.",
+  "scope": "Val128 and previously inspected regression-test35. No heldout128057, no training, relabelling or runtime promotion. Report all three classes and all gained/lost label transitions; no AP selection or gate change."
+}

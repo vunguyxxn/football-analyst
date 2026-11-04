@@ -1,0 +1,3930 @@
+{
+  "summary": {
+    "losses": 70,
+    "loss_mechanisms": {
+      "correct_prediction_suppressed": 69,
+      "matching_reassigned_without_suppressing_correct_box": 1
+    },
+    "keeper_original_fp_actions": {
+      "suppressed": 15,
+      "still_false_positive": 29,
+      "now_true_positive": 5
+    },
+    "keeper_fp_actions_by_visual_subject": {
+      "ball": {
+        "still_false_positive": 3
+      },
+      "corner_flag": {
+        "still_false_positive": 1
+      },
+      "goal_post": {
+        "still_false_positive": 2
+      },
+      "gt_keeper_with_competing_box": {
+        "now_true_positive": 5,
+        "suppressed": 3,
+        "still_false_positive": 1
+      },
+      "off_field_person": {
+        "still_false_positive": 7,
+        "suppressed": 1
+      },
+      "outfield_person": {
+        "suppressed": 11,
+        "still_false_positive": 8
+      },
+      "stadium_lamp": {
+        "still_false_positive": 6
+      },
+      "uncertain_goal_area_object": {
+        "still_false_positive": 1
+      }
+    },
+    "previously_missed_far_referee_gained": 0,
+    "far_gain_labels": [],
+    "audit1280_predictions_replayed_exactly": true,
+    "label_changes_sha256": "af5cdb38063e2ffb2ad7f19394d81910ce3795a368d2f02ee3a43cd81e3de42a",
+    "suppression_events_sha256": "4aac45611e3fee5ca0a778f3e346943fe9258882756593fff928929e67b6262a",
+    "prior_audit_result_sha256": "5058d6ae0dbee748e4386c1d94324d7c9345c472dd36e83037385e7eae0d8df5",
+    "prior_visual_review_sha256": "cb6ba2eccab6372f92a9cc3d59d42120548878abc81c8a94dbcfe8565986f64d",
+    "all_70_loss_context_crops_reviewed": true,
+    "all_suppression_events_visually_reviewed": false,
+    "independently_validated": false,
+    "matching_reassignment_case": {
+      "review_id": 41,
+      "image": "images/val/4b770a_1_7_png.rf.0344c0dc64e2361671483c067c0bc549.png",
+      "split": "val",
+      "size": 1280,
+      "original_label_id": 1,
+      "original_role": "player",
+      "kept_correct_prediction": {
+        "id": 21,
+        "role": "player",
+        "xyxy": [
+          1075.8446044921875,
+          346.13055419921875,
+          1101.56396484375,
+          413.5284423828125
+        ],
+        "confidence": 0.571927011013031
+      },
+      "now_assigned_label_id": 21,
+      "now_assigned_gt_role": "referee",
+      "now_assigned_gt_box": [
+        1080.0600000000002,
+        356.55000012,
+        1099.86,
+        413.5699998
+      ]
+    }
+  },
+  "losses": [
+    {
+      "split": "val",
+      "size": 640,
+      "image": "images/val/4b770a_1_4_png.rf.dfb7854ec433b0f1ba32a6d8d7441b7c.png",
+      "image_sha256": "46655d50625d206f9f64f847618182cd003c8afcf610fcc98154513440902998",
+      "label_sha256": "4a9d173813f8ca691930b6a08a5d9dd329f5fb8f5d174f28c4c4632db69b5eca",
+      "label_id": 15,
+      "role": "player",
+      "xyxy": [
+        1224.0,
+        407.00000070000004,
+        1251.0,
+        470.00000034000004
+      ],
+      "transition": "lost",
+      "before": {
+        "id": 21,
+        "role": "player",
+        "xyxy": [
+          1223.3037109375,
+          406.7756652832031,
+          1252.1474609375,
+          470.7010803222656
+        ],
+        "confidence": 0.3088919520378113
+      },
+      "after": {
+        "id": 15,
+        "role": "referee",
+        "xyxy": [
+          1221.986083984375,
+          406.9494323730469,
+          1252.04541015625,
+          470.3705749511719
+        ],
+        "confidence": 0.542422354221344
+      },
+      "review_id": 0,
+      "mechanism": "correct_prediction_suppressed",
+      "winner": {
+        "id": 15,
+        "role": "referee",
+        "xyxy": [
+          1221.986083984375,
+          406.9494323730469,
+          1252.04541015625,
+          470.3705749511719
+        ],
+        "confidence": 0.542422354221344
+      }
+    },
+    {
+      "split": "val",
+      "size": 640,
+      "image": "images/val/4b770a_1_8_png.rf.92162d0b37df46a8172921a12a4d8cdb.png",
+      "image_sha256": "c161441bedcb4dab5ba4d8306fa4ba79ff7d346fc0078180fd7032cbdd1c524f",
+      "label_sha256": "a785db50936c753e0a85b7daa9d089fbf778370184ca5d61d695990b104898db",
+      "label_id": 16,
+      "role": "player",
+      "xyxy": [
+        1244.9999990400001,
+        352.99999962000004,
+        1270.99999968,
+        417.99999942000005
+      ],
+      "transition": "lost",
+      "before": {
+        "id": 22,
+        "role": "player",
+        "xyxy": [
+          1245.059814453125,
+          355.1069641113281,
+          1271.198486328125,
+          417.4309387207031
+        ],
+        "confidence": 0.4235822558403015
+      },
+      "after": {
+        "id": 16,
+        "role": "referee",
+        "xyxy": [
+          1245.1783447265625,
+          355.0767517089844,
+          1269.20361328125,
+          417.5021667480469
+        ],
+        "confidence": 0.6913280487060547
+      },
+      "review_id": 1,
+      "mechanism": "correct_prediction_suppressed",
+      "winner": {
+        "id": 16,
+        "role": "referee",
+        "xyxy": [
+          1245.1783447265625,
+          355.0767517089844,
+          1269.20361328125,
+          417.5021667480469
+        ],
+        "confidence": 0.6913280487060547
+      }
+    },
+    {
+      "split": "val",
+      "size": 640,
+      "image": "images/val/4b770a_3_9_png.rf.ae7cd2e9e19d140d6f3727b4d69c5fd1.png",
+      "image_sha256": "a65be5d85833ba8856ad7a065530124141c6ff1cc709e759164b8d64b2f4efc3",
+      "label_sha256": "964c283632fd022cb769766aa64dbee07feeb7e2fa9fc6ced16360c7eb0bdb42",
+      "label_id": 16,
+      "role": "player",
+      "xyxy": [
+        1202.00000064,
+        487.00000008000006,
+        1247.00000064,
+        567.0
+      ],
+      "transition": "lost",
+      "before": {
+        "id": 19,
+        "role": "player",
+        "xyxy": [
+          1202.5772705078125,
+          487.5732421875,
+          1246.6507568359375,
+          564.6824340820312
+        ],
+        "confidence": 0.4868553876876831
+      },
+      "after": {
+        "id": 11,
+        "role": "referee",
+        "xyxy": [
+          1202.8721923828125,
+          488.316650390625,
+          1246.394775390625,
+          564.7267456054688
+        ],
+        "confidence": 0.7678980827331543
+      },
+      "review_id": 2,
+      "mechanism": "correct_prediction_suppressed",
+      "winner": {
+        "id": 11,
+        "role": "referee",
+        "xyxy": [
+          1202.8721923828125,
+          488.316650390625,
+          1246.394775390625,
+          564.7267456054688
+        ],
+        "confidence": 0.7678980827331543
+      }
+    },
+    {
+      "split": "val",
+      "size": 640,
+      "image": "images/val/798b45_3_10_png.rf.90596242d7b55c1a4d24d3ed3c40f46c.png",
+      "image_sha256": "136cec37ba3b3e0e2bad90ca73cb389e64bdd54f0548ac3f4772fd8f4cc4ea0f",
+      "label_sha256": "dbd5a870b3e51f6c9502b3df334156c72ccc6c1a96928d1fe305b1bbe155747d",
+      "label_id": 15,
+      "role": "player",
+      "xyxy": [
+        1113.0000009599999,
+        289.99999944000007,
+        1141.00000032,
+        345.9999996
+      ],
+      "transition": "lost",
+      "before": {
+        "id": 23,
+        "role": "player",
+        "xyxy": [
+          1112.33935546875,
+          287.4095764160156,
+          1143.12744140625,
+          348.27960205078125
+        ],
+        "confidence": 0.45282888412475586
+      },
+      "after": {
+        "id": 21,
+        "role": "referee",
+        "xyxy": [
+          1112.534423828125,
+          287.37823486328125,
+          1143.565673828125,
+          348.547119140625
+        ],
+        "confidence": 0.5032946467399597
+      },
+      "review_id": 3,
+      "mechanism": "correct_prediction_suppressed",
+      "winner": {
+        "id": 21,
+        "role": "referee",
+        "xyxy": [
+          1112.534423828125,
+          287.37823486328125,
+          1143.565673828125,
+          348.547119140625
+        ],
+        "confidence": 0.5032946467399597
+      }
+    },
+    {
+      "split": "val",
+      "size": 640,
+      "image": "images/val/798b45_3_10_png.rf.90596242d7b55c1a4d24d3ed3c40f46c.png",
+      "image_sha256": "136cec37ba3b3e0e2bad90ca73cb389e64bdd54f0548ac3f4772fd8f4cc4ea0f",
+      "label_sha256": "dbd5a870b3e51f6c9502b3df334156c72ccc6c1a96928d1fe305b1bbe155747d",
+      "label_id": 17,
+      "role": "player",
+      "xyxy": [
+        1437.00000096,
+        393.99999965999996,
+        1498.00000032,
+        464.99999994
+      ],
+      "transition": "lost",
+      "before": {
+        "id": 19,
+        "role": "player",
+        "xyxy": [
+          1432.06103515625,
+          396.0633544921875,
+          1500.3056640625,
+          466.960693359375
+        ],
+        "confidence": 0.580352783203125
+      },
+      "after": {
+        "id": 14,
+        "role": "referee",
+        "xyxy": [
+          1432.611328125,
+          396.4053039550781,
+          1501.222412109375,
+          467.94635009765625
+        ],
+        "confidence": 0.7332953810691833
+      },
+      "review_id": 4,
+      "mechanism": "correct_prediction_suppressed",
+      "winner": {
+        "id": 14,
+        "role": "referee",
+        "xyxy": [
+          1432.611328125,
+          396.4053039550781,
+          1501.222412109375,
+          467.94635009765625
+        ],
+        "confidence": 0.7332953810691833
+      }
+    },
+    {
+      "split": "val",
+      "size": 640,
+      "image": "images/val/4b770a_1_9_png.rf.67766c6aba834bb914af9f625a758bf6.png",
+      "image_sha256": "a9c33cc11ccf48773e6e10187a8fb310b329e4fb8fb769d66f6d4d5b761ba0e5",
+      "label_sha256": "f4f37125bb32231e6a7b14f81ba7f7292b278b5e80c0fd833032a1bc2f32f023",
+      "label_id": 10,
+      "role": "player",
+      "xyxy": [
+        1215.9999993600002,
+        338.00000004000003,
+        1239.99999936,
+        398.00000052
+      ],
+      "transition": "lost",
+      "before": {
+        "id": 21,
+        "role": "player",
+        "xyxy": [
+          1214.6920166015625,
+          338.69207763671875,
+          1238.9337158203125,
+          400.00567626953125
+        ],
+        "confidence": 0.28174668550491333
+      },
+      "after": {
+        "id": 8,
+        "role": "referee",
+        "xyxy": [
+          1217.00146484375,
+          336.8387145996094,
+          1238.504638671875,
+          400.93011474609375
+        ],
+        "confidence": 0.7611872553825378
+      },
+      "review_id": 5,
+      "mechanism": "correct_prediction_suppressed",
+      "winner": {
+        "id": 8,
+        "role": "referee",
+        "xyxy": [
+          1217.00146484375,
+          336.8387145996094,
+          1238.504638671875,
+          400.93011474609375
+        ],
+        "confidence": 0.7611872553825378
+      }
+    },
+    {
+      "split": "val",
+      "size": 640,
+      "image": "images/val/538438_1_3_png.rf.60d5e727311868a67df8c5be4102b3a0.png",
+      "image_sha256": "5cb057f0744e3def82958080310116b546330773ce014b31270dfe852f04d4bf",
+      "label_sha256": "332d3e34117a36b8a874de41a8879152a98f4c12ea325705daf3afbcb69a2377",
+      "label_id": 18,
+      "role": "player",
+      "xyxy": [
+        457.99999968,
+        575.0000001000001,
+        493.00000032,
+        643.00000014
+      ],
+      "transition": "lost",
+      "before": {
+        "id": 21,
+        "role": "player",
+        "xyxy": [
+          454.3030700683594,
+          576.4498901367188,
+          495.1240539550781,
+          642.1746826171875
+        ],
+        "confidence": 0.49824807047843933
+      },
+      "after": {
+        "id": 14,
+        "role": "referee",
+        "xyxy": [
+          453.3126525878906,
+          576.345947265625,
+          495.2542419433594,
+          641.831787109375
+        ],
+        "confidence": 0.7669650316238403
+      },
+      "review_id": 6,
+      "mechanism": "correct_prediction_suppressed",
+      "winner": {
+        "id": 14,
+        "role": "referee",
+        "xyxy": [
+          453.3126525878906,
+          576.345947265625,
+          495.2542419433594,
+          641.831787109375
+        ],
+        "confidence": 0.7669650316238403
+      }
+    },
+    {
+      "split": "val",
+      "size": 640,
+      "image": "images/val/538438_5_5_png.rf.f651b2ed82d156c4efa1e001361ae144.png",
+      "image_sha256": "cb9f14186a96f899a4a22716bee69f345813338d3a9629e8c190f5267534968f",
+      "label_sha256": "6fec7921305d8db91c549dc232d5ccef996e848a3ba842a3235990e65e1d01d0",
+      "label_id": 17,
+      "role": "player",
+      "xyxy": [
+        295.00000031999997,
+        493.00000002,
+        315.00000095999997,
+        556.9999997399999
+      ],
+      "transition": "lost",
+      "before": {
+        "id": 21,
+        "role": "player",
+        "xyxy": [
+          294.318359375,
+          491.32049560546875,
+          314.911865234375,
+          557.6290283203125
+        ],
+        "confidence": 0.3591025769710541
+      },
+      "after": {
+        "id": 18,
+        "role": "referee",
+        "xyxy": [
+          293.990478515625,
+          491.25128173828125,
+          314.7532653808594,
+          558.627685546875
+        ],
+        "confidence": 0.4739748537540436
+      },
+      "review_id": 7,
+      "mechanism": "correct_prediction_suppressed",
+      "winner": {
+        "id": 18,
+        "role": "referee",
+        "xyxy": [
+          293.990478515625,
+          491.25128173828125,
+          314.7532653808594,
+          558.627685546875
+        ],
+        "confidence": 0.4739748537540436
+      }
+    },
+    {
+      "split": "val",
+      "size": 640,
+      "image": "images/val/538438_5_9_png.rf.bf06c215af4701d9f8333f9b25f93e9f.png",
+      "image_sha256": "5983d4dad7e2a8be05d4e6990c7b5abe47df8221097064ed2543d8f4bd79bd02",
+      "label_sha256": "8c570fbefa8135bccfdf5c2f027102c04130434f5e043607042b53a809e1615b",
+      "label_id": 16,
+      "role": "player",
+      "xyxy": [
+        1324.99999968,
+        597.9999997799999,
+        1363.00000032,
+        667.9999999800001
+      ],
+      "transition": "lost",
+      "before": {
+        "id": 22,
+        "role": "player",
+        "xyxy": [
+          1324.879638671875,
+          597.9567260742188,
+          1362.8984375,
+          668.8082885742188
+        ],
+        "confidence": 0.4470929205417633
+      },
+      "after": {
+        "id": 18,
+        "role": "referee",
+        "xyxy": [
+          1324.0513916015625,
+          598.4766845703125,
+          1362.720703125,
+          669.1246948242188
+        ],
+        "confidence": 0.6799549460411072
+      },
+      "review_id": 8,
+      "mechanism": "correct_prediction_suppressed",
+      "winner": {
+        "id": 18,
+        "role": "referee",
+        "xyxy": [
+          1324.0513916015625,
+          598.4766845703125,
+          1362.720703125,
+          669.1246948242188
+        ],
+        "confidence": 0.6799549460411072
+      }
+    },
+    {
+      "split": "val",
+      "size": 640,
+      "image": "images/val/538438_7_10_png.rf.a591b1cdb6f1ddfe8e142c34f8834316.png",
+      "image_sha256": "114f4d6d5cb94c425a1e8652c3f68aa628986211fcd9fd056a9d6af857ee1de3",
+      "label_sha256": "66100915e7c125cec575210a2bac7935bb01fd34ca0f74ed8fbd1181aacfca7e",
+      "label_id": 0,
+      "role": "player",
+      "xyxy": [
+        1078.00000032,
+        431.99999945999997,
+        1098.00000096,
+        475.99999974
+      ],
+      "transition": "lost",
+      "before": {
+        "id": 26,
+        "role": "player",
+        "xyxy": [
+          1077.6661376953125,
+          430.4292297363281,
+          1106.389892578125,
+          479.0475769042969
+        ],
+        "confidence": 0.2557399868965149
+      },
+      "after": {
+        "id": 23,
+        "role": "referee",
+        "xyxy": [
+          1076.9453125,
+          430.51593017578125,
+          1107.218017578125,
+          479.56402587890625
+        ],
+        "confidence": 0.339027464389801
+      },
+      "review_id": 9,
+      "mechanism": "correct_prediction_suppressed",
+      "winner": {
+        "id": 23,
+        "role": "referee",
+        "xyxy": [
+          1076.9453125,
+          430.51593017578125,
+          1107.218017578125,
+          479.56402587890625
+        ],
+        "confidence": 0.339027464389801
+      }
+    },
+    {
+      "split": "val",
+      "size": 640,
+      "image": "images/val/538438_7_10_png.rf.a591b1cdb6f1ddfe8e142c34f8834316.png",
+      "image_sha256": "114f4d6d5cb94c425a1e8652c3f68aa628986211fcd9fd056a9d6af857ee1de3",
+      "label_sha256": "66100915e7c125cec575210a2bac7935bb01fd34ca0f74ed8fbd1181aacfca7e",
+      "label_id": 2,
+      "role": "player",
+      "xyxy": [
+        684.9999993600001,
+        503.99999981999997,
+        723.99999936,
+        570.9999997799999
+      ],
+      "transition": "lost",
+      "before": {
+        "id": 22,
+        "role": "player",
+        "xyxy": [
+          686.953369140625,
+          505.51788330078125,
+          732.1658325195312,
+          570.7243041992188
+        ],
+        "confidence": 0.4424089789390564
+      },
+      "after": {
+        "id": 17,
+        "role": "referee",
+        "xyxy": [
+          687.54296875,
+          506.552001953125,
+          731.6442260742188,
+          570.0169067382812
+        ],
+        "confidence": 0.5762515664100647
+      },
+      "review_id": 10,
+      "mechanism": "correct_prediction_suppressed",
+      "winner": {
+        "id": 17,
+        "role": "referee",
+        "xyxy": [
+          687.54296875,
+          506.552001953125,
+          731.6442260742188,
+          570.0169067382812
+        ],
+        "confidence": 0.5762515664100647
+      }
+    },
+    {
+      "split": "val",
+      "size": 640,
+      "image": "images/val/538438_7_2_png.rf.094c14845829d56eb428150667cbee76.png",
+      "image_sha256": "892ae02833422887c6f4d55fd7d68ed4f9b32895836f4c1c7f84988b85987401",
+      "label_sha256": "b95adcc36632d8c289548feab6782869615bfddbb4231b77c9fa5e3d1d42fa21",
+      "label_id": 3,
+      "role": "player",
+      "xyxy": [
+        1282.00000032,
+        502.99999973999996,
+        1299.00000096,
+        540.9999995399999
+      ],
+      "transition": "lost",
+      "before": {
+        "id": 24,
+        "role": "player",
+        "xyxy": [
+          1281.023193359375,
+          501.7005615234375,
+          1297.79541015625,
+          541.4075317382812
+        ],
+        "confidence": 0.2736712694168091
+      },
+      "after": {
+        "id": 22,
+        "role": "referee",
+        "xyxy": [
+          1281.2548828125,
+          501.6828918457031,
+          1297.679443359375,
+          541.6865234375
+        ],
+        "confidence": 0.37737104296684265
+      },
+      "review_id": 11,
+      "mechanism": "correct_prediction_suppressed",
+      "winner": {
+        "id": 22,
+        "role": "referee",
+        "xyxy": [
+          1281.2548828125,
+          501.6828918457031,
+          1297.679443359375,
+          541.6865234375
+        ],
+        "confidence": 0.37737104296684265
+      }
+    },
+    {
+      "split": "val",
+      "size": 640,
+      "image": "images/val/538438_7_6_png.rf.350f328ab420d7a6c1af137e48f29e21.png",
+      "image_sha256": "2d0c32379d5fda019213135e642b20fe480366db62a5be84c395d8801e6b99eb",
+      "label_sha256": "a07e9a63e0b543b54d71fd604eb2997a66d6a0f1ae90b8fd8a88c157ded5f539",
+      "label_id": 17,
+      "role": "player",
+      "xyxy": [
+        864.9999993600001,
+        663.99999966,
+        891.99999936,
+        729.99999954
+      ],
+      "transition": "lost",
+      "before": {
+        "id": 19,
+        "role": "player",
+        "xyxy": [
+          864.6095581054688,
+          663.4502563476562,
+          888.0203247070312,
+          729.5974731445312
+        ],
+        "confidence": 0.43358442187309265
+      },
+      "after": {
+        "id": 18,
+        "role": "referee",
+        "xyxy": [
+          864.4857788085938,
+          664.3333740234375,
+          888.0463256835938,
+          728.9735107421875
+        ],
+        "confidence": 0.4679136574268341
+      },
+      "review_id": 12,
+      "mechanism": "correct_prediction_suppressed",
+      "winner": {
+        "id": 18,
+        "role": "referee",
+        "xyxy": [
+          864.4857788085938,
+          664.3333740234375,
+          888.0463256835938,
+          728.9735107421875
+        ],
+        "confidence": 0.4679136574268341
+      }
+    },
+    {
+      "split": "val",
+      "size": 640,
+      "image": "images/val/538438_7_7_png.rf.b2cd5876580d195050a29b49cbc794de.png",
+      "image_sha256": "3045590f500227d62b8095b4d566e09b9a4686e315b2a9648a04e15306af2e6c",
+      "label_sha256": "3d6c11a58f9a684ae287e344657ef49be7f8cbeb9ffdcfe57ee22fb89f0f2418",
+      "label_id": 14,
+      "role": "player",
+      "xyxy": [
+        1337.00000064,
+        476.00000028000005,
+        1358.00000064,
+        533.00000052
+      ],
+      "transition": "lost",
+      "before": {
+        "id": 23,
+        "role": "player",
+        "xyxy": [
+          1335.688232421875,
+          474.8079528808594,
+          1358.632080078125,
+          532.6433715820312
+        ],
+        "confidence": 0.28936630487442017
+      },
+      "after": {
+        "id": 20,
+        "role": "referee",
+        "xyxy": [
+          1335.6302490234375,
+          474.65606689453125,
+          1358.9168701171875,
+          532.5574951171875
+        ],
+        "confidence": 0.3365827202796936
+      },
+      "review_id": 13,
+      "mechanism": "correct_prediction_suppressed",
+      "winner": {
+        "id": 20,
+        "role": "referee",
+        "xyxy": [
+          1335.6302490234375,
+          474.65606689453125,
+          1358.9168701171875,
+          532.5574951171875
+        ],
+        "confidence": 0.3365827202796936
+      }
+    },
+    {
+      "split": "val",
+      "size": 640,
+      "image": "images/val/538438_9_1_png.rf.7f1c569aa01779e00a1e29009b18466e.png",
+      "image_sha256": "50d8894293467887635b9525e0b98bf232e6ed3a0f67c80eec83e27c26a4c448",
+      "label_sha256": "be69977137d068198214fbe56cb14dba7ef636db80fa82658a67af68d99a6c73",
+      "label_id": 12,
+      "role": "player",
+      "xyxy": [
+        1194.99999936,
+        466.00000056,
+        1218.99999936,
+        518.0000004
+      ],
+      "transition": "lost",
+      "before": {
+        "id": 20,
+        "role": "player",
+        "xyxy": [
+          1195.120361328125,
+          466.1737976074219,
+          1219.84033203125,
+          518.5277099609375
+        ],
+        "confidence": 0.4851013422012329
+      },
+      "after": {
+        "id": 18,
+        "role": "referee",
+        "xyxy": [
+          1194.79052734375,
+          466.50927734375,
+          1219.9053955078125,
+          519.1385498046875
+        ],
+        "confidence": 0.5508445501327515
+      },
+      "review_id": 14,
+      "mechanism": "correct_prediction_suppressed",
+      "winner": {
+        "id": 18,
+        "role": "referee",
+        "xyxy": [
+          1194.79052734375,
+          466.50927734375,
+          1219.9053955078125,
+          519.1385498046875
+        ],
+        "confidence": 0.5508445501327515
+      }
+    },
+    {
+      "split": "val",
+      "size": 640,
+      "image": "images/val/538438_9_2_png.rf.7e199fa3f38a16b8c6280d92c10a7633.png",
+      "image_sha256": "8e019ccb175495760593e7d10891bc5381bb1d9614f6a4551a8f3416f719c909",
+      "label_sha256": "68cff57941fd8ecd984fbd211a7a10c6b2ac06998e3a33224da07bb2e092a44f",
+      "label_id": 11,
+      "role": "player",
+      "xyxy": [
+        1064.9999990400001,
+        611.99999982,
+        1096.99999968,
+        680.99999994
+      ],
+      "transition": "lost",
+      "before": {
+        "id": 20,
+        "role": "player",
+        "xyxy": [
+          1064.1787109375,
+          612.275634765625,
+          1097.352783203125,
+          680.5985717773438
+        ],
+        "confidence": 0.4286104738712311
+      },
+      "after": {
+        "id": 18,
+        "role": "referee",
+        "xyxy": [
+          1063.90673828125,
+          611.5399169921875,
+          1097.394775390625,
+          680.67578125
+        ],
+        "confidence": 0.5006470680236816
+      },
+      "review_id": 15,
+      "mechanism": "correct_prediction_suppressed",
+      "winner": {
+        "id": 18,
+        "role": "referee",
+        "xyxy": [
+          1063.90673828125,
+          611.5399169921875,
+          1097.394775390625,
+          680.67578125
+        ],
+        "confidence": 0.5006470680236816
+      }
+    },
+    {
+      "split": "val",
+      "size": 640,
+      "image": "images/val/798b45_1_4_png.rf.b6b2a1ae4eb8ccf91d98a137e742e056.png",
+      "image_sha256": "3363a1760de9aa8a0d3e0d228f9e817fd6a332a90cf0e8850f1b3c0a757bc004",
+      "label_sha256": "6022ee65aa9cc22782406d7b3e2985ab3e17230d1fc291c6bded765169062adc",
+      "label_id": 6,
+      "role": "referee",
+      "xyxy": [
+        640.99999968,
+        318.99999959999997,
+        659.9999990399999,
+        371.99999951999996
+      ],
+      "transition": "lost",
+      "before": {
+        "id": 24,
+        "role": "referee",
+        "xyxy": [
+          640.3255615234375,
+          320.9232177734375,
+          661.4019165039062,
+          372.125732421875
+        ],
+        "confidence": 0.29653120040893555
+      },
+      "after": {
+        "id": 11,
+        "role": "player",
+        "xyxy": [
+          640.749755859375,
+          320.8495788574219,
+          662.009765625,
+          372.41168212890625
+        ],
+        "confidence": 0.7232861518859863
+      },
+      "review_id": 16,
+      "mechanism": "correct_prediction_suppressed",
+      "winner": {
+        "id": 11,
+        "role": "player",
+        "xyxy": [
+          640.749755859375,
+          320.8495788574219,
+          662.009765625,
+          372.41168212890625
+        ],
+        "confidence": 0.7232861518859863
+      }
+    },
+    {
+      "split": "val",
+      "size": 640,
+      "image": "images/val/798b45_1_5_png.rf.948132bb1ee8ff7c979a81a5c76c3426.png",
+      "image_sha256": "98d07a4695f384ac9edfb57f32dee48cd9fcc9b3bfbb3433aaa70a8d2c0062cb",
+      "label_sha256": "1a0d24606564b3165b5b6b1411e2512954acbd51514a4233a1a4eeb997fdb999",
+      "label_id": 8,
+      "role": "player",
+      "xyxy": [
+        292.99999968,
+        374.00000022000006,
+        316.00000032,
+        434.9999997
+      ],
+      "transition": "lost",
+      "before": {
+        "id": 20,
+        "role": "player",
+        "xyxy": [
+          292.6696472167969,
+          373.9556579589844,
+          316.8148498535156,
+          435.0156555175781
+        ],
+        "confidence": 0.4737181067466736
+      },
+      "after": {
+        "id": 14,
+        "role": "referee",
+        "xyxy": [
+          292.991943359375,
+          375.44757080078125,
+          317.5098876953125,
+          435.4517822265625
+        ],
+        "confidence": 0.7128004431724548
+      },
+      "review_id": 17,
+      "mechanism": "correct_prediction_suppressed",
+      "winner": {
+        "id": 14,
+        "role": "referee",
+        "xyxy": [
+          292.991943359375,
+          375.44757080078125,
+          317.5098876953125,
+          435.4517822265625
+        ],
+        "confidence": 0.7128004431724548
+      }
+    },
+    {
+      "split": "val",
+      "size": 640,
+      "image": "images/val/798b45_1_5_png.rf.948132bb1ee8ff7c979a81a5c76c3426.png",
+      "image_sha256": "98d07a4695f384ac9edfb57f32dee48cd9fcc9b3bfbb3433aaa70a8d2c0062cb",
+      "label_sha256": "1a0d24606564b3165b5b6b1411e2512954acbd51514a4233a1a4eeb997fdb999",
+      "label_id": 13,
+      "role": "referee",
+      "xyxy": [
+        541.00000032,
+        373.00000014,
+        565.99999968,
+        436.99999986
+      ],
+      "transition": "lost",
+      "before": {
+        "id": 23,
+        "role": "referee",
+        "xyxy": [
+          541.3077392578125,
+          373.5608825683594,
+          567.6267700195312,
+          438.1528015136719
+        ],
+        "confidence": 0.3869875967502594
+      },
+      "after": {
+        "id": 22,
+        "role": "player",
+        "xyxy": [
+          539.7998657226562,
+          372.9053649902344,
+          568.7021484375,
+          438.2571716308594
+        ],
+        "confidence": 0.45439717173576355
+      },
+      "review_id": 18,
+      "mechanism": "correct_prediction_suppressed",
+      "winner": {
+        "id": 22,
+        "role": "player",
+        "xyxy": [
+          539.7998657226562,
+          372.9053649902344,
+          568.7021484375,
+          438.2571716308594
+        ],
+        "confidence": 0.45439717173576355
+      }
+    },
+    {
+      "split": "val",
+      "size": 640,
+      "image": "images/val/798b45_3_1_png.rf.c1a7f09bda562310cb5ca59f6e10bdd7.png",
+      "image_sha256": "452c7d6e6d6438470ca1cf21b3116e233c28e2c9998082fdd6218ca076dee79b",
+      "label_sha256": "7143cd8954cc7734506b8f386f2cf19b6ffa1882f2fcf13b329711a60dcfef01",
+      "label_id": 10,
+      "role": "player",
+      "xyxy": [
+        876.00000096,
+        445.99999950000006,
+        901.00000032,
+        515.9999997
+      ],
+      "transition": "lost",
+      "before": {
+        "id": 25,
+        "role": "player",
+        "xyxy": [
+          874.3998413085938,
+          444.78912353515625,
+          902.2985229492188,
+          517.3926391601562
+        ],
+        "confidence": 0.36320772767066956
+      },
+      "after": {
+        "id": 23,
+        "role": "referee",
+        "xyxy": [
+          874.2239990234375,
+          448.3263244628906,
+          900.315185546875,
+          518.1986083984375
+        ],
+        "confidence": 0.41088300943374634
+      },
+      "review_id": 19,
+      "mechanism": "correct_prediction_suppressed",
+      "winner": {
+        "id": 23,
+        "role": "referee",
+        "xyxy": [
+          874.2239990234375,
+          448.3263244628906,
+          900.315185546875,
+          518.1986083984375
+        ],
+        "confidence": 0.41088300943374634
+      }
+    },
+    {
+      "split": "val",
+      "size": 640,
+      "image": "images/val/798b45_3_1_png.rf.c1a7f09bda562310cb5ca59f6e10bdd7.png",
+      "image_sha256": "452c7d6e6d6438470ca1cf21b3116e233c28e2c9998082fdd6218ca076dee79b",
+      "label_sha256": "7143cd8954cc7734506b8f386f2cf19b6ffa1882f2fcf13b329711a60dcfef01",
+      "label_id": 18,
+      "role": "referee",
+      "xyxy": [
+        706.99999968,
+        449.99999981999997,
+        731.99999904,
+        524.00000034
+      ],
+      "transition": "lost",
+      "before": {
+        "id": 26,
+        "role": "referee",
+        "xyxy": [
+          706.48828125,
+          449.99249267578125,
+          733.7503051757812,
+          524.7626953125
+        ],
+        "confidence": 0.3003419041633606
+      },
+      "after": {
+        "id": 11,
+        "role": "player",
+        "xyxy": [
+          705.4973754882812,
+          449.3557434082031,
+          733.0656127929688,
+          524.718505859375
+        ],
+        "confidence": 0.6666237711906433
+      },
+      "review_id": 20,
+      "mechanism": "correct_prediction_suppressed",
+      "winner": {
+        "id": 11,
+        "role": "player",
+        "xyxy": [
+          705.4973754882812,
+          449.3557434082031,
+          733.0656127929688,
+          524.718505859375
+        ],
+        "confidence": 0.6666237711906433
+      }
+    },
+    {
+      "split": "val",
+      "size": 640,
+      "image": "images/val/798b45_3_2_png.rf.d951824d7c962e8b26104e0d381119b5.png",
+      "image_sha256": "0e59fef6a961455e6a74a1c776e292633146f0088e442abf02cd0d61ea478a4a",
+      "label_sha256": "44b5732ba5052e519fb71c1ec3e6da9c5ed8281006ab430466ed32bb5e41f6ba",
+      "label_id": 17,
+      "role": "referee",
+      "xyxy": [
+        595.99999968,
+        401.99999921999995,
+        629.9999990399999,
+        475.99999974
+      ],
+      "transition": "lost",
+      "before": {
+        "id": 23,
+        "role": "referee",
+        "xyxy": [
+          594.1182861328125,
+          401.98309326171875,
+          630.3510131835938,
+          477.34228515625
+        ],
+        "confidence": 0.4534956216812134
+      },
+      "after": {
+        "id": 19,
+        "role": "player",
+        "xyxy": [
+          592.9569091796875,
+          401.7133483886719,
+          630.6630859375,
+          477.3941345214844
+        ],
+        "confidence": 0.5817614793777466
+      },
+      "review_id": 21,
+      "mechanism": "correct_prediction_suppressed",
+      "winner": {
+        "id": 19,
+        "role": "player",
+        "xyxy": [
+          592.9569091796875,
+          401.7133483886719,
+          630.6630859375,
+          477.3941345214844
+        ],
+        "confidence": 0.5817614793777466
+      }
+    },
+    {
+      "split": "val",
+      "size": 640,
+      "image": "images/val/798b45_5_1_png.rf.22cb30d4f2769f867a4cfe3b87d04c9b.png",
+      "image_sha256": "83230b9d6292f7618ab9f63195635c3f566f447e282532d6fc44f363c4cf0947",
+      "label_sha256": "77a639784f169954859baeb60c9cf409faa91a97e531840a7e3a0cdb39d079e3",
+      "label_id": 10,
+      "role": "player",
+      "xyxy": [
+        361.00000031999997,
+        179.99999982,
+        385.99999968,
+        240.9999993
+      ],
+      "transition": "lost",
+      "before": {
+        "id": 24,
+        "role": "player",
+        "xyxy": [
+          359.78802490234375,
+          171.41221618652344,
+          389.4624938964844,
+          242.1067657470703
+        ],
+        "confidence": 0.2868541181087494
+      },
+      "after": {
+        "id": 10,
+        "role": "referee",
+        "xyxy": [
+          358.3175048828125,
+          170.41177368164062,
+          389.322509765625,
+          241.21755981445312
+        ],
+        "confidence": 0.7632720470428467
+      },
+      "review_id": 22,
+      "mechanism": "correct_prediction_suppressed",
+      "winner": {
+        "id": 10,
+        "role": "referee",
+        "xyxy": [
+          358.3175048828125,
+          170.41177368164062,
+          389.322509765625,
+          241.21755981445312
+        ],
+        "confidence": 0.7632720470428467
+      }
+    },
+    {
+      "split": "val",
+      "size": 640,
+      "image": "images/val/798b45_5_6_png.rf.e87982f4b727a721c6671cd306b4ee71.png",
+      "image_sha256": "57a559d69374391da04af67776633ed80155319e7f6aaa911350788c458bc9db",
+      "label_sha256": "0101643f29877c6e0d87539f9ac3daf0ee83ebe84fc476bd6ea27c41ab66cc87",
+      "label_id": 18,
+      "role": "player",
+      "xyxy": [
+        1126.9999996799997,
+        227.99999988,
+        1175.99999904,
+        305.99999963999994
+      ],
+      "transition": "lost",
+      "before": {
+        "id": 19,
+        "role": "player",
+        "xyxy": [
+          1128.91064453125,
+          227.69801330566406,
+          1176.463134765625,
+          307.4486083984375
+        ],
+        "confidence": 0.6341493129730225
+      },
+      "after": {
+        "id": 18,
+        "role": "referee",
+        "xyxy": [
+          1130.040283203125,
+          227.43136596679688,
+          1177.391845703125,
+          306.70257568359375
+        ],
+        "confidence": 0.6498677134513855
+      },
+      "review_id": 23,
+      "mechanism": "correct_prediction_suppressed",
+      "winner": {
+        "id": 18,
+        "role": "referee",
+        "xyxy": [
+          1130.040283203125,
+          227.43136596679688,
+          1177.391845703125,
+          306.70257568359375
+        ],
+        "confidence": 0.6498677134513855
+      }
+    },
+    {
+      "split": "val",
+      "size": 640,
+      "image": "images/val/798b45_5_7_png.rf.11dba8daa5ebdb8278ed78a41d1b356e.png",
+      "image_sha256": "7eae2a66fd6f8afb730bab20c50b81026f94fc4b3128b828d4c1571de4a5ab31",
+      "label_sha256": "dcb54f9847059179ecce571f81d8de5f24e03a663e10b4f6a2e7a351f0498434",
+      "label_id": 3,
+      "role": "player",
+      "xyxy": [
+        969.9999993600001,
+        255.99999996,
+        1011.9999993600002,
+        311.00000004000003
+      ],
+      "transition": "lost",
+      "before": {
+        "id": 19,
+        "role": "player",
+        "xyxy": [
+          971.0673828125,
+          246.5650634765625,
+          1021.70751953125,
+          311.0614013671875
+        ],
+        "confidence": 0.44748106598854065
+      },
+      "after": {
+        "id": 16,
+        "role": "referee",
+        "xyxy": [
+          971.2943115234375,
+          246.38905334472656,
+          1022.287353515625,
+          314.13494873046875
+        ],
+        "confidence": 0.632521390914917
+      },
+      "review_id": 24,
+      "mechanism": "correct_prediction_suppressed",
+      "winner": {
+        "id": 16,
+        "role": "referee",
+        "xyxy": [
+          971.2943115234375,
+          246.38905334472656,
+          1022.287353515625,
+          314.13494873046875
+        ],
+        "confidence": 0.632521390914917
+      }
+    },
+    {
+      "split": "val",
+      "size": 640,
+      "image": "images/val/798b45_7_7_png.rf.1cd3c10cd573d3ae99ee23896eca387a.png",
+      "image_sha256": "8502674c457d54171eb9cd6ce81c5afc8794ccd5b0e0724452cc323f8bac21a2",
+      "label_sha256": "252af0ff1762879fed33424995469375fc1fbcecfc34a49886187f9a4edb002c",
+      "label_id": 4,
+      "role": "player",
+      "xyxy": [
+        1162.36500096,
+        217.99999961999998,
+        1194.89500032,
+        257.07999942
+      ],
+      "transition": "lost",
+      "before": {
+        "id": 28,
+        "role": "player",
+        "xyxy": [
+          1156.2572021484375,
+          215.2129669189453,
+          1194.5928955078125,
+          257.68988037109375
+        ],
+        "confidence": 0.27678826451301575
+      },
+      "after": {
+        "id": 25,
+        "role": "referee",
+        "xyxy": [
+          1156.4404296875,
+          214.411376953125,
+          1195.225830078125,
+          256.7273254394531
+        ],
+        "confidence": 0.37485572695732117
+      },
+      "review_id": 25,
+      "mechanism": "correct_prediction_suppressed",
+      "winner": {
+        "id": 25,
+        "role": "referee",
+        "xyxy": [
+          1156.4404296875,
+          214.411376953125,
+          1195.225830078125,
+          256.7273254394531
+        ],
+        "confidence": 0.37485572695732117
+      }
+    },
+    {
+      "split": "val",
+      "size": 640,
+      "image": "images/val/798b45_9_9_png.rf.a56520203286e3cc016e9b3886aa2c6f.png",
+      "image_sha256": "b297b6fa700c5804058bb49b452b551336557418c27bbd252aa947c3bf94c4ff",
+      "label_sha256": "d2885b98a0812b1b0948e7a6769dc77f3c23d41298a3697edf4b4369e530b99f",
+      "label_id": 11,
+      "role": "player",
+      "xyxy": [
+        681.99999936,
+        534.0000006,
+        702.9999993600001,
+        609.00000012
+      ],
+      "transition": "lost",
+      "before": {
+        "id": 21,
+        "role": "player",
+        "xyxy": [
+          680.8082885742188,
+          532.1290283203125,
+          703.3079223632812,
+          609.2488403320312
+        ],
+        "confidence": 0.49857547879219055
+      },
+      "after": {
+        "id": 19,
+        "role": "referee",
+        "xyxy": [
+          680.3604736328125,
+          532.4483642578125,
+          702.7154541015625,
+          609.6245727539062
+        ],
+        "confidence": 0.5065745115280151
+      },
+      "review_id": 26,
+      "mechanism": "correct_prediction_suppressed",
+      "winner": {
+        "id": 19,
+        "role": "referee",
+        "xyxy": [
+          680.3604736328125,
+          532.4483642578125,
+          702.7154541015625,
+          609.6245727539062
+        ],
+        "confidence": 0.5065745115280151
+      }
+    },
+    {
+      "split": "val",
+      "size": 640,
+      "image": "images/val/cd987c_0_4_png.rf.a164988075cb08177bce561ce1c35d17.png",
+      "image_sha256": "087e7aa5b5719965cd6b311f8cb0698459f383fac5a218d592c03d89a0a74028",
+      "label_sha256": "3ca883e7c9d729bc3a0b4064c74558e0e9e64f17451d27f5ba197c328f8171fc",
+      "label_id": 14,
+      "role": "player",
+      "xyxy": [
+        1229.99999904,
+        451.99999998000004,
+        1252.99999968,
+        515.9999997
+      ],
+      "transition": "lost",
+      "before": {
+        "id": 22,
+        "role": "player",
+        "xyxy": [
+          1230.567138671875,
+          449.96630859375,
+          1253.16015625,
+          513.6884765625
+        ],
+        "confidence": 0.36118781566619873
+      },
+      "after": {
+        "id": 19,
+        "role": "referee",
+        "xyxy": [
+          1230.5859375,
+          450.00897216796875,
+          1252.9398193359375,
+          513.3079833984375
+        ],
+        "confidence": 0.4441896677017212
+      },
+      "review_id": 27,
+      "mechanism": "correct_prediction_suppressed",
+      "winner": {
+        "id": 19,
+        "role": "referee",
+        "xyxy": [
+          1230.5859375,
+          450.00897216796875,
+          1252.9398193359375,
+          513.3079833984375
+        ],
+        "confidence": 0.4441896677017212
+      }
+    },
+    {
+      "split": "val",
+      "size": 640,
+      "image": "images/val/4b770a_5_5_png.rf.e4b3b690d97fc0afaec2321a1328f360.png",
+      "image_sha256": "07610378df353d30c683df70702d8150933cf1e24bdaa0db2f63508ce7ba660c",
+      "label_sha256": "755be2f8c269f65a3689720436ac8ca476ec54c51fdb89893c6e9848b534543c",
+      "label_id": 10,
+      "role": "goalkeeper",
+      "xyxy": [
+        1807.00000032,
+        322.99999991999994,
+        1830.00000096,
+        378.0
+      ],
+      "transition": "lost",
+      "before": {
+        "id": 24,
+        "role": "goalkeeper",
+        "xyxy": [
+          1806.353515625,
+          322.7099609375,
+          1830.650634765625,
+          378.4927978515625
+        ],
+        "confidence": 0.3695007860660553
+      },
+      "after": {
+        "id": 23,
+        "role": "player",
+        "xyxy": [
+          1806.068603515625,
+          322.2555236816406,
+          1830.698974609375,
+          378.814453125
+        ],
+        "confidence": 0.4345642626285553
+      },
+      "review_id": 28,
+      "mechanism": "correct_prediction_suppressed",
+      "winner": {
+        "id": 23,
+        "role": "player",
+        "xyxy": [
+          1806.068603515625,
+          322.2555236816406,
+          1830.698974609375,
+          378.814453125
+        ],
+        "confidence": 0.4345642626285553
+      }
+    },
+    {
+      "split": "val",
+      "size": 640,
+      "image": "images/val/538438_1_5_png.rf.86a43fdbc2e110cdd64c43e3884b55d0.png",
+      "image_sha256": "7377626afdf2058eca14050533c8151224d35acfbc330e710742e85ee19ce1a7",
+      "label_sha256": "f920c9d550f22a62e6acdc8f60dd4e919c580f2441f1a7b800b7ea47dd6e29fe",
+      "label_id": 11,
+      "role": "player",
+      "xyxy": [
+        901.9999996800001,
+        457.99999992000005,
+        932.9999990399999,
+        509.99999976000004
+      ],
+      "transition": "lost",
+      "before": {
+        "id": 16,
+        "role": "player",
+        "xyxy": [
+          900.0979614257812,
+          455.748779296875,
+          932.8936157226562,
+          511.38446044921875
+        ],
+        "confidence": 0.5105701088905334
+      },
+      "after": {
+        "id": 15,
+        "role": "referee",
+        "xyxy": [
+          899.610595703125,
+          455.8045654296875,
+          933.2218017578125,
+          511.93988037109375
+        ],
+        "confidence": 0.572611927986145
+      },
+      "review_id": 29,
+      "mechanism": "correct_prediction_suppressed",
+      "winner": {
+        "id": 15,
+        "role": "referee",
+        "xyxy": [
+          899.610595703125,
+          455.8045654296875,
+          933.2218017578125,
+          511.93988037109375
+        ],
+        "confidence": 0.572611927986145
+      }
+    },
+    {
+      "split": "val",
+      "size": 640,
+      "image": "images/val/538438_9_8_png.rf.81970c1b0bfc1d6d8e9a6ca971ac1f77.png",
+      "image_sha256": "bdb1e3d595f198d6a2e826b215d25250b9810ae9072067ff6665007fab4c3ad3",
+      "label_sha256": "dde280fcea2b07e6111b52ec6080f4b389fe7cd4f5d90ed1da8144a6be03552f",
+      "label_id": 5,
+      "role": "player",
+      "xyxy": [
+        1154.0000006399998,
+        438.00000048,
+        1175.00000064,
+        486.0
+      ],
+      "transition": "lost",
+      "before": {
+        "id": 19,
+        "role": "player",
+        "xyxy": [
+          1153.904052734375,
+          438.8642578125,
+          1174.275390625,
+          485.94012451171875
+        ],
+        "confidence": 0.4602661430835724
+      },
+      "after": {
+        "id": 18,
+        "role": "referee",
+        "xyxy": [
+          1153.572265625,
+          438.73065185546875,
+          1173.7490234375,
+          486.047119140625
+        ],
+        "confidence": 0.5380576848983765
+      },
+      "review_id": 30,
+      "mechanism": "correct_prediction_suppressed",
+      "winner": {
+        "id": 18,
+        "role": "referee",
+        "xyxy": [
+          1153.572265625,
+          438.73065185546875,
+          1173.7490234375,
+          486.047119140625
+        ],
+        "confidence": 0.5380576848983765
+      }
+    },
+    {
+      "split": "val",
+      "size": 640,
+      "image": "images/val/798b45_7_5_png.rf.7f2cfcf13cf5b26007b09db1d9eb917d.png",
+      "image_sha256": "6ea597ea207a362b22b747fa05088a486cc87f7055af97cad332a4d140443dfe",
+      "label_sha256": "b3e645d023b4d6584ec38c32ae692d82163154cf777b452f6c9229bb455252da",
+      "label_id": 12,
+      "role": "player",
+      "xyxy": [
+        1252.99999968,
+        306.99999972,
+        1271.9999990400001,
+        366.00000012
+      ],
+      "transition": "lost",
+      "before": {
+        "id": 22,
+        "role": "player",
+        "xyxy": [
+          1251.6641845703125,
+          305.1643981933594,
+          1273.50390625,
+          366.90478515625
+        ],
+        "confidence": 0.39600908756256104
+      },
+      "after": {
+        "id": 16,
+        "role": "referee",
+        "xyxy": [
+          1251.656005859375,
+          305.2083435058594,
+          1274.55126953125,
+          366.17926025390625
+        ],
+        "confidence": 0.4977121651172638
+      },
+      "review_id": 31,
+      "mechanism": "correct_prediction_suppressed",
+      "winner": {
+        "id": 16,
+        "role": "referee",
+        "xyxy": [
+          1251.656005859375,
+          305.2083435058594,
+          1274.55126953125,
+          366.17926025390625
+        ],
+        "confidence": 0.4977121651172638
+      }
+    },
+    {
+      "split": "val",
+      "size": 640,
+      "image": "images/val/798b45_7_5_png.rf.7f2cfcf13cf5b26007b09db1d9eb917d.png",
+      "image_sha256": "6ea597ea207a362b22b747fa05088a486cc87f7055af97cad332a4d140443dfe",
+      "label_sha256": "b3e645d023b4d6584ec38c32ae692d82163154cf777b452f6c9229bb455252da",
+      "label_id": 17,
+      "role": "player",
+      "xyxy": [
+        787.0000003199999,
+        328.00000031999997,
+        811.99999968,
+        386.00000064
+      ],
+      "transition": "lost",
+      "before": {
+        "id": 21,
+        "role": "player",
+        "xyxy": [
+          786.9093017578125,
+          327.73895263671875,
+          813.0119018554688,
+          387.2172546386719
+        ],
+        "confidence": 0.41874274611473083
+      },
+      "after": {
+        "id": 20,
+        "role": "referee",
+        "xyxy": [
+          787.3522338867188,
+          327.92071533203125,
+          812.7017211914062,
+          388.3741455078125
+        ],
+        "confidence": 0.42482274770736694
+      },
+      "review_id": 32,
+      "mechanism": "correct_prediction_suppressed",
+      "winner": {
+        "id": 20,
+        "role": "referee",
+        "xyxy": [
+          787.3522338867188,
+          327.92071533203125,
+          812.7017211914062,
+          388.3741455078125
+        ],
+        "confidence": 0.42482274770736694
+      }
+    },
+    {
+      "split": "val",
+      "size": 1280,
+      "image": "images/val/4b770a_1_6_png.rf.6ce8ce764a889b3e9f66d52f4e88cc9f.png",
+      "image_sha256": "a9383dfcab9c469dae727be1cba2f171e93497d92659e4efe77ae95622733fd1",
+      "label_sha256": "af3ceba2db050b8fdadfd5ff3806cab27f73a2627b54c6d8b13184c41dc63b49",
+      "label_id": 4,
+      "role": "player",
+      "xyxy": [
+        806.99999904,
+        295.00000038,
+        823.99999968,
+        337.0000005
+      ],
+      "transition": "lost",
+      "before": {
+        "id": 23,
+        "role": "player",
+        "xyxy": [
+          805.4481811523438,
+          296.6448974609375,
+          826.4091796875,
+          338.9378662109375
+        ],
+        "confidence": 0.5143654942512512
+      },
+      "after": {
+        "id": 22,
+        "role": "referee",
+        "xyxy": [
+          804.5867919921875,
+          296.7183532714844,
+          826.026611328125,
+          338.4387512207031
+        ],
+        "confidence": 0.5190649628639221
+      },
+      "review_id": 33,
+      "mechanism": "correct_prediction_suppressed",
+      "winner": {
+        "id": 22,
+        "role": "referee",
+        "xyxy": [
+          804.5867919921875,
+          296.7183532714844,
+          826.026611328125,
+          338.4387512207031
+        ],
+        "confidence": 0.5190649628639221
+      }
+    },
+    {
+      "split": "val",
+      "size": 1280,
+      "image": "images/val/4b770a_1_8_png.rf.92162d0b37df46a8172921a12a4d8cdb.png",
+      "image_sha256": "c161441bedcb4dab5ba4d8306fa4ba79ff7d346fc0078180fd7032cbdd1c524f",
+      "label_sha256": "a785db50936c753e0a85b7daa9d089fbf778370184ca5d61d695990b104898db",
+      "label_id": 8,
+      "role": "referee",
+      "xyxy": [
+        1001.9999990399999,
+        313.0000002,
+        1021.9999996800001,
+        368.00000028
+      ],
+      "transition": "lost",
+      "before": {
+        "id": 22,
+        "role": "referee",
+        "xyxy": [
+          1000.9465942382812,
+          311.830810546875,
+          1023.2836303710938,
+          368.8122253417969
+        ],
+        "confidence": 0.6595368981361389
+      },
+      "after": {
+        "id": 21,
+        "role": "player",
+        "xyxy": [
+          1000.7822265625,
+          311.1416931152344,
+          1023.7772216796875,
+          367.9918212890625
+        ],
+        "confidence": 0.6968346238136292
+      },
+      "review_id": 34,
+      "mechanism": "correct_prediction_suppressed",
+      "winner": {
+        "id": 21,
+        "role": "player",
+        "xyxy": [
+          1000.7822265625,
+          311.1416931152344,
+          1023.7772216796875,
+          367.9918212890625
+        ],
+        "confidence": 0.6968346238136292
+      }
+    },
+    {
+      "split": "val",
+      "size": 1280,
+      "image": "images/val/4b770a_5_1_png.rf.0e545f155d15d96bb11eaf8a73ce357c.png",
+      "image_sha256": "c608c3cc85090b8844580d2ede9d6a4f09c86dd0d6ecef00104f2c4ad3e57dd0",
+      "label_sha256": "3f60c48338412c76731052ce279cd93f988f05198bd0dec0d3a5160cf55b73ca",
+      "label_id": 6,
+      "role": "player",
+      "xyxy": [
+        978.99999936,
+        305.0000001,
+        999.9999993600001,
+        351.00000054
+      ],
+      "transition": "lost",
+      "before": {
+        "id": 24,
+        "role": "player",
+        "xyxy": [
+          978.4464111328125,
+          306.0975036621094,
+          1000.9253540039062,
+          352.13323974609375
+        ],
+        "confidence": 0.483608216047287
+      },
+      "after": {
+        "id": 21,
+        "role": "referee",
+        "xyxy": [
+          977.832275390625,
+          306.86798095703125,
+          1001.1551513671875,
+          352.29345703125
+        ],
+        "confidence": 0.61156165599823
+      },
+      "review_id": 35,
+      "mechanism": "correct_prediction_suppressed",
+      "winner": {
+        "id": 21,
+        "role": "referee",
+        "xyxy": [
+          977.832275390625,
+          306.86798095703125,
+          1001.1551513671875,
+          352.29345703125
+        ],
+        "confidence": 0.61156165599823
+      }
+    },
+    {
+      "split": "val",
+      "size": 1280,
+      "image": "images/val/4b770a_5_1_png.rf.0e545f155d15d96bb11eaf8a73ce357c.png",
+      "image_sha256": "c608c3cc85090b8844580d2ede9d6a4f09c86dd0d6ecef00104f2c4ad3e57dd0",
+      "label_sha256": "3f60c48338412c76731052ce279cd93f988f05198bd0dec0d3a5160cf55b73ca",
+      "label_id": 19,
+      "role": "player",
+      "xyxy": [
+        957.0000009600001,
+        393.00000012000004,
+        979.00000032,
+        453.0000006
+      ],
+      "transition": "lost",
+      "before": {
+        "id": 25,
+        "role": "player",
+        "xyxy": [
+          955.2703857421875,
+          392.93133544921875,
+          980.7064819335938,
+          453.6708984375
+        ],
+        "confidence": 0.46215537190437317
+      },
+      "after": {
+        "id": 19,
+        "role": "referee",
+        "xyxy": [
+          954.853515625,
+          392.5686950683594,
+          980.3271484375,
+          453.4906311035156
+        ],
+        "confidence": 0.6681602597236633
+      },
+      "review_id": 36,
+      "mechanism": "correct_prediction_suppressed",
+      "winner": {
+        "id": 19,
+        "role": "referee",
+        "xyxy": [
+          954.853515625,
+          392.5686950683594,
+          980.3271484375,
+          453.4906311035156
+        ],
+        "confidence": 0.6681602597236633
+      }
+    },
+    {
+      "split": "val",
+      "size": 1280,
+      "image": "images/val/4b770a_9_4_png.rf.ec27c164d70e3892c8c3c1f00717888a.png",
+      "image_sha256": "c0cc47bfcdea87d9642fb41af3e43133abb08138d0f344fcdb4d1ea688d7734f",
+      "label_sha256": "c2b971a49780ac7ef62f9c8b92b4f1989e889db81f175f0698037d50cf76fb87",
+      "label_id": 1,
+      "role": "referee",
+      "xyxy": [
+        1017.0000009599999,
+        436.00000031999997,
+        1036.00000032,
+        483.99999984000004
+      ],
+      "transition": "lost",
+      "before": {
+        "id": 25,
+        "role": "referee",
+        "xyxy": [
+          1016.7423706054688,
+          437.15240478515625,
+          1039.258056640625,
+          485.6598815917969
+        ],
+        "confidence": 0.5244463086128235
+      },
+      "after": {
+        "id": 22,
+        "role": "player",
+        "xyxy": [
+          1016.347412109375,
+          437.6824951171875,
+          1039.3037109375,
+          485.7505187988281
+        ],
+        "confidence": 0.6818500757217407
+      },
+      "review_id": 37,
+      "mechanism": "correct_prediction_suppressed",
+      "winner": {
+        "id": 22,
+        "role": "player",
+        "xyxy": [
+          1016.347412109375,
+          437.6824951171875,
+          1039.3037109375,
+          485.7505187988281
+        ],
+        "confidence": 0.6818500757217407
+      }
+    },
+    {
+      "split": "val",
+      "size": 1280,
+      "image": "images/val/538438_3_6_png.rf.abf5480fae9d39be478b2570be049a6b.png",
+      "image_sha256": "4a5180d97e6e5a296e53a96a911433bd37f179f665ad833d7036972ce380f846",
+      "label_sha256": "229b347bf6c7eef8e8a6639b700e8ff94c625ef73c9983f7235cd90896dcbe48",
+      "label_id": 4,
+      "role": "player",
+      "xyxy": [
+        625.00000032,
+        394.99999974,
+        640.9999996800001,
+        431.99999946
+      ],
+      "transition": "lost",
+      "before": {
+        "id": 25,
+        "role": "player",
+        "xyxy": [
+          620.1998291015625,
+          396.01519775390625,
+          643.70703125,
+          432.6661376953125
+        ],
+        "confidence": 0.448047935962677
+      },
+      "after": {
+        "id": 24,
+        "role": "referee",
+        "xyxy": [
+          619.7861938476562,
+          396.0794677734375,
+          643.8712158203125,
+          432.4298400878906
+        ],
+        "confidence": 0.47927945852279663
+      },
+      "review_id": 38,
+      "mechanism": "correct_prediction_suppressed",
+      "winner": {
+        "id": 24,
+        "role": "referee",
+        "xyxy": [
+          619.7861938476562,
+          396.0794677734375,
+          643.8712158203125,
+          432.4298400878906
+        ],
+        "confidence": 0.47927945852279663
+      }
+    },
+    {
+      "split": "val",
+      "size": 1280,
+      "image": "images/val/538438_5_2_png.rf.001e6c4444a6ec3ec6f1a4ba19e7f6a5.png",
+      "image_sha256": "66c187768d96c83dda1ed1ec7b8b5b0bea450ea8fac4131e93d686e49fad1bd2",
+      "label_sha256": "a36917fe684a036642caf0cee980079087f4c6e2a1aa7544dff6a039eb5a29d4",
+      "label_id": 7,
+      "role": "referee",
+      "xyxy": [
+        1017.0000009600001,
+        470.99999988,
+        1039.00000032,
+        529.0000002
+      ],
+      "transition": "lost",
+      "before": {
+        "id": 22,
+        "role": "referee",
+        "xyxy": [
+          1015.27978515625,
+          469.127197265625,
+          1040.7984619140625,
+          531.2213745117188
+        ],
+        "confidence": 0.6129345893859863
+      },
+      "after": {
+        "id": 17,
+        "role": "player",
+        "xyxy": [
+          1015.2042236328125,
+          469.77783203125,
+          1040.978515625,
+          531.4699096679688
+        ],
+        "confidence": 0.8386430740356445
+      },
+      "review_id": 39,
+      "mechanism": "correct_prediction_suppressed",
+      "winner": {
+        "id": 17,
+        "role": "player",
+        "xyxy": [
+          1015.2042236328125,
+          469.77783203125,
+          1040.978515625,
+          531.4699096679688
+        ],
+        "confidence": 0.8386430740356445
+      }
+    },
+    {
+      "split": "val",
+      "size": 1280,
+      "image": "images/val/798b45_7_8_png.rf.00f92cb1839fcab25aa7cf0366208375.png",
+      "image_sha256": "d8653766a713d295be7f0cab89e92ae094ab8491236426116b203506a8bdb7e2",
+      "label_sha256": "38fac1ab9a2609a62b2467133e1b66f483d38b93dc1287ba059c633d4bbe6094",
+      "label_id": 13,
+      "role": "referee",
+      "xyxy": [
+        979.00000032,
+        246.00000024,
+        1006.9999996800001,
+        294.99999984
+      ],
+      "transition": "lost",
+      "before": {
+        "id": 23,
+        "role": "referee",
+        "xyxy": [
+          978.44775390625,
+          246.57655334472656,
+          1006.774169921875,
+          295.8203125
+        ],
+        "confidence": 0.44671371579170227
+      },
+      "after": {
+        "id": 20,
+        "role": "player",
+        "xyxy": [
+          978.2850952148438,
+          246.43917846679688,
+          1007.0725708007812,
+          296.00994873046875
+        ],
+        "confidence": 0.7110285758972168
+      },
+      "review_id": 40,
+      "mechanism": "correct_prediction_suppressed",
+      "winner": {
+        "id": 20,
+        "role": "player",
+        "xyxy": [
+          978.2850952148438,
+          246.43917846679688,
+          1007.0725708007812,
+          296.00994873046875
+        ],
+        "confidence": 0.7110285758972168
+      }
+    },
+    {
+      "split": "val",
+      "size": 1280,
+      "image": "images/val/4b770a_1_7_png.rf.0344c0dc64e2361671483c067c0bc549.png",
+      "image_sha256": "4dec6c9a770be011472be5281b2130d70f9c12f4d5ea44a74456c9370d5678e6",
+      "label_sha256": "0d8091315e03043b05513f85faae30e4dcc9ac12389c3f29c9a3151bcc20ec1d",
+      "label_id": 1,
+      "role": "player",
+      "xyxy": [
+        1078.9999996799997,
+        346.00000014,
+        1099.00000032,
+        399.58000002000006
+      ],
+      "transition": "lost",
+      "before": {
+        "id": 21,
+        "role": "player",
+        "xyxy": [
+          1075.8446044921875,
+          346.13055419921875,
+          1101.56396484375,
+          413.5284423828125
+        ],
+        "confidence": 0.571927011013031
+      },
+      "after": null,
+      "review_id": 41,
+      "mechanism": "matching_reassigned_without_suppressing_correct_box",
+      "winner": null
+    },
+    {
+      "split": "val",
+      "size": 1280,
+      "image": "images/val/4b770a_1_7_png.rf.0344c0dc64e2361671483c067c0bc549.png",
+      "image_sha256": "4dec6c9a770be011472be5281b2130d70f9c12f4d5ea44a74456c9370d5678e6",
+      "label_sha256": "0d8091315e03043b05513f85faae30e4dcc9ac12389c3f29c9a3151bcc20ec1d",
+      "label_id": 21,
+      "role": "referee",
+      "xyxy": [
+        1080.0600000000002,
+        356.55000012,
+        1099.86,
+        413.5699998
+      ],
+      "transition": "lost",
+      "before": {
+        "id": 22,
+        "role": "referee",
+        "xyxy": [
+          1077.617431640625,
+          347.20941162109375,
+          1100.792724609375,
+          413.5090026855469
+        ],
+        "confidence": 0.480966717004776
+      },
+      "after": {
+        "id": 21,
+        "role": "player",
+        "xyxy": [
+          1075.8446044921875,
+          346.13055419921875,
+          1101.56396484375,
+          413.5284423828125
+        ],
+        "confidence": 0.571927011013031
+      },
+      "review_id": 42,
+      "mechanism": "correct_prediction_suppressed",
+      "winner": {
+        "id": 21,
+        "role": "player",
+        "xyxy": [
+          1075.8446044921875,
+          346.13055419921875,
+          1101.56396484375,
+          413.5284423828125
+        ],
+        "confidence": 0.571927011013031
+      }
+    },
+    {
+      "split": "val",
+      "size": 1280,
+      "image": "images/val/4b770a_3_10_png.rf.14669cfcf561507972817ca80a37f778.png",
+      "image_sha256": "9345e2d77c746738cba25f4167ee21c618e79a8e6d39a0844f033e5cf3727012",
+      "label_sha256": "315074dc81fff0a596fa528596e7fc0f04ebc999087d390a51a48cd8bbdf3f6f",
+      "label_id": 4,
+      "role": "referee",
+      "xyxy": [
+        1137.00000096,
+        376.00000038,
+        1177.0000003199998,
+        440.00000009999997
+      ],
+      "transition": "lost",
+      "before": {
+        "id": 23,
+        "role": "referee",
+        "xyxy": [
+          1134.6568603515625,
+          375.8697509765625,
+          1178.352294921875,
+          441.62713623046875
+        ],
+        "confidence": 0.6087687611579895
+      },
+      "after": {
+        "id": 18,
+        "role": "player",
+        "xyxy": [
+          1134.032958984375,
+          376.1297607421875,
+          1178.905517578125,
+          441.42974853515625
+        ],
+        "confidence": 0.7508485317230225
+      },
+      "review_id": 43,
+      "mechanism": "correct_prediction_suppressed",
+      "winner": {
+        "id": 18,
+        "role": "player",
+        "xyxy": [
+          1134.032958984375,
+          376.1297607421875,
+          1178.905517578125,
+          441.42974853515625
+        ],
+        "confidence": 0.7508485317230225
+      }
+    },
+    {
+      "split": "val",
+      "size": 1280,
+      "image": "images/val/4b770a_5_6_png.rf.cc113a3e1f4bff7e16f34545b080d956.png",
+      "image_sha256": "12ea6edb467a8678eec464b08dd9b3eec3f592d572322a16b39e8ee29bb47427",
+      "label_sha256": "9bb111b03599cc53ed39419c42297cc98869b433444dbe52e2018909c8682558",
+      "label_id": 7,
+      "role": "referee",
+      "xyxy": [
+        930.0000009600001,
+        387.99999972,
+        949.00000032,
+        441.99999972000006
+      ],
+      "transition": "lost",
+      "before": {
+        "id": 23,
+        "role": "referee",
+        "xyxy": [
+          928.840576171875,
+          387.5504150390625,
+          950.619873046875,
+          442.53314208984375
+        ],
+        "confidence": 0.46606236696243286
+      },
+      "after": {
+        "id": 22,
+        "role": "player",
+        "xyxy": [
+          928.9287109375,
+          388.01361083984375,
+          950.838623046875,
+          442.8831787109375
+        ],
+        "confidence": 0.48602494597435
+      },
+      "review_id": 44,
+      "mechanism": "correct_prediction_suppressed",
+      "winner": {
+        "id": 22,
+        "role": "player",
+        "xyxy": [
+          928.9287109375,
+          388.01361083984375,
+          950.838623046875,
+          442.8831787109375
+        ],
+        "confidence": 0.48602494597435
+      }
+    },
+    {
+      "split": "val",
+      "size": 1280,
+      "image": "images/val/4b770a_7_2_png.rf.00e36bb352dd45d6482af9794ad40375.png",
+      "image_sha256": "035198b84d85c69cb59001b6a3b5833cb5161d0de242f926ddeb80f91a9dd96b",
+      "label_sha256": "a0c2e9ba4a1f904a3345e67f3cbf3431892d6a2384167f62d730cad5b9a5cabb",
+      "label_id": 6,
+      "role": "player",
+      "xyxy": [
+        885.0,
+        257.99999958,
+        903.0,
+        295.99999938
+      ],
+      "transition": "lost",
+      "before": {
+        "id": 23,
+        "role": "player",
+        "xyxy": [
+          882.7305908203125,
+          257.1565246582031,
+          903.732421875,
+          296.87841796875
+        ],
+        "confidence": 0.6496878266334534
+      },
+      "after": {
+        "id": 21,
+        "role": "referee",
+        "xyxy": [
+          882.4676513671875,
+          257.34332275390625,
+          904.1953125,
+          297.21295166015625
+        ],
+        "confidence": 0.6675952076911926
+      },
+      "review_id": 45,
+      "mechanism": "correct_prediction_suppressed",
+      "winner": {
+        "id": 21,
+        "role": "referee",
+        "xyxy": [
+          882.4676513671875,
+          257.34332275390625,
+          904.1953125,
+          297.21295166015625
+        ],
+        "confidence": 0.6675952076911926
+      }
+    },
+    {
+      "split": "val",
+      "size": 1280,
+      "image": "images/val/538438_1_1_png.rf.d3adcd132021e2060e2cc6799f8f8bd8.png",
+      "image_sha256": "c5b409a7cae18084c0f937ac9e02a4d4cc0a81b4464a0f93251e34f2ff0e2ad0",
+      "label_sha256": "615a1007e26b50e79cc1e945edaf3066a589727bd171266806a44b39c5fdd97f",
+      "label_id": 8,
+      "role": "referee",
+      "xyxy": [
+        1202.00000064,
+        489.00000024,
+        1223.00000064,
+        548.00000064
+      ],
+      "transition": "lost",
+      "before": {
+        "id": 18,
+        "role": "referee",
+        "xyxy": [
+          1199.496826171875,
+          488.6591491699219,
+          1223.4539794921875,
+          549.6510009765625
+        ],
+        "confidence": 0.7930640578269958
+      },
+      "after": {
+        "id": 12,
+        "role": "player",
+        "xyxy": [
+          1199.07177734375,
+          488.88555908203125,
+          1223.495849609375,
+          549.5597534179688
+        ],
+        "confidence": 0.8459111452102661
+      },
+      "review_id": 46,
+      "mechanism": "correct_prediction_suppressed",
+      "winner": {
+        "id": 12,
+        "role": "player",
+        "xyxy": [
+          1199.07177734375,
+          488.88555908203125,
+          1223.495849609375,
+          549.5597534179688
+        ],
+        "confidence": 0.8459111452102661
+      }
+    },
+    {
+      "split": "val",
+      "size": 1280,
+      "image": "images/val/538438_3_4_png.rf.cf51fbf78c4725c69ae6756ad6a5732b.png",
+      "image_sha256": "fa454e34eb1127a96edbe72d2dbc5d2cf8e34c32fb704b12852635c0d58f8134",
+      "label_sha256": "9f3b951b59a44e6492b1d53176c9123b9d65dc76925bfd92bcc74276acb350f0",
+      "label_id": 12,
+      "role": "referee",
+      "xyxy": [
+        1107.99999936,
+        517.00000032,
+        1140.99999936,
+        572.0000004
+      ],
+      "transition": "lost",
+      "before": {
+        "id": 24,
+        "role": "referee",
+        "xyxy": [
+          1106.9718017578125,
+          516.3580932617188,
+          1142.414794921875,
+          573.2073364257812
+        ],
+        "confidence": 0.40176141262054443
+      },
+      "after": {
+        "id": 18,
+        "role": "player",
+        "xyxy": [
+          1107.436279296875,
+          517.3156127929688,
+          1143.43408203125,
+          573.116455078125
+        ],
+        "confidence": 0.798326849937439
+      },
+      "review_id": 47,
+      "mechanism": "correct_prediction_suppressed",
+      "winner": {
+        "id": 18,
+        "role": "player",
+        "xyxy": [
+          1107.436279296875,
+          517.3156127929688,
+          1143.43408203125,
+          573.116455078125
+        ],
+        "confidence": 0.798326849937439
+      }
+    },
+    {
+      "split": "val",
+      "size": 1280,
+      "image": "images/val/538438_5_1_png.rf.124df588f10dccaebe0c1a9b2d650373.png",
+      "image_sha256": "921317c1d9f82bc7b69270631d83280d3fbe59551e31221a21f3b02d60452c3d",
+      "label_sha256": "d64e55cd18d078b884a33028c6c1eff7c637cbd45b7c8501c2211b03bb8cc91d",
+      "label_id": 12,
+      "role": "referee",
+      "xyxy": [
+        876.9999993600001,
+        459.00000054000003,
+        900.99999936,
+        522.00000018
+      ],
+      "transition": "lost",
+      "before": {
+        "id": 19,
+        "role": "referee",
+        "xyxy": [
+          873.610107421875,
+          458.821044921875,
+          903.1594848632812,
+          524.4265747070312
+        ],
+        "confidence": 0.697870135307312
+      },
+      "after": {
+        "id": 18,
+        "role": "player",
+        "xyxy": [
+          873.0906372070312,
+          458.45892333984375,
+          903.4835815429688,
+          523.9134521484375
+        ],
+        "confidence": 0.7605541348457336
+      },
+      "review_id": 48,
+      "mechanism": "correct_prediction_suppressed",
+      "winner": {
+        "id": 18,
+        "role": "player",
+        "xyxy": [
+          873.0906372070312,
+          458.45892333984375,
+          903.4835815429688,
+          523.9134521484375
+        ],
+        "confidence": 0.7605541348457336
+      }
+    },
+    {
+      "split": "val",
+      "size": 1280,
+      "image": "images/val/538438_5_3_png.rf.dc1421e5aaa5814e12a1b96986ce2a69.png",
+      "image_sha256": "3d23cbe012ec0e0bb7b0ce446f45dbae68d9936d2ab870bd0ecc97b4238d3322",
+      "label_sha256": "a729d5beb46138e0680b4e17bb55b5bd037d27a47a3e94bf74a25f06bb91fa82",
+      "label_id": 13,
+      "role": "referee",
+      "xyxy": [
+        952.0000003199999,
+        464.99999994,
+        972.0000009600001,
+        525.99999942
+      ],
+      "transition": "lost",
+      "before": {
+        "id": 22,
+        "role": "referee",
+        "xyxy": [
+          950.3208618164062,
+          463.9720458984375,
+          973.7565307617188,
+          526.4104614257812
+        ],
+        "confidence": 0.6512694954872131
+      },
+      "after": {
+        "id": 15,
+        "role": "player",
+        "xyxy": [
+          950.3091430664062,
+          463.64068603515625,
+          974.0938110351562,
+          526.2316284179688
+        ],
+        "confidence": 0.8782213926315308
+      },
+      "review_id": 49,
+      "mechanism": "correct_prediction_suppressed",
+      "winner": {
+        "id": 15,
+        "role": "player",
+        "xyxy": [
+          950.3091430664062,
+          463.64068603515625,
+          974.0938110351562,
+          526.2316284179688
+        ],
+        "confidence": 0.8782213926315308
+      }
+    },
+    {
+      "split": "val",
+      "size": 1280,
+      "image": "images/val/538438_5_5_png.rf.f651b2ed82d156c4efa1e001361ae144.png",
+      "image_sha256": "cb9f14186a96f899a4a22716bee69f345813338d3a9629e8c190f5267534968f",
+      "label_sha256": "6fec7921305d8db91c549dc232d5ccef996e848a3ba842a3235990e65e1d01d0",
+      "label_id": 6,
+      "role": "player",
+      "xyxy": [
+        1699.00000032,
+        543.00000024,
+        1728.00000096,
+        590.99999976
+      ],
+      "transition": "lost",
+      "before": {
+        "id": 24,
+        "role": "player",
+        "xyxy": [
+          1695.44287109375,
+          541.2298583984375,
+          1729.03759765625,
+          593.1575927734375
+        ],
+        "confidence": 0.4917767643928528
+      },
+      "after": {
+        "id": 21,
+        "role": "goalkeeper",
+        "xyxy": [
+          1693.805419921875,
+          541.5253295898438,
+          1729.332275390625,
+          593.3543090820312
+        ],
+        "confidence": 0.6279944777488708
+      },
+      "review_id": 50,
+      "mechanism": "correct_prediction_suppressed",
+      "winner": {
+        "id": 21,
+        "role": "goalkeeper",
+        "xyxy": [
+          1693.805419921875,
+          541.5253295898438,
+          1729.332275390625,
+          593.3543090820312
+        ],
+        "confidence": 0.6279944777488708
+      }
+    },
+    {
+      "split": "val",
+      "size": 1280,
+      "image": "images/val/538438_7_1_png.rf.45f573e52207fb1fd6b763960d8821e1.png",
+      "image_sha256": "e4a1df36596be6b2718cdba10542fe48f7d0bb8b45ebd44b983ab815be3ad4d4",
+      "label_sha256": "6da7847c4e93b7dbbf1dc3aa300026a4feb8047184e94c0f6627b1a2240b61fe",
+      "label_id": 8,
+      "role": "player",
+      "xyxy": [
+        1378.13500032,
+        569.0000007,
+        1405.0050009600002,
+        607.1600003400001
+      ],
+      "transition": "lost",
+      "before": {
+        "id": 35,
+        "role": "player",
+        "xyxy": [
+          1382.968994140625,
+          569.1838989257812,
+          1405.2069091796875,
+          605.1661376953125
+        ],
+        "confidence": 0.26005810499191284
+      },
+      "after": {
+        "id": 20,
+        "role": "referee",
+        "xyxy": [
+          1383.09521484375,
+          569.724609375,
+          1405.00634765625,
+          605.1943359375
+        ],
+        "confidence": 0.6422683596611023
+      },
+      "review_id": 51,
+      "mechanism": "correct_prediction_suppressed",
+      "winner": {
+        "id": 20,
+        "role": "referee",
+        "xyxy": [
+          1383.09521484375,
+          569.724609375,
+          1405.00634765625,
+          605.1943359375
+        ],
+        "confidence": 0.6422683596611023
+      }
+    },
+    {
+      "split": "val",
+      "size": 1280,
+      "image": "images/val/538438_7_3_png.rf.721b0a4d41521069f8d19fd93317b455.png",
+      "image_sha256": "58b6a0991c9690123706d04ec2fc5ea821dbdd2f45dcd763de452b6dca76b0da",
+      "label_sha256": "d89045b7b4a2ddff22a691e85a241ab526c1efb04a586117b6cf35f93ca46546",
+      "label_id": 0,
+      "role": "player",
+      "xyxy": [
+        1177.00000032,
+        415.00000026,
+        1189.9999996800002,
+        449.99999982
+      ],
+      "transition": "lost",
+      "before": {
+        "id": 26,
+        "role": "player",
+        "xyxy": [
+          1174.2174072265625,
+          415.57086181640625,
+          1191.8665771484375,
+          450.93402099609375
+        ],
+        "confidence": 0.4962215721607208
+      },
+      "after": {
+        "id": 25,
+        "role": "referee",
+        "xyxy": [
+          1173.9786376953125,
+          415.45965576171875,
+          1191.7974853515625,
+          450.7235107421875
+        ],
+        "confidence": 0.5484545826911926
+      },
+      "review_id": 52,
+      "mechanism": "correct_prediction_suppressed",
+      "winner": {
+        "id": 25,
+        "role": "referee",
+        "xyxy": [
+          1173.9786376953125,
+          415.45965576171875,
+          1191.7974853515625,
+          450.7235107421875
+        ],
+        "confidence": 0.5484545826911926
+      }
+    },
+    {
+      "split": "val",
+      "size": 1280,
+      "image": "images/val/798b45_1_5_png.rf.948132bb1ee8ff7c979a81a5c76c3426.png",
+      "image_sha256": "98d07a4695f384ac9edfb57f32dee48cd9fcc9b3bfbb3433aaa70a8d2c0062cb",
+      "label_sha256": "1a0d24606564b3165b5b6b1411e2512954acbd51514a4233a1a4eeb997fdb999",
+      "label_id": 12,
+      "role": "player",
+      "xyxy": [
+        448.99999968,
+        419.99999957999995,
+        482.98000031999993,
+        487.99999962000004
+      ],
+      "transition": "lost",
+      "before": {
+        "id": 24,
+        "role": "player",
+        "xyxy": [
+          448.8057861328125,
+          419.7508850097656,
+          484.71624755859375,
+          487.89495849609375
+        ],
+        "confidence": 0.5841342806816101
+      },
+      "after": {
+        "id": 15,
+        "role": "referee",
+        "xyxy": [
+          448.6484375,
+          419.0164489746094,
+          484.41217041015625,
+          487.9584045410156
+        ],
+        "confidence": 0.8500346541404724
+      },
+      "review_id": 53,
+      "mechanism": "correct_prediction_suppressed",
+      "winner": {
+        "id": 15,
+        "role": "referee",
+        "xyxy": [
+          448.6484375,
+          419.0164489746094,
+          484.41217041015625,
+          487.9584045410156
+        ],
+        "confidence": 0.8500346541404724
+      }
+    },
+    {
+      "split": "val",
+      "size": 1280,
+      "image": "images/val/798b45_3_4_png.rf.f5ce0ffb48043dc6660a9418b51f2d55.png",
+      "image_sha256": "0ad0999ea0267b2bbed02974bcb65d12e3325b64601d10a7af951125a0470443",
+      "label_sha256": "699789fe8d0164637d2a9b5c45b0d51e78da39cfc71cae0e6ba73ed9ff09a89d",
+      "label_id": 2,
+      "role": "player",
+      "xyxy": [
+        602.9999990399999,
+        271.99999962,
+        625.99999968,
+        308.99999934000004
+      ],
+      "transition": "lost",
+      "before": {
+        "id": 23,
+        "role": "player",
+        "xyxy": [
+          600.13671875,
+          272.1208801269531,
+          626.21728515625,
+          310.0946350097656
+        ],
+        "confidence": 0.642052948474884
+      },
+      "after": {
+        "id": 21,
+        "role": "referee",
+        "xyxy": [
+          599.8018188476562,
+          272.7396240234375,
+          626.24072265625,
+          309.9282531738281
+        ],
+        "confidence": 0.738926351070404
+      },
+      "review_id": 54,
+      "mechanism": "correct_prediction_suppressed",
+      "winner": {
+        "id": 21,
+        "role": "referee",
+        "xyxy": [
+          599.8018188476562,
+          272.7396240234375,
+          626.24072265625,
+          309.9282531738281
+        ],
+        "confidence": 0.738926351070404
+      }
+    },
+    {
+      "split": "val",
+      "size": 1280,
+      "image": "images/val/798b45_3_6_png.rf.651f5979e198c2a81861fa91eb7f3433.png",
+      "image_sha256": "5f7fb79773e0a1a8d22026e3d06ad2b24e3d00da59e5d313de32d0a6961c89ea",
+      "label_sha256": "9bcc803c81ac43e55f5e739b5640b24f786fd3a9853a0e5190d77670c7026a57",
+      "label_id": 8,
+      "role": "player",
+      "xyxy": [
+        945.00000096,
+        301.00000031999997,
+        973.0000003199999,
+        357.00000048
+      ],
+      "transition": "lost",
+      "before": {
+        "id": 23,
+        "role": "player",
+        "xyxy": [
+          943.6815185546875,
+          300.1251525878906,
+          974.1878662109375,
+          359.423095703125
+        ],
+        "confidence": 0.44942614436149597
+      },
+      "after": {
+        "id": 20,
+        "role": "referee",
+        "xyxy": [
+          942.9415283203125,
+          301.46368408203125,
+          973.861083984375,
+          359.4130859375
+        ],
+        "confidence": 0.7074036598205566
+      },
+      "review_id": 55,
+      "mechanism": "correct_prediction_suppressed",
+      "winner": {
+        "id": 20,
+        "role": "referee",
+        "xyxy": [
+          942.9415283203125,
+          301.46368408203125,
+          973.861083984375,
+          359.4130859375
+        ],
+        "confidence": 0.7074036598205566
+      }
+    },
+    {
+      "split": "val",
+      "size": 1280,
+      "image": "images/val/798b45_3_7_png.rf.8179d729d2a4eebe1c0dd6328603e908.png",
+      "image_sha256": "dbbc943086df10ac5e18d1e0ecd1061b378c864b85151b3c638a5d6067a8d660",
+      "label_sha256": "8db15f42e707e9462984f986e1758e65f21c800c6c42b89518194285cffeb8b4",
+      "label_id": 9,
+      "role": "referee",
+      "xyxy": [
+        648.0,
+        448.00000019999993,
+        675.0,
+        525.99999996
+      ],
+      "transition": "lost",
+      "before": {
+        "id": 22,
+        "role": "referee",
+        "xyxy": [
+          646.1867065429688,
+          450.1769714355469,
+          674.9965209960938,
+          528.2074584960938
+        ],
+        "confidence": 0.6686237454414368
+      },
+      "after": {
+        "id": 19,
+        "role": "player",
+        "xyxy": [
+          645.94580078125,
+          448.9888916015625,
+          676.1117553710938,
+          529.3745727539062
+        ],
+        "confidence": 0.7440353035926819
+      },
+      "review_id": 56,
+      "mechanism": "correct_prediction_suppressed",
+      "winner": {
+        "id": 19,
+        "role": "player",
+        "xyxy": [
+          645.94580078125,
+          448.9888916015625,
+          676.1117553710938,
+          529.3745727539062
+        ],
+        "confidence": 0.7440353035926819
+      }
+    },
+    {
+      "split": "val",
+      "size": 1280,
+      "image": "images/val/798b45_5_1_png.rf.22cb30d4f2769f867a4cfe3b87d04c9b.png",
+      "image_sha256": "83230b9d6292f7618ab9f63195635c3f566f447e282532d6fc44f363c4cf0947",
+      "label_sha256": "77a639784f169954859baeb60c9cf409faa91a97e531840a7e3a0cdb39d079e3",
+      "label_id": 16,
+      "role": "referee",
+      "xyxy": [
+        1049.9999990400001,
+        228.99999942,
+        1081.99999968,
+        297.99999954
+      ],
+      "transition": "lost",
+      "before": {
+        "id": 23,
+        "role": "referee",
+        "xyxy": [
+          1048.457275390625,
+          229.58523559570312,
+          1083.428955078125,
+          299.4097595214844
+        ],
+        "confidence": 0.6802281737327576
+      },
+      "after": {
+        "id": 21,
+        "role": "player",
+        "xyxy": [
+          1047.8974609375,
+          229.8743133544922,
+          1082.998046875,
+          299.46923828125
+        ],
+        "confidence": 0.7622355222702026
+      },
+      "review_id": 57,
+      "mechanism": "correct_prediction_suppressed",
+      "winner": {
+        "id": 21,
+        "role": "player",
+        "xyxy": [
+          1047.8974609375,
+          229.8743133544922,
+          1082.998046875,
+          299.46923828125
+        ],
+        "confidence": 0.7622355222702026
+      }
+    },
+    {
+      "split": "val",
+      "size": 1280,
+      "image": "images/val/798b45_5_7_png.rf.11dba8daa5ebdb8278ed78a41d1b356e.png",
+      "image_sha256": "7eae2a66fd6f8afb730bab20c50b81026f94fc4b3128b828d4c1571de4a5ab31",
+      "label_sha256": "dcb54f9847059179ecce571f81d8de5f24e03a663e10b4f6a2e7a351f0498434",
+      "label_id": 15,
+      "role": "referee",
+      "xyxy": [
+        672.0,
+        267.99999984,
+        702.0,
+        328.00000031999997
+      ],
+      "transition": "lost",
+      "before": {
+        "id": 19,
+        "role": "referee",
+        "xyxy": [
+          671.6881103515625,
+          268.435546875,
+          702.9632568359375,
+          330.08538818359375
+        ],
+        "confidence": 0.6658503413200378
+      },
+      "after": {
+        "id": 18,
+        "role": "player",
+        "xyxy": [
+          671.5990600585938,
+          268.6005859375,
+          703.3259887695312,
+          330.29840087890625
+        ],
+        "confidence": 0.7172024846076965
+      },
+      "review_id": 58,
+      "mechanism": "correct_prediction_suppressed",
+      "winner": {
+        "id": 18,
+        "role": "player",
+        "xyxy": [
+          671.5990600585938,
+          268.6005859375,
+          703.3259887695312,
+          330.29840087890625
+        ],
+        "confidence": 0.7172024846076965
+      }
+    },
+    {
+      "split": "val",
+      "size": 1280,
+      "image": "images/val/798b45_9_9_png.rf.a56520203286e3cc016e9b3886aa2c6f.png",
+      "image_sha256": "b297b6fa700c5804058bb49b452b551336557418c27bbd252aa947c3bf94c4ff",
+      "label_sha256": "d2885b98a0812b1b0948e7a6769dc77f3c23d41298a3697edf4b4369e530b99f",
+      "label_id": 7,
+      "role": "referee",
+      "xyxy": [
+        836.99999904,
+        467.0000001,
+        862.9999996800001,
+        530.99999982
+      ],
+      "transition": "lost",
+      "before": {
+        "id": 21,
+        "role": "referee",
+        "xyxy": [
+          835.636962890625,
+          466.9018249511719,
+          863.98828125,
+          533.0256958007812
+        ],
+        "confidence": 0.5518680810928345
+      },
+      "after": {
+        "id": 16,
+        "role": "player",
+        "xyxy": [
+          836.5487060546875,
+          466.4378356933594,
+          864.6160888671875,
+          533.302490234375
+        ],
+        "confidence": 0.8496392965316772
+      },
+      "review_id": 59,
+      "mechanism": "correct_prediction_suppressed",
+      "winner": {
+        "id": 16,
+        "role": "player",
+        "xyxy": [
+          836.5487060546875,
+          466.4378356933594,
+          864.6160888671875,
+          533.302490234375
+        ],
+        "confidence": 0.8496392965316772
+      }
+    },
+    {
+      "split": "val",
+      "size": 1280,
+      "image": "images/val/cd987c_0_1_png.rf.c580bf96f547cef6509c7ef83590e17d.png",
+      "image_sha256": "4d8aeb3bd885fc76015995cada72e565aac66c59a351ab39b7dd8b5571658acf",
+      "label_sha256": "f49f1cd50819f59536c1bd87381a7141660809cdc662d97d1943401f2d775b03",
+      "label_id": 19,
+      "role": "player",
+      "xyxy": [
+        1102.61500032,
+        281.47000068,
+        1120.6050009599999,
+        324.45000036000005
+      ],
+      "transition": "lost",
+      "before": {
+        "id": 20,
+        "role": "player",
+        "xyxy": [
+          1102.60595703125,
+          284.30712890625,
+          1120.97412109375,
+          323.57208251953125
+        ],
+        "confidence": 0.4934048056602478
+      },
+      "after": {
+        "id": 17,
+        "role": "referee",
+        "xyxy": [
+          1102.1510009765625,
+          283.95074462890625,
+          1121.7476806640625,
+          323.339599609375
+        ],
+        "confidence": 0.7078638076782227
+      },
+      "review_id": 60,
+      "mechanism": "correct_prediction_suppressed",
+      "winner": {
+        "id": 17,
+        "role": "referee",
+        "xyxy": [
+          1102.1510009765625,
+          283.95074462890625,
+          1121.7476806640625,
+          323.339599609375
+        ],
+        "confidence": 0.7078638076782227
+      }
+    },
+    {
+      "split": "val",
+      "size": 1280,
+      "image": "images/val/798b45_1_2_png.rf.8760793b1bb3959c3e91da3dc7454617.png",
+      "image_sha256": "898ab2bbff1515ca4ee8f037653680eb24015c1aac09100938ab3b33056219a1",
+      "label_sha256": "7a470b8654257afa4e7fdf05f3519c95ac99b64872430c9b50bc9012d7100da7",
+      "label_id": 0,
+      "role": "player",
+      "xyxy": [
+        973.99999968,
+        239.00000021999998,
+        995.99999904,
+        279.00000018
+      ],
+      "transition": "lost",
+      "before": {
+        "id": 19,
+        "role": "player",
+        "xyxy": [
+          973.4075317382812,
+          231.724609375,
+          996.6743774414062,
+          280.12750244140625
+        ],
+        "confidence": 0.6899461150169373
+      },
+      "after": {
+        "id": 17,
+        "role": "referee",
+        "xyxy": [
+          972.5853881835938,
+          231.81710815429688,
+          997.8975219726562,
+          280.3268737792969
+        ],
+        "confidence": 0.7305691242218018
+      },
+      "review_id": 61,
+      "mechanism": "correct_prediction_suppressed",
+      "winner": {
+        "id": 17,
+        "role": "referee",
+        "xyxy": [
+          972.5853881835938,
+          231.81710815429688,
+          997.8975219726562,
+          280.3268737792969
+        ],
+        "confidence": 0.7305691242218018
+      }
+    },
+    {
+      "split": "val",
+      "size": 1280,
+      "image": "images/val/798b45_1_2_png.rf.8760793b1bb3959c3e91da3dc7454617.png",
+      "image_sha256": "898ab2bbff1515ca4ee8f037653680eb24015c1aac09100938ab3b33056219a1",
+      "label_sha256": "7a470b8654257afa4e7fdf05f3519c95ac99b64872430c9b50bc9012d7100da7",
+      "label_id": 6,
+      "role": "player",
+      "xyxy": [
+        929.00000064,
+        257.99999958,
+        947.00000064,
+        301.99999986000006
+      ],
+      "transition": "lost",
+      "before": {
+        "id": 23,
+        "role": "player",
+        "xyxy": [
+          928.156494140625,
+          260.47589111328125,
+          948.98876953125,
+          303.05169677734375
+        ],
+        "confidence": 0.6158579587936401
+      },
+      "after": {
+        "id": 21,
+        "role": "referee",
+        "xyxy": [
+          927.5194091796875,
+          260.82794189453125,
+          948.5345458984375,
+          302.645263671875
+        ],
+        "confidence": 0.6769499182701111
+      },
+      "review_id": 62,
+      "mechanism": "correct_prediction_suppressed",
+      "winner": {
+        "id": 21,
+        "role": "referee",
+        "xyxy": [
+          927.5194091796875,
+          260.82794189453125,
+          948.5345458984375,
+          302.645263671875
+        ],
+        "confidence": 0.6769499182701111
+      }
+    },
+    {
+      "split": "val",
+      "size": 1280,
+      "image": "images/val/798b45_9_7_png.rf.f08e27e236dec6ed230ef64187273b28.png",
+      "image_sha256": "23db265f9cd48bd7d7cf01a04a9ae56f8d00eee68f406297a4e5872c87ab9cae",
+      "label_sha256": "a1f63050a8c12d7a4fa9b4427b7bf1f82c7d4158048d7a46a46da7f259227de2",
+      "label_id": 17,
+      "role": "player",
+      "xyxy": [
+        363.00000096,
+        490.99999985999995,
+        400.00000031999997,
+        552.99999942
+      ],
+      "transition": "lost",
+      "before": {
+        "id": 21,
+        "role": "player",
+        "xyxy": [
+          360.6786804199219,
+          490.8946838378906,
+          400.3808898925781,
+          555.8892822265625
+        ],
+        "confidence": 0.6987571716308594
+      },
+      "after": {
+        "id": 20,
+        "role": "referee",
+        "xyxy": [
+          360.2349853515625,
+          490.68505859375,
+          400.6998596191406,
+          556.0357055664062
+        ],
+        "confidence": 0.775266706943512
+      },
+      "review_id": 63,
+      "mechanism": "correct_prediction_suppressed",
+      "winner": {
+        "id": 20,
+        "role": "referee",
+        "xyxy": [
+          360.2349853515625,
+          490.68505859375,
+          400.6998596191406,
+          556.0357055664062
+        ],
+        "confidence": 0.775266706943512
+      }
+    },
+    {
+      "split": "val",
+      "size": 1280,
+      "image": "images/val/798b45_9_8_png.rf.f7c70ad2f80ce02daeac801fb1b683f4.png",
+      "image_sha256": "02b4c113ef4a00bc036c601ed88751620e4da3cc59b8401ffca315736fe37cc1",
+      "label_sha256": "82805e9251b2a103cce3005c811fd337a90b3926ac32d0bc16e8dc4f09517193",
+      "label_id": 4,
+      "role": "player",
+      "xyxy": [
+        917.9999999999999,
+        374.00000022000006,
+        936.0,
+        420.00000066
+      ],
+      "transition": "lost",
+      "before": {
+        "id": 25,
+        "role": "player",
+        "xyxy": [
+          916.0784912109375,
+          374.8730163574219,
+          936.45263671875,
+          419.8808898925781
+        ],
+        "confidence": 0.3066951334476471
+      },
+      "after": {
+        "id": 24,
+        "role": "goalkeeper",
+        "xyxy": [
+          916.385009765625,
+          375.2070007324219,
+          936.8023681640625,
+          420.3950500488281
+        ],
+        "confidence": 0.35734912753105164
+      },
+      "review_id": 64,
+      "mechanism": "correct_prediction_suppressed",
+      "winner": {
+        "id": 24,
+        "role": "goalkeeper",
+        "xyxy": [
+          916.385009765625,
+          375.2070007324219,
+          936.8023681640625,
+          420.3950500488281
+        ],
+        "confidence": 0.35734912753105164
+      }
+    },
+    {
+      "split": "test",
+      "size": 640,
+      "image": "images/test/08fd33_6_4_png.rf.db89b2ca9c26a24f96fe6e5303c94b05.png",
+      "image_sha256": "6bcac4d32548705b86918b1b6e0a625fcca5396d5e2b440bbc9ac17aeaf37e04",
+      "label_sha256": "fab0f0ba1639fa13bb06671eb0182240e8d28c82c4bc9ae35a5eaa994c91fb14",
+      "label_id": 13,
+      "role": "referee",
+      "xyxy": [
+        702.9999993600001,
+        443.99999987999996,
+        729.9999993600001,
+        518.9999994
+      ],
+      "transition": "lost",
+      "before": {
+        "id": 22,
+        "role": "referee",
+        "xyxy": [
+          705.00390625,
+          444.2926025390625,
+          731.47900390625,
+          517.6387939453125
+        ],
+        "confidence": 0.3373190760612488
+      },
+      "after": {
+        "id": 21,
+        "role": "player",
+        "xyxy": [
+          704.1993408203125,
+          440.8486633300781,
+          731.6925048828125,
+          514.68212890625
+        ],
+        "confidence": 0.3592876195907593
+      },
+      "review_id": 65,
+      "mechanism": "correct_prediction_suppressed",
+      "winner": {
+        "id": 21,
+        "role": "player",
+        "xyxy": [
+          704.1993408203125,
+          440.8486633300781,
+          731.6925048828125,
+          514.68212890625
+        ],
+        "confidence": 0.3592876195907593
+      }
+    },
+    {
+      "split": "test",
+      "size": 1280,
+      "image": "images/test/08fd33_3_7_png.rf.ac06f03d90bfbcc510bf2f89972cfe41.png",
+      "image_sha256": "08213e4b568bc472828cd8cc2772c7358921e8f46e3bf65d06b4b152aec73344",
+      "label_sha256": "9db9b28fdfa45329944d45f6b5cea2069d55378616efa23f7559a7ddb32e3229",
+      "label_id": 3,
+      "role": "referee",
+      "xyxy": [
+        469.00000031999997,
+        218.99999970000002,
+        487.99999968,
+        261.99999990000003
+      ],
+      "transition": "lost",
+      "before": {
+        "id": 23,
+        "role": "referee",
+        "xyxy": [
+          468.432861328125,
+          215.28749084472656,
+          490.28302001953125,
+          264.07476806640625
+        ],
+        "confidence": 0.2996477782726288
+      },
+      "after": {
+        "id": 21,
+        "role": "player",
+        "xyxy": [
+          468.32635498046875,
+          216.51979064941406,
+          490.71356201171875,
+          264.56103515625
+        ],
+        "confidence": 0.34499600529670715
+      },
+      "review_id": 66,
+      "mechanism": "correct_prediction_suppressed",
+      "winner": {
+        "id": 21,
+        "role": "player",
+        "xyxy": [
+          468.32635498046875,
+          216.51979064941406,
+          490.71356201171875,
+          264.56103515625
+        ],
+        "confidence": 0.34499600529670715
+      }
+    },
+    {
+      "split": "test",
+      "size": 1280,
+      "image": "images/test/08fd33_6_7_png.rf.16d9b93191823e90e1a403c888cb3cbd.png",
+      "image_sha256": "f7c2c89ab97301478df04f006f0ea203a0f623ba74fe716e8531071a002da696",
+      "label_sha256": "498b579e7b3e52b54b526a4bcbd11e63a5ea07677a352738c63e058548be7eb3",
+      "label_id": 8,
+      "role": "referee",
+      "xyxy": [
+        627.99999936,
+        471.99999996,
+        645.99999936,
+        528.00000012
+      ],
+      "transition": "lost",
+      "before": {
+        "id": 25,
+        "role": "referee",
+        "xyxy": [
+          627.0665283203125,
+          473.4073791503906,
+          647.1395874023438,
+          528.6275024414062
+        ],
+        "confidence": 0.3678107261657715
+      },
+      "after": {
+        "id": 21,
+        "role": "player",
+        "xyxy": [
+          627.1083984375,
+          473.8651123046875,
+          647.31884765625,
+          528.2723999023438
+        ],
+        "confidence": 0.5975640416145325
+      },
+      "review_id": 67,
+      "mechanism": "correct_prediction_suppressed",
+      "winner": {
+        "id": 21,
+        "role": "player",
+        "xyxy": [
+          627.1083984375,
+          473.8651123046875,
+          647.31884765625,
+          528.2723999023438
+        ],
+        "confidence": 0.5975640416145325
+      }
+    },
+    {
+      "split": "test",
+      "size": 1280,
+      "image": "images/test/08fd33_9_10_png.rf.e92d5598d8577cc470d1d3820a337257.png",
+      "image_sha256": "9a4d4e5949f0fe5a7c28b29b10ba472ccb653f393f069308e83c71748d7d2069",
+      "label_sha256": "0c54b859c79fd0c196c54b66dff323c7f884acb4a84007b11abd7e2a1441581e",
+      "label_id": 0,
+      "role": "referee",
+      "xyxy": [
+        671.0000006399999,
+        463.00000032,
+        704.00000064,
+        516.00000024
+      ],
+      "transition": "lost",
+      "before": {
+        "id": 23,
+        "role": "referee",
+        "xyxy": [
+          671.5015869140625,
+          463.6376037597656,
+          705.6639404296875,
+          519.562744140625
+        ],
+        "confidence": 0.42872756719589233
+      },
+      "after": {
+        "id": 21,
+        "role": "player",
+        "xyxy": [
+          670.43017578125,
+          463.207275390625,
+          706.089599609375,
+          519.6339721679688
+        ],
+        "confidence": 0.5290253162384033
+      },
+      "review_id": 68,
+      "mechanism": "correct_prediction_suppressed",
+      "winner": {
+        "id": 21,
+        "role": "player",
+        "xyxy": [
+          670.43017578125,
+          463.207275390625,
+          706.089599609375,
+          519.6339721679688
+        ],
+        "confidence": 0.5290253162384033
+      }
+    },
+    {
+      "split": "test",
+      "size": 1280,
+      "image": "images/test/local-c3-f1000.png",
+      "image_sha256": "3b1eae9822b587ae3eb8e2e981687cc8455dc3ad45b4e56bf117c6d606c63fde",
+      "label_sha256": "dc8de87e2d26562462c28fb3f4ca2f5f907ae6c800689280931130a28cc99a74",
+      "label_id": 9,
+      "role": "player",
+      "xyxy": [
+        875.54000064,
+        373.56999929999995,
+        906.03,
+        421.53999966
+      ],
+      "transition": "lost",
+      "before": {
+        "id": 21,
+        "role": "player",
+        "xyxy": [
+          872.7344970703125,
+          372.7156677246094,
+          906.43798828125,
+          421.4572448730469
+        ],
+        "confidence": 0.5839087963104248
+      },
+      "after": {
+        "id": 20,
+        "role": "referee",
+        "xyxy": [
+          872.8756713867188,
+          372.5274658203125,
+          906.5125122070312,
+          420.77001953125
+        ],
+        "confidence": 0.6558963060379028
+      },
+      "review_id": 69,
+      "mechanism": "correct_prediction_suppressed",
+      "winner": {
+        "id": 20,
+        "role": "referee",
+        "xyxy": [
+          872.8756713867188,
+          372.5274658203125,
+          906.5125122070312,
+          420.77001953125
+        ],
+        "confidence": 0.6558963060379028
+      }
+    }
+  ],
+  "keeper_original_fp_actions": [
+    {
+      "review_id": "keeper-0",
+      "image": "images/val/4b770a_1_8_png.rf.92162d0b37df46a8172921a12a4d8cdb.png",
+      "visual_subject": "outfield_person",
+      "action": "suppressed"
+    },
+    {
+      "review_id": "keeper-1",
+      "image": "images/val/538438_3_6_png.rf.abf5480fae9d39be478b2570be049a6b.png",
+      "visual_subject": "off_field_person",
+      "action": "still_false_positive"
+    },
+    {
+      "review_id": "keeper-2",
+      "image": "images/val/538438_5_2_png.rf.001e6c4444a6ec3ec6f1a4ba19e7f6a5.png",
+      "visual_subject": "goal_post",
+      "action": "still_false_positive"
+    },
+    {
+      "review_id": "keeper-3",
+      "image": "images/val/798b45_3_3_png.rf.55291c088e36a8cae392aa68b0ea2f27.png",
+      "visual_subject": "outfield_person",
+      "action": "still_false_positive"
+    },
+    {
+      "review_id": "keeper-4",
+      "image": "images/val/798b45_7_8_png.rf.00f92cb1839fcab25aa7cf0366208375.png",
+      "visual_subject": "off_field_person",
+      "action": "still_false_positive"
+    },
+    {
+      "review_id": "keeper-5",
+      "image": "images/val/4b770a_1_3_png.rf.34caa803c7f14b507a8d8a7a19832588.png",
+      "visual_subject": "outfield_person",
+      "action": "suppressed"
+    },
+    {
+      "review_id": "keeper-6",
+      "image": "images/val/4b770a_5_6_png.rf.cc113a3e1f4bff7e16f34545b080d956.png",
+      "visual_subject": "outfield_person",
+      "action": "suppressed"
+    },
+    {
+      "review_id": "keeper-7",
+      "image": "images/val/4b770a_5_7_png.rf.bcd51df40ad1ebb741aa5ccfc2c11981.png",
+      "visual_subject": "gt_keeper_with_competing_box",
+      "action": "now_true_positive"
+    },
+    {
+      "review_id": "keeper-8",
+      "image": "images/val/4b770a_7_6_png.rf.62bf4009af7ca06c038761228043f6b4.png",
+      "visual_subject": "gt_keeper_with_competing_box",
+      "action": "suppressed"
+    },
+    {
+      "review_id": "keeper-9",
+      "image": "images/val/538438_1_7_png.rf.9b3d0251b7c12b51ae93b57e102cd474.png",
+      "visual_subject": "outfield_person",
+      "action": "suppressed"
+    },
+    {
+      "review_id": "keeper-10",
+      "image": "images/val/538438_3_10_png.rf.1130754d94a304df8848ec4803bc7f8b.png",
+      "visual_subject": "stadium_lamp",
+      "action": "still_false_positive"
+    },
+    {
+      "review_id": "keeper-11",
+      "image": "images/val/538438_3_10_png.rf.1130754d94a304df8848ec4803bc7f8b.png",
+      "visual_subject": "gt_keeper_with_competing_box",
+      "action": "suppressed"
+    },
+    {
+      "review_id": "keeper-12",
+      "image": "images/val/538438_3_2_png.rf.6ed6cd43023c884dd3cc00dd6bf0aa31.png",
+      "visual_subject": "gt_keeper_with_competing_box",
+      "action": "now_true_positive"
+    },
+    {
+      "review_id": "keeper-13",
+      "image": "images/val/538438_3_2_png.rf.6ed6cd43023c884dd3cc00dd6bf0aa31.png",
+      "visual_subject": "off_field_person",
+      "action": "suppressed"
+    },
+    {
+      "review_id": "keeper-14",
+      "image": "images/val/538438_3_5_png.rf.9104f5cfea04f863fde57b60dd4afdaf.png",
+      "visual_subject": "off_field_person",
+      "action": "still_false_positive"
+    },
+    {
+      "review_id": "keeper-15",
+      "image": "images/val/538438_3_5_png.rf.9104f5cfea04f863fde57b60dd4afdaf.png",
+      "visual_subject": "off_field_person",
+      "action": "still_false_positive"
+    },
+    {
+      "review_id": "keeper-16",
+      "image": "images/val/538438_3_8_png.rf.15ba38bcec80270a5c08eb91b2f03073.png",
+      "visual_subject": "corner_flag",
+      "action": "still_false_positive"
+    },
+    {
+      "review_id": "keeper-17",
+      "image": "images/val/538438_5_4_png.rf.39aef6e51e54c3f2d05ab8b34a3ac0ee.png",
+      "visual_subject": "gt_keeper_with_competing_box",
+      "action": "now_true_positive"
+    },
+    {
+      "review_id": "keeper-18",
+      "image": "images/val/538438_5_5_png.rf.f651b2ed82d156c4efa1e001361ae144.png",
+      "visual_subject": "outfield_person",
+      "action": "still_false_positive"
+    },
+    {
+      "review_id": "keeper-19",
+      "image": "images/val/538438_5_5_png.rf.f651b2ed82d156c4efa1e001361ae144.png",
+      "visual_subject": "outfield_person",
+      "action": "suppressed"
+    },
+    {
+      "review_id": "keeper-20",
+      "image": "images/val/538438_5_8_png.rf.08a4edcd2805ab00893ea16b17e49746.png",
+      "visual_subject": "gt_keeper_with_competing_box",
+      "action": "suppressed"
+    },
+    {
+      "review_id": "keeper-21",
+      "image": "images/val/538438_5_8_png.rf.08a4edcd2805ab00893ea16b17e49746.png",
+      "visual_subject": "goal_post",
+      "action": "still_false_positive"
+    },
+    {
+      "review_id": "keeper-22",
+      "image": "images/val/538438_7_1_png.rf.45f573e52207fb1fd6b763960d8821e1.png",
+      "visual_subject": "stadium_lamp",
+      "action": "still_false_positive"
+    },
+    {
+      "review_id": "keeper-23",
+      "image": "images/val/538438_7_2_png.rf.094c14845829d56eb428150667cbee76.png",
+      "visual_subject": "stadium_lamp",
+      "action": "still_false_positive"
+    },
+    {
+      "review_id": "keeper-24",
+      "image": "images/val/538438_7_3_png.rf.721b0a4d41521069f8d19fd93317b455.png",
+      "visual_subject": "stadium_lamp",
+      "action": "still_false_positive"
+    },
+    {
+      "review_id": "keeper-25",
+      "image": "images/val/538438_7_4_png.rf.bd0a5da417a13a9e0c6446ff085c3a9d.png",
+      "visual_subject": "stadium_lamp",
+      "action": "still_false_positive"
+    },
+    {
+      "review_id": "keeper-26",
+      "image": "images/val/538438_7_6_png.rf.350f328ab420d7a6c1af137e48f29e21.png",
+      "visual_subject": "stadium_lamp",
+      "action": "still_false_positive"
+    },
+    {
+      "review_id": "keeper-27",
+      "image": "images/val/538438_9_5_png.rf.ce1a053bce42cbc648310771c68e3a84.png",
+      "visual_subject": "ball",
+      "action": "still_false_positive"
+    },
+    {
+      "review_id": "keeper-28",
+      "image": "images/val/538438_9_9_png.rf.dee62b813da3cb3dccab9c694fd43e4b.png",
+      "visual_subject": "off_field_person",
+      "action": "still_false_positive"
+    },
+    {
+      "review_id": "keeper-29",
+      "image": "images/val/798b45_3_2_png.rf.d951824d7c962e8b26104e0d381119b5.png",
+      "visual_subject": "outfield_person",
+      "action": "still_false_positive"
+    },
+    {
+      "review_id": "keeper-30",
+      "image": "images/val/798b45_3_2_png.rf.d951824d7c962e8b26104e0d381119b5.png",
+      "visual_subject": "ball",
+      "action": "still_false_positive"
+    },
+    {
+      "review_id": "keeper-31",
+      "image": "images/val/798b45_7_6_png.rf.82511a3fe248d03ec019fdb66c5762a9.png",
+      "visual_subject": "outfield_person",
+      "action": "suppressed"
+    },
+    {
+      "review_id": "keeper-32",
+      "image": "images/val/798b45_7_6_png.rf.82511a3fe248d03ec019fdb66c5762a9.png",
+      "visual_subject": "outfield_person",
+      "action": "suppressed"
+    },
+    {
+      "review_id": "keeper-33",
+      "image": "images/val/798b45_7_6_png.rf.82511a3fe248d03ec019fdb66c5762a9.png",
+      "visual_subject": "off_field_person",
+      "action": "still_false_positive"
+    },
+    {
+      "review_id": "keeper-34",
+      "image": "images/val/798b45_7_7_png.rf.1cd3c10cd573d3ae99ee23896eca387a.png",
+      "visual_subject": "outfield_person",
+      "action": "still_false_positive"
+    },
+    {
+      "review_id": "keeper-35",
+      "image": "images/val/798b45_7_7_png.rf.1cd3c10cd573d3ae99ee23896eca387a.png",
+      "visual_subject": "off_field_person",
+      "action": "still_false_positive"
+    },
+    {
+      "review_id": "keeper-36",
+      "image": "images/val/798b45_7_7_png.rf.1cd3c10cd573d3ae99ee23896eca387a.png",
+      "visual_subject": "outfield_person",
+      "action": "suppressed"
+    },
+    {
+      "review_id": "keeper-37",
+      "image": "images/val/798b45_7_7_png.rf.1cd3c10cd573d3ae99ee23896eca387a.png",
+      "visual_subject": "outfield_person",
+      "action": "suppressed"
+    },
+    {
+      "review_id": "keeper-38",
+      "image": "images/val/798b45_7_7_png.rf.1cd3c10cd573d3ae99ee23896eca387a.png",
+      "visual_subject": "outfield_person",
+      "action": "still_false_positive"
+    },
+    {
+      "review_id": "keeper-39",
+      "image": "images/val/798b45_7_7_png.rf.1cd3c10cd573d3ae99ee23896eca387a.png",
+      "visual_subject": "outfield_person",
+      "action": "still_false_positive"
+    },
+    {
+      "review_id": "keeper-40",
+      "image": "images/val/cd987c_0_7_png.rf.e1036773113a32ce7d639240dd6cfc0d.png",
+      "visual_subject": "outfield_person",
+      "action": "still_false_positive"
+    },
+    {
+      "review_id": "keeper-41",
+      "image": "images/val/cd987c_0_7_png.rf.e1036773113a32ce7d639240dd6cfc0d.png",
+      "visual_subject": "outfield_person",
+      "action": "suppressed"
+    },
+    {
+      "review_id": "keeper-42",
+      "image": "images/val/cd987c_9_10_png.rf.c886581dda9455fae413504ca0467636.png",
+      "visual_subject": "ball",
+      "action": "still_false_positive"
+    },
+    {
+      "review_id": "keeper-43",
+      "image": "images/val/4b770a_3_1_png.rf.03ef5ddce97de213ffb21501cff156b0.png",
+      "visual_subject": "gt_keeper_with_competing_box",
+      "action": "still_false_positive"
+    },
+    {
+      "review_id": "keeper-44",
+      "image": "images/val/4b770a_3_7_png.rf.d4eb2efd4fa922ff6a5ed4b1e4f29cfa.png",
+      "visual_subject": "gt_keeper_with_competing_box",
+      "action": "now_true_positive"
+    },
+    {
+      "review_id": "keeper-45",
+      "image": "images/val/4b770a_3_7_png.rf.d4eb2efd4fa922ff6a5ed4b1e4f29cfa.png",
+      "visual_subject": "uncertain_goal_area_object",
+      "action": "still_false_positive"
+    },
+    {
+      "review_id": "keeper-46",
+      "image": "images/val/538438_1_5_png.rf.86a43fdbc2e110cdd64c43e3884b55d0.png",
+      "visual_subject": "outfield_person",
+      "action": "suppressed"
+    },
+    {
+      "review_id": "keeper-47",
+      "image": "images/val/798b45_1_1_png.rf.b01e3f87fc2054c6df4d709fd6a1d66d.png",
+      "visual_subject": "gt_keeper_with_competing_box",
+      "action": "now_true_positive"
+    },
+    {
+      "review_id": "keeper-48",
+      "image": "images/val/798b45_9_8_png.rf.f7c70ad2f80ce02daeac801fb1b683f4.png",
+      "visual_subject": "outfield_person",
+      "action": "still_false_positive"
+    }
+  ],
+  "scope": "Every gained/lost count from frozen scoring. All70 loss crops inspected, not every suppression event. GreenGT,bluebefore,redwinner; visual overlap does not prove distinct or identical person. No independent relabelling or policy tuning."
+}
