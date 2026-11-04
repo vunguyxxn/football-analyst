@@ -1,0 +1,9 @@
+{
+  "reference_result_sha256": "b5dd89ff90e237673e185343b29b041cde00b03aa6290f6baf1b63e539c36a0f",
+  "new_result_sha256": "4675dbca3908a3cbc1b97612a9f09982485932c18a163d24f5a41ba27bd3b489",
+  "replay": {
+    "v6": "All fixed-threshold confusion/extras on val, known test, source diagnostic match frozen v10 report; per-class valAP50 within1e-6.",
+    "v10": "All fixed-threshold confusion/extras on val, known test, source diagnostic match frozen v10 report; per-class valAP50 within1e-6."
+  },
+  "epochs_completed": 20
+}

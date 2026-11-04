@@ -1,4 +1,5 @@
-"""Compare the locked v10 small run with v6 at 640/1280; never deploy."""
+"""Compare a locked small run with frozen references at 640/1280; never deploy."""
+import argparse
 from collections import Counter
 import contextlib
 import gc
@@ -38,20 +39,27 @@ def prediction_speed(weights,dataset,manifest,size,torch):
             'scope':'Single sequential run on first20 old-val images, three warmups; predict preprocessing/inference/NMS included, disk decode excluded. Not full video pipeline FPS.'}
 
 
-def compare(root):
-    pp=root/'docs/fixtures/role_sources_training_protocol_v10.json'
-    plan=json.loads((root/'docs/fixtures/role_sources_training_plan_v10.json').read_text())
+def comparison_specs(protocol, status, version):
+    baseline=protocol['comparison_baseline']
+    references=protocol.get('comparison_references', {'v6':baseline})
+    if 'v6' not in references or version in references or references['v6']['sha256']!=baseline['sha256']:
+        raise ValueError('Frozen comparison references changed')
+    return {**references, version:{'path':status['best_weights'],'sha256':status['best_weights_sha256']}}
+
+
+def compare(root, version='v10'):
+    if version not in {'v10','v11'}:raise ValueError('Unsupported locked experiment')
+    pp=root/f'docs/fixtures/role_sources_training_protocol_{version}.json'
+    plan=json.loads((root/f'docs/fixtures/role_sources_training_plan_{version}.json').read_text())
     if digest(pp)!=plan['protocol_sha256']:raise ValueError('Frozen protocol changed')
     p=json.loads(pp.read_text());dataset=root/p['dataset']
     checked(dataset,'manifest.json',plan['manifest_sha256'])
     manifest=verify_dataset(root,dataset,pp)
-    run=root/'data/processed/role_sources_training_v10/small'
+    run=dataset.parent/'small'
     status=json.loads((run/'status.json').read_text())
     if status['status']!='complete' or status['protocol_sha256']!=digest(pp) or status['manifest_sha256']!=plan['manifest_sha256']:
         raise ValueError('Incomplete or stale run')
-    baseline=p['comparison_baseline']
-    specs={'v6':{'path':baseline['path'],'sha256':baseline['sha256']},
-           'v10':{'path':status['best_weights'],'sha256':status['best_weights_sha256']}}
+    specs=comparison_specs(p,status,version)
     paths={name:checked(root,spec['path'],spec['sha256']) for name,spec in specs.items()}
     releases=[]
     for spec in p['source_releases']:
@@ -62,7 +70,7 @@ def compare(root):
         heldout=[{**r,'split':'test'} for r in m['files'] if r['split']=='heldout_review']
         if any(r['match_id']!='128057' for r in heldout):raise ValueError('Unexpected diagnostic match')
         releases.append((d,{'files':heldout}))
-    output=root/'data/processed/role_sources_training_v10/comparison';output.mkdir(exist_ok=False)
+    output=dataset.parent/'comparison';output.mkdir(exist_ok=False)
     torch=setup(root);results={name:{} for name in paths}
     sizes=p['evaluation_lock']['sizes']
     with (output/'evaluation.log').open('w',encoding='utf-8') as log,contextlib.redirect_stdout(log),contextlib.redirect_stderr(log):
@@ -71,8 +79,8 @@ def compare(root):
                 results[name][f'validation_ap_{size}']=evaluate(path,dataset,{**p,'evaluation_image_size':size},output,'val',f'{name}_val_ap{size}')
                 results[name][f'validation_{size}']=fixed_confidence(path,dataset,manifest,'val',.25,size)
             gc.collect();torch.cuda.empty_cache()
-        decision=validation_choice(results['v6']['validation_ap_640'],results['v10']['validation_ap_640'],p['validation_gate'])
-        decision['candidate_is']='v10'  # Legacy helper calls the candidate "balanced".
+        decision=validation_choice(results['v6']['validation_ap_640'],results[version]['validation_ap_640'],p['validation_gate'])
+        decision['candidate_is']=version  # Legacy helper calls the candidate "balanced".
         decision['reference_is']='v6'
         write_json(output/'validation-before-test.json',{'results':results,'decision':decision,
                    'protocol_sha256':digest(pp),'weights':specs,'source_releases':p['source_releases']})
@@ -92,7 +100,7 @@ def compare(root):
             for key in ['image','label']:checked(d,row[key],row[key+'_sha256'])
     for name,path in paths.items():
         if digest(path)!=specs[name]['sha256']:raise ValueError('Weights changed')
-    result={'kind':'role_sources_training_result_v10','protocol_sha256':digest(pp),
+    result={'kind':f'role_sources_training_result_{version}','protocol_sha256':digest(pp),
             'manifest_sha256':plan['manifest_sha256'],'training':status,'models':results,
             'selection_vs_v6':decision,'pipeline_promoted':False,'independently_validated':False,
             'old_test_previously_inspected':True,'source_diagnostic_previously_partly_inspected':True,
@@ -101,4 +109,7 @@ def compare(root):
     print(json.dumps({'selection':decision,'weights_sha256':status['best_weights_sha256']}))
 
 
-if __name__=='__main__':compare(Path(__file__).resolve().parents[2])
+if __name__=='__main__':
+    parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--version',choices=['v10','v11'],default='v10')
+    compare(Path(__file__).resolve().parents[2],parser.parse_args().version)

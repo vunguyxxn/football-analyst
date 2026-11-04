@@ -1,0 +1,96 @@
+{
+  "models": [
+    {
+      "id": "small",
+      "path": "data/raw/role_detector_v1/yolo11s.pt",
+      "sha256": "85a76fe86dd8afe384648546b56a7a78580c7cb7b404fc595f97969322d502d5"
+    }
+  ],
+  "epochs": 20,
+  "image_size": 640,
+  "batch": 4,
+  "amp": false,
+  "optimizer": "AdamW",
+  "lr0": 0.0003,
+  "seed": 20261102,
+  "workers": 0,
+  "mosaic": 0.5,
+  "close_mosaic": 3,
+  "selection": "Best checkpoint by validation fitness. Compare baseline and candidate on unchanged validation before regression test; do not select or tune using test.",
+  "test_confidence": 0.001,
+  "test_nms_iou": 0.7,
+  "max_detections": 300,
+  "runtime_confidence": 0.25,
+  "initialization": "COCO small, fresh AdamW; no role fine-tune checkpoint reused",
+  "validation_gate": {
+    "referee_map50_gain_min": 0.05,
+    "overall_map50_95_drop_max": 0.03,
+    "player_map50_drop_max": 0.03,
+    "goalkeeper_map50_drop_max": 0.05
+  },
+  "comparison_baseline": {
+    "id": "small_v6",
+    "path": "data/processed/role_clean_training_v6/small/training/weights/best.pt",
+    "sha256": "6d99be77ca79b3e3c924e7568a061bf151909da62f9e9b4708595cef46510c8f"
+  },
+  "source_releases": [
+    {
+      "packet": "docs/fixtures/role_sources_review_v8.json",
+      "packet_sha256": "b60ae2c6a56d04478b1a68d89e8f07d834d642470952ed0029ca0fa5e2e4d149",
+      "directory": "data/processed/role_source_release_v8",
+      "manifest_sha256": "a037b545d8f9aa84e0784a17e639a3ddcdcd8a0805c2581c13b6a9780bdbd453"
+    },
+    {
+      "packet": "docs/fixtures/role_sources_review_v9.json",
+      "packet_sha256": "4595c259c72f06aaf5e31b2a5d21ba8a2849920d708846e6712bc438259fc8cf",
+      "directory": "data/processed/role_source_release_v9",
+      "manifest_sha256": "0ef1f1af25d64df6c51d71ce4da58b3b7740b96a757922a6d78fbce175309733"
+    }
+  ],
+  "multi_scale": false,
+  "evaluation_image_size": 640,
+  "evaluation_lock": {
+    "sizes": [
+      640,
+      1280
+    ],
+    "confidence": 0.25,
+    "nms_iou": 0.7,
+    "matching_iou": 0.5,
+    "max_det": 300,
+    "role_dedup": false,
+    "ap_confidence": 0.001,
+    "gate_resolution": 640,
+    "gate_reference": "v6",
+    "gate": "Existing numeric gate applied against v6 at640, before known test/new-match diagnostic. No automatic deployment.",
+    "source_heldout_scope": "4 agent-reviewed ROIs of same match128057, already partially inspected in v8; diagnostic only, never checkpoint/threshold selection."
+  },
+  "kind": "role_sources_training_v11",
+  "date": "2026-11-04",
+  "dataset": "data/processed/role_sources_training_v11/dataset",
+  "plan": "docs/fixtures/role_sources_training_plan_v11.json",
+  "curated_dataset": "data/processed/role_clean_dataset_v11/dataset",
+  "curated_manifest_sha256": "acbd3e8617abf0577f149051fd4b39ec21dacdd600dcc7e8d7a0f34e5a6da23b",
+  "curation_protocol": "docs/fixtures/role_data_curation_protocol_v11.json",
+  "curation_protocol_sha256": "e5dd501a924ebd71eed97721d846d1eb0443ca733cebb4783d29e723ce25e077",
+  "expected_images": {
+    "train": 409,
+    "val": 128,
+    "test": 35
+  },
+  "reference_training_protocol": "docs/fixtures/role_sources_training_protocol_v10.json",
+  "reference_training_protocol_sha256": "4553740132361ac17b7027d957088ebf42ebc1c0814566948987530ea431a1c1",
+  "comparison_references": {
+    "v6": {
+      "id": "small_v6",
+      "path": "data/processed/role_clean_training_v6/small/training/weights/best.pt",
+      "sha256": "6d99be77ca79b3e3c924e7568a061bf151909da62f9e9b4708595cef46510c8f"
+    },
+    "v10": {
+      "path": "data/processed/role_sources_training_v10/small/training/weights/best.pt",
+      "sha256": "70e44344f01d9190daa7cae276a290b057e09f911ce9398cc2ab7115a10cdd2f"
+    }
+  },
+  "experiment_scope": "Fresh COCO11s, same20epoch640/batch4/FP32/seed and optimizer as v10. Data-only revision fixes1 label, quarantines1 frame and adds5 reviewed wide frames. One seed; not an isolated causal test of any individual edit.",
+  "sampling_lock": "409 train exposures frozen:404 retained old exposures plus5 new frames x1. No score-based resampling, unchanged128val/35known-test. Match128057 excluded."
+}

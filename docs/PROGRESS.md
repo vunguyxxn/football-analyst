@@ -2,6 +2,37 @@
 
 ## Trạng thái hiện tại
 
+Ngày 04/11/2026: hoàn tất train small v11 và so v6/v10/v11 tại640/1280.
+Khóa protocol trước train, snapshot409train/128val/35test giữ mọi record
+image/label của curation v11; curation không đổi manifest. COCO11s fresh
+AdamW20epoch640/batch4/FP32/lr0.0003/seed20261102; tham số thực tế so v10
+chỉ khác data/project/save_dir. Train+validation cuối1324,77s, CUDA tensor
+peak2944,56MiB. Weights d576a3aceb80bc0a9f797da9b4d4bdba36995c2ea4203eed786ac7c63b89be72.
+
+Val640 v10→v11: player TP2113→2184,FP400→446; keeper TP34→66,FP6→18;
+ref TP25→46,FP326→310. Val1280: player TP2368→2459,FP442→437;
+keeper TP34→50,FP21→49; ref TP101→143,FP232→230; player→ref127→57.
+AP50 ref640 0.1131→0.1298,1280 0.3626→0.5178. Keeper AP50 tại640
+0.8066→0.8604. Có cải thiện recall nhưng FP keeper tăng; không kết luận
+tốt hơn mọi mặt. So v6, ref TP640 vẫn63→46.
+
+Gate640 đối chiếu v6 không đạt: refAP50 tăng0.1046→0.1298, thiếu mức+0.05;
+ba guard khác đạt. Khóa kết quả val trước known test/diagnostic. Không đổi
+gate theo kết quả1280, không tự thay model ứng dụng. Runtime/schema giữ nguyên.
+Known test1280 refTP15→39 nhưng FP18→43; diagnostic128057 ref3/3 đúng,
+keeperFP0→3. Bộ kiểm này đã xem trước và ít nhãn, không phải kiểm mù.
+Replay v6/v10 khớp mọi confusion/extras val/test/diagnostic của snapshotcũ,
+AP50 từng lớp lệch<1e-6. FPS predict một lượt dao động theo trạng thái/thứ
+tự GPU, không kết luận model mới nhanh hơn hoặc FPS video toàn luồng.
+
+588test toàn bộ đạt,1networkdeselected,4warningcũ;5testđích đạt. Thêm helper
+snapshot, protocol/plan/result/replay v11,ROLE_SOURCES_TRAINING_V11.md;
+compare_role_sources hỗ trợ v11 với tham chiếu v6/v10, mặc định v10 giữ nguyên.
+Chi tiết local data/processed/role_sources_training_v11; train20epoch và
+compare đều hoàn tất. Không huấn luyện lại lần hai hoặc mở rộng dữ liệu.
+Bước tiếp theo: rà FP thủ môn mới và ref biên xa còn bỏ sót trên val1280
+so v10, trước khi bổ sung keeper đứng xa xanh/sáng; chưa tăng epoch/hạ ngưỡng.
+
 Ngày 04/11/2026: chuẩn bị dữ liệu phân vai trò v11, chưa huấn luyện lại.
 Sửa goalkeeper-114 (ảnh744b27_3_5...ad8d209..., index17) từ keeper sang
 referee theo ảnh gốc: assistant vàng biên gần; chỉ đổi token class.

@@ -1,0 +1,12 @@
+{
+  "protocol_sha256": "92b88f2e2f6f35d082591bb3df6a6ec36d408a616873a2aeb09fb63d81306900",
+  "manifest_sha256": "560064870de51c8114f5ba358b0382d621e044ecf5127dda3c5fd947b6293243",
+  "images": {
+    "test": 35,
+    "train": 409,
+    "val": 128
+  },
+  "curated_manifest_sha256": "acbd3e8617abf0577f149051fd4b39ec21dacdd600dcc7e8d7a0f34e5a6da23b",
+  "all_image_label_records_unchanged": true,
+  "training_started": false
+}
