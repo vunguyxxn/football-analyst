@@ -2,6 +2,41 @@
 
 ## Trạng thái hiện tại
 
+Ngày 04/11/2026: hoàn tất audit lỗi v11 so v10 trên val1280, chưa train tiếp.
+Replay đúng TP/FP/FN, confusion và unmatched cả ba lớp trên128ảnh val;
+conf0.25/NMS0.7/matchingIoU0.5/max_det300/FP32 giữ nguyên. Không inference
+known test/heldout, không sửa labels/weights/runtime/schema/frontend.
+
+KeeperFP21→49 gồm9lỗi còn lại,40mới,12cũ hết theo ghép không gian giữa
+hai tập FP; tăng ròng28không phải số lỗi mới hay số người. 7khung keeper
+ghép vào GTplayer;17khung GTđã ghép prediction khác;25không có GTIoU>=0.5.
+Rà49crop và nativecasekhó:19cầu thủ sân,9GTkeeper có box cạnh tranh,
+8người ngoài sân,6đèn,2cột gôn,1cờ góc,3bóng,1vật mờ sau gôn unknown.
+9khung quanh GTkeeper không phải9người bị nhận sai;8có playerbox trùng,
+1có keeperbox khác. Không đổi scoring hoặc gọi mọiFP là nhầm người.
+
+Ref292GT:75giữ đúng,68nhận thêm,26mất,123vẫn sai;149FN gồm99ghép
+player/50không ghép. Rà toàn bộ149crop;50biên xa kiểm thêm toàn cảnh,
+90giữa sân,8biên gần,1khu kỹ thuật chưa chắc staff/official (referee-60,
+538438_3_10...1130754d...,index6); chỉ gắn cờ, GTkhông đổi.
+50biên xa đều nhỏ<24px khi thu640:42vẫn sai/8mất nhận đúng. Không có
+mẫu số toàn bộbiênxa để kết luận recall riêng hoặc số người/trận độc lập.
+
+Chẩn đoán149FN:107score lớp đúng<0.25,31có refboxđúng nhưng cạnh tranh
+khi matching,8refđạtngưỡng nhưng thuaargmax,2khôngrawIoU>=0.5,1NMS/
+localization sát biên. Riêng50biênxa:44/3/0/2/1 theo cùng thứ tự.
+Referee-105: rawrefscore0.7992/IoUGT0.5283 bị refscore0.9419 chèn tại
+NMS(overlap0.8953),boxgiữ cóIoUGT0.4781. Replaypostprocesskhớppredict.
+Không coi1case là lý do thayNMS hoặc hạmatching toàn cục.
+
+Thêm audit_role_errors_v11.py,5test,ROLE_ERROR_AUDIT_V11.md và review/
+summaryfixtures đủ49FP/149FN kèmhash/geometry/rawscores/visualreview.
+593test toàn bộ đạt,1networkdeselected,4warningcũ;5testđích đạt. Nhãn agentrà,
+chưa kiểm độc lập. Bằng chứng local data/processed/role_error_audit_v11.
+Bước tiếp theo: thử chính sách cross-role dedup cũ ngoại tuyến trên v11,
+giữ scoring và đo cả ba lớp ở640/1280 trước khi thêm nguồn/train lại.
+Không sao chép hard negatives từ val/test sangtrain hoặc tự đổi runtime.
+
 Ngày 04/11/2026: hoàn tất train small v11 và so v6/v10/v11 tại640/1280.
 Khóa protocol trước train, snapshot409train/128val/35test giữ mọi record
 image/label của curation v11; curation không đổi manifest. COCO11s fresh

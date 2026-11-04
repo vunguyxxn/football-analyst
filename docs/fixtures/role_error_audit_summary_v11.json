@@ -1,0 +1,177 @@
+{
+  "audit_result_sha256": "5058d6ae0dbee748e4386c1d94324d7c9345c472dd36e83037385e7eae0d8df5",
+  "review_packet_sha256": "cb6ba2eccab6372f92a9cc3d59d42120548878abc81c8a94dbcfe8565986f64d",
+  "summary": {
+    "keeper_fp": 49,
+    "previous_keeper_fp": 21,
+    "resolved_old_fp": 12,
+    "keeper_fp_transitions": {
+      "retained_fp": 9,
+      "new_fp": 40
+    },
+    "keeper_fp_mechanisms": {
+      "matched_wrong_role": 7,
+      "unmatched_no_gt_iou50": 25,
+      "unmatched_gt_assigned_elsewhere": 17
+    },
+    "referee_labels": 292,
+    "referee_transitions": {
+      "gained": 68,
+      "still_wrong": 123,
+      "lost": 26,
+      "retained": 75
+    },
+    "referee_fn": 149,
+    "referee_fn_diagnostics": {
+      "correct_role_score_below_threshold": 107,
+      "correct_role_box_present_but_matching_competes": 31,
+      "correct_role_loses_class_argmax": 8,
+      "no_raw_box_at_iou50": 2,
+      "winning_correct_raw_box_removed_before_matching": 1
+    }
+  },
+  "visual_keeper_subjects": {
+    "outfield_person": 19,
+    "off_field_person": 8,
+    "goal_post": 2,
+    "gt_keeper_with_competing_box": 9,
+    "stadium_lamp": 6,
+    "corner_flag": 1,
+    "ball": 3,
+    "uncertain_goal_area_object": 1
+  },
+  "new_keeper_fp_subjects": {
+    "goal_post": 2,
+    "outfield_person": 14,
+    "off_field_person": 6,
+    "gt_keeper_with_competing_box": 8,
+    "stadium_lamp": 6,
+    "corner_flag": 1,
+    "ball": 2,
+    "uncertain_goal_area_object": 1
+  },
+  "referee_locations": {
+    "interior": 90,
+    "near_touchline": 8,
+    "far_touchline": 50,
+    "near_touchline_role_uncertain": 1
+  },
+  "far_referee_diagnostics": {
+    "correct_role_score_below_threshold": 44,
+    "no_raw_box_at_iou50": 2,
+    "correct_role_box_present_but_matching_competes": 3,
+    "winning_correct_raw_box_removed_before_matching": 1
+  },
+  "far_referee_transitions": {
+    "still_wrong": 42,
+    "lost": 8
+  },
+  "far_referee_under24_at640": 50,
+  "all_class_validation": {
+    "v10": {
+      "classes": {
+        "player": {
+          "tp": 2368,
+          "fp": 442,
+          "fn": 189,
+          "precision": 0.8427046263345196,
+          "recall": 0.9260852561595619
+        },
+        "goalkeeper": {
+          "tp": 34,
+          "fp": 21,
+          "fn": 58,
+          "precision": 0.6181818181818182,
+          "recall": 0.3695652173913043
+        },
+        "referee": {
+          "tp": 101,
+          "fp": 232,
+          "fn": 191,
+          "precision": 0.3033033033033033,
+          "recall": 0.3458904109589041
+        }
+      },
+      "player_called_referee": 127,
+      "nonplayers_called_player": 151,
+      "confusion": {
+        "player": {
+          "player": 2368,
+          "goalkeeper": 8,
+          "referee": 127,
+          "missed": 54
+        },
+        "goalkeeper": {
+          "player": 55,
+          "goalkeeper": 34,
+          "referee": 0,
+          "missed": 3
+        },
+        "referee": {
+          "player": 96,
+          "goalkeeper": 0,
+          "referee": 101,
+          "missed": 95
+        }
+      },
+      "unmatched_predictions": {
+        "player": 291,
+        "referee": 105,
+        "goalkeeper": 13
+      }
+    },
+    "v11": {
+      "classes": {
+        "player": {
+          "tp": 2459,
+          "fp": 437,
+          "fn": 98,
+          "precision": 0.8491022099447514,
+          "recall": 0.9616738365271803
+        },
+        "goalkeeper": {
+          "tp": 50,
+          "fp": 49,
+          "fn": 42,
+          "precision": 0.5050505050505051,
+          "recall": 0.5434782608695652
+        },
+        "referee": {
+          "tp": 143,
+          "fp": 230,
+          "fn": 149,
+          "precision": 0.38337801608579086,
+          "recall": 0.4897260273972603
+        }
+      },
+      "player_called_referee": 57,
+      "nonplayers_called_player": 140,
+      "confusion": {
+        "player": {
+          "player": 2459,
+          "goalkeeper": 7,
+          "referee": 57,
+          "missed": 34
+        },
+        "goalkeeper": {
+          "player": 41,
+          "goalkeeper": 50,
+          "referee": 0,
+          "missed": 1
+        },
+        "referee": {
+          "player": 99,
+          "goalkeeper": 0,
+          "referee": 143,
+          "missed": 50
+        }
+      },
+      "unmatched_predictions": {
+        "referee": 173,
+        "player": 297,
+        "goalkeeper": 42
+      }
+    }
+  },
+  "method": "All matching/scoring unchanged. FP association IoU0.5 one-to-one between FP sets; same person can occur in multiple frames. Location/visual subject by agent, not independent GT."
+}
