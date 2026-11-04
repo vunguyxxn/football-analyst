@@ -1,0 +1,41 @@
+{
+  "kind": "role_data_curation_v11",
+  "date": "2026-11-04",
+  "base_dataset": "data/processed/role_sources_training_v10/dataset",
+  "base_manifest_sha256": "78b88f0df6be2f1f03eb98c3ef17139b009e760f816f620461f8d182c84a46d0",
+  "base_protocol": "docs/fixtures/role_sources_training_protocol_v10.json",
+  "base_protocol_sha256": "4553740132361ac17b7027d957088ebf42ebc1c0814566948987530ea431a1c1",
+  "annotation_packet": "docs/fixtures/role_sources_review_v11.json",
+  "annotation_packet_sha256": "f260dfaa37e69d2bc641b31b5a0ea233146f033f36b2c93650944d7aedecf4bb",
+  "dataset": "data/processed/role_clean_dataset_v11/dataset",
+  "changes": [
+    {
+      "image": "images/train/744b27_3_5_png.rf.ad8d20930f605327cf07d41e51e9a6ef.png",
+      "image_sha256": "61e790aabe23908676fd7cf7306b2c6b528fc188dbc85193e4177dfdf3f6ff56",
+      "label_sha256": "8b875ecf25a83067b8c6e838452f028a0976a683a53924d1f784270a4dd51993",
+      "pixel_sha256": "cbc1f67193439b174886c13bd9be125bd3545c6fac41feeadcde7a33509e0381",
+      "action": "relabel",
+      "line_index": 17,
+      "from_class": "1",
+      "to_class": "2",
+      "reason": "Yellow near-touchline assistant; actual keeper green at left goal, yellow main official at midfield."
+    },
+    {
+      "image": "images/train/42ba34_3_1_png.rf.5bb4bc1a81118c5f226a108e76bbad8a.png",
+      "image_sha256": "8d4f9eeb35dc9369745963f0f07e88d2b3e2b27ba0bea639f9997c90ea87ca12",
+      "label_sha256": "6f72ae584603778247b92031a113636ed78dd90a8121c9b65d0fc53f784030b7",
+      "pixel_sha256": "1288555c4df4021bc58d5cf4b878ae911a6a806f5a622db6d7ee22611dca042b",
+      "action": "quarantine",
+      "line_index": 4,
+      "from_class": "2",
+      "to_class": null,
+      "reason": "Dark tracksuit in technical area: staff/official uncertain. Exclude entire frame, never remove just this box."
+    }
+  ],
+  "expected_quarantined_exposures": 1,
+  "expected_relabelled_exposures": 1,
+  "new_source_repeats": 1,
+  "expected_new_images": 5,
+  "training_started": false,
+  "sampling": "Preserve old repeats exactly; one exposure per new reviewed source; no augmentation or role inference for curation."
+}

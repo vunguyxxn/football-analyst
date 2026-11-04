@@ -2,6 +2,39 @@
 
 ## Trạng thái hiện tại
 
+Ngày 04/11/2026: chuẩn bị dữ liệu phân vai trò v11, chưa huấn luyện lại.
+Sửa goalkeeper-114 (ảnh744b27_3_5...ad8d209..., index17) từ keeper sang
+referee theo ảnh gốc: assistant vàng biên gần; chỉ đổi token class.
+Referee-158 (ảnh42ba34_3_1...5bb4bc1..., index4) chưa chắc staff/official:
+cách ly nguyên ảnh train, không xóa box để người đó thành background.
+Giữ nguyên toàn bộ v10 và dữ liệu cũ, runtime/schema/frontend không đổi.
+
+Thêm5 ảnh broadcast đã rà từ skaczylo/Football-Image-Dataset, revision
+264212872f1bfa6a9a3413f298793474da741aec, CC BY4.0, kiểm Git blob/SHA256.
+4 nhóm theo scoreboard/venue: RBL-FCH, BAR-MLL, CEL-VIL, BAY-BVB tại sân
+nhà Bayern; hai ảnh BAY-BVB gộp cùng nhóm. Không gọi là4trận chính thức
+đã xác minh. Thêm76player/4keeper/8ref,1lượt/ảnh, giữ số lặp nền.
+3ảnh toàn khung,2ROI rộng1920px bỏ dải khu kỹ thuật, nhãn đầy đủ trong ROI.
+Gỡ source19 ảnh98 trùng ref21; loại proposal0/67/105 do thiếu/nhãn lỗi
+hoặc sai nhóm màu. Không dùng dự đoán v6/v10 để chọn/gán nhãn.
+
+Keeper xanh14,41px khi thu640 đang đổ người; keeper sáng21,53px ngồi thấp:
+đạt định nghĩa box nhỏ, chưa chứng minh phủ keeper đứng xa. Ref tối biên
+xa28,47/16,86/21,95px: chỉ2/3dưới24px. Nhãn do agent rà, chưa độc lập.
+Train409lượt/315unitpixel-label,4921P/236G/642R; val128/test35 byte-identical,
+match128057 vẫn heldout. Sàng478ảnhSHA khác nhau gồm mọi split v10 và
+releasev8/v9; không hit pixel/dHash+thumbnail, không coi là chứng minh
+độc lập trận. Manifestv11 acbd3e8617abf0577f149051fd4b39ec21dacdd600dcc7e8d7a0f34e5a6da23b.
+
+Thêm curate_role_dataset_v11.py,7test,ROLE_DATA_CURATION_V11.md và4fixture
+v11. Dataset local data/processed/role_clean_dataset_v11/dataset.
+583test toàn bộ đạt,1networkdeselected,4warningcũ;7testđích đạt sau thêm
+regression cho dòng legacy thiếu sampling_origin. Kiểm dữ liệu và tái tạo
+được thực hiện trước commit; chưa đưa model mới vào ứng dụng.
+Bước tiếp theo: khóa phép thử small v11, giữ phép chấm/ngưỡng v6/v10,
+so cả ba lớp ở640/1280; không mặc định train mới sẽ tốt hơn. Nếu còn lỗi,
+ưu tiên keeper đứng xa xanh/sáng và thêm bối cảnh ref tối độc lập.
+
 Ngày 04/11/2026: dọn workspace theo yêu cầu, không đổi mã hoặc ứng dụng.
 Xóa 255 mục/32.751 file tạm, bộ cài cũ, ảnh review UI và 4 bản video
 demo dư (2 public, 2 dist), tổng logical 4.779.857.623 byte ≈4,45 GiB.

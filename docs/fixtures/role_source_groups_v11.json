@@ -1,0 +1,72 @@
+{
+  "revision": "264212872f1bfa6a9a3413f298793474da741aec",
+  "locked_before_role_detector_inference": true,
+  "sources": [
+    {
+      "id": "v11-141",
+      "scene_family": "broadcast_RBL_FCH",
+      "split": "train",
+      "sha256": "312205f2af635bc29f80026b66206270a2a7b0142680ec45e8b1e501d448222b",
+      "roi": [
+        0,
+        0,
+        1920,
+        1080
+      ]
+    },
+    {
+      "id": "v11-66",
+      "scene_family": "broadcast_BAR_MLL",
+      "split": "train",
+      "sha256": "fee9cca07fff3886159cfd0d8ffc2e8ebb67fe1ca83ed7757c99a5baf1d93be7",
+      "roi": [
+        0,
+        0,
+        1920,
+        1080
+      ]
+    },
+    {
+      "id": "v11-54",
+      "scene_family": "broadcast_CEL_VIL",
+      "split": "train",
+      "sha256": "351da2a958819503041d720584237e8435e8ae360b52c75cb89c42b06b07fd0b",
+      "roi": [
+        0,
+        0,
+        1920,
+        1080
+      ]
+    },
+    {
+      "id": "v11-98",
+      "scene_family": "broadcast_BAY_BVB_allianz",
+      "split": "train",
+      "sha256": "aa182ef199e949709f3f1d2448f6c3acacf6a8a4eaa065f86f3f6406db44c2d9",
+      "roi": [
+        0,
+        0,
+        1920,
+        920
+      ]
+    },
+    {
+      "id": "v11-269",
+      "scene_family": "broadcast_BAY_BVB_allianz",
+      "split": "train",
+      "sha256": "b356524628d4ce51424b1d4c0da72b2786ac5650351e84c39c1250e34f11378f",
+      "roi": [
+        0,
+        0,
+        1920,
+        950
+      ]
+    }
+  ],
+  "scope": "Visual scoreboard/venue/kit groups, not official match identity verification. BAY-BVB frames grouped together; Bayern home venue differs from yellow Dortmund-home val. No v6/v10 inference for selection/labels.",
+  "rejected_proposals": {
+    "0": "Unlabelled corner taker and uncertain off-field actors; keeper not small at640.",
+    "67": "Phantom source16; blue keeper not small at640.",
+    "105": "Keeper green, not target blue/light group."
+  }
+}

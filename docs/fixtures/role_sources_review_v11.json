@@ -1,0 +1,1162 @@
+{
+  "kind": "reviewed_role_sources_v11",
+  "independently_validated": false,
+  "training_performed": false,
+  "runtime_changed": false,
+  "provider": {
+    "repository": "skaczylo/Football-Image-Dataset",
+    "revision": "264212872f1bfa6a9a3413f298793474da741aec",
+    "license": "CC-BY-4.0",
+    "license_path": "data/raw/role_counterexamples_v3/github/LICENSE",
+    "license_sha256": "3b126c282d37622981c4418af825b51a47498ef36c720843a97eb3dc66803725",
+    "attribution": "skaczylo, Football Image Dataset, 2026. Images and annotations CC BY 4.0. Changes: manual role subdivision, removal of a duplicate annotation, wide ROI cropping.",
+    "license_url": "https://github.com/skaczylo/Football-Image-Dataset/blob/264212872f1bfa6a9a3413f298793474da741aec/LICENSE",
+    "source_classes": {
+      "0": "ball",
+      "1": "players including goalkeepers",
+      "2": "referees"
+    }
+  },
+  "source_groups": "docs/fixtures/role_source_groups_v11.json",
+  "source_groups_sha256": "04acbce806c78c5b42d2b6da23604e5c2bcc4f5426ef745c9f3de22e3686a131",
+  "sources": [
+    {
+      "id": "v11-141",
+      "scene_family": "broadcast_RBL_FCH",
+      "split": "train",
+      "path": "data/raw/fullscene_roles_v5/20250710_144746_219163.jpg",
+      "sha256": "312205f2af635bc29f80026b66206270a2a7b0142680ec45e8b1e501d448222b",
+      "width": 1920,
+      "height": 1080,
+      "roi": [
+        0,
+        0,
+        1920,
+        1080
+      ],
+      "origin_path": "images/train/20250710_144746_219163.jpg",
+      "git_blob_sha": "22370aa41c1a818b66f95b52aaa91c83ccceafc5",
+      "label_path": "data/raw/role_sources_v11/20250710_144746_219163.txt",
+      "label_sha256": "e0079291e1836d4d47430e066371f622812a9238750345f8816bade1151544de",
+      "label_origin_path": "labels/train/20250710_144746_219163.txt",
+      "label_git_blob_sha": "f11cf0fae0ef5241bea99809401e161f2b3ebabf",
+      "objects": [
+        {
+          "id": "0",
+          "role": "player",
+          "source_class": 1,
+          "xyxy": [
+            676.5564880371095,
+            524.119903564453,
+            743.9066467285156,
+            651.6769714355468
+          ]
+        },
+        {
+          "id": "1",
+          "role": "player",
+          "source_class": 1,
+          "xyxy": [
+            837.8629455566407,
+            507.4615173339843,
+            919.2012634277345,
+            626.8949279785156
+          ]
+        },
+        {
+          "id": "2",
+          "role": "player",
+          "source_class": 1,
+          "xyxy": [
+            981.1654968261719,
+            500.57220458984375,
+            1032.2768859863281,
+            615.2405395507812
+          ]
+        },
+        {
+          "id": "3",
+          "role": "player",
+          "source_class": 1,
+          "xyxy": [
+            922.5224938485774,
+            507.6157989501946,
+            986.6505432128896,
+            618.1468963623038
+          ]
+        },
+        {
+          "id": "4",
+          "role": "player",
+          "source_class": 1,
+          "xyxy": [
+            933.3339233398438,
+            591.4696960449219,
+            993.3534545898438,
+            727.4343566894531
+          ]
+        },
+        {
+          "id": "5",
+          "role": "player",
+          "source_class": 1,
+          "xyxy": [
+            1069.788330078125,
+            548.4183654785156,
+            1139.8342285156248,
+            656.5196228027343
+          ]
+        },
+        {
+          "id": "6",
+          "role": "player",
+          "source_class": 1,
+          "xyxy": [
+            274.4200897216797,
+            536.5277709960938,
+            343.03376770019537,
+            660.8999633789062
+          ]
+        },
+        {
+          "id": "7",
+          "role": "player",
+          "source_class": 1,
+          "xyxy": [
+            426.90209960937506,
+            358.40380859375,
+            475.1555786132813,
+            466.7616577148438
+          ]
+        },
+        {
+          "id": "8",
+          "role": "player",
+          "source_class": 1,
+          "xyxy": [
+            959.6498718261721,
+            409.33070373535156,
+            1029.6338195800784,
+            499.2850189208985
+          ]
+        },
+        {
+          "id": "9",
+          "role": "referee",
+          "source_class": 2,
+          "xyxy": [
+            698.8065185546876,
+            303.1735992431641,
+            755.9223632812501,
+            404.60752868652355
+          ]
+        },
+        {
+          "id": "10",
+          "role": "player",
+          "source_class": 1,
+          "xyxy": [
+            300.76577758789057,
+            419.0399169921875,
+            343.1101379394531,
+            531.625732421875
+          ]
+        },
+        {
+          "id": "11",
+          "role": "player",
+          "source_class": 1,
+          "xyxy": [
+            475.19378662109375,
+            453.09844970703125,
+            521.8598022460938,
+            560.9835815429688
+          ]
+        },
+        {
+          "id": "12",
+          "role": "player",
+          "source_class": 1,
+          "xyxy": [
+            523.0062866210938,
+            386.61639404296875,
+            607.5784301757812,
+            493.4492797851563
+          ]
+        },
+        {
+          "id": "13",
+          "role": "player",
+          "source_class": 1,
+          "xyxy": [
+            600.0484667010585,
+            378.8992614746072,
+            642.9189892937372,
+            485.48319708136586
+          ]
+        },
+        {
+          "id": "14",
+          "role": "goalkeeper",
+          "source_class": 1,
+          "xyxy": [
+            1207.8757966001594,
+            418.05235367278226,
+            1295.1956208189092,
+            461.29048862114587
+          ]
+        },
+        {
+          "id": "15",
+          "role": "player",
+          "source_class": 1,
+          "xyxy": [
+            0.0,
+            525.2699279785156,
+            40.8117790222168,
+            623.1255798339844
+          ]
+        },
+        {
+          "id": "16",
+          "role": "player",
+          "source_class": 1,
+          "xyxy": [
+            574.9934692382812,
+            374.06965637207037,
+            617.9097290039062,
+            460.1415252685547
+          ]
+        }
+      ],
+      "primary_id": "14",
+      "primary_color": "blue_cyan",
+      "primary_location": "goal_area",
+      "review_status": "agent_reviewed",
+      "coverage": "All visible active players, goalkeepers and match officials inside the ROI; crowd/staff excluded.",
+      "review_notes": "Source class1 includes goalkeepers; roles reviewed against native context.",
+      "uncertain_boxes": []
+    },
+    {
+      "id": "v11-66",
+      "scene_family": "broadcast_BAR_MLL",
+      "split": "train",
+      "path": "data/raw/fullscene_roles_v5/20250710_144746_0c0281.jpg",
+      "sha256": "fee9cca07fff3886159cfd0d8ffc2e8ebb67fe1ca83ed7757c99a5baf1d93be7",
+      "width": 1920,
+      "height": 1080,
+      "roi": [
+        0,
+        0,
+        1920,
+        1080
+      ],
+      "origin_path": "images/train/20250710_144746_0c0281.jpg",
+      "git_blob_sha": "4dcaf61980cefb6cb8be3b68566601279b564bf4",
+      "label_path": "data/raw/role_sources_v11/20250710_144746_0c0281.txt",
+      "label_sha256": "c3b56f8d01e209558b50f9a62571fceb629e4e2e1872f0a2049ab97b2d447a1e",
+      "label_origin_path": "labels/train/20250710_144746_0c0281.txt",
+      "label_git_blob_sha": "357fcf1edec1f714153c99d325783a774087e563",
+      "objects": [
+        {
+          "id": "0",
+          "role": "referee",
+          "source_class": 2,
+          "xyxy": [
+            1842.0498657226565,
+            805.4530029296876,
+            1904.247497558594,
+            945.3668212890626
+          ]
+        },
+        {
+          "id": "1",
+          "role": "player",
+          "source_class": 1,
+          "xyxy": [
+            1829.4708862304685,
+            554.9839782714844,
+            1883.686340332031,
+            669.4381408691407
+          ]
+        },
+        {
+          "id": "2",
+          "role": "player",
+          "source_class": 1,
+          "xyxy": [
+            1083.5835571289062,
+            578.3907165527344,
+            1175.9066772460938,
+            685.3580627441405
+          ]
+        },
+        {
+          "id": "3",
+          "role": "player",
+          "source_class": 1,
+          "xyxy": [
+            1401.1859130859377,
+            586.6662902832031,
+            1471.7242431640627,
+            705.0846862792968
+          ]
+        },
+        {
+          "id": "4",
+          "role": "player",
+          "source_class": 1,
+          "xyxy": [
+            664.4226379394531,
+            750.8710327148439,
+            721.8168640136719,
+            878.0618286132814
+          ]
+        },
+        {
+          "id": "5",
+          "role": "player",
+          "source_class": 1,
+          "xyxy": [
+            817.028564453125,
+            720.3643798828125,
+            888.0850830078125,
+            834.1220703125
+          ]
+        },
+        {
+          "id": "6",
+          "role": "player",
+          "source_class": 1,
+          "xyxy": [
+            1481.37890625,
+            731.2738342285156,
+            1539.61376953125,
+            867.4314880371094
+          ]
+        },
+        {
+          "id": "7",
+          "role": "player",
+          "source_class": 1,
+          "xyxy": [
+            804.7242126464844,
+            629.5876464843751,
+            861.4725646972656,
+            754.49365234375
+          ]
+        },
+        {
+          "id": "8",
+          "role": "player",
+          "source_class": 1,
+          "xyxy": [
+            1682.142333984375,
+            526.9570617675781,
+            1735.8173828125,
+            644.1020202636719
+          ]
+        },
+        {
+          "id": "9",
+          "role": "player",
+          "source_class": 1,
+          "xyxy": [
+            1280.9083251953125,
+            622.2646179199219,
+            1357.0618896484375,
+            733.051055908203
+          ]
+        },
+        {
+          "id": "10",
+          "role": "player",
+          "source_class": 1,
+          "xyxy": [
+            1371.8247680664062,
+            675.6500549316406,
+            1437.8461303710935,
+            806.5682067871094
+          ]
+        },
+        {
+          "id": "11",
+          "role": "player",
+          "source_class": 1,
+          "xyxy": [
+            1193.4885864257812,
+            640.2872314453125,
+            1246.6974487304688,
+            769.50537109375
+          ]
+        },
+        {
+          "id": "12",
+          "role": "referee",
+          "source_class": 2,
+          "xyxy": [
+            1730.159423828125,
+            215.11689758300784,
+            1780.789794921875,
+            305.9934539794922
+          ]
+        },
+        {
+          "id": "13",
+          "role": "player",
+          "source_class": 1,
+          "xyxy": [
+            565.2794494628906,
+            966.031494140625,
+            631.1722106933593,
+            1080.0
+          ]
+        },
+        {
+          "id": "14",
+          "role": "player",
+          "source_class": 1,
+          "xyxy": [
+            1316.2597656250002,
+            459.4403839111328,
+            1368.1770019531255,
+            574.5352020263672
+          ]
+        },
+        {
+          "id": "15",
+          "role": "player",
+          "source_class": 1,
+          "xyxy": [
+            1182.2412109375,
+            577.2333984375,
+            1232.8234863281252,
+            672.2718505859375
+          ]
+        },
+        {
+          "id": "16",
+          "role": "player",
+          "source_class": 1,
+          "xyxy": [
+            1225.0137939453123,
+            710.3102111816406,
+            1278.9285888671875,
+            833.2286071777343
+          ]
+        },
+        {
+          "id": "17",
+          "role": "goalkeeper",
+          "source_class": 1,
+          "xyxy": [
+            332.49183654785156,
+            518.5013732910157,
+            391.6868743896485,
+            583.0965270996094
+          ]
+        }
+      ],
+      "primary_id": "17",
+      "primary_color": "light_gray_white",
+      "primary_location": "goal_area",
+      "review_status": "agent_reviewed",
+      "coverage": "All visible active players, goalkeepers and match officials inside the ROI; crowd/staff excluded.",
+      "review_notes": "Source class1 includes goalkeepers; roles reviewed against native context.",
+      "uncertain_boxes": []
+    },
+    {
+      "id": "v11-54",
+      "scene_family": "broadcast_CEL_VIL",
+      "split": "train",
+      "path": "data/raw/fullscene_roles_v5/20250710_144746_09ec4d.jpg",
+      "sha256": "351da2a958819503041d720584237e8435e8ae360b52c75cb89c42b06b07fd0b",
+      "width": 1920,
+      "height": 1080,
+      "roi": [
+        0,
+        0,
+        1920,
+        1080
+      ],
+      "origin_path": "images/train/20250710_144746_09ec4d.jpg",
+      "git_blob_sha": "00e2c9e60c5d9b4f7108eaef2800c6671c5f2f94",
+      "label_path": "data/raw/role_sources_v11/20250710_144746_09ec4d.txt",
+      "label_sha256": "98de67f1d50e854b0b42e7472cbe18fb9c4b264b74f045256e8cca851f2552bf",
+      "label_origin_path": "labels/train/20250710_144746_09ec4d.txt",
+      "label_git_blob_sha": "d86264f89e7130e7d7738f2719b266459ba169fb",
+      "objects": [
+        {
+          "id": "0",
+          "role": "player",
+          "source_class": 1,
+          "xyxy": [
+            1048.2667236328125,
+            389.40624999999994,
+            1131.5850830078125,
+            506.55810546874994
+          ]
+        },
+        {
+          "id": "1",
+          "role": "player",
+          "source_class": 1,
+          "xyxy": [
+            1421.5103886978666,
+            407.5881958007819,
+            1477.360599763107,
+            522.2097778320319
+          ]
+        },
+        {
+          "id": "2",
+          "role": "player",
+          "source_class": 1,
+          "xyxy": [
+            1651.9810180664062,
+            793.4313049316406,
+            1737.933532714844,
+            968.9222106933595
+          ]
+        },
+        {
+          "id": "3",
+          "role": "player",
+          "source_class": 1,
+          "xyxy": [
+            1354.3085937500014,
+            338.2223052978523,
+            1409.419012437627,
+            447.2905120849616
+          ]
+        },
+        {
+          "id": "4",
+          "role": "player",
+          "source_class": 1,
+          "xyxy": [
+            663.4886474609375,
+            727.5546264648439,
+            744.3260498046875,
+            886.8306274414064
+          ]
+        },
+        {
+          "id": "5",
+          "role": "player",
+          "source_class": 1,
+          "xyxy": [
+            757.2617797851561,
+            443.1458587646484,
+            831.6251831054688,
+            548.7151031494141
+          ]
+        },
+        {
+          "id": "6",
+          "role": "player",
+          "source_class": 1,
+          "xyxy": [
+            462.7810668945312,
+            522.0879516601561,
+            522.4815673828125,
+            631.2766723632811
+          ]
+        },
+        {
+          "id": "7",
+          "role": "player",
+          "source_class": 1,
+          "xyxy": [
+            738.8143920898439,
+            713.2624816894532,
+            805.7504272460939,
+            865.5612487792969
+          ]
+        },
+        {
+          "id": "8",
+          "role": "player",
+          "source_class": 1,
+          "xyxy": [
+            1352.4891357421875,
+            622.640106201172,
+            1439.0191650390625,
+            765.3669738769531
+          ]
+        },
+        {
+          "id": "9",
+          "role": "player",
+          "source_class": 1,
+          "xyxy": [
+            1505.4498901367188,
+            505.35713195800776,
+            1569.6921997070312,
+            629.0150604248047
+          ]
+        },
+        {
+          "id": "10",
+          "role": "player",
+          "source_class": 1,
+          "xyxy": [
+            912.5973510742188,
+            401.15014648437494,
+            985.2570190429686,
+            510.47265625
+          ]
+        },
+        {
+          "id": "11",
+          "role": "goalkeeper",
+          "source_class": 1,
+          "xyxy": [
+            669.76318359375,
+            358.8789825439453,
+            736.8326416015625,
+            480.1252899169922
+          ]
+        },
+        {
+          "id": "12",
+          "role": "player",
+          "source_class": 1,
+          "xyxy": [
+            403.88807678222656,
+            472.15397644042974,
+            452.33177185058594,
+            589.1645050048828
+          ]
+        },
+        {
+          "id": "13",
+          "role": "player",
+          "source_class": 1,
+          "xyxy": [
+            300.5826110839844,
+            477.4651794433594,
+            379.9203796386719,
+            596.0585021972656
+          ]
+        },
+        {
+          "id": "14",
+          "role": "player",
+          "source_class": 1,
+          "xyxy": [
+            813.8836975097655,
+            497.7863311767578,
+            888.9493103027344,
+            614.6252899169923
+          ]
+        },
+        {
+          "id": "15",
+          "role": "player",
+          "source_class": 1,
+          "xyxy": [
+            840.7547607421875,
+            400.67658996582026,
+            891.165771484375,
+            510.9397430419922
+          ]
+        },
+        {
+          "id": "17",
+          "role": "referee",
+          "source_class": 2,
+          "xyxy": [
+            816.8412965701259,
+            628.5640258789032,
+            872.3192684320094,
+            781.474792480465
+          ]
+        },
+        {
+          "id": "18",
+          "role": "player",
+          "source_class": 1,
+          "xyxy": [
+            806.441650390625,
+            389.47322082519537,
+            859.2923583984375,
+            501.13529968261724
+          ]
+        },
+        {
+          "id": "19",
+          "role": "referee",
+          "source_class": 2,
+          "xyxy": [
+            1840.692443847655,
+            115.43558120727538,
+            1905.6695385505923,
+            200.84527206420898
+          ]
+        }
+      ],
+      "primary_id": "19",
+      "primary_color": "dark",
+      "primary_location": "far_touchline",
+      "review_status": "agent_reviewed",
+      "coverage": "All visible active players, goalkeepers and match officials inside the ROI; crowd/staff excluded.",
+      "review_notes": "Source class1 includes goalkeepers; roles reviewed against native context.",
+      "uncertain_boxes": []
+    },
+    {
+      "id": "v11-98",
+      "scene_family": "broadcast_BAY_BVB_allianz",
+      "split": "train",
+      "path": "data/raw/fullscene_roles_v5/20250710_144746_138140.jpg",
+      "sha256": "aa182ef199e949709f3f1d2448f6c3acacf6a8a4eaa065f86f3f6406db44c2d9",
+      "width": 1920,
+      "height": 1080,
+      "roi": [
+        0,
+        0,
+        1920,
+        920
+      ],
+      "origin_path": "images/train/20250710_144746_138140.jpg",
+      "git_blob_sha": "024d3705e88bc4ef6437c0fb9f1d1459d496e45a",
+      "label_path": "data/raw/role_sources_v11/20250710_144746_138140.txt",
+      "label_sha256": "93d5f211bd8a7dea9b317f9be5f971216b0725dc365959fd07c456152d0a3b78",
+      "label_origin_path": "labels/train/20250710_144746_138140.txt",
+      "label_git_blob_sha": "d9b1cc8953109026b170c3fb124f895801c890f9",
+      "objects": [
+        {
+          "id": "0",
+          "role": "player",
+          "source_class": 1,
+          "xyxy": [
+            1354.6488037109377,
+            558.9339904785156,
+            1402.8958740234377,
+            653.0276794433593
+          ]
+        },
+        {
+          "id": "1",
+          "role": "player",
+          "source_class": 1,
+          "xyxy": [
+            87.18177795410155,
+            641.3391418457032,
+            153.26741027832028,
+            758.0434265136719
+          ]
+        },
+        {
+          "id": "2",
+          "role": "player",
+          "source_class": 1,
+          "xyxy": [
+            1623.418151855469,
+            565.5078735351564,
+            1683.3543090820315,
+            663.1171264648439
+          ]
+        },
+        {
+          "id": "3",
+          "role": "player",
+          "source_class": 1,
+          "xyxy": [
+            507.197036743164,
+            772.2920227050781,
+            567.7477874755859,
+            906.5231628417969
+          ]
+        },
+        {
+          "id": "4",
+          "role": "player",
+          "source_class": 1,
+          "xyxy": [
+            328.7000274658203,
+            499.8476867675781,
+            367.14311218261713,
+            591.1603698730469
+          ]
+        },
+        {
+          "id": "5",
+          "role": "player",
+          "source_class": 1,
+          "xyxy": [
+            680.8681335449219,
+            426.5973663330078,
+            721.2912902832031,
+            500.03874206542974
+          ]
+        },
+        {
+          "id": "6",
+          "role": "player",
+          "source_class": 1,
+          "xyxy": [
+            1056.6724243164062,
+            460.0311279296874,
+            1106.0712280273435,
+            538.619140625
+          ]
+        },
+        {
+          "id": "7",
+          "role": "player",
+          "source_class": 1,
+          "xyxy": [
+            1550.9682577950553,
+            435.07098388671795,
+            1581.4588012695317,
+            509.1340942382805
+          ]
+        },
+        {
+          "id": "8",
+          "role": "player",
+          "source_class": 1,
+          "xyxy": [
+            219.83245849609375,
+            485.7948455810548,
+            264.0672607421875,
+            569.3676300048829
+          ]
+        },
+        {
+          "id": "9",
+          "role": "player",
+          "source_class": 1,
+          "xyxy": [
+            746.4330139160155,
+            429.44447326660156,
+            783.4778747558594,
+            490.7752532958985
+          ]
+        },
+        {
+          "id": "10",
+          "role": "player",
+          "source_class": 1,
+          "xyxy": [
+            1275.740966796875,
+            445.99639892578125,
+            1319.356201171875,
+            518.4451293945312
+          ]
+        },
+        {
+          "id": "11",
+          "role": "player",
+          "source_class": 1,
+          "xyxy": [
+            268.8476867675781,
+            505.8841094970703,
+            313.8810729980469,
+            596.4268035888672
+          ]
+        },
+        {
+          "id": "12",
+          "role": "player",
+          "source_class": 1,
+          "xyxy": [
+            1312.3370361328125,
+            397.12158203125,
+            1344.7210693359375,
+            463.65008544921875
+          ]
+        },
+        {
+          "id": "13",
+          "role": "player",
+          "source_class": 1,
+          "xyxy": [
+            1097.8037719726562,
+            416.6926574707031,
+            1130.8402709960935,
+            478.7802429199219
+          ]
+        },
+        {
+          "id": "14",
+          "role": "player",
+          "source_class": 1,
+          "xyxy": [
+            904.2547607421875,
+            462.99049377441406,
+            935.114501953125,
+            544.6276702880859
+          ]
+        },
+        {
+          "id": "15",
+          "role": "player",
+          "source_class": 1,
+          "xyxy": [
+            1187.3960127079276,
+            490.88745117187693,
+            1226.83615202664,
+            572.1237760469228
+          ]
+        },
+        {
+          "id": "16",
+          "role": "player",
+          "source_class": 1,
+          "xyxy": [
+            1163.590515136723,
+            491.2102355957046,
+            1191.9290096133736,
+            572.3666687011735
+          ]
+        },
+        {
+          "id": "17",
+          "role": "player",
+          "source_class": 1,
+          "xyxy": [
+            288.6497497558594,
+            458.4732208251953,
+            317.4545593261719,
+            533.5698699951172
+          ]
+        },
+        {
+          "id": "18",
+          "role": "player",
+          "source_class": 1,
+          "xyxy": [
+            472.2968517754095,
+            383.26116484395214,
+            493.2998657226539,
+            438.9239807128891
+          ]
+        },
+        {
+          "id": "20",
+          "role": "player",
+          "source_class": 1,
+          "xyxy": [
+            673.1292724609375,
+            363.3328552246093,
+            699.9645996093749,
+            415.69473266601557
+          ]
+        },
+        {
+          "id": "21",
+          "role": "referee",
+          "source_class": 2,
+          "xyxy": [
+            546.3427429199219,
+            505.4113159179688,
+            586.4638977050781,
+            589.8615112304689
+          ]
+        },
+        {
+          "id": "23",
+          "role": "referee",
+          "source_class": 2,
+          "xyxy": [
+            452.7195492951296,
+            356.1241192648744,
+            472.9549527135041,
+            406.7126278108108
+          ]
+        }
+      ],
+      "primary_id": "23",
+      "primary_color": "dark",
+      "primary_location": "far_touchline",
+      "review_status": "agent_reviewed",
+      "coverage": "All visible active players, goalkeepers and match officials inside the ROI; crowd/staff excluded.",
+      "review_notes": "Drop source line19: duplicate of referee line21, retain referee21.",
+      "uncertain_boxes": [
+        {
+          "xyxy": [
+            0,
+            925,
+            1920,
+            1080
+          ],
+          "reason": "Technical-area people outside reviewed ROI"
+        }
+      ]
+    },
+    {
+      "id": "v11-269",
+      "scene_family": "broadcast_BAY_BVB_allianz",
+      "split": "train",
+      "path": "data/raw/fullscene_roles_v5/20250710_144746_b389f6.jpg",
+      "sha256": "b356524628d4ce51424b1d4c0da72b2786ac5650351e84c39c1250e34f11378f",
+      "width": 1920,
+      "height": 1080,
+      "roi": [
+        0,
+        0,
+        1920,
+        950
+      ],
+      "origin_path": "images/train/20250710_144746_b389f6.jpg",
+      "git_blob_sha": "d6f6edf5ff4258b9c22921af907b540665c43696",
+      "label_path": "data/raw/role_sources_v11/20250710_144746_b389f6.txt",
+      "label_sha256": "1141ebb5028cbd151172567b23e61e5696bb008065381ee7adceffb325a9e71b",
+      "label_origin_path": "labels/train/20250710_144746_b389f6.txt",
+      "label_git_blob_sha": "8622b70cc9305886224ed969833d69f08605bf51",
+      "objects": [
+        {
+          "id": "0",
+          "role": "player",
+          "source_class": 1,
+          "xyxy": [
+            511.0575782417502,
+            564.6519518039374,
+            563.3874805527192,
+            692.2535753390938
+          ]
+        },
+        {
+          "id": "1",
+          "role": "player",
+          "source_class": 1,
+          "xyxy": [
+            768.3850623726092,
+            568.7253884846717,
+            853.3860892686246,
+            685.1334695393593
+          ]
+        },
+        {
+          "id": "2",
+          "role": "player",
+          "source_class": 1,
+          "xyxy": [
+            1474.973205566406,
+            546.0200500488281,
+            1553.9408569335935,
+            674.8393249511718
+          ]
+        },
+        {
+          "id": "3",
+          "role": "player",
+          "source_class": 1,
+          "xyxy": [
+            1706.7377929687498,
+            664.8907470703126,
+            1820.696533203125,
+            813.111572265625
+          ]
+        },
+        {
+          "id": "4",
+          "role": "player",
+          "source_class": 1,
+          "xyxy": [
+            1551.002990722656,
+            420.49743652343744,
+            1630.3324584960933,
+            522.21533203125
+          ]
+        },
+        {
+          "id": "5",
+          "role": "player",
+          "source_class": 1,
+          "xyxy": [
+            633.0098002389066,
+            614.7698860731718,
+            708.0267848686876,
+            742.6639900770781
+          ]
+        },
+        {
+          "id": "6",
+          "role": "player",
+          "source_class": 1,
+          "xyxy": [
+            1248.2568359374998,
+            391.5826110839844,
+            1320.4223632812498,
+            486.6428527832031
+          ]
+        },
+        {
+          "id": "7",
+          "role": "player",
+          "source_class": 1,
+          "xyxy": [
+            1571.1990966796875,
+            353.93162536621094,
+            1633.5621337890625,
+            426.2028961181641
+          ]
+        },
+        {
+          "id": "8",
+          "role": "player",
+          "source_class": 1,
+          "xyxy": [
+            1826.7665405273438,
+            329.2850799560547,
+            1890.1719360351562,
+            407.3705596923828
+          ]
+        },
+        {
+          "id": "9",
+          "role": "player",
+          "source_class": 1,
+          "xyxy": [
+            1616.9541015625,
+            573.1730651855468,
+            1715.7675781249998,
+            700.950958251953
+          ]
+        },
+        {
+          "id": "10",
+          "role": "goalkeeper",
+          "source_class": 1,
+          "xyxy": [
+            95.13711547851562,
+            453.79154968261724,
+            177.9828796386719,
+            522.3863067626953
+          ]
+        },
+        {
+          "id": "11",
+          "role": "referee",
+          "source_class": 2,
+          "xyxy": [
+            1565.413391113281,
+            247.75079345703122,
+            1599.2604370117185,
+            313.60400390624994
+          ]
+        }
+      ],
+      "primary_id": "11",
+      "primary_color": "dark",
+      "primary_location": "far_touchline",
+      "review_status": "agent_reviewed",
+      "coverage": "All visible active players, goalkeepers and match officials inside the ROI; crowd/staff excluded.",
+      "review_notes": "Source class1 includes goalkeepers; roles reviewed against native context.",
+      "uncertain_boxes": [
+        {
+          "xyxy": [
+            0,
+            970,
+            1920,
+            1080
+          ],
+          "reason": "Technical-area people outside reviewed ROI"
+        }
+      ]
+    }
+  ]
+}

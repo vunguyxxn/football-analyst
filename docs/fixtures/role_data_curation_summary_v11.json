@@ -1,0 +1,59 @@
+{
+  "images": {
+    "test": 35,
+    "train": 409,
+    "val": 128
+  },
+  "quarantined": [
+    "images/train/42ba34_3_1_png.rf.5bb4bc1a81118c5f226a108e76bbad8a.png"
+  ],
+  "corrected": [
+    "images/train/744b27_3_5_png.rf.ad8d20930f605327cf07d41e51e9a6ef.png"
+  ],
+  "new_images": 5,
+  "new_visual_groups": 4,
+  "primary_sizes": [
+    {
+      "id": "v11-141",
+      "color": "blue_cyan",
+      "role": "goalkeeper",
+      "height_at_640": 14.412711649454536
+    },
+    {
+      "id": "v11-66",
+      "color": "light_gray_white",
+      "role": "goalkeeper",
+      "height_at_640": 21.53171793619788
+    },
+    {
+      "id": "v11-54",
+      "color": "dark",
+      "role": "referee",
+      "height_at_640": 28.469896952311203
+    },
+    {
+      "id": "v11-98",
+      "color": "dark",
+      "role": "referee",
+      "height_at_640": 16.862836181978782
+    },
+    {
+      "id": "v11-269",
+      "color": "dark",
+      "role": "referee",
+      "height_at_640": 21.951070149739575
+    }
+  ],
+  "screened_reference_images": 478,
+  "duplicate_hits": 0,
+  "protected_splits_byte_identical": true,
+  "training_started": false,
+  "manifest_sha256": "acbd3e8617abf0577f149051fd4b39ec21dacdd600dcc7e8d7a0f34e5a6da23b",
+  "protocol_sha256": "e5dd501a924ebd71eed97721d846d1eb0443ca733cebb4783d29e723ce25e077",
+  "train_unit_count": 315,
+  "new_box_counts": {
+    "0": 76,
+    "2": 8,
+    "1": 4
+  }
+}
