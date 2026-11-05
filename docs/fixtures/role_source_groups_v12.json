@@ -1,0 +1,157 @@
+{
+  "kind": "role_source_groups_v12",
+  "revision": "264212872f1bfa6a9a3413f298793474da741aec",
+  "locked_before_role_detector_inference": true,
+  "sources": [
+    {
+      "id": "v12-29",
+      "scene_family": "libertadores_white_blue_neongreen",
+      "split": "train",
+      "sha256": "ea117ba52a8964eef3bf9b3e7be53f2de549f93adec94d6fdafce3ab55f8da29",
+      "label_sha256": "020e93969ef448ef64de5a7fe7aed871ddc6ff327ffb01a7b1e4be00cbe7fd65",
+      "regions": [
+        {
+          "id": "v12-29-field",
+          "roi": [
+            0,
+            0,
+            1920,
+            1080
+          ],
+          "negative": false,
+          "background_types": [],
+          "coverage_reviewed": true
+        },
+        {
+          "id": "v12-29-goal-background",
+          "roi": [
+            0,
+            230,
+            220,
+            420
+          ],
+          "negative": true,
+          "background_types": [
+            "goal_posts",
+            "spare_ball",
+            "advertising"
+          ],
+          "coverage_reviewed": true
+        }
+      ]
+    },
+    {
+      "id": "v12-79",
+      "scene_family": "broadcast_WOB_RBL_home",
+      "split": "train",
+      "sha256": "e4567da399b16f8d9a2cb664d412bf0fb05cb06d037a4fadf3a0edc9ad0cbb33",
+      "label_sha256": "649dc7525c7fa4722c963a4788cec3253c0ff517c893655adaf2d89ef406f764",
+      "regions": [
+        {
+          "id": "v12-79-field",
+          "roi": [
+            0,
+            0,
+            1920,
+            1080
+          ],
+          "negative": false,
+          "background_types": [],
+          "coverage_reviewed": true
+        }
+      ]
+    },
+    {
+      "id": "v12-186",
+      "scene_family": "broadcast_WOB_RBL_home",
+      "split": "train",
+      "sha256": "88d6d0c889cfe5270129c80a14402bb10871231a2158f738990f5b191791a0bb",
+      "label_sha256": "e4ff464207a72e1798787f7ae720b5785c490ca6ae165ace2f7cae104986d25e",
+      "regions": [
+        {
+          "id": "v12-186-field",
+          "roi": [
+            0,
+            0,
+            1920,
+            880
+          ],
+          "negative": false,
+          "background_types": [],
+          "coverage_reviewed": true
+        }
+      ]
+    },
+    {
+      "id": "v12-25",
+      "scene_family": "broadcast_ESP_BAR_home",
+      "split": "train",
+      "sha256": "ba737419e92cfc7046a9ce766046b9100124602c344450fd27ee73cd6c8d2534",
+      "label_sha256": "671d9cb1814283a9a0abbd40773e7ae62ade7839c9fa81868e3ac84d54c99f49",
+      "regions": [
+        {
+          "id": "v12-25-field",
+          "roi": [
+            0,
+            0,
+            1920,
+            700
+          ],
+          "negative": false,
+          "background_types": [],
+          "coverage_reviewed": true
+        }
+      ]
+    },
+    {
+      "id": "v12-270",
+      "scene_family": "broadcast_FCU_VFB_home",
+      "split": "train",
+      "sha256": "49601f4ba2811a089b4de97ae7bacbb88d65658d30f10c60c93126f759c5ca14",
+      "label_sha256": "0d2a661f2f5a3bbf04eab1d55d5f75f2132c7f761326a0a6a96edd0b1c503228",
+      "regions": [
+        {
+          "id": "v12-270-roof",
+          "roi": [
+            0,
+            0,
+            1920,
+            200
+          ],
+          "negative": true,
+          "background_types": [
+            "floodlights",
+            "roof",
+            "crowd"
+          ],
+          "coverage_reviewed": true
+        }
+      ]
+    },
+    {
+      "id": "v12-151",
+      "scene_family": "broadcast_Okayama_Machida",
+      "split": "train",
+      "sha256": "762e1a5e1e14bf43a421ff213bfe14755a2745d75c2877f33fee2f8784097903",
+      "label_sha256": "b8030cf31aec45ad75788a9038584d5bad1680de5a847a0980165b288d74185b",
+      "regions": [
+        {
+          "id": "v12-151-flag",
+          "roi": [
+            1800,
+            540,
+            1920,
+            830
+          ],
+          "negative": true,
+          "background_types": [
+            "corner_flag",
+            "touchline",
+            "track"
+          ],
+          "coverage_reviewed": true
+        }
+      ]
+    }
+  ]
+}

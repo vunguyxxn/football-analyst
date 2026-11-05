@@ -1,0 +1,1657 @@
+{
+  "kind": "reviewed_role_source_release_v12",
+  "date": "2026-11-05",
+  "independently_validated": false,
+  "training_performed": false,
+  "runtime_changed": false,
+  "role_detector_used_for_selection": false,
+  "provider": {
+    "repository": "skaczylo/Football-Image-Dataset",
+    "revision": "264212872f1bfa6a9a3413f298793474da741aec",
+    "license": "CC-BY-4.0",
+    "license_path": "data/raw/role_counterexamples_v3/github/LICENSE",
+    "license_sha256": "3b126c282d37622981c4418af825b51a47498ef36c720843a97eb3dc66803725",
+    "attribution": "skaczylo, Football Image Dataset, 2026. Images and annotations CC BY 4.0. Changes: manual role subdivision, removal of a duplicate annotation, wide ROI cropping.",
+    "license_url": "https://github.com/skaczylo/Football-Image-Dataset/blob/264212872f1bfa6a9a3413f298793474da741aec/LICENSE",
+    "source_classes": {
+      "0": "ball",
+      "1": "players including goalkeepers",
+      "2": "referees"
+    }
+  },
+  "base_dataset": "data/processed/role_sources_training_v11/dataset",
+  "base_manifest_sha256": "560064870de51c8114f5ba358b0382d621e044ecf5127dda3c5fd947b6293243",
+  "base_protocol": "docs/fixtures/role_sources_training_protocol_v11.json",
+  "base_protocol_sha256": "92b88f2e2f6f35d082591bb3df6a6ec36d408a616873a2aeb09fb63d81306900",
+  "coverage": "Only exported ROIs fully reviewed. Active players, goalkeepers and match officials are targets; spectators, stewards, substitutes warming up and staff outside play are background. Balls are outside three-role scope.",
+  "scene_review": "New visible stadium/opponent/kit contexts against prior families; not proof of official match identity. Exclude all BVB-home and M05-WOB candidates conservatively. WOB-RBL sources79/186 remain one group; all ROIs from a parent remain train-only.",
+  "sampling": "Source release only, one export per ROI; not merged into train. Parent-correlated positive/negative ROIs are not independent observations. Repeats/augmentation/training protocol not chosen.",
+  "sources": [
+    {
+      "id": "v12-29",
+      "survey_id": 29,
+      "scene_family": "libertadores_white_blue_neongreen",
+      "scene_evidence": "CONMEBOL overlay; white-blue versus neon green; official match ID unknown",
+      "split": "train",
+      "path": "data/raw/fullscene_roles_v5/20250710_144746_05fee1.jpg",
+      "sha256": "ea117ba52a8964eef3bf9b3e7be53f2de549f93adec94d6fdafce3ab55f8da29",
+      "git_blob_sha": "bffa396fee89d304afd284496f250fb709f7b010",
+      "origin_path": "images/train/20250710_144746_05fee1.jpg",
+      "label_path": "data/raw/role_sources_v12/20250710_144746_05fee1.txt",
+      "label_sha256": "020e93969ef448ef64de5a7fe7aed871ddc6ff327ffb01a7b1e4be00cbe7fd65",
+      "label_git_blob_sha": "c4ab5fae34f5916cd933bfc8588e6afaa65a6412",
+      "label_origin_path": "labels/train/20250710_144746_05fee1.txt",
+      "width": 1920,
+      "height": 1080,
+      "review_status": "agent_reviewed",
+      "uncertain_boxes": [],
+      "decisions": [
+        {
+          "source_index": 0,
+          "source_class": 1,
+          "xyxy": [
+            1561.2674560546875,
+            775.0901489257812,
+            1628.4185791015623,
+            898.7404174804686
+          ],
+          "action": "target",
+          "reason": "Reviewed visible active match actor.",
+          "role": "player"
+        },
+        {
+          "source_index": 1,
+          "source_class": 1,
+          "xyxy": [
+            1336.073303222656,
+            780.9375,
+            1419.9974975585935,
+            906.9248046875
+          ],
+          "action": "target",
+          "reason": "Reviewed visible active match actor.",
+          "role": "player"
+        },
+        {
+          "source_index": 2,
+          "source_class": 1,
+          "xyxy": [
+            1561.1036376953123,
+            510.16534423828125,
+            1623.0274658203123,
+            601.1614379882812
+          ],
+          "action": "target",
+          "reason": "Reviewed visible active match actor.",
+          "role": "player"
+        },
+        {
+          "source_index": 3,
+          "source_class": 1,
+          "xyxy": [
+            1476.4972534179688,
+            618.1814575195312,
+            1548.0125122070312,
+            716.6616821289062
+          ],
+          "action": "target",
+          "reason": "Reviewed visible active match actor.",
+          "role": "player"
+        },
+        {
+          "source_index": 4,
+          "source_class": 1,
+          "xyxy": [
+            1476.812255859375,
+            516.8105163574218,
+            1529.7788085937502,
+            604.6631164550781
+          ],
+          "action": "target",
+          "reason": "Reviewed visible active match actor.",
+          "role": "player"
+        },
+        {
+          "source_index": 5,
+          "source_class": 1,
+          "xyxy": [
+            993.5422973632812,
+            610.217529296875,
+            1058.3942260742188,
+            714.1274414062499
+          ],
+          "action": "target",
+          "reason": "Reviewed visible active match actor.",
+          "role": "player"
+        },
+        {
+          "source_index": 6,
+          "source_class": 1,
+          "xyxy": [
+            1384.8941650390625,
+            689.8946838378905,
+            1474.5220947265627,
+            796.5281677246091
+          ],
+          "action": "target",
+          "reason": "Reviewed visible active match actor.",
+          "role": "player"
+        },
+        {
+          "source_index": 7,
+          "source_class": 1,
+          "xyxy": [
+            418.30756185486575,
+            746.560915194165,
+            480.30442977683765,
+            851.1451419126392
+          ],
+          "action": "target",
+          "reason": "Reviewed visible active match actor.",
+          "role": "player"
+        },
+        {
+          "source_index": 8,
+          "source_class": 1,
+          "xyxy": [
+            1714.093017578125,
+            444.981689453125,
+            1783.3190917968752,
+            519.7261352539062
+          ],
+          "action": "target",
+          "reason": "Reviewed visible active match actor.",
+          "role": "player"
+        },
+        {
+          "source_index": 9,
+          "source_class": 1,
+          "xyxy": [
+            245.6813278198243,
+            327.61897277832037,
+            295.73590850830084,
+            410.91874694824224
+          ],
+          "action": "target",
+          "reason": "Reviewed visible active match actor.",
+          "role": "goalkeeper"
+        },
+        {
+          "source_index": 10,
+          "source_class": 1,
+          "xyxy": [
+            1743.7836914062489,
+            635.3874206542968,
+            1802.613702119798,
+            738.377960205078
+          ],
+          "action": "target",
+          "reason": "Reviewed visible active match actor.",
+          "role": "player"
+        },
+        {
+          "source_index": 11,
+          "source_class": 2,
+          "xyxy": [
+            1730.21240234375,
+            167.87248992919925,
+            1766.3745117187498,
+            232.11750030517578
+          ],
+          "action": "target",
+          "reason": "Reviewed visible active match actor.",
+          "role": "referee"
+        },
+        {
+          "source_index": 12,
+          "source_class": 1,
+          "xyxy": [
+            1773.1433105468745,
+            632.3797607421872,
+            1838.2234836733642,
+            730.3824462890622
+          ],
+          "action": "target",
+          "reason": "Reviewed visible active match actor.",
+          "role": "player"
+        },
+        {
+          "source_index": 13,
+          "source_class": 0,
+          "xyxy": [
+            390.4995464983377,
+            767.62030450941,
+            409.4346562836115,
+            785.1097134237214
+          ],
+          "action": "ball_out_of_scope",
+          "reason": "Outside reviewed target scope."
+        },
+        {
+          "source_index": 14,
+          "source_class": 2,
+          "xyxy": [
+            0.6727027893066395,
+            278.28160095214844,
+            58.225643157958984,
+            402.2679595947266
+          ],
+          "action": "discard",
+          "reason": "False referee annotation: goal/net/advertising structure; no person in source box."
+        }
+      ],
+      "regions": [
+        {
+          "id": "v12-29-field",
+          "roi": [
+            0,
+            0,
+            1920,
+            1080
+          ],
+          "negative": false,
+          "background_types": [],
+          "coverage_reviewed": true
+        },
+        {
+          "id": "v12-29-goal-background",
+          "roi": [
+            0,
+            230,
+            220,
+            420
+          ],
+          "negative": true,
+          "background_types": [
+            "goal_posts",
+            "spare_ball",
+            "advertising"
+          ],
+          "coverage_reviewed": true
+        }
+      ]
+    },
+    {
+      "id": "v12-79",
+      "survey_id": 79,
+      "scene_family": "broadcast_WOB_RBL_home",
+      "scene_evidence": "Scoreboard WOB 1-3 RBL 74:08; black far assistant carrying yellow flag",
+      "split": "train",
+      "path": "data/raw/fullscene_roles_v5/20250710_144746_0f4233.jpg",
+      "sha256": "e4567da399b16f8d9a2cb664d412bf0fb05cb06d037a4fadf3a0edc9ad0cbb33",
+      "git_blob_sha": "076c9830f9caddd763f478e21bcc31db14e65d6e",
+      "origin_path": "images/train/20250710_144746_0f4233.jpg",
+      "label_path": "data/raw/role_sources_v12/20250710_144746_0f4233.txt",
+      "label_sha256": "649dc7525c7fa4722c963a4788cec3253c0ff517c893655adaf2d89ef406f764",
+      "label_git_blob_sha": "510d56ecfdf51c80cbfd25c50bf12a31f946265a",
+      "label_origin_path": "labels/train/20250710_144746_0f4233.txt",
+      "width": 1920,
+      "height": 1080,
+      "review_status": "agent_reviewed",
+      "uncertain_boxes": [],
+      "decisions": [
+        {
+          "source_index": 0,
+          "source_class": 1,
+          "xyxy": [
+            1040.0751953125,
+            550.6637573242188,
+            1100.960693359375,
+            647.0050659179688
+          ],
+          "action": "target",
+          "reason": "Reviewed visible active match actor.",
+          "role": "player"
+        },
+        {
+          "source_index": 1,
+          "source_class": 1,
+          "xyxy": [
+            379.6219787597656,
+            586.6085510253906,
+            430.7422790527344,
+            676.8760681152344
+          ],
+          "action": "target",
+          "reason": "Reviewed visible active match actor.",
+          "role": "player"
+        },
+        {
+          "source_index": 2,
+          "source_class": 1,
+          "xyxy": [
+            1471.917724609375,
+            570.0801391601562,
+            1534.0107421875,
+            680.2919311523439
+          ],
+          "action": "target",
+          "reason": "Reviewed visible active match actor.",
+          "role": "player"
+        },
+        {
+          "source_index": 3,
+          "source_class": 1,
+          "xyxy": [
+            1076.6030883789065,
+            438.95013427734386,
+            1127.3827514648438,
+            517.8831176757812
+          ],
+          "action": "target",
+          "reason": "Reviewed visible active match actor.",
+          "role": "player"
+        },
+        {
+          "source_index": 4,
+          "source_class": 1,
+          "xyxy": [
+            1797.5438842773435,
+            489.9822998046875,
+            1850.470275878906,
+            578.7249755859375
+          ],
+          "action": "target",
+          "reason": "Reviewed visible active match actor.",
+          "role": "player"
+        },
+        {
+          "source_index": 5,
+          "source_class": 1,
+          "xyxy": [
+            528.877655029297,
+            542.2537536621093,
+            582.9839172363281,
+            639.2701721191406
+          ],
+          "action": "target",
+          "reason": "Reviewed visible active match actor.",
+          "role": "player"
+        },
+        {
+          "source_index": 6,
+          "source_class": 1,
+          "xyxy": [
+            1651.6766357421873,
+            496.4407348632813,
+            1709.6087646484373,
+            600.4279174804688
+          ],
+          "action": "target",
+          "reason": "Reviewed visible active match actor.",
+          "role": "player"
+        },
+        {
+          "source_index": 7,
+          "source_class": 1,
+          "xyxy": [
+            1253.733642578125,
+            524.4604187011719,
+            1311.396484375,
+            622.3262023925781
+          ],
+          "action": "target",
+          "reason": "Reviewed visible active match actor.",
+          "role": "player"
+        },
+        {
+          "source_index": 8,
+          "source_class": 1,
+          "xyxy": [
+            703.7955627441406,
+            478.7364044189453,
+            748.5530700683594,
+            567.0610809326172
+          ],
+          "action": "target",
+          "reason": "Reviewed visible active match actor.",
+          "role": "player"
+        },
+        {
+          "source_index": 9,
+          "source_class": 1,
+          "xyxy": [
+            1254.7614746093752,
+            349.8044738769531,
+            1303.7531738281252,
+            410.5700988769532
+          ],
+          "action": "target",
+          "reason": "Reviewed visible active match actor.",
+          "role": "player"
+        },
+        {
+          "source_index": 10,
+          "source_class": 1,
+          "xyxy": [
+            1008.9291381835936,
+            667.0020141601561,
+            1068.0493774414062,
+            793.5571899414062
+          ],
+          "action": "target",
+          "reason": "Reviewed visible active match actor.",
+          "role": "player"
+        },
+        {
+          "source_index": 11,
+          "source_class": 1,
+          "xyxy": [
+            942.5294799804688,
+            477.33439636230474,
+            995.4298706054688,
+            561.5810089111329
+          ],
+          "action": "target",
+          "reason": "Reviewed visible active match actor.",
+          "role": "player"
+        },
+        {
+          "source_index": 12,
+          "source_class": 1,
+          "xyxy": [
+            1041.6554565429688,
+            463.48327636718744,
+            1093.6760864257812,
+            536.2605590820312
+          ],
+          "action": "target",
+          "reason": "Reviewed visible active match actor.",
+          "role": "player"
+        },
+        {
+          "source_index": 13,
+          "source_class": 1,
+          "xyxy": [
+            304.22261047363287,
+            393.0734252929687,
+            342.94108581542974,
+            462.32043457031244
+          ],
+          "action": "target",
+          "reason": "Reviewed visible active match actor.",
+          "role": "goalkeeper"
+        },
+        {
+          "source_index": 14,
+          "source_class": 1,
+          "xyxy": [
+            921.6370239257811,
+            444.8504638671875,
+            952.8927612304688,
+            509.7467041015625
+          ],
+          "action": "target",
+          "reason": "Reviewed visible active match actor.",
+          "role": "player"
+        },
+        {
+          "source_index": 15,
+          "source_class": 1,
+          "xyxy": [
+            937.9139099121094,
+            429.40296936035156,
+            971.4586486816405,
+            496.260482788086
+          ],
+          "action": "target",
+          "reason": "Reviewed visible active match actor.",
+          "role": "player"
+        },
+        {
+          "source_index": 16,
+          "source_class": 2,
+          "xyxy": [
+            1371.3081665039065,
+            304.1119842529297,
+            1403.5770874023438,
+            359.17720031738276
+          ],
+          "action": "target",
+          "reason": "Reviewed visible active match actor.",
+          "role": "referee"
+        },
+        {
+          "source_index": 17,
+          "source_class": 2,
+          "xyxy": [
+            1303.927673339844,
+            569.6894836425781,
+            1356.1426391601565,
+            675.738006591797
+          ],
+          "action": "target",
+          "reason": "Reviewed visible active match actor.",
+          "role": "referee"
+        },
+        {
+          "source_index": 18,
+          "source_class": 0,
+          "xyxy": [
+            1075.1532353150096,
+            503.3020007452344,
+            1085.008139577205,
+            514.0528053949021
+          ],
+          "action": "ball_out_of_scope",
+          "reason": "Outside reviewed target scope."
+        }
+      ],
+      "regions": [
+        {
+          "id": "v12-79-field",
+          "roi": [
+            0,
+            0,
+            1920,
+            1080
+          ],
+          "negative": false,
+          "background_types": [],
+          "coverage_reviewed": true
+        }
+      ]
+    },
+    {
+      "id": "v12-186",
+      "survey_id": 186,
+      "scene_family": "broadcast_WOB_RBL_home",
+      "scene_evidence": "Scoreboard WOB 0-1 RBL 25:09; same stadium/kits as source79",
+      "split": "train",
+      "path": "data/raw/fullscene_roles_v5/20250710_144746_3422fb.jpg",
+      "sha256": "88d6d0c889cfe5270129c80a14402bb10871231a2158f738990f5b191791a0bb",
+      "git_blob_sha": "6ec645b1ba6bfcdaefeee8ca1e5e04edbf9b5c40",
+      "origin_path": "images/train/20250710_144746_3422fb.jpg",
+      "label_path": "data/raw/role_sources_v12/20250710_144746_3422fb.txt",
+      "label_sha256": "e4ff464207a72e1798787f7ae720b5785c490ca6ae165ace2f7cae104986d25e",
+      "label_git_blob_sha": "3280dde9cb8ec706c36e07d5f801b76c8d07a94d",
+      "label_origin_path": "labels/train/20250710_144746_3422fb.txt",
+      "width": 1920,
+      "height": 1080,
+      "review_status": "agent_reviewed",
+      "uncertain_boxes": [],
+      "decisions": [
+        {
+          "source_index": 0,
+          "source_class": 1,
+          "xyxy": [
+            1096.792050079529,
+            660.880989074707,
+            1183.7907714843748,
+            777.522834777832
+          ],
+          "action": "target",
+          "reason": "Reviewed visible active match actor.",
+          "role": "player"
+        },
+        {
+          "source_index": 1,
+          "source_class": 1,
+          "xyxy": [
+            860.0400280981012,
+            594.3173538208003,
+            935.2824096679693,
+            713.980807113647
+          ],
+          "action": "target",
+          "reason": "Reviewed visible active match actor.",
+          "role": "player"
+        },
+        {
+          "source_index": 2,
+          "source_class": 1,
+          "xyxy": [
+            1402.5508710118822,
+            579.4104609506576,
+            1486.0093955034235,
+            682.5387883077831
+          ],
+          "action": "target",
+          "reason": "Reviewed visible active match actor.",
+          "role": "player"
+        },
+        {
+          "source_index": 3,
+          "source_class": 1,
+          "xyxy": [
+            1835.7792480468745,
+            904.210660355792,
+            1919.9999542236321,
+            1063.8781848907465
+          ],
+          "action": "outside_review",
+          "reason": "Outside reviewed target scope."
+        },
+        {
+          "source_index": 4,
+          "source_class": 1,
+          "xyxy": [
+            1584.6646662729231,
+            623.1079227470344,
+            1668.8766022642214,
+            749.1194000266976
+          ],
+          "action": "target",
+          "reason": "Reviewed visible active match actor.",
+          "role": "player"
+        },
+        {
+          "source_index": 5,
+          "source_class": 1,
+          "xyxy": [
+            394.8955578832569,
+            512.1192561075342,
+            458.66233319493654,
+            605.0219942104314
+          ],
+          "action": "target",
+          "reason": "Reviewed visible active match actor.",
+          "role": "goalkeeper"
+        },
+        {
+          "source_index": 6,
+          "source_class": 1,
+          "xyxy": [
+            1297.8210007718944,
+            515.1948211669923,
+            1375.2741210937502,
+            614.5944831848145
+          ],
+          "action": "target",
+          "reason": "Reviewed visible active match actor.",
+          "role": "player"
+        },
+        {
+          "source_index": 7,
+          "source_class": 1,
+          "xyxy": [
+            942.866162109375,
+            619.2458404541015,
+            1048.5670257568358,
+            734.0654251098632
+          ],
+          "action": "target",
+          "reason": "Reviewed visible active match actor.",
+          "role": "player"
+        },
+        {
+          "source_index": 8,
+          "source_class": 1,
+          "xyxy": [
+            1537.989071563904,
+            496.2021111494041,
+            1583.9694245298465,
+            586.7642128950096
+          ],
+          "action": "target",
+          "reason": "Reviewed visible active match actor.",
+          "role": "player"
+        },
+        {
+          "source_index": 9,
+          "source_class": 1,
+          "xyxy": [
+            1483.7757102006922,
+            568.1303953159354,
+            1539.2110771133528,
+            674.4947748172783
+          ],
+          "action": "target",
+          "reason": "Reviewed visible active match actor.",
+          "role": "player"
+        },
+        {
+          "source_index": 10,
+          "source_class": 2,
+          "xyxy": [
+            1794.4927773374545,
+            380.79540702138854,
+            1855.961815783968,
+            465.4523491182786
+          ],
+          "action": "target",
+          "reason": "Reviewed visible active match actor.",
+          "role": "referee"
+        },
+        {
+          "source_index": 11,
+          "source_class": 0,
+          "xyxy": [
+            1386.04278015066,
+            671.5362617744686,
+            1406.1553257625656,
+            689.0254318717783
+          ],
+          "action": "ball_out_of_scope",
+          "reason": "Outside reviewed target scope."
+        }
+      ],
+      "regions": [
+        {
+          "id": "v12-186-field",
+          "roi": [
+            0,
+            0,
+            1920,
+            880
+          ],
+          "negative": false,
+          "background_types": [],
+          "coverage_reviewed": true
+        }
+      ]
+    },
+    {
+      "id": "v12-25",
+      "survey_id": 25,
+      "scene_family": "broadcast_ESP_BAR_home",
+      "scene_evidence": "Scoreboard ESP 0-0 BAR 50:25; RCDE Stadium; upright pink keeper",
+      "split": "train",
+      "path": "data/raw/fullscene_roles_v5/20250710_144746_059bda.jpg",
+      "sha256": "ba737419e92cfc7046a9ce766046b9100124602c344450fd27ee73cd6c8d2534",
+      "git_blob_sha": "81d37500a1fef2fd252e7ef701b7d247faa6dd6d",
+      "origin_path": "images/train/20250710_144746_059bda.jpg",
+      "label_path": "data/raw/role_sources_v12/20250710_144746_059bda.txt",
+      "label_sha256": "671d9cb1814283a9a0abbd40773e7ae62ade7839c9fa81868e3ac84d54c99f49",
+      "label_git_blob_sha": "36f670c31d36875bfe872eb3e94e26ac6f7d7e0c",
+      "label_origin_path": "labels/train/20250710_144746_059bda.txt",
+      "width": 1920,
+      "height": 1080,
+      "review_status": "agent_reviewed",
+      "uncertain_boxes": [],
+      "decisions": [
+        {
+          "source_index": 0,
+          "source_class": 1,
+          "xyxy": [
+            1490.9566650390625,
+            541.1328124999999,
+            1514.2823486328125,
+            600.8067626953124
+          ],
+          "action": "target",
+          "reason": "Reviewed visible active match actor.",
+          "role": "player"
+        },
+        {
+          "source_index": 1,
+          "source_class": 1,
+          "xyxy": [
+            570.7684936523436,
+            438.8617095947265,
+            592.9430541992188,
+            485.5359954833984
+          ],
+          "action": "target",
+          "reason": "Reviewed visible active match actor.",
+          "role": "player"
+        },
+        {
+          "source_index": 2,
+          "source_class": 1,
+          "xyxy": [
+            1545.772888183594,
+            516.6923522949219,
+            1574.2134399414062,
+            572.8896789550781
+          ],
+          "action": "target",
+          "reason": "Reviewed visible active match actor.",
+          "role": "player"
+        },
+        {
+          "source_index": 3,
+          "source_class": 1,
+          "xyxy": [
+            676.8126831054688,
+            432.7656555175781,
+            698.9685668945312,
+            480.44448852539057
+          ],
+          "action": "target",
+          "reason": "Reviewed visible active match actor.",
+          "role": "player"
+        },
+        {
+          "source_index": 4,
+          "source_class": 1,
+          "xyxy": [
+            1058.1583862304688,
+            431.456298828125,
+            1081.8005981445312,
+            475.89495849609375
+          ],
+          "action": "target",
+          "reason": "Reviewed visible active match actor.",
+          "role": "player"
+        },
+        {
+          "source_index": 5,
+          "source_class": 1,
+          "xyxy": [
+            1043.4873046875,
+            519.833984375,
+            1068.068603515625,
+            579.2999267578124
+          ],
+          "action": "target",
+          "reason": "Reviewed visible active match actor.",
+          "role": "player"
+        },
+        {
+          "source_index": 6,
+          "source_class": 1,
+          "xyxy": [
+            893.0548095703125,
+            410.8783721923828,
+            912.2153320312499,
+            449.70903015136713
+          ],
+          "action": "target",
+          "reason": "Reviewed visible active match actor.",
+          "role": "player"
+        },
+        {
+          "source_index": 7,
+          "source_class": 1,
+          "xyxy": [
+            1106.0256958007815,
+            409.0286254882812,
+            1126.5270385742188,
+            451.67572021484375
+          ],
+          "action": "target",
+          "reason": "Reviewed visible active match actor.",
+          "role": "goalkeeper"
+        },
+        {
+          "source_index": 8,
+          "source_class": 1,
+          "xyxy": [
+            848.7157287597656,
+            453.01531982421875,
+            874.2347106933595,
+            506.97265625
+          ],
+          "action": "target",
+          "reason": "Reviewed visible active match actor.",
+          "role": "player"
+        },
+        {
+          "source_index": 9,
+          "source_class": 2,
+          "xyxy": [
+            800.3143310546874,
+            518.5586547851562,
+            824.0856933593749,
+            574.4684448242188
+          ],
+          "action": "target",
+          "reason": "Reviewed visible active match actor.",
+          "role": "referee"
+        },
+        {
+          "source_index": 10,
+          "source_class": 1,
+          "xyxy": [
+            942.5184631347655,
+            451.16950988769526,
+            965.4275817871091,
+            499.38505554199213
+          ],
+          "action": "target",
+          "reason": "Reviewed visible active match actor.",
+          "role": "player"
+        },
+        {
+          "source_index": 11,
+          "source_class": 1,
+          "xyxy": [
+            928.1136169433595,
+            427.55018615722656,
+            948.4037170410156,
+            471.9356536865234
+          ],
+          "action": "target",
+          "reason": "Reviewed visible active match actor.",
+          "role": "player"
+        },
+        {
+          "source_index": 12,
+          "source_class": 1,
+          "xyxy": [
+            1082.9343872070315,
+            463.2349700927734,
+            1100.1105346679688,
+            509.28700256347656
+          ],
+          "action": "target",
+          "reason": "Reviewed visible active match actor.",
+          "role": "player"
+        },
+        {
+          "source_index": 13,
+          "source_class": 1,
+          "xyxy": [
+            447.8062286376953,
+            461.030517578125,
+            469.39994812011713,
+            513.84716796875
+          ],
+          "action": "target",
+          "reason": "Reviewed visible active match actor.",
+          "role": "player"
+        },
+        {
+          "source_index": 14,
+          "source_class": 1,
+          "xyxy": [
+            636.619659423828,
+            479.43092346191406,
+            660.2216491699219,
+            532.4352874755859
+          ],
+          "action": "target",
+          "reason": "Reviewed visible active match actor.",
+          "role": "player"
+        },
+        {
+          "source_index": 15,
+          "source_class": 1,
+          "xyxy": [
+            855.4346313476561,
+            446.66206359863287,
+            878.9606323242186,
+            498.9748992919922
+          ],
+          "action": "target",
+          "reason": "Reviewed visible active match actor.",
+          "role": "player"
+        },
+        {
+          "source_index": 16,
+          "source_class": 1,
+          "xyxy": [
+            1.2512588500976585,
+            879.539794921875,
+            59.56344604492189,
+            996.5592041015626
+          ],
+          "action": "outside_review",
+          "reason": "Outside reviewed target scope."
+        },
+        {
+          "source_index": 17,
+          "source_class": 1,
+          "xyxy": [
+            1680.0702514648438,
+            546.1095275878906,
+            1706.8442993164062,
+            604.4620056152343
+          ],
+          "action": "target",
+          "reason": "Reviewed visible active match actor.",
+          "role": "player"
+        },
+        {
+          "source_index": 18,
+          "source_class": 1,
+          "xyxy": [
+            942.5796317208211,
+            435.09689882565687,
+            962.4282645333211,
+            481.54087311918454
+          ],
+          "action": "target",
+          "reason": "Reviewed visible active match actor.",
+          "role": "player"
+        },
+        {
+          "source_index": 19,
+          "source_class": 2,
+          "xyxy": [
+            803.3778686523438,
+            575.1037902832031,
+            832.8491821289064,
+            637.3796081542968
+          ],
+          "action": "discard",
+          "reason": "Duplicate wrong-role referee box on black outfield player. Retain source20 as player."
+        },
+        {
+          "source_index": 20,
+          "source_class": 1,
+          "xyxy": [
+            803.5511779785156,
+            574.3739624023438,
+            832.8521423339843,
+            637.1083374023439
+          ],
+          "action": "target",
+          "reason": "Reviewed visible active match actor.",
+          "role": "player"
+        },
+        {
+          "source_index": 21,
+          "source_class": 2,
+          "xyxy": [
+            1717.0258789062502,
+            549.79833984375,
+            1741.9013671875,
+            607.2939453125
+          ],
+          "action": "target",
+          "reason": "Reviewed visible active match actor.",
+          "role": "referee"
+        },
+        {
+          "source_index": 22,
+          "source_class": 1,
+          "xyxy": [
+            950.8538728809942,
+            421.73637253499754,
+            966.5596147099611,
+            465.7124496561024
+          ],
+          "action": "target",
+          "reason": "Reviewed visible active match actor.",
+          "role": "player"
+        }
+      ],
+      "regions": [
+        {
+          "id": "v12-25-field",
+          "roi": [
+            0,
+            0,
+            1920,
+            700
+          ],
+          "negative": false,
+          "background_types": [],
+          "coverage_reviewed": true
+        }
+      ]
+    },
+    {
+      "id": "v12-270",
+      "survey_id": 270,
+      "scene_family": "broadcast_FCU_VFB_home",
+      "scene_evidence": "Scoreboard FCU 3-2 VFB 41:30; roof/floodlights; officials outside ROI",
+      "split": "train",
+      "path": "data/raw/fullscene_roles_v5/20250710_144746_b39408.jpg",
+      "sha256": "49601f4ba2811a089b4de97ae7bacbb88d65658d30f10c60c93126f759c5ca14",
+      "git_blob_sha": "d1eb909d09a8cab8979de4c17dec0d9866df9d62",
+      "origin_path": "images/train/20250710_144746_b39408.jpg",
+      "label_path": "data/raw/role_sources_v12/20250710_144746_b39408.txt",
+      "label_sha256": "0d2a661f2f5a3bbf04eab1d55d5f75f2132c7f761326a0a6a96edd0b1c503228",
+      "label_git_blob_sha": "407b4d128e8f0fc3cffb1d1d7225377531120557",
+      "label_origin_path": "labels/train/20250710_144746_b39408.txt",
+      "width": 1920,
+      "height": 1080,
+      "review_status": "agent_reviewed",
+      "uncertain_boxes": [],
+      "decisions": [
+        {
+          "source_index": 0,
+          "source_class": 1,
+          "xyxy": [
+            1420.9177856445315,
+            799.2778625488281,
+            1483.772644042969,
+            907.5033874511719
+          ],
+          "action": "outside_review",
+          "reason": "Outside reviewed target scope."
+        },
+        {
+          "source_index": 1,
+          "source_class": 1,
+          "xyxy": [
+            1799.8320922851562,
+            725.6300659179686,
+            1852.0468139648438,
+            838.8580932617188
+          ],
+          "action": "outside_review",
+          "reason": "Outside reviewed target scope."
+        },
+        {
+          "source_index": 2,
+          "source_class": 1,
+          "xyxy": [
+            1479.3803100585938,
+            622.9554138183594,
+            1523.315490722656,
+            709.8898010253906
+          ],
+          "action": "outside_review",
+          "reason": "Outside reviewed target scope."
+        },
+        {
+          "source_index": 3,
+          "source_class": 1,
+          "xyxy": [
+            775.9415543082453,
+            680.5297027694518,
+            809.8133131921428,
+            773.4639068710139
+          ],
+          "action": "outside_review",
+          "reason": "Outside reviewed target scope."
+        },
+        {
+          "source_index": 4,
+          "source_class": 1,
+          "xyxy": [
+            1211.5029907226562,
+            520.1642456054688,
+            1259.4662475585935,
+            583.3883666992188
+          ],
+          "action": "outside_review",
+          "reason": "Outside reviewed target scope."
+        },
+        {
+          "source_index": 5,
+          "source_class": 2,
+          "xyxy": [
+            1193.850830078125,
+            661.4189147949218,
+            1238.6916503906248,
+            755.671417236328
+          ],
+          "action": "outside_review",
+          "reason": "Outside reviewed target scope."
+        },
+        {
+          "source_index": 6,
+          "source_class": 1,
+          "xyxy": [
+            511.2289802917549,
+            624.8877221564329,
+            559.8361849900689,
+            699.444359996198
+          ],
+          "action": "outside_review",
+          "reason": "Outside reviewed target scope."
+        },
+        {
+          "source_index": 7,
+          "source_class": 1,
+          "xyxy": [
+            1255.6401977539065,
+            587.4628295898436,
+            1296.004333496094,
+            658.8458862304686
+          ],
+          "action": "outside_review",
+          "reason": "Outside reviewed target scope."
+        },
+        {
+          "source_index": 8,
+          "source_class": 1,
+          "xyxy": [
+            518.7812194824218,
+            743.95361328125,
+            578.3083801269531,
+            825.343017578125
+          ],
+          "action": "outside_review",
+          "reason": "Outside reviewed target scope."
+        },
+        {
+          "source_index": 9,
+          "source_class": 1,
+          "xyxy": [
+            1145.9511108398438,
+            499.94311523437506,
+            1194.0801391601562,
+            564.3211669921875
+          ],
+          "action": "outside_review",
+          "reason": "Outside reviewed target scope."
+        },
+        {
+          "source_index": 10,
+          "source_class": 1,
+          "xyxy": [
+            800.4842834472655,
+            573.8579101562467,
+            848.8263915375742,
+            647.8892822265592
+          ],
+          "action": "outside_review",
+          "reason": "Outside reviewed target scope."
+        },
+        {
+          "source_index": 11,
+          "source_class": 1,
+          "xyxy": [
+            646.919921875,
+            801.4265441894531,
+            708.8482666015624,
+            852.5094909667968
+          ],
+          "action": "outside_review",
+          "reason": "Outside reviewed target scope."
+        },
+        {
+          "source_index": 12,
+          "source_class": 1,
+          "xyxy": [
+            1273.4016723632815,
+            524.5000000000001,
+            1309.4264526367188,
+            601.0753173828126
+          ],
+          "action": "outside_review",
+          "reason": "Outside reviewed target scope."
+        },
+        {
+          "source_index": 13,
+          "source_class": 1,
+          "xyxy": [
+            1336.416259765625,
+            462.74841308593744,
+            1370.55126953125,
+            533.9600219726562
+          ],
+          "action": "outside_review",
+          "reason": "Outside reviewed target scope."
+        },
+        {
+          "source_index": 14,
+          "source_class": 1,
+          "xyxy": [
+            1364.430725097656,
+            435.1454467773437,
+            1394.3861694335938,
+            504.7515869140625
+          ],
+          "action": "outside_review",
+          "reason": "Outside reviewed target scope."
+        },
+        {
+          "source_index": 15,
+          "source_class": 1,
+          "xyxy": [
+            1426.419570976172,
+            477.59625842760994,
+            1450.989810148665,
+            551.2222931121499
+          ],
+          "action": "outside_review",
+          "reason": "Outside reviewed target scope."
+        },
+        {
+          "source_index": 16,
+          "source_class": 1,
+          "xyxy": [
+            1001.2643432617189,
+            477.05393981933594,
+            1049.1375122070312,
+            536.3016510009766
+          ],
+          "action": "outside_review",
+          "reason": "Outside reviewed target scope."
+        },
+        {
+          "source_index": 17,
+          "source_class": 1,
+          "xyxy": [
+            1418.8225937689497,
+            463.56743764815826,
+            1444.6002960738315,
+            531.6032347672988
+          ],
+          "action": "outside_review",
+          "reason": "Outside reviewed target scope."
+        },
+        {
+          "source_index": 18,
+          "source_class": 0,
+          "xyxy": [
+            552.3390366801286,
+            682.9296328660837,
+            564.1124296163724,
+            695.438862860843
+          ],
+          "action": "ball_out_of_scope",
+          "reason": "Outside reviewed target scope."
+        }
+      ],
+      "regions": [
+        {
+          "id": "v12-270-roof",
+          "roi": [
+            0,
+            0,
+            1920,
+            200
+          ],
+          "negative": true,
+          "background_types": [
+            "floodlights",
+            "roof",
+            "crowd"
+          ],
+          "coverage_reviewed": true
+        }
+      ]
+    },
+    {
+      "id": "v12-151",
+      "survey_id": 151,
+      "scene_family": "broadcast_Okayama_Machida",
+      "scene_evidence": "Scoreboard Okayama 0-0 Machida 25:43; corner flag at right edge",
+      "split": "train",
+      "path": "data/raw/fullscene_roles_v5/20250710_144746_24fb0f.jpg",
+      "sha256": "762e1a5e1e14bf43a421ff213bfe14755a2745d75c2877f33fee2f8784097903",
+      "git_blob_sha": "e3daa478d76f1e2ed211753282f885ae79f502f3",
+      "origin_path": "images/train/20250710_144746_24fb0f.jpg",
+      "label_path": "data/raw/role_sources_v12/20250710_144746_24fb0f.txt",
+      "label_sha256": "b8030cf31aec45ad75788a9038584d5bad1680de5a847a0980165b288d74185b",
+      "label_git_blob_sha": "803629cfda6e06096b565665b0fe742f3638b5ce",
+      "label_origin_path": "labels/train/20250710_144746_24fb0f.txt",
+      "width": 1920,
+      "height": 1080,
+      "review_status": "agent_reviewed",
+      "uncertain_boxes": [],
+      "decisions": [
+        {
+          "source_index": 0,
+          "source_class": 1,
+          "xyxy": [
+            273.93247985839844,
+            732.9742736816406,
+            339.661636352539,
+            848.2652282714845
+          ],
+          "action": "outside_review",
+          "reason": "Outside reviewed target scope."
+        },
+        {
+          "source_index": 1,
+          "source_class": 1,
+          "xyxy": [
+            277.1492004394531,
+            388.4642028808593,
+            321.5686340332031,
+            478.7869567871093
+          ],
+          "action": "outside_review",
+          "reason": "Outside reviewed target scope."
+        },
+        {
+          "source_index": 2,
+          "source_class": 1,
+          "xyxy": [
+            470.3068084716797,
+            484.2335357666015,
+            518.8516387939453,
+            575.2033538818359
+          ],
+          "action": "outside_review",
+          "reason": "Outside reviewed target scope."
+        },
+        {
+          "source_index": 3,
+          "source_class": 1,
+          "xyxy": [
+            315.9048614501953,
+            278.42454528808594,
+            354.8490447998047,
+            354.61878967285156
+          ],
+          "action": "outside_review",
+          "reason": "Outside reviewed target scope."
+        },
+        {
+          "source_index": 4,
+          "source_class": 2,
+          "xyxy": [
+            49.214923858642564,
+            542.3590087890625,
+            105.89036178588867,
+            651.2785644531249
+          ],
+          "action": "outside_review",
+          "reason": "Outside reviewed target scope."
+        },
+        {
+          "source_index": 5,
+          "source_class": 1,
+          "xyxy": [
+            597.7063598632812,
+            450.13984680175776,
+            639.6786499023438,
+            537.2925262451172
+          ],
+          "action": "outside_review",
+          "reason": "Outside reviewed target scope."
+        },
+        {
+          "source_index": 6,
+          "source_class": 1,
+          "xyxy": [
+            22.134841918945305,
+            248.00352478027347,
+            65.9034652709961,
+            329.40162658691406
+          ],
+          "action": "outside_review",
+          "reason": "Outside reviewed target scope."
+        },
+        {
+          "source_index": 7,
+          "source_class": 1,
+          "xyxy": [
+            1299.4663085937498,
+            695.8657836914062,
+            1352.487548828125,
+            793.0184936523436
+          ],
+          "action": "outside_review",
+          "reason": "Outside reviewed target scope."
+        },
+        {
+          "source_index": 8,
+          "source_class": 2,
+          "xyxy": [
+            1692.3681030273435,
+            699.4476623535155,
+            1747.065490722656,
+            811.1314392089844
+          ],
+          "action": "outside_review",
+          "reason": "Outside reviewed target scope."
+        },
+        {
+          "source_index": 9,
+          "source_class": 1,
+          "xyxy": [
+            1338.8116455078123,
+            634.0747680664062,
+            1389.2547607421873,
+            731.1347045898438
+          ],
+          "action": "outside_review",
+          "reason": "Outside reviewed target scope."
+        },
+        {
+          "source_index": 10,
+          "source_class": 1,
+          "xyxy": [
+            23.093660354614254,
+            329.3628234863281,
+            65.14570426940918,
+            419.95486450195307
+          ],
+          "action": "outside_review",
+          "reason": "Outside reviewed target scope."
+        },
+        {
+          "source_index": 11,
+          "source_class": 1,
+          "xyxy": [
+            253.89423370361325,
+            304.30979919433594,
+            298.7484664916992,
+            386.33241271972656
+          ],
+          "action": "outside_review",
+          "reason": "Outside reviewed target scope."
+        },
+        {
+          "source_index": 12,
+          "source_class": 1,
+          "xyxy": [
+            730.9722290039062,
+            277.6064910888672,
+            773.2398071289061,
+            365.54328918457037
+          ],
+          "action": "outside_review",
+          "reason": "Outside reviewed target scope."
+        },
+        {
+          "source_index": 13,
+          "source_class": 1,
+          "xyxy": [
+            1528.5870971679688,
+            665.0140686035155,
+            1593.1101684570312,
+            762.1836853027344
+          ],
+          "action": "outside_review",
+          "reason": "Outside reviewed target scope."
+        },
+        {
+          "source_index": 14,
+          "source_class": 1,
+          "xyxy": [
+            263.4970855712891,
+            282.23915100097656,
+            299.19920349121094,
+            344.47068786621094
+          ],
+          "action": "outside_review",
+          "reason": "Outside reviewed target scope."
+        },
+        {
+          "source_index": 15,
+          "source_class": 1,
+          "xyxy": [
+            1538.4631958007812,
+            750.4416198730469,
+            1611.6403198242185,
+            814.426300048828
+          ],
+          "action": "outside_review",
+          "reason": "Outside reviewed target scope."
+        },
+        {
+          "source_index": 16,
+          "source_class": 1,
+          "xyxy": [
+            1876.0908203124998,
+            647.2200317382812,
+            1915.1594238281248,
+            744.4275512695314
+          ],
+          "action": "discard",
+          "reason": "False player annotation: corner flag/pole, no person in source box."
+        },
+        {
+          "source_index": 17,
+          "source_class": 0,
+          "xyxy": [
+            1576.2266504559143,
+            735.2205180554565,
+            1593.7158205532237,
+            747.9399144898631
+          ],
+          "action": "ball_out_of_scope",
+          "reason": "Outside reviewed target scope."
+        }
+      ],
+      "regions": [
+        {
+          "id": "v12-151-flag",
+          "roi": [
+            1800,
+            540,
+            1920,
+            830
+          ],
+          "negative": true,
+          "background_types": [
+            "corner_flag",
+            "touchline",
+            "track"
+          ],
+          "coverage_reviewed": true
+        }
+      ]
+    }
+  ],
+  "primary_observations": [
+    {
+      "source_id": "v12-29",
+      "source_index": 9,
+      "region_id": "v12-29-field",
+      "shirt_color": "blue",
+      "pose": "upright",
+      "location": "goal"
+    },
+    {
+      "source_id": "v12-79",
+      "source_index": 13,
+      "region_id": "v12-79-field",
+      "shirt_color": "dark",
+      "pose": "upright",
+      "location": "goal"
+    },
+    {
+      "source_id": "v12-186",
+      "source_index": 5,
+      "region_id": "v12-186-field",
+      "shirt_color": "cyan",
+      "pose": "upright_moving",
+      "location": "goal"
+    },
+    {
+      "source_id": "v12-25",
+      "source_index": 7,
+      "region_id": "v12-25-field",
+      "shirt_color": "pink_light",
+      "pose": "upright",
+      "location": "goal"
+    },
+    {
+      "source_id": "v12-79",
+      "source_index": 16,
+      "region_id": "v12-79-field",
+      "shirt_color": "dark",
+      "pose": "upright_moving",
+      "location": "far_touchline"
+    },
+    {
+      "source_id": "v12-186",
+      "source_index": 10,
+      "region_id": "v12-186-field",
+      "shirt_color": "dark",
+      "pose": "upright_moving",
+      "location": "far_touchline"
+    }
+  ],
+  "quarantine_notes": [
+    "Do not use lying/seated keepers as evidence for upright distant coverage.",
+    "Survey source25 source19 referee is actually same outfield player as source20; source16 below700 excluded by ROI.",
+    "No new blue/light upright keeper under24px at640 except pink keeper25; blue29 is27.77px, cyan186 is30.97px. More independent small blue/light keeper scenes remain desirable.",
+    "Only one new dark-assistant match group, two different times; no claim of sufficient diversity or measured improvement."
+  ],
+  "source_groups": "docs/fixtures/role_source_groups_v12.json",
+  "source_groups_sha256": "96bfa888dbf9848fcbbcd1ea9173279c0f847014c08716adbf7311e955a4e612"
+}

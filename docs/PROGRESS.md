@@ -2,6 +2,47 @@
 
 ## Trạng thái hiện tại
 
+Ngày 05/11/2026: chuẩn bị và kiểm nhãn bộ nguồn bổ sung v12, chưa train.
+Xuất riêng 7 ROI / 6 ảnh gốc / 5 nhóm bối cảnh: 4 vùng sân có 52 player,
+4 keeper, 6 referee; 3 vùng âm gồm đèn/mái/khán đài, cột gôn/bóng phụ/
+quảng cáo và cờ góc/đường chạy. Nguồn Football-Image-Dataset CC-BY4.0,
+revision 264212872f1bfa6a9a3413f298793474da741aec; kiểm hash ảnh/nhãn/
+license và Git blob. Không dùng role detector để chọn ảnh hoặc gán nhãn.
+Packet role_sources_review_v12.json ghi quyết định từng dòng; nhóm/ROI/
+split khóa trong role_source_groups_v12.json. Chưa ghép v11 hay chốt repeats.
+
+Keeper29 xanh đứng 27.77px, 79 tối đứng 23.08, 186 cyan thẳng người di
+chuyển 30.97, 25 hồng đứng 14.22 khi letterbox640. Không gọi mẫu27.77/
+30.97 là nhỏ<24px. Trợ lý79/186 áo tối biên xa 18.36/28.22px; hai ảnh
+cùng WOB-RBL một nhóm, không phải hai trận độc lập. Còn thiếu keeper
+xanh/sáng đứng nhỏ ở bối cảnh độc lập và nhiều nhóm trọng tài tối biên
+xa; chưa kết luận đủ dữ liệu train.
+
+Đã xem cả7 ảnh xuất có khung, native và crop đáng nghi. Bỏ nhãn giả
+referee29:14 trên cấu trúc gôn, bỏ referee25:19 trùng player20, bỏ
+player151:16 trên cờ góc; không sửa raw hoặc nhãn cũ. ROI cắt tránh
+target cụt186/25, giữ width1920 cho4 vùng sân để không phóng lớn người
+nhỏ. Nền âm có TXT rỗng và đã kiểm không có target. Validator chặn target
+bị cắt, thiếu ledger, sai mapping/geometry, actor chưa rà/uncertain lọt
+ROI, âm chứa target và khung nhãn trùng IoU>0.9.
+
+Screen482 SHA ảnh duy nhất từ mọi split v11 và releasev8/v9 (kể cả
+heldout128057): SHA file/pixel + dHash<=4/MAE<=3 không hit; kiểm cả giữa
+các parent mới. ROI chung parent được khai báo và không coi độc lập.
+Rà bối cảnh thủ công, loại bảo thủ BVB-home/M05-WOB; heuristic không
+chứng minh khác trận. Kiểm lại toàn bộ hash v11 sau xuất;128val/35test
+giữ nguyên, không inference heldout/test hay đổi model ứng dụng.
+Artifact local data/processed/role_source_release_v12, attribution kèm theo;
+manifest56a7563d1cb66852e2d88545ff629d74b3acf7809e1332e142d2683901967927.
+Replay sang thư mục mới có manifest giống hệt. Chi tiết trong
+ROLE_SOURCE_RELEASE_V12.md và role_source_release_summary_v12.json.
+Nhãn do agent rà, chưa nghiệm thu độc lập, chưa đo cải thiện mô hình.
+
+6 test đích đạt; toàn bộ602 passed/1 network deselected/4 warning cũ.
+Bước tiếp: bổ sung bối cảnh độc lập cho2 nhóm thiếu, khóa ghép/lấy mẫu
+kể cả parent ROI âm, rồi mới train và so3 lớp640/1280. Không tăng epoch
+hoặc đổi runtime ở phiên này.
+
 Ngày 04/11/2026: hoàn tất thử cross-role dedup ngoại tuyến trên v11 ở640/1280.
 Dùng nguyên suppress_cross_role của v6: confidence giảm dần, khác vai trò
 IoU>0.7 thì bỏ khung điểm thấp hơn; không ưu tiên role, giữ khung cùng lớp,

@@ -1,0 +1,255 @@
+{
+  "kind": "role_source_release_v12",
+  "packet_sha256": "9820bdaec0bc640a9c3b69b29fc9d2b7f97b5381f47fe7e75be9c38793fd93ad",
+  "names": [
+    "player",
+    "goalkeeper",
+    "referee"
+  ],
+  "training_performed": false,
+  "runtime_changed": false,
+  "independently_validated": false,
+  "prior_unique_images_screened": 482,
+  "protected_rows_sha256": "49679b5e7ed8b4d04d6a309c509b3761169d30fe2f8d39959333559e5171c937",
+  "parents": 6,
+  "scene_groups": 5,
+  "positive_rois": 4,
+  "negative_rois": 3,
+  "class_counts": {
+    "player": 52,
+    "goalkeeper": 4,
+    "referee": 6
+  },
+  "primary_observations": [
+    {
+      "source_id": "v12-29",
+      "source_index": 9,
+      "region_id": "v12-29-field",
+      "shirt_color": "blue",
+      "pose": "upright",
+      "location": "goal",
+      "role": "goalkeeper",
+      "height_at_640": 27.766591389973957,
+      "scene_family": "libertadores_white_blue_neongreen"
+    },
+    {
+      "source_id": "v12-79",
+      "source_index": 13,
+      "region_id": "v12-79-field",
+      "shirt_color": "dark",
+      "pose": "upright",
+      "location": "goal",
+      "role": "goalkeeper",
+      "height_at_640": 23.08233642578125,
+      "scene_family": "broadcast_WOB_RBL_home"
+    },
+    {
+      "source_id": "v12-79",
+      "source_index": 16,
+      "region_id": "v12-79-field",
+      "shirt_color": "dark",
+      "pose": "upright_moving",
+      "location": "far_touchline",
+      "role": "referee",
+      "height_at_640": 18.355072021484357,
+      "scene_family": "broadcast_WOB_RBL_home"
+    },
+    {
+      "source_id": "v12-186",
+      "source_index": 5,
+      "region_id": "v12-186-field",
+      "shirt_color": "cyan",
+      "pose": "upright_moving",
+      "location": "goal",
+      "role": "goalkeeper",
+      "height_at_640": 30.967579367632425,
+      "scene_family": "broadcast_WOB_RBL_home"
+    },
+    {
+      "source_id": "v12-186",
+      "source_index": 10,
+      "region_id": "v12-186-field",
+      "shirt_color": "dark",
+      "pose": "upright_moving",
+      "location": "far_touchline",
+      "role": "referee",
+      "height_at_640": 28.21898069896336,
+      "scene_family": "broadcast_WOB_RBL_home"
+    },
+    {
+      "source_id": "v12-25",
+      "source_index": 7,
+      "region_id": "v12-25-field",
+      "shirt_color": "pink_light",
+      "pose": "upright",
+      "location": "goal",
+      "role": "goalkeeper",
+      "height_at_640": 14.21569824218752,
+      "scene_family": "broadcast_ESP_BAR_home"
+    }
+  ],
+  "files": [
+    {
+      "image": "images/train/v12-29-field.png",
+      "label": "labels/train/v12-29-field.txt",
+      "image_sha256": "769cf8d2e3eeb68ead96a90cebd73858f1cdb65fc74613281588a0f4cd8493c5",
+      "label_sha256": "4c66e9a4867c132bca3c44638065da641f5454cd6a9505b3114a2d51958eecdf",
+      "pixel_sha256": "1a005c93d083571af51f99cd74d632120799fbaad13d0147c055e2a1e99ff69e",
+      "split": "train",
+      "family": "libertadores_white_blue_neongreen",
+      "parent": "v12-29",
+      "roi": [
+        0,
+        0,
+        1920,
+        1080
+      ],
+      "negative": false,
+      "class_counts": {
+        "player": 11,
+        "goalkeeper": 1,
+        "referee": 1
+      }
+    },
+    {
+      "image": "images/train/v12-29-goal-background.png",
+      "label": "labels/train/v12-29-goal-background.txt",
+      "image_sha256": "2b4a8732375b4b077fc5bbd4bea89c9d592f76e6d0f9b9f07e1e8a47e68b5648",
+      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "pixel_sha256": "37184bcb5593a5850ed7c2216119db27fb702609ade3d012c6f6e73f18e48ae1",
+      "split": "train",
+      "family": "libertadores_white_blue_neongreen",
+      "parent": "v12-29",
+      "roi": [
+        0,
+        230,
+        220,
+        420
+      ],
+      "negative": true,
+      "class_counts": {}
+    },
+    {
+      "image": "images/train/v12-79-field.png",
+      "label": "labels/train/v12-79-field.txt",
+      "image_sha256": "18e5ccb2d2181df8f5e47c5d8ff26e6033646666d6e85b803e9a49eca038c077",
+      "label_sha256": "c4c1f2ddf84dd9fcf87a7c355c65dfeaea4f83b657f283be6cdd3d13294ffb6e",
+      "pixel_sha256": "9f21b91159d0f473581314dfbda2027fe9fead2e3d1f69a16a3b393c5bbc889e",
+      "split": "train",
+      "family": "broadcast_WOB_RBL_home",
+      "parent": "v12-79",
+      "roi": [
+        0,
+        0,
+        1920,
+        1080
+      ],
+      "negative": false,
+      "class_counts": {
+        "player": 15,
+        "goalkeeper": 1,
+        "referee": 2
+      }
+    },
+    {
+      "image": "images/train/v12-186-field.png",
+      "label": "labels/train/v12-186-field.txt",
+      "image_sha256": "0c90b1a546ccfa112ce6e810b2f295c70263c654f6c7c9d767e44284f3be5b72",
+      "label_sha256": "90887e87a1a21b4a0015a4a94f2acff6c0d36cc8abf506ce864fc0d1c0ab2e5b",
+      "pixel_sha256": "4dcc666a393f4c9ec0f14e078b52b18e726c7a56a315baec3a3a3e82237bd017",
+      "split": "train",
+      "family": "broadcast_WOB_RBL_home",
+      "parent": "v12-186",
+      "roi": [
+        0,
+        0,
+        1920,
+        880
+      ],
+      "negative": false,
+      "class_counts": {
+        "player": 8,
+        "goalkeeper": 1,
+        "referee": 1
+      }
+    },
+    {
+      "image": "images/train/v12-25-field.png",
+      "label": "labels/train/v12-25-field.txt",
+      "image_sha256": "c0d1064fc1eb9fc4ea6825be12ff66c7818cf7df3176768288975864bd043bea",
+      "label_sha256": "23d21f1e33d29d4893c90bffa0b168464b1664261290bddef996692f0d14c644",
+      "pixel_sha256": "bb5e9fc233fdb900afee96f35ddb97aa627f2b944df02eb04a7bf69781999c97",
+      "split": "train",
+      "family": "broadcast_ESP_BAR_home",
+      "parent": "v12-25",
+      "roi": [
+        0,
+        0,
+        1920,
+        700
+      ],
+      "negative": false,
+      "class_counts": {
+        "player": 18,
+        "goalkeeper": 1,
+        "referee": 2
+      }
+    },
+    {
+      "image": "images/train/v12-270-roof.png",
+      "label": "labels/train/v12-270-roof.txt",
+      "image_sha256": "2ad9c2a77cc6d405393c90be0f7fd2a314d17b9cb2006efa1b5fa17e53996cea",
+      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "pixel_sha256": "2aa2b0098f0beb8726192e4fe39cd698438f5ff7470d1cc5c70a530bf0cecc90",
+      "split": "train",
+      "family": "broadcast_FCU_VFB_home",
+      "parent": "v12-270",
+      "roi": [
+        0,
+        0,
+        1920,
+        200
+      ],
+      "negative": true,
+      "class_counts": {}
+    },
+    {
+      "image": "images/train/v12-151-flag.png",
+      "label": "labels/train/v12-151-flag.txt",
+      "image_sha256": "a0d580cff3df8ab2d08220f954071704e8ac95fa99d799a3c1d171b0d8ad761e",
+      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "pixel_sha256": "0519cb37a13f0efd865a2d58da678c9e0118d330ecf68768f43b3575a6396543",
+      "split": "train",
+      "family": "broadcast_Okayama_Machida",
+      "parent": "v12-151",
+      "roi": [
+        1800,
+        540,
+        1920,
+        830
+      ],
+      "negative": true,
+      "class_counts": {}
+    }
+  ],
+  "scope": "Source release only, one export per ROI; not merged into train. Parent-correlated positive/negative ROIs are not independent observations. Repeats/augmentation/training protocol not chosen.",
+  "scene_review": "New visible stadium/opponent/kit contexts against prior families; not proof of official match identity. Exclude all BVB-home and M05-WOB candidates conservatively. WOB-RBL sources79/186 remain one group; all ROIs from a parent remain train-only.",
+  "manifest_sha256": "56a7563d1cb66852e2d88545ff629d74b3acf7809e1332e142d2683901967927",
+  "release_directory": "data/processed/role_source_release_v12",
+  "visual_review": {
+    "all_exported_rois_viewed": 7,
+    "reviewer": "agent",
+    "independently_validated": false,
+    "source_label_repairs": {
+      "v12-29:14": "remove phantom referee on goal structure",
+      "v12-25:19": "remove wrong-role duplicate, retain player20",
+      "v12-151:16": "remove player box on corner flag"
+    },
+    "limitations": [
+      "Dark far assistants are two observations from one scene group.",
+      "Blue/cyan keepers27.77/30.97px at640 are not under24px. Pink keeper14.22 and dark keeper23.08 are small.",
+      "Background crops and positive ROIs sharing a parent are correlated.",
+      "No measured model quality claim; no training performed."
+    ]
+  }
+}
