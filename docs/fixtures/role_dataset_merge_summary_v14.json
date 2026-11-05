@@ -1,0 +1,166 @@
+{
+  "kind": "role_dataset_merge_summary_v14",
+  "protocol_sha256": "1f25d9d504c4c56b3160cb1b560dfec16e145223cb8b092084a73decf37e54ab",
+  "manifest_sha256": "36ccf26608d992315715b6fd3b58d37e71d1b9fecd0ec10603834b5e4049933f",
+  "parent_sampling_sha256": "3169d98fb59a8ff74d455d71e4db789e224ea97da2e88ac45018fb10192a18c2",
+  "images": {
+    "test": 35,
+    "train": 418,
+    "val": 128
+  },
+  "unique_pixel_label_units": {
+    "test": 35,
+    "train": 324,
+    "val": 128
+  },
+  "parent_frames": {
+    "test": 35,
+    "train": 260,
+    "val": 128
+  },
+  "scene_families": {
+    "test": 1,
+    "train": 21,
+    "val": 1
+  },
+  "class_box_exposures": {
+    "test": {
+      "referee": 76,
+      "player": 695,
+      "goalkeeper": 12
+    },
+    "train": {
+      "referee": 652,
+      "player": 5006,
+      "goalkeeper": 242
+    },
+    "val": {
+      "referee": 292,
+      "player": 2557,
+      "goalkeeper": 92
+    }
+  },
+  "unique_unit_class_boxes": {
+    "test": {
+      "referee": 76,
+      "player": 695,
+      "goalkeeper": 12
+    },
+    "train": {
+      "referee": 576,
+      "player": 4556,
+      "goalkeeper": 206
+    },
+    "val": {
+      "referee": 292,
+      "player": 2557,
+      "goalkeeper": 92
+    }
+  },
+  "negative_exposures": {
+    "train": 15
+  },
+  "negative_unique_units": {
+    "test": 0,
+    "train": 9,
+    "val": 0
+  },
+  "new_source_units": [
+    {
+      "parent": "image:762e1a5e1e14bf43a421ff213bfe14755a2745d75c2877f33fee2f8784097903",
+      "family": "broadcast_Okayama_Machida",
+      "image": "images/train/v12-151-flag.png",
+      "negative": true,
+      "class_counts": {}
+    },
+    {
+      "parent": "image:88d6d0c889cfe5270129c80a14402bb10871231a2158f738990f5b191791a0bb",
+      "family": "broadcast_WOB_RBL_home",
+      "image": "images/train/v12-186-field.png",
+      "negative": false,
+      "class_counts": {
+        "player": 8,
+        "goalkeeper": 1,
+        "referee": 1
+      }
+    },
+    {
+      "parent": "image:ba737419e92cfc7046a9ce766046b9100124602c344450fd27ee73cd6c8d2534",
+      "family": "broadcast_ESP_BAR_home",
+      "image": "images/train/v12-25-field.png",
+      "negative": false,
+      "class_counts": {
+        "player": 18,
+        "goalkeeper": 1,
+        "referee": 2
+      }
+    },
+    {
+      "parent": "image:49601f4ba2811a089b4de97ae7bacbb88d65658d30f10c60c93126f759c5ca14",
+      "family": "broadcast_FCU_VFB_home",
+      "image": "images/train/v12-270-roof.png",
+      "negative": true,
+      "class_counts": {}
+    },
+    {
+      "parent": "image:ea117ba52a8964eef3bf9b3e7be53f2de549f93adec94d6fdafce3ab55f8da29",
+      "family": "libertadores_white_blue_neongreen",
+      "image": "images/train/v12-29-field.png",
+      "negative": false,
+      "class_counts": {
+        "player": 11,
+        "goalkeeper": 1,
+        "referee": 1
+      }
+    },
+    {
+      "parent": "image:ea117ba52a8964eef3bf9b3e7be53f2de549f93adec94d6fdafce3ab55f8da29",
+      "family": "libertadores_white_blue_neongreen",
+      "image": "images/train/v12-29-goal-background.png",
+      "negative": true,
+      "class_counts": {}
+    },
+    {
+      "parent": "image:e4567da399b16f8d9a2cb664d412bf0fb05cb06d037a4fadf3a0edc9ad0cbb33",
+      "family": "broadcast_WOB_RBL_home",
+      "image": "images/train/v12-79-field.png",
+      "negative": false,
+      "class_counts": {
+        "player": 15,
+        "goalkeeper": 1,
+        "referee": 2
+      }
+    },
+    {
+      "parent": "image:f6d6cbc5a5ce0f9924f0b5359da816a926c24648447b10a236da079cc22bf324",
+      "family": "broadcast_Kobe_Hiroshima",
+      "image": "images/train/v13-143-field.png",
+      "negative": false,
+      "class_counts": {
+        "player": 14,
+        "referee": 2,
+        "goalkeeper": 1
+      }
+    },
+    {
+      "parent": "image:f175bca43a4daa48b3f0384e62a83efae520238ea2316a61dc80f9d8076c573d",
+      "family": "libertadores_red_stadium_white_black_stripes",
+      "image": "images/train/v13-88-field.png",
+      "negative": false,
+      "class_counts": {
+        "player": 19,
+        "referee": 2,
+        "goalkeeper": 1
+      }
+    }
+  ],
+  "new_parent_frames": 8,
+  "new_scene_groups": 7,
+  "prior_unique_images_screened": 482,
+  "duplicate_parent_hits": 0,
+  "protected_splits_byte_identical": true,
+  "legacy_train_records_preserved": true,
+  "training_started": false,
+  "runtime_changed": false,
+  "independently_validated": false
+}

@@ -2,6 +2,35 @@
 
 ## Trạng thái hiện tại
 
+Ngày 05/11/2026: ghép v11+releasev12/v13 thành dataset v14 riêng, chỉ
+chuẩn bị dữ liệu và khóa protocol, CHƯA train/inference/đổi model ứng dụng.
+Giữ409 lượt v11, thêm9 ROI x1 từ8 ảnh gốc/7 nhóm bối cảnh; tổng418train,
+324unit pixel–label/260ảnh-khung nguồn. Ảnh29 vùng sân1+âm1 chung parent,
+không tính độc lập;79/186 cùng nhóm WOB–RBL. Không tăng repeats cũ/mới.
+Ledger khóa từng exposure/hash/parent/family và tổng theo ảnh gốc/nhóm;
+cap2 chỉ cho parent mới có cặp ROI âm/dương, không cân bằng lại parent cũ.
+
+Train theo lượt:5006player/242goalkeeper/652referee; theo unit:4556/206/576.
+Có9 vùng âm riêng/15lượt, gồm3 vùng mới x1. 128val/35test giữ nguyên ảnh,
+nhãn, đường dẫn/hash; chặn parent/family/source/pixel cross-split và128057.
+Screen482SHA tham chiếu từ mọi split v11/releasev8/v9 (gồm heldout chỉ
+đối chiếu dữ liệu), không hit file/pixel/dHash+MAE; kiểm cả parent/ROI mới,
+ngoại lệ ROI chung ảnh29 được khai báo. Dựng lại label ROI theo ledger,
+kiểm geometry/pixel/hash/license, đọc phân bố từ TXT kể cả legacy thiếu counts.
+
+Artifact data/processed/role_merged_dataset_v14/dataset; manifest
+36ccf26608d992315715b6fd3b58d37e71d1b9fecd0ec10603834b5e4049933f.
+Replay thư mục mới có manifest byte-identical và summary giống hệt.
+Protocol v14 kế thừa small fresh20epoch640/batch4/FP32/seed và phép chấm
+ba lớp640/1280 so v6/v11, gate640so v6 không đổi. Chưa tạo run/train plan.
+V11/v12/v13, runtime/API/schema/dependencies giữ nguyên. Chi tiết
+ROLE_DATASET_MERGE_V14.md; fixture protocol/parent_sampling/summary/replay.
+
+6test mới đạt; toàn bộ614passed/1networkdeselected/4warningcũ. Nhãn agent rà,
+chưa độc lập; nhóm bối cảnh không chứng minh trận độc lập, chưa đo cải thiện.
+Bước tiếp khi được giao: kiểm lại hash/ledger, tạo plan trước train small,
+so đủ3lớp640/1280; không tự tăng epoch/ngưỡng/repeats hay thay model ứng dụng.
+
 Ngày 05/11/2026: bổ sung nguồn v13 ở hai bối cảnh mới so với v12,
 chưa ghép train hoặc huấn luyện. Survey88 Libertadores (đội trắng gặp
 sọc đen-trắng, khán đài đỏ ban đêm, chưa rõ danh tính trận chính thức):

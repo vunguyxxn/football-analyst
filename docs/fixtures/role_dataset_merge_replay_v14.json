@@ -1,0 +1,8 @@
+{
+  "kind": "role_dataset_merge_replay_v14",
+  "manifest_byte_identical": true,
+  "summary_equal": true,
+  "manifest_sha256": "36ccf26608d992315715b6fd3b58d37e71d1b9fecd0ec10603834b5e4049933f",
+  "protocol_sha256": "1f25d9d504c4c56b3160cb1b560dfec16e145223cb8b092084a73decf37e54ab",
+  "no_training_run_created": true
+}

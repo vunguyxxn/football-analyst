@@ -1,0 +1,3219 @@
+{
+  "kind": "role_parent_sampling_v14",
+  "locked_before_training": true,
+  "legacy_policy": "409 v11 exposures unchanged, with existing unequal parent budgets frozen. No global parent balancing.",
+  "new_policy": "One exposure per ROI, maximum2 reviewed ROIs per parent (positive+negative only). Parent29 shares one identity. No per-epoch sampler or extra repeats. Epoch shuffle/augmentation in any future run unchanged.",
+  "exposures": [
+    {
+      "image": "images/train/42ba34_1_5_png.rf.091a3bb1daf07a70b2cc0c9f50b1e79e.png",
+      "image_sha256": "df427c23b00de71e7c4c6ee1d4d92d3ffefa707ff3b70b3e5c6e8801cbdbb17a",
+      "label_sha256": "2a68be89f926d8cbd9d4f7e31c981be3b4eb12dd583d475fd01143c6a31cfe68",
+      "sampling_parent": "image:7ad2d1dab2a7e19c68b9a90c77f66100079aa90ea311c072126886b364cff2ee",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/42ba34_5_5_png.rf.5d024ff6a6bf8711d4bedc5294e3f2ae.png",
+      "image_sha256": "07786370137b14ec83a741e79afdcacc3ae430e0491ec338b8db208c603136eb",
+      "label_sha256": "be7ed1a262e704e81836acab2094905584ce6a94f156b36e8036e0261cea5096",
+      "sampling_parent": "image:27e7a5151d66b0c3d82a0db20c9144586bc531283e26d3cce04b271edd9b1323",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/573e61_1_9_png.rf.295dfa87016366f8d7b83f4cf93905bb.png",
+      "image_sha256": "a1669258ff0857e7a36fdfe91a62272a2d6389edf05727043aceb44a749852fd",
+      "label_sha256": "ca50d203adbfc0ff14ec47f4d6c8afd5336dd17d83f5392c92306476e3c9920a",
+      "sampling_parent": "image:e08fe697ad97ea11fbcc09c930eff0645f263738aab3c85ad510030da167d593",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/573e61_9_6_png.rf.ec2f81dccbea93400877c92862b0a597.png",
+      "image_sha256": "f3d217d47cb3f414dc3ba0de0f2de4557eb5d4b9b0cae4fc369924783f92a0a3",
+      "label_sha256": "9bc006c4358cdf6bdef9b057c48e99181c41195388ce3413c7af1cce453a1905",
+      "sampling_parent": "image:30381fb2bd42ffdfd47993dbfc959eb9408f558a6cf5ec9b3b12ad6e74b6c6ca",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/744b27_1_10_png.rf.6506ec3c9f955401d7e297b9f24cd1c2.png",
+      "image_sha256": "5cf8175a846b7b8d2bd0f378b923006e25178804858036b4be49d99defd4c69d",
+      "label_sha256": "ca539b656323066685e3c283d98274297d2c4d591a2c2a96ad9ab917a92a0336",
+      "sampling_parent": "image:ade2d8eb008f638a7e6b7bb05a5db36392081034ef981c7820af6a147f943ebb",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/744b27_7_4_png.rf.893701986c6cd2fbeeb198b487324189.png",
+      "image_sha256": "99cfffa25d6c08452a7abb7a1150b56f586dd7ea1d0f792e38db7c38924965b0",
+      "label_sha256": "6cb0c92bc18ffe6e53245735cd1ae1b9168dad57f342cb9c87c9afc21ca80ae2",
+      "sampling_parent": "image:71a49af20d3ac14f4e9fa8598840d2a8573432cb66804e9042547d3f2ac5629c",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/744b27_9_9_png.rf.b590ac0088fde8cdfa68bdba814fda35.png",
+      "image_sha256": "1bfdff387930a5bbfa4e702ff395bb220be9b201e737424f8e39287f8e7bed1d",
+      "label_sha256": "18fedb78c0277ace3254b6100ab7b7409bcf95ae3ddb95ca64aadfe9bce13d3a",
+      "sampling_parent": "image:2e20d3eb2b202fc907c78507140a0864b8673d404d7c388776edd8ab153aba02",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/a9f16c_2_9_png.rf.afcef947c2024144f534dc5695d2f4e1.png",
+      "image_sha256": "9de89f71607fa5ba2ae1591c2c896aea5074d3c8d7adee7abfae65745bf296f4",
+      "label_sha256": "bd439b7b6bb1c64658fba183eda86c3a4d4d8e0ce40d5582a750f5d71b95b037",
+      "sampling_parent": "image:13555be742b5d0b1141f6ec0aa44faa0ea0bfa7617237ab855c8b98a436aa294",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/121364_7_7_png.rf.ba79b848fa17032c2856cfd2952ee5c4.png",
+      "image_sha256": "4366d299a592c3a53355b8601ab84bc71f9457c3ec0c8607efa16837518052e4",
+      "label_sha256": "beb10da4e72e8442310fbe1b81dd2c97178f7a7f1b2e05877fe0932969cd29d7",
+      "sampling_parent": "image:8819281ffaec477d43350c44c63bd6989c941915f2c608ba27d3009014f8f8f4",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/121364_7_8_png.rf.c072e410b7aa2eecd5218c56210ced15.png",
+      "image_sha256": "8be68a1bd7ba3294914cbe6fc397866b44650b158678a936c42cfa118f1fbe0c",
+      "label_sha256": "501956128489c4bd6300d126086deb9fbbb9dd8c276e53afa2415bfad338d8e0",
+      "sampling_parent": "image:927b31c9a889778e625aaafa9ccce5b2150d5dfd07419cbd3d4e105dcae27d1a",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/121364_9_1_png.rf.ae45201a6856d6554f30b095c3d39af8.png",
+      "image_sha256": "eb883abc7ac2243b0a173fdd65de955ee5ec59c962795dd6939b1f70b4c5d249",
+      "label_sha256": "ffa896b1258f58f0d19298c26bca07c60722bb2ddf13895bb2b23761c97eafc8",
+      "sampling_parent": "image:3bf0e0c3a83901e9eae1382a38a75fa8d8e51c3436db090096419856e6b090b9",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/121364_9_4_png.rf.0d6a5748544f5fd8336847f35979e7e2.png",
+      "image_sha256": "0ef349b664f262bb1766dbf902a70e02259bde8a3be2c062776731f9d5e4f4a9",
+      "label_sha256": "90e1f1523443b936d597f3f979595ec502fc5b76dd2907d845a84dec8f6ebb0b",
+      "sampling_parent": "image:b8b074ab7a116393bdd1b12f56410fc5f4d66e4b40f0a96def9dfa7a5d501843",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/121364_9_5_png.rf.17f92a49b43d60fad1264986a68f5232.png",
+      "image_sha256": "d74e31e9adf182cf18eab335127e0e5192aaad93382f01f024fbb4b117b11e77",
+      "label_sha256": "d3bdea090cb0012aabe96f188cbfce3f66316ba59b711ee507c4d3f9ac8601c8",
+      "sampling_parent": "image:13867f4b564202c6d87ff381d26c43e928e11043eff5713cda7cc9cbf119cf5c",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/121364_9_6_png.rf.ffaa2df85fea1d062f8a399108d09bd8.png",
+      "image_sha256": "1b3cfe9f34db17f7df25d0901afe0a145f23333713a85452ec8b321561d35d71",
+      "label_sha256": "c2d9ae0fbc63a6096c38188ebe12115120902fd54ee9e34569e6ac886beaed30",
+      "sampling_parent": "image:5ffe021956680338593a70404c98f0333793915c8d42765c29c5d5990cdde0d2",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/121364_9_7_png.rf.18b184279c977168cb2d5a2df5f8d7f2.png",
+      "image_sha256": "ed66e0a181b1e51c722865e090d3423146c368ac6c9eaa0bc43df8565d54eae4",
+      "label_sha256": "57a6a1f9cc58ff5a4c554729adfcbdefdaf5fff21f13c68bed9384d6d5875ecd",
+      "sampling_parent": "image:58099f2333952313d3dc441dce8f0388f3c68e6dd05f873ea5e8805c1d822c38",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/2e57b9_1_1_png.rf.765a2c9cbb12f40726e40f74ef101cf8.png",
+      "image_sha256": "54b6c969e2dfae555d588b63e937e3005fcc360c5943012e43c4898da44b890d",
+      "label_sha256": "5a3903c6979c4aae1cb40e79f71576af75092d7c544e149d4ad06036391a40f9",
+      "sampling_parent": "image:33a5d7d118a4b1286aa667f9e502c15fcec95635e8125a82c08d2eba9d67cbed",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/2e57b9_1_2_png.rf.8574188cdf3427f914c525da0d8ab094.png",
+      "image_sha256": "56d5e9c58ae8e1964b5e3618b75f7d276d688a0ddea08e61b2a4d7ae64dbfa26",
+      "label_sha256": "3f0059f8b6bac48ada1245b7985a539c36420f48da8445788d7ddf001a065302",
+      "sampling_parent": "image:9269b90f1b1e9b5ce4cfbde5d848b58ad6ed03667a69b1b52ca051c30fdc3955",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/2e57b9_1_3_png.rf.97bb74afd71889d34b9bd80c30086715.png",
+      "image_sha256": "c5345a201ec3c396ef060b7c1c85a339b6cce84d52a99b932fb22ab7006bb893",
+      "label_sha256": "d118fff8651f5a0d381f72430616c06b9ecbcdb383949f782729e27de10398df",
+      "sampling_parent": "image:0b21c7ab3c8eaf5846ff5c8abc4589673cde542fb526884d4d3438c19cb5ed7a",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/2e57b9_1_8_png.rf.2dbee69478e155c81eae909b7af9e6ea.png",
+      "image_sha256": "9cf7f2eb67d67c59106bfe052427dd4a83f60cdf5cbc5bdfb262f2ec3b0524e5",
+      "label_sha256": "7ef3585805dfe935a01c179a80a93ae46881944cb055eccf8c71df07d355be66",
+      "sampling_parent": "image:17abfb08a48bfbdc67bda8854df510a9022ba9a919aee6e96c3e3fadb4561fd6",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/2e57b9_1_9_png.rf.a2aee4619ceb1eb6289e2c3ed1551994.png",
+      "image_sha256": "09f7126015c91305773a59c44b51e539ce9c2c391d421dc74f4215d9a8a73cea",
+      "label_sha256": "095396c1a9c425c2856df3f1f8ad709493d3cc9f630af50ed20a3a8cdee7bc20",
+      "sampling_parent": "image:8ab2f06a5adc074c07909c9cf5c0222c5dc3d20e3fbfaed818751cd5eec3d46b",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/2e57b9_3_1_png.rf.4ce5a379fadebd9cf30a87d793c89df1.png",
+      "image_sha256": "5e693cfe95ee90ba9aa121edd9884572f1de917db65f3c7a40e43862044094fb",
+      "label_sha256": "182eaf1fa167644d7f8e62972fd381ec59aaa515033fc8d9306ee928783508c9",
+      "sampling_parent": "image:c5be1516c935c88cef2ee265d381c8cd3a1822c48fa2f202ad0d7540039d7dff",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/2e57b9_3_3_png.rf.31a198f9b64ae27fa6f20be8ccf92732.png",
+      "image_sha256": "1390bf0d1047c98185c46039dbb864f3edc67731dbb1a25d1987799a3e1e1542",
+      "label_sha256": "9fd4af6d9cff4dc3d994a39c017d880fb264d4d3faf0cb9ba1003e4e9266e651",
+      "sampling_parent": "image:969fb314c378216b46da2954b11d36797198c245d2f6b2ffb9a4de390a03832f",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/2e57b9_3_5_png.rf.659d7ec8c6765ca0a4f1c2686b4bb04a.png",
+      "image_sha256": "154fd314e44e1afb029bfea1173ab041169767c57590015cf6431acfe2d64b0e",
+      "label_sha256": "c53b3c2e845321f1bb9f37886ad77211eb27f0fdcb70b1c3efdec616c17840ee",
+      "sampling_parent": "image:6ec980ec7ab9228885471d638e11924ed78ec51f4863d50e0df2428ff25ebb50",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/2e57b9_3_9_png.rf.c8c2a3907281f353b7f007dbff07b31b.png",
+      "image_sha256": "b1aee11ff82b4c0eeef9baa2de5f71c8ff8ef25b7e83d6a24190859d5e13b571",
+      "label_sha256": "63819342f6d145138806e7ff23d3629192358b8ff23051bb09b9de2f41825952",
+      "sampling_parent": "image:627a72a6b3c8dad4da8c145bc61a579962acff9587dfbb119f110732eba38e24",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/2e57b9_5_3_png.rf.e292041f1f04e2a63e47e42a9a036952.png",
+      "image_sha256": "77e1bf8e5be1c162c58eec7376272fe244e1072e7ba7b83e1ae8f04d675f3dff",
+      "label_sha256": "de353dc9edc5dc407f321ed18b8fbfce52b252c8ac26ff4fe44fdc8b893b8b54",
+      "sampling_parent": "image:bf3b004fccce4611acbdc73ee7e2bc8ab2c4aedfa45a8fc56f38e41a8ffd46de",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/2e57b9_5_4_png.rf.b8f7a99ccd5346c6e2e9131211c5bcf1.png",
+      "image_sha256": "29b1ca2fb5a2f5b977ed4061a12f024ee74f7fb3cde590e41ee97f6b974f17e9",
+      "label_sha256": "8d7deb4c7ac951d983de6f46c7ab11e1c9fa136036c43cee6c6b15454c1a1d51",
+      "sampling_parent": "image:6a91e2df4af9306fe6e4febaa247f0fae1ded3b05eb4785572f0074f4260c6ec",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/2e57b9_5_5_png.rf.d9cfbb6c5f61a44fa34b90c72fafbb58.png",
+      "image_sha256": "187df21fd3a6bc925cd1c4ce218388322f044634cc02172b6b6c43bb0ff849aa",
+      "label_sha256": "25c3d9f573e4dc848958b5bd0ddd1ff8fcd25aec9a5a516fe5ac6721ced7157d",
+      "sampling_parent": "image:1999a56a6d6158e78948619120ad6e1a553e80bf060b40ff1b7a2ad6a6725db4",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/2e57b9_5_7_png.rf.e046ec242fb1ed2354745b4ed15372ae.png",
+      "image_sha256": "40d2447d153e1734105f8e9c1c03ea9e2ab89854c18d77f171dde565ad759829",
+      "label_sha256": "619d3de762d8b1788aadbc73e9193c22c850a94c6db5b5cb8611a0667b04e587",
+      "sampling_parent": "image:3aa1a273f25d4bc8119444b7902786de874a3239b674c87559af62afec91ad42",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/2e57b9_5_8_png.rf.bcfc7582ede7db6def189d4fdcdd5fa1.png",
+      "image_sha256": "ae6a9d4302d7926f49c7b4fc0f8a86200800c9c00af8c6c08ca865ab645d32b0",
+      "label_sha256": "21b384649625c4d68a1d90d7e07bbe2b36e537ee541aadedbd68e4af7308bae7",
+      "sampling_parent": "image:d28d689fb8f3693b449cd97e12d5d22101dedfa92611f556098ee668f9583a2a",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/2e57b9_5_9_png.rf.e42d6d221865f69d87f3bc6bcc02dc3b.png",
+      "image_sha256": "e6515daa411c4588e92e1db789b7bb632d979c718a874971e99fa3cfa83dae4e",
+      "label_sha256": "ab3bf91e7af38e809b48eee0b2831fd25e935b57fc46f5c74fa95948479c90da",
+      "sampling_parent": "image:dcf0afd2c24b211147b30ba25f7ba61a190d2a1d76a2c562ef557da5f61ad5ed",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/2e57b9_7_10_png.rf.096f632bfc1141712b93c41bc016f99d.png",
+      "image_sha256": "cf14777be50eb5e317a63a0b2c3de7d51c2cb526cf628b1aed22a9501b38b89d",
+      "label_sha256": "e12d4f2da77a52067523a7b5eb709b665c39710d5f5f438b46735bbf5c1451aa",
+      "sampling_parent": "image:2300835f3544806e9939bd0be9529e63d91c189d619be4403f805eae123f42f0",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/2e57b9_7_4_png.rf.2bf2aab1e11b19b68a139c332db8066b.png",
+      "image_sha256": "98f0dffd469da0048b0ab1b5b883b8aa0b59783e3f151a4bba4f7b9f1630003d",
+      "label_sha256": "21ea86b1c1761d9d916405189cd197e2c9973bcabea4c358024ed4c39e976354",
+      "sampling_parent": "image:ec6d3fd122db351da379b5eacdbfde98dba4a1ed579137181d220de2467e0ea9",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/2e57b9_7_5_png.rf.2f32e4e06797706ee91af6db0d052f1a.png",
+      "image_sha256": "843551dd7065eff4a30c5c61c92c403a686035bd07471ff72900d7d4bd07fea3",
+      "label_sha256": "6e3f97379366d5d78b22a3fcc9a49a63dd15e110e8eca2aaf0e3527e90538995",
+      "sampling_parent": "image:aeffd2b8b2d9ef54e34cefb312b1c9b2007ccdf5b4c7181533531f4625cb8103",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/2e57b9_7_6_png.rf.ea7e938f85b98c1003b745bc511023ed.png",
+      "image_sha256": "2f47b9e2b8f4deae5ed296087114f768dd73b57bd6fe17d2304b8c1886c69ab5",
+      "label_sha256": "0b717f99fd3326ca92205bcd2594fb6f9b999e4bfc667a66dd542aa5b1a48620",
+      "sampling_parent": "image:d7815202f5a5bcf342ae83655177fb22fe0e80a327d311fde00adf50cffeb971",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/2e57b9_7_7_png.rf.c511dec60ba01204359ba5269d4f554e.png",
+      "image_sha256": "9662ca16b6bca281935bf1fbe91f1e8668e9df557aa0889ac4f403c947e4a09c",
+      "label_sha256": "101603aa6368df5e1d44db8de96aa9c93ac6fd918a652561b75a0903880b2d88",
+      "sampling_parent": "image:b1bcece46f2932baa5f44f4da353e265201985805a35b392785c5f909e8e8399",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/2e57b9_7_8_png.rf.d6dbf9ddb2412e02f677764c90ec87f2.png",
+      "image_sha256": "062e97dd6019ea66ea5006c8a3a1c7ec04f5dcff37ffbbc05d0bcd2221ab141f",
+      "label_sha256": "76e19499756625609b5dec4cd8b339cc9743ee70c751330f20fff1ceae050e02",
+      "sampling_parent": "image:826157a4dd763d97a59963515553433cda0ae1292c7dc6a52e33dad4bb0dc9ca",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/2e57b9_7_9_png.rf.7e05883670c5bd9a829fe51ac8b118e5.png",
+      "image_sha256": "3cd14ed01dc3fa377feaa44cc1f037872c7e3996414f16cf696a8106fdaef25e",
+      "label_sha256": "3a9660a53d5b9016fb69344ecd78fd97b7a56db772587681f83ecbb193ca3fb8",
+      "sampling_parent": "image:92d64055ffd1a2f65d7c194b94e041132b28ccc64d9d52e4fcb9e6f6e9a66b46",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/2e57b9_9_10_png.rf.0c5822dd36832a2319f926484dfc71c0.png",
+      "image_sha256": "a0e8677047f5e9607aaf799f71d2ed56232fec911e6249f840ff5095008ae03b",
+      "label_sha256": "2b264f7c5f75578fa81747877df7f0efc2b3b3e601250bf756e6474ced992cc9",
+      "sampling_parent": "image:a12e34f02b71dcd2774cfc9ce6fd800f06a63ec88cd55a9919f3a6a9266e936f",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/2e57b9_9_2_png.rf.4fc184d2323508123ad296912c0ef214.png",
+      "image_sha256": "30dc783ce1769b761865415d031354fa7241be2aa87ee4d4ebfe89da11ed9f34",
+      "label_sha256": "1e2c4007265238cc111be948f5fc15c306db1ed025427b14f3b5d0555128dc6c",
+      "sampling_parent": "image:48aa734f8f65a17a0cb9ad3bed0aaf5cfe4fc745b675d0d39a588cf22b5a7197",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/2e57b9_9_3_png.rf.151a2150f9469b7c4014bbddac178c90.png",
+      "image_sha256": "694373b19bc61f40038899921b69bd08842e79e2ac870f4d36e65271153bbe5a",
+      "label_sha256": "8619e0d87344b5feb67067d99c9c5059920249197507114207ab44d1a0936d0b",
+      "sampling_parent": "image:b18a654ed1d99f1b59365cc444565a2aadf15c3e735180b3f428215dbf16db4a",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/2e57b9_9_5_png.rf.a588f4e82211457dd2c689bee4fbe181.png",
+      "image_sha256": "15d3b71ac0136979929f921589f011e3eab2481734c5f3a5d41b253c7c7afe8d",
+      "label_sha256": "23be287893da95ea66b30ee0463f84f151556f96ce2f202918f6749cb1d80920",
+      "sampling_parent": "image:4be522990c298bd8cbbfb8b2bb385744c2acaf1ce04eeab5e8e395256cbcd81d",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/2e57b9_9_6_png.rf.3e92207b6a94b38ac70410dc0a7eab4b.png",
+      "image_sha256": "37903415caad56b132d8d18aa0fa441ec25bfa20d0bf6a7e43a6706758b355f2",
+      "label_sha256": "98ee069e8c47f4eaf2ee60707dbc94f61c68ef4a7dee7b6ffd898153651871b6",
+      "sampling_parent": "image:11e07e6b116ddc576743c400f56e6fb6c5b99cb3e0c0c52faf5df4b8efff938f",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/2e57b9_9_7_png.rf.5a8a8c3fd881ae9b1da82f0c4ae9539d.png",
+      "image_sha256": "c1fda2405188a7f4b9582454961da7ac1623770c2817f34529ed7d27480a9774",
+      "label_sha256": "2b1cc8c8cd96f059114c814ea8ec8e211f4efc6b4af6b8171d541ea5d074b004",
+      "sampling_parent": "image:6ed185b7a93c28e66ee5851a7e198a0e0b5be49a051f2772c76945455649dab3",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/2e57b9_9_8_png.rf.0f24fde791664f5b242da75e45fbd5cf.png",
+      "image_sha256": "b94f60269a6f2b085c0a5b034e0d52591b55d098f337cfd2dbf8d6fff0d94e3b",
+      "label_sha256": "5567b2210af547aa34ac39e53b4b2b04972497440ae5483c89a34e3b78a1d2b1",
+      "sampling_parent": "image:f66dd9424cd48bb846ee742738302d1f80552f7309754369c2b91d8552ba994a",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/2e57b9_9_9_png.rf.e7098d56a2a33a002cebac4480c89597.png",
+      "image_sha256": "0e055477826c8e40428c4e1f65eb7250196c7ef27b582f8908b1844d2aefaa69",
+      "label_sha256": "89239b697ac301b3ffc4ee0831e300d231c0426454a2ddb8287a7a55f58a8bd7",
+      "sampling_parent": "image:1952c9c89a50e5a334ba3d813ceb8a99d24a5dcedfe57ed2404c85276ffe964c",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/40cd38_3_10_png.rf.c7e5e7ff331692a3a275e922474bd701.png",
+      "image_sha256": "323e6be98cbdc0105016025d83027cad7ae442457ebe2723470988a0ba7a3e69",
+      "label_sha256": "9a1417c196eaece304c9a2f9a986400d288506d2a5906e17004dda4afa1a8f65",
+      "sampling_parent": "image:50f3af1c430efb1e94f24cb37f8787e9ccdd13710733135dc7e2ca6337bee56f",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/40cd38_3_2_png.rf.883216393eae5e95d36b3a71c391c994.png",
+      "image_sha256": "fde4d918f2ad42414e68f56918c07dcee1a0d1af48210e5df8b40c251601c71e",
+      "label_sha256": "c5994d074be6337d9de69ae523c8b2f1a41c5acfb9d1db9e386c3aa1c219d006",
+      "sampling_parent": "image:2aebee45ad73c469b4f428526f4a6d85324d1f578689b6561bbced0a9d47179c",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/40cd38_3_3_png.rf.f1a92e89f797bb137300ae5100539300.png",
+      "image_sha256": "eaeda2c2f2077e389dfaf120d8b67b1a1ce94c461e240b10e55265bb80ec6335",
+      "label_sha256": "b3569313d5fcc576e7ef8b47f791f3fcb592d34d3377ca3a9f4078fdddd3de61",
+      "sampling_parent": "image:286b26545e24d971a5a605c897f8e9bdae3fd861e7c73565d87a1e0bd618eafb",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/40cd38_3_4_png.rf.9ea2814aa9e6cbf24f5a364191b2d656.png",
+      "image_sha256": "934e4a4bc563bbfe2f6f59b796eca6d962319f63aa2122a3a9db90cab9a9c652",
+      "label_sha256": "c5afd7577438e398d333e51de01910b15bbcf6e1db6820e0868b8b6f90a28f9c",
+      "sampling_parent": "image:b0ba63e3cbb42d83719940a6ea4a2b9c5befd2a53d0b38e240c7180cc5c5a9a5",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/40cd38_3_5_png.rf.350c8cdb2c661cf6504c9a426d77bb03.png",
+      "image_sha256": "4fdf15481f925838a012e47499a5fc7444dd96e938d0612f9b50d5fbf8468f00",
+      "label_sha256": "b4baf1bac903e1d3a343ad01a1b8d1f7248b241816d1fe37292bf581e9983884",
+      "sampling_parent": "image:da18219085bb7194c0bc1495b1a2424e91f201521c097fefb046df7cce954ebb",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/40cd38_3_6_png.rf.31ed0d4971093736b90507c5c29918c3.png",
+      "image_sha256": "bb4ee5552d7c832466ceffc3abdded21455fc199ecab22a0364cc9c7d08d7095",
+      "label_sha256": "8b2242fab945b9b0bf5f0dee42360fa9132e7df21b8a035648ea17cb2def1280",
+      "sampling_parent": "image:b19be4410213148fbc10bf4bbee9d594597755b47bff07f432165896ff9b512a",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/40cd38_3_7_png.rf.42e8542381065e79fbccd6e4e8e5deb2.png",
+      "image_sha256": "4a48e4a8c2abdd9f35ae001b46292651108a3c8d36989be1cc17eaf50ea771af",
+      "label_sha256": "88cfc6dda8c90eb2004794099fd65b89441f0ab5561f5a3cacb9aa90941b0ca9",
+      "sampling_parent": "image:72594c4ac3643bf66c00be952bd200d9e5b5b0c62a279b15d196ce7829370980",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/40cd38_7_1_png.rf.0923bc8787a2081ee7cbd9615ae361b2.png",
+      "image_sha256": "151f3e9c5a71c35cb88f0dfb4eb47667ed38ce2bbe395787887e8ca3a784271b",
+      "label_sha256": "28bf2c8a80a394773a7970ae8158f2330bcb21d68c5ffefad4ff9dc22dc7a2bf",
+      "sampling_parent": "image:e40ca0cb8ffd2e6fe36251297fca1c9f939e36022dbb39d12e5501e3407518e0",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/40cd38_7_2_png.rf.d8160d3d5e5845eef9290d200529b4e5.png",
+      "image_sha256": "c1db341e5507e6389b6f662d2be9edd1be6f22491f08dd4a4effaecc2ca1c806",
+      "label_sha256": "326523f4373e4937d7d8036aa240bb1bf5a3293c1a691173a8b6d7850b4d6af3",
+      "sampling_parent": "image:eb8cf408c22085f7b7d6a8d65d519548d0a285164d47352d67d42605d68f1d80",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/40cd38_7_3_png.rf.ce40ffaa1ad1a6b0a904415b2e7ae519.png",
+      "image_sha256": "b1bd780d207f2d1e640621521d88ab25ab70519f3261e357b34867512a296764",
+      "label_sha256": "ba4c5c7ab8acb330a084b8362244f143d63238250dc729b8cfe261b8a6ed98ad",
+      "sampling_parent": "image:81f9462426704bcb7579f4dd50df73bafb65e0f2ff899ef0687472391f53066b",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/40cd38_7_4_png.rf.fcc20568859314ddb8736031cd4e9ae5.png",
+      "image_sha256": "235469e52d9c41ca869f8b0a23f600c0c006c17c3a57520b5ed4ee8802e9900b",
+      "label_sha256": "4a3eca08c1f1b10d9d2a14fdfef23201cbcdb592b3e6eab16f8d7b483384ac3c",
+      "sampling_parent": "image:cd3c4aa70cb2bdc2ab7543ba0db78d2f26f74d7662ebc8430f2ad234dbb8880a",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/40cd38_7_5_png.rf.98df9b69747c58df5b08920b2d02ff3b.png",
+      "image_sha256": "4a5a272739cbddaf4c5cd8fd649f392587d7a07b76569eeb8098b9e03be1a775",
+      "label_sha256": "42929df47da66f3564bc2de4fcb65f5f1e8d2a7452e8c17c3ad81fb2533bf831",
+      "sampling_parent": "image:7120242472918c10eeb2bee54a6c4adef1d25861c3b09874b007434ac3b271ed",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/40cd38_7_8_png.rf.146856148e82367418364b47e5cd39be.png",
+      "image_sha256": "195c0b2302b4ecb6d05f08240577eaef078d637ac274c1b0ca4b6eb43e7c209f",
+      "label_sha256": "70790fe74d5db77a87ed152caafc53eba974730ea1d6cafb66f46f644dcc3eb3",
+      "sampling_parent": "image:ddf8967df182e1328e95e06153cece5d4484fdc08d1e6117cb4a3080a300f768",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/40cd38_7_9_png.rf.59a95874949babee88663d38e72635d7.png",
+      "image_sha256": "cede04f67ca495e82094af736c3ba1a4d04c0e4901baa37c535179a9071c8c4a",
+      "label_sha256": "4b1368803fbc8326d5d385b00e19bd67979d5bdd927988dd57114f97a51a2b76",
+      "sampling_parent": "image:e9c8e5770b3e4880c558f4c94472e30ae90f2a3b0495985338a62af423132c3c",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/42ba34_1_1_png.rf.50c941b4184596389e44006b5dead543.png",
+      "image_sha256": "78abcfaddac3ac159b7165af9ecb85f8abac173f4a7805168f6b91aacba75614",
+      "label_sha256": "39729e2696e7fa9197c18b2afeee24ff66dfd25e7404876e89e9c9a272e9fd10",
+      "sampling_parent": "image:89103f6fad88c4f85364ee410cd34c322e8d49d419c75cb09b44b009edb50404",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/42ba34_1_2_png.rf.e743de807415899172552d70a03bb7ed.png",
+      "image_sha256": "54c2f4caf5b3b89e263d14a7737345650770380664f6e6f53ee99a94c9aeecbd",
+      "label_sha256": "e076d17e1eac073977426d2b24b4b80538b12a9523251932f2c554b84e4cec85",
+      "sampling_parent": "image:ac47402c3dfdac9fc7b4daa7f74f7965be60d934b3a6a478890bad182e734b98",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/42ba34_1_6_png.rf.0a4f10c0db7062d613b4b15027c45999.png",
+      "image_sha256": "3e0f7746e677ae8b33c8f01d057ce1f29038a3fcd4e04772a96e851bfe277c41",
+      "label_sha256": "0209ad833111ab8852ec077017c855f441a0da0658820775d882e0ccbd17d92e",
+      "sampling_parent": "image:039a6633d6927f28f4994762153f3dff12eb8792b6fe8505924dc881b10f6765",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/42ba34_1_7_png.rf.7cad24d45b5473b4dca622d9ed983250.png",
+      "image_sha256": "a2cb0ad96bdae0319b61ae1ad84256814cecb0af4bae92fc9e92d4c24342008f",
+      "label_sha256": "35220829a21121275ffdf8e558461d600a14a273b3adf35efc4811496ff1ec8d",
+      "sampling_parent": "image:fe48c9bae26b137d7b5046e57011caf6296e0b224a05ac0206b12269497728ff",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/42ba34_3_10_png.rf.67f3ae36585c85893ab223774682084a.png",
+      "image_sha256": "bf83a57a06f0950f88029cd60136a025d169d29156e3c3bec361344b826cc995",
+      "label_sha256": "83a14e3e8c3ea6487285970635062684483df959949837e81e2d02bd345cbb97",
+      "sampling_parent": "image:b0e5be8a60cfd3299bdf06fbbfaa3728666fd49666dc011ebcb4059a9f647b6a",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/42ba34_3_3_png.rf.15cf5abc6a10953a7494c92aba763c7e.png",
+      "image_sha256": "1283b43aeb0fc04213e5c99b3ace9cbf25da46c5338ca93cc4d3614381a1f854",
+      "label_sha256": "44881292713e647ac5438bfd82154b97ea17dd1d41c2362ad34432b337e5d7fb",
+      "sampling_parent": "image:f6d498f8c30d402cf7b609a067abbbeb1a67db5bf4e499570518ab2433316531",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/42ba34_3_4_png.rf.250e1828bf99a512afb227ab4394db74.png",
+      "image_sha256": "fe8ed8b580ea7beb4a9a9164b054941de67858df51bf8993da336f895da64435",
+      "label_sha256": "903c831263f9313b57ee9a6469689c8f1902ab2de7c12be2f51431f629e0ebdd",
+      "sampling_parent": "image:f9fdd81b2ac0f5e9a74e9fb437ce3d7547c22ed6bdf6c237b95bbee0833c1a02",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/42ba34_3_5_png.rf.bd2d73b1f944a9db0c0c2397b0e15a71.png",
+      "image_sha256": "ef6a025e8760d259c06860f6153acf9f61cfb1421038416d8c952205851b141b",
+      "label_sha256": "37bcf59028001f11bd93560943e1be8e25fdd220ad3090ee85b19f57da345dd8",
+      "sampling_parent": "image:1f47c38b9bacb80cca86ffbfd8d2c92e23b5bd6d238dd08f6314e39af42d696f",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/42ba34_3_6_png.rf.b2c5f64b18650d75f1f5cf78c15754c0.png",
+      "image_sha256": "3a2147d4955ebdf178a21f2eb293f75719382b6d5e9f6456310d365a41f5e8b7",
+      "label_sha256": "9a67e8edbb8d26381ea5aee49236b5e7e63b791b733ff1c3e25c42cedd75d73f",
+      "sampling_parent": "image:787e1a657675ebf189f421b93b2b47700473509c888a0d868c8c57ea331204a6",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/42ba34_3_7_png.rf.4b1f86dce909826b0e57d75b4a6fcf09.png",
+      "image_sha256": "57b89dd7311cd8f611a0e9359a1859d3d9616f4855cfaf73c6d27e52e9f87da5",
+      "label_sha256": "2b31f5e71fe91000aa46acc3a9a7d0f00880c1e750f10cc80b3cd144bf2ac33a",
+      "sampling_parent": "image:23fb7c2ca78a6a0ae8166b2efdc2a8eb5cf3d3dd9d9c9b9fedb5a29e757b0558",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/42ba34_5_1_png.rf.259e2f9b444cef1cc7edb5d1c80a85b9.png",
+      "image_sha256": "cd7596fe6579cc2f4ff7fa50af235218e05dbff642055fba89a2fac342dd8da0",
+      "label_sha256": "d2449c19c29b43115b77966a214fa06e29e6379e62ec8dae1131b4a1ce45f93d",
+      "sampling_parent": "image:ae39a2860a1508ad6fe5c3228e7b2dd1ff89ead592dc589f87dc3ffedcc19c03",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/42ba34_5_2_png.rf.0c1113424aafedee480294f8987771b0.png",
+      "image_sha256": "049533ae8faa7c55ad6b8515d9a70c9d4dd40088ea96b7cc490606b292060fac",
+      "label_sha256": "21960da3aa39f8f4367571a9d0bd785ea987221de6acb04bffbadaa76d38ca05",
+      "sampling_parent": "image:3703c1c6e5aab0e00cacbe8c74e9a567e699d1c5120cad9a1a19afd9940feae0",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/42ba34_5_3_png.rf.2f6688f9242094c9281e6f6d56786e9c.png",
+      "image_sha256": "de5b44873bb00edc5b3075eba89100007d4ba4b0e6ba43f749e20c8cc8d6f5cb",
+      "label_sha256": "e2dbeab4ba5b1af52a06ca262536abbfbcf200825701149c5e515a810ebf50fc",
+      "sampling_parent": "image:770df89a88f84ab7dc27e42b0b5c0715011e35ea7387d5866d83771946e0b7e1",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/42ba34_5_4_png.rf.96bf97abef2b8c2c382492fe86cb4ed7.png",
+      "image_sha256": "e4514e8e080a542010ceac4316be4551c2575eebc12099b802dd4c0cf9d771de",
+      "label_sha256": "05bcd0e96b2c665570ab57b7d2f2491147170b6fa8fd0846084093898e4333ec",
+      "sampling_parent": "image:f01ce5e5fba9c70fb19cc855c2d6b3ff67b09c7d423c9ae2da80718f54ce612d",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/42ba34_5_6_png.rf.d7346b6d7848bcb58c163bb2dd3d94e4.png",
+      "image_sha256": "383c5277289867c3e19541eaddce271cfb77a98db7de0fdb82d9f5e5be2cbef5",
+      "label_sha256": "12b355e229ddc846206558e96ae16603158edf016e5b1edab1205ab564889c9c",
+      "sampling_parent": "image:600a3e4338320f522eea666b201676222478b5d480d44fc75a2b04b9c8d1e9bd",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/42ba34_5_7_png.rf.4b8ea008fe817b145158cc115642c5c6.png",
+      "image_sha256": "9289ce48bf6ead57e35ce2fceded2eeacd4d6823d2d06683e6bcd45a30b9ac29",
+      "label_sha256": "8d8c317bcb05ab61c26cc996b20bbf0b7090b6427c43854035cc2cb193f48cef",
+      "sampling_parent": "image:9aa3964a27f2b354658818c733e6d3e009fc1e79a8315d9c8194bc580a067478",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/42ba34_5_9_png.rf.6169e780c2fd0b7269be3e45dc9717db.png",
+      "image_sha256": "519d1028b004b2bc5703a94caa0253812d28d255d6a0032d0691790cf66379be",
+      "label_sha256": "1ab5142b75024161ef376234cde506081cb38414c56f163bcdec8e39ace476bb",
+      "sampling_parent": "image:0321081f219e57567e7422aace70f071ac477f407d50cab24151fac43b5fc323",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/42ba34_7_2_png.rf.cef5237f4898ae02528cc821f1156b6a.png",
+      "image_sha256": "308a0f1a2bb5413f207ff1595ba6d03bedd50a609c025d36559f5af24dc50a2a",
+      "label_sha256": "50f14959af53f62073af99bb0e54a0a05002057ffd6409d9f5fd2ebbaeff113d",
+      "sampling_parent": "image:af0015ad66dffc701a1eb01aa1f86d0283159d65943cdfd3d362c3a444003842",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/42ba34_7_3_png.rf.96dac6ec68618be36c0615fd4a543093.png",
+      "image_sha256": "bc92455a8dc75e6715525db2c4f6eab66bdc284e180a42109f5366c58c99fba0",
+      "label_sha256": "cc6d5f304a7008ca9ab55ce5b61b09d0bd4656c521f3b05e069ef137319cb855",
+      "sampling_parent": "image:587a895c48993ec32e33c355107407f743419bb23e1b92e9eb446214f6c78a15",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/42ba34_7_4_png.rf.d6cbd960ccbe88f2606a6e399bed4f8f.png",
+      "image_sha256": "aae3183bfdba65b88bb3bf331df7c68b2ae8590393a4bd56190097ce5a5ee64e",
+      "label_sha256": "d878520d0729eb4c7e8d41a3ae7e3f28157651ceb491af5ee4901a06500cc058",
+      "sampling_parent": "image:17b320d259bdad9a97bb384d030228e267a5665114f32bba22de413b341f10b1",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/42ba34_7_5_png.rf.bc0339ea1949e1bc1b50b0df2577e0bf.png",
+      "image_sha256": "07e9df9669331d94b7baed15bba9a28117e03b67ee040180a5b850a4627f2f51",
+      "label_sha256": "5c70a00e443674f16b9764ee003a703a0e72e669ee33d9fe4f793aa1bc0c16db",
+      "sampling_parent": "image:7eae2bfe983e80442ba90a0ea8e5601e14ba323420a8dd89cb41a5e8e0d24b22",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/42ba34_7_6_png.rf.7e1fc27627fd08b7a1a2e4e42b2ef0a1.png",
+      "image_sha256": "01105436ca0655b58223f2cde27313004a221c3fc2d0ec4e030b98fa7c34644c",
+      "label_sha256": "305f77e7b45c9dd652a25344122b5d0510b862817dba460a169ca93f193bbfb5",
+      "sampling_parent": "image:d789f7770da2fa4b7766eb3f457acbb04d123ea948e66a8dbf440c4ef77b39d0",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/42ba34_7_7_png.rf.4cb3716ea3c8dd079fd87909c2d96094.png",
+      "image_sha256": "7221aa1b3f5e730eb519e63a8a44df4990b2fa04067460a517f819e7b8728777",
+      "label_sha256": "8384dde33527dfd3f2a0a890db47635ff9493b8810f3d0f97c2a9ec84e3007c2",
+      "sampling_parent": "image:87b65d9a714162a99efd9c1d9c570ac86323e6ce04e4a9857b3f39fc2198dde6",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/42ba34_9_8_png.rf.b0718116f6534e2f2f0ff3a132e73087.png",
+      "image_sha256": "ba5e27ba825628a7a1317c174056f18eaf0a370c23fff3d175403133e596949f",
+      "label_sha256": "26a4888731e218ab4a729a5d706c1073e81ca5096f739a4930bee4387dc6883b",
+      "sampling_parent": "image:6d44e4ba6b5756f71b86bd99c1165638d4f5ebd8f8df0d23aa6bd6f45e81559c",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/42ba34_9_9_png.rf.4ffa834f927c0ce41ab3df83b449bc5c.png",
+      "image_sha256": "cc98a188a75bda56c2f0d2129b1193e0421ed576a9c3b5296ae8499462e4dd6b",
+      "label_sha256": "8e0423008f8ab5625d928346921bec90e3c1c597e8b1284caaeabe3481cf7a5b",
+      "sampling_parent": "image:3fd4ab56df828d3c93fa732781646011219598f10f14f2098e0cac9eb8ac909f",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/54745b_1_7_png.rf.bda9767fc2a07387f263821d1e449e3c.png",
+      "image_sha256": "37c5e3c05ba5bf5b297815ba1117e30c5e8a9420a415225eaeda4894187503d5",
+      "label_sha256": "d9884e483d14072a5bd726cb964b781c3a3b625abb4ca3c9f40e81eec138e35c",
+      "sampling_parent": "image:ee642b65a320427f1273daa8ed22c96c21f26fadd818b3ca12cdf1925cd00a3e",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/54745b_1_8_png.rf.dd8ae0ba3f1d7cb2d2780e8aca73e103.png",
+      "image_sha256": "8e0feae64e7df538df0a2e50f8f7b4c5c2d091f1cba024e0ddafea8a538bfe2a",
+      "label_sha256": "cb7d5c0bb95c24425a661bf77ba9355305c7057823f8fe634219a7ff494880bf",
+      "sampling_parent": "image:0e456086f5c58e21a01c4ed095975a79f2bf0ce95f8b6b0be470907f46b9a929",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/54745b_1_9_png.rf.b1af9195a161137047bfa4050b1482a7.png",
+      "image_sha256": "ddec483b592fcc470dfd362a3742f1ce45c294d2efb32e19ea0d36c53c063350",
+      "label_sha256": "73bc8e1a6f7cce2aa42a46a75279e61d8e26c98d5243984dca2e7737be9d09c8",
+      "sampling_parent": "image:97b4cbc186f60865ae54b64d34a5a538c508d614d225ac3085de73c6a6e22b1d",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/54745b_3_8_png.rf.ecfc88c2ec01db5d8ccc20b8261711a0.png",
+      "image_sha256": "5704a188a7401cefc5974e8d054df841d80b49ad3f56cf24093acb3059788ead",
+      "label_sha256": "6694223ff746617aee6d102486d45fd67ce0f90f003e9294fcac82cea8f18bef",
+      "sampling_parent": "image:a9cd54a979ad763697fdb9352e3f599f332059401071a7b020b4f969984f1f7b",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/54745b_3_9_png.rf.a64f8f898e7b6bdac00a389f34cd78e2.png",
+      "image_sha256": "94c4cf9c026f54bced871ef9f94cb9a73fd2ce4cbc7cac1edbc5605ce17796b7",
+      "label_sha256": "5b2436507b7f155f1db00356add469245d669c6bbdbdbb9ab611e9a33a5f5983",
+      "sampling_parent": "image:6bb95c5b54fafcdf40649064b7fb3896d543b1de9ebf18714d5a5039edd6e7f3",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/54745b_5_8_png.rf.e59f189a809f49d4be7be8223c4b115c.png",
+      "image_sha256": "165bfdd1b213d4916269587beba1f1add5388b029b4a6d6253f9be47e23a7d81",
+      "label_sha256": "5f3f563462319bdcb66d1b0426f558f408ba9480e9036bebc5a662dd65d02a61",
+      "sampling_parent": "image:8a6a7dfc82a63e0137e576641a0a0542118a30ae7c1a800583bed966f789afe0",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/54745b_5_9_png.rf.da950bd6b417989d8cc5b5770d55e05f.png",
+      "image_sha256": "7c0f68c9dc97b788c2ccb1490a4d9f00b5ca98588697fb29fa130581bf32e6ce",
+      "label_sha256": "f0844bed20f97b854656631f85d783d5e0c3efb2971c5e22533c3ceb10a5ff84",
+      "sampling_parent": "image:51b0b8caba8e5e0452f2648ef8fc997e394a9fd67ae3576ef09f4538439a799e",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/54745b_7_8_png.rf.32421d31339771ac88506c116c00e77a.png",
+      "image_sha256": "e214c409dcce21f4faaa343d80677ea7b7cb85bd64d1e0fc2b46da54f412f131",
+      "label_sha256": "6d746a58f7f4f83fd711cb0c9a548ca5701fe97b446981deb46451d2f1dfd07d",
+      "sampling_parent": "image:9b8308a6d027df0265b4ed6124bc4622f6159fcaa0bec9df0ef00862fd9bc1d5",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/54745b_7_9_png.rf.14d1049c7bb28c7d38670f150fa819ec.png",
+      "image_sha256": "c048eae7252c38d8b3eb02344e68775a670a7f4b565dc8edd0220f3a057d5508",
+      "label_sha256": "a1c479bd0b7ed6dfecc4ff124a4cd6f8695ec9113b41fdb34e57b8b7daaae44b",
+      "sampling_parent": "image:a4ca9a1db735448eae9a0ca8325ef7400e4e814914f91d07828c36a65ab5470c",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/54745b_9_1_png.rf.0745d134f1c4c948c34bb099ab3e529f.png",
+      "image_sha256": "fc44b3fe36506760145814c873764e63e71692c883a693ddf91a16d1728f915d",
+      "label_sha256": "c3ab285e01f45872349413de7ba5f7adabb48c209cccdc1af6a59576f006ac98",
+      "sampling_parent": "image:2d14b1e05bdf653a45a7f58df6416ecd362adf17f46beaa7fe4b4b24d1fa3649",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/54745b_9_3_png.rf.0cbbec30372f7ca8a961fbfc850893c2.png",
+      "image_sha256": "45d1e9e8a8c3e1f8dba529832b5a39a1517de1698b5ad2eee339947004c0b469",
+      "label_sha256": "936d914906c8ba16c33c224326b22c7766b5d333c090c2994daa14bde3071ed7",
+      "sampling_parent": "image:2097dd3582ded5065cd120d335050af83651a8c7b42bf0662b32c50ba8cc880e",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/54745b_9_7_png.rf.886f60e61c309287f19cf94aea17f794.png",
+      "image_sha256": "a46db46b51a3bab7f7d383046d358fb8aff97fd2057206385da966c5b0c99490",
+      "label_sha256": "58746d433edebcd052c05a58cc744153ebeda8bab27b1606fd53f8a1b73f65df",
+      "sampling_parent": "image:8cf913111a99d0e47fd09798b7241d8fae58ecd07d8a8699e65f28a16bb6bbdb",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/55c9d1_3_8_png.rf.70dea25126ed12c7fc62223c297e7f48.png",
+      "image_sha256": "c51bdc13bdea9a64b51083abc83aec6a5df70e8fafcb0d7df9e6d29c00f3e88d",
+      "label_sha256": "56ce05eea523976617d3c4fc1806e390ed8fb1ea2be5217a7bf530f7f86877c7",
+      "sampling_parent": "image:67fdbd550af4316a6505e642483103e2e6113fd80ad6c4c3a0ced4f44d476e3e",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/55c9d1_3_9_png.rf.a2191f8ef7d329fd1d277f59aac633db.png",
+      "image_sha256": "9d14110be1f0bf03f656ee9d95cae146fe08395b19b8c8b456891bd4b868397e",
+      "label_sha256": "fb712983c61d721895bdcf0e41195181b2fa2e07990081b527e1b0172102101d",
+      "sampling_parent": "image:45262c22c2b76172433f8ebadeef37bc86cbf25ec399842afebd4ad4cc0edfc1",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/55c9d1_7_10_png.rf.a91762c2ba42fa2ee36a5a52a4344c6a.png",
+      "image_sha256": "28a0eed03eeb4c044e4e8663ac3e16043bd4d2a34f2af48d10484729c57349de",
+      "label_sha256": "3c27a74233bc00d3c710ef8af2039e1376c63d05f22af59b71b18f29ee1e1967",
+      "sampling_parent": "image:3af98e591e20d1afa77023dbd820d42a4cc1cc3e8aca8a0834c8443cb5f9c977",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/55c9d1_7_9_png.rf.800772673e4b64d87c04585069395c24.png",
+      "image_sha256": "ea97ad58a43487f01010b48b49a904ff6aedf22e1f211fee6135fe743221b915",
+      "label_sha256": "71484b52f2338311774cfadeab941293d9f7428441915dfae6c741a2ed49fb67",
+      "sampling_parent": "image:8355e9063de1fe001e6c02185a2d21ad8c26d6f0f2f8de154a295bcb8da90841",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/573e61_1_8_png.rf.ed79ed34c9126cb41e45d348c0b8d1b6.png",
+      "image_sha256": "2698c199b7be46e4bd57079eda2086526c34a356ff0b9a0ce10b801e60e7720b",
+      "label_sha256": "9722179f81e3a1fb04df5295fe00626ae03caa674a40ca68f9c0f88293f1afd4",
+      "sampling_parent": "image:13efe70dff48af57ece8e5ddf5adf3e1ab7bdeebfb60d7308ac9d723ca6ea088",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/573e61_3_10_png.rf.d5fbe64195f3694d6bd31044d389b94b.png",
+      "image_sha256": "5de5862d0f654fda32b9f3f073ad1c606f4139630f6880fd26ea7b345e2ced60",
+      "label_sha256": "01b86fcd47aa5f0b255c2bf5e9fc5df1eb781cad7ab013411c820045487abe07",
+      "sampling_parent": "image:a1a2eea3676dfdef29f8470fd15e66dd2350a77094e9618f19a92c21a0839283",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/573e61_3_7_png.rf.8b28bc5df523c9cd69934166ebdfffe5.png",
+      "image_sha256": "20049888f1372d07781a7b1454619614af4f50528a7a25e6a6302763f6838bc0",
+      "label_sha256": "ec0f7c4bcd412778328ad3bcd13f9e420c6f7156e2b0cc8b2ed29aa1477f4abc",
+      "sampling_parent": "image:b8837b7ddcf7c1a0e6b9338e3ea3d3a66965cf190f67c43ef031908fd7ad6d31",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/573e61_3_8_png.rf.6cbcd164c7fb08bcec613e508a706202.png",
+      "image_sha256": "0304155e5be8ac2cafd90b8432b20f36106754c0d15bce2358e11d04106baaa3",
+      "label_sha256": "81fc9781c0120120f22f459ac654b40bedd2c2bc6c444a13b89ea649f677ebab",
+      "sampling_parent": "image:85570c672ad630b0d0013bc4a7a4885b9ac946f4b8548dff878686c918bbfdd4",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/573e61_3_9_png.rf.25b3fda21173ce249c9b36fa7b4f3d5d.png",
+      "image_sha256": "e246d0e188c3bd375b8f73e3e59260df00666dd248f156335f402513d2ac6786",
+      "label_sha256": "b32d73d022929587275a930401ef4dd770f3e0c18451db1e5d6b9980299e7e4a",
+      "sampling_parent": "image:40df9e14bdbf6035bf261469359b74266a6917aaec93399857e025c8d749ba49",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/573e61_5_1_png.rf.d86bf66693c03732b53a23c4ad539ae2.png",
+      "image_sha256": "089e27333756d61555aa79c5119c8fd69c7b628b566bcaf90d7c183d6a543585",
+      "label_sha256": "608931b7d1ff916d9142ac62d90e014562e8467869e070b05b46158643d3b809",
+      "sampling_parent": "image:d5a3f90179ff154989768ccce6ed1472025ba075223bf77639f97b67e3aec9de",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/573e61_5_8_png.rf.de1beab2e1d5b92ae06069957a65ac53.png",
+      "image_sha256": "58c0d547dcf629d2367f2f3e6200fc62276fbaacdf405c4a5b228962fe23cf8d",
+      "label_sha256": "95599b7fff9910a7f4fcd910b0ba3b1e19c94f0e1c625c8c3c89416bce0ab483",
+      "sampling_parent": "image:a3b7670fb3f8fcc939e9b3a29af9541a248f570c5407dcf8b7021c1ac147fea7",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/573e61_5_9_png.rf.2699b2b009e1c644dc4a22871f3074ee.png",
+      "image_sha256": "b1191ceab99223f6e650f6649f1152e23f88c99e0326d8d113aad4fd961fd7e4",
+      "label_sha256": "eaec9f79b0ea968a9f15ba145ac4edb7c17e30fcefcd53712b8e80bad16422e2",
+      "sampling_parent": "image:14464ca8023fd23702393d88fba51118d84825c01eb2f4c763d88205d7d723d6",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/573e61_7_10_png.rf.97581f3eafb5e8b410d9d02832f5da69.png",
+      "image_sha256": "ae0ecdb987495be1b1e0718f4ecf8d0cbd4688443cf713e673d3d0ba1bc7916c",
+      "label_sha256": "a5a1257112361ec196eb418d7042638a8c25ca96c4248f3b84d3c8c090df3ac4",
+      "sampling_parent": "image:69f928bd32b84c4d693d25130a2288714fc2c9423fec7be4dc3b805ee09924af",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/573e61_7_3_png.rf.f3622e48e38ec911d6481bf2003cdfd5.png",
+      "image_sha256": "a48bdf0de08a5143ee9c778f305940c8d3bf360c54ccbe2adc106d8edc42cc61",
+      "label_sha256": "f91f9ab7162956f73bcb43ce56870b451c638c15b5de73815ef307dcd3c76b39",
+      "sampling_parent": "image:4463fdc536efe8bd78246d068411617523a61e157653bee35398889840cfee90",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/573e61_7_8_png.rf.cad5609f9cdd6948ac7ccf511245ff80.png",
+      "image_sha256": "a9d19d4993384348ba0fea6d0c88a4da043d5b95a3f3d090b8f4d070e8ec188a",
+      "label_sha256": "3b7b3bf2383af20bce3a24742c50bf2e7d1133008cca0806c8aae1d46a5e48b9",
+      "sampling_parent": "image:0cf0838c65575eeff25045681f7365dc8057431824a144b852320156912fa19b",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/573e61_7_9_png.rf.34564e7b4a0f7c281a2de58cddd3af09.png",
+      "image_sha256": "c8f5e1fe63c21b9b4e60603b4067654aa02deabd9ec3a646a7a2d869912e0d6c",
+      "label_sha256": "24e3379e1454c72fa4a5c55004c270dbb0eb02f9e3b81312c44a995ba1096945",
+      "sampling_parent": "image:01564dfe287849be127928b1e75095e8a0fa57019fcbdbc5026920c5632642d9",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/573e61_9_10_png.rf.2dc5ac71a97d6e17b767283873e555fc.png",
+      "image_sha256": "87f94eb731241aee41756ac646cde75054d149740f02af65909c2067bd960ff1",
+      "label_sha256": "7fb64b3b5ad118255a4608a8e7b7fbcab19cbe15fef873a39638495068d4949f",
+      "sampling_parent": "image:f6b445da884592365a028f9c46287b9b1729682d6bb464c6834808b0171a16ae",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/573e61_9_1_png.rf.77801a643f74043265aa27351787cfdc.png",
+      "image_sha256": "756e21c27e2e6596cd60d7bc27845216d2db94c3d940d2502cb128275e2f4717",
+      "label_sha256": "04e5218504f0725679aa51c85c1f7dda053938eb56cef3f06e8cc7baa5a64a07",
+      "sampling_parent": "image:c0e177aa68a751c7dff0110c6af8a19435723e4576933a6c04cb1fac71f14f95",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/573e61_9_2_png.rf.2e27d7ba99bb564fe2b08524758c45c1.png",
+      "image_sha256": "9f13a8373ba71a95acb566cf08549ce148a2756db58f750b68a11841a0eaabcc",
+      "label_sha256": "4dc6475e41c3d73feb1215c340edd93ea6bed332cb3ae4520273f053dcc708fe",
+      "sampling_parent": "image:0231cc2b94ceb7e89fa2124629f521a041b9f5ffa41e9d0b3c603e179e0927fe",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/573e61_9_3_png.rf.f67eb67be2a1014240dd7e67bf4956aa.png",
+      "image_sha256": "908520646f649ee52ae5f398cec591db43d39709d7e78e0172b118e654318063",
+      "label_sha256": "4fcab1fd019b5923cc84465edc323354c93318b94f505bc9dcffb20c8e3bd300",
+      "sampling_parent": "image:bab444ccdf9bb3ee377d5cd0dbeb09b892be957aaffade9288640d01cab30407",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/573e61_9_4_png.rf.b0f28879879e979fa1dbe23abb6c8f01.png",
+      "image_sha256": "9b1e6c33c3c1b9e72a1f7236d3562787bad06b5c40aaec1115d340cdfaf213f5",
+      "label_sha256": "322896a0d1bffdbd12b62c287cd6a09c851b8c3355e1260a5438fb020331d2e4",
+      "sampling_parent": "image:5c385f4a18f0b27d7171d9b3971a88c1272c969a961e9e2730eefaf24a7c3735",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/573e61_9_5_png.rf.793bec8346b933cfd6d46a109e849b2f.png",
+      "image_sha256": "08f3e8a8120cddc6ebaef50548de95920168dc384096e9f7ab3b5db3ccc4dbc4",
+      "label_sha256": "37344aeb8a7b5181498c8ae8bed746a4be12248b3b77d155ded259e04fc7e271",
+      "sampling_parent": "image:aafd9da7d55ea36a77912400b2aee88cfa32811c37c0dad2416038d448414077",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/573e61_9_7_png.rf.87bd803b252bf33ee15c93ead4cee51f.png",
+      "image_sha256": "31c55ac04910f982020e8b147cf993fb5e1b3ff257619b21cc3a405fb33c75f3",
+      "label_sha256": "84dfcbfca405a66361325c6f6f4873082d04d071ba670633f48ed0d5ab7cfefe",
+      "sampling_parent": "image:a17f18e8bee7fc135b394eec70b62b891f9824c899f31b7a7fd51293f8ab5d4c",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/744b27_1_1_png.rf.15f617b3e7a2e65eae9a912ccbde6abc.png",
+      "image_sha256": "e4be82becac0fd97512ee9617da258ab9194f71b34e56b1a19fe7fedfe72d4b8",
+      "label_sha256": "5db5812260660eb3e896dc7051eb3b27de54667c78ea0da6c6278534b9014682",
+      "sampling_parent": "image:0d8639935fa6742ab547c9c5f2bb31875e860ea01b522da20b263ef335d4177b",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/744b27_1_2_png.rf.16771f308dedc76c1f58a7fbf9c6aec5.png",
+      "image_sha256": "925e3883530b00c249c9046de445c8620b8e0e373e53285c0c36eb09b175b720",
+      "label_sha256": "f7532eb8a3543563aa03de9ca9fbffc24fdc10fedb2ebf5f7922b137f7331a7c",
+      "sampling_parent": "image:5b07503dcea19b8ae0b7aa975b46ee4d894c45fa9557206f7ae1b04929409ef6",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/744b27_1_3_png.rf.aa63794f28a01d59ab1a8246a9e787f9.png",
+      "image_sha256": "17c05aeb49d894186898f84a1714fcddc5106db52ab4ca47ae4b18522f953d1a",
+      "label_sha256": "a55897fee3b178d6d5b9680969a88a92c1e69fca0caa0f4fb94f49c8719cbb30",
+      "sampling_parent": "image:e6c900e2151ef05ec94533e6479e792ea6a07e98e3dfe5f754e93743e2e945da",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/744b27_1_4_png.rf.7abbe31dfe8e6efbde61be618238271c.png",
+      "image_sha256": "462a09975e93225664ad82bf7575251556b67af09ceb60f11cfc32a0dd8c138e",
+      "label_sha256": "c7c0acca9f9b4f822b1713dd621236bd3e649862b8f1bc26720b60ca1d831537",
+      "sampling_parent": "image:895bede0b1db3206e02f67cb0b784fc4f5d75b1aebae35ab6dacd8038f0e78b1",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/744b27_1_5_png.rf.74cd0f8c03c5be78cf5ac9c47c73a8f4.png",
+      "image_sha256": "82163f64e1cde8e0867022b6f4a076f6fef3fe721cfb27d621a19a6c98586739",
+      "label_sha256": "82b849a6b89a0e671e804815f2791d7ba7ee333a01538f0c2d3239b2daf5e833",
+      "sampling_parent": "image:2bd1b2c8ee4ba6c63b8dcb9038e805697131ec0a2367ae0f83c28df9331f9ff9",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/744b27_1_9_png.rf.e13185276e2fb6e3a426e98e4e1c1f98.png",
+      "image_sha256": "249f53488e21012accaa343a3c5fadea5933bfc235e6548e16afe0e89a5be86f",
+      "label_sha256": "93d1227727ca0fb3f101247305b2f858a10938d52aaff396d58d0240bd2b20ae",
+      "sampling_parent": "image:4baa877170d2d79f31e1ba0ff9471b2bd61a6554172b669ccef5f4a5466af304",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/744b27_3_10_png.rf.d4cb37da139d626bf281d481c0d3a3a1.png",
+      "image_sha256": "c7bcadc08d530396479117b9555b72df03ecabfc23e3fa1bfad03d41111e25f1",
+      "label_sha256": "585e24a0af5250d9734bc1096935428f710566b04627c5e1876a1b803348ebca",
+      "sampling_parent": "image:9eb91b90f94ad313d2b9705ffca0944fb1523b69456e6b39329d051f16e799fb",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/744b27_3_1_png.rf.33a653a0addb13978271b3b2d7580cd0.png",
+      "image_sha256": "65acfe828d126b1cde01281992647dc47b324272253b6829bc4352cdeb00b6c3",
+      "label_sha256": "86b0951bfce195de1e86a19e5a98376009006a1f42cd55f793c82987b2f5873a",
+      "sampling_parent": "image:17825b193708c4dec6d7204c30d2d00e64308c8b0195acdcd2e788979efc1b62",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/744b27_3_2_png.rf.6699b2511820b889f04f9688b342be9b.png",
+      "image_sha256": "be820bc826a1abcb20caf21da7c324d362cfec4756fbdd35e641239aa5764bcb",
+      "label_sha256": "8f07368a9d8c530999585d8ea0d45c742e2f65be5df3479448d055ddc4b66b2c",
+      "sampling_parent": "image:c643f7a7373570f6da877e3a91aaf257de70ede698498ee24ac381c8f78f0ed8",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/744b27_3_3_png.rf.8efa7995d792fd87a2fdb62815b605ad.png",
+      "image_sha256": "ed126b9f92dafd591a6437afacdc1800db61a179948eeb42686fc235d03e215a",
+      "label_sha256": "90f0ed9ac93985103a8367ee02cd1ae0eaf25c23370d52d1d697b0394a465e59",
+      "sampling_parent": "image:facced5dbda4657649162394a51d8b71bbe11e3ca26b1395928d527983fc5920",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/744b27_3_4_png.rf.2249f3beb3ef49deb4eeec1f0b8c26a4.png",
+      "image_sha256": "4790e489493368c981e7e4727e11381f14c792fe1aac557e650f98e714554610",
+      "label_sha256": "445188b2fe1debb9c4463c54fe91a609de72a65abba2a81b8b6a3a85355ce3f4",
+      "sampling_parent": "image:8647d345cb293b67de63a4cb958d8a32f107b2b4b1b458d946e0b74b58e4592f",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/744b27_3_5_png.rf.ad8d20930f605327cf07d41e51e9a6ef.png",
+      "image_sha256": "61e790aabe23908676fd7cf7306b2c6b528fc188dbc85193e4177dfdf3f6ff56",
+      "label_sha256": "4c82f3f5cbf213cd95188baa926dcc7181a39feaaf387ab56b989c69365a193d",
+      "sampling_parent": "image:99be1d859d361c2a6b2d2276a9c314308343b59327ed7069b63aaa31d6f7017d",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/744b27_3_6_png.rf.ff792f6cf5cbba7332c9309add1a085a.png",
+      "image_sha256": "0774037e451d2c966b651f2ffb0ab6d3bee27b7f91aac756c02ccdf735d560ec",
+      "label_sha256": "8a39fa3c62b7b3d5a2384fc8ce567c0a9bcfacb5ab5981978e34a8330159e2ef",
+      "sampling_parent": "image:66054c2abebba536704a50811081e7d73ed9d5a76031d2477b74191e9ed2bcdb",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/744b27_5_10_png.rf.f970091ae9539ec1748ba5eb198785d6.png",
+      "image_sha256": "0389f2a15a9388090223a71f4a85c1b7f5e45758fbb1485ca085ba37f569a209",
+      "label_sha256": "6ff878e9060a0e690a5ddcf79d96054ff7f59f7ed4bc873b971f21d5eaffd047",
+      "sampling_parent": "image:fb8145ab451544bf20f528f59e1f5b395d76e3e98609a95509caff4e438f9bfb",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/744b27_5_1_png.rf.73d6908c9a27fd5896fd7d7e58b1cd82.png",
+      "image_sha256": "e200a68fc7671ba41b3a614ec3dc7b5c74e91894f1eeadbd9a36858a98b9d7b8",
+      "label_sha256": "8d21c8ddc0ad6ccb430f481e8a1b1ea65836b16efb3cadb09cd99df3e37e50d4",
+      "sampling_parent": "image:1e7fe6f264cc8bdff722ac544f17f7b0c0d1a5215080aef5b2fc8f9b3ca62fad",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/744b27_5_2_png.rf.5c1dc3b23422af1c554d14e9769cad30.png",
+      "image_sha256": "c4a7d137b3a8b72b50ea752c18c04bbda337600e6a4ddf3b871de61d98db7efe",
+      "label_sha256": "30cbaac64d9852a4d3b6ac409f0a2e55573031780f5a0a2bebb7179283a1e04c",
+      "sampling_parent": "image:e4a2f3dc3c8923e89f7ce3a8bc898daee22877e8327cd6bd263957b9b3c580a4",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/744b27_5_3_png.rf.1dfc6ca8dc9d72f207e4893a7eb35620.png",
+      "image_sha256": "60b3b9dff67c1a05f8a995d8ce1be633d1c4b1530b49fe09ea84f7bd58bce062",
+      "label_sha256": "22f0734a5cab59216e27e370e88891b8b0d313cdc49d8a79e3e4edabe1008ed9",
+      "sampling_parent": "image:dddbb861a1272dbcf68b5d5763137a9fb62bf2006e6e95cafb0b1016147503f0",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/744b27_5_4_png.rf.b76511b38627933653b1865c57589015.png",
+      "image_sha256": "4bb6c23fa03368d0f1ed9b19adce806845aa3c759deccb9ea643037490487456",
+      "label_sha256": "0d4d7c76ffd6a416dbc39f5547f494d7bfe90106ef8e9578b160da42b8776215",
+      "sampling_parent": "image:6ccc3ca56e79d64cebe93cb72e5dd1e569cd24a80574f4f00975276ba06fb11a",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/744b27_5_5_png.rf.659ded0d8fc69299c624560161cb7f16.png",
+      "image_sha256": "cc19788285db650f16111eb5a90ec8ac6df1bd5d2da7faf9b0f388e9e9f70af6",
+      "label_sha256": "7c7e5857a5028b77ab0b577e45d1386db27449b3e525fcf751f667ad761e092d",
+      "sampling_parent": "image:276ee46fd830470878e5e66eaf9e3366a4f9c6f61a46fd5f9e3227b0a73b4b75",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/744b27_5_6_png.rf.be918e10a2ce6005d9233c6fbe53508b.png",
+      "image_sha256": "84721c94f4cf0f46b832604d9e7de4795cb60becb88906bcd44f4492d98776f7",
+      "label_sha256": "2f79ea2013a8ffee6e30e6ecb3972bce6beddb789681b89ee0b048e820b965f6",
+      "sampling_parent": "image:34905d8ebb647bfd85baabe924c45f704fb3c8946cc08a0ebaca966c35bed1f6",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/744b27_5_7_png.rf.8b1810ccf145a32547dc6230dd987219.png",
+      "image_sha256": "53e3c12c0e2174d02f4a30913dac16e73a35807cbabb95fa90e52fa4322a7771",
+      "label_sha256": "a1e6d2b0fb0644c1d5d3fa0594568933b3981a2b75942c033f858aa2f7366c93",
+      "sampling_parent": "image:bf2b999f6c97b832078490c11677eec9e41b55f05d2464dc464313ca7b53a5b9",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/744b27_7_10_png.rf.b639ced5d24b2faa5ea19bf9b0fc087c.png",
+      "image_sha256": "19d23d9b9c06724239fcb52e50c0e6a934c9cfd8ed5a368725c7f9e6a8abad3a",
+      "label_sha256": "cd2fb97175cb2946c06683ea311242cd6fe2dcb0135b840b485851084f6a0193",
+      "sampling_parent": "image:888dcc3cba7d64ba4122a346943efe2d259a36410da66adefbade52763a69b8e",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/744b27_7_2_png.rf.e1d46d3be36334a55fa2f8ee8c95f7d5.png",
+      "image_sha256": "5e2fb449f3eb66fda70cfaedb7f72e889767ef13af2e4aefc3ce556e8dcf4912",
+      "label_sha256": "72e8528c3e0eeafc169c632b315824b2ce69ff791808b6f0e5a40a163bc389b4",
+      "sampling_parent": "image:0354aac7bd3871fe9561af07b0de9509094e4eef6562db59a96eebeb9e0a0875",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/744b27_7_3_png.rf.8df2b0e4daa581209379e17896a291b0.png",
+      "image_sha256": "2315cf2195f6fa2980b3ff737b0eb6d9acaecdd781b8a31e3e7cddfb51964816",
+      "label_sha256": "ab98503f6e56520c3c9db72f2d85a0d31b87fa4ebee50dcbb87cb32ba4d04ad9",
+      "sampling_parent": "image:a48473b8ec043e844dcb5efe49ea712306dd1273e20d04e8be2c817950f173c4",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/744b27_9_10_png.rf.2f2afce6d066f0e6552d48f4f2086a73.png",
+      "image_sha256": "6172a664ffbfaf048a65ca56da53ad0c4b18e9369d2bb2728e885adad781bb52",
+      "label_sha256": "d5c6c99deddd2cdaaba2194a6ad6774cea819e9af2cdb1221fde857ca93a663d",
+      "sampling_parent": "image:ded3a350000f4b4daa6ca8af15e46301cd1ce1bca76c894778c484ef4513d634",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/744b27_9_1_png.rf.5c1b19949b8d532737d885c3e828f9ef.png",
+      "image_sha256": "c6ebbde0533b7e0ad225b04cd72da017c2c53200355962b72bdff3268ef6af1b",
+      "label_sha256": "980a10571d8a9ee814fe0c08662c9f9c6dc6f962bf4a7a3bacccd2b2e59cd35b",
+      "sampling_parent": "image:563a770a87260c0b8c8c5826b578412b4cbf326cf0678daf367263e7c0261f62",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/a9f16c_2_1_png.rf.684fc01948709e825164d3d4afd870d0.png",
+      "image_sha256": "81d0bc730b954bc54de1da9fd69a1216949254e7637aeb74ccd01cdb1c559255",
+      "label_sha256": "d40f3e268ff51e0258467fb8be6b5933adbce380008ab92d55cb51cc5863e06f",
+      "sampling_parent": "image:5e6d6b56e39df84e2f909e386ccdcd6615c78df0f5e27997e763004c07b1c1a4",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/a9f16c_2_2_png.rf.a4870307ef4c7f44f99c88ed92fad31f.png",
+      "image_sha256": "d6075e224fe8a640a7528aebc64b7b328ef07d7975a2593082aa1139dcb17c4d",
+      "label_sha256": "ecaa5b3092da72d0728da00b42f1614c63ceedb8ed339a17b3babb69f4e5f3d3",
+      "sampling_parent": "image:6da0a22fdf308bb256df6dc31633fffce73ef32c746ebf6474509505d7bc85dc",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/a9f16c_2_3_png.rf.b47b46f29aaf3a7472f9a6f6b90a1ff9.png",
+      "image_sha256": "1678f0db78c93d36ddd104a9a03de3969acd5d81bf274df615df4c87c292ad3c",
+      "label_sha256": "d9d6b0cfdbcf23693acb885cbc2ab205f018f37a6b8f77b37017938c301550a7",
+      "sampling_parent": "image:63601de9c12f68ab68eab0350d1a14ca53747583039b580270b4266b29be0e11",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/a9f16c_2_6_png.rf.7c7311582b36714a1f18d3607184fc1a.png",
+      "image_sha256": "aa8cc2b04e1f58cc83e008169eb14487cea427084e52858b92a94815c9520a9f",
+      "label_sha256": "6c2cc72de2dff59618b007a1ce7d9370bee589496ec4525f16e31a5776e782df",
+      "sampling_parent": "image:46c1890e1efdffa6cfa76b60a73673405d8dae700f1976461a5f8d0348706f27",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/a9f16c_2_7_png.rf.205a43aa5b3ac2205ba41a34288504e8.png",
+      "image_sha256": "977ecf47488ae3eee8de00f6cca14a3c6a9c17004769d046b6187b36775e2ce9",
+      "label_sha256": "edc6b6a97c60a6d3878c0283a3d6c58ff63d539d55d7fab6363c206f0bd4e7b4",
+      "sampling_parent": "image:fc695bba47d848daea4bd4e76e2332eaa9dfc4416c78fe7077f5f4187478ecf4",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/a9f16c_2_8_png.rf.878be90ba0e9bfe76d2bd29d0d9a09ab.png",
+      "image_sha256": "2f5ab1470f80a02c8a534da964a824fcb14766d8277424b5fd0cbe33be61e1bc",
+      "label_sha256": "7a192f5a161532ac1ebe3934fa2bce8bc7fd8d5fd658cd0589d63da258319423",
+      "sampling_parent": "image:ef92b98dff95d2dbbdf4cb419d5d1e81a5065f0f929952aac91d084b42b1f909",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/a9f16c_5_8_png.rf.8bf0bdc69e9e310c34791e53728f31a6.png",
+      "image_sha256": "1f9d955c976cc331ac6e89db1143b0e69b6e133c7c71efbc74108694056258a8",
+      "label_sha256": "4ebc03ff750aeb58f880d58466e05da905a43732e33746386c228bdd6cd47cc2",
+      "sampling_parent": "image:11ca932294b05df1a7c92b32d3e5091eecb5ea2cae22c5f8b8de114c7eeb18a2",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/a9f16c_5_9_png.rf.f53061988fba3b60b00cc7dc7d2fe57b.png",
+      "image_sha256": "6b573ed8123f31cfd278da2ce0d91ac2499666894321675e29ee03098fb64d58",
+      "label_sha256": "711bf88c9021842ace7a777c5aaf859b77fdeff351b83d19dd4222436209d815",
+      "sampling_parent": "image:2cbbedd354891350e0b2402c49bc9f9d2d97e7515cb980a3d668abb3830f4ace",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/a9f16c_8_1_png.rf.901413bdafe6010fb2a14394d2061581.png",
+      "image_sha256": "998e88d54b07bf31646534453b905b9c86a39f7d0c6bdee7fba8c9a64117081f",
+      "label_sha256": "52d1ffb2dd2a52628d96698081fc20c89ce9f659a745313286ffa4346ad650f9",
+      "sampling_parent": "image:41f1eb801b934c13264fbf1c38010fe5049548ab244d41eb2f43d9c4bfa40604",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/a9f16c_8_2_png.rf.9e37d1c57d46f698f9de28da43cc7689.png",
+      "image_sha256": "4be1e7c001029e4962f73d3b8ff1352edd3d672ef906cafafe87664b9bb2059c",
+      "label_sha256": "87b8774eb33ad087b378d009f810e5e1f20c6d3fb48373391382bd581b423705",
+      "sampling_parent": "image:0b16b7bca5fbb7b56e5d194bd4a189741d0897fe02e5436ed9d7a720a84b79a7",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/a9f16c_8_3_png.rf.aa79992cfa503423d29144ff19055c58.png",
+      "image_sha256": "fe324bcf439220071dca54b647139dc0f7b0ef09971847fd0a9a9d01491ba0e4",
+      "label_sha256": "448729daa25f7fa9f3ddffcf3caf72a69d39a40b27b2cd0094a2ff5b95f29488",
+      "sampling_parent": "image:0a8487990525091f46bc6238a82c3739e0ccd92c1d3942ac48515805ee640c34",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/a9f16c_8_4_png.rf.9b21eb1debf9d3b407e36d4044de6e6d.png",
+      "image_sha256": "5f2b1d9a71dc606880c757d388ae6e2d81f89ab3c56f18d4901a5a8c4e805848",
+      "label_sha256": "f7dd2c74e39f7b183cec0045ab0d1353590bfc401a7c0bf1135b07a677a1e956",
+      "sampling_parent": "image:6544715eb118d5e17c9a1b333e819a9d7487c554681942793c237f0e391b0545",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/a9f16c_8_5_png.rf.33fadee172a47052a1e3f190cffcc294.png",
+      "image_sha256": "2076901dc4bed4b73c49985038d99d2ca0dc11e832757995dc705ade2d9eb14f",
+      "label_sha256": "2e3582b76c7c9c57cbbf48060189bf14b3585ed48abf5023bdfa02d22a959e48",
+      "sampling_parent": "image:a734a67538e491e8ee1ed73005df7c7af03ca026e9f2ad34bc3b2031e8e9ec59",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/a9f16c_8_6_png.rf.5369c472747a1e3b0207b265154d22de.png",
+      "image_sha256": "077ecb67d50a60529ea6b7452e25fe31889553614d91d2fdd8e5db89513c4509",
+      "label_sha256": "c8cb90b47c7a81792cbc8cfa455128013c4b0d4634c8d7fe3b4c94a76463705b",
+      "sampling_parent": "image:78438f422cee104ea167608387198a8c698ff846c71cee14d0bb12f9ace16b33",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/a9f16c_8_7_png.rf.4274e756f68b7f873c36aba62aacfedb.png",
+      "image_sha256": "3591e934061bb5db3c92b0aff957ef9a1e45812b180a4b8a8a1f9cb9f21f58c3",
+      "label_sha256": "d00cdba842a17602bb307f0f2448341c35e945d1ac1986a27cee51f3d8c9bd00",
+      "sampling_parent": "image:1bd2fec4a2b001d8d86b9ab44f3de53d28d81c9d899b3a28c7a0a5fd09efe02b",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/a9f16c_8_8_png.rf.34b15217aea06bf2d06d4d5f3e848ac4.png",
+      "image_sha256": "df5a1af9feae693d2d78afcaa8083b233ccb3c7905433d0f9ab4eac7b6ab37e3",
+      "label_sha256": "88038499fd556bf0e070f5dcc219f32ea94e14dccea331b240acf58984d8b1e6",
+      "sampling_parent": "image:e65ee4664b1ef467b2748c7d050ffa88f230d96dabbc6b8e3832427353c3c90a",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/a9f16c_8_9_png.rf.ee11923f129c6515c60e7893cae215ac.png",
+      "image_sha256": "b39c6ef34f4bc7d28039595ddf1436abcabf4b79303a0d7c4a3bdb4dba63af52",
+      "label_sha256": "93d21f198c87cf1e527e196d0eb897b83e8f22acd11f53c0d3f9c23be5cdf313",
+      "sampling_parent": "image:24525a788e48329acc5698a05db80eeb2603dad9de57f381b2a2ee4d70566a27",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/c01561_1_10_png.rf.3f004c5d1ff29736ea3c76c15311b910.png",
+      "image_sha256": "4e67a4c06efb123118a843edf90775761a4b3c4f5f9344033aa4e00bc07151f1",
+      "label_sha256": "e2aaec6735f1b837680f19922c90592de14fa61ca59901f0de4d1d61d24f4bff",
+      "sampling_parent": "image:89ff83a3964ab1408262c21481919b1b3b628c58d948745cdc47d190a69347ed",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/c01561_1_1_png.rf.fff7f6beb5b7ff9d40de7f31cb0a42d7.png",
+      "image_sha256": "2d134bf98e1355b2dbabd719e7f6bd3121470da6725de42687471f7d042de9f7",
+      "label_sha256": "6ad3dc6bf739082f1d92c25437c015b4b21ba6912cdf282a65ffc091dd27d989",
+      "sampling_parent": "image:69d13eed0cdc39343f6de635bd391c3a5b8793a27e79c01e15cd5b107cef9d27",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/c01561_1_2_png.rf.53d9bbd8a582847f8168addaf71607e7.png",
+      "image_sha256": "466ab8c33b38cecea3a198ec840437dd7ced23cff391117ef3a8dcdf09aca948",
+      "label_sha256": "3212d30077697d7b0f1dfbedaebcc0ef810772c54454fce90bd52c989c4d899f",
+      "sampling_parent": "image:f54b5ff8d67123e1f83dc641a082e6ceee7f524b58efbd3e159680d32792062d",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/c01561_1_3_png.rf.41451ed9cdb38c51095e7b71e45e7537.png",
+      "image_sha256": "0999e75e6372059e16a0561f95a16f56bb6e5d8998bfeea69cd373b3d56051d1",
+      "label_sha256": "95c895c9791cdfc851d2f1e5d72cda9d3b574eae101438fa3b27830dbe932021",
+      "sampling_parent": "image:4b8db39aefa04b04ec610306a46e0a51587cbcc0defa371195b2ac73d683753d",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/c01561_1_4_png.rf.121426bb566b9929d840962135365fc9.png",
+      "image_sha256": "bcb479b2ee091b3916454e66a0336d1b644f3ea57d88fb1d0fea82d6a7c211c7",
+      "label_sha256": "e45f330395213aebaf83abae3b0bf17a4710f6aa5306d71d228c0cbb58118a43",
+      "sampling_parent": "image:851b283c473285390cd2ecaaa5bfe2be237d2ab16e7e87afa095a232bf4c7541",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/c01561_1_5_png.rf.d4de329cfd53059c00d810baafd99c49.png",
+      "image_sha256": "cdfeb5523c004b4bb5718accc30d5926cf0257b8775e2d2c01b1b271cba52707",
+      "label_sha256": "ff7e05e19ecb1e849a1127af9a14ce79f5d6070f747c19602248b5a09c0ce534",
+      "sampling_parent": "image:cfbf6bd5575d8fc8a5c9dc7301cc9a1f5152538b3cfeef564c372865ee2debdb",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/c01561_1_6_png.rf.7023f4f6269fa84eadb9455b9461fb03.png",
+      "image_sha256": "f7491db406b68d0210f5298aef4c6c968aa9187700e45b97ae2d2b2340e6b806",
+      "label_sha256": "b210d00a7d175e39ecf736a50bcb8fc6892cf6559823f2975f8452265ffe344b",
+      "sampling_parent": "image:e38741ea85274bfbdb202400a6949948d794927a49c5242a92bd7d524892b0ca",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/c01561_1_7_png.rf.b4bc7d28f0d5ced23862f3a42b20d221.png",
+      "image_sha256": "90bfef99c2ff9be1f60a80c4d8386e194fc51fbd086223d5298e342079dd5188",
+      "label_sha256": "1e3e12cebac4d7f602812da5dc5096fc6c47fbb5ead519837599ccfac132b723",
+      "sampling_parent": "image:7e92daa5772ebf884e26fb7fec7199d08f6bc718d2d8be0b668a51f19dd9a612",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/121364_7_9_png.rf.6f3d4bfe60974a7919c516b5fa211f61.png",
+      "image_sha256": "3c456e9d05ac19b9e800191ff634203ac25412ca42035efed3063992f5408357",
+      "label_sha256": "997f25a62c083e0a89449f14f467e2cad43a7d7aeeac1e3c39be984d2190106f",
+      "sampling_parent": "image:f0504f4da774da8beb3e8f3e6f5e0228f45df4738d44c665bffe0b25c5f6084b",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/121364_9_2_png.rf.9c9e01157a7f8e56d192f1ab71bc3ee3.png",
+      "image_sha256": "a480553183d1f903620fbe58224ca6825e949f164d7e7f2484c265e3a1aacdfe",
+      "label_sha256": "34d263f32f2b8a703a143ae4f9e979cba056a3022a062dedc3a655b4b88f5817",
+      "sampling_parent": "image:7c9790be6a7348d7320657b3835bdb101f388605fdfe67e56b7e8b05a43c7982",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/121364_9_3_png.rf.548a964ea2fc377377f64201f3357955.png",
+      "image_sha256": "7efd29590548324b90f4273a8edda4a69b78fd1c33ffb0eea91d1a661efae2e3",
+      "label_sha256": "853cdfeedb3c1dea03f7c58c202055ed78ccf2b027ae505227baf784751dae6b",
+      "sampling_parent": "image:413ef4b1734e7f71b21364977a4e3584b7abf807eeee46d60f8a24cd7a5d43b9",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/121364_9_8_png.rf.3fd18b19e18d5bf23a511bb921721ec7.png",
+      "image_sha256": "13e8defd08678aeca22083d5bfe38c32d470718a771ffd11c11f447ad6e41334",
+      "label_sha256": "0b92d5e970907febbb5f484e87e49c0fff90f6101d4d9ecaff2d028e6761538f",
+      "sampling_parent": "image:13ffad18f998237acf6b86a86e8fc658698de63dd2e3b72cbded5d209ad52a72",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/2e57b9_1_6_png.rf.5eed15a86a113c3d303a47709aa39dda.png",
+      "image_sha256": "9333437a51038e525525bdb954fe539c5699e89f2b866bc179e028d6b4057eaa",
+      "label_sha256": "b52421930b7a28bad6cb490058c5992d2f22e1fc700fc5561264a1668361f179",
+      "sampling_parent": "image:7982baa2660ad55fe7f116aa30439b73dc28629aba9dc846eb569c9e5a08a56d",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/2e57b9_1_7_png.rf.3732331f4d45c21801f1b93f4c9b690c.png",
+      "image_sha256": "6bea24cf37b1bced1670ca9db6b6f1137c992f285c8e160e96fd8be4b6475048",
+      "label_sha256": "90f540b6fb5f131637bec9bfaf4cf7d07bf201cca31886b5ed5fe54ee38f0dbf",
+      "sampling_parent": "image:65436258005c34c80ae911631082cac236a51275be02c6e3ab63bbb24dd21a11",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/2e57b9_3_10_png.rf.89b6fe0137f743e2a6e50689f3a30517.png",
+      "image_sha256": "38ddbaf3fb660bf76b8ed290b4ef23152d9922155e257bbc8225e457889ba866",
+      "label_sha256": "9682210a384194c2677b462a405e2dff0244fd254bcc07bca21a6ef1fc5e18c6",
+      "sampling_parent": "image:b3c7766d23ac6be539ec5d6506a7b3f70ae7fa0b00add4217a18380fb0832df3",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/2e57b9_3_2_png.rf.71458e0228ffe081014fa52f00c974c2.png",
+      "image_sha256": "0474a1488606469f073e1c1064661b00042f8f80dd16e4b61039b66f6857eaa8",
+      "label_sha256": "20bde1227b05f468490c2e75eab6dc323d31cf508a4f6ab51d2bfc0ad69921da",
+      "sampling_parent": "image:9218a6630ff7aebd39a4ab917d2a25445c443e11d0cdca3adc6a774aed809e47",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/2e57b9_3_8_png.rf.864cc7d3a4651fdceb0a7d0656a64d7a.png",
+      "image_sha256": "2be1a6cbe6df48d2517be0b4578582ab1c01fa4aa3989bf429131d4083c9cd96",
+      "label_sha256": "77c93c9e4d97bb98bcc342c273cd42e11eebcbb3c7217d35e43ce8b07dc3436a",
+      "sampling_parent": "image:b9e0a7cf4bbf9f9391b0ab8c44829d2a887c2b9fc92ce30be728fba9de9c5c04",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/2e57b9_5_10_png.rf.a84b43963767515660fd119e11fd5b49.png",
+      "image_sha256": "4ecdf90862b461ed58f2a66af5f8f469ea62f7cbeb82a301a37c99bec3e89881",
+      "label_sha256": "8dc8d0e2be9ce56f6a2671bd1aa2e67fc8e3badd7230101ca21d3991501c4f29",
+      "sampling_parent": "image:0308ec0404c80ffab584523e65961444d3fab70d86a8d163c80017767614934a",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/2e57b9_5_6_png.rf.1cf56a523762636e96a45e26fec41093.png",
+      "image_sha256": "50367482351c5b462ab37833d26390eb5b29b51b16ee6dbdf4dfb470a516424b",
+      "label_sha256": "d03a15738ee986e09dc8b2f308ffbda3cfc267a7d9703e3ded1adbaa6898c645",
+      "sampling_parent": "image:562dda74c3dcbac4f5b3c2c91baa4f3e18d53cc740a97d43f85aa6eb23896e24",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/2e57b9_9_1_png.rf.d922b7781ef90920e3a9a4d85237b152.png",
+      "image_sha256": "b42906d29a1d973dbd9d275c5b584a32109b828179e559a256be6876d7d27f29",
+      "label_sha256": "26b7319c997c52fe1147c183ce1e19c987303e9f61fa3c38604ff82b519b99a7",
+      "sampling_parent": "image:689aab577d8b3a4a3a3704d73c720a61311f9f8785f00c843d5bac861361d341",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/2e57b9_9_4_png.rf.9b66329479641e91fc120b2d008420d0.png",
+      "image_sha256": "e316db4958cfa17f468d845cac01ab724168d630f63af5d26f15a0e2b4f4232d",
+      "label_sha256": "173e7f119e668008f409b5c86b33d2d84b8a954c1bbd8fc6412923be5eb705ea",
+      "sampling_parent": "image:93a3af8dd3017c772775406c187133e6020d79b5ea19c9ba27c53a710119b747",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/40cd38_3_1_png.rf.9898fecf24d8f80ae9ddd8ba08a89d85.png",
+      "image_sha256": "3e9262c02f236db705f06dd8d316e358cbfb156329b368fadfd0dd337cab2fb2",
+      "label_sha256": "500a9db9821ff60dc9dc1870943cec539b2d56a797b915c68fe869b1f11d16e2",
+      "sampling_parent": "image:56e08ef2abc571d14b6508a481747a85166300b1ba191994289e8a76d46ea1f8",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/40cd38_7_7_png.rf.96d36a76d334a6e54fc738da8930b83c.png",
+      "image_sha256": "6e1a94509190be4ecd5fc05d0f6676935404e68d32bd1d965953fbb9bae5e44d",
+      "label_sha256": "5d40b5f5e3c5127002d689f81897a0fd0b185f0f1469126cf6e0bc59f6d8c6ea",
+      "sampling_parent": "image:7dd7c5a59867fcc1502df57d39616300796f9effcdfd7ced97d5371df823ff42",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/42ba34_1_3_png.rf.d48c59d729849662b3a562544a63cdd8.png",
+      "image_sha256": "b8dd04f733789638908b6ffc2df28a97d8201e6033a746277006088ba0ca9776",
+      "label_sha256": "5c3e515131ec26fe2fa2ecdccf979aba11c99d6bfa0a4dd752686fac943e41db",
+      "sampling_parent": "image:3777b513fb7cc068a90a7df9aa0417d1a0b9af0912774a85245093b9df8666dc",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/42ba34_1_4_png.rf.506ce66c16e13a782adda06edcf95d8e.png",
+      "image_sha256": "498c18982bbc757aea81644e3f4605d10445c46937037c74412ba67b5859ea0c",
+      "label_sha256": "a9cd2f24c0d6b680b1e708f5d6e54fc2adc17f5e5cf1c17f850e49c49aa9c2c1",
+      "sampling_parent": "image:d28a1e59d80b13b3c5e501b7fe6b92aa80b27c2f9545108fb495ae6a55cede23",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/42ba34_3_2_png.rf.0124df5a79f8ec21d8d160ae061a8457.png",
+      "image_sha256": "d06052abe2e0f7c3f0028f2b33dbd55c627ac21904c8f1c81367c813fc4512ca",
+      "label_sha256": "897f3cf22c5239ed2eabbe4edab7cf98a29672cc327b7bc42d2b8096b85e2637",
+      "sampling_parent": "image:0eabda018faf7b5ce7335a57eb46c8696b87c7402f411ed0ff38f862e874a905",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/42ba34_7_1_png.rf.0fe25549b5f330be02cab0e14cfaafb4.png",
+      "image_sha256": "e9129f9e235fa81a5cca5f71a4a4fe9154bff68c3256b82c8a778fc72398d1fe",
+      "label_sha256": "d3564887cdeb1601a0185906bd16a1b043cebd6c6f37cffb14b78e67e00cc86d",
+      "sampling_parent": "image:e9d65d53260c1727f16e31be6681c6f1727d5260878554501d1d34f32d4cb66a",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/54745b_9_2_png.rf.b275c848c8a0bcff1c4455f5ee92ad48.png",
+      "image_sha256": "792403269eb07a8a80792f36d79eaaf67b07ee8901528581c8005375c095609d",
+      "label_sha256": "b081cf1d18c3b37bca33bc280db1e6433510f7a9a911b6f83af4a7156efe678e",
+      "sampling_parent": "image:8cce70b50b7f9c5a993d7f6d00a9d5a5f5f13ca855b806d1235709bae16349fe",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/54745b_9_4_png.rf.a5a9c4db7da54ca5f80ec1593e0f495c.png",
+      "image_sha256": "9d989f6675cd1f624f64f85b072f89c1f6bf073099a1521445ec169aa6a3d09a",
+      "label_sha256": "4b67773734231123e5860d200b034e0b911cd6b32dc2a8ee834c342c25659e8c",
+      "sampling_parent": "image:aff823e05df56f0cf1269c74a66f351e1bca0d15c95917ae922f09dcad05860f",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/54745b_9_5_png.rf.b5468fc3f09971b47674a72c2167a2d7.png",
+      "image_sha256": "4f024e7d48a88ba49cb06e27ca9fe18cb62eab938fcd4608ce2f1a884b7549d7",
+      "label_sha256": "312305917309543499ebac8126e309f982ac0cc60e9a80cf9ab4dd061bdad1f0",
+      "sampling_parent": "image:b4b4926906149633a1648523af633657fbc1861ea55311088a7a1c2292332c4d",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/54745b_9_6_png.rf.80abfbdf369890c4a6e0f71a603f2855.png",
+      "image_sha256": "7f25085d8777b4e691782c70784296ad645db73cdab6f284465d506df833a2b7",
+      "label_sha256": "4a7e0b555d821542bc9da19b362c90430a68705034378b7737a864f8c1416e62",
+      "sampling_parent": "image:f297ba0d97dfe68ea0c95012cf5f585c9efce13bffb8cbedd2ae0fcd19a033ff",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/55c9d1_7_8_png.rf.9474d3ec8f3da076667bd81b2e318663.png",
+      "image_sha256": "1bac698d78651c51b77ed0de0f5dcb9cc6c82ba37469bc78bf0afdc1b126a107",
+      "label_sha256": "0856830afa4fb608071d9af5ee24281aeed59aeee3baefd445cd3a234559e30e",
+      "sampling_parent": "image:4fc1bafc99f0db0f364db516c4f55cdeb1f94a113369c63052fb3d538664d627",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/573e61_1_10_png.rf.816041d8a3ac3b3242e36fe92850a229.png",
+      "image_sha256": "3049f261d7fcc298739bb9d72e5e30459920aac555df0c6addb4284d16277258",
+      "label_sha256": "9f2ed72bc61c44c83997466c784971f2a2ea40e30a75439c5dd327157e7e8398",
+      "sampling_parent": "image:64fd81487d638010998641fe6864d4c03ddf767c7cc3a9777ab9ab88f284741c",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/573e61_5_10_png.rf.cf3e80377708907ab6a3f56db145f9b1.png",
+      "image_sha256": "f244a44372f9fc49006ebb392d3caedcf04d1c6b9e4c6fb6e8b60d55d4daa616",
+      "label_sha256": "cd4b3b6d8cfdfa51933696645ae981de2279abfa047fa8540d36e834e05de421",
+      "sampling_parent": "image:fc2dff0731ed450f95c8217c1c048e07c90d24f20e908659bfe698d67a17bd9c",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/744b27_1_6_png.rf.d408afc02ddf4e85bd8fca6f3b31d41d.png",
+      "image_sha256": "a6fd8473b2da679d74542a5561e69f95a452c05d38be010acb40eca364c12151",
+      "label_sha256": "fe81749c4f12521195caf08021afcb97ea03f3f63cfa9bf1765802acca47aa74",
+      "sampling_parent": "image:0850f6dbe4931b7b95e0d51bcc55898dafa5e0a984e4edd51dc7411b97817f4f",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/744b27_1_7_png.rf.12ba8f5ad9ef0e09013fc14b2aef8771.png",
+      "image_sha256": "236713c545c68bab19436e73ccaf4d7f321be9101352886f3d42e97cc8645ea2",
+      "label_sha256": "b4207194f1e243a3908e15c92803bfecbf54922ccb116694d0a7b8ea35d3e424",
+      "sampling_parent": "image:8de28e62d884b0a46ed1b70c3f9b753b57d24a4d54dad4192e5b147c7d0d9bdd",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/744b27_3_7_png.rf.914176a2e9277b4ccde3ceb7c8e237ab.png",
+      "image_sha256": "978a0bcbdfbc167eb9db162c28331b2c6ab1a54af6063d7f8773817992ed14ca",
+      "label_sha256": "1e15c4b4aa1a48ae17755d4063a94ee1db73c07ea3d4f3b897c525bc8bef066e",
+      "sampling_parent": "image:e1cfbb3af0efae19be7620bd7e6d943af2c632e94263a66cfd4b72ea1835e184",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/744b27_7_1_png.rf.f6379a0b852d7215b64b3918588e086b.png",
+      "image_sha256": "24970b150aa0f63061761a16a995e068336ca72606bb81d74efa3611b575bdcd",
+      "label_sha256": "5f1192708214427db4ee769d85553df1612aa75127d245dd7a9bd770f0683007",
+      "sampling_parent": "image:de8dbaa427af2e1d1036c25634244cc96941cc7cbb1bb191852ccaa4a28fc11b",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/744b27_7_5_png.rf.ddac1a14784a56369d60dcaab2a69201.png",
+      "image_sha256": "efc9a928e27af68c1eb890016ff8939b377fc656356e453bef294248538318d8",
+      "label_sha256": "e7c0c428b50bd3a0e462c5fbde58ee801847c6c626116a6f7d4b69a640b1933f",
+      "sampling_parent": "image:c9a8d3649a17a5c0c13330c65a427bbd6509edf5921f82f20918bfb36dda1be5",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/744b27_7_6_png.rf.a60e476a4ec3930bee90fdc0a4ab5bf2.png",
+      "image_sha256": "bd0405781e2c076f898aade2c0047fcfa551dc77c434d0f1b4b51a8e81a67558",
+      "label_sha256": "b69edfb2677ace3a575a80a849506f47f333b9f982be1a81c6be48a9b51f08e7",
+      "sampling_parent": "image:85b7c114246df5622f2ce7cef8115121810351c2de72390459fe41ab3e7043fb",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/744b27_7_7_png.rf.b7b6d9c50f87248eb0fc7f8f003602b9.png",
+      "image_sha256": "26b6572dda1e1eeabc5bc91cabd4156ddf1e0148610762ef9b907ea8cfa022ff",
+      "label_sha256": "9c7434ab79f283ae5e37fbe05abb38ebf5ba00c6ef167a7332baf42f806be0e2",
+      "sampling_parent": "image:0a4ceffb07c9d16292ccfd4cfcebfc511a4f39301a4dc5a103a6077e68132be9",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/744b27_9_8_png.rf.44267becca882c97ff9100aeade5a683.png",
+      "image_sha256": "27b839b89bc5af9b97655ab3774a7d3bce5b54e7a4fbc192effb8f1a41d5e81e",
+      "label_sha256": "8580839d51ca46e320899315841bef1428775e5fe9e980116c85f3d0e75e5bae",
+      "sampling_parent": "image:b1eb8063514fb851a13e5fef7b7d1bfe7288e9c44701ba596d2fa3cac1ce3e81",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/a9f16c_8_10_png.rf.22c006e3d6181c2cabd59ef58e428487.png",
+      "image_sha256": "b3eb6b3e79e3886638facf97778b2a79101c9be7aceb1679c82a2664a81a84ef",
+      "label_sha256": "32806971ac585bf5226c2ccf13556aa87acc7da87e3524c6525ea2adf3f0bc1b",
+      "sampling_parent": "image:218bacf97042c73e62af223745f2bc5d9057476ab4fba7f55fc96ebef7fe8707",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/local-c0-f930.png",
+      "image_sha256": "9f925ed404d2dfdafc8860a725b0c7fac299c8d942f07333777fc70ddd7507e7",
+      "label_sha256": "ee3d3fe7468d82abecda6efa8a743b3074e5cdc98a4644901c10619e8bd7f5fd",
+      "sampling_parent": "video:f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0:930",
+      "family": "euro_red_white"
+    },
+    {
+      "image": "images/train/local-c0-f1350.png",
+      "image_sha256": "7c4bf3260b17ce3c8edf568b03c23ea1da90c797f0ae8cd1b239b34223ee0210",
+      "label_sha256": "751625f6e58d7f3915c4c23991d35555fba82e3c65b86ddb8542840e33ecdeb6",
+      "sampling_parent": "video:f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0:1350",
+      "family": "euro_red_white"
+    },
+    {
+      "image": "images/train/local-c1-f538.png",
+      "image_sha256": "911d44a78cc5b424603da3c271686d06076e5ac5b410b41d87804d07e2bff7e2",
+      "label_sha256": "42bcf8ee43ee724c210d2f91f1b3e8c499ee5dc4151cf7f8dc3b01cd4a1546d0",
+      "sampling_parent": "video:11a9b033dbeca46af7e3cf1117269b04044ddf8d89b6c594efc16222606dd053:538",
+      "family": "euro_red_white"
+    },
+    {
+      "image": "images/train/local-c1-f800.png",
+      "image_sha256": "84c4f8b03c676d847f34207f826f2ffbc522e5f78b9aebfd6be91fd136bfe645",
+      "label_sha256": "58bbb33d3b4f67c1ca62bfec1a52fa119197cb0eeeeab867ab5791e68329b34b",
+      "sampling_parent": "video:11a9b033dbeca46af7e3cf1117269b04044ddf8d89b6c594efc16222606dd053:800",
+      "family": "euro_red_white"
+    },
+    {
+      "image": "images/train/local-c2-f1214.png",
+      "image_sha256": "8fc3eb646512e0e350a7783ffa570a5cf703e2e90541d2e379192f34bdf3ed57",
+      "label_sha256": "c594a5ce0c543c78a73565e9cc25d89b2ed8ede01e844b63fcf0c1730149e49b",
+      "sampling_parent": "video:ee1fd930c245f46213be2dbecc7219382ce940b73cf667c0983f5e4924012541:1214",
+      "family": "euro_red_white"
+    },
+    {
+      "image": "images/train/local-c2-f1500.png",
+      "image_sha256": "263f615e8e56984e0101958b98a4a5affe2e097f6573ecad95486349e8de511f",
+      "label_sha256": "319bc2283ece066308235e8525443fa81d972f04370dc67d93b7767ffef1a331",
+      "sampling_parent": "video:ee1fd930c245f46213be2dbecc7219382ce940b73cf667c0983f5e4924012541:1500",
+      "family": "euro_red_white"
+    },
+    {
+      "image": "images/train/roi-c0-f330-5-repeat1.png",
+      "image_sha256": "e4865f8af0c484391ede1b84d47d39e398f0ffa74e95b3acaf314966fad379a0",
+      "label_sha256": "6571d6d652710277aae4c4c244ee4d0ed0c0984b971c02a7fa7a4af8aa4ca76c",
+      "sampling_parent": "video:f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0:330",
+      "family": "euro_red_white"
+    },
+    {
+      "image": "images/train/roi-c0-f330-14-repeat1.png",
+      "image_sha256": "b92147d7aff48544bb1b8d9f15da2cff974fcb6a562666a9832f3732c1afa1dc",
+      "label_sha256": "85b2a708c129e702d107fc4200352caa880cf48d0ca3d53b24a774c226c035ae",
+      "sampling_parent": "video:f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0:330",
+      "family": "euro_red_white"
+    },
+    {
+      "image": "images/train/roi-c0-f330-0-repeat1.png",
+      "image_sha256": "30e9c4414216d43fbcec39fd25811f68a7d2a7a4c34fe05d0c06eff849b400f9",
+      "label_sha256": "3feb0c07fbe44e1238bdf602a0122d239dcc54e7b48e9e4182a84976dd66ce4b",
+      "sampling_parent": "video:f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0:330",
+      "family": "euro_red_white"
+    },
+    {
+      "image": "images/train/roi-c0-f330-1-repeat1.png",
+      "image_sha256": "fde5506edeff05f878733056bb1fe035d09fa5ad5f92ddf4243b751bcafee463",
+      "label_sha256": "87ab9e15fb21da9ceda5d3e7e9cfd35f0b19b69906ee20dc15fcfa95908b40ca",
+      "sampling_parent": "video:f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0:330",
+      "family": "euro_red_white"
+    },
+    {
+      "image": "images/train/roi-c0-f330-11-repeat1.png",
+      "image_sha256": "a8361604d66769220009bd355f04f910fc53f0b565d45bff92b5b3ced0f54bdc",
+      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "sampling_parent": "video:f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0:330",
+      "family": "euro_red_white"
+    },
+    {
+      "image": "images/train/roi-c0-f330-11-repeat2.png",
+      "image_sha256": "a8361604d66769220009bd355f04f910fc53f0b565d45bff92b5b3ced0f54bdc",
+      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "sampling_parent": "video:f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0:330",
+      "family": "euro_red_white"
+    },
+    {
+      "image": "images/train/roi-c0-f510-1-repeat1.png",
+      "image_sha256": "a79e229f4af73365c2162cf6a0d87022cd4f1fceaaba209ee148fb5a7a3faccc",
+      "label_sha256": "ffc48a487d724550c932113c9e1c0a036a5849e36385b98dc62b40137d38b6ff",
+      "sampling_parent": "video:f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0:510",
+      "family": "euro_red_white"
+    },
+    {
+      "image": "images/train/roi-c0-f510-16-repeat1.png",
+      "image_sha256": "66e9a6171e70f8a4d128f57260a1c045970662f3fbf5b16b40bbfc879fb4d169",
+      "label_sha256": "2ffcbde28aa26ca6b131dafe566216c2e74fe508d76ba32a001acc633e2a2850",
+      "sampling_parent": "video:f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0:510",
+      "family": "euro_red_white"
+    },
+    {
+      "image": "images/train/roi-c0-f510-24-repeat1.png",
+      "image_sha256": "785ab5f80ba7f50179b3e144b15344309cee8d4534dc904ca15ee2ef9a3e2c73",
+      "label_sha256": "ff394c28b06b3bd68905a83c9f609de6e0c60511161eb6c5b8f93793951d0393",
+      "sampling_parent": "video:f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0:510",
+      "family": "euro_red_white"
+    },
+    {
+      "image": "images/train/roi-c0-f510-0-repeat1.png",
+      "image_sha256": "7a34fb9cc20a219d532e2320f5642d055beadc6266b25011e81f3359fa8f10dd",
+      "label_sha256": "bf2a6419b4cdb25af87a2a2bdba34e001781c41f292e292399a78b563713114b",
+      "sampling_parent": "video:f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0:510",
+      "family": "euro_red_white"
+    },
+    {
+      "image": "images/train/roi-c0-f510-2-repeat1.png",
+      "image_sha256": "c2f0948f754887d2a52ace09620f2c2aee470566d74efbf3ec3e557db18d7252",
+      "label_sha256": "fbd29a212b0f5aa13c64fc66fb4c34ccbbc04f6025a9b4a7803b049ac98b4c6a",
+      "sampling_parent": "video:f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0:510",
+      "family": "euro_red_white"
+    },
+    {
+      "image": "images/train/roi-c0-f510-6-repeat1.png",
+      "image_sha256": "9f455a7cf6ca4a46fbc0724a0cb9c8ad9ca99db807e4bafe247b932aa16249f9",
+      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "sampling_parent": "video:f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0:510",
+      "family": "euro_red_white"
+    },
+    {
+      "image": "images/train/roi-c0-f510-6-repeat2.png",
+      "image_sha256": "9f455a7cf6ca4a46fbc0724a0cb9c8ad9ca99db807e4bafe247b932aa16249f9",
+      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "sampling_parent": "video:f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0:510",
+      "family": "euro_red_white"
+    },
+    {
+      "image": "images/train/roi-c0-f690-0-repeat1.png",
+      "image_sha256": "5418965a39db8f4898fdcfb8b199a57e11dfae544a6258060945d559913ad4fe",
+      "label_sha256": "d7a5434fdc568d0269d3708bb2e636bab06af5f9d5435ed4a6e19214cd5cf336",
+      "sampling_parent": "video:f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0:690",
+      "family": "euro_red_white"
+    },
+    {
+      "image": "images/train/roi-c0-f690-12-repeat1.png",
+      "image_sha256": "6bbefc82a99fbbd5462dd769f560700c081943c87f37ba199c2195e432c452b5",
+      "label_sha256": "b8819bdb60e8be9c9a3fa9ad1d40d0750bade86b46474551f4aaae5d99c8b391",
+      "sampling_parent": "video:f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0:690",
+      "family": "euro_red_white"
+    },
+    {
+      "image": "images/train/roi-c0-f690-25-repeat1.png",
+      "image_sha256": "14ec4303729e7e5f1ec585f4be0cfc157f655c8c81a7b074459db28d697b68af",
+      "label_sha256": "417f7e2d1a5ae0a0ca64035e3802fcb0a359505d8613def2b0d1c343c4b40780",
+      "sampling_parent": "video:f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0:690",
+      "family": "euro_red_white"
+    },
+    {
+      "image": "images/train/roi-c0-f690-1-repeat1.png",
+      "image_sha256": "a1f3541bf7be0b2f5969edf809a63cef9d2083d37bbd06bec2112590495a5b03",
+      "label_sha256": "cf8fc84deb9b3063c737b7d0a467cf30c75eb3175bf325b4f2772d61d859f2b7",
+      "sampling_parent": "video:f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0:690",
+      "family": "euro_red_white"
+    },
+    {
+      "image": "images/train/roi-c0-f690-7-repeat1.png",
+      "image_sha256": "a654b52aff47fc74c60a2b86f40b767fe6546d998af4f49141c13c35d67c7c64",
+      "label_sha256": "642c58e1d75a3c98c00099f98da96682904f4ab02068f5949237bb6750c0e61d",
+      "sampling_parent": "video:f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0:690",
+      "family": "euro_red_white"
+    },
+    {
+      "image": "images/train/roi-c0-f690-2-repeat1.png",
+      "image_sha256": "96f16d75664b78cf4a55ab6c28334eeb23d5e75e563d0467046b947e56466e04",
+      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "sampling_parent": "video:f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0:690",
+      "family": "euro_red_white"
+    },
+    {
+      "image": "images/train/roi-c0-f690-2-repeat2.png",
+      "image_sha256": "96f16d75664b78cf4a55ab6c28334eeb23d5e75e563d0467046b947e56466e04",
+      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "sampling_parent": "video:f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0:690",
+      "family": "euro_red_white"
+    },
+    {
+      "image": "images/train/roi-c0-f870-10-repeat1.png",
+      "image_sha256": "7a70333952fa2121cb80734be2e1d7a77c5ebc310a895ffdc1b0d813bc73645b",
+      "label_sha256": "42fbf2ce76f4461e04d7d56d18cbb54a5dad53528b7b06bf25227edb270b8ee5",
+      "sampling_parent": "video:f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0:870",
+      "family": "euro_red_white"
+    },
+    {
+      "image": "images/train/roi-c0-f870-28-repeat1.png",
+      "image_sha256": "5d2c925acd55694c1df1b416e6dfdf24649fdee3ae2466cb4ef59e693689cbd5",
+      "label_sha256": "cd4695bfc646b60fc9d10a2fc4d829399eec8e8185a50b6c1b002d99ea982c77",
+      "sampling_parent": "video:f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0:870",
+      "family": "euro_red_white"
+    },
+    {
+      "image": "images/train/roi-c0-f870-1-repeat1.png",
+      "image_sha256": "f5a6263341d28af796d617f730ee9c2937944391c6b48c71656cd0c8b69f313f",
+      "label_sha256": "baa97d3e4eeef62a909c7882339162ea51ae2d007148eba068ef16fce187bd37",
+      "sampling_parent": "video:f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0:870",
+      "family": "euro_red_white"
+    },
+    {
+      "image": "images/train/roi-c0-f870-4-repeat1.png",
+      "image_sha256": "9e5b8bb80611ad9bb231e14fc92d00a48c28bed07e237dae7e381a0d8962ea66",
+      "label_sha256": "50c8c76e4bf225bc03a70513a048910662bc223b5da0f9584c9f56a4ae786bae",
+      "sampling_parent": "video:f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0:870",
+      "family": "euro_red_white"
+    },
+    {
+      "image": "images/train/roi-c0-f870-23-repeat1.png",
+      "image_sha256": "308b86b24a1b2709382fc7bc1d25df6786efbd5e7a89f04b5967fe067ca07093",
+      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "sampling_parent": "video:f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0:870",
+      "family": "euro_red_white"
+    },
+    {
+      "image": "images/train/roi-c0-f870-23-repeat2.png",
+      "image_sha256": "308b86b24a1b2709382fc7bc1d25df6786efbd5e7a89f04b5967fe067ca07093",
+      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "sampling_parent": "video:f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0:870",
+      "family": "euro_red_white"
+    },
+    {
+      "image": "images/train/roi-c0-f1110-7-repeat1.png",
+      "image_sha256": "54c4264990a878027612bb7d05850db5700ff3b84ace073bf37fb11607e23987",
+      "label_sha256": "6b4b6930adf9250149c5cd5672c177ae0efd46f59c15c7fb715e203f08069c54",
+      "sampling_parent": "video:f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0:1110",
+      "family": "euro_red_white"
+    },
+    {
+      "image": "images/train/roi-c0-f1110-24-repeat1.png",
+      "image_sha256": "902f998e299e8872a41541f7c394a537c4d4bc58ad92464fa6f4ee8cf18cf9af",
+      "label_sha256": "42b59013227dccc577cb856c93a3a185620877eabb13816e20d5f2c72ecaa02f",
+      "sampling_parent": "video:f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0:1110",
+      "family": "euro_red_white"
+    },
+    {
+      "image": "images/train/roi-c0-f1110-1-repeat1.png",
+      "image_sha256": "9f82b7f72b4a800d4801ee1e8453761c2775d2b72994a3de0b831f5746964701",
+      "label_sha256": "887dd70b632e8821833ec59a4352e82c8a6ff0a49930896a0729df6171f9f36a",
+      "sampling_parent": "video:f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0:1110",
+      "family": "euro_red_white"
+    },
+    {
+      "image": "images/train/roi-c0-f1110-3-repeat1.png",
+      "image_sha256": "76cf4473873abf79dbf36ad87b0827914d9237d6ad3eb8bbaa1ac376efd70838",
+      "label_sha256": "3df78ba11b8b1e5d87b20756767903abc523d8968a361e69bca22ca2abb85b44",
+      "sampling_parent": "video:f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0:1110",
+      "family": "euro_red_white"
+    },
+    {
+      "image": "images/train/roi-c0-f1290-14-repeat1.png",
+      "image_sha256": "8d6924afea466396db2a885ecd51ce201058a86333bf0157ddd01864d2652912",
+      "label_sha256": "c0a0939e07a76d6f75644c0d63985d340f67aa36e2d166feb004857f4313a559",
+      "sampling_parent": "video:f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0:1290",
+      "family": "euro_red_white"
+    },
+    {
+      "image": "images/train/roi-c0-f1290-30-repeat1.png",
+      "image_sha256": "caf4d1b21587b1e928aafc8317698425e44aa91ecfd4465c81a0b193f7fc39c9",
+      "label_sha256": "46d118e3b8a49b32631f211ed52350bbe607271b8a9d1882e85a6246db2be7f3",
+      "sampling_parent": "video:f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0:1290",
+      "family": "euro_red_white"
+    },
+    {
+      "image": "images/train/roi-c0-f1290-4-repeat1.png",
+      "image_sha256": "984acbf9f45d95ee7baddfea2423cc57e6a106acfa0ef4f67df0e99fd2996116",
+      "label_sha256": "78952c627564d959a67b5116f6bee6ad5d69290dc4420528dc27fe6dcb497676",
+      "sampling_parent": "video:f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0:1290",
+      "family": "euro_red_white"
+    },
+    {
+      "image": "images/train/roi-c0-f1290-6-repeat1.png",
+      "image_sha256": "db5ebd9eceb67a4b48ffee08d004e7bf08a46e4248b771438965028a31ca967b",
+      "label_sha256": "69f537a2475b24c3620537f34765985dccc1f3b2c879b1839bced3003a895817",
+      "sampling_parent": "video:f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0:1290",
+      "family": "euro_red_white"
+    },
+    {
+      "image": "images/train/roi-c0-f1290-26-repeat1.png",
+      "image_sha256": "f2acddf1644ad3d5cd773b8cd012fcc1cc059d957a4ef4b1b1caae90c0788986",
+      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "sampling_parent": "video:f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0:1290",
+      "family": "euro_red_white"
+    },
+    {
+      "image": "images/train/roi-c0-f1290-26-repeat2.png",
+      "image_sha256": "f2acddf1644ad3d5cd773b8cd012fcc1cc059d957a4ef4b1b1caae90c0788986",
+      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "sampling_parent": "video:f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0:1290",
+      "family": "euro_red_white"
+    },
+    {
+      "image": "images/train/roi-c0-f1530-8-repeat1.png",
+      "image_sha256": "f24afae9e197e7ab42d8d51046748b6e43234376cfd3c14f807092162f1dfa7f",
+      "label_sha256": "0ac4040bdd5a6d0f9f4a0ab547518134d11682a6a4aa531c68ac05456200ae14",
+      "sampling_parent": "video:f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0:1530",
+      "family": "euro_red_white"
+    },
+    {
+      "image": "images/train/roi-c0-f1530-24-repeat1.png",
+      "image_sha256": "d7096a47c0daf19a01155d9649e82a53ea2479d10f9a16bc1e5b1334bbdf63d9",
+      "label_sha256": "83f0b534668c0add04bf9688904ea663063782aab98e3f9ca5db6eee5cd1b624",
+      "sampling_parent": "video:f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0:1530",
+      "family": "euro_red_white"
+    },
+    {
+      "image": "images/train/roi-c0-f1530-1-repeat1.png",
+      "image_sha256": "d47e74f05a694531ed7d2be0d372ccc47f1d0a8a1eef216b398f7fed4019a372",
+      "label_sha256": "9d0b3f17262624e721b34b26e3d69101ab9a63628b23fa7f1288dec92df6bcdd",
+      "sampling_parent": "video:f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0:1530",
+      "family": "euro_red_white"
+    },
+    {
+      "image": "images/train/roi-c0-f1530-6-repeat1.png",
+      "image_sha256": "6eef163c1848cda0b6e29352fddb28b2da399736719d4fe4ce6f845ff26d739b",
+      "label_sha256": "5bdb41070ba93d5c06637f1c65fa82b3590ec02444880bdaaafeb95e4ad045c2",
+      "sampling_parent": "video:f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0:1530",
+      "family": "euro_red_white"
+    },
+    {
+      "image": "images/train/roi-c1-f150-15-repeat1.png",
+      "image_sha256": "b5123e5f16b34b365142001cfb9927af8f9814e0fdb176904b0d7c8529f4bcb6",
+      "label_sha256": "101833aa53fc6c93a3645e8b3b343b9b37899747b24032332db6ac1a7b566c7d",
+      "sampling_parent": "video:11a9b033dbeca46af7e3cf1117269b04044ddf8d89b6c594efc16222606dd053:150",
+      "family": "euro_red_white"
+    },
+    {
+      "image": "images/train/roi-c1-f150-3-repeat1.png",
+      "image_sha256": "946e8a5feb7765739e25248fbc6efa7f7cd598012840d034e9da367017f6b811",
+      "label_sha256": "3b297c20d8f19010afb3a9d9a16f8eaff8f726056c2057af0fed0ce34792820f",
+      "sampling_parent": "video:11a9b033dbeca46af7e3cf1117269b04044ddf8d89b6c594efc16222606dd053:150",
+      "family": "euro_red_white"
+    },
+    {
+      "image": "images/train/roi-c1-f150-2-repeat1.png",
+      "image_sha256": "86201ea39440da73c338b054362429a164cbeb6422194cb771c4feb450866453",
+      "label_sha256": "5c3e7bbc4140e1439dc0ad3e9b1c4ece2041ded00422841b23d198ab1ad88d14",
+      "sampling_parent": "video:11a9b033dbeca46af7e3cf1117269b04044ddf8d89b6c594efc16222606dd053:150",
+      "family": "euro_red_white"
+    },
+    {
+      "image": "images/train/roi-c1-f350-7-repeat1.png",
+      "image_sha256": "4acde91cfdea7af8bbae57314e514263245998b6fa53d18bbce9599b302c52ad",
+      "label_sha256": "187376c67e3fb6bc24c89109b76df3f2b5d9ebd95f2695898971f3d7ff895ff9",
+      "sampling_parent": "video:11a9b033dbeca46af7e3cf1117269b04044ddf8d89b6c594efc16222606dd053:350",
+      "family": "euro_red_white"
+    },
+    {
+      "image": "images/train/roi-c1-f350-14-repeat1.png",
+      "image_sha256": "8437f9c3351142d2e04bffa3668612a42a0a7f0dc9643c7225945b8029a0c189",
+      "label_sha256": "dd72b91a0c5e2237f237b40e77acecb7d218bd4cb3f1cfa366b97c34d2a7f9db",
+      "sampling_parent": "video:11a9b033dbeca46af7e3cf1117269b04044ddf8d89b6c594efc16222606dd053:350",
+      "family": "euro_red_white"
+    },
+    {
+      "image": "images/train/roi-c1-f350-23-repeat1.png",
+      "image_sha256": "251833040161f12d4747841bd43518c050b34d2424e5591cf3635de376848f5a",
+      "label_sha256": "b5a1f934e020f6827ea82bf8c69d866f81526f2afcf073252904d1f28de82ab5",
+      "sampling_parent": "video:11a9b033dbeca46af7e3cf1117269b04044ddf8d89b6c594efc16222606dd053:350",
+      "family": "euro_red_white"
+    },
+    {
+      "image": "images/train/roi-c1-f350-1-repeat1.png",
+      "image_sha256": "e6b49af94ab0af5d6ab63b5521264900e6f95e94ea81f2c8b09ee0f8a8717281",
+      "label_sha256": "d452c7ae5af6c8b334d0f17321840c477b78af4fbf0b372a27f18c1400bd2775",
+      "sampling_parent": "video:11a9b033dbeca46af7e3cf1117269b04044ddf8d89b6c594efc16222606dd053:350",
+      "family": "euro_red_white"
+    },
+    {
+      "image": "images/train/roi-c1-f350-0-repeat1.png",
+      "image_sha256": "cfd1501272b7db04293e2756bc46f44119384e15b1341de8ee2602befbf11b39",
+      "label_sha256": "d4a75c11f211ad33596c4f8e70214302575bf523f02c4677ab6cc49aa5de64de",
+      "sampling_parent": "video:11a9b033dbeca46af7e3cf1117269b04044ddf8d89b6c594efc16222606dd053:350",
+      "family": "euro_red_white"
+    },
+    {
+      "image": "images/train/roi-c1-f650-8-repeat1.png",
+      "image_sha256": "62a421021dc55833c7c37105c24d3815291ff055b733f15b500210aa1b4cb41d",
+      "label_sha256": "4b1afd8aaad64d43f6bbdd13439b1839dbc74f6033f5d4f71b84486c1151ba0c",
+      "sampling_parent": "video:11a9b033dbeca46af7e3cf1117269b04044ddf8d89b6c594efc16222606dd053:650",
+      "family": "euro_red_white"
+    },
+    {
+      "image": "images/train/roi-c1-f650-24-repeat1.png",
+      "image_sha256": "16fab11269a1dc93bd0f3fb5980ae1903e630eec0f6f55168d51477d78f958d6",
+      "label_sha256": "32e8cb5fe116b65e8c21e224389d41b87ae787ed0010bb5994e47c6766d7c0e9",
+      "sampling_parent": "video:11a9b033dbeca46af7e3cf1117269b04044ddf8d89b6c594efc16222606dd053:650",
+      "family": "euro_red_white"
+    },
+    {
+      "image": "images/train/roi-c1-f650-3-repeat1.png",
+      "image_sha256": "fc64e7e3abdbd089e0cff7cf37d2b3a43f92c68f9831d70f137b736c5b8ebb26",
+      "label_sha256": "a8bb4281c736b312c8c4cbd9539ef8b3d0cd9f80b99a5875476f9e49bd4ef665",
+      "sampling_parent": "video:11a9b033dbeca46af7e3cf1117269b04044ddf8d89b6c594efc16222606dd053:650",
+      "family": "euro_red_white"
+    },
+    {
+      "image": "images/train/roi-c1-f650-1-repeat1.png",
+      "image_sha256": "9dcc071179e0557c2082ce04870f92b5d4ac1bcd71d2320fa7067d86fc6eeb57",
+      "label_sha256": "6bef3bb4eb63817ee3a8b16c773081adf304c320adba8f7c400f07f2f3405a6a",
+      "sampling_parent": "video:11a9b033dbeca46af7e3cf1117269b04044ddf8d89b6c594efc16222606dd053:650",
+      "family": "euro_red_white"
+    },
+    {
+      "image": "images/train/roi-c1-f650-16-repeat1.png",
+      "image_sha256": "df0f75fec042bc02ab210c987c1fc4eee6aaa51a6ce6e06f2b68bcef3de32ab3",
+      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "sampling_parent": "video:11a9b033dbeca46af7e3cf1117269b04044ddf8d89b6c594efc16222606dd053:650",
+      "family": "euro_red_white"
+    },
+    {
+      "image": "images/train/roi-c1-f650-16-repeat2.png",
+      "image_sha256": "df0f75fec042bc02ab210c987c1fc4eee6aaa51a6ce6e06f2b68bcef3de32ab3",
+      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "sampling_parent": "video:11a9b033dbeca46af7e3cf1117269b04044ddf8d89b6c594efc16222606dd053:650",
+      "family": "euro_red_white"
+    },
+    {
+      "image": "images/train/roi-c1-f1000-10-repeat1.png",
+      "image_sha256": "e5af0b3a29062e2b8ca9c3373146ae68df950bd86ded0c8457a6a4e7709379c9",
+      "label_sha256": "82b923103a7624021bfe1021fa78b49be682a35bf655b2c351f4b75e704c11ac",
+      "sampling_parent": "video:11a9b033dbeca46af7e3cf1117269b04044ddf8d89b6c594efc16222606dd053:1000",
+      "family": "euro_red_white"
+    },
+    {
+      "image": "images/train/roi-c1-f1000-1-repeat1.png",
+      "image_sha256": "93ff80cfaaa78d55baafa8b350401fae57f825c6f18a9bb308f1682a3e1b2d28",
+      "label_sha256": "367717d319e60eb87cb0662de03910d33dee0a9a53c75049c2301bc28367f031",
+      "sampling_parent": "video:11a9b033dbeca46af7e3cf1117269b04044ddf8d89b6c594efc16222606dd053:1000",
+      "family": "euro_red_white"
+    },
+    {
+      "image": "images/train/roi-c1-f1000-0-repeat1.png",
+      "image_sha256": "87ca77da7ffcf4e151cbc1bd3af429e7a32c0832d058d73e1696f78e3c676e76",
+      "label_sha256": "8b56b6449b793d1b0071eb6d4bbbfc8cec433a284b08a94ab67294d401d36ec5",
+      "sampling_parent": "video:11a9b033dbeca46af7e3cf1117269b04044ddf8d89b6c594efc16222606dd053:1000",
+      "family": "euro_red_white"
+    },
+    {
+      "image": "images/train/roi-c2-f300-10-repeat1.png",
+      "image_sha256": "6eb7233c24fb0321ca0c604eeb221ec14d9d92d9a363c65d5799e31f1d7b31ae",
+      "label_sha256": "c51c1b8e39ff7d65f66c37144a6260916252022dc886b2c2d959a24d47f4e029",
+      "sampling_parent": "video:ee1fd930c245f46213be2dbecc7219382ce940b73cf667c0983f5e4924012541:300",
+      "family": "euro_red_white"
+    },
+    {
+      "image": "images/train/roi-c2-f300-21-repeat1.png",
+      "image_sha256": "2eb9fd60117e9218952df63f8cc7d4aa7222e931a980012616b09b49f40f7a55",
+      "label_sha256": "47ad7900cea98068198025f85869f91f5be774e45f7d408bca196046e260a25b",
+      "sampling_parent": "video:ee1fd930c245f46213be2dbecc7219382ce940b73cf667c0983f5e4924012541:300",
+      "family": "euro_red_white"
+    },
+    {
+      "image": "images/train/roi-c2-f300-0-repeat1.png",
+      "image_sha256": "55e4983dcb2c9fa0577f2c00b7356c8135bc3788eabfe42b88c0499ef1e7866f",
+      "label_sha256": "f6c52c31c50da880416d7ab701af0a5d833375264a24c5a48a08a7b7b2f46c00",
+      "sampling_parent": "video:ee1fd930c245f46213be2dbecc7219382ce940b73cf667c0983f5e4924012541:300",
+      "family": "euro_red_white"
+    },
+    {
+      "image": "images/train/roi-c2-f300-2-repeat1.png",
+      "image_sha256": "c9866ed6b94e85dcb1e4ee7bf67fd4eac5c69b63b76282117695d2965437c936",
+      "label_sha256": "7f826fb27da16c8937d2572b2a70360d0201397df60f6efdf2422fa0ce2d6388",
+      "sampling_parent": "video:ee1fd930c245f46213be2dbecc7219382ce940b73cf667c0983f5e4924012541:300",
+      "family": "euro_red_white"
+    },
+    {
+      "image": "images/train/roi-c2-f700-7-repeat1.png",
+      "image_sha256": "1ab6035b962a419b30e55fd6e0225003320a4666d766ca548f13b662bb729fda",
+      "label_sha256": "e2610cd66f7883011615cd2cd87dccdd2978040d9fd3ab4f15e374ca651b5ed3",
+      "sampling_parent": "video:ee1fd930c245f46213be2dbecc7219382ce940b73cf667c0983f5e4924012541:700",
+      "family": "euro_red_white"
+    },
+    {
+      "image": "images/train/roi-c2-f700-20-repeat1.png",
+      "image_sha256": "e87f6beaaf1f7538a8d0f1fea099eb70172dd461adbd85cf682543f37cab1e2d",
+      "label_sha256": "73dd48baf150a0e15ca6005fc961d5df0f16d107894b40abee50e91c3c561b53",
+      "sampling_parent": "video:ee1fd930c245f46213be2dbecc7219382ce940b73cf667c0983f5e4924012541:700",
+      "family": "euro_red_white"
+    },
+    {
+      "image": "images/train/roi-c2-f700-0-repeat1.png",
+      "image_sha256": "44b40d1d2af1ddbfa54086fb6060a2d7546e04ab8c18c93fe2c724e962a50e2e",
+      "label_sha256": "7ab5bf37fca59ed49d191871c0e9348e010690996f839696b5f57490dbef0c3b",
+      "sampling_parent": "video:ee1fd930c245f46213be2dbecc7219382ce940b73cf667c0983f5e4924012541:700",
+      "family": "euro_red_white"
+    },
+    {
+      "image": "images/train/roi-c2-f700-1-repeat1.png",
+      "image_sha256": "f5b7a8019d683aaeface24213cfca73cb419e098921c12adf7141a73040eb11b",
+      "label_sha256": "8d62f7effd64fef8e592d80ce0f63f41f7b4883e2cfb166d5074fe7453a15fc2",
+      "sampling_parent": "video:ee1fd930c245f46213be2dbecc7219382ce940b73cf667c0983f5e4924012541:700",
+      "family": "euro_red_white"
+    },
+    {
+      "image": "images/train/roi-c2-f1750-2-repeat1.png",
+      "image_sha256": "a0d1fb40e890955d1032d6071c4b47fb7778a8321f1831b2436ab019e2c82a19",
+      "label_sha256": "ac722e5b0964ad312a02c4274d00f75f8b2892507cb1029b93a96ad2e10042f6",
+      "sampling_parent": "video:ee1fd930c245f46213be2dbecc7219382ce940b73cf667c0983f5e4924012541:1750",
+      "family": "euro_red_white"
+    },
+    {
+      "image": "images/train/roi-c2-f1750-24-repeat1.png",
+      "image_sha256": "243b89bc2fdd20fe78ed36ebae4de92791f314df469237cf7f4b177b7271e2a8",
+      "label_sha256": "e4b67545152749e8c1366fcc516bf6ff51cac796072bafe8724060bd57105f8e",
+      "sampling_parent": "video:ee1fd930c245f46213be2dbecc7219382ce940b73cf667c0983f5e4924012541:1750",
+      "family": "euro_red_white"
+    },
+    {
+      "image": "images/train/roi-c2-f1750-3-repeat1.png",
+      "image_sha256": "50303658f29a20a85a64b95e08389de6632393185352a54a829d70d6514aacbf",
+      "label_sha256": "122595110ce93ea97f784f9e756d46503a792f4fb5e79ce7e33142824628d53e",
+      "sampling_parent": "video:ee1fd930c245f46213be2dbecc7219382ce940b73cf667c0983f5e4924012541:1750",
+      "family": "euro_red_white"
+    },
+    {
+      "image": "images/train/roi-c2-f1750-4-repeat1.png",
+      "image_sha256": "c43f48a82976cb6b28191463a1edcf7e1f3a0e24c12a748331c91044f454929f",
+      "label_sha256": "681dc83e89e8ef4990d26a0f6561e2ebcde058a816499345673e6b656200b442",
+      "sampling_parent": "video:ee1fd930c245f46213be2dbecc7219382ce940b73cf667c0983f5e4924012541:1750",
+      "family": "euro_red_white"
+    },
+    {
+      "image": "images/train/roi-c2-f2250-9-repeat1.png",
+      "image_sha256": "1d3a06a25b3bf582dd80b72f185e020be895ce9370fca388f14036833923a93f",
+      "label_sha256": "1bda1c75adcc7d3524f252205d8b5857ac669c33576db1e6c651e912dcb6f95d",
+      "sampling_parent": "video:ee1fd930c245f46213be2dbecc7219382ce940b73cf667c0983f5e4924012541:2250",
+      "family": "euro_red_white"
+    },
+    {
+      "image": "images/train/roi-c2-f2250-1-repeat1.png",
+      "image_sha256": "a13be8ec9a5ab20c68d6b4232e1b1ccf37f6001f022f7b1b21538fa00924fd07",
+      "label_sha256": "20c1fb3df60278e76359d1115f159f225fa83d7c343fdc3328f53c6f7ec6088a",
+      "sampling_parent": "video:ee1fd930c245f46213be2dbecc7219382ce940b73cf667c0983f5e4924012541:2250",
+      "family": "euro_red_white"
+    },
+    {
+      "image": "images/train/roi-c2-f2250-0-repeat1.png",
+      "image_sha256": "e9737f1943e017a3f2e9f77d1bca0a8e1f7f5f87cf635a8b6440756bcd91a31e",
+      "label_sha256": "c90545cb0901daeac4759b069dffccf385b7ab6f918f56b75b386a8b4ccc70c4",
+      "sampling_parent": "video:ee1fd930c245f46213be2dbecc7219382ce940b73cf667c0983f5e4924012541:2250",
+      "family": "euro_red_white"
+    },
+    {
+      "image": "images/train/roi-native-40cd38_7_6_png.rf.81d37056bceae603a917ca7775c114a8-6-repeat1.png",
+      "image_sha256": "b86aa51a1c1b05cf7092cc2f71717bba84c8cc62920d959e20716919f810bbd7",
+      "label_sha256": "7eb263a444c739f0650329da8b54bc244ec5adf8ce0e97c714400c206730362c",
+      "sampling_parent": "image:b4f38c008fd8d3034bb93bcede6ffc1d8a131b6ac52fe2244d168aacf32fb2b0",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/roi-native-42ba34_1_5_png.rf.091a3bb1daf07a70b2cc0c9f50b1e79e-0-repeat1.png",
+      "image_sha256": "cf32eeae1ca656201ce762338466e0c6ac521b1ad3a7c639e3f5f05aa6cbf857",
+      "label_sha256": "10fb9feca28230eda4bc9d6492e57dd2299345d0a70085cb56bc5af7921f2219",
+      "sampling_parent": "image:7ad2d1dab2a7e19c68b9a90c77f66100079aa90ea311c072126886b364cff2ee",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/roi-native-42ba34_1_5_png.rf.091a3bb1daf07a70b2cc0c9f50b1e79e-16-repeat1.png",
+      "image_sha256": "2718e5d319532c985fed9b5af00a916a8e624001e00ce76aaac4c8d301e40931",
+      "label_sha256": "bbb4a1e025f09e579c8e375533edff97bae8865306cb484dd1a71c6ded32f8e6",
+      "sampling_parent": "image:7ad2d1dab2a7e19c68b9a90c77f66100079aa90ea311c072126886b364cff2ee",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/roi-native-573e61_1_9_png.rf.295dfa87016366f8d7b83f4cf93905bb-0-repeat1.png",
+      "image_sha256": "9baab60431153733e47ec74ca14f1a23e9468b286d2fad85a55b3f923e359517",
+      "label_sha256": "3a679a64be10004a82bd31a673696a46e2b60ad29fc336d4e71c4f4fa59e9560",
+      "sampling_parent": "image:e08fe697ad97ea11fbcc09c930eff0645f263738aab3c85ad510030da167d593",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/roi-native-573e61_1_9_png.rf.295dfa87016366f8d7b83f4cf93905bb-0-repeat2.png",
+      "image_sha256": "9baab60431153733e47ec74ca14f1a23e9468b286d2fad85a55b3f923e359517",
+      "label_sha256": "3a679a64be10004a82bd31a673696a46e2b60ad29fc336d4e71c4f4fa59e9560",
+      "sampling_parent": "image:e08fe697ad97ea11fbcc09c930eff0645f263738aab3c85ad510030da167d593",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/roi-native-573e61_1_9_png.rf.295dfa87016366f8d7b83f4cf93905bb-0-repeat3.png",
+      "image_sha256": "9baab60431153733e47ec74ca14f1a23e9468b286d2fad85a55b3f923e359517",
+      "label_sha256": "3a679a64be10004a82bd31a673696a46e2b60ad29fc336d4e71c4f4fa59e9560",
+      "sampling_parent": "image:e08fe697ad97ea11fbcc09c930eff0645f263738aab3c85ad510030da167d593",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/roi-native-573e61_1_9_png.rf.295dfa87016366f8d7b83f4cf93905bb-3-repeat1.png",
+      "image_sha256": "69f0a612a628d398ab215b8db9949c33e168a004a9fbab10cd899d98e6bedce7",
+      "label_sha256": "f1451957793017bfc004838f97a4d6515949e23fa158a9dc1d24b8448c9bfe53",
+      "sampling_parent": "image:e08fe697ad97ea11fbcc09c930eff0645f263738aab3c85ad510030da167d593",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/roi-native-573e61_1_9_png.rf.295dfa87016366f8d7b83f4cf93905bb-3-repeat2.png",
+      "image_sha256": "69f0a612a628d398ab215b8db9949c33e168a004a9fbab10cd899d98e6bedce7",
+      "label_sha256": "f1451957793017bfc004838f97a4d6515949e23fa158a9dc1d24b8448c9bfe53",
+      "sampling_parent": "image:e08fe697ad97ea11fbcc09c930eff0645f263738aab3c85ad510030da167d593",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/roi-native-573e61_1_9_png.rf.295dfa87016366f8d7b83f4cf93905bb-3-repeat3.png",
+      "image_sha256": "69f0a612a628d398ab215b8db9949c33e168a004a9fbab10cd899d98e6bedce7",
+      "label_sha256": "f1451957793017bfc004838f97a4d6515949e23fa158a9dc1d24b8448c9bfe53",
+      "sampling_parent": "image:e08fe697ad97ea11fbcc09c930eff0645f263738aab3c85ad510030da167d593",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/roi-native-744b27_1_10_png.rf.6506ec3c9f955401d7e297b9f24cd1c2-12-repeat1.png",
+      "image_sha256": "52b900f20b142a5611d673e8b4d1f660c34eb1350ca250e0448049646fa11ec5",
+      "label_sha256": "a4d73882466fc10aa05e02a7041ab71281f517f5dc2aa489114e63304ddd884a",
+      "sampling_parent": "image:ade2d8eb008f638a7e6b7bb05a5db36392081034ef981c7820af6a147f943ebb",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/roi-native-744b27_1_10_png.rf.6506ec3c9f955401d7e297b9f24cd1c2-12-repeat2.png",
+      "image_sha256": "52b900f20b142a5611d673e8b4d1f660c34eb1350ca250e0448049646fa11ec5",
+      "label_sha256": "a4d73882466fc10aa05e02a7041ab71281f517f5dc2aa489114e63304ddd884a",
+      "sampling_parent": "image:ade2d8eb008f638a7e6b7bb05a5db36392081034ef981c7820af6a147f943ebb",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/roi-native-744b27_1_10_png.rf.6506ec3c9f955401d7e297b9f24cd1c2-12-repeat3.png",
+      "image_sha256": "52b900f20b142a5611d673e8b4d1f660c34eb1350ca250e0448049646fa11ec5",
+      "label_sha256": "a4d73882466fc10aa05e02a7041ab71281f517f5dc2aa489114e63304ddd884a",
+      "sampling_parent": "image:ade2d8eb008f638a7e6b7bb05a5db36392081034ef981c7820af6a147f943ebb",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/roi-native-744b27_1_10_png.rf.6506ec3c9f955401d7e297b9f24cd1c2-23-repeat1.png",
+      "image_sha256": "9aa1498feede96af523926e3376ac2fa15c95dddb089a01c9288bc41d492f8ca",
+      "label_sha256": "068d2444d8b935f9c88ce1dc3f64ab0bf90136b6143f2ea459451aa0681ab10a",
+      "sampling_parent": "image:ade2d8eb008f638a7e6b7bb05a5db36392081034ef981c7820af6a147f943ebb",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/roi-native-744b27_1_10_png.rf.6506ec3c9f955401d7e297b9f24cd1c2-23-repeat2.png",
+      "image_sha256": "9aa1498feede96af523926e3376ac2fa15c95dddb089a01c9288bc41d492f8ca",
+      "label_sha256": "068d2444d8b935f9c88ce1dc3f64ab0bf90136b6143f2ea459451aa0681ab10a",
+      "sampling_parent": "image:ade2d8eb008f638a7e6b7bb05a5db36392081034ef981c7820af6a147f943ebb",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/roi-native-744b27_1_10_png.rf.6506ec3c9f955401d7e297b9f24cd1c2-23-repeat3.png",
+      "image_sha256": "9aa1498feede96af523926e3376ac2fa15c95dddb089a01c9288bc41d492f8ca",
+      "label_sha256": "068d2444d8b935f9c88ce1dc3f64ab0bf90136b6143f2ea459451aa0681ab10a",
+      "sampling_parent": "image:ade2d8eb008f638a7e6b7bb05a5db36392081034ef981c7820af6a147f943ebb",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/roi-native-a9f16c_2_10_png.rf.1f142141ca710d8cfe79ff3aad386944-12-repeat1.png",
+      "image_sha256": "e1f0b8793d44de32f4e61c24d29e84815ac34df7970b7ddfdb71920b87a922a1",
+      "label_sha256": "b30ec3d06905b3f3b7bf92c3d788a2655dbbb5a841a2abccad4f1c56f1727c7e",
+      "sampling_parent": "image:c72500247285795a52310e3ec339000024c737149a7c18f11a0246f3b8056eb5",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/roi-native-a9f16c_2_10_png.rf.1f142141ca710d8cfe79ff3aad386944-12-repeat2.png",
+      "image_sha256": "e1f0b8793d44de32f4e61c24d29e84815ac34df7970b7ddfdb71920b87a922a1",
+      "label_sha256": "b30ec3d06905b3f3b7bf92c3d788a2655dbbb5a841a2abccad4f1c56f1727c7e",
+      "sampling_parent": "image:c72500247285795a52310e3ec339000024c737149a7c18f11a0246f3b8056eb5",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/roi-native-a9f16c_2_10_png.rf.1f142141ca710d8cfe79ff3aad386944-12-repeat3.png",
+      "image_sha256": "e1f0b8793d44de32f4e61c24d29e84815ac34df7970b7ddfdb71920b87a922a1",
+      "label_sha256": "b30ec3d06905b3f3b7bf92c3d788a2655dbbb5a841a2abccad4f1c56f1727c7e",
+      "sampling_parent": "image:c72500247285795a52310e3ec339000024c737149a7c18f11a0246f3b8056eb5",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/roi-native-a9f16c_2_10_png.rf.1f142141ca710d8cfe79ff3aad386944-19-repeat1.png",
+      "image_sha256": "d15ea441acd9f5d156100adfe08d7a630a2c5449f2434dd4e6e5512ace8ce031",
+      "label_sha256": "dc2ad5006208ad6af072a3a0559459e7acf579201f7c4cedd2f9a14ede57f530",
+      "sampling_parent": "image:c72500247285795a52310e3ec339000024c737149a7c18f11a0246f3b8056eb5",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/roi-native-a9f16c_2_10_png.rf.1f142141ca710d8cfe79ff3aad386944-19-repeat2.png",
+      "image_sha256": "d15ea441acd9f5d156100adfe08d7a630a2c5449f2434dd4e6e5512ace8ce031",
+      "label_sha256": "dc2ad5006208ad6af072a3a0559459e7acf579201f7c4cedd2f9a14ede57f530",
+      "sampling_parent": "image:c72500247285795a52310e3ec339000024c737149a7c18f11a0246f3b8056eb5",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/roi-native-a9f16c_2_10_png.rf.1f142141ca710d8cfe79ff3aad386944-19-repeat3.png",
+      "image_sha256": "d15ea441acd9f5d156100adfe08d7a630a2c5449f2434dd4e6e5512ace8ce031",
+      "label_sha256": "dc2ad5006208ad6af072a3a0559459e7acf579201f7c4cedd2f9a14ede57f530",
+      "sampling_parent": "image:c72500247285795a52310e3ec339000024c737149a7c18f11a0246f3b8056eb5",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/roi-native-121364_7_10_png.rf.d612470c8674d649a7a09ef6ce000e72-10-repeat1.png",
+      "image_sha256": "cd49c436c2f892340a7f23f79099e15cda87bd5a25a42f7ad30a4d2a325df037",
+      "label_sha256": "32ef213f3534237634c351c4232ac551903b28659ebcaa8c6d0483be0d12bdce",
+      "sampling_parent": "image:c5fa11220a26a81489f4f1e8d8d15e83819cc59203c433eb351c89610eb6a3a0",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/roi-native-121364_7_10_png.rf.d612470c8674d649a7a09ef6ce000e72-10-repeat2.png",
+      "image_sha256": "cd49c436c2f892340a7f23f79099e15cda87bd5a25a42f7ad30a4d2a325df037",
+      "label_sha256": "32ef213f3534237634c351c4232ac551903b28659ebcaa8c6d0483be0d12bdce",
+      "sampling_parent": "image:c5fa11220a26a81489f4f1e8d8d15e83819cc59203c433eb351c89610eb6a3a0",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/roi-native-121364_7_10_png.rf.d612470c8674d649a7a09ef6ce000e72-10-repeat3.png",
+      "image_sha256": "cd49c436c2f892340a7f23f79099e15cda87bd5a25a42f7ad30a4d2a325df037",
+      "label_sha256": "32ef213f3534237634c351c4232ac551903b28659ebcaa8c6d0483be0d12bdce",
+      "sampling_parent": "image:c5fa11220a26a81489f4f1e8d8d15e83819cc59203c433eb351c89610eb6a3a0",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/roi-native-121364_7_10_png.rf.d612470c8674d649a7a09ef6ce000e72-10-repeat4.png",
+      "image_sha256": "cd49c436c2f892340a7f23f79099e15cda87bd5a25a42f7ad30a4d2a325df037",
+      "label_sha256": "32ef213f3534237634c351c4232ac551903b28659ebcaa8c6d0483be0d12bdce",
+      "sampling_parent": "image:c5fa11220a26a81489f4f1e8d8d15e83819cc59203c433eb351c89610eb6a3a0",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/roi-native-121364_7_10_png.rf.d612470c8674d649a7a09ef6ce000e72-10-repeat5.png",
+      "image_sha256": "cd49c436c2f892340a7f23f79099e15cda87bd5a25a42f7ad30a4d2a325df037",
+      "label_sha256": "32ef213f3534237634c351c4232ac551903b28659ebcaa8c6d0483be0d12bdce",
+      "sampling_parent": "image:c5fa11220a26a81489f4f1e8d8d15e83819cc59203c433eb351c89610eb6a3a0",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/roi-native-121364_7_10_png.rf.d612470c8674d649a7a09ef6ce000e72-10-repeat6.png",
+      "image_sha256": "cd49c436c2f892340a7f23f79099e15cda87bd5a25a42f7ad30a4d2a325df037",
+      "label_sha256": "32ef213f3534237634c351c4232ac551903b28659ebcaa8c6d0483be0d12bdce",
+      "sampling_parent": "image:c5fa11220a26a81489f4f1e8d8d15e83819cc59203c433eb351c89610eb6a3a0",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/roi-native-2e57b9_1_10_png.rf.ec1ea28433a4f736551f4040e902e236-13-repeat1.png",
+      "image_sha256": "d6869b434a7da63172b9ea4fc7e38ef64d0f83905845973c7352e2416db17831",
+      "label_sha256": "923638cadafc2079bb22f5166895aad25b5d48660b6421794ab516e868779a2d",
+      "sampling_parent": "image:f60dfd5321ea4bb50eda91ff70681cd25dea28bbae84f4b8c8f204bf0940eed1",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/roi-native-2e57b9_1_10_png.rf.ec1ea28433a4f736551f4040e902e236-13-repeat2.png",
+      "image_sha256": "d6869b434a7da63172b9ea4fc7e38ef64d0f83905845973c7352e2416db17831",
+      "label_sha256": "923638cadafc2079bb22f5166895aad25b5d48660b6421794ab516e868779a2d",
+      "sampling_parent": "image:f60dfd5321ea4bb50eda91ff70681cd25dea28bbae84f4b8c8f204bf0940eed1",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/roi-native-2e57b9_1_10_png.rf.ec1ea28433a4f736551f4040e902e236-13-repeat3.png",
+      "image_sha256": "d6869b434a7da63172b9ea4fc7e38ef64d0f83905845973c7352e2416db17831",
+      "label_sha256": "923638cadafc2079bb22f5166895aad25b5d48660b6421794ab516e868779a2d",
+      "sampling_parent": "image:f60dfd5321ea4bb50eda91ff70681cd25dea28bbae84f4b8c8f204bf0940eed1",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/roi-native-2e57b9_1_10_png.rf.ec1ea28433a4f736551f4040e902e236-17-repeat1.png",
+      "image_sha256": "87fe66afd1d2cf69986317f677ca149a20a514743d9341836f7c880d2374215e",
+      "label_sha256": "2a47f9be494d1a5f3326bf96debde45212601547b4b308a0b4a4371392d26bd2",
+      "sampling_parent": "image:f60dfd5321ea4bb50eda91ff70681cd25dea28bbae84f4b8c8f204bf0940eed1",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/roi-native-2e57b9_1_10_png.rf.ec1ea28433a4f736551f4040e902e236-17-repeat2.png",
+      "image_sha256": "87fe66afd1d2cf69986317f677ca149a20a514743d9341836f7c880d2374215e",
+      "label_sha256": "2a47f9be494d1a5f3326bf96debde45212601547b4b308a0b4a4371392d26bd2",
+      "sampling_parent": "image:f60dfd5321ea4bb50eda91ff70681cd25dea28bbae84f4b8c8f204bf0940eed1",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/roi-native-2e57b9_1_10_png.rf.ec1ea28433a4f736551f4040e902e236-17-repeat3.png",
+      "image_sha256": "87fe66afd1d2cf69986317f677ca149a20a514743d9341836f7c880d2374215e",
+      "label_sha256": "2a47f9be494d1a5f3326bf96debde45212601547b4b308a0b4a4371392d26bd2",
+      "sampling_parent": "image:f60dfd5321ea4bb50eda91ff70681cd25dea28bbae84f4b8c8f204bf0940eed1",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/roi-native-54745b_1_7_png.rf.bda9767fc2a07387f263821d1e449e3c-1-repeat1.png",
+      "image_sha256": "dab6745cee73e3fb60c99b4db26477d6a04886b2184ed6c5a012f5ba7fddea26",
+      "label_sha256": "dce31aa8571ca5385836fcfa36148460d43753464727c2c2ed9068e84436e2ff",
+      "sampling_parent": "image:ee642b65a320427f1273daa8ed22c96c21f26fadd818b3ca12cdf1925cd00a3e",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/roi-native-54745b_1_7_png.rf.bda9767fc2a07387f263821d1e449e3c-1-repeat2.png",
+      "image_sha256": "dab6745cee73e3fb60c99b4db26477d6a04886b2184ed6c5a012f5ba7fddea26",
+      "label_sha256": "dce31aa8571ca5385836fcfa36148460d43753464727c2c2ed9068e84436e2ff",
+      "sampling_parent": "image:ee642b65a320427f1273daa8ed22c96c21f26fadd818b3ca12cdf1925cd00a3e",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/roi-native-54745b_1_7_png.rf.bda9767fc2a07387f263821d1e449e3c-1-repeat3.png",
+      "image_sha256": "dab6745cee73e3fb60c99b4db26477d6a04886b2184ed6c5a012f5ba7fddea26",
+      "label_sha256": "dce31aa8571ca5385836fcfa36148460d43753464727c2c2ed9068e84436e2ff",
+      "sampling_parent": "image:ee642b65a320427f1273daa8ed22c96c21f26fadd818b3ca12cdf1925cd00a3e",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/roi-native-54745b_1_7_png.rf.bda9767fc2a07387f263821d1e449e3c-1-repeat4.png",
+      "image_sha256": "dab6745cee73e3fb60c99b4db26477d6a04886b2184ed6c5a012f5ba7fddea26",
+      "label_sha256": "dce31aa8571ca5385836fcfa36148460d43753464727c2c2ed9068e84436e2ff",
+      "sampling_parent": "image:ee642b65a320427f1273daa8ed22c96c21f26fadd818b3ca12cdf1925cd00a3e",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/roi-native-54745b_1_7_png.rf.bda9767fc2a07387f263821d1e449e3c-1-repeat5.png",
+      "image_sha256": "dab6745cee73e3fb60c99b4db26477d6a04886b2184ed6c5a012f5ba7fddea26",
+      "label_sha256": "dce31aa8571ca5385836fcfa36148460d43753464727c2c2ed9068e84436e2ff",
+      "sampling_parent": "image:ee642b65a320427f1273daa8ed22c96c21f26fadd818b3ca12cdf1925cd00a3e",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/roi-native-54745b_1_7_png.rf.bda9767fc2a07387f263821d1e449e3c-1-repeat6.png",
+      "image_sha256": "dab6745cee73e3fb60c99b4db26477d6a04886b2184ed6c5a012f5ba7fddea26",
+      "label_sha256": "dce31aa8571ca5385836fcfa36148460d43753464727c2c2ed9068e84436e2ff",
+      "sampling_parent": "image:ee642b65a320427f1273daa8ed22c96c21f26fadd818b3ca12cdf1925cd00a3e",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/roi-native-54745b_1_7_png.rf.bda9767fc2a07387f263821d1e449e3c-14-repeat1.png",
+      "image_sha256": "d1df1b217d3013039c2a5972de7acf561924ffaa8390a759b4aff1701405ef39",
+      "label_sha256": "6a5c8ca05f7dcc4e5a60b3110864c0f5930af2f722edf494b6b962d4f01286bc",
+      "sampling_parent": "image:ee642b65a320427f1273daa8ed22c96c21f26fadd818b3ca12cdf1925cd00a3e",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/roi-native-54745b_1_7_png.rf.bda9767fc2a07387f263821d1e449e3c-14-repeat2.png",
+      "image_sha256": "d1df1b217d3013039c2a5972de7acf561924ffaa8390a759b4aff1701405ef39",
+      "label_sha256": "6a5c8ca05f7dcc4e5a60b3110864c0f5930af2f722edf494b6b962d4f01286bc",
+      "sampling_parent": "image:ee642b65a320427f1273daa8ed22c96c21f26fadd818b3ca12cdf1925cd00a3e",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/roi-native-54745b_1_7_png.rf.bda9767fc2a07387f263821d1e449e3c-14-repeat3.png",
+      "image_sha256": "d1df1b217d3013039c2a5972de7acf561924ffaa8390a759b4aff1701405ef39",
+      "label_sha256": "6a5c8ca05f7dcc4e5a60b3110864c0f5930af2f722edf494b6b962d4f01286bc",
+      "sampling_parent": "image:ee642b65a320427f1273daa8ed22c96c21f26fadd818b3ca12cdf1925cd00a3e",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/roi-native-54745b_1_7_png.rf.bda9767fc2a07387f263821d1e449e3c-14-repeat4.png",
+      "image_sha256": "d1df1b217d3013039c2a5972de7acf561924ffaa8390a759b4aff1701405ef39",
+      "label_sha256": "6a5c8ca05f7dcc4e5a60b3110864c0f5930af2f722edf494b6b962d4f01286bc",
+      "sampling_parent": "image:ee642b65a320427f1273daa8ed22c96c21f26fadd818b3ca12cdf1925cd00a3e",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/roi-native-54745b_1_7_png.rf.bda9767fc2a07387f263821d1e449e3c-14-repeat5.png",
+      "image_sha256": "d1df1b217d3013039c2a5972de7acf561924ffaa8390a759b4aff1701405ef39",
+      "label_sha256": "6a5c8ca05f7dcc4e5a60b3110864c0f5930af2f722edf494b6b962d4f01286bc",
+      "sampling_parent": "image:ee642b65a320427f1273daa8ed22c96c21f26fadd818b3ca12cdf1925cd00a3e",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/roi-native-54745b_1_7_png.rf.bda9767fc2a07387f263821d1e449e3c-14-repeat6.png",
+      "image_sha256": "d1df1b217d3013039c2a5972de7acf561924ffaa8390a759b4aff1701405ef39",
+      "label_sha256": "6a5c8ca05f7dcc4e5a60b3110864c0f5930af2f722edf494b6b962d4f01286bc",
+      "sampling_parent": "image:ee642b65a320427f1273daa8ed22c96c21f26fadd818b3ca12cdf1925cd00a3e",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/roi-native-54745b_1_7_png.rf.bda9767fc2a07387f263821d1e449e3c-24-repeat1.png",
+      "image_sha256": "b5a54b7a93097788c78428eabb8a49a01e7b51a7cf0a3de88f3cef77f81e8f56",
+      "label_sha256": "588b960a69eeb5ab725e187aec14dbc5749acce55192d2a0c5f93a3f992274ff",
+      "sampling_parent": "image:ee642b65a320427f1273daa8ed22c96c21f26fadd818b3ca12cdf1925cd00a3e",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/roi-native-54745b_1_7_png.rf.bda9767fc2a07387f263821d1e449e3c-24-repeat2.png",
+      "image_sha256": "b5a54b7a93097788c78428eabb8a49a01e7b51a7cf0a3de88f3cef77f81e8f56",
+      "label_sha256": "588b960a69eeb5ab725e187aec14dbc5749acce55192d2a0c5f93a3f992274ff",
+      "sampling_parent": "image:ee642b65a320427f1273daa8ed22c96c21f26fadd818b3ca12cdf1925cd00a3e",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/roi-native-54745b_1_7_png.rf.bda9767fc2a07387f263821d1e449e3c-24-repeat3.png",
+      "image_sha256": "b5a54b7a93097788c78428eabb8a49a01e7b51a7cf0a3de88f3cef77f81e8f56",
+      "label_sha256": "588b960a69eeb5ab725e187aec14dbc5749acce55192d2a0c5f93a3f992274ff",
+      "sampling_parent": "image:ee642b65a320427f1273daa8ed22c96c21f26fadd818b3ca12cdf1925cd00a3e",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/roi-native-54745b_1_7_png.rf.bda9767fc2a07387f263821d1e449e3c-24-repeat4.png",
+      "image_sha256": "b5a54b7a93097788c78428eabb8a49a01e7b51a7cf0a3de88f3cef77f81e8f56",
+      "label_sha256": "588b960a69eeb5ab725e187aec14dbc5749acce55192d2a0c5f93a3f992274ff",
+      "sampling_parent": "image:ee642b65a320427f1273daa8ed22c96c21f26fadd818b3ca12cdf1925cd00a3e",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/roi-native-54745b_1_7_png.rf.bda9767fc2a07387f263821d1e449e3c-24-repeat5.png",
+      "image_sha256": "b5a54b7a93097788c78428eabb8a49a01e7b51a7cf0a3de88f3cef77f81e8f56",
+      "label_sha256": "588b960a69eeb5ab725e187aec14dbc5749acce55192d2a0c5f93a3f992274ff",
+      "sampling_parent": "image:ee642b65a320427f1273daa8ed22c96c21f26fadd818b3ca12cdf1925cd00a3e",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/roi-native-54745b_1_7_png.rf.bda9767fc2a07387f263821d1e449e3c-24-repeat6.png",
+      "image_sha256": "b5a54b7a93097788c78428eabb8a49a01e7b51a7cf0a3de88f3cef77f81e8f56",
+      "label_sha256": "588b960a69eeb5ab725e187aec14dbc5749acce55192d2a0c5f93a3f992274ff",
+      "sampling_parent": "image:ee642b65a320427f1273daa8ed22c96c21f26fadd818b3ca12cdf1925cd00a3e",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/roi-native-55c9d1_3_1_png.rf.07c7686af5672912560847946b4b001c-12-repeat1.png",
+      "image_sha256": "e056a610d16df8749b5a5b394c94801962fc75b28d7924567ad7e88d54425ffc",
+      "label_sha256": "879452786ed9085c8853f054ae86cde9554aaa47a61a47b0a393f6fad4ba119c",
+      "sampling_parent": "image:635279de68b56bcb63dfd8fe94ec1f38fcf5325105b4bfabb1e6160ebc28af2b",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/roi-native-55c9d1_3_1_png.rf.07c7686af5672912560847946b4b001c-12-repeat2.png",
+      "image_sha256": "e056a610d16df8749b5a5b394c94801962fc75b28d7924567ad7e88d54425ffc",
+      "label_sha256": "879452786ed9085c8853f054ae86cde9554aaa47a61a47b0a393f6fad4ba119c",
+      "sampling_parent": "image:635279de68b56bcb63dfd8fe94ec1f38fcf5325105b4bfabb1e6160ebc28af2b",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/roi-native-55c9d1_3_1_png.rf.07c7686af5672912560847946b4b001c-12-repeat3.png",
+      "image_sha256": "e056a610d16df8749b5a5b394c94801962fc75b28d7924567ad7e88d54425ffc",
+      "label_sha256": "879452786ed9085c8853f054ae86cde9554aaa47a61a47b0a393f6fad4ba119c",
+      "sampling_parent": "image:635279de68b56bcb63dfd8fe94ec1f38fcf5325105b4bfabb1e6160ebc28af2b",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/roi-native-c01561_1_10_png.rf.3f004c5d1ff29736ea3c76c15311b910-16-repeat1.png",
+      "image_sha256": "58c6e9fd341123b6aa76cd5a8a602db4be8966d7a3eb7d2ec45afe857389c1b0",
+      "label_sha256": "fc706a848f38a38a67e256186f9a3ffe092deda14cca5e9efee82794ecc57cca",
+      "sampling_parent": "image:89ff83a3964ab1408262c21481919b1b3b628c58d948745cdc47d190a69347ed",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/roi-native-c01561_1_10_png.rf.3f004c5d1ff29736ea3c76c15311b910-16-repeat2.png",
+      "image_sha256": "58c6e9fd341123b6aa76cd5a8a602db4be8966d7a3eb7d2ec45afe857389c1b0",
+      "label_sha256": "fc706a848f38a38a67e256186f9a3ffe092deda14cca5e9efee82794ecc57cca",
+      "sampling_parent": "image:89ff83a3964ab1408262c21481919b1b3b628c58d948745cdc47d190a69347ed",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/roi-native-c01561_1_10_png.rf.3f004c5d1ff29736ea3c76c15311b910-16-repeat3.png",
+      "image_sha256": "58c6e9fd341123b6aa76cd5a8a602db4be8966d7a3eb7d2ec45afe857389c1b0",
+      "label_sha256": "fc706a848f38a38a67e256186f9a3ffe092deda14cca5e9efee82794ecc57cca",
+      "sampling_parent": "image:89ff83a3964ab1408262c21481919b1b3b628c58d948745cdc47d190a69347ed",
+      "family": "red_stadiums"
+    },
+    {
+      "image": "images/train/clean-gFCS-1.jpg",
+      "image_sha256": "586006216ee0f32a4a825c5f34a557eac2502b866ae71c11dab7dca1b9092517",
+      "label_sha256": "ad2e7596e81e489d94403b2d908544987cd9821679bf3a51ca5732531c42b383",
+      "sampling_parent": "image:586006216ee0f32a4a825c5f34a557eac2502b866ae71c11dab7dca1b9092517",
+      "family": "german_FCS_EBS_blue_yellow_ground"
+    },
+    {
+      "image": "images/train/clean-gFCS-2.jpg",
+      "image_sha256": "586006216ee0f32a4a825c5f34a557eac2502b866ae71c11dab7dca1b9092517",
+      "label_sha256": "ad2e7596e81e489d94403b2d908544987cd9821679bf3a51ca5732531c42b383",
+      "sampling_parent": "image:586006216ee0f32a4a825c5f34a557eac2502b866ae71c11dab7dca1b9092517",
+      "family": "german_FCS_EBS_blue_yellow_ground"
+    },
+    {
+      "image": "images/train/clean-gFCS-3.jpg",
+      "image_sha256": "586006216ee0f32a4a825c5f34a557eac2502b866ae71c11dab7dca1b9092517",
+      "label_sha256": "ad2e7596e81e489d94403b2d908544987cd9821679bf3a51ca5732531c42b383",
+      "sampling_parent": "image:586006216ee0f32a4a825c5f34a557eac2502b866ae71c11dab7dca1b9092517",
+      "family": "german_FCS_EBS_blue_yellow_ground"
+    },
+    {
+      "image": "images/train/clean-gFCS-4.jpg",
+      "image_sha256": "586006216ee0f32a4a825c5f34a557eac2502b866ae71c11dab7dca1b9092517",
+      "label_sha256": "ad2e7596e81e489d94403b2d908544987cd9821679bf3a51ca5732531c42b383",
+      "sampling_parent": "image:586006216ee0f32a4a825c5f34a557eac2502b866ae71c11dab7dca1b9092517",
+      "family": "german_FCS_EBS_blue_yellow_ground"
+    },
+    {
+      "image": "images/train/clean-k13-1.jpg",
+      "image_sha256": "f9093e7c3427a70da670f56f145fac76c8da938be7e35376df1216314e0949d9",
+      "label_sha256": "756e9a2624d665d80dbce692990e19541be97bb06a5f272968a453805e3767c0",
+      "sampling_parent": "image:f9093e7c3427a70da670f56f145fac76c8da938be7e35376df1216314e0949d9",
+      "family": "rai_replay_blue_white_broadcast"
+    },
+    {
+      "image": "images/train/clean-k13-2.jpg",
+      "image_sha256": "f9093e7c3427a70da670f56f145fac76c8da938be7e35376df1216314e0949d9",
+      "label_sha256": "756e9a2624d665d80dbce692990e19541be97bb06a5f272968a453805e3767c0",
+      "sampling_parent": "image:f9093e7c3427a70da670f56f145fac76c8da938be7e35376df1216314e0949d9",
+      "family": "rai_replay_blue_white_broadcast"
+    },
+    {
+      "image": "images/train/clean-k13-3.jpg",
+      "image_sha256": "f9093e7c3427a70da670f56f145fac76c8da938be7e35376df1216314e0949d9",
+      "label_sha256": "756e9a2624d665d80dbce692990e19541be97bb06a5f272968a453805e3767c0",
+      "sampling_parent": "image:f9093e7c3427a70da670f56f145fac76c8da938be7e35376df1216314e0949d9",
+      "family": "rai_replay_blue_white_broadcast"
+    },
+    {
+      "image": "images/train/clean-k13-4.jpg",
+      "image_sha256": "f9093e7c3427a70da670f56f145fac76c8da938be7e35376df1216314e0949d9",
+      "label_sha256": "756e9a2624d665d80dbce692990e19541be97bb06a5f272968a453805e3767c0",
+      "sampling_parent": "image:f9093e7c3427a70da670f56f145fac76c8da938be7e35376df1216314e0949d9",
+      "family": "rai_replay_blue_white_broadcast"
+    },
+    {
+      "image": "images/train/clean-k84-1.jpg",
+      "image_sha256": "f04c896a9e41b18c01e4051dbb1d814582b05ac3127a84aefc6f81a5fba00d1f",
+      "label_sha256": "67e394ddd8b8e4d541ac62d8d2a7fde8ee89487160c26922a80aba73dc82314f",
+      "sampling_parent": "image:f04c896a9e41b18c01e4051dbb1d814582b05ac3127a84aefc6f81a5fba00d1f",
+      "family": "euro2016_GER_FRA_broadcast"
+    },
+    {
+      "image": "images/train/clean-k84-2.jpg",
+      "image_sha256": "f04c896a9e41b18c01e4051dbb1d814582b05ac3127a84aefc6f81a5fba00d1f",
+      "label_sha256": "67e394ddd8b8e4d541ac62d8d2a7fde8ee89487160c26922a80aba73dc82314f",
+      "sampling_parent": "image:f04c896a9e41b18c01e4051dbb1d814582b05ac3127a84aefc6f81a5fba00d1f",
+      "family": "euro2016_GER_FRA_broadcast"
+    },
+    {
+      "image": "images/train/clean-k84-3.jpg",
+      "image_sha256": "f04c896a9e41b18c01e4051dbb1d814582b05ac3127a84aefc6f81a5fba00d1f",
+      "label_sha256": "67e394ddd8b8e4d541ac62d8d2a7fde8ee89487160c26922a80aba73dc82314f",
+      "sampling_parent": "image:f04c896a9e41b18c01e4051dbb1d814582b05ac3127a84aefc6f81a5fba00d1f",
+      "family": "euro2016_GER_FRA_broadcast"
+    },
+    {
+      "image": "images/train/clean-k84-4.jpg",
+      "image_sha256": "f04c896a9e41b18c01e4051dbb1d814582b05ac3127a84aefc6f81a5fba00d1f",
+      "label_sha256": "67e394ddd8b8e4d541ac62d8d2a7fde8ee89487160c26922a80aba73dc82314f",
+      "sampling_parent": "image:f04c896a9e41b18c01e4051dbb1d814582b05ac3127a84aefc6f81a5fba00d1f",
+      "family": "euro2016_GER_FRA_broadcast"
+    },
+    {
+      "image": "images/train/clean-new120-1.jpg",
+      "image_sha256": "43bea1e11964519ea7d8e61070c8111adcd075201506537b18c61edd65b59e81",
+      "label_sha256": "f2c154b02926d005af4a51fc0c628f522103fe3c6aeb6502b40eb21dd11ac4c1",
+      "sampling_parent": "image:43bea1e11964519ea7d8e61070c8111adcd075201506537b18c61edd65b59e81",
+      "family": "libertadores_yellow_navy"
+    },
+    {
+      "image": "images/train/clean-new120-2.jpg",
+      "image_sha256": "43bea1e11964519ea7d8e61070c8111adcd075201506537b18c61edd65b59e81",
+      "label_sha256": "f2c154b02926d005af4a51fc0c628f522103fe3c6aeb6502b40eb21dd11ac4c1",
+      "sampling_parent": "image:43bea1e11964519ea7d8e61070c8111adcd075201506537b18c61edd65b59e81",
+      "family": "libertadores_yellow_navy"
+    },
+    {
+      "image": "images/train/clean-new120-3.jpg",
+      "image_sha256": "43bea1e11964519ea7d8e61070c8111adcd075201506537b18c61edd65b59e81",
+      "label_sha256": "f2c154b02926d005af4a51fc0c628f522103fe3c6aeb6502b40eb21dd11ac4c1",
+      "sampling_parent": "image:43bea1e11964519ea7d8e61070c8111adcd075201506537b18c61edd65b59e81",
+      "family": "libertadores_yellow_navy"
+    },
+    {
+      "image": "images/train/clean-new120-4.jpg",
+      "image_sha256": "43bea1e11964519ea7d8e61070c8111adcd075201506537b18c61edd65b59e81",
+      "label_sha256": "f2c154b02926d005af4a51fc0c628f522103fe3c6aeb6502b40eb21dd11ac4c1",
+      "sampling_parent": "image:43bea1e11964519ea7d8e61070c8111adcd075201506537b18c61edd65b59e81",
+      "family": "libertadores_yellow_navy"
+    },
+    {
+      "image": "images/train/clean-new140-1.jpg",
+      "image_sha256": "463167fe06bff5212e62e6a35c0c3ad0d244da8af893a156f1570f9ff708d546",
+      "label_sha256": "d0394825a9ac65294b683ca17cc3b571e9e859db58d97a91a1d295edf41938d9",
+      "sampling_parent": "image:463167fe06bff5212e62e6a35c0c3ad0d244da8af893a156f1570f9ff708d546",
+      "family": "las_palmas_leganes"
+    },
+    {
+      "image": "images/train/clean-new140-2.jpg",
+      "image_sha256": "463167fe06bff5212e62e6a35c0c3ad0d244da8af893a156f1570f9ff708d546",
+      "label_sha256": "d0394825a9ac65294b683ca17cc3b571e9e859db58d97a91a1d295edf41938d9",
+      "sampling_parent": "image:463167fe06bff5212e62e6a35c0c3ad0d244da8af893a156f1570f9ff708d546",
+      "family": "las_palmas_leganes"
+    },
+    {
+      "image": "images/train/clean-new140-3.jpg",
+      "image_sha256": "463167fe06bff5212e62e6a35c0c3ad0d244da8af893a156f1570f9ff708d546",
+      "label_sha256": "d0394825a9ac65294b683ca17cc3b571e9e859db58d97a91a1d295edf41938d9",
+      "sampling_parent": "image:463167fe06bff5212e62e6a35c0c3ad0d244da8af893a156f1570f9ff708d546",
+      "family": "las_palmas_leganes"
+    },
+    {
+      "image": "images/train/clean-new140-4.jpg",
+      "image_sha256": "463167fe06bff5212e62e6a35c0c3ad0d244da8af893a156f1570f9ff708d546",
+      "label_sha256": "d0394825a9ac65294b683ca17cc3b571e9e859db58d97a91a1d295edf41938d9",
+      "sampling_parent": "image:463167fe06bff5212e62e6a35c0c3ad0d244da8af893a156f1570f9ff708d546",
+      "family": "las_palmas_leganes"
+    },
+    {
+      "image": "images/train/clean-new11-1.jpg",
+      "image_sha256": "0f48eb0143c15f480eb5dfcc4440ba44a4e93f0f1a38295c8541eb394948476f",
+      "label_sha256": "b107b04eaae0bdb8e1e9a1091b42c5301c1a772ed55d3f59d96dd90606ee9541",
+      "sampling_parent": "image:0f48eb0143c15f480eb5dfcc4440ba44a4e93f0f1a38295c8541eb394948476f",
+      "family": "las_palmas_leganes"
+    },
+    {
+      "image": "images/train/clean-new11-2.jpg",
+      "image_sha256": "0f48eb0143c15f480eb5dfcc4440ba44a4e93f0f1a38295c8541eb394948476f",
+      "label_sha256": "b107b04eaae0bdb8e1e9a1091b42c5301c1a772ed55d3f59d96dd90606ee9541",
+      "sampling_parent": "image:0f48eb0143c15f480eb5dfcc4440ba44a4e93f0f1a38295c8541eb394948476f",
+      "family": "las_palmas_leganes"
+    },
+    {
+      "image": "images/train/clean-new11-3.jpg",
+      "image_sha256": "0f48eb0143c15f480eb5dfcc4440ba44a4e93f0f1a38295c8541eb394948476f",
+      "label_sha256": "b107b04eaae0bdb8e1e9a1091b42c5301c1a772ed55d3f59d96dd90606ee9541",
+      "sampling_parent": "image:0f48eb0143c15f480eb5dfcc4440ba44a4e93f0f1a38295c8541eb394948476f",
+      "family": "las_palmas_leganes"
+    },
+    {
+      "image": "images/train/clean-new11-4.jpg",
+      "image_sha256": "0f48eb0143c15f480eb5dfcc4440ba44a4e93f0f1a38295c8541eb394948476f",
+      "label_sha256": "b107b04eaae0bdb8e1e9a1091b42c5301c1a772ed55d3f59d96dd90606ee9541",
+      "sampling_parent": "image:0f48eb0143c15f480eb5dfcc4440ba44a4e93f0f1a38295c8541eb394948476f",
+      "family": "las_palmas_leganes"
+    },
+    {
+      "image": "images/train/clean-new17-1.jpg",
+      "image_sha256": "3ff8b344b599dce766a79dbbda26808d4fb7cb3eb0279c4819794ff2e5cb08d3",
+      "label_sha256": "7e1122a1cb842551291e784a61434e10f0a8f5190dba052094a4e869c6129150",
+      "sampling_parent": "image:3ff8b344b599dce766a79dbbda26808d4fb7cb3eb0279c4819794ff2e5cb08d3",
+      "family": "esp_bel_women"
+    },
+    {
+      "image": "images/train/clean-new17-2.jpg",
+      "image_sha256": "3ff8b344b599dce766a79dbbda26808d4fb7cb3eb0279c4819794ff2e5cb08d3",
+      "label_sha256": "7e1122a1cb842551291e784a61434e10f0a8f5190dba052094a4e869c6129150",
+      "sampling_parent": "image:3ff8b344b599dce766a79dbbda26808d4fb7cb3eb0279c4819794ff2e5cb08d3",
+      "family": "esp_bel_women"
+    },
+    {
+      "image": "images/train/clean-new17-3.jpg",
+      "image_sha256": "3ff8b344b599dce766a79dbbda26808d4fb7cb3eb0279c4819794ff2e5cb08d3",
+      "label_sha256": "7e1122a1cb842551291e784a61434e10f0a8f5190dba052094a4e869c6129150",
+      "sampling_parent": "image:3ff8b344b599dce766a79dbbda26808d4fb7cb3eb0279c4819794ff2e5cb08d3",
+      "family": "esp_bel_women"
+    },
+    {
+      "image": "images/train/clean-new17-4.jpg",
+      "image_sha256": "3ff8b344b599dce766a79dbbda26808d4fb7cb3eb0279c4819794ff2e5cb08d3",
+      "label_sha256": "7e1122a1cb842551291e784a61434e10f0a8f5190dba052094a4e869c6129150",
+      "sampling_parent": "image:3ff8b344b599dce766a79dbbda26808d4fb7cb3eb0279c4819794ff2e5cb08d3",
+      "family": "esp_bel_women"
+    },
+    {
+      "image": "images/train/st-117093-f125-r1.png",
+      "image_sha256": "f993fbad49c168c6b344f303db960e2bb80fc083b34840f66d43042385b1e06b",
+      "label_sha256": "b8f1a8541e51a5157f53dac7b3263c2079565b315fee0cb63fe4bdaf18f10bcf",
+      "sampling_parent": "video:6b09f6160cc65768da35cf74dda0241ca6baccc1e4771b8304b80921d169da95:125",
+      "family": "soccertrack-match-117093"
+    },
+    {
+      "image": "images/train/st-117093-f125-r2.png",
+      "image_sha256": "f993fbad49c168c6b344f303db960e2bb80fc083b34840f66d43042385b1e06b",
+      "label_sha256": "b8f1a8541e51a5157f53dac7b3263c2079565b315fee0cb63fe4bdaf18f10bcf",
+      "sampling_parent": "video:6b09f6160cc65768da35cf74dda0241ca6baccc1e4771b8304b80921d169da95:125",
+      "family": "soccertrack-match-117093"
+    },
+    {
+      "image": "images/train/st-117093-f125-r3.png",
+      "image_sha256": "f993fbad49c168c6b344f303db960e2bb80fc083b34840f66d43042385b1e06b",
+      "label_sha256": "b8f1a8541e51a5157f53dac7b3263c2079565b315fee0cb63fe4bdaf18f10bcf",
+      "sampling_parent": "video:6b09f6160cc65768da35cf74dda0241ca6baccc1e4771b8304b80921d169da95:125",
+      "family": "soccertrack-match-117093"
+    },
+    {
+      "image": "images/train/st-117093-f125-r4.png",
+      "image_sha256": "f993fbad49c168c6b344f303db960e2bb80fc083b34840f66d43042385b1e06b",
+      "label_sha256": "b8f1a8541e51a5157f53dac7b3263c2079565b315fee0cb63fe4bdaf18f10bcf",
+      "sampling_parent": "video:6b09f6160cc65768da35cf74dda0241ca6baccc1e4771b8304b80921d169da95:125",
+      "family": "soccertrack-match-117093"
+    },
+    {
+      "image": "images/train/st-117093-f625-r1.png",
+      "image_sha256": "60244e1dc7aae9af1051c8daa849e628fc9df3449b967a422bd447eb2865029e",
+      "label_sha256": "85ffdec880e0819a6b4a2e0717e46a0851ae3ae0d58ddd3c37db5f0c2657028a",
+      "sampling_parent": "video:6b09f6160cc65768da35cf74dda0241ca6baccc1e4771b8304b80921d169da95:625",
+      "family": "soccertrack-match-117093"
+    },
+    {
+      "image": "images/train/st-117093-f625-r2.png",
+      "image_sha256": "60244e1dc7aae9af1051c8daa849e628fc9df3449b967a422bd447eb2865029e",
+      "label_sha256": "85ffdec880e0819a6b4a2e0717e46a0851ae3ae0d58ddd3c37db5f0c2657028a",
+      "sampling_parent": "video:6b09f6160cc65768da35cf74dda0241ca6baccc1e4771b8304b80921d169da95:625",
+      "family": "soccertrack-match-117093"
+    },
+    {
+      "image": "images/train/st-117093-f625-r3.png",
+      "image_sha256": "60244e1dc7aae9af1051c8daa849e628fc9df3449b967a422bd447eb2865029e",
+      "label_sha256": "85ffdec880e0819a6b4a2e0717e46a0851ae3ae0d58ddd3c37db5f0c2657028a",
+      "sampling_parent": "video:6b09f6160cc65768da35cf74dda0241ca6baccc1e4771b8304b80921d169da95:625",
+      "family": "soccertrack-match-117093"
+    },
+    {
+      "image": "images/train/st-117093-f625-r4.png",
+      "image_sha256": "60244e1dc7aae9af1051c8daa849e628fc9df3449b967a422bd447eb2865029e",
+      "label_sha256": "85ffdec880e0819a6b4a2e0717e46a0851ae3ae0d58ddd3c37db5f0c2657028a",
+      "sampling_parent": "video:6b09f6160cc65768da35cf74dda0241ca6baccc1e4771b8304b80921d169da95:625",
+      "family": "soccertrack-match-117093"
+    },
+    {
+      "image": "images/train/st-118575-f125-r1.png",
+      "image_sha256": "2615100ca8feaf708e513a635319adca886661f2e81b940a481be1465a754bff",
+      "label_sha256": "fc99b341631c4a3c963375980ceee4cb1fab9bccfe10aa13b36d51caad1c439d",
+      "sampling_parent": "video:9cb3e68d0cbb16cad2195da5c0a021ea8b51f3b646e7634f5eb0b5eb7da158fe:125",
+      "family": "soccertrack-match-118575"
+    },
+    {
+      "image": "images/train/st-118575-f125-r2.png",
+      "image_sha256": "2615100ca8feaf708e513a635319adca886661f2e81b940a481be1465a754bff",
+      "label_sha256": "fc99b341631c4a3c963375980ceee4cb1fab9bccfe10aa13b36d51caad1c439d",
+      "sampling_parent": "video:9cb3e68d0cbb16cad2195da5c0a021ea8b51f3b646e7634f5eb0b5eb7da158fe:125",
+      "family": "soccertrack-match-118575"
+    },
+    {
+      "image": "images/train/st-118575-f125-r3.png",
+      "image_sha256": "2615100ca8feaf708e513a635319adca886661f2e81b940a481be1465a754bff",
+      "label_sha256": "fc99b341631c4a3c963375980ceee4cb1fab9bccfe10aa13b36d51caad1c439d",
+      "sampling_parent": "video:9cb3e68d0cbb16cad2195da5c0a021ea8b51f3b646e7634f5eb0b5eb7da158fe:125",
+      "family": "soccertrack-match-118575"
+    },
+    {
+      "image": "images/train/st-118575-f125-r4.png",
+      "image_sha256": "2615100ca8feaf708e513a635319adca886661f2e81b940a481be1465a754bff",
+      "label_sha256": "fc99b341631c4a3c963375980ceee4cb1fab9bccfe10aa13b36d51caad1c439d",
+      "sampling_parent": "video:9cb3e68d0cbb16cad2195da5c0a021ea8b51f3b646e7634f5eb0b5eb7da158fe:125",
+      "family": "soccertrack-match-118575"
+    },
+    {
+      "image": "images/train/st-118575-f375-r1.png",
+      "image_sha256": "0711be905357277b7c0d9004cf80aba376faf9074e628187fccef5b1945b450a",
+      "label_sha256": "a30a3cd7afb8781a43c421b0db51131ccdb7e2097a446842dcd30013dee949fa",
+      "sampling_parent": "video:9cb3e68d0cbb16cad2195da5c0a021ea8b51f3b646e7634f5eb0b5eb7da158fe:375",
+      "family": "soccertrack-match-118575"
+    },
+    {
+      "image": "images/train/st-118575-f375-r2.png",
+      "image_sha256": "0711be905357277b7c0d9004cf80aba376faf9074e628187fccef5b1945b450a",
+      "label_sha256": "a30a3cd7afb8781a43c421b0db51131ccdb7e2097a446842dcd30013dee949fa",
+      "sampling_parent": "video:9cb3e68d0cbb16cad2195da5c0a021ea8b51f3b646e7634f5eb0b5eb7da158fe:375",
+      "family": "soccertrack-match-118575"
+    },
+    {
+      "image": "images/train/st-118575-f375-r3.png",
+      "image_sha256": "0711be905357277b7c0d9004cf80aba376faf9074e628187fccef5b1945b450a",
+      "label_sha256": "a30a3cd7afb8781a43c421b0db51131ccdb7e2097a446842dcd30013dee949fa",
+      "sampling_parent": "video:9cb3e68d0cbb16cad2195da5c0a021ea8b51f3b646e7634f5eb0b5eb7da158fe:375",
+      "family": "soccertrack-match-118575"
+    },
+    {
+      "image": "images/train/st-118575-f375-r4.png",
+      "image_sha256": "0711be905357277b7c0d9004cf80aba376faf9074e628187fccef5b1945b450a",
+      "label_sha256": "a30a3cd7afb8781a43c421b0db51131ccdb7e2097a446842dcd30013dee949fa",
+      "sampling_parent": "video:9cb3e68d0cbb16cad2195da5c0a021ea8b51f3b646e7634f5eb0b5eb7da158fe:375",
+      "family": "soccertrack-match-118575"
+    },
+    {
+      "image": "images/train/st-117093-f749-r1.png",
+      "image_sha256": "324c9d4ad4454310eac99ede82790f3f07aa955ceb3c49223e5cdce470aae18a",
+      "label_sha256": "c99edbd7413525938a2d4397539213fec37a3acf64293f71a80844df52599f0b",
+      "sampling_parent": "video:6b09f6160cc65768da35cf74dda0241ca6baccc1e4771b8304b80921d169da95:749",
+      "family": "soccertrack-match-117093"
+    },
+    {
+      "image": "images/train/st-117093-f749-r2.png",
+      "image_sha256": "324c9d4ad4454310eac99ede82790f3f07aa955ceb3c49223e5cdce470aae18a",
+      "label_sha256": "c99edbd7413525938a2d4397539213fec37a3acf64293f71a80844df52599f0b",
+      "sampling_parent": "video:6b09f6160cc65768da35cf74dda0241ca6baccc1e4771b8304b80921d169da95:749",
+      "family": "soccertrack-match-117093"
+    },
+    {
+      "image": "images/train/st-117093-f749-r3.png",
+      "image_sha256": "324c9d4ad4454310eac99ede82790f3f07aa955ceb3c49223e5cdce470aae18a",
+      "label_sha256": "c99edbd7413525938a2d4397539213fec37a3acf64293f71a80844df52599f0b",
+      "sampling_parent": "video:6b09f6160cc65768da35cf74dda0241ca6baccc1e4771b8304b80921d169da95:749",
+      "family": "soccertrack-match-117093"
+    },
+    {
+      "image": "images/train/st-117093-f749-r4.png",
+      "image_sha256": "324c9d4ad4454310eac99ede82790f3f07aa955ceb3c49223e5cdce470aae18a",
+      "label_sha256": "c99edbd7413525938a2d4397539213fec37a3acf64293f71a80844df52599f0b",
+      "sampling_parent": "video:6b09f6160cc65768da35cf74dda0241ca6baccc1e4771b8304b80921d169da95:749",
+      "family": "soccertrack-match-117093"
+    },
+    {
+      "image": "images/train/st-117093-f500-r1.png",
+      "image_sha256": "f5c01ccd67973cfd5e354aff9ee55b555c4278252b3d20fccbf09af46d6aa169",
+      "label_sha256": "94f5d542a855746aa8bae9f9656a699f386a6206e813d1e9c987100a794d49c8",
+      "sampling_parent": "video:6b09f6160cc65768da35cf74dda0241ca6baccc1e4771b8304b80921d169da95:500",
+      "family": "soccertrack-match-117093"
+    },
+    {
+      "image": "images/train/st-117093-f500-r2.png",
+      "image_sha256": "f5c01ccd67973cfd5e354aff9ee55b555c4278252b3d20fccbf09af46d6aa169",
+      "label_sha256": "94f5d542a855746aa8bae9f9656a699f386a6206e813d1e9c987100a794d49c8",
+      "sampling_parent": "video:6b09f6160cc65768da35cf74dda0241ca6baccc1e4771b8304b80921d169da95:500",
+      "family": "soccertrack-match-117093"
+    },
+    {
+      "image": "images/train/st-117093-f500-r3.png",
+      "image_sha256": "f5c01ccd67973cfd5e354aff9ee55b555c4278252b3d20fccbf09af46d6aa169",
+      "label_sha256": "94f5d542a855746aa8bae9f9656a699f386a6206e813d1e9c987100a794d49c8",
+      "sampling_parent": "video:6b09f6160cc65768da35cf74dda0241ca6baccc1e4771b8304b80921d169da95:500",
+      "family": "soccertrack-match-117093"
+    },
+    {
+      "image": "images/train/st-117093-f500-r4.png",
+      "image_sha256": "f5c01ccd67973cfd5e354aff9ee55b555c4278252b3d20fccbf09af46d6aa169",
+      "label_sha256": "94f5d542a855746aa8bae9f9656a699f386a6206e813d1e9c987100a794d49c8",
+      "sampling_parent": "video:6b09f6160cc65768da35cf74dda0241ca6baccc1e4771b8304b80921d169da95:500",
+      "family": "soccertrack-match-117093"
+    },
+    {
+      "image": "images/train/st-118575-f250-r1.png",
+      "image_sha256": "8af287dc35cd53237889055441ba79c104245a886a0d085604ad79e242d2c0da",
+      "label_sha256": "1aec88b6b2d58c3b79636769b56d177b20f3789300aa7e4251ec8e57d5afd45c",
+      "sampling_parent": "video:9cb3e68d0cbb16cad2195da5c0a021ea8b51f3b646e7634f5eb0b5eb7da158fe:250",
+      "family": "soccertrack-match-118575"
+    },
+    {
+      "image": "images/train/st-118575-f250-r2.png",
+      "image_sha256": "8af287dc35cd53237889055441ba79c104245a886a0d085604ad79e242d2c0da",
+      "label_sha256": "1aec88b6b2d58c3b79636769b56d177b20f3789300aa7e4251ec8e57d5afd45c",
+      "sampling_parent": "video:9cb3e68d0cbb16cad2195da5c0a021ea8b51f3b646e7634f5eb0b5eb7da158fe:250",
+      "family": "soccertrack-match-118575"
+    },
+    {
+      "image": "images/train/st-118575-f250-r3.png",
+      "image_sha256": "8af287dc35cd53237889055441ba79c104245a886a0d085604ad79e242d2c0da",
+      "label_sha256": "1aec88b6b2d58c3b79636769b56d177b20f3789300aa7e4251ec8e57d5afd45c",
+      "sampling_parent": "video:9cb3e68d0cbb16cad2195da5c0a021ea8b51f3b646e7634f5eb0b5eb7da158fe:250",
+      "family": "soccertrack-match-118575"
+    },
+    {
+      "image": "images/train/st-118575-f250-r4.png",
+      "image_sha256": "8af287dc35cd53237889055441ba79c104245a886a0d085604ad79e242d2c0da",
+      "label_sha256": "1aec88b6b2d58c3b79636769b56d177b20f3789300aa7e4251ec8e57d5afd45c",
+      "sampling_parent": "video:9cb3e68d0cbb16cad2195da5c0a021ea8b51f3b646e7634f5eb0b5eb7da158fe:250",
+      "family": "soccertrack-match-118575"
+    },
+    {
+      "image": "images/train/st-118575-f500-r1.png",
+      "image_sha256": "2a38d84233ae048fa4aa333b1b2962ee19725cfcddab32a7cf4a4430ffc8a5b7",
+      "label_sha256": "035c424acae411f7b0d0d1ac42ce90bb3cebf723f01125ce9240aac2b337b978",
+      "sampling_parent": "video:9cb3e68d0cbb16cad2195da5c0a021ea8b51f3b646e7634f5eb0b5eb7da158fe:500",
+      "family": "soccertrack-match-118575"
+    },
+    {
+      "image": "images/train/st-118575-f500-r2.png",
+      "image_sha256": "2a38d84233ae048fa4aa333b1b2962ee19725cfcddab32a7cf4a4430ffc8a5b7",
+      "label_sha256": "035c424acae411f7b0d0d1ac42ce90bb3cebf723f01125ce9240aac2b337b978",
+      "sampling_parent": "video:9cb3e68d0cbb16cad2195da5c0a021ea8b51f3b646e7634f5eb0b5eb7da158fe:500",
+      "family": "soccertrack-match-118575"
+    },
+    {
+      "image": "images/train/st-118575-f500-r3.png",
+      "image_sha256": "2a38d84233ae048fa4aa333b1b2962ee19725cfcddab32a7cf4a4430ffc8a5b7",
+      "label_sha256": "035c424acae411f7b0d0d1ac42ce90bb3cebf723f01125ce9240aac2b337b978",
+      "sampling_parent": "video:9cb3e68d0cbb16cad2195da5c0a021ea8b51f3b646e7634f5eb0b5eb7da158fe:500",
+      "family": "soccertrack-match-118575"
+    },
+    {
+      "image": "images/train/st-118575-f500-r4.png",
+      "image_sha256": "2a38d84233ae048fa4aa333b1b2962ee19725cfcddab32a7cf4a4430ffc8a5b7",
+      "label_sha256": "035c424acae411f7b0d0d1ac42ce90bb3cebf723f01125ce9240aac2b337b978",
+      "sampling_parent": "video:9cb3e68d0cbb16cad2195da5c0a021ea8b51f3b646e7634f5eb0b5eb7da158fe:500",
+      "family": "soccertrack-match-118575"
+    },
+    {
+      "image": "images/train/st-118575-f749-r1.png",
+      "image_sha256": "1c1d11ac530ffa0a9095007d6fb2db5d1bcf2f0cdd596bb70db0f188cf71110e",
+      "label_sha256": "8a7e1fd82615c35ad2bf1e795e0ccb41c9b4c7b3b8371d9151cb0952502d2c10",
+      "sampling_parent": "video:9cb3e68d0cbb16cad2195da5c0a021ea8b51f3b646e7634f5eb0b5eb7da158fe:749",
+      "family": "soccertrack-match-118575"
+    },
+    {
+      "image": "images/train/st-118575-f749-r2.png",
+      "image_sha256": "1c1d11ac530ffa0a9095007d6fb2db5d1bcf2f0cdd596bb70db0f188cf71110e",
+      "label_sha256": "8a7e1fd82615c35ad2bf1e795e0ccb41c9b4c7b3b8371d9151cb0952502d2c10",
+      "sampling_parent": "video:9cb3e68d0cbb16cad2195da5c0a021ea8b51f3b646e7634f5eb0b5eb7da158fe:749",
+      "family": "soccertrack-match-118575"
+    },
+    {
+      "image": "images/train/st-118575-f749-r3.png",
+      "image_sha256": "1c1d11ac530ffa0a9095007d6fb2db5d1bcf2f0cdd596bb70db0f188cf71110e",
+      "label_sha256": "8a7e1fd82615c35ad2bf1e795e0ccb41c9b4c7b3b8371d9151cb0952502d2c10",
+      "sampling_parent": "video:9cb3e68d0cbb16cad2195da5c0a021ea8b51f3b646e7634f5eb0b5eb7da158fe:749",
+      "family": "soccertrack-match-118575"
+    },
+    {
+      "image": "images/train/st-118575-f749-r4.png",
+      "image_sha256": "1c1d11ac530ffa0a9095007d6fb2db5d1bcf2f0cdd596bb70db0f188cf71110e",
+      "label_sha256": "8a7e1fd82615c35ad2bf1e795e0ccb41c9b4c7b3b8371d9151cb0952502d2c10",
+      "sampling_parent": "video:9cb3e68d0cbb16cad2195da5c0a021ea8b51f3b646e7634f5eb0b5eb7da158fe:749",
+      "family": "soccertrack-match-118575"
+    },
+    {
+      "image": "images/train/v11-141.png",
+      "image_sha256": "e3c2914a61e37cd62be8e179b9456538e951b6e35ea8cd99df83e390f6804f13",
+      "label_sha256": "8ad04a28898a88ff3cdbe6e41e78015c7eafeb118979bbca107690e4bed24132",
+      "sampling_parent": "image:312205f2af635bc29f80026b66206270a2a7b0142680ec45e8b1e501d448222b",
+      "family": "broadcast_RBL_FCH"
+    },
+    {
+      "image": "images/train/v11-66.png",
+      "image_sha256": "dd8c939f5d3d7f7bf267958aa8442d9b6d85c33241179725cf13197662be3f4f",
+      "label_sha256": "a40a6010a5522f59c1a8fa996f9f41b7bbb535cd161268eb8eaae720da7b71a7",
+      "sampling_parent": "image:fee9cca07fff3886159cfd0d8ffc2e8ebb67fe1ca83ed7757c99a5baf1d93be7",
+      "family": "broadcast_BAR_MLL"
+    },
+    {
+      "image": "images/train/v11-54.png",
+      "image_sha256": "cc2ede65b40b7db6b8bc3d2310e682270373ab80d03632f036d6c28eeb4d1d8b",
+      "label_sha256": "d522ffea6c7723a1d65739316222600af7913c2f366f9347f89a2799887788ef",
+      "sampling_parent": "image:351da2a958819503041d720584237e8435e8ae360b52c75cb89c42b06b07fd0b",
+      "family": "broadcast_CEL_VIL"
+    },
+    {
+      "image": "images/train/v11-98.png",
+      "image_sha256": "cf06634ddac506a52846394be8e615815c83dd0f3f031fde9c9246fc3e37af4c",
+      "label_sha256": "2f353cedfb82a51c70670e92b70ae03811a2b524100e9cfe6da1761e31312b8c",
+      "sampling_parent": "image:aa182ef199e949709f3f1d2448f6c3acacf6a8a4eaa065f86f3f6406db44c2d9",
+      "family": "broadcast_BAY_BVB_allianz"
+    },
+    {
+      "image": "images/train/v11-269.png",
+      "image_sha256": "53ec40a4c2b840e160140ed1207f6be2414808571d1b2f0609a7117b13340b1b",
+      "label_sha256": "2f7e6566bf9431334b71eb6ffa85da5b4e4290b3ee29c6cb12811d43d794b39b",
+      "sampling_parent": "image:b356524628d4ce51424b1d4c0da72b2786ac5650351e84c39c1250e34f11378f",
+      "family": "broadcast_BAY_BVB_allianz"
+    },
+    {
+      "image": "images/train/v12-151-flag.png",
+      "image_sha256": "a0d580cff3df8ab2d08220f954071704e8ac95fa99d799a3c1d171b0d8ad761e",
+      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "sampling_parent": "image:762e1a5e1e14bf43a421ff213bfe14755a2745d75c2877f33fee2f8784097903",
+      "family": "broadcast_Okayama_Machida"
+    },
+    {
+      "image": "images/train/v12-186-field.png",
+      "image_sha256": "0c90b1a546ccfa112ce6e810b2f295c70263c654f6c7c9d767e44284f3be5b72",
+      "label_sha256": "90887e87a1a21b4a0015a4a94f2acff6c0d36cc8abf506ce864fc0d1c0ab2e5b",
+      "sampling_parent": "image:88d6d0c889cfe5270129c80a14402bb10871231a2158f738990f5b191791a0bb",
+      "family": "broadcast_WOB_RBL_home"
+    },
+    {
+      "image": "images/train/v12-25-field.png",
+      "image_sha256": "c0d1064fc1eb9fc4ea6825be12ff66c7818cf7df3176768288975864bd043bea",
+      "label_sha256": "23d21f1e33d29d4893c90bffa0b168464b1664261290bddef996692f0d14c644",
+      "sampling_parent": "image:ba737419e92cfc7046a9ce766046b9100124602c344450fd27ee73cd6c8d2534",
+      "family": "broadcast_ESP_BAR_home"
+    },
+    {
+      "image": "images/train/v12-270-roof.png",
+      "image_sha256": "2ad9c2a77cc6d405393c90be0f7fd2a314d17b9cb2006efa1b5fa17e53996cea",
+      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "sampling_parent": "image:49601f4ba2811a089b4de97ae7bacbb88d65658d30f10c60c93126f759c5ca14",
+      "family": "broadcast_FCU_VFB_home"
+    },
+    {
+      "image": "images/train/v12-29-field.png",
+      "image_sha256": "769cf8d2e3eeb68ead96a90cebd73858f1cdb65fc74613281588a0f4cd8493c5",
+      "label_sha256": "4c66e9a4867c132bca3c44638065da641f5454cd6a9505b3114a2d51958eecdf",
+      "sampling_parent": "image:ea117ba52a8964eef3bf9b3e7be53f2de549f93adec94d6fdafce3ab55f8da29",
+      "family": "libertadores_white_blue_neongreen"
+    },
+    {
+      "image": "images/train/v12-29-goal-background.png",
+      "image_sha256": "2b4a8732375b4b077fc5bbd4bea89c9d592f76e6d0f9b9f07e1e8a47e68b5648",
+      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "sampling_parent": "image:ea117ba52a8964eef3bf9b3e7be53f2de549f93adec94d6fdafce3ab55f8da29",
+      "family": "libertadores_white_blue_neongreen"
+    },
+    {
+      "image": "images/train/v12-79-field.png",
+      "image_sha256": "18e5ccb2d2181df8f5e47c5d8ff26e6033646666d6e85b803e9a49eca038c077",
+      "label_sha256": "c4c1f2ddf84dd9fcf87a7c355c65dfeaea4f83b657f283be6cdd3d13294ffb6e",
+      "sampling_parent": "image:e4567da399b16f8d9a2cb664d412bf0fb05cb06d037a4fadf3a0edc9ad0cbb33",
+      "family": "broadcast_WOB_RBL_home"
+    },
+    {
+      "image": "images/train/v13-143-field.png",
+      "image_sha256": "128caad91e8d6e1a6feb254b0e046b53b4de23598fd8c633d9d03b72892f57a4",
+      "label_sha256": "46bdd3c71028c3c10401871761bf915b83bd6dee68f67d5d451807a3f55735cb",
+      "sampling_parent": "image:f6d6cbc5a5ce0f9924f0b5359da816a926c24648447b10a236da079cc22bf324",
+      "family": "broadcast_Kobe_Hiroshima"
+    },
+    {
+      "image": "images/train/v13-88-field.png",
+      "image_sha256": "c2e6343d8916f48d60848d60113bc98c4f954f02a671e2b26947af7d3e0acd0e",
+      "label_sha256": "6084eb0527a4774de5b346427899bf0d9de08cc9cddf1f159a4d6b4d58a0d1b7",
+      "sampling_parent": "image:f175bca43a4daa48b3f0384e62a83efae520238ea2316a61dc80f9d8076c573d",
+      "family": "libertadores_red_stadium_white_black_stripes"
+    }
+  ],
+  "parent_exposures": {
+    "image:7ad2d1dab2a7e19c68b9a90c77f66100079aa90ea311c072126886b364cff2ee": 3,
+    "image:27e7a5151d66b0c3d82a0db20c9144586bc531283e26d3cce04b271edd9b1323": 1,
+    "image:e08fe697ad97ea11fbcc09c930eff0645f263738aab3c85ad510030da167d593": 7,
+    "image:30381fb2bd42ffdfd47993dbfc959eb9408f558a6cf5ec9b3b12ad6e74b6c6ca": 1,
+    "image:ade2d8eb008f638a7e6b7bb05a5db36392081034ef981c7820af6a147f943ebb": 7,
+    "image:71a49af20d3ac14f4e9fa8598840d2a8573432cb66804e9042547d3f2ac5629c": 1,
+    "image:2e20d3eb2b202fc907c78507140a0864b8673d404d7c388776edd8ab153aba02": 1,
+    "image:13555be742b5d0b1141f6ec0aa44faa0ea0bfa7617237ab855c8b98a436aa294": 1,
+    "image:8819281ffaec477d43350c44c63bd6989c941915f2c608ba27d3009014f8f8f4": 1,
+    "image:927b31c9a889778e625aaafa9ccce5b2150d5dfd07419cbd3d4e105dcae27d1a": 1,
+    "image:3bf0e0c3a83901e9eae1382a38a75fa8d8e51c3436db090096419856e6b090b9": 1,
+    "image:b8b074ab7a116393bdd1b12f56410fc5f4d66e4b40f0a96def9dfa7a5d501843": 1,
+    "image:13867f4b564202c6d87ff381d26c43e928e11043eff5713cda7cc9cbf119cf5c": 1,
+    "image:5ffe021956680338593a70404c98f0333793915c8d42765c29c5d5990cdde0d2": 1,
+    "image:58099f2333952313d3dc441dce8f0388f3c68e6dd05f873ea5e8805c1d822c38": 1,
+    "image:33a5d7d118a4b1286aa667f9e502c15fcec95635e8125a82c08d2eba9d67cbed": 1,
+    "image:9269b90f1b1e9b5ce4cfbde5d848b58ad6ed03667a69b1b52ca051c30fdc3955": 1,
+    "image:0b21c7ab3c8eaf5846ff5c8abc4589673cde542fb526884d4d3438c19cb5ed7a": 1,
+    "image:17abfb08a48bfbdc67bda8854df510a9022ba9a919aee6e96c3e3fadb4561fd6": 1,
+    "image:8ab2f06a5adc074c07909c9cf5c0222c5dc3d20e3fbfaed818751cd5eec3d46b": 1,
+    "image:c5be1516c935c88cef2ee265d381c8cd3a1822c48fa2f202ad0d7540039d7dff": 1,
+    "image:969fb314c378216b46da2954b11d36797198c245d2f6b2ffb9a4de390a03832f": 1,
+    "image:6ec980ec7ab9228885471d638e11924ed78ec51f4863d50e0df2428ff25ebb50": 1,
+    "image:627a72a6b3c8dad4da8c145bc61a579962acff9587dfbb119f110732eba38e24": 1,
+    "image:bf3b004fccce4611acbdc73ee7e2bc8ab2c4aedfa45a8fc56f38e41a8ffd46de": 1,
+    "image:6a91e2df4af9306fe6e4febaa247f0fae1ded3b05eb4785572f0074f4260c6ec": 1,
+    "image:1999a56a6d6158e78948619120ad6e1a553e80bf060b40ff1b7a2ad6a6725db4": 1,
+    "image:3aa1a273f25d4bc8119444b7902786de874a3239b674c87559af62afec91ad42": 1,
+    "image:d28d689fb8f3693b449cd97e12d5d22101dedfa92611f556098ee668f9583a2a": 1,
+    "image:dcf0afd2c24b211147b30ba25f7ba61a190d2a1d76a2c562ef557da5f61ad5ed": 1,
+    "image:2300835f3544806e9939bd0be9529e63d91c189d619be4403f805eae123f42f0": 1,
+    "image:ec6d3fd122db351da379b5eacdbfde98dba4a1ed579137181d220de2467e0ea9": 1,
+    "image:aeffd2b8b2d9ef54e34cefb312b1c9b2007ccdf5b4c7181533531f4625cb8103": 1,
+    "image:d7815202f5a5bcf342ae83655177fb22fe0e80a327d311fde00adf50cffeb971": 1,
+    "image:b1bcece46f2932baa5f44f4da353e265201985805a35b392785c5f909e8e8399": 1,
+    "image:826157a4dd763d97a59963515553433cda0ae1292c7dc6a52e33dad4bb0dc9ca": 1,
+    "image:92d64055ffd1a2f65d7c194b94e041132b28ccc64d9d52e4fcb9e6f6e9a66b46": 1,
+    "image:a12e34f02b71dcd2774cfc9ce6fd800f06a63ec88cd55a9919f3a6a9266e936f": 1,
+    "image:48aa734f8f65a17a0cb9ad3bed0aaf5cfe4fc745b675d0d39a588cf22b5a7197": 1,
+    "image:b18a654ed1d99f1b59365cc444565a2aadf15c3e735180b3f428215dbf16db4a": 1,
+    "image:4be522990c298bd8cbbfb8b2bb385744c2acaf1ce04eeab5e8e395256cbcd81d": 1,
+    "image:11e07e6b116ddc576743c400f56e6fb6c5b99cb3e0c0c52faf5df4b8efff938f": 1,
+    "image:6ed185b7a93c28e66ee5851a7e198a0e0b5be49a051f2772c76945455649dab3": 1,
+    "image:f66dd9424cd48bb846ee742738302d1f80552f7309754369c2b91d8552ba994a": 1,
+    "image:1952c9c89a50e5a334ba3d813ceb8a99d24a5dcedfe57ed2404c85276ffe964c": 1,
+    "image:50f3af1c430efb1e94f24cb37f8787e9ccdd13710733135dc7e2ca6337bee56f": 1,
+    "image:2aebee45ad73c469b4f428526f4a6d85324d1f578689b6561bbced0a9d47179c": 1,
+    "image:286b26545e24d971a5a605c897f8e9bdae3fd861e7c73565d87a1e0bd618eafb": 1,
+    "image:b0ba63e3cbb42d83719940a6ea4a2b9c5befd2a53d0b38e240c7180cc5c5a9a5": 1,
+    "image:da18219085bb7194c0bc1495b1a2424e91f201521c097fefb046df7cce954ebb": 1,
+    "image:b19be4410213148fbc10bf4bbee9d594597755b47bff07f432165896ff9b512a": 1,
+    "image:72594c4ac3643bf66c00be952bd200d9e5b5b0c62a279b15d196ce7829370980": 1,
+    "image:e40ca0cb8ffd2e6fe36251297fca1c9f939e36022dbb39d12e5501e3407518e0": 1,
+    "image:eb8cf408c22085f7b7d6a8d65d519548d0a285164d47352d67d42605d68f1d80": 1,
+    "image:81f9462426704bcb7579f4dd50df73bafb65e0f2ff899ef0687472391f53066b": 1,
+    "image:cd3c4aa70cb2bdc2ab7543ba0db78d2f26f74d7662ebc8430f2ad234dbb8880a": 1,
+    "image:7120242472918c10eeb2bee54a6c4adef1d25861c3b09874b007434ac3b271ed": 1,
+    "image:ddf8967df182e1328e95e06153cece5d4484fdc08d1e6117cb4a3080a300f768": 1,
+    "image:e9c8e5770b3e4880c558f4c94472e30ae90f2a3b0495985338a62af423132c3c": 1,
+    "image:89103f6fad88c4f85364ee410cd34c322e8d49d419c75cb09b44b009edb50404": 1,
+    "image:ac47402c3dfdac9fc7b4daa7f74f7965be60d934b3a6a478890bad182e734b98": 1,
+    "image:039a6633d6927f28f4994762153f3dff12eb8792b6fe8505924dc881b10f6765": 1,
+    "image:fe48c9bae26b137d7b5046e57011caf6296e0b224a05ac0206b12269497728ff": 1,
+    "image:b0e5be8a60cfd3299bdf06fbbfaa3728666fd49666dc011ebcb4059a9f647b6a": 1,
+    "image:f6d498f8c30d402cf7b609a067abbbeb1a67db5bf4e499570518ab2433316531": 1,
+    "image:f9fdd81b2ac0f5e9a74e9fb437ce3d7547c22ed6bdf6c237b95bbee0833c1a02": 1,
+    "image:1f47c38b9bacb80cca86ffbfd8d2c92e23b5bd6d238dd08f6314e39af42d696f": 1,
+    "image:787e1a657675ebf189f421b93b2b47700473509c888a0d868c8c57ea331204a6": 1,
+    "image:23fb7c2ca78a6a0ae8166b2efdc2a8eb5cf3d3dd9d9c9b9fedb5a29e757b0558": 1,
+    "image:ae39a2860a1508ad6fe5c3228e7b2dd1ff89ead592dc589f87dc3ffedcc19c03": 1,
+    "image:3703c1c6e5aab0e00cacbe8c74e9a567e699d1c5120cad9a1a19afd9940feae0": 1,
+    "image:770df89a88f84ab7dc27e42b0b5c0715011e35ea7387d5866d83771946e0b7e1": 1,
+    "image:f01ce5e5fba9c70fb19cc855c2d6b3ff67b09c7d423c9ae2da80718f54ce612d": 1,
+    "image:600a3e4338320f522eea666b201676222478b5d480d44fc75a2b04b9c8d1e9bd": 1,
+    "image:9aa3964a27f2b354658818c733e6d3e009fc1e79a8315d9c8194bc580a067478": 1,
+    "image:0321081f219e57567e7422aace70f071ac477f407d50cab24151fac43b5fc323": 1,
+    "image:af0015ad66dffc701a1eb01aa1f86d0283159d65943cdfd3d362c3a444003842": 1,
+    "image:587a895c48993ec32e33c355107407f743419bb23e1b92e9eb446214f6c78a15": 1,
+    "image:17b320d259bdad9a97bb384d030228e267a5665114f32bba22de413b341f10b1": 1,
+    "image:7eae2bfe983e80442ba90a0ea8e5601e14ba323420a8dd89cb41a5e8e0d24b22": 1,
+    "image:d789f7770da2fa4b7766eb3f457acbb04d123ea948e66a8dbf440c4ef77b39d0": 1,
+    "image:87b65d9a714162a99efd9c1d9c570ac86323e6ce04e4a9857b3f39fc2198dde6": 1,
+    "image:6d44e4ba6b5756f71b86bd99c1165638d4f5ebd8f8df0d23aa6bd6f45e81559c": 1,
+    "image:3fd4ab56df828d3c93fa732781646011219598f10f14f2098e0cac9eb8ac909f": 1,
+    "image:ee642b65a320427f1273daa8ed22c96c21f26fadd818b3ca12cdf1925cd00a3e": 19,
+    "image:0e456086f5c58e21a01c4ed095975a79f2bf0ce95f8b6b0be470907f46b9a929": 1,
+    "image:97b4cbc186f60865ae54b64d34a5a538c508d614d225ac3085de73c6a6e22b1d": 1,
+    "image:a9cd54a979ad763697fdb9352e3f599f332059401071a7b020b4f969984f1f7b": 1,
+    "image:6bb95c5b54fafcdf40649064b7fb3896d543b1de9ebf18714d5a5039edd6e7f3": 1,
+    "image:8a6a7dfc82a63e0137e576641a0a0542118a30ae7c1a800583bed966f789afe0": 1,
+    "image:51b0b8caba8e5e0452f2648ef8fc997e394a9fd67ae3576ef09f4538439a799e": 1,
+    "image:9b8308a6d027df0265b4ed6124bc4622f6159fcaa0bec9df0ef00862fd9bc1d5": 1,
+    "image:a4ca9a1db735448eae9a0ca8325ef7400e4e814914f91d07828c36a65ab5470c": 1,
+    "image:2d14b1e05bdf653a45a7f58df6416ecd362adf17f46beaa7fe4b4b24d1fa3649": 1,
+    "image:2097dd3582ded5065cd120d335050af83651a8c7b42bf0662b32c50ba8cc880e": 1,
+    "image:8cf913111a99d0e47fd09798b7241d8fae58ecd07d8a8699e65f28a16bb6bbdb": 1,
+    "image:67fdbd550af4316a6505e642483103e2e6113fd80ad6c4c3a0ced4f44d476e3e": 1,
+    "image:45262c22c2b76172433f8ebadeef37bc86cbf25ec399842afebd4ad4cc0edfc1": 1,
+    "image:3af98e591e20d1afa77023dbd820d42a4cc1cc3e8aca8a0834c8443cb5f9c977": 1,
+    "image:8355e9063de1fe001e6c02185a2d21ad8c26d6f0f2f8de154a295bcb8da90841": 1,
+    "image:13efe70dff48af57ece8e5ddf5adf3e1ab7bdeebfb60d7308ac9d723ca6ea088": 1,
+    "image:a1a2eea3676dfdef29f8470fd15e66dd2350a77094e9618f19a92c21a0839283": 1,
+    "image:b8837b7ddcf7c1a0e6b9338e3ea3d3a66965cf190f67c43ef031908fd7ad6d31": 1,
+    "image:85570c672ad630b0d0013bc4a7a4885b9ac946f4b8548dff878686c918bbfdd4": 1,
+    "image:40df9e14bdbf6035bf261469359b74266a6917aaec93399857e025c8d749ba49": 1,
+    "image:d5a3f90179ff154989768ccce6ed1472025ba075223bf77639f97b67e3aec9de": 1,
+    "image:a3b7670fb3f8fcc939e9b3a29af9541a248f570c5407dcf8b7021c1ac147fea7": 1,
+    "image:14464ca8023fd23702393d88fba51118d84825c01eb2f4c763d88205d7d723d6": 1,
+    "image:69f928bd32b84c4d693d25130a2288714fc2c9423fec7be4dc3b805ee09924af": 1,
+    "image:4463fdc536efe8bd78246d068411617523a61e157653bee35398889840cfee90": 1,
+    "image:0cf0838c65575eeff25045681f7365dc8057431824a144b852320156912fa19b": 1,
+    "image:01564dfe287849be127928b1e75095e8a0fa57019fcbdbc5026920c5632642d9": 1,
+    "image:f6b445da884592365a028f9c46287b9b1729682d6bb464c6834808b0171a16ae": 1,
+    "image:c0e177aa68a751c7dff0110c6af8a19435723e4576933a6c04cb1fac71f14f95": 1,
+    "image:0231cc2b94ceb7e89fa2124629f521a041b9f5ffa41e9d0b3c603e179e0927fe": 1,
+    "image:bab444ccdf9bb3ee377d5cd0dbeb09b892be957aaffade9288640d01cab30407": 1,
+    "image:5c385f4a18f0b27d7171d9b3971a88c1272c969a961e9e2730eefaf24a7c3735": 1,
+    "image:aafd9da7d55ea36a77912400b2aee88cfa32811c37c0dad2416038d448414077": 1,
+    "image:a17f18e8bee7fc135b394eec70b62b891f9824c899f31b7a7fd51293f8ab5d4c": 1,
+    "image:0d8639935fa6742ab547c9c5f2bb31875e860ea01b522da20b263ef335d4177b": 1,
+    "image:5b07503dcea19b8ae0b7aa975b46ee4d894c45fa9557206f7ae1b04929409ef6": 1,
+    "image:e6c900e2151ef05ec94533e6479e792ea6a07e98e3dfe5f754e93743e2e945da": 1,
+    "image:895bede0b1db3206e02f67cb0b784fc4f5d75b1aebae35ab6dacd8038f0e78b1": 1,
+    "image:2bd1b2c8ee4ba6c63b8dcb9038e805697131ec0a2367ae0f83c28df9331f9ff9": 1,
+    "image:4baa877170d2d79f31e1ba0ff9471b2bd61a6554172b669ccef5f4a5466af304": 1,
+    "image:9eb91b90f94ad313d2b9705ffca0944fb1523b69456e6b39329d051f16e799fb": 1,
+    "image:17825b193708c4dec6d7204c30d2d00e64308c8b0195acdcd2e788979efc1b62": 1,
+    "image:c643f7a7373570f6da877e3a91aaf257de70ede698498ee24ac381c8f78f0ed8": 1,
+    "image:facced5dbda4657649162394a51d8b71bbe11e3ca26b1395928d527983fc5920": 1,
+    "image:8647d345cb293b67de63a4cb958d8a32f107b2b4b1b458d946e0b74b58e4592f": 1,
+    "image:99be1d859d361c2a6b2d2276a9c314308343b59327ed7069b63aaa31d6f7017d": 1,
+    "image:66054c2abebba536704a50811081e7d73ed9d5a76031d2477b74191e9ed2bcdb": 1,
+    "image:fb8145ab451544bf20f528f59e1f5b395d76e3e98609a95509caff4e438f9bfb": 1,
+    "image:1e7fe6f264cc8bdff722ac544f17f7b0c0d1a5215080aef5b2fc8f9b3ca62fad": 1,
+    "image:e4a2f3dc3c8923e89f7ce3a8bc898daee22877e8327cd6bd263957b9b3c580a4": 1,
+    "image:dddbb861a1272dbcf68b5d5763137a9fb62bf2006e6e95cafb0b1016147503f0": 1,
+    "image:6ccc3ca56e79d64cebe93cb72e5dd1e569cd24a80574f4f00975276ba06fb11a": 1,
+    "image:276ee46fd830470878e5e66eaf9e3366a4f9c6f61a46fd5f9e3227b0a73b4b75": 1,
+    "image:34905d8ebb647bfd85baabe924c45f704fb3c8946cc08a0ebaca966c35bed1f6": 1,
+    "image:bf2b999f6c97b832078490c11677eec9e41b55f05d2464dc464313ca7b53a5b9": 1,
+    "image:888dcc3cba7d64ba4122a346943efe2d259a36410da66adefbade52763a69b8e": 1,
+    "image:0354aac7bd3871fe9561af07b0de9509094e4eef6562db59a96eebeb9e0a0875": 1,
+    "image:a48473b8ec043e844dcb5efe49ea712306dd1273e20d04e8be2c817950f173c4": 1,
+    "image:ded3a350000f4b4daa6ca8af15e46301cd1ce1bca76c894778c484ef4513d634": 1,
+    "image:563a770a87260c0b8c8c5826b578412b4cbf326cf0678daf367263e7c0261f62": 1,
+    "image:5e6d6b56e39df84e2f909e386ccdcd6615c78df0f5e27997e763004c07b1c1a4": 1,
+    "image:6da0a22fdf308bb256df6dc31633fffce73ef32c746ebf6474509505d7bc85dc": 1,
+    "image:63601de9c12f68ab68eab0350d1a14ca53747583039b580270b4266b29be0e11": 1,
+    "image:46c1890e1efdffa6cfa76b60a73673405d8dae700f1976461a5f8d0348706f27": 1,
+    "image:fc695bba47d848daea4bd4e76e2332eaa9dfc4416c78fe7077f5f4187478ecf4": 1,
+    "image:ef92b98dff95d2dbbdf4cb419d5d1e81a5065f0f929952aac91d084b42b1f909": 1,
+    "image:11ca932294b05df1a7c92b32d3e5091eecb5ea2cae22c5f8b8de114c7eeb18a2": 1,
+    "image:2cbbedd354891350e0b2402c49bc9f9d2d97e7515cb980a3d668abb3830f4ace": 1,
+    "image:41f1eb801b934c13264fbf1c38010fe5049548ab244d41eb2f43d9c4bfa40604": 1,
+    "image:0b16b7bca5fbb7b56e5d194bd4a189741d0897fe02e5436ed9d7a720a84b79a7": 1,
+    "image:0a8487990525091f46bc6238a82c3739e0ccd92c1d3942ac48515805ee640c34": 1,
+    "image:6544715eb118d5e17c9a1b333e819a9d7487c554681942793c237f0e391b0545": 1,
+    "image:a734a67538e491e8ee1ed73005df7c7af03ca026e9f2ad34bc3b2031e8e9ec59": 1,
+    "image:78438f422cee104ea167608387198a8c698ff846c71cee14d0bb12f9ace16b33": 1,
+    "image:1bd2fec4a2b001d8d86b9ab44f3de53d28d81c9d899b3a28c7a0a5fd09efe02b": 1,
+    "image:e65ee4664b1ef467b2748c7d050ffa88f230d96dabbc6b8e3832427353c3c90a": 1,
+    "image:24525a788e48329acc5698a05db80eeb2603dad9de57f381b2a2ee4d70566a27": 1,
+    "image:89ff83a3964ab1408262c21481919b1b3b628c58d948745cdc47d190a69347ed": 4,
+    "image:69d13eed0cdc39343f6de635bd391c3a5b8793a27e79c01e15cd5b107cef9d27": 1,
+    "image:f54b5ff8d67123e1f83dc641a082e6ceee7f524b58efbd3e159680d32792062d": 1,
+    "image:4b8db39aefa04b04ec610306a46e0a51587cbcc0defa371195b2ac73d683753d": 1,
+    "image:851b283c473285390cd2ecaaa5bfe2be237d2ab16e7e87afa095a232bf4c7541": 1,
+    "image:cfbf6bd5575d8fc8a5c9dc7301cc9a1f5152538b3cfeef564c372865ee2debdb": 1,
+    "image:e38741ea85274bfbdb202400a6949948d794927a49c5242a92bd7d524892b0ca": 1,
+    "image:7e92daa5772ebf884e26fb7fec7199d08f6bc718d2d8be0b668a51f19dd9a612": 1,
+    "image:f0504f4da774da8beb3e8f3e6f5e0228f45df4738d44c665bffe0b25c5f6084b": 1,
+    "image:7c9790be6a7348d7320657b3835bdb101f388605fdfe67e56b7e8b05a43c7982": 1,
+    "image:413ef4b1734e7f71b21364977a4e3584b7abf807eeee46d60f8a24cd7a5d43b9": 1,
+    "image:13ffad18f998237acf6b86a86e8fc658698de63dd2e3b72cbded5d209ad52a72": 1,
+    "image:7982baa2660ad55fe7f116aa30439b73dc28629aba9dc846eb569c9e5a08a56d": 1,
+    "image:65436258005c34c80ae911631082cac236a51275be02c6e3ab63bbb24dd21a11": 1,
+    "image:b3c7766d23ac6be539ec5d6506a7b3f70ae7fa0b00add4217a18380fb0832df3": 1,
+    "image:9218a6630ff7aebd39a4ab917d2a25445c443e11d0cdca3adc6a774aed809e47": 1,
+    "image:b9e0a7cf4bbf9f9391b0ab8c44829d2a887c2b9fc92ce30be728fba9de9c5c04": 1,
+    "image:0308ec0404c80ffab584523e65961444d3fab70d86a8d163c80017767614934a": 1,
+    "image:562dda74c3dcbac4f5b3c2c91baa4f3e18d53cc740a97d43f85aa6eb23896e24": 1,
+    "image:689aab577d8b3a4a3a3704d73c720a61311f9f8785f00c843d5bac861361d341": 1,
+    "image:93a3af8dd3017c772775406c187133e6020d79b5ea19c9ba27c53a710119b747": 1,
+    "image:56e08ef2abc571d14b6508a481747a85166300b1ba191994289e8a76d46ea1f8": 1,
+    "image:7dd7c5a59867fcc1502df57d39616300796f9effcdfd7ced97d5371df823ff42": 1,
+    "image:3777b513fb7cc068a90a7df9aa0417d1a0b9af0912774a85245093b9df8666dc": 1,
+    "image:d28a1e59d80b13b3c5e501b7fe6b92aa80b27c2f9545108fb495ae6a55cede23": 1,
+    "image:0eabda018faf7b5ce7335a57eb46c8696b87c7402f411ed0ff38f862e874a905": 1,
+    "image:e9d65d53260c1727f16e31be6681c6f1727d5260878554501d1d34f32d4cb66a": 1,
+    "image:8cce70b50b7f9c5a993d7f6d00a9d5a5f5f13ca855b806d1235709bae16349fe": 1,
+    "image:aff823e05df56f0cf1269c74a66f351e1bca0d15c95917ae922f09dcad05860f": 1,
+    "image:b4b4926906149633a1648523af633657fbc1861ea55311088a7a1c2292332c4d": 1,
+    "image:f297ba0d97dfe68ea0c95012cf5f585c9efce13bffb8cbedd2ae0fcd19a033ff": 1,
+    "image:4fc1bafc99f0db0f364db516c4f55cdeb1f94a113369c63052fb3d538664d627": 1,
+    "image:64fd81487d638010998641fe6864d4c03ddf767c7cc3a9777ab9ab88f284741c": 1,
+    "image:fc2dff0731ed450f95c8217c1c048e07c90d24f20e908659bfe698d67a17bd9c": 1,
+    "image:0850f6dbe4931b7b95e0d51bcc55898dafa5e0a984e4edd51dc7411b97817f4f": 1,
+    "image:8de28e62d884b0a46ed1b70c3f9b753b57d24a4d54dad4192e5b147c7d0d9bdd": 1,
+    "image:e1cfbb3af0efae19be7620bd7e6d943af2c632e94263a66cfd4b72ea1835e184": 1,
+    "image:de8dbaa427af2e1d1036c25634244cc96941cc7cbb1bb191852ccaa4a28fc11b": 1,
+    "image:c9a8d3649a17a5c0c13330c65a427bbd6509edf5921f82f20918bfb36dda1be5": 1,
+    "image:85b7c114246df5622f2ce7cef8115121810351c2de72390459fe41ab3e7043fb": 1,
+    "image:0a4ceffb07c9d16292ccfd4cfcebfc511a4f39301a4dc5a103a6077e68132be9": 1,
+    "image:b1eb8063514fb851a13e5fef7b7d1bfe7288e9c44701ba596d2fa3cac1ce3e81": 1,
+    "image:218bacf97042c73e62af223745f2bc5d9057476ab4fba7f55fc96ebef7fe8707": 1,
+    "video:f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0:930": 1,
+    "video:f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0:1350": 1,
+    "video:11a9b033dbeca46af7e3cf1117269b04044ddf8d89b6c594efc16222606dd053:538": 1,
+    "video:11a9b033dbeca46af7e3cf1117269b04044ddf8d89b6c594efc16222606dd053:800": 1,
+    "video:ee1fd930c245f46213be2dbecc7219382ce940b73cf667c0983f5e4924012541:1214": 1,
+    "video:ee1fd930c245f46213be2dbecc7219382ce940b73cf667c0983f5e4924012541:1500": 1,
+    "video:f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0:330": 6,
+    "video:f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0:510": 7,
+    "video:f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0:690": 7,
+    "video:f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0:870": 6,
+    "video:f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0:1110": 4,
+    "video:f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0:1290": 6,
+    "video:f51735a042b493eba3cced891209fe1b6beb20ca80e20c340c7ede51900495d0:1530": 4,
+    "video:11a9b033dbeca46af7e3cf1117269b04044ddf8d89b6c594efc16222606dd053:150": 3,
+    "video:11a9b033dbeca46af7e3cf1117269b04044ddf8d89b6c594efc16222606dd053:350": 5,
+    "video:11a9b033dbeca46af7e3cf1117269b04044ddf8d89b6c594efc16222606dd053:650": 6,
+    "video:11a9b033dbeca46af7e3cf1117269b04044ddf8d89b6c594efc16222606dd053:1000": 3,
+    "video:ee1fd930c245f46213be2dbecc7219382ce940b73cf667c0983f5e4924012541:300": 4,
+    "video:ee1fd930c245f46213be2dbecc7219382ce940b73cf667c0983f5e4924012541:700": 4,
+    "video:ee1fd930c245f46213be2dbecc7219382ce940b73cf667c0983f5e4924012541:1750": 4,
+    "video:ee1fd930c245f46213be2dbecc7219382ce940b73cf667c0983f5e4924012541:2250": 3,
+    "image:b4f38c008fd8d3034bb93bcede6ffc1d8a131b6ac52fe2244d168aacf32fb2b0": 1,
+    "image:c72500247285795a52310e3ec339000024c737149a7c18f11a0246f3b8056eb5": 6,
+    "image:c5fa11220a26a81489f4f1e8d8d15e83819cc59203c433eb351c89610eb6a3a0": 6,
+    "image:f60dfd5321ea4bb50eda91ff70681cd25dea28bbae84f4b8c8f204bf0940eed1": 6,
+    "image:635279de68b56bcb63dfd8fe94ec1f38fcf5325105b4bfabb1e6160ebc28af2b": 3,
+    "image:586006216ee0f32a4a825c5f34a557eac2502b866ae71c11dab7dca1b9092517": 4,
+    "image:f9093e7c3427a70da670f56f145fac76c8da938be7e35376df1216314e0949d9": 4,
+    "image:f04c896a9e41b18c01e4051dbb1d814582b05ac3127a84aefc6f81a5fba00d1f": 4,
+    "image:43bea1e11964519ea7d8e61070c8111adcd075201506537b18c61edd65b59e81": 4,
+    "image:463167fe06bff5212e62e6a35c0c3ad0d244da8af893a156f1570f9ff708d546": 4,
+    "image:0f48eb0143c15f480eb5dfcc4440ba44a4e93f0f1a38295c8541eb394948476f": 4,
+    "image:3ff8b344b599dce766a79dbbda26808d4fb7cb3eb0279c4819794ff2e5cb08d3": 4,
+    "video:6b09f6160cc65768da35cf74dda0241ca6baccc1e4771b8304b80921d169da95:125": 4,
+    "video:6b09f6160cc65768da35cf74dda0241ca6baccc1e4771b8304b80921d169da95:625": 4,
+    "video:9cb3e68d0cbb16cad2195da5c0a021ea8b51f3b646e7634f5eb0b5eb7da158fe:125": 4,
+    "video:9cb3e68d0cbb16cad2195da5c0a021ea8b51f3b646e7634f5eb0b5eb7da158fe:375": 4,
+    "video:6b09f6160cc65768da35cf74dda0241ca6baccc1e4771b8304b80921d169da95:749": 4,
+    "video:6b09f6160cc65768da35cf74dda0241ca6baccc1e4771b8304b80921d169da95:500": 4,
+    "video:9cb3e68d0cbb16cad2195da5c0a021ea8b51f3b646e7634f5eb0b5eb7da158fe:250": 4,
+    "video:9cb3e68d0cbb16cad2195da5c0a021ea8b51f3b646e7634f5eb0b5eb7da158fe:500": 4,
+    "video:9cb3e68d0cbb16cad2195da5c0a021ea8b51f3b646e7634f5eb0b5eb7da158fe:749": 4,
+    "image:312205f2af635bc29f80026b66206270a2a7b0142680ec45e8b1e501d448222b": 1,
+    "image:fee9cca07fff3886159cfd0d8ffc2e8ebb67fe1ca83ed7757c99a5baf1d93be7": 1,
+    "image:351da2a958819503041d720584237e8435e8ae360b52c75cb89c42b06b07fd0b": 1,
+    "image:aa182ef199e949709f3f1d2448f6c3acacf6a8a4eaa065f86f3f6406db44c2d9": 1,
+    "image:b356524628d4ce51424b1d4c0da72b2786ac5650351e84c39c1250e34f11378f": 1,
+    "image:762e1a5e1e14bf43a421ff213bfe14755a2745d75c2877f33fee2f8784097903": 1,
+    "image:88d6d0c889cfe5270129c80a14402bb10871231a2158f738990f5b191791a0bb": 1,
+    "image:ba737419e92cfc7046a9ce766046b9100124602c344450fd27ee73cd6c8d2534": 1,
+    "image:49601f4ba2811a089b4de97ae7bacbb88d65658d30f10c60c93126f759c5ca14": 1,
+    "image:ea117ba52a8964eef3bf9b3e7be53f2de549f93adec94d6fdafce3ab55f8da29": 2,
+    "image:e4567da399b16f8d9a2cb664d412bf0fb05cb06d037a4fadf3a0edc9ad0cbb33": 1,
+    "image:f6d6cbc5a5ce0f9924f0b5359da816a926c24648447b10a236da079cc22bf324": 1,
+    "image:f175bca43a4daa48b3f0384e62a83efae520238ea2316a61dc80f9d8076c573d": 1
+  },
+  "scene_exposures": {
+    "red_stadiums": 262,
+    "euro_red_white": 78,
+    "german_FCS_EBS_blue_yellow_ground": 4,
+    "rai_replay_blue_white_broadcast": 4,
+    "euro2016_GER_FRA_broadcast": 4,
+    "libertadores_yellow_navy": 4,
+    "las_palmas_leganes": 8,
+    "esp_bel_women": 4,
+    "soccertrack-match-117093": 16,
+    "soccertrack-match-118575": 20,
+    "broadcast_RBL_FCH": 1,
+    "broadcast_BAR_MLL": 1,
+    "broadcast_CEL_VIL": 1,
+    "broadcast_BAY_BVB_allianz": 2,
+    "broadcast_Okayama_Machida": 1,
+    "broadcast_WOB_RBL_home": 2,
+    "broadcast_ESP_BAR_home": 1,
+    "broadcast_FCU_VFB_home": 1,
+    "libertadores_white_blue_neongreen": 2,
+    "broadcast_Kobe_Hiroshima": 1,
+    "libertadores_red_stadium_white_black_stripes": 1
+  }
+}

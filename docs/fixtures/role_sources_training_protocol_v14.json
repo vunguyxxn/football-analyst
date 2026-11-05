@@ -1,0 +1,113 @@
+{
+  "models": [
+    {
+      "id": "small",
+      "path": "data/raw/role_detector_v1/yolo11s.pt",
+      "sha256": "85a76fe86dd8afe384648546b56a7a78580c7cb7b404fc595f97969322d502d5"
+    }
+  ],
+  "epochs": 20,
+  "image_size": 640,
+  "batch": 4,
+  "amp": false,
+  "optimizer": "AdamW",
+  "lr0": 0.0003,
+  "seed": 20261102,
+  "workers": 0,
+  "mosaic": 0.5,
+  "close_mosaic": 3,
+  "selection": "Best checkpoint by validation fitness. Compare baseline and candidate on unchanged validation before regression test; do not select or tune using test.",
+  "test_confidence": 0.001,
+  "test_nms_iou": 0.7,
+  "max_detections": 300,
+  "runtime_confidence": 0.25,
+  "initialization": "COCO small, fresh AdamW; no role fine-tune checkpoint reused",
+  "validation_gate": {
+    "referee_map50_gain_min": 0.05,
+    "overall_map50_95_drop_max": 0.03,
+    "player_map50_drop_max": 0.03,
+    "goalkeeper_map50_drop_max": 0.05
+  },
+  "comparison_baseline": {
+    "id": "small_v6",
+    "path": "data/processed/role_clean_training_v6/small/training/weights/best.pt",
+    "sha256": "6d99be77ca79b3e3c924e7568a061bf151909da62f9e9b4708595cef46510c8f"
+  },
+  "source_releases": [
+    {
+      "packet": "docs/fixtures/role_sources_review_v8.json",
+      "packet_sha256": "b60ae2c6a56d04478b1a68d89e8f07d834d642470952ed0029ca0fa5e2e4d149",
+      "directory": "data/processed/role_source_release_v8",
+      "manifest_sha256": "a037b545d8f9aa84e0784a17e639a3ddcdcd8a0805c2581c13b6a9780bdbd453"
+    },
+    {
+      "packet": "docs/fixtures/role_sources_review_v9.json",
+      "packet_sha256": "4595c259c72f06aaf5e31b2a5d21ba8a2849920d708846e6712bc438259fc8cf",
+      "directory": "data/processed/role_source_release_v9",
+      "manifest_sha256": "0ef1f1af25d64df6c51d71ce4da58b3b7740b96a757922a6d78fbce175309733"
+    }
+  ],
+  "multi_scale": false,
+  "evaluation_image_size": 640,
+  "evaluation_lock": {
+    "sizes": [
+      640,
+      1280
+    ],
+    "confidence": 0.25,
+    "nms_iou": 0.7,
+    "matching_iou": 0.5,
+    "max_det": 300,
+    "role_dedup": false,
+    "ap_confidence": 0.001,
+    "gate_resolution": 640,
+    "gate_reference": "v6",
+    "gate": "Existing numeric gate applied against v6 at640, before known test/new-match diagnostic. No automatic deployment.",
+    "source_heldout_scope": "4 agent-reviewed ROIs of same match128057, already partially inspected in v8; diagnostic only, never checkpoint/threshold selection."
+  },
+  "kind": "role_sources_training_v14",
+  "date": "2026-11-05",
+  "dataset": "data/processed/role_merged_dataset_v14/dataset",
+  "curated_dataset": "data/processed/role_clean_dataset_v11/dataset",
+  "curated_manifest_sha256": "acbd3e8617abf0577f149051fd4b39ec21dacdd600dcc7e8d7a0f34e5a6da23b",
+  "curation_protocol": "docs/fixtures/role_data_curation_protocol_v11.json",
+  "curation_protocol_sha256": "e5dd501a924ebd71eed97721d846d1eb0443ca733cebb4783d29e723ce25e077",
+  "expected_images": {
+    "train": 418,
+    "val": 128,
+    "test": 35
+  },
+  "reference_training_protocol": "docs/fixtures/role_sources_training_protocol_v11.json",
+  "reference_training_protocol_sha256": "92b88f2e2f6f35d082591bb3df6a6ec36d408a616873a2aeb09fb63d81306900",
+  "comparison_references": {
+    "v6": {
+      "id": "small_v6",
+      "path": "data/processed/role_clean_training_v6/small/training/weights/best.pt",
+      "sha256": "6d99be77ca79b3e3c924e7568a061bf151909da62f9e9b4708595cef46510c8f"
+    },
+    "v11": {
+      "path": "data/processed/role_sources_training_v11/small/training/weights/best.pt",
+      "sha256": "d576a3aceb80bc0a9f797da9b4d4bdba36995c2ea4203eed786ac7c63b89be72"
+    }
+  },
+  "experiment_scope": "Preparation only. Frozen409 v11 exposures plus9 reviewed v12/v13 ROIs, one exposure per ROI. Future fresh COCO11s run keeps v11 configuration and evaluation at640/1280; not executed or authorized in this session.",
+  "sampling_lock": "Retain409 legacy exposures with all old repeats unchanged. Add9 ROI exposures from8 parents/7 visual groups, each ROI once. Parent29 has positive1 +negative1 under shared parent cap2; remaining7 parents1 each. WOB-RBL parents79/186 share a scene. No balancing/repeat increase or score-based sampling.",
+  "merge_releases": [
+    {
+      "directory": "data/processed/role_source_release_v12",
+      "manifest_sha256": "56a7563d1cb66852e2d88545ff629d74b3acf7809e1332e142d2683901967927",
+      "packet": "docs/fixtures/role_sources_review_v12.json",
+      "packet_sha256": "9820bdaec0bc640a9c3b69b29fc9d2b7f97b5381f47fe7e75be9c38793fd93ad"
+    },
+    {
+      "directory": "data/processed/role_source_release_v13",
+      "manifest_sha256": "8ee91dfacb8c2251b20f9830f811f2648e6351e2427ccc3023606164bf88fb3c",
+      "packet": "docs/fixtures/role_sources_review_v13.json",
+      "packet_sha256": "c49662ad6023f9f2d50a1c5db8162cb2e8ebd130cc29b312deebbab108440c76"
+    }
+  ],
+  "parent_sampling": "docs/fixtures/role_parent_sampling_v14.json",
+  "parent_sampling_sha256": "3169d98fb59a8ff74d455d71e4db789e224ea97da2e88ac45018fb10192a18c2",
+  "new_parent_roi_cap": 2,
+  "training_started": false
+}
