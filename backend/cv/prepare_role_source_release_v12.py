@@ -78,7 +78,9 @@ def prepare(root, packet_path, output):
     if output.exists() or not output.resolve().is_relative_to(root):
         raise ValueError('Output must be a new workspace directory')
     packet = json.loads(packet_path.read_text(encoding='utf-8'))
-    if packet['kind'] != 'reviewed_role_source_release_v12' or any(packet[k] is not False for k in
+    release_kinds = {'reviewed_role_source_release_v12': 'role_source_release_v12',
+                     'reviewed_role_source_release_v13': 'role_source_release_v13'}
+    if packet['kind'] not in release_kinds or any(packet[k] is not False for k in
             ['independently_validated', 'training_performed', 'runtime_changed', 'role_detector_used_for_selection']):
         raise ValueError('Unsupported release or inference/training claim')
     provider = packet['provider']
@@ -100,7 +102,7 @@ def prepare(root, packet_path, output):
     base = json.loads(base_path.read_text())
     protocol = json.loads(checked(root, packet['base_protocol'], packet['base_protocol_sha256']).read_text())
     references = [(base_dir, row) for row in base['files']]
-    for release in protocol['source_releases']:
+    for release in protocol['source_releases'] + packet.get('additional_references', []):
         directory = root/release['directory']
         manifest = json.loads(checked(directory, 'manifest.json', release['manifest_sha256']).read_text())
         references.extend((directory, row) for row in manifest['files'])
@@ -183,7 +185,7 @@ def prepare(root, packet_path, output):
     for row in base['files']:
         for kind in ['image', 'label']:
             checked(base_dir, row[kind], row[kind+'_sha256'])
-    result = {'kind': 'role_source_release_v12', 'packet_sha256': digest(packet_path), 'names': NAMES,
+    result = {'kind': release_kinds[packet['kind']], 'packet_sha256': digest(packet_path), 'names': NAMES,
               'training_performed': False, 'runtime_changed': False, 'independently_validated': False,
               'prior_unique_images_screened': reference_count, 'protected_rows_sha256': hashlib.sha256(json.dumps(protected_rows(base)).encode()).hexdigest(),
               'parents': len(sources), 'scene_groups': len({s['scene_family'] for s in sources}),

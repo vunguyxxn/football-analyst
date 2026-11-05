@@ -2,6 +2,46 @@
 
 ## Trạng thái hiện tại
 
+Ngày 05/11/2026: bổ sung nguồn v13 ở hai bối cảnh mới so với v12,
+chưa ghép train hoặc huấn luyện. Survey88 Libertadores (đội trắng gặp
+sọc đen-trắng, khán đài đỏ ban đêm, chưa rõ danh tính trận chính thức):
+keeper xanh đứng13.50px tại640. Survey143 scoreboard Kobe–Hiroshima0–0,
+46:49+2: trợ lý áo tối cầm cờ biên xa22.80px. Cả hai dưới24px trong
+ngữ cảnh rộng1920; không dùng keeper nằm/ngồi hay crop phóng lớn.
+Hai nhóm mới khác WOB–RBL và các nguồn đã dùng theo rà sân/áo/scoreboard;
+không coi heuristic ảnh là bằng chứng danh tính trận/độc lập thống kê.
+
+Xuất2 vùng sân có33 player/2 goalkeeper/4 referee; tách thủ môn88:18 và
+143:14 từ lớp player gộp của nguồn. Giữ toàn bộ nhãn target trong ROI,
+không chỉ hai mẫu chính; ảnh88 cắt y920 tránh người dòng12 phía dưới,
+không cắt dở target khác. Đã xem2 ảnh xuất có khung/native và2 crop mục
+tiêu; không sửa geometry nguồn hay bỏ nhãn giả/trùng ở v13. Nhãn agent
+rà, chưa kiểm độc lập, chưa đo cải thiện mô hình. Nguồn cùng revision/
+CC-BY4.0, kiểm SHA ảnh/nhãn/license và Git blob; không dùng role detector.
+
+Packet role_sources_review_v13.json lưu ledger, mẫu mục tiêu và9 ứng viên
+loại; role_source_groups_v13.json khóa nhóm/ROI trước inference. Các ảnh
+181/28 vẫn WOB–RBL, không tính thành nhóm mới;111 keeper xanh25.49px
+không đạt nhỏ<24. Rà489 SHA ảnh tham chiếu duy nhất từ mọi split v11,
+releasev8/v9/v12, cả heldout128057: không trùng file/pixel/gần trùng
+dHash<=4 và MAE<=3, kiểm cả giữa parent mới. Không inference heldout/test.
+Hash v11 và manifest v12 giữ nguyên; runtime/API/schema không đổi.
+
+Artifact data/processed/role_source_release_v13; manifest
+8ee91dfacb8c2251b20f9830f811f2648e6351e2427ccc3023606164bf88fb3c.
+Replay thư mục mới có manifest giống hệt. Chi tiết ROLE_SOURCE_RELEASE_V13.md
+và role_source_release_summary_v13.json. Runner v13 chặn reuse nhóm/parent
+v12, primary không nhỏ/không thẳng người/sai màu/sai vị trí/crop hẹp;
+bắt buộc screen v12, dùng chung exporter và coverage validator v12.
+12 test đích đạt; toàn bộ608 passed/1 network deselected/4 warning cũ.
+
+Nguồn v12+v13 hiện6 vùng sân/3 vùng âm/8 parent/7 nhóm bối cảnh,
+85 player/6 goalkeeper/10 referee, chưa ghép train. Mẫu tối biên xa đã
+có2 nhóm WOB–RBL/Kobe–Hiroshima nhưng mỗi loại mục tiêu chỉ thêm một
+nhóm mới, chưa khẳng định đủ đa dạng. Bước tiếp: ghép v11+v12+v13, khóa
+repeats/lấy mẫu theo parent, giữ val/test và phép chấm; sau đó mới train
+small đối chiếu đủ3 lớp640/1280, không tự đổi model ứng dụng.
+
 Ngày 05/11/2026: chuẩn bị và kiểm nhãn bộ nguồn bổ sung v12, chưa train.
 Xuất riêng 7 ROI / 6 ảnh gốc / 5 nhóm bối cảnh: 4 vùng sân có 52 player,
 4 keeper, 6 referee; 3 vùng âm gồm đèn/mái/khán đài, cột gôn/bóng phụ/

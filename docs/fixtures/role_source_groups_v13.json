@@ -1,0 +1,49 @@
+{
+  "kind": "role_source_groups_v13",
+  "revision": "264212872f1bfa6a9a3413f298793474da741aec",
+  "locked_before_role_detector_inference": true,
+  "sources": [
+    {
+      "id": "v13-88",
+      "scene_family": "libertadores_red_stadium_white_black_stripes",
+      "split": "train",
+      "sha256": "f175bca43a4daa48b3f0384e62a83efae520238ea2316a61dc80f9d8076c573d",
+      "label_sha256": "a9e5bf3819ea1803cb86f19564f4524064b13e91b215ce8474f6300dec535b90",
+      "regions": [
+        {
+          "id": "v13-88-field",
+          "roi": [
+            0,
+            0,
+            1920,
+            920
+          ],
+          "negative": false,
+          "background_types": [],
+          "coverage_reviewed": true
+        }
+      ]
+    },
+    {
+      "id": "v13-143",
+      "scene_family": "broadcast_Kobe_Hiroshima",
+      "split": "train",
+      "sha256": "f6d6cbc5a5ce0f9924f0b5359da816a926c24648447b10a236da079cc22bf324",
+      "label_sha256": "3b5e4523d56c06b0acd95a344ffd79e4f06c771c91a9a5a0f8718aa3e5dc2e4b",
+      "regions": [
+        {
+          "id": "v13-143-field",
+          "roi": [
+            0,
+            0,
+            1920,
+            1080
+          ],
+          "negative": false,
+          "background_types": [],
+          "coverage_reviewed": true
+        }
+      ]
+    }
+  ]
+}

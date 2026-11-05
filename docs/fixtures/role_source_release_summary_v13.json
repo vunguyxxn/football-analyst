@@ -1,0 +1,114 @@
+{
+  "kind": "role_source_release_v13",
+  "packet_sha256": "c49662ad6023f9f2d50a1c5db8162cb2e8ebd130cc29b312deebbab108440c76",
+  "names": [
+    "player",
+    "goalkeeper",
+    "referee"
+  ],
+  "training_performed": false,
+  "runtime_changed": false,
+  "independently_validated": false,
+  "prior_unique_images_screened": 489,
+  "protected_rows_sha256": "49679b5e7ed8b4d04d6a309c509b3761169d30fe2f8d39959333559e5171c937",
+  "parents": 2,
+  "scene_groups": 2,
+  "positive_rois": 2,
+  "negative_rois": 0,
+  "class_counts": {
+    "player": 33,
+    "referee": 4,
+    "goalkeeper": 2
+  },
+  "primary_observations": [
+    {
+      "source_id": "v13-88",
+      "source_index": 18,
+      "region_id": "v13-88-field",
+      "shirt_color": "blue",
+      "pose": "upright",
+      "location": "goal",
+      "role": "goalkeeper",
+      "height_at_640": 13.496968587239564,
+      "scene_family": "libertadores_red_stadium_white_black_stripes"
+    },
+    {
+      "source_id": "v13-143",
+      "source_index": 16,
+      "region_id": "v13-143-field",
+      "shirt_color": "dark",
+      "pose": "upright_moving",
+      "location": "far_touchline",
+      "role": "referee",
+      "height_at_640": 22.80305480957031,
+      "scene_family": "broadcast_Kobe_Hiroshima"
+    }
+  ],
+  "files": [
+    {
+      "image": "images/train/v13-88-field.png",
+      "label": "labels/train/v13-88-field.txt",
+      "image_sha256": "c2e6343d8916f48d60848d60113bc98c4f954f02a671e2b26947af7d3e0acd0e",
+      "label_sha256": "6084eb0527a4774de5b346427899bf0d9de08cc9cddf1f159a4d6b4d58a0d1b7",
+      "pixel_sha256": "5ff3dc7446eeea19a6b3e7767987f25f330a513205e6f2f30dd3174b723b5eb3",
+      "split": "train",
+      "family": "libertadores_red_stadium_white_black_stripes",
+      "parent": "v13-88",
+      "roi": [
+        0,
+        0,
+        1920,
+        920
+      ],
+      "negative": false,
+      "class_counts": {
+        "player": 19,
+        "referee": 2,
+        "goalkeeper": 1
+      }
+    },
+    {
+      "image": "images/train/v13-143-field.png",
+      "label": "labels/train/v13-143-field.txt",
+      "image_sha256": "128caad91e8d6e1a6feb254b0e046b53b4de23598fd8c633d9d03b72892f57a4",
+      "label_sha256": "46bdd3c71028c3c10401871761bf915b83bd6dee68f67d5d451807a3f55735cb",
+      "pixel_sha256": "0f68d8b08352dc5d5a32140c0d4dc08ebf3e13b7dc4f09fe329d827c077e19b3",
+      "split": "train",
+      "family": "broadcast_Kobe_Hiroshima",
+      "parent": "v13-143",
+      "roi": [
+        0,
+        0,
+        1920,
+        1080
+      ],
+      "negative": false,
+      "class_counts": {
+        "player": 14,
+        "referee": 2,
+        "goalkeeper": 1
+      }
+    }
+  ],
+  "scope": "Source-only supplement v13; one ROI per parent, no repeats or train merge chosen. v12 remains immutable and separately referenced.",
+  "scene_review": "Source88: different stadium/kits from prior Libertadores white-blue/neon-green and yellow/navy contexts. White team versus black-white stripes, red seating, night. Official match identity unknown. Source143: scoreboard Kobe-Hiroshima0-0 at46:49+2, black officials; distinct ground/teams from WOB-RBL and prior Japanese followcam/Okayama-Machida. Scene comparison is manual, not proof of official fixture identity.",
+  "manifest_sha256": "8ee91dfacb8c2251b20f9830f811f2648e6351e2427ccc3023606164bf88fb3c",
+  "release_directory": "data/processed/role_source_release_v13",
+  "visual_review": {
+    "all_exported_rois_viewed": 2,
+    "primary_native_crops_viewed": 2,
+    "reviewer": "agent",
+    "independently_validated": false,
+    "annotation_changes": [
+      "Split source player class into goalkeeper for source88:18 and143:14.",
+      "Source88 excludes entire source12 below920; native width1920 retained.",
+      "No phantom or duplicate annotation removed in v13."
+    ],
+    "limitations": [
+      "One new small blue keeper observation from one new scene group.",
+      "One new small dark far assistant observation from one new scene group.",
+      "Official fixture identity of source88 is unknown; manual grouping based on stadium and kits.",
+      "No claim of accuracy improvement or independently verified labels."
+    ]
+  }
+}
