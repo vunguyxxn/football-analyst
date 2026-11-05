@@ -2,6 +2,51 @@
 
 ## Trạng thái hiện tại
 
+Ngày 05/11/2026: hoàn tất rà5 case nhãn nghi vấn và kiểm kê coverage train v14.
+Đọc AGENTS/PROGRESS/DATA_CONTRACT/ROLE_ERROR_AUDIT_V14; hash frozen
+protocol/plan/manifest/ledger, nguồn/snapshot và weights tham chiếu khớp.
+Không train/inference mới, không known test/match128057, không sửa GT,
+sampling, scoring, weights, API/schema/frontend hoặc model ứng dụng.
+Giữ nguyên ghi nhận demo cục bộ và bản nháp .tmp trước đó.
+
+Năm case chỉ là đề xuất agent, tất cả chờ người độc lập: keeper-20 GT6
+player→keeper (giữ box); keeper-66 thêm player với box tay nháp
+[812,216,837,270]; referee-120 GT6 giữ tạm referee do kit/shorts/tất
+thiên về official, chưa xác minh danh tính; keeper-14 GT7 và keeper-57
+GT0 chưa đủ bằng chứng vì cắt mép. Không áp dụng/cách ly/loại scoring.
+
+Toàn train:260 parent/21 family,324 unit/418 lượt; nhãn unit
+4556player/206keeper/576referee; cụm parent cùng lớp IoU>=0,7 là
+4556/206/566 (không phải người duy nhất); nhãn lượt5006/242/652.
+9unit âm/15lượt. Không có cặp box cùng unit IoU>0,9, không chứng minh
+coverage đầy đủ. red_stadiums chiếm210parent,178/206keeper.
+
+Plan sample khóa trước review: tất cả13parent mới v11–v13 +8parent cũ
+hash theo family;68player cụm hash, toàn206keeper và53referee crop
+(tối cũ hoặc mới/chưa gắn metadata), tổng327object. Rà coverage chỉ
+21parent/27unit;239parent chưa rà,523màu referee kế thừa v10 chưa rà lại.
+160keeper tư thế đứng (gồm di chuyển/ready),24thấp/cúi,22mơ hồ/cắt;
+150đứng nhỏ source640<24 trên143parent/159lượt,138nhãn red_stadiums.
+Xanh/cyan đứng nhỏ11parent/11nhãn,10red_stadiums; không thiếu hoàn toàn
+nhưng tập trung bối cảnh. Không suy nguyên nhân từ một seed.
+
+45referee tối/26parent/68lượt,18biên xa/18parent/18lượt:12red_stadiums
+rất giống context (11chung prefix121364),6mới thuộc4family.16/18<24px
+source640; tại1280 là11<24,5[24,48),2>=48. 22player/32referee unit-box
+nhỏ ở source640 nhưng>=48loaded640 do phóng ROI; repeats/crop không
+thành dữ liệu độc lập. Đối chiếu tổng hợp với76keeperFP trên player và
+48/50referee lost-far score<0,25; giữ đánh đổi cả ba lớp, chưa causal.
+
+Báo cáo docs/ROLE_COVERAGE_AND_LABEL_REVIEW_V14.md, plan/packet/summary
+trong docs/fixtures/role_coverage_review*_v14.json; local inventory,
+train-objects.csv,label-proposals.csv và ảnh chứng minh tại
+ data/processed/role_coverage_review_v14/ (không commit ảnh/dataset).
+CLI backend.cv.review_role_coverage_v14 summarize replay offline cùng
+SHA summary29e509dba5995aa3c4b4b4380f1f836b6e7d3e99c7b3758322cc59816d903d7b.
+12test mới đạt; full637passed,1network deselected,4warning cũ (62,73s).
+Bước tiếp theo: người độc lập duyệt5case native/context, chấp nhận/bác
+role và geometry, ghi reviewer/quyết định trước mọi bản GT hoặc plan mới.
+
 Ngày 05/11/2026: khởi động demo theo yêu cầu. Uvicorn chạy cục bộ cổng
 8000, Vite cổng5173; health trực tiếp và qua proxy trả status ok.
 Đã mở /video, bấm Mở clip mẫu, xác nhận video52,37s phát được trong

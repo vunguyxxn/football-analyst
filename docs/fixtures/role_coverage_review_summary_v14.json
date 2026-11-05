@@ -1,0 +1,1182 @@
+{
+  "kind": "role_coverage_review_summary_v14",
+  "manifest_sha256": "36ccf26608d992315715b6fd3b58d37e71d1b9fecd0ec10603834b5e4049933f",
+  "inventory_sha256": "e635b3d974e717d295dd8c071d78d884e9880c783bed2245a4ae5c47315f419d",
+  "review_plan_sha256": "4864ffa9d53b7b121f9299adcfa59bca2d85b80d76b2210c2743991ce069bc32",
+  "review_sha256": "27181f5c0c056833aa5ad6a03648f044af1cdb1cc7018392d9a7bccffd859c8a",
+  "image_exposures": 418,
+  "pixel_label_units": 324,
+  "parent_frames": 260,
+  "scene_families": 21,
+  "unit_boxes": {
+    "referee": 576,
+    "player": 4556,
+    "goalkeeper": 206
+  },
+  "parent_spatial_clusters": {
+    "referee": 566,
+    "player": 4556,
+    "goalkeeper": 206
+  },
+  "box_exposures": {
+    "referee": 652,
+    "player": 5006,
+    "goalkeeper": 242
+  },
+  "negative_units": 9,
+  "negative_exposures": 15,
+  "parent_repeat_histogram": {
+    "3": 5,
+    "1": 219,
+    "7": 4,
+    "19": 1,
+    "4": 22,
+    "6": 7,
+    "5": 1,
+    "2": 1
+  },
+  "families": {
+    "broadcast_BAR_MLL": {
+      "parent_frames": 1,
+      "units": 1,
+      "image_exposures": 1,
+      "unit_boxes": {
+        "referee": 2,
+        "player": 15,
+        "goalkeeper": 1
+      },
+      "box_exposures": {
+        "referee": 2,
+        "player": 15,
+        "goalkeeper": 1
+      }
+    },
+    "broadcast_BAY_BVB_allianz": {
+      "parent_frames": 2,
+      "units": 2,
+      "image_exposures": 2,
+      "unit_boxes": {
+        "player": 30,
+        "referee": 3,
+        "goalkeeper": 1
+      },
+      "box_exposures": {
+        "player": 30,
+        "referee": 3,
+        "goalkeeper": 1
+      }
+    },
+    "broadcast_CEL_VIL": {
+      "parent_frames": 1,
+      "units": 1,
+      "image_exposures": 1,
+      "unit_boxes": {
+        "player": 16,
+        "goalkeeper": 1,
+        "referee": 2
+      },
+      "box_exposures": {
+        "player": 16,
+        "goalkeeper": 1,
+        "referee": 2
+      }
+    },
+    "broadcast_ESP_BAR_home": {
+      "parent_frames": 1,
+      "units": 1,
+      "image_exposures": 1,
+      "unit_boxes": {
+        "player": 18,
+        "goalkeeper": 1,
+        "referee": 2
+      },
+      "box_exposures": {
+        "player": 18,
+        "goalkeeper": 1,
+        "referee": 2
+      }
+    },
+    "broadcast_FCU_VFB_home": {
+      "parent_frames": 1,
+      "units": 1,
+      "image_exposures": 1,
+      "unit_boxes": {},
+      "box_exposures": {}
+    },
+    "broadcast_Kobe_Hiroshima": {
+      "parent_frames": 1,
+      "units": 1,
+      "image_exposures": 1,
+      "unit_boxes": {
+        "player": 14,
+        "referee": 2,
+        "goalkeeper": 1
+      },
+      "box_exposures": {
+        "player": 14,
+        "referee": 2,
+        "goalkeeper": 1
+      }
+    },
+    "broadcast_Okayama_Machida": {
+      "parent_frames": 1,
+      "units": 1,
+      "image_exposures": 1,
+      "unit_boxes": {},
+      "box_exposures": {}
+    },
+    "broadcast_RBL_FCH": {
+      "parent_frames": 1,
+      "units": 1,
+      "image_exposures": 1,
+      "unit_boxes": {
+        "player": 15,
+        "referee": 1,
+        "goalkeeper": 1
+      },
+      "box_exposures": {
+        "player": 15,
+        "referee": 1,
+        "goalkeeper": 1
+      }
+    },
+    "broadcast_WOB_RBL_home": {
+      "parent_frames": 2,
+      "units": 2,
+      "image_exposures": 2,
+      "unit_boxes": {
+        "player": 23,
+        "goalkeeper": 2,
+        "referee": 3
+      },
+      "box_exposures": {
+        "player": 23,
+        "goalkeeper": 2,
+        "referee": 3
+      }
+    },
+    "esp_bel_women": {
+      "parent_frames": 1,
+      "units": 1,
+      "image_exposures": 4,
+      "unit_boxes": {
+        "player": 15,
+        "referee": 1
+      },
+      "box_exposures": {
+        "player": 60,
+        "referee": 4
+      }
+    },
+    "euro2016_GER_FRA_broadcast": {
+      "parent_frames": 1,
+      "units": 1,
+      "image_exposures": 4,
+      "unit_boxes": {
+        "goalkeeper": 1,
+        "player": 18,
+        "referee": 1
+      },
+      "box_exposures": {
+        "goalkeeper": 4,
+        "player": 72,
+        "referee": 4
+      }
+    },
+    "euro_red_white": {
+      "parent_frames": 21,
+      "units": 72,
+      "image_exposures": 78,
+      "unit_boxes": {
+        "player": 151,
+        "referee": 44,
+        "goalkeeper": 6
+      },
+      "box_exposures": {
+        "player": 151,
+        "referee": 44,
+        "goalkeeper": 6
+      }
+    },
+    "german_FCS_EBS_blue_yellow_ground": {
+      "parent_frames": 1,
+      "units": 1,
+      "image_exposures": 4,
+      "unit_boxes": {
+        "player": 14,
+        "goalkeeper": 1,
+        "referee": 1
+      },
+      "box_exposures": {
+        "player": 56,
+        "goalkeeper": 4,
+        "referee": 4
+      }
+    },
+    "las_palmas_leganes": {
+      "parent_frames": 2,
+      "units": 2,
+      "image_exposures": 8,
+      "unit_boxes": {
+        "player": 20,
+        "goalkeeper": 2,
+        "referee": 1
+      },
+      "box_exposures": {
+        "player": 80,
+        "goalkeeper": 8,
+        "referee": 4
+      }
+    },
+    "libertadores_red_stadium_white_black_stripes": {
+      "parent_frames": 1,
+      "units": 1,
+      "image_exposures": 1,
+      "unit_boxes": {
+        "player": 19,
+        "referee": 2,
+        "goalkeeper": 1
+      },
+      "box_exposures": {
+        "player": 19,
+        "referee": 2,
+        "goalkeeper": 1
+      }
+    },
+    "libertadores_white_blue_neongreen": {
+      "parent_frames": 1,
+      "units": 2,
+      "image_exposures": 2,
+      "unit_boxes": {
+        "player": 11,
+        "goalkeeper": 1,
+        "referee": 1
+      },
+      "box_exposures": {
+        "player": 11,
+        "goalkeeper": 1,
+        "referee": 1
+      }
+    },
+    "libertadores_yellow_navy": {
+      "parent_frames": 1,
+      "units": 1,
+      "image_exposures": 4,
+      "unit_boxes": {
+        "player": 14,
+        "referee": 2
+      },
+      "box_exposures": {
+        "player": 56,
+        "referee": 8
+      }
+    },
+    "rai_replay_blue_white_broadcast": {
+      "parent_frames": 1,
+      "units": 1,
+      "image_exposures": 4,
+      "unit_boxes": {
+        "goalkeeper": 2,
+        "player": 20,
+        "referee": 2
+      },
+      "box_exposures": {
+        "goalkeeper": 8,
+        "player": 80,
+        "referee": 8
+      }
+    },
+    "red_stadiums": {
+      "parent_frames": 210,
+      "units": 222,
+      "image_exposures": 262,
+      "unit_boxes": {
+        "referee": 502,
+        "player": 4097,
+        "goalkeeper": 178
+      },
+      "box_exposures": {
+        "referee": 542,
+        "player": 4106,
+        "goalkeeper": 178
+      }
+    },
+    "soccertrack-match-117093": {
+      "parent_frames": 4,
+      "units": 4,
+      "image_exposures": 16,
+      "unit_boxes": {
+        "player": 26,
+        "referee": 2,
+        "goalkeeper": 1
+      },
+      "box_exposures": {
+        "player": 104,
+        "referee": 8,
+        "goalkeeper": 4
+      }
+    },
+    "soccertrack-match-118575": {
+      "parent_frames": 5,
+      "units": 5,
+      "image_exposures": 20,
+      "unit_boxes": {
+        "goalkeeper": 5,
+        "player": 20,
+        "referee": 2
+      },
+      "box_exposures": {
+        "goalkeeper": 20,
+        "player": 80,
+        "referee": 8
+      }
+    }
+  },
+  "sizes": {
+    "player": {
+      "loaded640": {
+        "unit_boxes": {
+          "under24": 3844,
+          "24to48": 657,
+          "48plus": 55
+        },
+        "box_exposures": {
+          "under24": 3970,
+          "24to48": 933,
+          "48plus": 103
+        }
+      },
+      "loaded1280": {
+        "unit_boxes": {
+          "24to48": 3509,
+          "under24": 335,
+          "48plus": 712
+        },
+        "box_exposures": {
+          "24to48": 3632,
+          "under24": 338,
+          "48plus": 1036
+        }
+      },
+      "source640": {
+        "unit_boxes": {
+          "under24": 3869,
+          "24to48": 672,
+          "48plus": 15
+        },
+        "box_exposures": {
+          "under24": 4010,
+          "24to48": 951,
+          "48plus": 45
+        }
+      },
+      "source1280": {
+        "unit_boxes": {
+          "24to48": 3528,
+          "under24": 341,
+          "48plus": 687
+        },
+        "box_exposures": {
+          "24to48": 3662,
+          "under24": 348,
+          "48plus": 996
+        }
+      }
+    },
+    "goalkeeper": {
+      "loaded640": {
+        "unit_boxes": {
+          "under24": 194,
+          "24to48": 11,
+          "48plus": 1
+        },
+        "box_exposures": {
+          "under24": 209,
+          "24to48": 29,
+          "48plus": 4
+        }
+      },
+      "loaded1280": {
+        "unit_boxes": {
+          "24to48": 186,
+          "under24": 8,
+          "48plus": 12
+        },
+        "box_exposures": {
+          "24to48": 201,
+          "under24": 8,
+          "48plus": 33
+        }
+      },
+      "source640": {
+        "unit_boxes": {
+          "under24": 195,
+          "24to48": 11
+        },
+        "box_exposures": {
+          "under24": 213,
+          "24to48": 29
+        }
+      },
+      "source1280": {
+        "unit_boxes": {
+          "24to48": 187,
+          "under24": 8,
+          "48plus": 11
+        },
+        "box_exposures": {
+          "24to48": 205,
+          "under24": 8,
+          "48plus": 29
+        }
+      }
+    },
+    "referee": {
+      "loaded640": {
+        "unit_boxes": {
+          "under24": 421,
+          "24to48": 104,
+          "48plus": 51
+        },
+        "box_exposures": {
+          "under24": 430,
+          "24to48": 122,
+          "48plus": 100
+        }
+      },
+      "loaded1280": {
+        "unit_boxes": {
+          "under24": 126,
+          "24to48": 295,
+          "48plus": 155
+        },
+        "box_exposures": {
+          "under24": 126,
+          "24to48": 304,
+          "48plus": 222
+        }
+      },
+      "source640": {
+        "unit_boxes": {
+          "under24": 453,
+          "24to48": 121,
+          "48plus": 2
+        },
+        "box_exposures": {
+          "under24": 493,
+          "24to48": 154,
+          "48plus": 5
+        }
+      },
+      "source1280": {
+        "unit_boxes": {
+          "under24": 129,
+          "24to48": 324,
+          "48plus": 123
+        },
+        "box_exposures": {
+          "under24": 136,
+          "24to48": 357,
+          "48plus": 159
+        }
+      }
+    }
+  },
+  "appearance": {
+    "goalkeeper": {
+      "blue_cyan": {
+        "unit_boxes": 28,
+        "parent_frames": 28,
+        "families": {
+          "red_stadiums": 22,
+          "german_FCS_EBS_blue_yellow_ground": 1,
+          "euro2016_GER_FRA_broadcast": 1,
+          "broadcast_RBL_FCH": 1,
+          "broadcast_WOB_RBL_home": 1,
+          "libertadores_white_blue_neongreen": 1,
+          "libertadores_red_stadium_white_black_stripes": 1
+        },
+        "box_exposures": 34,
+        "small_source640": {
+          "unit_boxes": 25,
+          "parent_frames": 25,
+          "families": {
+            "red_stadiums": 22,
+            "euro2016_GER_FRA_broadcast": 1,
+            "broadcast_RBL_FCH": 1,
+            "libertadores_red_stadium_white_black_stripes": 1
+          },
+          "box_exposures": 28
+        }
+      },
+      "dark": {
+        "unit_boxes": 2,
+        "parent_frames": 2,
+        "families": {
+          "broadcast_BAY_BVB_allianz": 1,
+          "broadcast_WOB_RBL_home": 1
+        },
+        "box_exposures": 2,
+        "small_source640": {
+          "unit_boxes": 2,
+          "parent_frames": 2,
+          "families": {
+            "broadcast_BAY_BVB_allianz": 1,
+            "broadcast_WOB_RBL_home": 1
+          },
+          "box_exposures": 2
+        }
+      },
+      "light_gray_white": {
+        "unit_boxes": 1,
+        "parent_frames": 1,
+        "families": {
+          "broadcast_BAR_MLL": 1
+        },
+        "box_exposures": 1,
+        "small_source640": {
+          "unit_boxes": 1,
+          "parent_frames": 1,
+          "families": {
+            "broadcast_BAR_MLL": 1
+          },
+          "box_exposures": 1
+        }
+      },
+      "light_neutral": {
+        "unit_boxes": 14,
+        "parent_frames": 14,
+        "families": {
+          "red_stadiums": 13,
+          "rai_replay_blue_white_broadcast": 1
+        },
+        "box_exposures": 17,
+        "small_source640": {
+          "unit_boxes": 14,
+          "parent_frames": 14,
+          "families": {
+            "red_stadiums": 13,
+            "rai_replay_blue_white_broadcast": 1
+          },
+          "box_exposures": 17
+        }
+      },
+      "purple": {
+        "unit_boxes": 1,
+        "parent_frames": 1,
+        "families": {
+          "broadcast_CEL_VIL": 1
+        },
+        "box_exposures": 1,
+        "small_source640": {
+          "unit_boxes": 0,
+          "parent_frames": 0,
+          "families": {},
+          "box_exposures": 0
+        }
+      },
+      "red_orange": {
+        "unit_boxes": 1,
+        "parent_frames": 1,
+        "families": {
+          "broadcast_ESP_BAR_home": 1
+        },
+        "box_exposures": 1,
+        "small_source640": {
+          "unit_boxes": 1,
+          "parent_frames": 1,
+          "families": {
+            "broadcast_ESP_BAR_home": 1
+          },
+          "box_exposures": 1
+        }
+      },
+      "red_orange_pink": {
+        "unit_boxes": 53,
+        "parent_frames": 53,
+        "families": {
+          "red_stadiums": 48,
+          "las_palmas_leganes": 2,
+          "soccertrack-match-118575": 2,
+          "soccertrack-match-117093": 1
+        },
+        "box_exposures": 68,
+        "small_source640": {
+          "unit_boxes": 50,
+          "parent_frames": 50,
+          "families": {
+            "red_stadiums": 48,
+            "las_palmas_leganes": 1,
+            "soccertrack-match-118575": 1
+          },
+          "box_exposures": 56
+        }
+      },
+      "yellow_green": {
+        "unit_boxes": 1,
+        "parent_frames": 1,
+        "families": {
+          "broadcast_Kobe_Hiroshima": 1
+        },
+        "box_exposures": 1,
+        "small_source640": {
+          "unit_boxes": 0,
+          "parent_frames": 0,
+          "families": {},
+          "box_exposures": 0
+        }
+      },
+      "yellow_green_gold": {
+        "unit_boxes": 105,
+        "parent_frames": 103,
+        "families": {
+          "red_stadiums": 95,
+          "euro_red_white": 6,
+          "rai_replay_blue_white_broadcast": 1,
+          "soccertrack-match-118575": 3
+        },
+        "box_exposures": 117,
+        "small_source640": {
+          "unit_boxes": 102,
+          "parent_frames": 100,
+          "families": {
+            "red_stadiums": 94,
+            "euro_red_white": 6,
+            "rai_replay_blue_white_broadcast": 1,
+            "soccertrack-match-118575": 1
+          },
+          "box_exposures": 108
+        }
+      }
+    },
+    "referee": {
+      "blue_cyan": {
+        "unit_boxes": 162,
+        "parent_frames": 72,
+        "families": {
+          "red_stadiums": 113,
+          "euro_red_white": 44,
+          "rai_replay_blue_white_broadcast": 2,
+          "esp_bel_women": 1,
+          "broadcast_BAR_MLL": 2
+        },
+        "box_exposures": 171,
+        "small_source640": {
+          "unit_boxes": 128,
+          "parent_frames": 67,
+          "families": {
+            "red_stadiums": 99,
+            "euro_red_white": 27,
+            "rai_replay_blue_white_broadcast": 2
+          },
+          "box_exposures": 134
+        }
+      },
+      "dark": {
+        "unit_boxes": 45,
+        "parent_frames": 26,
+        "families": {
+          "red_stadiums": 28,
+          "euro2016_GER_FRA_broadcast": 1,
+          "las_palmas_leganes": 1,
+          "soccertrack-match-117093": 2,
+          "soccertrack-match-118575": 2,
+          "broadcast_RBL_FCH": 1,
+          "broadcast_CEL_VIL": 2,
+          "broadcast_BAY_BVB_allianz": 3,
+          "broadcast_WOB_RBL_home": 3,
+          "broadcast_Kobe_Hiroshima": 2
+        },
+        "box_exposures": 68,
+        "small_source640": {
+          "unit_boxes": 29,
+          "parent_frames": 18,
+          "families": {
+            "red_stadiums": 24,
+            "euro2016_GER_FRA_broadcast": 1,
+            "broadcast_BAY_BVB_allianz": 2,
+            "broadcast_WOB_RBL_home": 1,
+            "broadcast_Kobe_Hiroshima": 1
+          },
+          "box_exposures": 37
+        }
+      },
+      "red_orange": {
+        "unit_boxes": 4,
+        "parent_frames": 3,
+        "families": {
+          "broadcast_ESP_BAR_home": 2,
+          "libertadores_white_blue_neongreen": 1,
+          "libertadores_red_stadium_white_black_stripes": 1
+        },
+        "box_exposures": 4,
+        "small_source640": {
+          "unit_boxes": 4,
+          "parent_frames": 3,
+          "families": {
+            "broadcast_ESP_BAR_home": 2,
+            "libertadores_white_blue_neongreen": 1,
+            "libertadores_red_stadium_white_black_stripes": 1
+          },
+          "box_exposures": 4
+        }
+      },
+      "red_pink": {
+        "unit_boxes": 37,
+        "parent_frames": 18,
+        "families": {
+          "red_stadiums": 34,
+          "german_FCS_EBS_blue_yellow_ground": 1,
+          "libertadores_yellow_navy": 2
+        },
+        "box_exposures": 61,
+        "small_source640": {
+          "unit_boxes": 27,
+          "parent_frames": 15,
+          "families": {
+            "red_stadiums": 27
+          },
+          "box_exposures": 37
+        }
+      },
+      "uncertain_warm": {
+        "unit_boxes": 1,
+        "parent_frames": 1,
+        "families": {
+          "libertadores_red_stadium_white_black_stripes": 1
+        },
+        "box_exposures": 1,
+        "small_source640": {
+          "unit_boxes": 1,
+          "parent_frames": 1,
+          "families": {
+            "libertadores_red_stadium_white_black_stripes": 1
+          },
+          "box_exposures": 1
+        }
+      },
+      "yellow_green": {
+        "unit_boxes": 327,
+        "parent_frames": 133,
+        "families": {
+          "red_stadiums": 327
+        },
+        "box_exposures": 347,
+        "small_source640": {
+          "unit_boxes": 264,
+          "parent_frames": 132,
+          "families": {
+            "red_stadiums": 264
+          },
+          "box_exposures": 280
+        }
+      }
+    }
+  },
+  "keeper_pose_counts": {
+    "low_or_crouched": 24,
+    "upright": 160,
+    "uncertain_or_clipped": 22
+  },
+  "upright_small_source640": {
+    "unit_boxes": 150,
+    "parent_frames": 143,
+    "families": {
+      "red_stadiums": 138,
+      "euro_red_white": 6,
+      "rai_replay_blue_white_broadcast": 1,
+      "soccertrack-match-118575": 2,
+      "broadcast_ESP_BAR_home": 1,
+      "broadcast_WOB_RBL_home": 1,
+      "libertadores_red_stadium_white_black_stripes": 1
+    },
+    "box_exposures": 159
+  },
+  "upright_small_colors": {
+    "blue_cyan": {
+      "unit_boxes": 11,
+      "parent_frames": 11,
+      "families": {
+        "red_stadiums": 10,
+        "libertadores_red_stadium_white_black_stripes": 1
+      },
+      "box_exposures": 11
+    },
+    "dark": {
+      "unit_boxes": 1,
+      "parent_frames": 1,
+      "families": {
+        "broadcast_WOB_RBL_home": 1
+      },
+      "box_exposures": 1
+    },
+    "light_neutral": {
+      "unit_boxes": 10,
+      "parent_frames": 10,
+      "families": {
+        "red_stadiums": 10
+      },
+      "box_exposures": 10
+    },
+    "red_orange": {
+      "unit_boxes": 1,
+      "parent_frames": 1,
+      "families": {
+        "broadcast_ESP_BAR_home": 1
+      },
+      "box_exposures": 1
+    },
+    "red_orange_pink": {
+      "unit_boxes": 43,
+      "parent_frames": 43,
+      "families": {
+        "red_stadiums": 42,
+        "soccertrack-match-118575": 1
+      },
+      "box_exposures": 46
+    },
+    "yellow_green_gold": {
+      "unit_boxes": 84,
+      "parent_frames": 84,
+      "families": {
+        "red_stadiums": 76,
+        "euro_red_white": 6,
+        "rai_replay_blue_white_broadcast": 1,
+        "soccertrack-match-118575": 1
+      },
+      "box_exposures": 90
+    }
+  },
+  "dark_referee": {
+    "unit_boxes": 45,
+    "parent_frames": 26,
+    "families": {
+      "red_stadiums": 28,
+      "euro2016_GER_FRA_broadcast": 1,
+      "las_palmas_leganes": 1,
+      "soccertrack-match-117093": 2,
+      "soccertrack-match-118575": 2,
+      "broadcast_RBL_FCH": 1,
+      "broadcast_CEL_VIL": 2,
+      "broadcast_BAY_BVB_allianz": 3,
+      "broadcast_WOB_RBL_home": 3,
+      "broadcast_Kobe_Hiroshima": 2
+    },
+    "box_exposures": 68,
+    "locations": {
+      "far_touchline": 18,
+      "interior": 21,
+      "near_touchline": 6
+    }
+  },
+  "dark_far_referee": {
+    "unit_boxes": 18,
+    "parent_frames": 18,
+    "families": {
+      "red_stadiums": 12,
+      "broadcast_CEL_VIL": 1,
+      "broadcast_BAY_BVB_allianz": 2,
+      "broadcast_WOB_RBL_home": 2,
+      "broadcast_Kobe_Hiroshima": 1
+    },
+    "box_exposures": 18,
+    "ids": [
+      "referee-16",
+      "referee-18",
+      "referee-20",
+      "referee-23",
+      "referee-24",
+      "referee-28",
+      "referee-30",
+      "referee-32",
+      "referee-399",
+      "referee-401",
+      "referee-404",
+      "referee-408",
+      "referee-562",
+      "referee-564",
+      "referee-565",
+      "referee-566",
+      "referee-570",
+      "referee-573"
+    ],
+    "source_size640": {
+      "under24": 16,
+      "24to48": 2
+    },
+    "loaded_size640": {
+      "under24": 16,
+      "24to48": 2
+    },
+    "source_size1280": {
+      "under24": 11,
+      "24to48": 5,
+      "48plus": 2
+    },
+    "source_prefixes": {
+      "a9f16c": 1,
+      "121364": 11,
+      "v11-54.png": 1,
+      "v11-98.png": 1,
+      "v11-269.png": 1,
+      "v12-186-field.png": 1,
+      "v12-79-field.png": 1,
+      "v13-143-field.png": 1
+    }
+  },
+  "visual_sample": {
+    "objects": 327,
+    "parents": 21,
+    "units": 27,
+    "player_sample": {
+      "unit_boxes": 68,
+      "parent_frames": 18,
+      "families": {
+        "red_stadiums": 16,
+        "euro_red_white": 4,
+        "soccertrack-match-117093": 4,
+        "broadcast_RBL_FCH": 4,
+        "broadcast_BAR_MLL": 4,
+        "broadcast_CEL_VIL": 4,
+        "broadcast_BAY_BVB_allianz": 8,
+        "broadcast_WOB_RBL_home": 8,
+        "broadcast_ESP_BAR_home": 4,
+        "libertadores_white_blue_neongreen": 4,
+        "broadcast_Kobe_Hiroshima": 4,
+        "libertadores_red_stadium_white_black_stripes": 4
+      },
+      "box_exposures": 80
+    },
+    "player_colors": {
+      "navy": 5,
+      "white": 30,
+      "red": 10,
+      "blue": 1,
+      "yellow": 8,
+      "blue_red": 1,
+      "light_blue": 1,
+      "green": 4,
+      "blue_white_stripes": 3,
+      "dark": 1,
+      "maroon": 2,
+      "black_white_stripes": 2
+    },
+    "player_source640_bins": {
+      "under24": 25,
+      "24to48": 41,
+      "48plus": 2
+    },
+    "player_loaded640_bins": {
+      "under24": 23,
+      "24to48": 39,
+      "48plus": 6
+    },
+    "unreviewed_parent_count": 239,
+    "other_referee_color_inherited_not_rechecked": 523
+  },
+  "crop_magnification": {
+    "player": {
+      "unit_boxes": 22,
+      "parent_frames": 14,
+      "families": {
+        "euro_red_white": 19,
+        "red_stadiums": 3
+      },
+      "box_exposures": 31
+    },
+    "goalkeeper": {
+      "unit_boxes": 0,
+      "parent_frames": 0,
+      "families": {},
+      "box_exposures": 0
+    },
+    "referee": {
+      "unit_boxes": 32,
+      "parent_frames": 23,
+      "families": {
+        "euro_red_white": 18,
+        "red_stadiums": 14
+      },
+      "box_exposures": 63
+    }
+  },
+  "duplicate_candidates_iou_gt90": [],
+  "case_proposals": [
+    {
+      "review_id": "keeper-14",
+      "image": "images/val/4b770a_1_7_png.rf.0344c0dc64e2361671483c067c0bc549.png",
+      "image_sha256": "4dec6c9a770be011472be5281b2130d70f9c12f4d5ea44a74456c9370d5678e6",
+      "label_sha256": "0d8091315e03043b05513f85faae30e4dcc9ac12389c3f29c9a3151bcc20ec1d",
+      "xyxy": [
+        1899.39111328125,
+        352.35980224609375,
+        1920.0,
+        414.2159423828125
+      ],
+      "label_id": 7,
+      "source_image_path": "D:\\projects\\football-analyst\\data\\processed\\role_sources_training_v14\\dataset\\images\\val\\4b770a_1_7_png.rf.0344c0dc64e2361671483c067c0bc549.png",
+      "evidence": "keeper-14-case-native.png",
+      "evidence_sha256": "3dccdee64665c2d6e4932e87df4e4c48d1e74f6dda9b3cfa16838432d35c195e",
+      "agent_reviewed": true,
+      "independent_status": "pending",
+      "applied": false,
+      "benchmark_excluded": false,
+      "old_role": "player",
+      "proposal": "insufficient_evidence",
+      "proposed_role": null,
+      "proposed_xyxy": null,
+      "reason": "Severely clipped right-edge person. Keeper-like kit/location suggestive; full-body/role evidence insufficient for correction. Frozen GT remains in scoring; seek independent context.",
+      "old_label_line": "0 0.994791667 0.353240741 0.010416667 0.056481481",
+      "label_path": "data/processed/role_sources_training_v14/dataset/labels/val/4b770a_1_7_png.rf.0344c0dc64e2361671483c067c0bc549.txt",
+      "old_xyxy": [
+        1900.0000003199998,
+        351.00000054,
+        1920.00000096,
+        412.0000000200001
+      ],
+      "proposed_label_line": null
+    },
+    {
+      "review_id": "keeper-20",
+      "image": "images/val/4b770a_5_6_png.rf.cc113a3e1f4bff7e16f34545b080d956.png",
+      "image_sha256": "12ea6edb467a8678eec464b08dd9b3eec3f592d572322a16b39e8ee29bb47427",
+      "label_sha256": "9bb111b03599cc53ed39419c42297cc98869b433444dbe52e2018909c8682558",
+      "xyxy": [
+        1624.335205078125,
+        330.15325927734375,
+        1648.90576171875,
+        381.3692626953125
+      ],
+      "label_id": 6,
+      "source_image_path": "D:\\projects\\football-analyst\\data\\processed\\role_sources_training_v14\\dataset\\images\\val\\4b770a_5_6_png.rf.cc113a3e1f4bff7e16f34545b080d956.png",
+      "evidence": "keeper-20-case-native.png",
+      "evidence_sha256": "94c034d986be9b03e0b25a658e42e7c656f559d5b088f401c6fb2a1209a05ced",
+      "agent_reviewed": true,
+      "independent_status": "pending",
+      "applied": false,
+      "benchmark_excluded": false,
+      "old_role": "player",
+      "proposal": "relabel",
+      "proposed_role": "goalkeeper",
+      "proposed_xyxy": "retain_existing_GT_geometry",
+      "reason": "Gray keeper kit/glove-like hands and penalty-area position distinct from red/yellow outfield kits. Agent proposal only; independent role verification pending.",
+      "old_label_line": "0 0.852343750 0.329166667 0.011979167 0.047222222",
+      "label_path": "data/processed/role_sources_training_v14/dataset/labels/val/4b770a_5_6_png.rf.cc113a3e1f4bff7e16f34545b080d956.txt",
+      "old_xyxy": [
+        1624.99999968,
+        330.00000048,
+        1648.00000032,
+        381.00000024
+      ],
+      "proposed_label_line": "1 0.852343750 0.329166667 0.011979167 0.047222222"
+    },
+    {
+      "review_id": "keeper-57",
+      "image": "images/val/538438_7_5_png.rf.cfd814ca02baed6da1b069c08cf9442a.png",
+      "image_sha256": "b35911925cd383bf98bc7c607bec60544e7dadf1b38ac30f8ecad1550ad6c634",
+      "label_sha256": "11a84a4c9fed130ce174d363ff3619e5968be6fe089e50241ac4eadbad6814d1",
+      "xyxy": [
+        1902.8492431640625,
+        510.50592041015625,
+        1919.9827880859375,
+        565.1905517578125
+      ],
+      "label_id": 0,
+      "source_image_path": "D:\\projects\\football-analyst\\data\\processed\\role_sources_training_v14\\dataset\\images\\val\\538438_7_5_png.rf.cfd814ca02baed6da1b069c08cf9442a.png",
+      "evidence": "keeper-57-case-native.png",
+      "evidence_sha256": "53736b8bd8c832fb0ab7d6283097c51e5794191d7cf22ad784f77041d09db7ab",
+      "agent_reviewed": true,
+      "independent_status": "pending",
+      "applied": false,
+      "benchmark_excluded": false,
+      "old_role": "player",
+      "proposal": "insufficient_evidence",
+      "proposed_role": null,
+      "proposed_xyxy": null,
+      "reason": "Severely clipped right-edge person. Keeper-like kit/location suggestive; full-body/role evidence insufficient for correction. Frozen GT remains in scoring; seek independent context.",
+      "old_label_line": "0 0.995833333 0.498148148 0.008333333 0.048148148",
+      "label_path": "data/processed/role_sources_training_v14/dataset/labels/val/538438_7_5_png.rf.cfd814ca02baed6da1b069c08cf9442a.txt",
+      "old_xyxy": [
+        1903.99999968,
+        511.99999992,
+        1919.99999904,
+        563.99999976
+      ],
+      "proposed_label_line": null
+    },
+    {
+      "review_id": "keeper-66",
+      "image": "images/val/798b45_3_2_png.rf.d951824d7c962e8b26104e0d381119b5.png",
+      "image_sha256": "0e59fef6a961455e6a74a1c776e292633146f0088e442abf02cd0d61ea478a4a",
+      "label_sha256": "44b5732ba5052e519fb71c1ec3e6da9c5ed8281006ab430466ed32bb5e41f6ba",
+      "xyxy": [
+        812.9813232421875,
+        221.52398681640625,
+        835.9127197265625,
+        262.9110412597656
+      ],
+      "label_id": null,
+      "source_image_path": "D:\\projects\\football-analyst\\data\\processed\\role_sources_training_v14\\dataset\\images\\val\\798b45_3_2_png.rf.d951824d7c962e8b26104e0d381119b5.png",
+      "evidence": "keeper-66-case-native.png",
+      "evidence_sha256": "5abe917fab978034411eee86e1982953b12d9e32fd794f5f2a300b61aa261f21",
+      "agent_reviewed": true,
+      "independent_status": "pending",
+      "applied": false,
+      "benchmark_excluded": false,
+      "old_role": null,
+      "proposal": "add_label",
+      "proposed_role": "player",
+      "proposed_xyxy": [
+        812,
+        216,
+        837,
+        270
+      ],
+      "geometry_status": "manual_draft_requires_independent_adjustment",
+      "reason": "Red outfield person, no overlapping existing GT. Draft box manually estimated on native image, not detector box adopted as final GT.",
+      "old_label_line": null,
+      "label_path": "data/processed/role_sources_training_v14/dataset/labels/val/798b45_3_2_png.rf.d951824d7c962e8b26104e0d381119b5.txt",
+      "old_xyxy": null,
+      "proposed_label_line": "0 0.429427083 0.225000000 0.013020833 0.050000000"
+    },
+    {
+      "review_id": "referee-120",
+      "image": "images/val/538438_3_10_png.rf.1130754d94a304df8848ec4803bc7f8b.png",
+      "image_sha256": "999a1490662532b911b7ccb34609807377d30a287ec3e7fb5da0bf37d95aba72",
+      "label_sha256": "7f0172374a523ae84604b829e617c57fdcbdfef81e3abfb96f369fcbe879387c",
+      "xyxy": [
+        1556.9999990400001,
+        925.0000005600001,
+        1582.99999968,
+        1000.0000000800001
+      ],
+      "label_id": 6,
+      "source_image_path": "D:\\projects\\football-analyst\\data\\processed\\role_sources_training_v14\\dataset\\images\\val\\538438_3_10_png.rf.1130754d94a304df8848ec4803bc7f8b.png",
+      "evidence": "referee-120-case-native.png",
+      "evidence_sha256": "36d9e40229d2f6abef28b1bfea8a9a85792250f6e2fbbfd6b2ad3e339ecaaa4f",
+      "agent_reviewed": true,
+      "independent_status": "pending",
+      "applied": false,
+      "benchmark_excluded": false,
+      "old_role": "referee",
+      "proposal": "keep",
+      "proposed_role": "referee",
+      "proposed_xyxy": "retain_existing_GT_geometry",
+      "reason": "Native detail favors official-like black kit/white patches, shorts and long socks, distinct from adjacent coat-wearing staff. No visible flag or independently verified identity: retain current label pending independent review.",
+      "old_label_line": "2 0.817708333 0.891203704 0.013541667 0.069444444",
+      "label_path": "data/processed/role_sources_training_v14/dataset/labels/val/538438_3_10_png.rf.1130754d94a304df8848ec4803bc7f8b.txt",
+      "old_xyxy": [
+        1556.9999990400001,
+        925.0000005600001,
+        1582.99999968,
+        1000.0000000800001
+      ],
+      "proposed_label_line": "2 0.817708333 0.891203704 0.013541667 0.069444444"
+    }
+  ],
+  "independently_validated": false,
+  "labels_modified": false,
+  "training_performed": false,
+  "sampling_changed": false,
+  "limitations": "Full train label/geometry inventory. Visual coverage audit only selected parent ROI unions; not whole-dataset label acceptance. Prior color metadata reused where pixel/role/index/geometry match; other referee positions remain unknown."
+}
