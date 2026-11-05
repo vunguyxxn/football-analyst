@@ -1,0 +1,484 @@
+{
+  "kind": "role_error_audit_summary_v14",
+  "audit_result_sha256": "3ddd2b70eff072b1ec311a16a98dab642f84df448c0030c4c2b038f8c698de56",
+  "predictions_sha256": "cb251880d165f837c7182d4243c35507d278709d000df9ae14face0a7839dfde",
+  "review_packet_sha256": "c1aa7d78a32b906474d6079202c6809d82f9f28b128ff1373ec794cb505ecedd",
+  "coverage": {
+    "keeper_predictions": 110,
+    "old_keeper_predictions": 49,
+    "referee_labels": 292
+  },
+  "all_class_validation": {
+    "v11": {
+      "classes": {
+        "player": {
+          "tp": 2459,
+          "fp": 437,
+          "fn": 98,
+          "precision": 0.8491022099447514,
+          "recall": 0.9616738365271803
+        },
+        "goalkeeper": {
+          "tp": 50,
+          "fp": 49,
+          "fn": 42,
+          "precision": 0.5050505050505051,
+          "recall": 0.5434782608695652
+        },
+        "referee": {
+          "tp": 143,
+          "fp": 230,
+          "fn": 149,
+          "precision": 0.38337801608579086,
+          "recall": 0.4897260273972603
+        }
+      },
+      "player_called_referee": 57,
+      "nonplayers_called_player": 140,
+      "confusion": {
+        "player": {
+          "player": 2459,
+          "goalkeeper": 7,
+          "referee": 57,
+          "missed": 34
+        },
+        "goalkeeper": {
+          "player": 41,
+          "goalkeeper": 50,
+          "referee": 0,
+          "missed": 1
+        },
+        "referee": {
+          "player": 99,
+          "goalkeeper": 0,
+          "referee": 143,
+          "missed": 50
+        }
+      },
+      "unmatched_predictions": {
+        "referee": 173,
+        "player": 297,
+        "goalkeeper": 42
+      },
+      "frames": 128
+    },
+    "v14": {
+      "classes": {
+        "player": {
+          "tp": 2392,
+          "fp": 365,
+          "fn": 165,
+          "precision": 0.8676097207109177,
+          "recall": 0.9354712553773954
+        },
+        "goalkeeper": {
+          "tp": 68,
+          "fp": 110,
+          "fn": 24,
+          "precision": 0.38202247191011235,
+          "recall": 0.7391304347826086
+        },
+        "referee": {
+          "tp": 115,
+          "fp": 186,
+          "fn": 177,
+          "precision": 0.38205980066445183,
+          "recall": 0.3938356164383562
+        }
+      },
+      "player_called_referee": 69,
+      "nonplayers_called_player": 93,
+      "confusion": {
+        "player": {
+          "player": 2392,
+          "goalkeeper": 58,
+          "referee": 69,
+          "missed": 38
+        },
+        "goalkeeper": {
+          "player": 23,
+          "goalkeeper": 68,
+          "referee": 0,
+          "missed": 1
+        },
+        "referee": {
+          "player": 70,
+          "goalkeeper": 5,
+          "referee": 115,
+          "missed": 102
+        }
+      },
+      "unmatched_predictions": {
+        "player": 272,
+        "referee": 117,
+        "goalkeeper": 47
+      },
+      "frames": 128
+    }
+  },
+  "all_gt_transitions": {
+    "player": {
+      "retained": 2337,
+      "lost": 122,
+      "still_wrong": 43,
+      "gained": 55
+    },
+    "goalkeeper": {
+      "retained": 45,
+      "gained": 23,
+      "still_wrong": 19,
+      "lost": 5
+    },
+    "referee": {
+      "lost": 67,
+      "still_wrong": 110,
+      "gained": 39,
+      "retained": 76
+    }
+  },
+  "keeper_fp_transitions": {
+    "new_fp": 89,
+    "retained_fp": 21
+  },
+  "old_keeper_fp_transitions": {
+    "retained_fp": 21,
+    "resolved_fp": 28
+  },
+  "keeper_visual_subjects": {
+    "official_person": 5,
+    "outfield_person": 76,
+    "gt_keeper_with_competing_box": 9,
+    "off_field_person": 3,
+    "goal_post": 6,
+    "ball": 2,
+    "keeper_like_gt_player_requires_review": 3,
+    "uncertain_advertising_edge_object": 1,
+    "gt_keeper_localization_below_iou50": 2,
+    "advertisement": 1,
+    "stadium_lamp": 2
+  },
+  "new_keeper_visual_subjects": {
+    "official_person": 5,
+    "outfield_person": 63,
+    "gt_keeper_with_competing_box": 7,
+    "goal_post": 5,
+    "ball": 1,
+    "keeper_like_gt_player_requires_review": 2,
+    "uncertain_advertising_edge_object": 1,
+    "gt_keeper_localization_below_iou50": 2,
+    "advertisement": 1,
+    "stadium_lamp": 2
+  },
+  "keeper_fp_mechanisms": {
+    "matched_wrong_role": 63,
+    "unmatched_gt_assigned_elsewhere": 29,
+    "unmatched_no_gt_iou50": 18
+  },
+  "referee_locations": {
+    "far_touchline": {
+      "labels": 118,
+      "transitions": {
+        "lost": 50,
+        "retained": 20,
+        "still_wrong": 44,
+        "gained": 4
+      },
+      "size_bins_at_640": {
+        "under24": 117,
+        "24to48": 1
+      },
+      "fn_diagnostics": {
+        "correct_role_score_below_threshold": 91,
+        "correct_role_box_present_but_matching_competes": 2,
+        "no_raw_box_at_iou50": 1
+      },
+      "lost_diagnostics": {
+        "correct_role_score_below_threshold": 48,
+        "correct_role_box_present_but_matching_competes": 2
+      }
+    },
+    "interior": {
+      "labels": 125,
+      "transitions": {
+        "still_wrong": 59,
+        "lost": 8,
+        "gained": 33,
+        "retained": 25
+      },
+      "size_bins_at_640": {
+        "under24": 112,
+        "24to48": 13
+      },
+      "fn_diagnostics": {
+        "correct_role_box_present_but_matching_competes": 29,
+        "correct_role_score_below_threshold": 30,
+        "correct_role_loses_class_argmax": 8
+      },
+      "lost_diagnostics": {
+        "correct_role_box_present_but_matching_competes": 6,
+        "correct_role_loses_class_argmax": 1,
+        "correct_role_score_below_threshold": 1
+      }
+    },
+    "near_touchline": {
+      "labels": 48,
+      "transitions": {
+        "gained": 2,
+        "retained": 31,
+        "still_wrong": 6,
+        "lost": 9
+      },
+      "size_bins_at_640": {
+        "24to48": 43,
+        "under24": 5
+      },
+      "fn_diagnostics": {
+        "correct_role_score_below_threshold": 14,
+        "correct_role_box_present_but_matching_competes": 1
+      },
+      "lost_diagnostics": {
+        "correct_role_score_below_threshold": 8,
+        "correct_role_box_present_but_matching_competes": 1
+      }
+    },
+    "near_touchline_role_uncertain": {
+      "labels": 1,
+      "transitions": {
+        "still_wrong": 1
+      },
+      "size_bins_at_640": {
+        "24to48": 1
+      },
+      "fn_diagnostics": {
+        "correct_role_score_below_threshold": 1
+      },
+      "lost_diagnostics": {}
+    }
+  },
+  "referee_size_transitions": {
+    "under24": {
+      "lost": 58,
+      "still_wrong": 101,
+      "retained": 45,
+      "gained": 30
+    },
+    "24to48": {
+      "gained": 9,
+      "retained": 31,
+      "still_wrong": 9,
+      "lost": 9
+    },
+    "48plus": {}
+  },
+  "referee_shirt_colors": {
+    "dark": 291,
+    "orange": 1
+  },
+  "referee_fn_diagnostics": {
+    "correct_role_score_below_threshold": 136,
+    "correct_role_box_present_but_matching_competes": 32,
+    "correct_role_loses_class_argmax": 8,
+    "no_raw_box_at_iou50": 1
+  },
+  "lost_referee_diagnostics": {
+    "correct_role_score_below_threshold": 57,
+    "correct_role_box_present_but_matching_competes": 9,
+    "correct_role_loses_class_argmax": 1
+  },
+  "gained_referee_old_diagnostics": {
+    "correct_role_score_below_threshold": 19,
+    "correct_role_loses_class_argmax": 5,
+    "correct_role_box_present_but_matching_competes": 15
+  },
+  "lost_player_destinations": {
+    "referee": 55,
+    "goalkeeper": 52,
+    "missed": 15
+  },
+  "lost_player_with_correct_role_box_still_present": 73,
+  "gt_flags": [
+    {
+      "review_id": "keeper-14",
+      "image": "images/val/4b770a_1_7_png.rf.0344c0dc64e2361671483c067c0bc549.png",
+      "label_id": 7,
+      "flag": "keeper_role_disagrees_with_player_label_review_needed",
+      "crop_path": "keeper-14.jpg",
+      "context_path": "context-8.jpg"
+    },
+    {
+      "review_id": "keeper-20",
+      "image": "images/val/4b770a_5_6_png.rf.cc113a3e1f4bff7e16f34545b080d956.png",
+      "label_id": 6,
+      "flag": "keeper_role_disagrees_with_player_label_review_needed",
+      "crop_path": "keeper-20.jpg",
+      "context_path": "context-12.jpg"
+    },
+    {
+      "review_id": "keeper-57",
+      "image": "images/val/538438_7_5_png.rf.cfd814ca02baed6da1b069c08cf9442a.png",
+      "label_id": 0,
+      "flag": "keeper_role_disagrees_with_player_label_review_needed",
+      "crop_path": "keeper-57.jpg",
+      "context_path": "context-35.jpg"
+    },
+    {
+      "review_id": "keeper-66",
+      "image": "images/val/798b45_3_2_png.rf.d951824d7c962e8b26104e0d381119b5.png",
+      "label_id": null,
+      "flag": "possible_missing_player_annotation",
+      "crop_path": "keeper-66.jpg",
+      "context_path": "context-41.jpg"
+    },
+    {
+      "review_id": "oldkeeper-6",
+      "image": "images/val/4b770a_5_6_png.rf.cc113a3e1f4bff7e16f34545b080d956.png",
+      "label_id": 6,
+      "flag": "keeper_role_disagrees_with_player_label_review_needed",
+      "crop_path": "oldkeeper-6.jpg",
+      "context_path": "context-12.jpg"
+    },
+    {
+      "review_id": "oldkeeper-29",
+      "image": "images/val/798b45_3_2_png.rf.d951824d7c962e8b26104e0d381119b5.png",
+      "label_id": null,
+      "flag": "possible_missing_player_annotation",
+      "crop_path": "oldkeeper-29.jpg",
+      "context_path": "context-41.jpg"
+    },
+    {
+      "review_id": "referee-120",
+      "image": "images/val/538438_3_10_png.rf.1130754d94a304df8848ec4803bc7f8b.png",
+      "label_id": 6,
+      "flag": "staff_or_official_uncertain",
+      "crop_path": "referee-120.jpg",
+      "context_path": "context-21.jpg"
+    }
+  ],
+  "inference": {
+    "v11_postprocessed_reused": 128,
+    "v14_postprocessed_new": 128,
+    "v14_raw_related_val_images": [
+      "images/val/4b770a_1_4_png.rf.dfb7854ec433b0f1ba32a6d8d7441b7c.png",
+      "images/val/4b770a_1_6_png.rf.6ce8ce764a889b3e9f66d52f4e88cc9f.png",
+      "images/val/4b770a_1_8_png.rf.92162d0b37df46a8172921a12a4d8cdb.png",
+      "images/val/4b770a_3_6_png.rf.c281e5680ea9abebc38094fb04bbc3f0.png",
+      "images/val/4b770a_3_9_png.rf.ae7cd2e9e19d140d6f3727b4d69c5fd1.png",
+      "images/val/4b770a_5_1_png.rf.0e545f155d15d96bb11eaf8a73ce357c.png",
+      "images/val/4b770a_9_3_png.rf.64599238d2f363e9e36e711b55426d1b.png",
+      "images/val/4b770a_9_4_png.rf.ec27c164d70e3892c8c3c1f00717888a.png",
+      "images/val/538438_3_6_png.rf.abf5480fae9d39be478b2570be049a6b.png",
+      "images/val/798b45_3_10_png.rf.90596242d7b55c1a4d24d3ed3c40f46c.png",
+      "images/val/798b45_3_3_png.rf.55291c088e36a8cae392aa68b0ea2f27.png",
+      "images/val/798b45_7_8_png.rf.00f92cb1839fcab25aa7cf0366208375.png",
+      "images/val/4b770a_1_1_png.rf.755bf86f384e922cf2c71f15aaa52364.png",
+      "images/val/4b770a_1_2_png.rf.399b1f94d4ecb4332fd153ad8a4af283.png",
+      "images/val/4b770a_1_3_png.rf.34caa803c7f14b507a8d8a7a19832588.png",
+      "images/val/4b770a_1_5_png.rf.1dd320a17ea45d46aae0561d161f33c7.png",
+      "images/val/4b770a_1_7_png.rf.0344c0dc64e2361671483c067c0bc549.png",
+      "images/val/4b770a_1_9_png.rf.67766c6aba834bb914af9f625a758bf6.png",
+      "images/val/4b770a_3_10_png.rf.14669cfcf561507972817ca80a37f778.png",
+      "images/val/4b770a_3_2_png.rf.f219e8d410e8884fa2c563785404dd14.png",
+      "images/val/4b770a_3_3_png.rf.882851d494116c5004fdaf423d34f6bb.png",
+      "images/val/4b770a_3_4_png.rf.c022adc4f319b368999dfe66b9031187.png",
+      "images/val/4b770a_3_5_png.rf.bd6b6fbdcf3aa23eb5fe8ce6855adbb7.png",
+      "images/val/4b770a_3_8_png.rf.70bb074b155aba772134cdd4b0d78ead.png",
+      "images/val/4b770a_5_2_png.rf.60a1ccd00d1dcb5156a1b7c8b78f6e1a.png",
+      "images/val/4b770a_5_3_png.rf.8e67a43feddc529fab7fc52e6a722d66.png",
+      "images/val/4b770a_5_6_png.rf.cc113a3e1f4bff7e16f34545b080d956.png",
+      "images/val/4b770a_5_7_png.rf.bcd51df40ad1ebb741aa5ccfc2c11981.png",
+      "images/val/4b770a_7_1_png.rf.c670e348967c814b9d731cc60e1b772f.png",
+      "images/val/4b770a_7_2_png.rf.00e36bb352dd45d6482af9794ad40375.png",
+      "images/val/4b770a_7_3_png.rf.5529ab286a114cba8785be0ca4c3a10b.png",
+      "images/val/4b770a_7_4_png.rf.b02b6788a12d99d3e7b6f00837c0d8c4.png",
+      "images/val/4b770a_7_6_png.rf.62bf4009af7ca06c038761228043f6b4.png",
+      "images/val/4b770a_7_7_png.rf.3c9a521d226bb43a96b9e33aacbc621f.png",
+      "images/val/4b770a_9_1_png.rf.72d6594a426800674c43f1a9bdc0a1ea.png",
+      "images/val/4b770a_9_2_png.rf.6f7be4ada7d323bd36082769571a9d31.png",
+      "images/val/4b770a_9_5_png.rf.ab47e2f4db573a0219d2fe591a2897ff.png",
+      "images/val/4b770a_9_8_png.rf.210922e8663012fe83f96d936381b602.png",
+      "images/val/4b770a_9_9_png.rf.302a73f868c999b85f61d5d33df94296.png",
+      "images/val/538438_1_10_png.rf.108a1bef89cedca1a8a962094461a5c9.png",
+      "images/val/538438_1_1_png.rf.d3adcd132021e2060e2cc6799f8f8bd8.png",
+      "images/val/538438_1_2_png.rf.16f701ad4d437be6084de3cc104d96c0.png",
+      "images/val/538438_1_3_png.rf.60d5e727311868a67df8c5be4102b3a0.png",
+      "images/val/538438_1_4_png.rf.c79cbf877e3483f1bd2d003522640359.png",
+      "images/val/538438_1_6_png.rf.aa8f5a31c03729a40424f9e2105d5185.png",
+      "images/val/538438_1_7_png.rf.9b3d0251b7c12b51ae93b57e102cd474.png",
+      "images/val/538438_1_8_png.rf.4ebf3aed1323d5e584bb37b307faa326.png",
+      "images/val/538438_1_9_png.rf.7f71cf8611e49e497ed5ea69a292b4a7.png",
+      "images/val/538438_3_10_png.rf.1130754d94a304df8848ec4803bc7f8b.png",
+      "images/val/538438_3_2_png.rf.6ed6cd43023c884dd3cc00dd6bf0aa31.png",
+      "images/val/538438_3_3_png.rf.ee1d0efcb28ef65a7e72cbac07c72ad3.png",
+      "images/val/538438_3_4_png.rf.cf51fbf78c4725c69ae6756ad6a5732b.png",
+      "images/val/538438_3_5_png.rf.9104f5cfea04f863fde57b60dd4afdaf.png",
+      "images/val/538438_3_7_png.rf.fa2e12f004d309039360193ca472d5df.png",
+      "images/val/538438_3_8_png.rf.15ba38bcec80270a5c08eb91b2f03073.png",
+      "images/val/538438_5_10_png.rf.212b72d2e80b480a0019966d27d78807.png",
+      "images/val/538438_5_4_png.rf.39aef6e51e54c3f2d05ab8b34a3ac0ee.png",
+      "images/val/538438_5_6_png.rf.08c60f094d89b0c0cb291092d4afe23e.png",
+      "images/val/538438_5_7_png.rf.6e7c49b1a91a00e65cc59ddad9f8acc5.png",
+      "images/val/538438_5_8_png.rf.08a4edcd2805ab00893ea16b17e49746.png",
+      "images/val/538438_5_9_png.rf.bf06c215af4701d9f8333f9b25f93e9f.png",
+      "images/val/538438_7_10_png.rf.a591b1cdb6f1ddfe8e142c34f8834316.png",
+      "images/val/538438_7_1_png.rf.45f573e52207fb1fd6b763960d8821e1.png",
+      "images/val/538438_7_2_png.rf.094c14845829d56eb428150667cbee76.png",
+      "images/val/538438_7_3_png.rf.721b0a4d41521069f8d19fd93317b455.png",
+      "images/val/538438_7_4_png.rf.bd0a5da417a13a9e0c6446ff085c3a9d.png",
+      "images/val/538438_7_5_png.rf.cfd814ca02baed6da1b069c08cf9442a.png",
+      "images/val/538438_7_6_png.rf.350f328ab420d7a6c1af137e48f29e21.png",
+      "images/val/538438_7_7_png.rf.b2cd5876580d195050a29b49cbc794de.png",
+      "images/val/538438_9_10_png.rf.380a34560750eb47060976064af6c0f0.png",
+      "images/val/538438_9_1_png.rf.7f1c569aa01779e00a1e29009b18466e.png",
+      "images/val/538438_9_2_png.rf.7e199fa3f38a16b8c6280d92c10a7633.png",
+      "images/val/538438_9_3_png.rf.6078a0791276c90996cebf283bffe23e.png",
+      "images/val/538438_9_5_png.rf.ce1a053bce42cbc648310771c68e3a84.png",
+      "images/val/538438_9_9_png.rf.dee62b813da3cb3dccab9c694fd43e4b.png",
+      "images/val/798b45_1_10_png.rf.cddbe5fc5de36e30e197ef6332748950.png",
+      "images/val/798b45_1_3_png.rf.d5532e327f078003db37f84fda5d8535.png",
+      "images/val/798b45_1_4_png.rf.b6b2a1ae4eb8ccf91d98a137e742e056.png",
+      "images/val/798b45_1_5_png.rf.948132bb1ee8ff7c979a81a5c76c3426.png",
+      "images/val/798b45_1_6_png.rf.a0c0e571f8c1940cb199a4f052f25600.png",
+      "images/val/798b45_1_7_png.rf.5e449814ed6fce0dd96df96ddd69ae9b.png",
+      "images/val/798b45_3_4_png.rf.f5ce0ffb48043dc6660a9418b51f2d55.png",
+      "images/val/798b45_3_5_png.rf.73fa88b240706476bca804a1e526af3a.png",
+      "images/val/798b45_3_7_png.rf.8179d729d2a4eebe1c0dd6328603e908.png",
+      "images/val/798b45_5_1_png.rf.22cb30d4f2769f867a4cfe3b87d04c9b.png",
+      "images/val/798b45_5_2_png.rf.033c62b7be0ed2f468333b3243b27f68.png",
+      "images/val/798b45_5_3_png.rf.0d0083ceb1bf749db6417fd7b2f12c13.png",
+      "images/val/798b45_5_4_png.rf.ae7c3aaded0f459908c1d0db7c7ad09e.png",
+      "images/val/798b45_5_5_png.rf.4aab58d4388436897619bdadc12f6063.png",
+      "images/val/798b45_7_1_png.rf.fe31e7055cf0c158d21f8c7bca667562.png",
+      "images/val/798b45_7_2_png.rf.62ad56e8f529d930ac7fe661d0cea71c.png",
+      "images/val/798b45_7_3_png.rf.1ca455cabafc131c80ce956d0a7fa1c4.png",
+      "images/val/798b45_7_6_png.rf.82511a3fe248d03ec019fdb66c5762a9.png",
+      "images/val/798b45_7_7_png.rf.1cd3c10cd573d3ae99ee23896eca387a.png",
+      "images/val/798b45_9_9_png.rf.a56520203286e3cc016e9b3886aa2c6f.png",
+      "images/val/cd987c_0_1_png.rf.c580bf96f547cef6509c7ef83590e17d.png",
+      "images/val/cd987c_0_2_png.rf.086bbead3f163b081f2b060a14faf17c.png",
+      "images/val/cd987c_0_4_png.rf.a164988075cb08177bce561ce1c35d17.png",
+      "images/val/cd987c_0_5_png.rf.4bde35663ba79512c1c1e80476415558.png",
+      "images/val/cd987c_0_7_png.rf.e1036773113a32ce7d639240dd6cfc0d.png",
+      "images/val/cd987c_0_9_png.rf.1fa1c9e90c489a7e83e1e4f18a24b9d1.png",
+      "images/val/cd987c_9_10_png.rf.c886581dda9455fae413504ca0467636.png",
+      "images/val/cd987c_9_8_png.rf.38097fa56f913f346dd0f02e71b62ae5.png",
+      "images/val/cd987c_9_9_png.rf.990253ef1d0638bb95e2c5bc3d5ecdeb.png",
+      "images/val/4b770a_3_1_png.rf.03ef5ddce97de213ffb21501cff156b0.png",
+      "images/val/4b770a_3_7_png.rf.d4eb2efd4fa922ff6a5ed4b1e4f29cfa.png",
+      "images/val/4b770a_5_5_png.rf.e4b3b690d97fc0afaec2321a1328f360.png",
+      "images/val/538438_1_5_png.rf.86a43fdbc2e110cdd64c43e3884b55d0.png",
+      "images/val/538438_9_8_png.rf.81970c1b0bfc1d6d8e9a6ca971ac1f77.png",
+      "images/val/798b45_1_2_png.rf.8760793b1bb3959c3e91da3dc7454617.png",
+      "images/val/798b45_7_4_png.rf.4f4d6464e07763f5159a7ce25534982f.png",
+      "images/val/798b45_7_5_png.rf.7f2cfcf13cf5b26007b09db1d9eb917d.png",
+      "images/val/798b45_9_7_png.rf.f08e27e236dec6ed230ef64187273b28.png",
+      "images/val/798b45_9_8_png.rf.f7c70ad2f80ce02daeac801fb1b683f4.png"
+    ],
+    "v11_raw_reused_labels": 149,
+    "known_test": false,
+    "match128057": false
+  },
+  "independently_validated": false,
+  "labels_changed": false,
+  "training_performed": false,
+  "method": "Exact frozen-label replay. FP association same image, role-blind greedy descending IoU>=0.5, one-to-one, deterministic index tie breaks. No person identity or match independence claim."
+}

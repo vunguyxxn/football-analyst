@@ -2,6 +2,49 @@
 
 ## Trạng thái hiện tại
 
+Ngày 05/11/2026: hoàn tất audit v14 so v11 chỉ trên128val tại1280.
+Hash protocol/plan/manifest/ledger/weights và artifact đánh giá khớp; dùng
+lại128prediction v11, đối chiếu49FP/292refGT với audit cũ đã khóa hash.
+V14 chưa lưu box nên chạy128val một lượt, rawhead bổ sung114ảnh có FN;
+dùng lại rawv11 cho149nhãn. Không train/inference known test hoặc128057.
+Replay đúng TP/FP/FN,P-R,confusion,unmatched của cả3lớp; phép chấm giữ nguyên.
+
+Keeper49→110FP:21còn lại/89mới/28cũ đã hết theo ghép không gian một-một,
+IoU>=0,5 trong cùngảnh; tăng ròng61 không phải61lỗi mới/người độc lập.
+Rà110crop mới/49crop cũ và nativecase khó:76cầu thủ sân,5trọng tài,
+9GTkeeper có box cạnh tranh,2keeper IoUGT<0,5 (0,4732/0,4858),3keeper-like
+nhưngGTplayer,3người ngoài sân,6cột gôn/2bóng/2đèn/1quảng cáo,1vùng mơ hồ
+sát chữ quảng cáo. Chấm63ghép sai role/29unmatched cóGT cạnh tranh/18khôngGTIoU50.
+Cờ nhãn:3keeper-like GTplayer,1player đỏ nghi thiếu GT,1staff/official chưa
+chắc;7dòng audit trên5case nguồn. Chỉ gắn cờ, không sửa nhãn/tính lại scoring.
+
+Ref292GT:76giữ đúng/67mất/39nhận thêm/110vẫn sai, FN177. Xem292crop;
+118biên xa kiểm toàn cảnh,70v11đúng→24v14đúng. Trong50lostbiên xa:
+48score đúng<0,25/2matching cạnh tranh;49dưới24px tại640,1cao24,2px.
+Sửa metadata vị trí mới cho ref159/230 từfar sanginterior sau xemnative;
+không sửa fixtureaudit cũ hoặcGT. Nhóm cuối:118far/125interior/48near/
+1nearroleuncertain;291dark/1orange. Không coi là mẫu độc lập theo người/trận.
+
+177FN:136score đúng thấp/32córefbox nhưngmatching cạnh tranh/8argmax/
+1khôngrawIoU>=0,5. Trong67lost là57/9/1/0; không có winning-refraw bịloại
+sau những điều kiện này, chưa thửNMS/dedup/ngưỡng khác. Gained39v11 cũ:
+19score thấp/15matching/5argmax; không phải mọi lượt nhận thêm đều do score.
+Player2557GT:2337giữ đúng/122mất/55thêm/43vẫn sai;52lostghépkeeper,
+55ghépref/15missed;73lostvẫn cóplayerboxIoU>=0,5. Không tối ưu riêng một lớp.
+
+Thêm audit_role_errors_v14.py,6test;11testđích và toàn bộ625passed,
+1networkdeselected,4warningcũ. Artifact data/processed/role_error_audit_v14;
+reviewed-audit.csv,JSON/crop/context/25cropsheet/21wideboard; fixture
+review/summaryv14 và ROLE_ERROR_AUDIT_V14.md lưu phương pháp,hash,bằng chứng.
+Summarize offline tái hiện summary byte-identical, không inference lại.
+Nguồn/snapshot/weights/GT/runtime/API/schema/frontend giữ nguyên;modelứngdụng
+không đổi,bản nháp.tmp cũ để nguyên. Nhãn agent/chỉ1seed, chưa suy ra nhân quả.
+
+Bước tiếp đề xuất: nghiệm thu độc lập5case nhãn và thuộc tính vị trí,
+rà độ phủ train theo parent cho player↔keeper và ref tối biên xa bằng nguồn
+ngoài val/test; sau đó mới khóa một thay đổi thử nghiệm. Chưa tăng epoch,
+repeats,hạ threshold/đổiNMS/dedup hoặc chép crop val vào train. Gatev14vẫn chưa đạt.
+
 Ngày 05/11/2026: hoàn tất một lượt train YOLO11s v14 và so v6/v11/v14
 đủ3lớp tại640/1280. Plan khóa hash trước train, preflight không có job train
 khác; snapshot418train/128val/35test có manifest byte-identical v14. Fresh
