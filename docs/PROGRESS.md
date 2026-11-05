@@ -2,6 +2,16 @@
 
 ## Trạng thái hiện tại
 
+Ngày 05/11/2026: khởi động demo theo yêu cầu. Uvicorn chạy cục bộ cổng
+8000, Vite cổng5173; health trực tiếp và qua proxy trả status ok.
+Đã mở /video, bấm Mở clip mẫu, xác nhận video52,37s phát được trong
+trình duyệt (readyState4, không media error), khung tracking hiện và
+có các mục phân tích. Giữ tab demo để người dùng thao tác tiếp.
+Demo hiện dùng job cũ c140f8aefb4e4678b51fe6f633e1fc56 theo manifest,
+tọa độ một phần; không thay model/runtime, không chạy upload/GPU mới.
+Log/PID và ảnh local .tmp/demo_20261105/. Không chạy lại full test vì
+phiên này chỉ bật server/kiểm HTTP và trình duyệt, không đổi mã.
+
 Ngày 05/11/2026: hoàn tất audit v14 so v11 chỉ trên128val tại1280.
 Hash protocol/plan/manifest/ledger/weights và artifact đánh giá khớp; dùng
 lại128prediction v11, đối chiếu49FP/292refGT với audit cũ đã khóa hash.
