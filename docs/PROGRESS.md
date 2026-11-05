@@ -2,6 +2,44 @@
 
 ## Trạng thái hiện tại
 
+Ngày 05/11/2026: hoàn tất một lượt train YOLO11s v14 và so v6/v11/v14
+đủ3lớp tại640/1280. Plan khóa hash trước train, preflight không có job train
+khác; snapshot418train/128val/35test có manifest byte-identical v14. Fresh
+COCO11s AdamW20epoch640/batch4/FP32/lr0.0003/seed20261102/workers0/
+mosaic0.5/close_mosaic3/multi_scale=False. Actual args chỉ khác v11 ở
+3đường dẫn data/project/save_dir; không resume/train lần hai/đổi sampling.
+Train kèm validation cuối946,60s,CUDA peak allocated3000,16MiB; best epoch17.
+Weights8e5d7e812c517302261761c374c660a9eea5b05c93c789e7526ee00dc50b59cc.
+
+Val640 v11→v14: playerTP2184→2104/FP446→399/FN373→453;
+keeperTP66→53/FP18→14/FN26→39; refereeTP46→49/FP310→358/FN246→243.
+AP50player0,9194→0,9236,keeper0,8604→0,8474,ref0,1298→0,1305.
+Giảm FPplayer/keeper đồng thời mất recall; không coi là cải thiện chung.
+Val1280: playerTP2459→2392/FP437→365;keeperTP50→68/FP49→110;
+refTP143→115/FP230→186/FN149→177. Keeperprecision50,51%→38,20%;
+refrecall48,97%→39,38%,AP50ref0,5178→0,4942. mAP50-95tổng1280
+0,500642→0,466304; tại 640: 0,431608→0,433775. Một seed,không suy ra nhân quả.
+
+Gate640so v6 KHÔNG ĐẠT: refAP50gain0,025936<0,05;3guard còn lại đạt.
+Khóa validation-before-test trước inference35known test,không đổi gate/ngưỡng.
+Known test1280 v11→v14: playerTP686→675/FP93→85;keeperTP5→7/FP3→15;
+refTP39→28/FP43→27. RefAP50test tăng0,5915→0,6582 nhưng recallconf0,25
+51,32%→36,84%;AP và FPgiảm không đủ chứng minh tốt hơn. Known test đã xem
+trước,không kiểm mù/không dùng chọn checkpoint. KHÔNG inference match128057.
+
+Replay v6/v11 khớp mọi counts/P-R/confusion/unmatchedval/test640/1280;
+AP50/AP50-95val lệch<1e-6 so fixturev11. Hash nguồn/snapshot/protocol/
+ledger/weights giữ nguyên; datasetv14đã phát hành/API/schema/frontend/model
+ứng dụng không đổi. Không động bản nháp.tmp từng bị chặn xóa. Không thêm thư viện.
+
+Thêm run_role_training_v14.py,5test;11testđích và toàn bộ619passed,
+1networkdeselected,4warningcũ. Artifact data/processed/role_sources_training_v14;
+fixture plan/result/replayv14 và ROLE_SOURCES_TRAINING_V14.md lưu đầy đủ số
+liệu3lớp/2size/AP/P-R. Train và compare hoàn tất; chưa nghiệm thu nhãn độc lập.
+Bước tiếp đề xuất: audit FPkeeper tăng/FNref tăng trên val1280 so v11,
+phân biệt lỗi box/role/score/localization trước thiết kế thay đổi; chưa tăng
+epoch/hạ threshold/dedup/chuyển val-test vào train hoặc thay model ứng dụng.
+
 Ngày 05/11/2026: ghép v11+releasev12/v13 thành dataset v14 riêng, chỉ
 chuẩn bị dữ liệu và khóa protocol, CHƯA train/inference/đổi model ứng dụng.
 Giữ409 lượt v11, thêm9 ROI x1 từ8 ảnh gốc/7 nhóm bối cảnh; tổng418train,

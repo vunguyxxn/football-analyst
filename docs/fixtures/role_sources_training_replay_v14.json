@@ -1,0 +1,69 @@
+{
+  "kind": "role_sources_training_replay_v14",
+  "previous_fixture": "docs/fixtures/role_sources_training_result_v11.json",
+  "previous_fixture_sha256": "4675dbca3908a3cbc1b97612a9f09982485932c18a163d24f5a41ba27bd3b489",
+  "checks": [
+    {
+      "model": "v6",
+      "metric": "validation_640",
+      "counts_rates_confusion_match": true
+    },
+    {
+      "model": "v6",
+      "metric": "known_test_640",
+      "counts_rates_confusion_match": true
+    },
+    {
+      "model": "v6",
+      "metric": "validation_ap_640",
+      "max_ap_delta": 0.0
+    },
+    {
+      "model": "v6",
+      "metric": "validation_1280",
+      "counts_rates_confusion_match": true
+    },
+    {
+      "model": "v6",
+      "metric": "known_test_1280",
+      "counts_rates_confusion_match": true
+    },
+    {
+      "model": "v6",
+      "metric": "validation_ap_1280",
+      "max_ap_delta": 0.0
+    },
+    {
+      "model": "v11",
+      "metric": "validation_640",
+      "counts_rates_confusion_match": true
+    },
+    {
+      "model": "v11",
+      "metric": "known_test_640",
+      "counts_rates_confusion_match": true
+    },
+    {
+      "model": "v11",
+      "metric": "validation_ap_640",
+      "max_ap_delta": 0.0
+    },
+    {
+      "model": "v11",
+      "metric": "validation_1280",
+      "counts_rates_confusion_match": true
+    },
+    {
+      "model": "v11",
+      "metric": "known_test_1280",
+      "counts_rates_confusion_match": true
+    },
+    {
+      "model": "v11",
+      "metric": "validation_ap_1280",
+      "max_ap_delta": 0.0
+    }
+  ],
+  "all_checks_pass": true,
+  "match128057_inference": false
+}

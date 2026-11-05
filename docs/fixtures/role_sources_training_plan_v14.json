@@ -1,0 +1,101 @@
+{
+  "kind": "role_sources_training_plan_v14",
+  "locked_at_utc": "2026-11-05T01:54:05.982534+00:00",
+  "protocol": "docs/fixtures/role_sources_training_protocol_v14.json",
+  "protocol_sha256": "1f25d9d504c4c56b3160cb1b560dfec16e145223cb8b092084a73decf37e54ab",
+  "manifest_sha256": "36ccf26608d992315715b6fd3b58d37e71d1b9fecd0ec10603834b5e4049933f",
+  "parent_sampling_sha256": "3169d98fb59a8ff74d455d71e4db789e224ea97da2e88ac45018fb10192a18c2",
+  "source_dataset": "data/processed/role_merged_dataset_v14/dataset",
+  "training_dataset": "data/processed/role_sources_training_v14/dataset",
+  "run": "data/processed/role_sources_training_v14/small",
+  "comparison_output": "data/processed/role_sources_training_v14/comparison",
+  "images": {
+    "test": 35,
+    "train": 418,
+    "val": 128
+  },
+  "sampling_lock": "Retain409 legacy exposures with all old repeats unchanged. Add9 ROI exposures from8 parents/7 visual groups, each ROI once. Parent29 has positive1 +negative1 under shared parent cap2; remaining7 parents1 each. WOB-RBL parents79/186 share a scene. No balancing/repeat increase or score-based sampling.",
+  "training_configuration": {
+    "models": [
+      {
+        "id": "small",
+        "path": "data/raw/role_detector_v1/yolo11s.pt",
+        "sha256": "85a76fe86dd8afe384648546b56a7a78580c7cb7b404fc595f97969322d502d5"
+      }
+    ],
+    "epochs": 20,
+    "image_size": 640,
+    "batch": 4,
+    "amp": false,
+    "optimizer": "AdamW",
+    "lr0": 0.0003,
+    "seed": 20261102,
+    "workers": 0,
+    "mosaic": 0.5,
+    "close_mosaic": 3,
+    "multi_scale": false,
+    "selection": "Best checkpoint by validation fitness. Compare baseline and candidate on unchanged validation before regression test; do not select or tune using test.",
+    "test_confidence": 0.001,
+    "test_nms_iou": 0.7,
+    "max_detections": 300,
+    "runtime_confidence": 0.25,
+    "validation_gate": {
+      "referee_map50_gain_min": 0.05,
+      "overall_map50_95_drop_max": 0.03,
+      "player_map50_drop_max": 0.03,
+      "goalkeeper_map50_drop_max": 0.05
+    },
+    "evaluation_lock": {
+      "sizes": [
+        640,
+        1280
+      ],
+      "confidence": 0.25,
+      "nms_iou": 0.7,
+      "matching_iou": 0.5,
+      "max_det": 300,
+      "role_dedup": false,
+      "ap_confidence": 0.001,
+      "gate_resolution": 640,
+      "gate_reference": "v6",
+      "gate": "Existing numeric gate applied against v6 at640, before known test/new-match diagnostic. No automatic deployment.",
+      "source_heldout_scope": "4 agent-reviewed ROIs of same match128057, already partially inspected in v8; diagnostic only, never checkpoint/threshold selection."
+    }
+  },
+  "reference_args": "data/processed/role_sources_training_v11/small/training/args.yaml",
+  "reference_args_sha256": "08d5e2f37187b38fa0a919b31858eb2cacd5aca2e040b76bd8391930aa86447c",
+  "permitted_actual_arg_differences": [
+    "data",
+    "project",
+    "save_dir"
+  ],
+  "preflight": {
+    "observed_at_utc": "2026-11-05T01:53:50.655057+00:00",
+    "other_python_yolo_processes": [],
+    "other_training_detected": false,
+    "nvidia_smi": "name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]\nNVIDIA GeForce RTX 3050 6GB Laptop GPU, 11 MiB, 6144 MiB, 0 %"
+  },
+  "training_started": false,
+  "configurations": 1,
+  "evaluation_scope": {
+    "models": [
+      "v6",
+      "v11",
+      "v14"
+    ],
+    "splits": [
+      "val",
+      "test"
+    ],
+    "sizes": [
+      640,
+      1280
+    ],
+    "validation_before_known_test": true,
+    "match128057_inference": false,
+    "known_test_ap": true,
+    "fp32": true,
+    "cross_role_dedup": false
+  },
+  "authorization": "User requests one20epoch fresh small run and evaluation; supersedes preparation-only scope. No source diagnostic inference."
+}
